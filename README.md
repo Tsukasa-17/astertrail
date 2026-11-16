@@ -6,6 +6,8 @@
 
 **版 1.1.211**（公開 β）／ データ `2026.11.16-112`
 
+> **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
+
 リポジトリ：https://github.com/Tsukasa-17/astertrail ／ ダウンロード：[Releases](https://github.com/Tsukasa-17/astertrail/releases)
 
 ## 動かす環境
@@ -146,6 +148,8 @@ Copyright (C) 2026 Tsukasa
 ---
 
 # English
+
+> **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
 Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.211, data `2026.11.16-112`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
