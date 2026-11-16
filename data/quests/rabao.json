@@ -1,0 +1,676 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦の表裏」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "VW Op. #101: Detour to Zepwell",
+      "name_ja_ref": "VW作戦第247計画ゼプウェル島",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24844.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Sabotender Campeador 西アルテパ砂漠 G-10・H-5・L-6、Tangaroa クフタルの洞門 MAP2 F-8・J-9／MAP3 I-8、Malleator Maurok 流砂洞 MAP3 F-9・G-9",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._101:_Detour_to_Zepwell",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Gushing_Spring"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.002",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Kuftal Tour",
+      "name_ja_ref": "クフタル観光案内",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "8,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "クフタルツーリスト"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4763.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Datta F-7。???はクフタルの洞門の入ってすぐの崖の上（グリッドは用語辞典の H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Kuftal_Tour",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Datta"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「恵比寿釣竿」を持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "2015年6月25日以降に100種類以上の水産物を釣っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「アビセアの死闘」までの拡張データをすべて登録している",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Fish Favors the Bold",
+      "name_ja_ref": "勇魚",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "真恵比寿釣竿"
+        },
+        {
+          "kind": "title",
+          "name_ja": "釣神"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33862.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Irmilant G-7",
+          "url": "https://www.bg-wiki.com/ffxi/Fish_Favors_the_Bold",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Irmilant"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ラバオの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv10以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Missing Piece",
+      "name_ja_ref": "古代魔法の石版",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "Scroll of Teleport-Altep"
+        },
+        {
+          "kind": "title",
+          "name_ja": "古代秘法を継ぐ者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10516.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬は Scroll of Teleport-Altep。日本語の正式なアイテム名は用語辞典で確かめられないので英語名",
+          "url": "https://www.bg-wiki.com/ffxi/The_Missing_Piece",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Rabao 4。Alfesar H-7（用語辞典は H-8、FFXIclopedia は H-7）。???は流砂洞 MAP1 H-6・H-10・E-9、MAP2 D-9・L-11 のどれかに出る（用語辞典は MAP2 L-11）。Charlaimagnat 北サンドリア M-7",
+          "url": "https://www.bg-wiki.com/ffxi/The_Missing_Piece",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Alfesar"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「折れた太公望の釣竿」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Immortal Lu Shang",
+      "name_ja_ref": "太公望は死なず",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "太公望の釣竿"
+        },
+        {
+          "kind": "title",
+          "name_ja": "不死身の太公望"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10223.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Irmilant G-7",
+          "url": "https://www.bg-wiki.com/ffxi/The_Immortal_Lu_Shang",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Irmilant"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「サーペントの伝説」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Indomitable Spirit",
+      "name_ja_ref": "折れぬ魂",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "恵比寿釣竿"
+        },
+        {
+          "kind": "title",
+          "name_ja": "釣神流免許皆伝"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1339.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サーペントの伝説はウィンダス港の Fennella で 95,000 ポイントと交換（釣りスキル皆伝以上）。剣の枝はリク、五色の糸はググリューサウルスをセルビナの Zaldon に渡すとまれにもらえる",
+          "url": "https://www.bg-wiki.com/ffxi/Indomitable_Spirit",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Irmilant"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「太公望の釣竿」を持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "エミネンス・レコードのクエスト「始まりの軌跡」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Thanks for All the Fish",
+      "name_ja_ref": "根気",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "真太公望の釣竿"
+        },
+        {
+          "kind": "title",
+          "name_ja": "一竿入魂の太公望"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33861.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Jourdenaux F-8",
+          "url": "https://www.bg-wiki.com/ffxi/Thanks_for_All_the_Fish",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Jourdenaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ラバオの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Don't Forget the Antidote",
+      "name_ja_ref": "砂漠の旅の必需品",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "同田貫（初回だけ）"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "1,800ギル（2回目から）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "デザートハンター"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11943.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Rabao 4。砂サソリの毒は東西アルテパ砂漠のサソリ（Doom Scorpion・Tulwar Scorpion など）",
+          "url": "https://www.bg-wiki.com/ffxi/Don%27t_Forget_the_Antidote",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Edigey"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ラバオの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial by Wind",
+      "name_ja_ref": "風の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ガルーダダガー／ウィンドベルト／ウィンドリング／空気の水／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“ガルーダ”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる風の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7571.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Rabao 6。試練の場はテリガン岬、相手は Garuda Prime",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Wind",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Agado-Pugado"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ラバオの名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv15以上の召喚士",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trial Size Trial by Wind",
+      "name_ja_ref": "風の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣“ガルーダ”と契約できる"
+        },
+        {
+          "kind": "item",
+          "name_ja": "呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11429.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬の「呪符デジョン」（Instant Warp）は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/2389.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rahi Fohlatti G-9。報酬に Scroll of Instant Warp。BG Wiki はLv20以上と書く（用語辞典の Lv15 を採用）",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_Size_Trial_by_Wind",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Rahi_Fohlatti"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「西への誘い」でルフェーゼ野に着いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Chasing Dreams",
+      "name_ja_ref": "夢追い旅",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ベネラーリング"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "4000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5141.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=r、FLevel は空、Quest Reqs=Promathia Mission 2-1。Rudolfo (J-7)、Zoriboh (F-6)、Sohyon (J-8)、Giant Clam は MAP1 F-10・MAP3 K-6・MAP5 G-11・MAP2 I-10（用語辞典も同じマス）、Gimb (H-9)、Kagetora (F-6)、Patient Wheel (F-5)、Abelard (G-9)、バルクルム砂丘 (I-9) の渦",
+          "url": "https://www.bg-wiki.com/ffxi/Chasing_Dreams",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Zoriboh"
+      },
+      "steps": []
+    },
+    {
+      "category": "rabao",
+      "game_ref": null,
+      "id": "quest.rabao.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「夢追い旅」クリア、プロマシアミッション「誓いの雄叫び」まで進めている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Search for Goldmane",
+      "name_ja_ref": "黄金のたてがみ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "デラックスカービン"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "冒険初心者の師匠"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7330.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=r、FLevel は空、Quest Reqs=Promathia Mission 2-5。Quelveuiat (I-10)、サイトA01 の (I-11) の島の Trunk に Copper Key（Riverne Vulture）、Vladinek (H-8)、プルゴノルゴ島 (F-9) の Weathered Boat、Rohemolipaud",
+          "url": "https://www.bg-wiki.com/ffxi/The_Search_for_Goldmane",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Zoriboh"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.247.Agado-Pugado",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Agado-Pugado",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Alfesar",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Alfesar",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Datta",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Datta",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Edigey",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Edigey",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Gushing_Spring",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Gushing Spring",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Irmilant",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Irmilant",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Jourdenaux",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Jourdenaux",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Rahi_Fohlatti",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Rahi Fohlatti",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Zoriboh",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Zoriboh",
+      "same_name": false
+    }
+  ]
+}

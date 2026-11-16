@@ -1,0 +1,12 @@
+-- 公開版（1.1.xxx）の切り替え：build_flags・版・調べる先がそろっているか
+require('harness')
+local flags = dofile(ROOT .. '/src/build_flags.lua')
+eq(flags.public, true, 'release build: public = true')
+local src = io.open(ROOT .. '/src/app.lua', 'rb'):read('*a')
+local v = src:match("VERSION = '([%d%.]+)'")
+check(v and v:match('^1%.1%.%d+$'), 'public version is 1.1.x: ' .. tostring(v))
+local main = io.open(ROOT .. '/astertrail.lua', 'rb'):read('*a')
+eq(main:match("addon.version = '([%d%.]+)'"), v, 'astertrail.lua matches app.lua')
+local vj = io.open(ROOT .. '/version.json', 'rb'):read('*a')
+eq(require('src.core.update').version_in(vj), v, 'version.json matches the build')
+print('test_release_flags ok')

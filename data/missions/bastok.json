@@ -1,0 +1,1049 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.001",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM1-1",
+      "name_en": "The Zeruhn Report",
+      "name_ja_ref": "ツェールン鉱山からの報告",
+      "note_ja": "報酬は不明",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/8407.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.002",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM1-2",
+      "name_en": "A Geological Survey",
+      "name_ja_ref": "彼の名はシド",
+      "note_ja": "涸れ谷にはゴブリン等アクティブが多い",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8408.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.003",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM1-3",
+      "name_en": "Fetichism",
+      "name_ja_ref": "終わらぬ戦い",
+      "note_ja": "Amethyst・Copper・Young Quadavは落とさない。繰り返し可（ランクポイント加算）。報告するガードのエリアでイベントが変わる",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "1、000ギル、ランク2"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8409.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.004",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM2-1",
+      "name_en": "The Crystal Line",
+      "name_ja_ref": "クリスタルライン",
+      "note_ja": "変色クリスタルは宅配・競売取引可能。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1042.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「クリスタルライン」クリア後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM2-2",
+      "name_en": "Wading Beasts",
+      "name_ja_ref": "涸れ谷の怪物",
+      "note_ja": "繰り返し可・省略可",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8410.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.006",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM2-3",
+      "name_en": "The Emissary",
+      "name_ja_ref": "バストゥークを離れて",
+      "note_ja": "ルートによりBFが変わる（記事「ドラゴンミッション」参照）。途中からドラギーユ城に入れる。ランク3でバリスタライセンス取得可",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "公認冒険者（Certified Adventurer）"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク3、3、000G、冒険者の証（だいじなもの）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2050.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Naji"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「バストゥークを離れて」クリア後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM3-1",
+      "name_en": "The Four Musketeers",
+      "name_ja_ref": "四銃士",
+      "note_ja": "エスケプやアウトポストデジョンでパシュハウ沼に入るとイベントが起きない。他のクゥダフがリンクしやすい。地下(G-8)の呪いの装置の部屋までで10匹ほど狩れる（リポップ10分）。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8411.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Iron_Eater"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「四銃士」クリア後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM3-2",
+      "name_en": "To the Forsaken Mines",
+      "name_ja_ref": "忘れられた鉱山にて",
+      "note_ja": "繰り返し可・省略可。Blind Mobyはオファー前でも野兎の肉で出せるので先に用意可。報告したガードでイベントが変わる。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4592.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.009",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "BM3-3",
+      "name_en": "Jeuno",
+      "name_ja_ref": "ジュノへ",
+      "note_ja": "道中で絡まれないにはLv40後半が必要。認証キー所持者、またはデルクフのカギを下層MAP[2](E-8)のCermet Doorにトレードした場合は手順3・4を省略可。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8412.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Lucius"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天晶堂入会」済みであること",
+          "type": "quest"
+        }
+      ],
+      "mission_no": "BM4-1",
+      "name_en": "Magicite",
+      "name_ja_ref": "魔晶石を奪え",
+      "note_ja": "三国共通の記事（大使館の部分は自国の記載に置き換え）。自国のゲートハウスでは発生しないので、クリスタルをトレードし過ぎない。各獣人拠点は魔晶石ルートだとLv60未満は絡まれることがある。移籍後の2回目以降もアルドに話すイベントは必須",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "飛空艇パス（所持済みなら20、000ギル）、ランク5、10、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1376.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Goggehn"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「魔晶石を奪え」終了後、だいじなもの「ジュノへの急報」を持って大工房(J-8)のNajiに話し「受ける」を選ぶ（断った場合はガードへ）",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM5-1",
+      "name_en": "Darkness Rising",
+      "name_ja_ref": "闇、再び",
+      "note_ja": "BF詳細は記事「骨ミッション」。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5048.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Naji"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「闇、再び」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM5-2",
+      "name_en": "Xarcabard, Land of Truths",
+      "name_ja_ref": "ザルカバードに眠る真実",
+      "note_ja": "BF詳細は記事「闇王ミッション」。ランク6でジラートミッション、デュナミス（Lv65以上）等が解禁",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "20、000ギル、ランク6"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4256.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Karst"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ザルカバードに眠る真実」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM6-1",
+      "name_en": "Return of the Talekeeper",
+      "name_ja_ref": "語り部現る！？",
+      "note_ja": "WSリドルでMPmaxが激減するので後衛は離れる。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10084.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「語り部現る！？」終了後",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジラートの幻影を開始しギルガメッシュの部屋に入れる状態",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM6-2",
+      "name_en": "The Pirates' Cove",
+      "name_ja_ref": "海賊たちの唄",
+      "note_ja": "ボムの自爆に注意。星唄ミッション等のイベントが先に起きることがある",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク7、40、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8267.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「海賊たちの唄」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM7-1",
+      "name_en": "The Final Image",
+      "name_ja_ref": "完成品のイメージ",
+      "note_ja": "???の目撃例：(E-11テンキー9)(D-10テンキー8)(G-9テンキー8)(J-8テンキー7)(K-11テンキー7)(L-10テンキー3)(G-8テンキー2)(E-9テンキー8)。(M-8)の???は別クエスト用。Lv75でも絡むウェポンが多いのでマウント推奨。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8266.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「完成品のイメージ」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM7-2",
+      "name_en": "On My Way",
+      "name_ja_ref": "それぞれの行方",
+      "note_ja": "手紙を渡さないと次のミッションが受けられない。Gumbahは蝕世のエンブリオのイベントが優先されることがあるので何度か話す。BFの手伝いはクリア済みの人のみ",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "60、000ギル、ランク8"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8265.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Karst"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「それぞれの行方」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM8-1",
+      "name_en": "The Chains that Bind Us",
+      "name_ja_ref": "流砂の鎖",
+      "note_ja": "重量扉を通るのでガルカ以外は重量石か人数が必要（記事「重量扉」）。NMは寝かし・サイレスが効く。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4842.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Iron_Eater"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「流砂の鎖」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM8-2",
+      "name_en": "Enter the Talekeeper",
+      "name_ja_ref": "その記憶を紡ぐ者",
+      "note_ja": "1体ずつ釣る場合、他の2体が消える前に倒すとフラグが立たない。周囲のカニ・ゴーストに注意",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク9、80、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8264.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.172.Drake_Fang"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「その記憶を紡ぐ者」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM9-1",
+      "name_en": "The Salt of the Earth",
+      "name_ja_ref": "最後の幻想",
+      "note_ja": "フルイドスプレッドが強力。蝕世のエンブリオクリア後はDancing Wolfの会話でエリアチェンジが2回必要。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8263.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Alois"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "mission.bastok.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「最後の幻想」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "BM9-2",
+      "name_en": "Where Two Paths Converge",
+      "name_ja_ref": "双刃の邂逅",
+      "note_ja": "BF攻略は記事「双刃の邂逅/ネタバレ」",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "英雄なき時代の英雄"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク10、10万ギル、共和国旗"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8262.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Iron_Eater"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.172.Makarim",
+      "kind": "npc",
+      "location": {
+        "grid": "H-11",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Makarim",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Naji",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Naji",
+      "same_name": true
+    },
+    {
+      "id": "npc.108.Veteran_Quadav",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 108,
+        "zone_name": "コンシュタット高地"
+      },
+      "moves": false,
+      "name_en": "Veteran Quadav",
+      "same_name": false
+    },
+    {
+      "id": "npc.Alois",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Bastok_Mission_2-2",
+            "https://ffxiclopedia.fandom.com/wiki/Wading_Beasts"
+          ]
+        },
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典のバストゥークミッション：大工房(J-8)大統領府のAlois",
+          "name": "用語辞典"
+        }
+      ],
+      "moves": false,
+      "name_en": "Alois",
+      "same_name": false
+    },
+    {
+      "id": "mob.140.Warchief_Vatgit",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 140,
+        "zone_name": "ゲルスバ野営陣"
+      },
+      "moves": true,
+      "name_en": "Warchief Vatgit",
+      "same_name": false
+    },
+    {
+      "id": "npc.Helaku",
+      "kind": "npc",
+      "location": {
+        "grid": "K-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 K-10（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Bastok_Mission_2-3",
+            "https://ffxiclopedia.fandom.com/wiki/The_Emissary"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Helaku",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Iron_Eater",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Bastok_Mission_9-2",
+            "https://ffxiclopedia.fandom.com/wiki/Iron_Eater"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Iron Eater",
+      "same_name": false
+    },
+    {
+      "id": "npc.147.Copper_Quadav",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 147,
+        "zone_name": "ベドー"
+      },
+      "moves": false,
+      "name_en": "Copper Quadav",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Davyad",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Davyad",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Lucius",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-9（BG Wiki と FFXIclopedia が一致、用語辞典は J-9）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Bastok_Mission_3-3",
+            "https://ffxiclopedia.fandom.com/wiki/Jeuno_(Mission)"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Lucius",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Goggehn",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Goggehn",
+      "same_name": false
+    },
+    {
+      "id": "obj.184.Cermet_Door_2",
+      "kind": "obj",
+      "location": {
+        "grid": "L-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 184,
+        "zone_name": "デルクフの塔下層"
+      },
+      "moves": false,
+      "name_en": "Cermet Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.243.Door_Bastokan_Emb",
+      "kind": "obj",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Door:Bastokan Emb.",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Karst",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Karst",
+      "same_name": false
+    },
+    {
+      "id": "obj.237.Door_Presidents_Office",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Door:President's Office",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Medicine_Eagle",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Medicine Eagle",
+      "same_name": false
+    },
+    {
+      "id": "npc.172.Drake_Fang",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Drake Fang",
+      "same_name": false
+    },
+    {
+      "id": "mob.125.Eastern_Sphinx",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 125,
+        "zone_name": "西アルテパ砂漠"
+      },
+      "moves": true,
+      "name_en": "Eastern Sphinx",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Tall_Mountain",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Tall Mountain",
+      "same_name": false
+    },
+    {
+      "id": "npc.124.Flame_Spout",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 124,
+        "zone_name": "ヨアトル大森林"
+      },
+      "moves": false,
+      "name_en": "Flame Spout",
+      "same_name": false
+    },
+    {
+      "id": "npc.Magma",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Magma",
+      "same_name": false
+    },
+    {
+      "id": "mob.Mokkurkalfi",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Mokkurkalfi",
+      "same_name": false
+    },
+    {
+      "id": "obj.Burning_Circle",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Burning Circle",
+      "same_name": false
+    },
+    {
+      "id": "obj.???_H-8",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "npc.247.Dancing_Wolf",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 G-7（BG Wiki と FFXIclopedia が一致、用語辞典は G-6）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Bastok_Mission_9-1",
+            "https://ffxiclopedia.fandom.com/wiki/The_Salt_of_the_Earth"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Dancing Wolf",
+      "same_name": false
+    },
+    {
+      "id": "mob.212.Gigaplasm",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 212,
+        "zone_name": "グスタフの洞門"
+      },
+      "moves": true,
+      "name_en": "Gigaplasm",
+      "same_name": false
+    },
+    {
+      "id": "obj.Door_Cornelias_Room",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Door:Cornelia's Room",
+      "same_name": false
+    }
+  ]
+}

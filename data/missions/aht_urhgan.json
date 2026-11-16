@@ -1,0 +1,1835 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノのクエスト「アトルガン皇国へ」クリア",
+          "type": "quest"
+        }
+      ],
+      "mission_no": "ToAU1",
+      "name_en": "Land of Sacred Serpents",
+      "name_ja_ref": "聖蛇の国",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4610.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem アトルガン白門 I-10（建物の上の階）。ユニティワープ（ワジャーム樹林）からも行ける",
+          "url": "https://www.bg-wiki.com/ffxi/Land_of_Sacred_Serpents",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「聖蛇の国」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU2",
+      "name_en": "Immortal Sentries",
+      "name_ja_ref": "不滅の防人",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫二等傭兵バッジ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績150"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4611.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "差し入れはナイズル島以外の監視哨のどれか1つへ。届ける前に移送の幻灯を調べると白門に戻されてしまう。モグロッカー・サンクション・アサルトが使えるようになる",
+          "url": "https://www.bg-wiki.com/ffxi/Immortal_Sentries",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「不滅の防人」クリア後にエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU3",
+      "name_en": "President Salaheem",
+      "name_ja_ref": "山猫の社長",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "アサルトに参加できる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4623.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エリアを出入りしてから Naja Salaheem に2回話す。Rytaal K-10（公務代理店）、Fubruhn F-11 は話さなくてもよい（FFXIclopedia も K-10・F-11）",
+          "url": "https://www.bg-wiki.com/ffxi/President_Salaheem",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「山猫の社長」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU4",
+      "name_en": "Knight of Gold",
+      "name_ja_ref": "黄金の騎士",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ライファルの書状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4627.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cacaroon G-11（モグハウスの向かい）、ワラーラ寺院 K-8、茶屋シャララト K-12（FFXIclopedia も同じ）。イベントは「Cacaroon got cheeep info」で始まるもの",
+          "url": "https://www.bg-wiki.com/ffxi/Knight_of_Gold",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Cacaroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「黄金の騎士」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU5",
+      "name_en": "Confessions of Royalty",
+      "name_ja_ref": "王子の告白",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4632.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ドラギーユ城の Halver I-9（FFXIclopedia も I-9）。城に入れないときは北サンドリア I-7 の Guilerme か Bacherume に話す",
+          "url": "https://www.bg-wiki.com/ffxi/Confessions_of_Royalty",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「王子の告白」クリアから1分たつ",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU6",
+      "name_en": "Easterly Winds",
+      "name_ja_ref": "東風",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨×10（「はい」を選んだとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4636.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前節から1分待つ。最初の問いで「はい」、3つ目で「そのために来た」（どちらも1番目）を選ぶと青銅貨10枚",
+          "url": "https://www.bg-wiki.com/ffxi/Easterly_Winds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「東風」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU7",
+      "name_en": "Westerly Winds",
+      "name_ja_ref": "西風",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ライファルの書置き"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨×2"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アルタナ同盟エージェント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4638.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "茶屋シャララトは BG Wiki K-11・FFXIclopedia と用語辞典 K-12。白銀貨は茶屋と Naja Salaheem で1枚ずつ",
+          "url": "https://www.bg-wiki.com/ffxi/Westerly_Winds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「西風」のイベントのあとエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU8",
+      "name_en": "A Mercenary Life",
+      "name_ja_ref": "傭兵のつとめ",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4642.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エリアを出入りしてサラヒム・センチネル I-10 に入るとイベント。近いエリアの出口は H-10 のワジャーム樹林への門（FFXIclopedia）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Mercenary_Life",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「傭兵のつとめ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU9",
+      "name_en": "Undersea Scouting",
+      "name_ja_ref": "聖跡の巡視",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "魔笛指向儀"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5192.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ナイズル島監視哨があれば H-9 の南東のワープ、次に東のワープでアルザダール海底遺跡群へ入るとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Undersea_Scouting",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "監視哨がないときはバフラウ段丘 F-6 の Kamih Mapokhalam に白銀貨1枚で遺跡へ。MAP7 の G-8 から東へ進むとイベント",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Undersea_Scouting",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「聖跡の巡視」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU10",
+      "name_en": "Astral Waves",
+      "name_ja_ref": "星気の笛音",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5193.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem I-10 に話す",
+          "url": "https://www.bg-wiki.com/ffxi/Astral_Waves",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「星気の笛音」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU11",
+      "name_en": "Imperial Schemes",
+      "name_ja_ref": "双蛇の謀",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5194.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りし、サラヒム・センチネルへ",
+          "url": "https://www.bg-wiki.com/ffxi/Imperial_Schemes",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「双蛇の謀」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU12",
+      "name_en": "Royal Puppeteer",
+      "name_ja_ref": "無手の傀儡師",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ピョピョルン特製招魂香"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5195.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジョディの消化液はバフラウ段丘・ワジャーム樹林の Ameretat、ワジャーム樹林・エジワ蘿洞の Great Ameretat から。Pyopyoroon ナシュモ H-7（FFXIclopedia も H-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Royal_Puppeteer",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「無手の傀儡師」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU13",
+      "name_en": "Lost Kingdom",
+      "name_ja_ref": "亡国の墳墓",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "イフラマド金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5197.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Jazaraat's Headstone カダーバの浮沼 E-10（Home Point #1 の南東。FFXIclopedia も E-10）",
+          "url": "https://www.bg-wiki.com/ffxi/Lost_Kingdom",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「亡国の墳墓」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU14",
+      "name_en": "The Dolphin Crest",
+      "name_ja_ref": "海豚の紋章",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5202.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に話す。墓の北西の洞窟に Home Point がある（FFXIclopedia）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Dolphin_Crest",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「海豚の紋章」クリア、だいじなもの「イフラマド金貨」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU15",
+      "name_en": "The Black Coffin",
+      "name_ja_ref": "漆黒の柩",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5205.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cutter は BG Wiki・FFXIclopedia とも H-8（Map 5。用語辞典は MAP3）。カダーバの浮沼の Survival Guide から南の G-8 の入口が近い。Gessho が手伝う。Ashu Talif Captain の HP を2割ほどまで減らすと勝ち",
+          "url": "https://www.bg-wiki.com/ffxi/The_Black_Coffin",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.Cutter"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「漆黒の柩」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU16",
+      "name_en": "Ghosts of the Past",
+      "name_ja_ref": "幽冥の海賊",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5121.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に話す",
+          "url": "https://www.bg-wiki.com/ffxi/Ghosts_of_the_Past_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「幽冥の海賊」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU17",
+      "name_en": "Guests of the Empire",
+      "name_ja_ref": "賓客の資格",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン霊銀貨"
+        },
+        {
+          "kind": "other",
+          "name_ja": "サルベージに参加できる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5210.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "決まった胴装備（ブリガンダイン・アクトンなど。HQ 可）と、両手・両脚・両足にも何か着る。胴装備は第46節でまた要る。Imperial Whitegate は FFXIclopedia L-8/L-9、用語辞典 L-8",
+          "url": "https://www.bg-wiki.com/ffxi/Guests_of_the_Empire",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「賓客の資格」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU18",
+      "name_en": "Passing Glory",
+      "name_ja_ref": "泡沫の宝冠",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アヴゼンの小間使い"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4816.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから Naja Salaheem へ。このあとアシュタリフ号のアサルトに参加できる。茶屋 J-12 の座布団でフェイス Gessho。称号 Ovjang's Errand Runner は BG Wiki・FFXIclopedia では前節（つづきのイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Passing_Glory",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「泡沫の宝冠」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU19",
+      "name_en": "Sweets for the Soul",
+      "name_ja_ref": "遇人の内懐",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5305.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "茶屋シャララトは BG Wiki・FFXIclopedia K-11、用語辞典 K-12",
+          "url": "https://www.bg-wiki.com/ffxi/Sweets_for_the_Soul",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遇人の内懐」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU20",
+      "name_en": "Teahouse Tumult",
+      "name_ja_ref": "茶屋の厄難",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5308.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エジワ蘿洞の Map 5 の G-8（BG Wiki は F-8/G-8）の名前のない調べる物。Map 2 の D-8 か E-9 から下へ。ユニティワープ（ワジャーム樹林）からすぐ",
+          "url": "https://www.bg-wiki.com/ffxi/Teahouse_Tumult",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「茶屋の厄難」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU21",
+      "name_en": "Finders Keepers",
+      "name_ja_ref": "千古の渦紋",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "カラババのボディガード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5310.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サラヒム・センチネルに入るとイベント。称号 Karababa's Bodyguard は FFXIclopedia ではこの節、BG Wiki では次の節",
+          "url": "https://www.bg-wiki.com/ffxi/Finders_Keepers",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「千古の渦紋」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU22",
+      "name_en": "Shield of Diplomacy",
+      "name_ja_ref": "特使の御楯",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5311.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ゼオルム火山の Home Point #1 が入口のすぐ前。入口は FFXIclopedia でゼオルム火山 D-8。Karababa が手伝い、HP が減ると帰ってしまい負けになる",
+          "url": "https://www.bg-wiki.com/ffxi/Shield_of_Diplomacy",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「特使の御楯」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU23",
+      "name_en": "Social Graces",
+      "name_ja_ref": "宴遊の終幕",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5312.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サラヒム・センチネルに入るとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Social_Graces",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「宴遊の終幕」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU24",
+      "name_en": "Foiled Ambition",
+      "name_ja_ref": "悪魔と悪鬼と",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨×5"
+        },
+        {
+          "kind": "title",
+          "name_ja": "カラババの特命エージェント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5313.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから、サラヒム・センチネルへ",
+          "url": "https://www.bg-wiki.com/ffxi/Foiled_Ambition",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「悪魔と悪鬼と」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU25",
+      "name_en": "Playing the Part",
+      "name_ja_ref": "運命の歯車",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8887.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから Naja Salaheem に話す。イベントでは Aphmau を選ぶ",
+          "url": "https://www.bg-wiki.com/ffxi/Playing_the_Part",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「運命の歯車」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU26",
+      "name_en": "Seal of the Serpent",
+      "name_ja_ref": "魔蛇の封蝋",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11403.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "武器を外して Imperial Whitegate L-9（FFXIclopedia も L-9）を調べる",
+          "url": "https://www.bg-wiki.com/ffxi/Seal_of_the_Serpent",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「魔蛇の封蝋」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU27",
+      "name_en": "Misplaced Nobility",
+      "name_ja_ref": "貴人の失踪",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11404.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「茶屋の厄難」と同じ場所。エジワ蘿洞 Map 5 の G-8（BG Wiki は F-8/G-8）の名前のない調べる物",
+          "url": "https://www.bg-wiki.com/ffxi/Misplaced_Nobility",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「貴人の失踪」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU28",
+      "name_en": "Bastion of Knowledge",
+      "name_ja_ref": "古寺の所縁",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11405.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ワラーラ寺院に入るとイベント。寺院の入口は FFXIclopedia J-7、用語辞典 K-8（「黄金の騎士」では BG Wiki・FFXIclopedia とも K-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Bastion_of_Knowledge",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「古寺の所縁」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU29",
+      "name_en": "Puppet in Peril",
+      "name_ja_ref": "少女の傀儡",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アフマウの傭兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11406.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "称号 Aphmau's Mercenary は BG Wiki・FFXIclopedia では前節（ワラーラ寺院のイベント）。翡翠廟へはバフラウ段丘の Home Point #1 か、マムージャ監視哨から北の I-9。相手は Lancelord Gaheel Ja",
+          "url": "https://www.bg-wiki.com/ffxi/Puppet_In_Peril",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「少女の傀儡」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU30",
+      "name_en": "Prevalence of Pirates",
+      "name_ja_ref": "海賊の利",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アサルト領域特別通行許可証・ペリキア"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11407.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アラパゴ暗礁域に入るとイベント、Cutter H-8 に近づくともう一度。終わったら歩いて南のカダーバの浮沼のドゥブッカ島監視哨へ行ける",
+          "url": "https://www.bg-wiki.com/ffxi/Prevalence_of_Pirates",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「海賊の利」クリア、だいじなもの「アサルト領域特別通行許可証・ペリキア」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU31",
+      "name_en": "Shades of Vengeance",
+      "name_ja_ref": "暗雲の去来",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ナシュメラの傭兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11408.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ドゥブッカ島監視哨のすぐ西の Runic Seal から。K23H1-LAMIA（H-9 にまとまっている）を何体か倒すと勝ち（FFXIclopedia は3体）。負けたら監視哨の Nahshib から許可証をもらい直す（ヴァナ時間で1日に1回）",
+          "url": "https://www.bg-wiki.com/ffxi/Shades_of_Vengeance",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「暗雲の去来」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU32",
+      "name_en": "In the Blood",
+      "name_ja_ref": "逢魔が時",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11409.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に話す",
+          "url": "https://www.bg-wiki.com/ffxi/In_the_Blood",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「逢魔が時」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU33",
+      "name_en": "Sentinels' Honor",
+      "name_ja_ref": "砂上の楼閣",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11410.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから Naja Salaheem に話す。待つあいだに、次の節で要るイフラマド金貨をカダーバの浮沼 E-10 の Jazaraat's Headstone でもらっておける",
+          "url": "https://www.bg-wiki.com/ffxi/Sentinels%27_Honor",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「砂上の楼閣」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU34",
+      "name_en": "Testing the Waters",
+      "name_ja_ref": "山猫の皮算用",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12217.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Jazaraat's Headstone（カダーバの浮沼 E-10、FFXIclopedia も E-10）でイフラマド金貨をもう一度もらい、アラパゴ暗礁域 Map 5 H-8 の Cutter に近づく。終わるとタラッカ入江に移る",
+          "url": "https://www.bg-wiki.com/ffxi/Testing_The_Waters",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.Cutter"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「山猫の皮算用」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU35",
+      "name_en": "Legacy of the Lost",
+      "name_ja_ref": "亡国の遺産",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "冥衆の護符"
+        },
+        {
+          "kind": "title",
+          "name_ja": "財宝の番兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12218.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "タラッカ入江の Rock Slab から BF。相手は Gessho で、分身を出し、HP が1〜2割で降参する。称号 Treasure Trove Tender は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Legacy_of_the_Lost",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.タラッカ入江.Rock_Slab"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「亡国の遺産」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU36",
+      "name_en": "Gaze of the Saboteur",
+      "name_ja_ref": "天狗の慧眼",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "月照の介錯人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12219.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ハザルム試験場の入口はカダーバの浮沼 Map 1 の D-9（FFXIclopedia D-10、用語辞典 E-10）。入るとイベント、Entry Gate を調べるとイベント。称号 Gessho's Mercy は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Gaze_of_the_Saboteur",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天狗の慧眼」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU37",
+      "name_en": "Path of Blood",
+      "name_ja_ref": "修羅の道",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "輝金の短剣"
+        },
+        {
+          "kind": "title",
+          "name_ja": "聖皇の密使"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12220.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サラヒム・センチネルに入るとイベント。称号 Emissary of the Empress とだいじなもの Luminian Dagger は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Path_of_Blood",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「修羅の道」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU38",
+      "name_en": "Stirrings of War",
+      "name_ja_ref": "戦乱の兆し",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12221.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから茶屋シャララトに入る。茶屋は BG Wiki・FFXIclopedia K-11、用語辞典 K-12",
+          "url": "https://www.bg-wiki.com/ffxi/Stirrings_of_War",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「戦乱の兆し」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU39",
+      "name_en": "Allied Rumblings",
+      "name_ja_ref": "連合の混迷",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "四国軍事会議召喚状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12929.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・ルデの庭の宮殿の扉に近づくとイベント。Trion と話すイベントであることを確かめる。だいじなもの Allied Council Summons は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Allied_Rumblings",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「連合の混迷」クリア後、ヴァナ時間の0時を過ぎてエリアを出入りする",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU40",
+      "name_en": "Unraveling Reason",
+      "name_ja_ref": "紐解ける理",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "エンディミオン空艇隊員"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12930.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから Pherimociel G-6（FFXIclopedia も G-6）に話す。イベントのあとワジャーム樹林の Leypoint に移る",
+          "url": "https://www.bg-wiki.com/ffxi/Unraveling_Reason",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Pherimociel"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「紐解ける理」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU41",
+      "name_en": "Light of Judgment",
+      "name_ja_ref": "審判の光",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12931.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガン白門 I-7（FFXIclopedia も I-7）のからくり士ギルドの外の Rodin-Comidin に話す。だいじなもの Nyzul Isle Route は BG Wiki・FFXIclopedia ではこの節",
+          "url": "https://www.bg-wiki.com/ffxi/Light_of_Judgment",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Rodin_Comidin"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「審判の光」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU42",
+      "name_en": "Path of Darkness",
+      "name_ja_ref": "巨人の懐へ",
+      "order": 42,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ナイズル島ルートメモ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12932.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ナイズル島監視哨の消えたランプの名前のない的 J-9 を調べて「はい」、同じ部屋の反対側の Runic Seal I-9 から BF。Naja Salaheem が一緒に戦い、倒れると負け。Amnaf と Imperial Gear 4体を2回、最後に Soulflayer になった Amnaf。負けたら Rodin-Comidin からだいじなものをもらい直す",
+          "url": "https://www.bg-wiki.com/ffxi/Path_of_Darkness",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「巨人の懐へ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU43",
+      "name_en": "Fangs of the Lion",
+      "name_ja_ref": "蒼獅子の最期",
+      "order": 43,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ナジャの戦友"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12933.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に近づくとイベント（FFXIclopedia はサラヒム・センチネルに入るとイベント）。称号 Naja's Comrade-in-arms は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Fangs_of_the_Lion",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「蒼獅子の最期」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU44",
+      "name_en": "Nashmeira's Plea",
+      "name_ja_ref": "少女の決意",
+      "order": 44,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "霊銀の鏡"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ナシュメラの腹心"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12935.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ナイズル島監視哨の名前のない的を調べ、Runic Seal I-9 から BF。45分。Raubahn を3回、Razfahd を HP 半分まで、そのあと Alexander。称号 Nashmeira's Loyalist とだいじなもの Mythril Mirror は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Nashmeira%27s_Plea",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「少女の決意」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU45",
+      "name_en": "Ragnarok",
+      "name_ja_ref": "ラグナロク（ミッション）",
+      "order": 45,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ラグナロクの調停者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12936.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に近づくとイベント。称号 Preventer of Ragnarok は BG Wiki・FFXIclopedia では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Ragnarok_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ラグナロク」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU46",
+      "name_en": "Imperial Coronation",
+      "name_ja_ref": "戴冠の儀",
+      "order": 46,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12938.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "第17節と同じ胴装備と、両手・両脚・両足にも何か着る。Imperial Whitegate は FFXIclopedia L-9、用語辞典 L-8",
+          "url": "https://www.bg-wiki.com/ffxi/Imperial_Coronation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「戴冠の儀」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU47",
+      "name_en": "The Empress Crowned",
+      "name_ja_ref": "大団円",
+      "order": 47,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "バルラーンリング・ウルタラムリング・ジャルザーンリングから1つ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "皇国旗"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アトルガンの守護者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12939.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "指輪はあとで選んでもよい（Imperial Whitegate）。指輪を捨てたら Nadeey（BG Wiki・FFXIclopedia J-7）でもらい直せる（コンクエスト集計ごとに1回）。FFXIclopedia は指輪と Imperial Standard を前節の報酬にしている",
+          "url": "https://www.bg-wiki.com/ffxi/The_Empress_Crowned",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "mission.aht_urhgan.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「大団円」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ToAU48",
+      "name_en": "Eternal Mercenary",
+      "name_ja_ref": "永遠の傭兵",
+      "order": 48,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "グローリークラウン"
+        },
+        {
+          "kind": "title",
+          "name_ja": "エターナルマーシナリー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12940.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Naja Salaheem に近づくと最後のイベント。終わったら Imperial Whitegate を調べるとフェイス Nashmeira",
+          "url": "https://www.bg-wiki.com/ffxi/Eternal_Mercenary",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.アトルガン白門.Rodin_Comidin",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Rodin-Comidin",
+      "same_name": false
+    }
+  ]
+}

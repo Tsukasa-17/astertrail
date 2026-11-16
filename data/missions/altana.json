@@ -1,0 +1,2161 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.001",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WotG1",
+      "name_en": "Cavernous Maws",
+      "name_ja_ref": "忘らるる口",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14363.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "禁断の口はバタリア丘陵 H-5、ロランベリー耕地 H-6（FFXIclopedia も同じ）、ソロムグ原野 J-10（FFXIclopedia は K-9。ガルレージュ要塞の第3の門の先から出る）。調べた場所と飛ばされる過去の場所は一致しないことがある。だいじなもの Pure White Feather は BG Wiki・FFXIclopedia ではこの節",
+          "url": "https://www.bg-wiki.com/ffxi/Cavernous_Maws_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.バタリア丘陵.Cavernous_Maw"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「忘らるる口」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG2",
+      "name_en": "Back to the Beginning",
+      "name_ja_ref": "はじまりの刻",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "純白の羽根"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14364.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "過去の3国のどれかの軍に入る（サンドリアはガルレージュ要塞〔Ｓ〕Map 2 I-6 の Randecque、ウィンダスはクロウラーの巣〔Ｓ〕L-8 の Kalsu-Kalasu、バストゥークはエルディーム古墳〔Ｓ〕J-9 の Turbulent Storm。FFXIclopedia も同じ）。どの国でも進み方は同じ",
+          "url": "https://www.bg-wiki.com/ffxi/Back_to_the_Beginning",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「はじまりの刻」クリア、過去の3国の「オーク軍団掃討作戦」「静かなる警鐘」「禍つ闇、襲来」のどれかを終えている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG3",
+      "name_en": "Cait Sith",
+      "name_ja_ref": "ケット・シー、馳せる",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ケット・シーの助手"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14365.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノのまわりの禁断の口を、過去で（現代なら過去から開けた口で）調べるとイベント。次の国のクエストを終え、東ロンフォール〔Ｓ〕から歩いて南サンドリア〔Ｓ〕に入る（Home Point・Survival Guide ではだめ）。称号 Cait Sith's Assistant は FFXIclopedia ではこの節、BG Wiki では前節",
+          "url": "https://www.bg-wiki.com/ffxi/Cait_Sith_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ケット・シー、馳せる」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG4",
+      "name_en": "The Queen of the Dance",
+      "name_ja_ref": "舞姫、来たりて",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15329.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "獅子の泉の扉 K-6、Turlough ジュノ上層 G-7（踊り子を見ている。FFXIclopedia も同じ）でショーのチケットをもらい、扉をもう一度調べる",
+          "url": "https://www.bg-wiki.com/ffxi/The_Queen_of_the_Dance",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「舞姫、来たりて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG5",
+      "name_en": "While the Cat is Away",
+      "name_ja_ref": "玉冠の獣、ふたたび",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15331.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前節の最後のイベントで始まる。南サンドリア〔Ｓ〕から東ロンフォール〔Ｓ〕へ出るとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/While_the_Cat_is_Away",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「玉冠の獣、ふたたび」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG6",
+      "name_en": "A Timeswept Butterfly",
+      "name_ja_ref": "梢の胡蝶",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15332.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジャグナー森林〔Ｓ〕G-11 の Wooden Gate からラヴォール村〔Ｓ〕へ（FFXIclopedia も G-11）。すぐ外に Survival Guide がある",
+          "url": "https://www.bg-wiki.com/ffxi/A_Timeswept_Butterfly",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「梢の胡蝶」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG7",
+      "name_en": "Purple, The New Black",
+      "name_ja_ref": "紫電、劈く",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15333.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Reinforced Gateway F-9（FFXIclopedia も F-9）。BF の相手は Galarhigg。称号 Traverser of Time は BG Wiki・FFXIclopedia ではこの節",
+          "url": "https://www.bg-wiki.com/ffxi/Purple,_The_New_Black",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ラヴォール村〔Ｓ〕.Reinforced_Gateway"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「紫電、劈く」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG8",
+      "name_en": "In the Name of the Father",
+      "name_ja_ref": "天涯の娘",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "往代を巡りし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15334.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "次の国のクエストを終えて、獅子の泉の扉 K-6 を調べる（FFXIclopedia も K-6）",
+          "url": "https://www.bg-wiki.com/ffxi/In_the_Name_of_the_Father",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天涯の娘」クリア、過去の3国の「それぞれの死地へ」「隠滅の炎」「淑女たちの饗宴」のどれかを終えている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG9",
+      "name_en": "Dancers in Distress",
+      "name_ja_ref": "踊り子の憂慮",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16646.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Raustigne 南サンドリア〔Ｓ〕I-7（BG Wiki は I-7/8）、Elegant Footprints ジャグナー森林〔Ｓ〕I-6（H-6 との境の切り株のそば。FFXIclopedia は H-6 と I-6 の境）。求められる品はリンクスの肉・獣人金貨・ニュモモちゃんのどれか。エリアを出入りしてからトレード",
+          "url": "https://www.bg-wiki.com/ffxi/Dancers_in_Distress",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「踊り子の憂慮」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG10",
+      "name_en": "Daughter of a Knight",
+      "name_ja_ref": "白い涙、黒い泪",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "鎮静薬"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16647.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Amaura 南サンドリア G-6（FFXIclopedia も G-6）。ケルヌンノスの球根はジャグナー森林〔Ｓ〕の Wandering Sapling から。乙女の泉 E-6 の Humus-rich Earth に植え、現代のジャグナー森林の同じ場所で Cernunnos を倒す",
+          "url": "https://www.bg-wiki.com/ffxi/Daughter_of_a_Knight",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Amaura"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「白い涙、黒い泪」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG11",
+      "name_en": "A Spoonful of Sugar",
+      "name_ja_ref": "彼の世に至る病",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16695.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "凱旋門 I-7 の Raustigne（FFXIclopedia も I-7）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Spoonful_of_Sugar",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Raustigne"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「彼の世に至る病」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG12",
+      "name_en": "Affairs of State",
+      "name_ja_ref": "国務、携えし",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ボーレル卿の封書"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16651.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Radford バストゥーク商業区〔Ｓ〕H-6、Velda-Galda ウィンダス水の区〔Ｓ〕北 K-9（FFXIclopedia も同じ）。順番はどちらでもよい。街が攻められているときはいない",
+          "url": "https://www.bg-wiki.com/ffxi/Affairs_of_State",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「国務、携えし」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG13",
+      "name_en": "Borne by the Wind",
+      "name_ja_ref": "威風凛凛",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ハッチのカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16652.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Bulwark Gate ソロムグ原野〔Ｓ〕E-6/F-6（FFXIclopedia F-6）。イベントの選択肢は1番目。描画の速さを変える設定だとイベントが止まることがある",
+          "url": "https://www.bg-wiki.com/ffxi/Borne_by_the_Wind",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ソロムグ原野〔Ｓ〕.Bulwark_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「威風凛凛」クリア、だいじなもの「ハッチのカギ」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG14",
+      "name_en": "A Nation on the Brink",
+      "name_ja_ref": "ジュノ、擾乱",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16653.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Underpass Hatch バタリア丘陵〔Ｓ〕J-9（BG Wiki は J-9/K-9）の防壁の塔の中。BF は常花の石窟で、獣人の群れを倒すと One-eyed Gwajboj が出る。称号 Battle of Jeuno Veteran と Jeunoan Flag は BG Wiki・FFXIclopedia ではこの節。負けたらヴァナ時間の0時のあと Bulwark Gate でカギをもらい直す",
+          "url": "https://www.bg-wiki.com/ffxi/A_Nation_on_the_Brink",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.バタリア丘陵〔Ｓ〕.Underpass_Hatch"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ジュノ、擾乱」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG15",
+      "name_en": "Crossroads of Time",
+      "name_ja_ref": "宙の座",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "大公国旗"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ジュノ攻防戦の功労者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16691.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "次の国のクエストを終えて、東ロンフォール〔Ｓ〕から南サンドリア〔Ｓ〕に入る。大公国旗を受け取れなかったときは、バタリア丘陵〔Ｓ〕J-9 の防壁の行き止まりの樽の ??? で受け取れる（用語辞典）",
+          "url": "https://www.bg-wiki.com/ffxi/Crossroads_of_Time",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「宙の座」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG16",
+      "name_en": "Sandswept Memories",
+      "name_ja_ref": "砂の記憶",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17594.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "獅子の泉の扉 K-6（FFXIclopedia も K-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Sandswept_Memories",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「砂の記憶」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG17",
+      "name_en": "Northland Exposure",
+      "name_ja_ref": "娘、北進して",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "尾行蟲"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17595.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ボスディン氷河〔Ｓ〕に入るとイベント。Survival Guide がなければバタリア丘陵〔Ｓ〕E-4 のトンネルから",
+          "url": "https://www.bg-wiki.com/ffxi/Northland_Exposure",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「娘、北進して」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG18",
+      "name_en": "Traitor in the Midst",
+      "name_ja_ref": "紫雲か、暗雲か",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17596.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ボスディン氷河〔Ｓ〕の北の5つの塔の Regal Pawprints でミニゲーム。J-8・I-7 は FFXIclopedia も同じ、F-7・H-8・G-9 と最後の H-10 は用語辞典。順番はどれでもよい。ほかの節で使う Regal Pawprints もあるので、塔のそばのものを調べる",
+          "url": "https://www.bg-wiki.com/ffxi/Traitor_in_the_Midst",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「紫雲か、暗雲か」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG19",
+      "name_en": "Betrayal at Beaucedine",
+      "name_ja_ref": "黒き奸計の尾",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17617.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Regal Pawprints H-9（FFXIclopedia も H-9）。キャンペーンのワープから坂を下りた木の陰。Count Halphas と Dark Demon 4体が出て、Count Halphas を倒せばよい",
+          "url": "https://www.bg-wiki.com/ffxi/Betrayal_at_Beaucedine",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_H9"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「黒き奸計の尾」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG20",
+      "name_en": "On Thin Ice",
+      "name_ja_ref": "盤上の罠",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17618.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Raustigne I-7（FFXIclopedia も I-7）。次の節のお使いの品（オークの装備・ギサールの野菜・クロスボウボルト・ノールの爪など）を先に用意しておくと楽（FFXIclopedia）",
+          "url": "https://www.bg-wiki.com/ffxi/On_Thin_Ice",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Raustigne"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「盤上の罠」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG21",
+      "name_en": "Proof of Valor",
+      "name_ja_ref": "勇胆の証",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "署名の数でオックスオーブ・フーラード・エンゼルオーブ・オリハルコン・モリブデインゴットのどれか"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17619.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "署名は20人分あればよい。話すだけ10人（Aissaville I-7・Illeuse H-9・Daigraffeaux I-11・Andagge H-9・Louxiard G-7・Machionage C-6・Remiotte L-10・Elnonde K-9・Loillie K-9・Mailleronce M-6）、問答4人（Farouel K-7・Aurfet G-9・Corseihaut F-6・Vichauxdat I-8、最大6ずつ）。座標は FFXIclopedia も同じ。多く集めると報酬が増える",
+          "url": "https://www.bg-wiki.com/ffxi/Proof_of_Valor",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Raustigne"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「勇胆の証」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG22",
+      "name_en": "A Sanguinary Prelude",
+      "name_ja_ref": "衝突、会戦の序",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "芳香蟲"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17620.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ボスディン氷河〔Ｓ〕に入るとイベント。Survival Guide で入ると次の節の Regal Pawprints と同じ段に出る（FFXIclopedia）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Sanguinary_Prelude",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「衝突、会戦の序」クリア、だいじなもの「芳香蟲」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG23",
+      "name_en": "Dungeons and Dancers",
+      "name_ja_ref": "囚われの迷宮で",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "蝕甚蟲"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17702.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Regal Pawprints G-9（FFXIclopedia も G-9）は塔ではなく、キャンペーンのワープと同じ高い段。常花の石窟の迷路を30分で抜ける。ネズミ火薬で壁を壊す。時間切れなら H-10 の Regal Pawprints で芳香蟲をもらい直す。だいじなもの Umbra Bug は BG Wiki・FFXIclopedia でこの節の報酬",
+          "url": "https://www.bg-wiki.com/ffxi/Dungeons_and_Dancers",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_G9"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「囚われの迷宮で」クリア、だいじなもの「蝕甚蟲」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG24",
+      "name_en": "Distorter of Time",
+      "name_ja_ref": "禁断の口（ミッション）",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17706.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "キャンペーンのワープから北の H-7 の右下の穴から下りたすぐの Regal Pawprints（FFXIclopedia も H-7）。相手は Cait Sith Ceithir で、Lilisette が一緒に戦う。負けたら H-10 の Regal Pawprints で蝕甚蟲をもらい直す（ヴァナ時間で1日1回）",
+          "url": "https://www.bg-wiki.com/ffxi/Distorter_of_Time",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_H7"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「禁断の口」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG25",
+      "name_en": "The Will of the World",
+      "name_ja_ref": "喰らわれし未来",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17720.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Raustigne I-7（FFXIclopedia も I-7）。描画の速さを変える設定だとイベントが止まることがある",
+          "url": "https://www.bg-wiki.com/ffxi/The_Will_of_the_World",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Raustigne"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「喰らわれし未来」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG26",
+      "name_en": "Fate in Haze",
+      "name_ja_ref": "傾ぐ天秤",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17721.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "次の国のクエストを終えて、獅子の泉の扉 K-6 を調べる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Fate_in_Haze",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「傾ぐ天秤」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG27",
+      "name_en": "The Scent of Battle",
+      "name_ja_ref": "死闘の萌芽",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19502.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Bulwark Gate F-6（FFXIclopedia も F-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Scent_of_Battle",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ソロムグ原野〔Ｓ〕.Bulwark_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「死闘の萌芽」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG28",
+      "name_en": "Another World",
+      "name_ja_ref": "現世と隠世と",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19503.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "現代の東ロンフォールから南サンドリアに入るとイベント（Home Point ではだめ）。Halver I-9（FFXIclopedia も I-9）。ほかのミッションやクエストのイベントが先に出ることがある",
+          "url": "https://www.bg-wiki.com/ffxi/Another_World",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「現世と隠世と」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG29",
+      "name_en": "A Hawk in Repose",
+      "name_ja_ref": "勇鷹の墓標",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19504.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ライラックはジュノ上層 H-6 の Areebah で120ギル（あとのクエストでも要るので2つ）。Weathered Gravestone バタリア丘陵 I-10（FFXIclopedia も同じ）。エルディーム古墳の Survival Guide が近い",
+          "url": "https://www.bg-wiki.com/ffxi/A_Hawk_in_Repose",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.バタリア丘陵.Weathered_Gravestone"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「勇鷹の墓標」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG30",
+      "name_en": "The Battle of Xarcabard",
+      "name_ja_ref": "決戦、ザルカバード",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19505.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ザルカバード〔Ｓ〕に入るとイベント。Rally Point: Red は F-8（BG Wiki と用語辞典。FFXIclopedia は座標なし）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Battle_of_Xarcabard_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ザルカバード〔Ｓ〕.Rally_Point_Red"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「決戦、ザルカバード」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG31",
+      "name_en": "Prelude to a Storm",
+      "name_ja_ref": "雪上の嵐：翠",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エリクサー・バイルエリクサー・バイルエリクサー+1のどれか"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19508.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rally Point: Green と Spell-worked Snow は G-9（FFXIclopedia も G-9）。中で Pesoso に話して始め、3つの部屋の獣人を全部倒して Pesoso に話す。負けたらヴァナ時間の0時のあと Rally Point: Green で照明弾をもらい直す",
+          "url": "https://www.bg-wiki.com/ffxi/Prelude_to_a_Storm",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ザルカバード〔Ｓ〕.Rally_Point_Green"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「雪上の嵐：翠」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG32",
+      "name_en": "Storm's Crescendo",
+      "name_ja_ref": "雪上の嵐：藍",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19509.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rally Point: Blue は H-8 の北西の角（FFXIclopedia も H-8）。中で Antje に話すととんずらの効果がつき、効果があるうちに24人の兵に話して爆薬を使わせる。パーティーで同時にやると効果が消し合うので1人で（1人が勝てば全員クリア）。勝ったら Rally Point: Red F-8",
+          "url": "https://www.bg-wiki.com/ffxi/Storm%27s_Crescendo",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ザルカバード〔Ｓ〕.Rally_Point_Blue"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「雪上の嵐：藍」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG33",
+      "name_en": "Into the Beast's Maw",
+      "name_ja_ref": "闇の牙城",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19510.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ズヴァール城外郭〔Ｓ〕に入るとイベント。Peculiar Glint は Map 1 の G-7（FFXIclopedia も同じ）。相手は Count Bifrons とオーク4体で、Count Bifrons を倒せばよい。負けたらすぐ横の Ornate Block で照明弾をもらい直す（ヴァナ時間で1日待つことがある）",
+          "url": "https://www.bg-wiki.com/ffxi/Into_the_Beast%27s_Maw",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ズヴァール城外郭〔Ｓ〕.Peculiar_Glint"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「闇の牙城」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG34",
+      "name_en": "The Hunter Ensnared",
+      "name_ja_ref": "殲撃、響きて",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19522.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rally Point: Red F-8（FFXIclopedia も F-8）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Hunter_Ensnared",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ザルカバード〔Ｓ〕.Rally_Point_Red"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「殲撃、響きて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG35",
+      "name_en": "Flight of the Lion",
+      "name_ja_ref": "獅子たちの帰還",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19523.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Bulwark Gate F-6（FFXIclopedia も F-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Flight_of_the_Lion",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ソロムグ原野〔Ｓ〕.Bulwark_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「獅子たちの帰還」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG36",
+      "name_en": "Fall of the Hawk",
+      "name_ja_ref": "鉄鷹、旋回す",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19548.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ズヴァール城外郭〔Ｓ〕に入るとイベント（Survival Guide で入ってもよい。FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Fall_of_the_Hawk",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「鉄鷹、旋回す」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG37",
+      "name_en": "Darkness Descends",
+      "name_ja_ref": "黒天、閃電",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "失はれた者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19524.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "王の間〔Ｓ〕に入るとイベント、扉から BF。相手は Aquila と Haudrale で、リリゼットが一緒に戦い、リリゼットが倒れると負け。3分たつとリリゼットが自分から始める。称号 Wanderer of Time（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Darkness_Descends",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "星唄ミッションを Of Light and Darkness より先へ進めていないと、この節のあと Whispers of Dawn を終えるまで先へ進めなくなる、とある。王の間〔Ｓ〕までの道は透明でない人がいないと開かない門がある",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Darkness_Descends",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「黒天、閃電」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG38",
+      "name_en": "Adieu, Lilisette",
+      "name_ja_ref": "さようなら、リリゼット",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19686.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "次の国のクエストを終えて、獅子の泉の扉 K-6 を調べる（FFXIclopedia も K-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Adieu,_Lilisette",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「さようなら、リリゼット」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG39",
+      "name_en": "By the Fading Light",
+      "name_ja_ref": "鳥籠の宇宙",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21130.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rally Point: Red F-8（FFXIclopedia も F-8）",
+          "url": "https://www.bg-wiki.com/ffxi/By_the_Fading_Light",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ザルカバード〔Ｓ〕.Rally_Point_Red"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「鳥籠の宇宙」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG40",
+      "name_en": "Edge of Existence",
+      "name_ja_ref": "記憶の最果て",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21131.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "禁断の口はバタリア丘陵 H-5、ロランベリー耕地 H-6（FFXIclopedia も同じ）、ソロムグ原野 J-10（FFXIclopedia は K-9）。現代でも過去でもよい",
+          "url": "https://www.bg-wiki.com/ffxi/Edge_of_Existence",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.バタリア丘陵.Cavernous_Maw"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「記憶の最果て」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG41",
+      "name_en": "Her Memories",
+      "name_ja_ref": "彼女の想ひ出",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21135.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "4つの Large memory fragment を集める。帰郷（3つの小さなかけらで1つ）、不治の病、キューピッド作戦、過去の所属国の足跡のクエスト（FFXIclopedia も同じ）。不治の病はヴァナ時間で1日待つので先に始めるとよい",
+          "url": "https://www.bg-wiki.com/ffxi/Her_Memories",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「彼女の想ひ出」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG42",
+      "name_en": "Forget Me Not",
+      "name_ja_ref": "揺籃の宙",
+      "order": 42,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21172.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "禁断の口はバタリア丘陵 H-5、ロランベリー耕地 H-6（FFXIclopedia も同じ）、ソロムグ原野 J-10（FFXIclopedia は K-9）。現代でも過去でもよい。イベントでグロウベルグ〔Ｓ〕のケット・シーと会う",
+          "url": "https://www.bg-wiki.com/ffxi/Forget_Me_Not",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.バタリア丘陵.Cavernous_Maw"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「揺籃の宙」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG43",
+      "name_en": "Pillar of Hope",
+      "name_ja_ref": "光陰の御許に",
+      "order": 43,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21173.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "武器と盾を全部はずしてグロウベルグ〔Ｓ〕F-5 の幽境の沢の Veridical Conflux を調べる（FFXIclopedia も F-5）。キャンペーンのワープか Survival Guide が近い。風水士は遠隔もはずす必要があることがある（FFXIclopedia）",
+          "url": "https://www.bg-wiki.com/ffxi/Pillar_of_Hope",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「光陰の御許に」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG44",
+      "name_en": "Glimmer of Life",
+      "name_ja_ref": "さかしまの時",
+      "order": 44,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21174.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間で1日待ってエリアを出入りしてから、Veridical Conflux F-5 を調べる（FFXIclopedia も同じ。武器はつけたままでよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Glimmer_of_Life",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「さかしまの時」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG45",
+      "name_en": "Time Slips Away",
+      "name_ja_ref": "霧らふ世界",
+      "order": 45,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "鑽孔蟲のフラスコ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22369.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "鑽孔蟲はパシュハウ沼〔Ｓ〕の Lou Carcolh と Ancient・Gold・Vajra Quadav、ベドー〔Ｓ〕の Ancient・Gold・Vajra Quadav が落とす（FFXIclopedia も同じ）。Veridical Conflux F-5 にトレード",
+          "url": "https://www.bg-wiki.com/ffxi/Time_Slips_Away",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「霧らふ世界」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG46",
+      "name_en": "When Wills Collide",
+      "name_ja_ref": "夢見果てし時",
+      "order": 46,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "盤上の覇者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22370.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Veridical Conflux F-5 からウォークオブエコーズへ入り、北の Ornate Door を調べてイベント、もう一度調べて BF。相手は4人の冥護四衆で、全員倒すと勝ち。入るときに鑽孔蟲のフラスコはなくなる。負けたら鑽孔蟲をまたトレードする（ヴァナ時間で1日に1回）。称号 Vanquisher of Spite は FFXIclopedia のみ",
+          "url": "https://www.bg-wiki.com/ffxi/When_Wills_Collide",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ウォークオブエコーズ.Ornate_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「夢見果てし時」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG47",
+      "name_en": "Whispers of Dawn",
+      "name_ja_ref": "映りしは、暁の",
+      "order": 47,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "翼を抱きし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22371.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "武器をはずして Veridical Conflux F-5 を調べる。称号 Mender of Wings（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Whispers_of_Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「映りしは、暁の」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG48",
+      "name_en": "A Dreamy Interlude",
+      "name_ja_ref": "瞼に見るもの",
+      "order": 48,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22372.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エリアを出入りしてヴァナ時間で1日待ち、Veridical Conflux F-5 を調べる（FFXIclopedia も同じ）。短いイベントだけなら、もう1日待つ",
+          "url": "https://www.bg-wiki.com/ffxi/A_Dreamy_Interlude",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「瞼に見るもの」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG49",
+      "name_en": "Cait in the Woods",
+      "name_ja_ref": "羅針の行方",
+      "order": 49,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "黎明の雫"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22373.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東ロンフォール〔Ｓ〕H-7 の北西の、川ぞいの木のそばの光る場所（FFXIclopedia も H-7）。Ronfaure dawndrop をもらう",
+          "url": "https://www.bg-wiki.com/ffxi/Cait_in_the_Woods",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「羅針の行方」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG50",
+      "name_en": "Fork in the Road",
+      "name_ja_ref": "轍辿りて",
+      "order": 50,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "原初の輝き"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22374.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ロンフォールのほか7か所の光る場所を調べて、8つの dawndrop を集めると Primal glow になる。ジャグナー森林〔Ｓ〕I-6（FFXIclopedia は H-6 と I-6 の境）、ラヴォール村〔Ｓ〕K-9、南サンドリア〔Ｓ〕K-6、ボスディン氷河〔Ｓ〕H-9、ザルカバード〔Ｓ〕F-8 の Rally Point: Red の横、王の間〔Ｓ〕、ウォークオブエコーズ。次がグロウベルグ〔Ｓ〕なので、ウォークオブエコーズを最後にするとよい",
+          "url": "https://www.bg-wiki.com/ffxi/Fork_in_the_Road",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「轍辿りて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG51",
+      "name_en": "Maiden of the Dusk",
+      "name_ja_ref": "翼もつ女神",
+      "order": 51,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22375.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Veridical Conflux F-5 を調べてイベントでウォークオブエコーズへ、北の Ornate Door を調べてイベント、もう一度調べて BF。相手はリリスで2段階。報酬 Moonshade earring は BG Wiki・FFXIclopedia ではこの節",
+          "url": "https://www.bg-wiki.com/ffxi/Maiden_of_the_Dusk",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "星唄ミッションの進み方によって、この節のあと星唄の A Forbidden Reunion か Champion of the Dawn を終えるまで先へ進めなくなる、とある。入るときに原初の輝きはなくなり、負けたら Veridical Conflux でもらい直す（ヴァナ時間で1日に1回）",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Maiden_of_the_Dusk",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "obj.ウォークオブエコーズ.Ornate_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「翼もつ女神」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG52",
+      "name_en": "Where It All Began",
+      "name_ja_ref": "はじまりの地",
+      "order": 52,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "リリゼットの耳飾り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "結婚式招待状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22376.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "獅子の泉の扉 K-6 を調べてイベント、Wedding invitation をもらう（FFXIclopedia も K-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Where_It_All_Began",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.053",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「はじまりの地」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG53",
+      "name_en": "A Token of Troth",
+      "name_ja_ref": "約束の刻",
+      "order": 53,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アルタナの神兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22377.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "武器をはずして Bulwark Gate を調べてイベント、もう一度調べてイベント。Bulwark Gate は E-6（FFXIclopedia は座標なし）。称号 Champion of the Dawn は BG Wiki では次の節",
+          "url": "https://www.bg-wiki.com/ffxi/A_Token_of_Troth",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "称号 Champion of the Dawn はこの節。Atma of a Future Fabulous が買えるようになる",
+          "url": "https://ffxiclopedia.fandom.com/wiki/A_Token_of_Troth",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "obj.ソロムグ原野〔Ｓ〕.Bulwark_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "altana",
+      "game_ref": null,
+      "id": "mission.altana.054",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「約束の刻」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WotG54",
+      "name_en": "Lest We Forget",
+      "name_ja_ref": "忘らるる君へ",
+      "order": 54,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "胡蝶のイヤリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22378.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Veridical Conflux F-5 を調べてイベント、Moonshade Earring の2つのオーグメントを選ぶ（FFXIclopedia も同じ）。オーグメントは1つ目が命中・攻撃・飛命・飛攻・魔命・魔攻・HP・MP、2つ目がリゲイン・リフレシュ・TPボーナスなど",
+          "url": "https://www.bg-wiki.com/ffxi/Lest_We_Forget",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "obj.グロウベルグ〔Ｓ〕.Veridical_Conflux",
+      "kind": "obj",
+      "location": {
+        "grid": "F-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 89,
+        "zone_name": "グロウベルグ〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Veridical Conflux",
+      "same_name": false
+    },
+    {
+      "id": "obj.ザルカバード〔Ｓ〕.Rally_Point_Blue",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 137,
+        "zone_name": "ザルカバード〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Rally Point: Blue",
+      "same_name": false
+    },
+    {
+      "id": "obj.ザルカバード〔Ｓ〕.Rally_Point_Green",
+      "kind": "obj",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 137,
+        "zone_name": "ザルカバード〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Rally Point: Green",
+      "same_name": false
+    },
+    {
+      "id": "obj.ザルカバード〔Ｓ〕.Rally_Point_Red",
+      "kind": "obj",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 137,
+        "zone_name": "ザルカバード〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Rally Point: Red",
+      "same_name": false
+    },
+    {
+      "id": "obj.ズヴァール城外郭〔Ｓ〕.Peculiar_Glint",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 138,
+        "zone_name": "ズヴァール城外郭〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Peculiar Glint",
+      "same_name": false
+    },
+    {
+      "id": "obj.バタリア丘陵〔Ｓ〕.Underpass_Hatch",
+      "kind": "obj",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 84,
+        "zone_name": "バタリア丘陵〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Underpass Hatch",
+      "same_name": false
+    },
+    {
+      "id": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_G9",
+      "kind": "obj",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 136,
+        "zone_name": "ボスディン氷河〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Regal Pawprints",
+      "same_name": false
+    },
+    {
+      "id": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_H7",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 136,
+        "zone_name": "ボスディン氷河〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Regal Pawprints",
+      "same_name": false
+    },
+    {
+      "id": "obj.ボスディン氷河〔Ｓ〕.Regal_Pawprints_H9",
+      "kind": "obj",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 136,
+        "zone_name": "ボスディン氷河〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Regal Pawprints",
+      "same_name": false
+    },
+    {
+      "id": "obj.ラヴォール村〔Ｓ〕.Reinforced_Gateway",
+      "kind": "obj",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 85,
+        "zone_name": "ラヴォール村〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Reinforced Gateway",
+      "same_name": false
+    },
+    {
+      "id": "obj.南サンドリア〔Ｓ〕.Door_Lion_Springs",
+      "kind": "obj",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 80,
+        "zone_name": "南サンドリア〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Door:\"Lion Springs\"",
+      "same_name": false
+    }
+  ]
+}

@@ -1,0 +1,1442 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "セルビナの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv15以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "An Explorer's Footsteps",
+      "name_ja_ref": "ある冒険者の足跡",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "石碑ごとに800〜10,000ギル（17か所で合計38,000ギル）"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "クロウラーの巣地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ソロムグ原野・バタリア丘陵を除く15か所を渡すと「クロウラーの巣地図」（持っていれば経験値2000と2000ギル）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1043.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Selbina 4、Lv15、Abelard G-9（FFXIclopedia も G-9）",
+          "url": "https://www.bg-wiki.com/ffxi/An_Explorer%27s_Footsteps",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Abelard"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv18以上でサポートジョブがない",
+          "type": "condition"
+        },
+        {
+          "text_ja": "マウラの「ごうつくばあさん」を受けていない",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Elder Memories",
+      "name_ja_ref": "ある老人の回想",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "サポートジョブを指定できるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4154.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Isacio"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「本当のプレゼント」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "釣りスキル30以上（装備やイメージサポートの分も込みでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Inside the Belly",
+      "name_ja_ref": "ハラキリ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "魚に応じたギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "魚の中からアイテムが出ることがある（オオナマズからアースワンド、シルバーシャークからトライデント、リュウグウノツカイからメルクリウスソードなど）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "釣り名人／釣り大名人／太公望（魚による）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1338.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Zaldon"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「港の落とし物」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "マウラのクエスト「安否」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gift",
+      "name_ja_ref": "プレゼント",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "スリプルダガー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "愛の救世主"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4550.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Oswald の座標 I-9。オドリタケは競売（食品→食材）で買える",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gift",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Oswald"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.005",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Only the Best",
+      "name_ja_ref": "品質管理",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "ラテーヌキャベツ5個で100ギル／ミリオンコーン3個で120ギル／ボヤーダ苔1個で600ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "サンドリアとバストゥークの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6129.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Melyon"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Rescue",
+      "name_ja_ref": "救出",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "5,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "セルビナ名誉市民"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ラングモント峠地図"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3823.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Thunder_Hawk"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「プレゼント」とクエスト「安否」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Real Gift",
+      "name_ja_ref": "本当のプレゼント",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "グラスロッド"
+        },
+        {
+          "kind": "title",
+          "name_ja": "キング・オブ・ラブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3817.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Oswald の座標 I-9",
+          "url": "https://www.bg-wiki.com/ffxi/The_Real_Gift",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Oswald"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジョブのレベルで受けられないことがある（具体的なLvは記事に書いていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Test My Mettle",
+      "name_ja_ref": "根性試し",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "掛け金×倍率（24時間3.0倍・36時間2.5倍・48時間2.0倍・60時間1.5倍・72時間1.2倍）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13556.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Devean"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.009",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Under the Sea",
+      "name_ja_ref": "港の落とし物",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アンバーピアス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "愛のキューピッド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Zaldon の座標 H-9",
+          "url": "https://www.bg-wiki.com/ffxi/Under_the_Sea",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Oswald"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「芸術家によるラプソディ」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv50で親密度40以上、シグナルパールを持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Picture Perfect",
+      "name_ja_ref": "真珠色の思い出",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が55になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "志を共にせし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5986.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Umberto の座標 L-10",
+          "url": "https://www.bg-wiki.com/ffxi/Picture_Perfect",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Diederik"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "はじめて受けるときはレベルの制限がある（記事ではLv40以上かと推測）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Potter's Preference",
+      "name_ja_ref": "ある陶芸家のこだわり",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,160ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15141.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声5、Nereus I-8、Clay はグスゲン鉱山の3枚目のマップ I-7",
+          "url": "https://www.bg-wiki.com/ffxi/A_Potter%27s_Preference",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Nereus"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv18以上でサポートジョブがない",
+          "type": "condition"
+        },
+        {
+          "text_ja": "セルビナの「ある老人の回想」を受けていない・クリアしていない",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Old Lady",
+      "name_ja_ref": "ごうつくばあさん",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "サポートジョブを指定できるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4151.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Vera"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「飽くなき追求」をコンプリートしてから、ヴァナ時間で3日たっている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "His Name is Valgeir",
+      "name_ja_ref": "その名はヴァルゲール",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "トライマライ水路地図"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3819.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声2、Rycharde I-8（用語辞典は H-8）、Valgeir I-9",
+          "url": "https://www.bg-wiki.com/ffxi/His_Name_Is_Valgeir",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「その名はヴァルゲール」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Expertise",
+      "name_ja_ref": "その腕前",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "食器一式"
+        },
+        {
+          "kind": "title",
+          "name_ja": "調達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4554.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声4、Take I-8、Valgeir I-9（用語辞典は I-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Expertise",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Take"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「傷ついたチョコボ」をクリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Orlando's Antiques",
+      "name_ja_ref": "古物商オルランド",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "8個ごとに100〜900ギル（品による）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8146.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Orlando"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.016",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "It's Raining Mannequins",
+      "name_ja_ref": "呪われた人形",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "自分の種族・性別のマネキン（このあと1体10万ギルで買えるようになる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7101.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ramona H-9、Cheupirudaux F-3",
+          "url": "https://www.bg-wiki.com/ffxi/It%27s_Raining_Mannequins",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Fyi_Chalmwoh"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「手がかり」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Basics",
+      "name_ja_ref": "基本",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "茶器一式"
+        },
+        {
+          "kind": "title",
+          "name_ja": "孤高の調達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4558.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「手がかり」のあと地球時間で8時間たってから。マウラ風クスクスはだいじなものとして Rycharde からもらう",
+          "url": "https://www.bg-wiki.com/ffxi/The_Basics",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "手順の1〜3のイベントを見てから",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Sand Charm",
+      "name_ja_ref": "安否",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ボストーニュ監獄地図"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3816.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声4、Blandine I-9（用語辞典は H-9）。砂の護符は機船のCrossbonesが落とす",
+          "url": "https://www.bg-wiki.com/ffxi/The_Sand_Charm",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Celestina"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「その腕前」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Clue",
+      "name_ja_ref": "手がかり",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "調達の達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4560.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「その腕前」のあと地球時間で8時間たってから。蟲の卵は競売の食材かクロウラー族",
+          "url": "https://www.bg-wiki.com/ffxi/The_Clue",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「料理人ライチャード」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Way of the Cook",
+      "name_ja_ref": "料理の道",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1,500ギル（ヴァナ時間で3日を過ぎると1,000ギル）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "食材調達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4556.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「料理人ライチャード」のあと地球時間で8時間たってから",
+          "url": "https://www.bg-wiki.com/ffxi/Way_of_the_Cook",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.021",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Rycharde the Chef",
+      "name_ja_ref": "料理人ライチャード",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1,500ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "食材調達人見習い"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4555.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Numi Adaligo F-9、Take I-8",
+          "url": "https://www.bg-wiki.com/ffxi/Rycharde_the_Chef",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.022",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "釣りスキル20以上（装備などの分も込みでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Fisherman's Heart",
+      "name_ja_ref": "釣り人の心",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "これまでの釣果を教えてもらえる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3966.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声2",
+          "url": "https://www.bg-wiki.com/ffxi/Fisherman%27s_Heart",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Katsunaga"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "マウラの名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv15以上の召喚士",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trial Size Trial by Lightning",
+      "name_ja_ref": "雷の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣“ラムウ”と契約できる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11430.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lacia I-9。雷の音叉・改は話したときにもらえ、Lacia にトレードすると試練の場の前へ送ってもらえる。相手は Ramuh Prime、15分、ひとりで、カーバンクルだけ",
+          "url": "https://www.bg-wiki.com/ffxi/Trial-Size_Trial_by_Lightning",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Lacia"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「料理の道」をコンプリートしてから、ヴァナ時間で8日たっている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Unending Chase",
+      "name_ja_ref": "飽くなき追求",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,100ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "目利きの調達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4557.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声2",
+          "url": "https://www.bg-wiki.com/ffxi/Unending_Chase",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Rycharde"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.025",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Donate to Recycling",
+      "name_ja_ref": "リサイクル（クエスト）",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "くずかご"
+        },
+        {
+          "kind": "title",
+          "name_ja": "エコロジスト"
+        },
+        {
+          "kind": "other",
+          "name_ja": "サンドリアとバストゥークの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8019.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Romeo"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Cargo",
+      "name_ja_ref": "補給物資",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "ロランベリー881で800ギル／874で2000ギル／864で3000ギル／854で4000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "サンドリアとバストゥークの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9453.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "クロウラーの巣の丸い部屋のかごにロランベリーをトレードすると、ときどき NM が出て、倒すと1段古いロランベリーを落とす（Guardian Crawler→881、Drone Crawler→874、Matron Crawler／Queen Crawler→864）",
+          "url": "https://www.bg-wiki.com/ffxi/Cargo",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Vuntar"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.027",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Trial by Lightning",
+      "name_ja_ref": "雷の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ラムウスタッフ／ライトニングベルト／ライトニングリング／長老の枝／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“ラムウ”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる雷の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7573.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ripapa は マウラ(I-9)。Repeatable=Yes。名声の条件は書かれていない",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Lightning",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Ripapa"
+      },
+      "steps": []
+    },
+    {
+      "category": "selbina_mhaura",
+      "game_ref": null,
+      "id": "quest.selbina_mhaura.028",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク1以上（どの地域の名声かは資料にない）",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Recycling Rods",
+      "name_ja_ref": "折れた釣り竿の謎",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1500"
+        },
+        {
+          "kind": "other",
+          "name_ja": "プルゴノルゴ島のPohka Chichiyowahlの店がふつうの値段になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15668.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel=1、Repeatable=no。Keshab-Menjab は (H-9) の下の段（FFXIclopedia も Keshab-Menjab）。プルゴノルゴ島で Lancet Jagil を釣り上げる",
+          "url": "https://www.bg-wiki.com/ffxi/Recycling_Rods",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.249.Keshab-Menjab"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.248.Abelard",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Abelard",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Devean",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Devean",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Diederik",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Diederik",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Isacio",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Isacio",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Melyon",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Melyon",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Oswald",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Oswald",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Romeo",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Romeo",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Thunder_Hawk",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Thunder Hawk",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Vuntar",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Vuntar",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Celestina",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Celestina",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Fyi_Chalmwoh",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Fyi Chalmwoh",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Katsunaga",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Katsunaga",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Keshab-Menjab",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Keshab-Menjab",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Lacia",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Lacia",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Nereus",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Nereus",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Orlando",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Orlando",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Rycharde",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8/I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Rycharde",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Take",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Take",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Vera",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Vera",
+      "same_name": false
+    }
+  ]
+}

@@ -1,0 +1,4255 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "追加ディスク「アドゥリンの魔境」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-1",
+      "name_en": "Rumors from the West",
+      "name_ja_ref": "西の国の噂",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ロゼッタ石"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28112.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "3国の街に入ったときのイベントは見なくてよい。ジュノ下層 H-7 の商工会議所の Darcia に「開拓者に志願したい」でロゼッタ石（FFXIclopedia も同じ。イベントを後にした場合は北サンドリア J-10・バストゥーク商業区 I-8・ウィンダス森の区 J-10 の Tales' Beginning。見逃したイベントは吟遊詩人で見られる）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Darcia"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.359",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「西の国の噂」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-2",
+      "name_en": "The Geomagnetron",
+      "name_ja_ref": "ロゼッタ石",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アドゥリン渡航免状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27641.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ロゼッタ石を持って、決まったダンジョンのどれか1か所の Geomagnetic Fount を調べ、Darcia に戻ると Adoulinian charter permit。100万ギルで飛ばせる。RoV「The River Runs Red」を済ませていれば Darcia に話すだけ（FFXIclopedia も同じ。グスタフの洞門は1枚目の G-10 の池）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Darcia"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ロゼッタ石」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-3",
+      "name_en": "Onward to Adoulin",
+      "name_ja_ref": "いざ、アドゥリンへ",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28113.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層 H-7 の Waypoint を調べる（FFXIclopedia も同じ。ケイザック古戦場に飛んでイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.245.Waypoint"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「いざ、アドゥリンへ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-4",
+      "name_en": "Heartwings and the Kindhearted",
+      "name_ja_ref": "精霊と少女",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28114.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ケイザック古戦場を北東へ進み K-7 から西アドゥリンに入る。マウントが使える（FFXIclopedia は L-7。途中のフロンティア・ステーションの Waypoint を開けておくとよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「精霊と少女」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-5",
+      "name_en": "Pioneer Registration",
+      "name_ja_ref": "開拓者登録",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "開拓者バッジ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "アドゥリン地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "同盟戦績1000ベヤルド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28117.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン E-8 の Pioneers' Coalition の Brenton に話す。報酬は Pioneer's Badge・Map of Adoulin・1000 Bayld（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Brenton"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「開拓者登録」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-6",
+      "name_en": "Life on the Frontier",
+      "name_ja_ref": "開拓者という生活",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "晩餐会への招待状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28118.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "済ませたワークスコールで使ったチケットの数（名声が高いほど少なくてよい）のあと、Brenton で Dinner invitation（FFXIclopedia は4枚。名声が最高なら1件でよい。2025年9月に条件が軽くなった）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Brenton"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「開拓者という生活」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-7",
+      "name_en": "Meeting of the Minds",
+      "name_ja_ref": "十二家会",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28629.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴァナ時間15:00〜22:00に東アドゥリン K-9 の城門前の Ploh Trishbahk（FFXIclopedia も同じ。招待状を渡す）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「十二家会」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA1-8",
+      "name_en": "Arciela Appears Again",
+      "name_ja_ref": "再会",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28630.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "済ませたワークスコールのチケット数と名声の両方。そのあと Pioneers' Coalition の Levil（FFXIclopedia は翌日を待ってから。チケットは前から使った分も数える）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_1-8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「再会」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-1",
+      "name_en": "Budding Prospects",
+      "name_ja_ref": "リフキンを統べるもの",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29067.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Teodor に会っていなければ、西アドゥリン J-9 の Berghent と Mummers' Coalition の Masad で「Flavors of Our Lives」を進め、翌日エリアを移ってから Masad（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.西アドゥリン.Masad"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「リフキンを統べるもの」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-1-1",
+      "name_en": "The Light Shining in Your Eyes",
+      "name_ja_ref": "その瞳の輝きゆえに",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29068.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil に話す（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「その瞳の輝きゆえに」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-1-2",
+      "name_en": "The Heirloom",
+      "name_ja_ref": "遺剣の在り処",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29069.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンの城門に近づくとイベント（FFXIclopedia も同じ。城門の Waypoint で飛ぶと着いたときに起きる）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遺剣の在り処」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-2",
+      "name_en": "An Aimless Journey",
+      "name_ja_ref": "標なき旅",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29070.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "シルダス洞窟 E-9 の Ergon Locus に近づくとイベント。手前にログスキルの要るコロナイズ・レイヴ（FFXIclopedia も同じ。近くの Augural Conveyor が開いていれば Waypoint から飛べる）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「標なき旅」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-2-1",
+      "name_en": "Ortharsyne",
+      "name_ja_ref": "オーダーサイン",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29071.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヨルシア森林に入るとイベント。シルダス洞窟から行くにはフォードとクライムのスキルが要る。前に行ったことがあれば Waypoint やホームポイントでもよい（FFXIclopedia はシルダス洞窟 I-7 の出口）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「オーダーサイン」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-2-2",
+      "name_en": "In the Presence of Royalty",
+      "name_ja_ref": "女王種",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ロスレーシャの実"
+        },
+        {
+          "kind": "title",
+          "name_ja": "女王の信頼を得し者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29072.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Yorcia's tear は I-8 の南の Ergon Locus ??? か、草刈鎌で Harvesting Point。I-8 の北の Ergon Locus と ??? は違う。G-6 の泉の Pellucid Afflusion で Rosulatia's pome、称号 Queen's Confidante（FFXIclopedia も同じ。茂みの道はヴァナ時間21時に開く）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.263.Ergon_Locus_I-8"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「女王種」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-3",
+      "name_en": "The Twin World Trees",
+      "name_ja_ref": "双生の世界樹",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29073.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前の節の翌日まで待ち、東アドゥリン G-7 の Oscairn（PCK.ワークスの入口の北東）に近づくとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Oscairn"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「双生の世界樹」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-4",
+      "name_en": "Honor and Audacity",
+      "name_ja_ref": "名誉と意地",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29411.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン F-7 からララ水道に入るとイベント（FFXIclopedia も同じ。どの入口でもよいが F-7 が近い）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.360",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「名誉と意地」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-4-1",
+      "name_en": "The Watergarden Coliseum",
+      "name_ja_ref": "水園の決闘場",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28641.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道 M-6 の部屋の Yeggha Dolashi。東アドゥリン F-7 の入口が近い（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.258.Yeggha_Dolashi"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「水園の決闘場」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-5",
+      "name_en": "Friction and Fissures",
+      "name_ja_ref": "同盟の軋轢",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29412.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「同盟の軋轢」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-5-1",
+      "name_en": "The Celennia Memorial Library",
+      "name_ja_ref": "セレニア図書館",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30101.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン F-10 の図書館に Eppel-Treppel から入り、棚の History の3つを全部読んで Levil（FFXIclopedia も同じ。Yefafa に話してから。本が読めないときは図書館のクエストが要るとある）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Eppel-Treppel"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「セレニア図書館」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-5-2",
+      "name_en": "For Whom Do We Toil?",
+      "name_ja_ref": "我らが仕えし主は……",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "開拓反対派の計画の写し"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29413.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン F-5 からララ水道に入ってイベント。C-6 の Sluice Gate に合言葉 HGSI（大文字）。答えを間違えたらもう一度 Sluice Gate（FFXIclopedia も同じ。SCT.ワークスの Wegellion のイベントは任意）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-5-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「我らが仕えし主は……」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-6",
+      "name_en": "Aiming for Ygnas",
+      "name_ja_ref": "ユグナス暗殺計画",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29414.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン K-9 の城門の Ploh Trishbahk。RoV「Tears of the Generals」の途中ならそちらが先に出るので2回話す（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ユグナス暗殺計画」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-6-1",
+      "name_en": "Calamity in the Kitchen",
+      "name_ja_ref": "厨房の危機！？",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アドゥリントマト"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29415.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン I-12 の入口からララ水道に入り、F-11 の Chalvava で Box of Adoulinian tomatoes（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-6-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.258.Chalvava"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「厨房の危機！？」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-6-2",
+      "name_en": "Arciela's Promise",
+      "name_ja_ref": "若姫さまへの贈り物",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29416.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン K-9 の城門の Ploh Trishbahk（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-6-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「若姫さまへの贈り物」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-7",
+      "name_en": "Predators and Prey",
+      "name_ja_ref": "追われる者と追う者と",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29417.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道 C-6 の Sluice Gate。西アドゥリン F-5 の入口が近い（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.258.Sluice_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「追われる者と追う者と」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-7-1",
+      "name_en": "Behind the Sluices",
+      "name_ja_ref": "水門の奥へ",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29418.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道 H-6 の Storage Container で Waterway facility crank。C-6 の Sluice Gate でイベント、もう一度調べて奥へ、Antiquated Sluice Gate から BF。敵は The Keeper・Mistdagger・The Briars 2体、Arciela が倒れると負け。フェイス可。称号 Princess's Partisan（日本語名はわからない）。FFXIclopedia は Storage Container と Sluice Gate の座標が空欄",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-7-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「水門の奥へ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-7-2",
+      "name_en": "The Leafkin Monarch",
+      "name_ja_ref": "リフキンの王",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29419.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンの城門に近づくとイベント。城門の Waypoint で飛ぶと起きる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-7-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.361",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「リフキンの王」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA2-7-3",
+      "name_en": "Yggdrasil",
+      "name_ja_ref": "ユグドラシル",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27243.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "城のイベントの翌日に Pioneers' Coalition の Levil。チケット数と名声の条件があることがある（FFXIclopedia も同じ。イベントが起きないときはワークスコールを済ませる。2025年9月に軽くなった）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_2-7-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ユグドラシル」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-1",
+      "name_en": "Return of the Exorcist",
+      "name_ja_ref": "エクソシスト帰る",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29714.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン H-4 の飛空艇乗り場（Waypoint 8）に行くとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「エクソシスト帰る」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-1-1",
+      "name_en": "The Merciless One",
+      "name_ja_ref": "イングリッド",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30970.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンの城門に近づくとイベント。このあと東アドゥリン J-7 の Rigobertine に2回話すとフェイス Ingrid（FFXIclopedia も同じ。「魔物にさらわれし姫君」から「遺剣の導く先」までは取れない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「イングリッド」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-1-2",
+      "name_en": "A Curse from the Past",
+      "name_ja_ref": "呪い",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29716.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ploh Trishbahk K-9、Rigobertine J-7 で Eternal flame、Fontis Xanira（H-8/9）で Vial of untainted holy water、Sunrise Beacon J-4 で Piece of a stone wall、最後に Erminold J-10 で Weather vane wings（FFXIclopedia も同じ。Fontis Xanira は H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「呪い」で4つの品をそろえた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-1-3",
+      "name_en": "The Purgation",
+      "name_ja_ref": "穢れ祓い",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29718.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "4つのだいじなものを持って東アドゥリンの城門に近づくとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「穢れ祓い」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-1-4",
+      "name_en": "The Key",
+      "name_ja_ref": "導く鍵",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29719.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-1-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「導く鍵」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-2",
+      "name_en": "The Princess's Dilemma",
+      "name_ja_ref": "若き姫の悩み",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29720.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セレニア図書館に入るとイベント。2つめの「甘いものは好き？」を選ぶ（FFXIclopedia も同じ。RoV の Solemnity が先に出たら、出入りしてもう一度）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Eppel-Treppel"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「若き姫の悩み」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-2-1",
+      "name_en": "Dark Clouds Ahead",
+      "name_ja_ref": "晴れぬ戸惑い",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29721.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「晴れぬ戸惑い」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-2-2",
+      "name_en": "The Smallest of Favors",
+      "name_ja_ref": "小さなお願い",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29722.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待ち、西アドゥリンから歩いてケイザック古戦場に入る。Waypoint は不可（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「小さなお願い」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3",
+      "name_en": "Summoned by Spirits",
+      "name_ja_ref": "精霊に呼ばれし娘",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29723.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セレニア図書館に入るとイベント（FFXIclopedia も同じ。入口は Eppel-Treppel）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Eppel-Treppel"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「精霊に呼ばれし娘」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3-1",
+      "name_en": "Evil Entities",
+      "name_ja_ref": "悪霊憑き",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29724.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ケイザック古戦場のフロンティア・ステーションの Elmric（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.261.Elmric"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「悪霊憑き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3-2",
+      "name_en": "Adoulin Calling",
+      "name_ja_ref": "Calling",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29725.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン H-9 の女神像（Waypoint 3）の近くの Door: Boarding House。イベントはとても長い（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.257.Door_Boarding_House"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「Calling」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3-3",
+      "name_en": "The Disappearance of Nyline",
+      "name_ja_ref": "精霊",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29726.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エヌティエル水林 J-7/K-7 の Ergon Locus（Torchbloom）に近づくとイベント。フロンティア・ステーションの Waypoint が近い（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「精霊」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3-4",
+      "name_en": "Shared Consciousness",
+      "name_ja_ref": "意識の共有",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "雲飛ばす東風"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "1000"
+        },
+        {
+          "kind": "other",
+          "name_ja": "同盟戦績1,000ベヤルド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29727.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン H-9 の Door: Boarding House でイベント。称号 Sunshine Cadet、経験値1000、1000 Bayld（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.257.Door_Boarding_House"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「意識の共有」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-3-5",
+      "name_en": "Clear Skies",
+      "name_ja_ref": "澄み渡る空",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "同盟戦績100ベヤルド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29728.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil で 100 Bayld（FFXIclopedia も同じ。アドゥリンの外に一度出る必要があるとある）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-3-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「澄み渡る空」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-4",
+      "name_en": "The Man in Black",
+      "name_ja_ref": "気晴らしのススメ",
+      "order": 42,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30695.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mummers' Coalition の Masad で Teodor のイベント。Rhapsody in Azure があれば Curio Vendor Moogle で Card Jailer Teodor を1,000ギルで買い、次のミニゲームを飛ばせる（FFXIclopedia は Masad を G-11 とする）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.西アドゥリン.Masad"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「気晴らしのススメ」のイベントで始まる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-4-1",
+      "name_en": "To the Victor...",
+      "name_ja_ref": "王の見つめし先は",
+      "order": 43,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "お遊戯王"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30696.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Teodor にミニゲーム Boom or Bust で3回勝つ。負けたら Masad に2回話して再戦。称号 Boomy and Busty（FFXIclopedia も同じ。合計11を超えると負け。Card Jailer Teodor があれば自動で勝つ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.西アドゥリン.Masad"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「王の見つめし先は」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-4-2",
+      "name_en": "An Extraordinary Gentleman",
+      "name_ja_ref": "王の見つめし先は～紳士の導き",
+      "order": 44,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30697.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil で1つめの「Ortharsyne」を選ぶ。イベントが起きないときは Masad にもう一度話す（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-4-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「王の見つめし先は～紳士の導き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-4-3",
+      "name_en": "The Order's Treasures",
+      "name_ja_ref": "英知の宝庫",
+      "order": 45,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30698.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セレニア図書館に入るとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-4-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Eppel-Treppel"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「英知の宝庫」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-4-4",
+      "name_en": "August's Heirloom",
+      "name_ja_ref": "オーグスト王と残されし剣",
+      "order": 46,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30699.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン K-9 の城門の Ploh Trishbahk（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-4-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「オーグスト王と残されし剣」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-5",
+      "name_en": "Beauty and the Beast",
+      "name_ja_ref": "魔物にさらわれし姫君",
+      "order": 47,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アシェラのボンネ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30701.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ケイザック古戦場 I-7/J-8 の分かれ道の Signs of Struggle で Pristine hair ribbon。フロンティア・ステーションの南西（FFXIclopedia は J-8 の木のそば）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.261.Signs_of_a_Struggle"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「魔物にさらわれし姫君」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-5-1",
+      "name_en": "Wildcat with a Gold Pelt",
+      "name_ja_ref": "金虎",
+      "order": 48,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30702.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンの城門に近づくとイベント（FFXIclopedia も同じ。Ploh Trishbahk のイベントは次の節の任意のもの）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「金虎」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-5-2",
+      "name_en": "In Search of Arciela",
+      "name_ja_ref": "アシェラ捜索隊",
+      "order": 49,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30704.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil（FFXIclopedia も同じ。その前に Ploh Trishbahk に話すと任意のイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-5-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アシェラ捜索隊」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-5-3",
+      "name_en": "Looking For Leads",
+      "name_ja_ref": "情報のことなら……",
+      "order": 50,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "誘獣の鈴"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30705.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Scouts' Coalition（Waypoint 2）の Wegellion に近づくとイベントで Tintinnabulum（FFXIclopedia にこの節のページがない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-5-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Wegellion"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「情報のことなら……」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6",
+      "name_en": "Drifting Northwest",
+      "name_ja_ref": "北西の地カミール",
+      "order": 51,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "絶零の開拓者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30706.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓に入るとイベント。ウォーの門・ホームポイント・Waypoint のどれでもよい。称号 Weatherer of Brumal Climes（FFXIclopedia も同じ。初めてはヨルシア森林からウォーの門を通る）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「北西の地カミール」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6-1",
+      "name_en": "Kumhau, the Flashfrost Naakual",
+      "name_ja_ref": "絶零公クムハウ",
+      "order": 52,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "金色の毛"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30707.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 F-11 の Crawling Cave で Aureate ball of fur。フロンティア・ビバック#2 から西のトンネルを出て北、G-10 の北の洞窟を抜ける（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Crawling_Cave"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「絶零公クムハウ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6-2",
+      "name_en": "Soul Siphon",
+      "name_ja_ref": "吸魂石",
+      "order": 53,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30708.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 G-11 の南西の Hollowed Pathway で「Proceed」を選ぶとイベント（BF には入らない。FFXIclopedia も同じ。シルダス洞窟に移ってイベントのあと戻る）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Hollowed_Pathway"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「吸魂石」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6-3",
+      "name_en": "Stonewalled",
+      "name_ja_ref": "第三の敵",
+      "order": 54,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "吸魂石"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30709.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hollowed Pathway をもう一度調べて BF「Stonewalled」。30分、フェイス可。Primogenial Marolith だけ倒せば勝ち、Gargouille Drudge が次々に来る。負けたら Crawling Cave で Aureate ball of fur を取り直す（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Hollowed_Pathway"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「第三の敵」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6-4",
+      "name_en": "Salvation",
+      "name_ja_ref": "アシェラの下へ",
+      "order": 55,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "姫を救いし勇者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30710.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 F-11 の Crawling Cave でイベント。3つめの答えを選ぶ。称号 White Knight（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Crawling_Cave"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.053",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アシェラの下へ」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA3-6-5",
+      "name_en": "Glimmer of Portent",
+      "name_ja_ref": "遺剣の導く先",
+      "order": 56,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30711.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil。フェイス Ingrid をまだもらっていなければ、東アドゥリン J-7 の Rigobertine でもらえるようになる（FFXIclopedia も同じ。名声が要ることがある）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_3-6-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.055",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遺剣の導く先」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1",
+      "name_en": "...Into the Fire",
+      "name_ja_ref": "新たな問題",
+      "order": 57,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31301.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Couriers' Coalition の入口の Kipligg。アドゥリン港へ行くよう頼まれる（FFXIclopedia は G-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Kipligg"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.362",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「新たな問題」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1-1",
+      "name_en": "Melvien de Malecroix",
+      "name_ja_ref": "メルヴィアン",
+      "order": 58,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28636.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アドゥリン港（Waypoint 9）の J-4 の Port Storage でイベント。持ってくる品が言われる（FFXIclopedia は座標が空欄）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.256.Port_Storage"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.056",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「メルヴィアン」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1-2",
+      "name_en": "Courier Catastrophe",
+      "name_ja_ref": "足りない品は……",
+      "order": 59,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31302.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "言われた品（Eft Skin 5・Manticore Hair 4・Buffalo Horn・Manticore Leather・Buffalo Leather のどれか。アシェラとの仲で決まり、Buffalo Horn がいちばん低い）を Port Storage にトレード（FFXIclopedia も同じ。競売で買える）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.256.Port_Storage"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.057",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「足りない品は……」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1-3",
+      "name_en": "Done and Delivered",
+      "name_ja_ref": "納品完了",
+      "order": 60,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31303.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Couriers' Coalition の入口の Kipligg（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Kipligg"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.058",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「納品完了」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1-4",
+      "name_en": "Ministerial Whispers",
+      "name_ja_ref": "財務大臣の噂",
+      "order": 61,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "同盟戦績500ベヤルド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31304.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil で 500 Bayld（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.059",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「財務大臣の噂」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-1-5",
+      "name_en": "A Day in the Life of a Pioneer",
+      "name_ja_ref": "とある開拓の日常",
+      "order": 62,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31308.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エリアを移って翌日まで待ち、Pioneers' Coalition の Levil。選択肢は「What happened after that?」（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-1-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.060",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「とある開拓の日常」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-2",
+      "name_en": "Lighting the Way",
+      "name_ja_ref": "光の道",
+      "order": 63,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "無知なる知者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31310.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 H-5 の Alpine Trail を調べてカミール山へ。フロンティア・ビバック#3 から北のトンネルを左の壁沿い。ホームポイントも近い。称号 Knower of Untruths（FFXIclopedia は座標が空欄。イベントのあとはカミール山麓に戻される）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Alpine_Trail"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.061",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「光の道」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-2-1",
+      "name_en": "Sajj'aka",
+      "name_ja_ref": "ハーサーカ",
+      "order": 64,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31313.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セレニア図書館に入るとイベント。イベントの中の話を全部読む（FFXIclopedia にこの節のページがない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Eppel-Treppel"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.062",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ハーサーカ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-2-2",
+      "name_en": "Studying Up",
+      "name_ja_ref": "図書館にて",
+      "order": 65,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31316.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Alpine Trail をもう一度調べてイベント。答えは Yorcia Weald・Morimar・The Serpentine Labyrinth、そのあと Yes it does.・Who are \"They\"?・Unleash a feral scream.・What are you proposing?（FFXIclopedia は最初の3つだけ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Alpine_Trail"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.063",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「図書館にて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-2-3",
+      "name_en": "A Vow of Truth",
+      "name_ja_ref": "誓いの真実と汚された鱗",
+      "order": 66,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31321.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "どの入口からでもウォーの門に入るとイベント。カミール山麓のフロンティア・ステーションから南の K-11 の入口が近い。街からならマリアミ渓谷の Waypoint 4 から北西（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-2-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.064",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「誓いの真実と汚された鱗」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-2-4",
+      "name_en": "Darrcuiln",
+      "name_ja_ref": "ダラクァルンの導き",
+      "order": 67,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "金色の髭"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31325.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウォーの門 G-7/G-8 の境のトンネルの少し中の Darkened Crevice で Tuft of golden fur。カミール山麓側からは I-5・H-6 で飛び降りる。マリアミ渓谷側からは左の壁沿いで H-7 のコロナイズ・レイヴを抜ける。大部屋の手前でスニーク・インビジ（FFXIclopedia は 4-3 で G-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-2-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.273.Darkened_Crevice"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.065",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ダラクァルンの導き」で「金色の髭」をもらった",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3",
+      "name_en": "The Gates",
+      "name_ja_ref": "門",
+      "order": 68,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26400.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウォーの門 G-8 の Darkened Crevice から BF「The Gates」。アンブリル族の群れと戦い、Arciela・Darrcuiln・Noble Warrior・Resolute Leafkin のだれかが倒れると負け。ソロ可、約1分で始まる。FFXIclopedia：Tuft of golden fur は入ると消え、負けたらウォーの門 K-8/K-9 の Large Animal Track で取り直す。称号 Ulbukan Understudy（シートには称号の記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.273.Darkened_Crevice"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.066",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「門」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-1",
+      "name_en": "Morimar",
+      "name_ja_ref": "モリマー",
+      "order": 69,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ハーサーカの加護"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31333.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 H-5 の Alpine Trail をもう一度調べる。Sajj'aka's protective ward（FFXIclopedia にこの節のページがない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Alpine_Trail"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.067",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「モリマー」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-2",
+      "name_en": "A New Force Arises",
+      "name_ja_ref": "新しき力",
+      "order": 70,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "世界樹の若木"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31334.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 F-8 の Liseran Door: Entrance からラ・カザナル宮外郭へ。Upstairs（Map 1）I-11 の Effigy of Sealing で Starblessed scale、C-7 で Silvery plate（I-6 のエレベーターに要る）、H-2 の Effigy of Sealing で Moontouched scale、Basement（Map 2）C-8 の Demonic Architrave で Sunkissed scale。途中のコロナイズ・レイヴには Lerene のクエストの Pulverize が要る。1つ取るたびに Alpine Trail と図書館で任意のイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Liseran_Door_Entrance"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.068",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「新しき力」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-3",
+      "name_en": "The Sacred Sapling",
+      "name_ja_ref": "世界樹の若木",
+      "order": 71,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31336.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "城門の Ploh Trishbahk（BG Wiki は L-9）。選択肢は Tree Grafting（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.069",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「世界樹の若木」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-4",
+      "name_en": "Tree Grafting",
+      "name_ja_ref": "接ぎ木",
+      "order": 72,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31337.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pioneers' Coalition の Levil（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.070",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「接ぎ木」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-5",
+      "name_en": "A Shrouded Canopy",
+      "name_ja_ref": "幻の森",
+      "order": 73,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31341.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 G-11（F-11 寄り）の Blockaded Path を調べてリファーリアへ。フロンティア・ビバック#2 が近い。Hollowed Pathway の南東（FFXIclopedia は北）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Blockaded_Path"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.071",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「幻の森」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-6",
+      "name_en": "Leafallia",
+      "name_ja_ref": "リファーリア",
+      "order": 74,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31346.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "リファーリア H-8 の Aged Stump（FFXIclopedia にこの節のページがない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.281.Aged_Stump"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.072",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「リファーリア」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-7",
+      "name_en": "Rosulatia's Promise",
+      "name_ja_ref": "ロスレーシャ、再び",
+      "order": 75,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ウルブカの守護者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31348.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Aged Stump の向かい、小川を渡った木のそばの Heroic Footprints。長いイベント。称号 Keeper of Ulbuka（FFXIclopedia も同じ。もう一度調べると Morimar の短いイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.281.Heroic_Footprints"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.073",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ロスレーシャ、再び」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-8",
+      "name_en": "The Lightsland",
+      "name_ja_ref": "再生",
+      "order": 76,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "レフージネックレス／リゾールブマフラー／グレースカラー のどれか1つ"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "暁の光"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31349.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "城門の Ploh Trishbahk で首装備を1つ選ぶ（Adoulin's Refuge・Arciela's Grace・Ygnas's Resolve）。FFXIclopedia：経験値500、称号 Radiance of Daybreak。捨てると「悲劇の後」が進められない",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.074",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「再生」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-3-9",
+      "name_en": "The Light of Dawn Comes from the East",
+      "name_ja_ref": "暁の光は東より来たる",
+      "order": 77,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31350.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil。次の節が自動で始まる。BG Wiki は報酬を経験値500とする（シートは前節）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-3-9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.075",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「暁の光は東より来たる」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-4",
+      "name_en": "Cries from the Deep",
+      "name_ja_ref": "冥宮からの声",
+      "order": 78,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31706.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン K-9 の城門に近づくとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.076",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「冥宮からの声」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-4-1",
+      "name_en": "Seeds of Doubt",
+      "name_ja_ref": "陰謀の疑惑",
+      "order": 79,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31707.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン I-12 の入口からララ水道に入り、F-11 の Chalvava。Waypoint #6（Rent-a-Room）が近い（FFXIclopedia は F-10/F-11）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.258.Chalvava"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.077",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「陰謀の疑惑」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-4-2",
+      "name_en": "The Tomatoes of Wrath",
+      "name_ja_ref": "瑞々しいトマトたち",
+      "order": 80,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31708.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "城門の Ploh Trishbahk で長いイベント（FFXIclopedia にこの節のページがない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-4-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.078",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「瑞々しいトマトたち」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-4-3",
+      "name_en": "A Grave Mistake",
+      "name_ja_ref": "墓所の秘密",
+      "order": 81,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31709.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道の3か所（Sainene N-7・Waterway Overlook I-6・Stout Weir D-8）はどの順でもよい。Stout Weir で Broken fuse。東アドゥリン F-7 の入口から入ると K-5 に出て、2か所が近い（FFXIclopedia も I-6。シートは Waterways Overlook を J-6 と I-6 の境とする）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-4-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.079",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「墓所の秘密」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-4-4",
+      "name_en": "An Emergency Convocation",
+      "name_ja_ref": "緊急十二家会",
+      "order": 82,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31710.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンを出入りしてから城門の Ploh Trishbahk で長いイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-4-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.080",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「緊急十二家会」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-5",
+      "name_en": "Balamor, the Deathborne Xol",
+      "name_ja_ref": "不死君バラモア",
+      "order": 83,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31711.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Ploh Trishbahk。エリアの出入りは要らない（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.081",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「不死君バラモア」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-5-1",
+      "name_en": "Anagnorisis",
+      "name_ja_ref": "悲劇の後",
+      "order": 84,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31712.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「再生」でもらった首装備（Adoulin's Refuge・Arciela's Grace・Ygnas's Resolve）を Ploh Trishbahk にトレード。捨ててしまったときは話せば進む（FFXIclopedia は GM に頼むと書く古い記述）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.082",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「悲劇の後」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-5-2",
+      "name_en": "Just the Thing",
+      "name_ja_ref": "アシェラの好きなもの",
+      "order": 85,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ハッピー☆になるお菓子の本"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31713.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンのセレニア図書館の Andreine で \"Suffering Sacchariferous\"（FFXIclopedia も同じ。Waypoint は Scouts' Coalition が近い）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-5-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.セレニア図書館.Andreine"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.083",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アシェラの好きなもの」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-5-3",
+      "name_en": "Sugarcoated Salvation",
+      "name_ja_ref": "スィーツの魔力",
+      "order": 86,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "王墓の紋章"
+        },
+        {
+          "kind": "title",
+          "name_ja": "悲嘆の淵の救済者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31714.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ploh Trishbahk でイベント、Sepulcher ensign。称号 Lifter of Spirits。FFXIclopedia：選択肢は1つずつ全部選ぶ。「.....」の3つの答えはどれでも同じ",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-5-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.084",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「スィーツの魔力」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-5-4",
+      "name_en": "Arciela's Resolve",
+      "name_ja_ref": "姫の決意",
+      "order": 87,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31715.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン F-7 の入口からララ水道に入り、N-10（いちばん南東）の Royal Sepulcher（FFXIclopedia も同じ。近くの名前のない調べる所は合言葉を聞かれ、間違えると東アドゥリンへ出される。このミッションには要らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-5-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.258.Royal_Sepulcher"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.085",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「姫の決意」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-6",
+      "name_en": "Balamor's Ruse",
+      "name_ja_ref": "バラモアのゲーム",
+      "order": 88,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ゲームの勝者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31716.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道の敵から Consummate simulacrum（New Moon Bats がよく落とす。済ませた人が倒してもよい）。B-6 の Augural Conveyor から BF「The Charlatan」（入る前のイベントなし）。Balamor と Dullahan 3体、Arciela が倒れると負け、Balamor だけ倒せばよい。入るとリーダーだけ KI がなくなる。称号 Shedder of Harlequin Tears。FFXIclopedia：Spoutdrenched Toad・Rustwater Toad・New Moon Bats・Duskbringer Bat・Skittering Spider が落とす",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.258.Augural_Conveyor"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.086",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「バラモアのゲーム」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-6-1",
+      "name_en": "The Charlatan",
+      "name_ja_ref": "トリックスター",
+      "order": 89,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "レフジネックレス+1／リゾルブマフラー+1／グレースカラー+1 のどれか1つ"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "暁の輝き"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31717.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ploh Trishbahk で +1 の首装備を1つ選ぶ（前に選んだものと違ってもよい。取り直せない）。経験値500。称号 Hope for the Future。迷うと答えると出て、もう一度話せば選び直せる。RoV「Solemnity」の途中だと先にそちらを済ませる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-6-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.087",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「トリックスター」クリア、ヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA4-6-2",
+      "name_en": "Royal Blessings",
+      "name_ja_ref": "さらなる加護",
+      "order": 90,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31718.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待って Pioneers' Coalition の Levil。選択肢は \"'Strange'? Can you be more specific?\" のあと \"Of course they will!\"（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_4-6-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Levil"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.090",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「さらなる加護」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-1",
+      "name_en": "Arboreal Rumors",
+      "name_ja_ref": "奇妙な森の噂",
+      "order": 91,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アドゥリン家の紋章入り便せん"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32104.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "城門の Ploh Trishbahk（K-9）で Hastily scribbled note。選択肢は \"I just want to see Arciela.\"（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.091",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「奇妙な森の噂」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-1-1",
+      "name_en": "Arciela's Missive",
+      "name_ja_ref": "アシェラからの伝言",
+      "order": 92,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32115.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "一時的に所持するだいじなものの Hastily scribbled note を読む（読まないと Sunrise Beacon で何も起きない）。西アドゥリン J-4（Waypoint #9 の波止場の北の端）の Sunrise Beacon（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.256.Sunrise_Beacon"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.092",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アシェラからの伝言」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-1-2",
+      "name_en": "Heroes, Unite!",
+      "name_ja_ref": "集え、英雄の下へ",
+      "order": 93,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32116.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 H-5 の Alpine Trail。フロンティア・ビバック#3 かホームポイントが近い（FFXIclopedia も同じ。リファーリアの Heroic Footprints の任意のイベントはシートだけ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Alpine_Trail"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.093",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「集え、英雄の下へ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-1-3",
+      "name_en": "A Portent Most Ominous",
+      "name_ja_ref": "凶兆か、吉兆か……",
+      "order": 94,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "青色のロスレーシャの実"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "黄色のロスレーシャの実"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32117.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 G-11 の Blockaded Path かホームポイントからリファーリアに入り、Aged Stump で Sky blue pome と Sun yellow pome（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.281.Aged_Stump"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.094",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「凶兆か、吉兆か……」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-2",
+      "name_en": "Yggdrasil Beckons",
+      "name_ja_ref": "世界樹の導き",
+      "order": 95,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "冥王の聖痕【変妖君】"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "冥王の聖痕【怪霊君】"
+        },
+        {
+          "kind": "title",
+          "name_ja": "変妖を討滅せし者"
+        },
+        {
+          "kind": "title",
+          "name_ja": "怪霊を討滅せし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32118.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BF が2つでどちらが先でもよい。シルダス洞窟 K-11 の Wavering Flux で Dhokmak と Malignant Acuex 3体（Darrcuiln が倒れると負け）、ヨルシア森林 H-6 の南東の Wavering Flux で Ashrakk（Morimar が倒れると負け）。どちらも HP を10%まで減らせば勝ち。武器を構えるとすぐ始まる。負けたらリファーリアの Aged Stump で KI を取り直す。称号 Vanquisher of Dhokmak・Vanquisher of Ashrakk。FFXIclopedia：入るとヨルシア森林は Sky blue pome、シルダス洞窟は Sun yellow pome がなくなる",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.270.Wavering_Flux"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.095",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「世界樹の導き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-2-1",
+      "name_en": "Returning to the Trees",
+      "name_ja_ref": "帰路、リファーリアへ",
+      "order": 96,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32119.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "リファーリアに入るとイベント。選択肢は \"Ask for forgiveness.\" のあと \"I promise.\"（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Blockaded_Path"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.096",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「帰路、リファーリアへ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-2-2",
+      "name_en": "The Key to the Turris",
+      "name_ja_ref": "天守へ至る鍵",
+      "order": 97,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "英霊の加護ありし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32120.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ラ・カザナル宮天守のいちばん下の Ominous Postern で長いイベント、そのあとカミール山麓 F-8 に出る。内郭のホームポイント#1があれば飛んで Vertical Transit Device から天守へ。ないときは外郭から通るか、七支公の Naakual crest があれば各地の結晶から近道（7つの道）。称号 Protected by Ulbukan Spirits（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ラ・カザナル宮天守.Ominous_Postern"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.097",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天守へ至る鍵」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-3",
+      "name_en": "Teodor's Summons",
+      "name_ja_ref": "黒衣の紳士の招待",
+      "order": 98,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ルーンの字刻板"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32121.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カミール山麓 H-5 の Alpine Trail でイベント、Ash runic board。選択肢は \"I thought he was a libertine, myself.\"（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.267.Alpine_Trail"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.098",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「黒衣の紳士の招待」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-3-1",
+      "name_en": "The Seventh Guardian",
+      "name_ja_ref": "七番目の守護者",
+      "order": 99,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32122.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン F-7 の入口からララ水道に入り、M-6 の Yeggha Dolashi（FFXIclopedia も同じ。シートは入口を E-7 とする）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.258.Yeggha_Dolashi"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.099",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「七番目の守護者」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-3-2",
+      "name_en": "Watery Grave",
+      "name_ja_ref": "水園の決闘",
+      "order": 100,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "古ぼけた紋章-不死公"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "冥王の聖痕【不死君】"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "タルタロスの魂魄"
+        },
+        {
+          "kind": "title",
+          "name_ja": "聖痕の受難者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32123.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道 M-6 の Entrance: Coliseum から BF。Teodor は HP10%で降参。Dread Spikes に気をつける。入ると Ash runic board が Blank ash runic board になり、負けたら翌日まで待ってララ水道に入り直すと戻る。称号 Receiver of Sigils（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.258.Entrance_Coliseum"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.100",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「水園の決闘」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-3-3",
+      "name_en": "Blood for Blood",
+      "name_ja_ref": "ときの声",
+      "order": 101,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32124.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ラ・カザナル宮天守のいちばん下の Ominous Postern でイベント。内郭のホームポイント#1が入口のすぐそば（FFXIclopedia も同じ。Aged Stump と Alpine Trail の任意のイベントはシートだけ）",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ラ・カザナル宮天守.Ominous_Postern"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.101",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ときの声」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-4",
+      "name_en": "Reckoning",
+      "name_ja_ref": "天守に座すモノ",
+      "order": 102,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "タルタロスの魂魄醒"
+        },
+        {
+          "kind": "title",
+          "name_ja": "冥王を討ちし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32125.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ominous Postern から BF でハデス（1つめの姿）。Arciela が倒れると負け。武器を構えるとすぐ始まる。勝つとイベントで Awakened crystallized psyche。負けたら内郭に入り直すと Crystallized psyche が戻る。称号 Destroyer of Hades。FFXIclopedia：30分、薬は次の戦いのために残す",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ラ・カザナル宮天守.Ominous_Postern"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.102",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天守に座すモノ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-4-1",
+      "name_en": "Abomination",
+      "name_ja_ref": "神の化身",
+      "order": 103,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "暁の先導者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32242.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ominous Postern から BF でハデス（2つめの姿）。Arciela か Teodor が倒れると負け。HP の表示は出ない。勝つとイベントのあとケイザック古戦場に出る。負けたら内郭に入り直すと KI が戻る。称号 Bringer of the Dawn。FFXIclopedia：石化の技があるので、ストナを使える人を入れる",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ラ・カザナル宮天守.Ominous_Postern"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.103",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「神の化身」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-5",
+      "name_en": "Undying Light",
+      "name_ja_ref": "降り注ぐ、奇跡の煌めき",
+      "order": 104,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アドゥリンの真なる開拓者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32243.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ケイザック古戦場から西アドゥリンに入るとイベント（FFXIclopedia：ワープでは起きない。ほかの方法で来たら、ケイザック古戦場に出て入り直す）。そのあと城門の Ploh Trishbahk で長いイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.104",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「降り注ぐ、奇跡の煌めき」のイベントからヴァナ時間の0時を過ぎた",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SoA5-5-1",
+      "name_en": "The Light Within",
+      "name_ja_ref": "若き指導者",
+      "order": 105,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アシェラのスカート"
+        },
+        {
+          "kind": "item",
+          "name_ja": "カウンセラーガーブ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "カウンセラーカフス"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "1000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "希望の先導者"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アドゥリンリング／ウォルタリスリング／ウェーザーリング／ジャニストンリング／レナイェリング／ゴーニーリング／ハーバートンリング／カリエイリング／ヴォーケインリング／テュランドーリング／シュネデックリング／オーヴェイルリング のどれか1つ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32244.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "翌日まで待ってケイザック古戦場に入るととても長いイベント（FFXIclopedia：西アドゥリンから入る）。城門の Ploh Trishbahk でガーブ・カフス・指輪を1つ。300,000ベヤルドで指輪を替えられる。FFXIclopedia：ケイザック古戦場 J-10 の Sandy Overlook でフェイスのアシェラ。60fps のままだとイベントの終わりで止まることがある",
+          "url": "https://www.bg-wiki.com/ffxi/Seekers_of_Adoulin_Mission_5-5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "adoulin",
+      "game_ref": null,
+      "id": "mission.adoulin.089",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "北サンドリア・バストゥーク商業区・ウィンダス森の区のどれかに入って「後にする」を選んだ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To begin SoA...",
+      "name_ja_ref": "「アドゥリンの魔境」を始めるには……",
+      "order": 999,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39145.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.231.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.256.Brenton",
+      "kind": "npc",
+      "location": {
+        "grid": "E-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 256,
+        "zone_name": "西アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Brenton",
+      "same_name": false
+    },
+    {
+      "id": "npc.256.Kipligg",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 256,
+        "zone_name": "西アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Kipligg",
+      "same_name": false
+    },
+    {
+      "id": "npc.257.Eppel-Treppel",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10 G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 257,
+        "zone_name": "東アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Eppel-Treppel",
+      "same_name": false
+    },
+    {
+      "id": "npc.セレニア図書館.Andreine",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 284,
+        "zone_name": "セレニア図書館"
+      },
+      "moves": false,
+      "name_en": "Andreine",
+      "same_name": false
+    },
+    {
+      "id": "obj.231.Tales_Beginning",
+      "kind": "obj",
+      "location": {
+        "grid": "J-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Tales' Beginning",
+      "same_name": false
+    },
+    {
+      "id": "obj.245.Waypoint",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Waypoint",
+      "same_name": false
+    },
+    {
+      "id": "obj.256.Port_Storage",
+      "kind": "obj",
+      "location": {
+        "grid": "J-4",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 256,
+        "zone_name": "西アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Port Storage",
+      "same_name": false
+    },
+    {
+      "id": "obj.257.Door_Boarding_House",
+      "kind": "obj",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 257,
+        "zone_name": "東アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Door: Boarding House",
+      "same_name": false
+    },
+    {
+      "id": "obj.258.Augural_Conveyor",
+      "kind": "obj",
+      "location": {
+        "grid": "B-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 258,
+        "zone_name": "ララ水道"
+      },
+      "moves": false,
+      "name_en": "Augural Conveyor",
+      "same_name": false
+    },
+    {
+      "id": "obj.258.Royal_Sepulcher",
+      "kind": "obj",
+      "location": {
+        "grid": "N-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 258,
+        "zone_name": "ララ水道"
+      },
+      "moves": false,
+      "name_en": "Royal Sepulcher",
+      "same_name": false
+    },
+    {
+      "id": "obj.261.Signs_of_a_Struggle",
+      "kind": "obj",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 261,
+        "zone_name": "ケイザック古戦場"
+      },
+      "moves": false,
+      "name_en": "Signs of a Struggle",
+      "same_name": false
+    },
+    {
+      "id": "obj.267.Blockaded_Path",
+      "kind": "obj",
+      "location": {
+        "grid": "G-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 267,
+        "zone_name": "カミール山麓"
+      },
+      "moves": false,
+      "name_en": "Blockaded Path",
+      "same_name": false
+    },
+    {
+      "id": "obj.267.Crawling_Cave",
+      "kind": "obj",
+      "location": {
+        "grid": "F-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 267,
+        "zone_name": "カミール山麓"
+      },
+      "moves": false,
+      "name_en": "Crawling Cave",
+      "same_name": false
+    },
+    {
+      "id": "obj.267.Hollowed_Pathway",
+      "kind": "obj",
+      "location": {
+        "grid": "G-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 267,
+        "zone_name": "カミール山麓"
+      },
+      "moves": false,
+      "name_en": "Hollowed Pathway",
+      "same_name": false
+    },
+    {
+      "id": "obj.267.Liseran_Door_Entrance",
+      "kind": "obj",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 267,
+        "zone_name": "カミール山麓"
+      },
+      "moves": false,
+      "name_en": "Liseran Door: Entrance",
+      "same_name": false
+    },
+    {
+      "id": "obj.270.Wavering_Flux",
+      "kind": "obj",
+      "location": {
+        "grid": "K-11",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 270,
+        "zone_name": "シルダス洞窟"
+      },
+      "moves": false,
+      "name_en": "Wavering Flux",
+      "same_name": false
+    },
+    {
+      "id": "obj.273.Darkened_Crevice",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7 G-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 273,
+        "zone_name": "ウォーの門"
+      },
+      "moves": false,
+      "name_en": "Darkened Crevice",
+      "same_name": false
+    },
+    {
+      "id": "obj.281.Aged_Stump",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 281,
+        "zone_name": "リファーリア"
+      },
+      "moves": false,
+      "name_en": "Aged Stump",
+      "same_name": false
+    },
+    {
+      "id": "obj.281.Heroic_Footprints",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 281,
+        "zone_name": "リファーリア"
+      },
+      "moves": false,
+      "name_en": "Heroic Footprints",
+      "same_name": false
+    },
+    {
+      "id": "obj.ラ・カザナル宮天守.Ominous_Postern",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 277,
+        "zone_name": "ラ・カザナル宮天守"
+      },
+      "moves": false,
+      "name_en": "Ominous Postern",
+      "same_name": false
+    }
+  ]
+}

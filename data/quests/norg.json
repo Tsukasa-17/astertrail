@@ -1,0 +1,1284 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv75以上で、だいじなもの「冒険者の証」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Voidwatch Ops: Border Crossing",
+      "name_ja_ref": "VW作戦の表裏",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "六芒星の灰白色のジェイド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24842.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kieran は I-8（「VW作戦第130計画トゥー・リア」では H-8、FFXIclopedia は H-8/I-8）。Hildegard カザム F-9、Gushing Spring ラバオ G-8",
+          "url": "https://www.bg-wiki.com/ffxi/Voidwatch_Ops:_Border_Crossing",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Kieran"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦の表裏」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "トゥー・リアに行ける（ジラートミッション「アーク・エンジェル」を受けている）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "VW Op. #115: Li'Telor Variant",
+      "name_ja_ref": "VW作戦第121計画リ・テロア",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "六芒星の灰白色のジェイドIII"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25063.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Cath Palug 聖地ジ・タ E-9・F-8・G-10、Modron ボヤーダ樹 MAP1 G-5・K-8／MAP2 F-7、Mimic King ロ・メーヴ E-7・I-9・K-7",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._115:_Li%27Telor_Variant",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Kieran"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦第121計画リ・テロア」をコンプリート（自動で受ける）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Skyward Ho, Voidwatcher!",
+      "name_ja_ref": "VW作戦第130計画トゥー・リア",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25106.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Aello ル・オンの庭 G-5・I-11・J-6、Qilin ル・アビタウ神殿 MAP2 F-6・F-9・J-6、Uptala ヴェ・ルガノン宮殿 D-5・G-13・M-8。先にKieranに話さないとGilgameshのイベントが出ない",
+          "url": "https://www.bg-wiki.com/ffxi/Skyward_Ho,_Voidwatcher!",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Kieran"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Forge Your Destiny",
+      "name_ja_ref": "ある刀鍛冶の依頼",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "無銘刀"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ブシドー・ザ・ブレード"
+        },
+        {
+          "kind": "other",
+          "name_ja": "侍にジョブチェンジできるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8933.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ranemaud I-7、Aeka I-8。Forger はコンシュタット高地 D-8 の洞窟、Guardian Treant は聖地ジ・タ L-9（K-10 の北から入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Forge_Your_Destiny",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Jaucribaix"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "トンベリ族を倒したことがある",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Everyone's Grudge",
+      "name_ja_ref": "みんなのうらみ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ウガレピ寺院小部屋のカギ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "トンベリ博士"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ウガレピ寺院のTonberry Priestに、たまったトンベリのうらみを解いてもらえるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5467.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Outlands 2、くり返し可。うらみを解くのは 250〜6,000ギル",
+          "url": "https://www.bg-wiki.com/ffxi/Everyone%27s_Grudge",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Magephaud"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "レベルが一定以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Sahagin's Stash",
+      "name_ja_ref": "サハギンの宝物庫",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "空蝉の術:壱"
+        },
+        {
+          "kind": "title",
+          "name_ja": "宝物庫あらし"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6481.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Laisrean H-7（用語辞典は冒頭で I-7、手順では H-7）。銀の扉は3回調べてから獣人銀貨をトレード（銀貨はなくならない）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Sahagin%27s_Stash",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Laisrean"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.007",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Black Market",
+      "name_ja_ref": "ブラックマーケット",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "北方の毛皮4個で1,500ギル／東方の磁器4個で2,000ギル／南方の木乃伊4個で3,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "闇ブローカー"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ノーグの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6291.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Muzaffar"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「黄泉送り」をコンプリートし、エリアを出入りして1分たつ",
+          "type": "quest"
+        },
+        {
+          "text_ja": "侍で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Thief in Norg!?",
+      "name_ja_ref": "先代の遺品",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "明珍桃形兜"
+        },
+        {
+          "kind": "title",
+          "name_ja": "無双なる大武士"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8402.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Sanosuke ジュノ港 H-8、Phoochuchu マウラ H-8（橋の下）、バストゥーク鉱山区 J-6 の扉は閉まっているときに調べる",
+          "url": "https://www.bg-wiki.com/ffxi/A_Thief_in_Norg!%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Jaucribaix"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の侍で、両手刀スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを受けていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Potential Within",
+      "name_ja_ref": "内に眠る力",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "両手刀のウェポンスキル「九之太刀・花車」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2941.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "???はクフタルの洞門 L-7（最初の分かれ道を北へ、I-5 から南東の通路）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Potential_Within",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Jaucribaix"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv5以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "It's Not Your Vault",
+      "name_ja_ref": "占拠された倉庫",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "遁甲の術:壱"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12512.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Outlands 3、Lv5。Keal は Survival Guide のあたりを歩いている",
+          "url": "https://www.bg-wiki.com/ffxi/It%27s_Not_Your_Vault",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Keal"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Mama Mia",
+      "name_ja_ref": "大いなる力宿るモノ",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エボカーリング"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ノーグの名声が大きく上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7570.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mamaulabion G-6",
+          "url": "https://www.bg-wiki.com/ffxi/Mama_Mia",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Mamaulabion"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv10以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stop Your Whining",
+      "name_ja_ref": "大自然の極上酒",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "捕縄の術:壱"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ソムリエ見習い"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12514.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Washu"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「海賊たちの20年」をコンプリートし、エリアを出入りする",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv50以上の忍者で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "I'll Take the Big Box",
+      "name_ja_ref": "想いを遺すために",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "乱波袴"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8403.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ensetsu バストゥーク港 I-5、Leodarion ラバオ F-8（湖の西、風車のそば）。オークポールは各国の Records of Eminence の係からスパークで買える",
+          "url": "https://www.bg-wiki.com/ffxi/I%27ll_Take_the_Big_Box",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Ryoma"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の忍者で、片手刀スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを受けていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Bugi Soden",
+      "name_ja_ref": "武技相伝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "片手刀のウェポンスキル「空」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2709.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "???は I-5/I-6 の境目（用語辞典は I-5 テンキー3）",
+          "url": "https://www.bg-wiki.com/ffxi/Bugi_Soden",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Ryoma"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial by Water",
+      "name_ja_ref": "水の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "リバイアサンロッド／ウォーターベルト／ウォーターリング／ネプトの目／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“リヴァイアサン”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる水の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5417.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Edal-Tahdal H-9（用語辞典は H-8〜9）。怨念洞へはウガレピ寺院から「魂の絵筆」で入る",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Water",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Edal-Tahdal"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv15以上の召喚士",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trial Size Trial by Water",
+      "name_ja_ref": "水の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣“リヴァイアサン”と契約できる"
+        },
+        {
+          "kind": "item",
+          "name_ja": "呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5418.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬の「呪符デジョン」（Instant Warp）は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/2389.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Verctissa H-9。水の音叉・改をトレードすると試練の場の前へ送ってもらえる。相手は Leviathan Prime、15分、ひとりで、カーバンクルだけ。BG Wiki はLv20以上と書く",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_Size_Trial_by_Water",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Verctissa"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv40以上の忍者で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "20 in Pirate Years",
+      "name_ja_ref": "海賊たちの20年",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "安寿"
+        },
+        {
+          "kind": "item",
+          "name_ja": "厨子王"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8568.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kagetora バストゥーク港 F-6（倉庫2の中）。???は東アルテパ砂漠 H-5/H-6",
+          "url": "https://www.bg-wiki.com/ffxi/20_in_Pirate_Years",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Ryoma"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv10以上で、「濡れた巻物」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Secret of the Damp Scroll",
+      "name_ja_ref": "濡れた巻物の秘密",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "呪縛の術:壱"
+        },
+        {
+          "kind": "title",
+          "name_ja": "暗号？解読者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6212.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Outlands 3、Lv10。濡れた巻物は海蛇の岩窟で釣れるか、競売で買える",
+          "url": "https://www.bg-wiki.com/ffxi/Secret_of_the_Damp_Scroll",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Shivivi"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「想いを遺すために」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "True Will",
+      "name_ja_ref": "物に宿る魂",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "乱波鎖帷子"
+        },
+        {
+          "kind": "title",
+          "name_ja": "沈勇なる大忍者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5574.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "???はヨアトル大森林 I-7（Bloodlet Spring の北西）。Leodarion ラバオ F-8（BG Wiki はここだけ F-7、FFXIclopedia は F-8）。クフタルの洞門の宝箱のカギは Curio Vendor Moogle でも買える",
+          "url": "https://www.bg-wiki.com/ffxi/True_Will",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Ryoma"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ある刀鍛冶の依頼」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv40以上の侍で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Sacred Katana",
+      "name_ja_ref": "神刀",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "孫六兼元"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8570.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Isonade は HP約6,100。無銘刀をなくしたら Ranemaud(I-7) から 30,000ギルで買える",
+          "url": "https://www.bg-wiki.com/ffxi/The_Sacred_Katana",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Jaucribaix"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "An Undying Pledge",
+      "name_ja_ref": "誓いの連鎖",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ライトバックラー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11605.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Stray_Cloud"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.022",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Like a Shining Subligar",
+      "name_ja_ref": "輝けるサブリガ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "暗闇の術:壱"
+        },
+        {
+          "kind": "title",
+          "name_ja": "サブリガを輝かせる者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ノーグの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6217.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Heiji"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Like Shining Leggings",
+      "name_ja_ref": "輝けるレギンス",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "毒盛の術:壱"
+        },
+        {
+          "kind": "title",
+          "name_ja": "レギンスを輝かせる者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ノーグの名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6216.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Heizo H-7（用語辞典は I-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Like_Shining_Leggings",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Heizo"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「神刀」をコンプリートし、エリアを出入りして1分たつ",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv50以上の侍",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Yomi Okuri",
+      "name_ja_ref": "黄泉送り",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "明珍筒脛当"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5199.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ubume はオンゾゾの迷路 F-8、Doman・Onryo はバルクルム砂丘 B-7（BG Wiki は 18:00〜4:00）",
+          "url": "https://www.bg-wiki.com/ffxi/Yomi_Okuri",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Jaucribaix"
+      },
+      "steps": []
+    },
+    {
+      "category": "norg",
+      "game_ref": null,
+      "id": "quest.norg.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「新たな作戦領域」をコンプリート（自動で受ける）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "VW Op. #126: Qufim Incursion",
+      "name_ja_ref": "VW作戦第126計画クフィム島",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "50,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25099.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Kaggen クフィム島 G-6・H-6・I-7、Akvan デルクフの塔下層 地下 G-9／2階 F-5/F-6／3階 I-6、Pil ベヒーモスの縄張り E-7・H-8・J-10。VW招集通知がもらえないときは、ソロムグ原野〔Ｓ〕の Bulwark Gate と パシュハウ沼〔Ｓ〕のイベントを先に見る",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._126:_Qufim_Incursion",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.252.Edal-Tahdal",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Edal-Tahdal",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Heiji",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Heiji",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Heizo",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Heizo",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Jaucribaix",
+      "kind": "npc",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Jaucribaix",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Keal",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8!",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Keal",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Kieran",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8/I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Kieran",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Laisrean",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Laisrean",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Magephaud",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Magephaud",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Mamaulabion",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Mamaulabion",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Muzaffar",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Muzaffar",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Ryoma",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Ryoma",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Shivivi",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Shivivi",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Stray_Cloud",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Stray Cloud",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Verctissa",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Verctissa",
+      "same_name": false
+    },
+    {
+      "id": "npc.252.Washu",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Washu",
+      "same_name": false
+    }
+  ]
+}

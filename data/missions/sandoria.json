@@ -1,0 +1,1239 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.001",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "SM1-1",
+      "name_en": "Smash the Orcish Scout",
+      "name_ja_ref": "オークの斥候を倒せ",
+      "note_ja": "報酬は不明",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/8244.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.002",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "SM1-2",
+      "name_en": "Bat Hunt",
+      "name_ja_ref": "コウモリ退治",
+      "note_ja": "報酬は不明。2回目以降の扱いも不明",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/8245.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.003",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "SM1-3",
+      "name_en": "Save the Children",
+      "name_ja_ref": "子供の救助",
+      "note_ja": "未受領かつ未クリアだとBFに入れない（手伝い時は注意）。2回目以降はガード→BF→ガード報告のみ",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク2、1000G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8246.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Arnau"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「子供の救助」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM2-1",
+      "name_en": "The Rescue Drill",
+      "name_ja_ref": "救助訓練",
+      "note_ja": "戦闘なし。騎士団員から受け取る前に自前のブロンズソードを渡しても不可（受け取り後なら購入品でも可）。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8247.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「救助訓練」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM2-2",
+      "name_en": "The Davoi Report",
+      "name_ja_ref": "ダボイ調査報告",
+      "note_ja": "省略可能・複数回可。2回目以降は手順4で完了。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8248.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ダボイ調査報告」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM2-3",
+      "name_en": "Journey Abroad",
+      "name_ja_ref": "他国を回れ",
+      "note_ja": "ルートによりBFが変わる（BF詳細は記事「ドラゴンミッション」参照）。星唄ミッション「第一の定め」まで進めていると「盟-セミ」「盟-ハルヴァー」も入手可",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "公認冒険者（Certified Adventurer）"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク3、3、000G、冒険者の証（だいじなもの）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2049.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「他国を回れ」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM3-1",
+      "name_en": "Infiltrate Davoi",
+      "name_ja_ref": "ダボイ潜入計画",
+      "note_ja": "2回目以降：ダボイ入口のZantaviatと話し、(J-7)テンキー7・(K-7)テンキー9・(L-8)テンキー1の「!」から北／東／南居住区の暗号メモを集めてZantaviatに渡し、ガードに報告。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8249.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ダボイ潜入計画」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM3-2",
+      "name_en": "The Crystal Spring",
+      "name_ja_ref": "クリスタルの泉",
+      "note_ja": "省略可能・複数回可。2回目以降はクリスタルバスをガードにトレードした時点で完了。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5726.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「クリスタルの泉」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM3-3",
+      "name_en": "Appointment to Jeuno",
+      "name_ja_ref": "ジュノ大使館へ赴任",
+      "note_ja": "既にデルクフ認証キーを持っている場合、またはデルクフのカギを持っていて下層(1F)(E-8)のCermet Doorにトレードした場合は手順4・5を省略可。カギは認証キー入手後は不要",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "5,000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "RANK"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "4"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8250.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天晶堂入会」済みであること",
+          "type": "quest"
+        }
+      ],
+      "mission_no": "SM4-1",
+      "name_en": "Magicite",
+      "name_ja_ref": "魔晶石を奪え",
+      "note_ja": "三国共通の記事（サンドリア側の手順で記載）。自国のゲートハウスでは発生しないので、クリスタルをトレードし過ぎない。各獣人拠点は魔晶石ルートだとLv60未満は絡まれることがある。移籍後の2回目以降もアルドに話すイベントは必須",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "飛空艇パス（所持済みなら20、000ギル）、ランク5、10、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1376.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nelcabrit"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「魔晶石を奪え」完了後、ドラギーユ城に入ってイベント",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM5-1",
+      "name_en": "The Ruins of Fei'Yin",
+      "name_ja_ref": "廃墟フェ・イン",
+      "note_ja": "開始NPCの座標は人物ごとに記事表記（座標列は空欄）。BF詳細は記事「骨ミッション」参照",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アークメイジ アサシン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5644.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「廃墟フェ・イン」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM5-2",
+      "name_en": "The Shadow Lord",
+      "name_ja_ref": "闇の王を討て！",
+      "note_ja": "BF詳細は記事「闇王ミッション」参照。三国いずれかの闇王ミッション完了後、Door:Prince Royal's Rmを調べるとフェイス:トリオンを習得。ランク6でジラートミッション、デュナミス（Lv65以上）などが解禁",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク6、20000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4255.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「闇の王を討て！」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM6-1",
+      "name_en": "Leaute's Last Wishes",
+      "name_ja_ref": "ローテ王妃の遺言",
+      "note_ja": "NMは特殊技（針千本）の頻度が高い。イベント中の選択肢はどちらでも可。後でガードに「クレーディ王女から花を見に来て欲しい」と言われたら、ローテの庭でイベントを見ないと先へ進めない",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "紙くず"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4943.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ローテ王妃の遺言」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM6-2",
+      "name_en": "Ranperre's Final Rest",
+      "name_ja_ref": "龍王の眠る場所",
+      "note_ja": "NMはスニークで出現時に絡まれず、リンクしない。1体だけ釣って他が時間経過で消えた後に倒しても全滅扱い。鎌持ち2体は古代魔法等を使うのでサイレス・スタンが有効",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク7、40、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4840.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.233.Door_Prince_Royals_Rm"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「龍王の眠る場所」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM7-1",
+      "name_en": "Prestige of the Papsque",
+      "name_ja_ref": "教皇の威信",
+      "note_ja": "NMはモンクタイプで百烈拳を多用。回避の高いジョブや強化があると楽。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8251.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.231.Door_Papal_Chambers"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「教皇の威信」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM7-2",
+      "name_en": "The Secret Weapon",
+      "name_ja_ref": "獣人兵器の秘密",
+      "note_ja": "オークNMはSPアビを使う。スリプガ等で寝かせて1体ずつが有効。Jagidbodのイーグルアイは後衛だと一撃死の恐れ。Derakbakの飛竜は何度も呼ばれるので本体優先",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク8、60、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8252.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「獣人兵器の秘密」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM8-1",
+      "name_en": "Coming of Age",
+      "name_ja_ref": "成人の儀",
+      "note_ja": "Honorはサイレガ・パライガ（やまびこ薬推奨）、Valorは百烈拳。片方だけ倒してもフラグは立つが、もう片方が消滅してからトドメを刺す必要あり。NMはターゲットが切れると近くの他PCに絡む（釣り人に注意）。リアル0時越えは2014年7月8日に撤廃。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8253.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「成人の儀」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM8-2",
+      "name_en": "Lightbringer",
+      "name_ja_ref": "聖剣探索",
+      "note_ja": "完了直後にしか聞けない台詞が多い（Trion、Pieuje、Curillaなど）",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク9、80、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8254.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.Door_Great_Hall"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「聖剣探索」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM9-1",
+      "name_en": "Breaking Barriers",
+      "name_ja_ref": "厚き壁",
+      "note_ja": "小像は陸→空→海の順番を守る必要あり。NMは弱体耐性がすぐ付く。1体だけ倒してもフラグは立つが、もう1体が消える前に倒さないこと。報酬の記載なし",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8255.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "mission.sandoria.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「厚き壁」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "SM9-2",
+      "name_en": "The Heir to the Light",
+      "name_ja_ref": "光の継承者",
+      "note_ja": "BFに入れるのはこのミッションを受けている人かクリア済みの人のみ（BF詳細と称号は記事のネタバレ項）。完了後、Door:Prince Royal's Rm(H-7)・Door:Prince Regent's Rm(H-8)・北サンドリア(M-7)Door:Papal Chambersのイベント後、南サンドリアに入るとエンディング風イベント",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "100000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "RANK10"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "調度品の王国旗"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6043.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "mob.Orcish_Fodder",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Orcish Fodder",
+      "same_name": false
+    },
+    {
+      "id": "obj.101.Tombstone",
+      "kind": "obj",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 101,
+        "zone_name": "東ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Tombstone",
+      "same_name": false
+    },
+    {
+      "id": "mob.Ding_Bats",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Ding Bats",
+      "same_name": false
+    },
+    {
+      "id": "npc.Arnau",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「子供の救助」：北サンドリアの大聖堂(M-6)のArnau",
+          "name": "用語辞典"
+        }
+      ],
+      "moves": false,
+      "name_en": "Arnau",
+      "same_name": false
+    },
+    {
+      "id": "obj.140.Hut_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 140,
+        "zone_name": "ゲルスバ野営陣"
+      },
+      "moves": false,
+      "name_en": "Hut Door",
+      "same_name": false
+    },
+    {
+      "id": "npc.102.Vicorpasse",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 102,
+        "zone_name": "ラテーヌ高原"
+      },
+      "moves": false,
+      "name_en": "Vicorpasse",
+      "same_name": false
+    },
+    {
+      "id": "npc.193.Ruillont",
+      "kind": "npc",
+      "location": {
+        "grid": "H-3",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 193,
+        "zone_name": "オルデール鍾乳洞"
+      },
+      "moves": false,
+      "name_en": "Ruillont",
+      "same_name": false
+    },
+    {
+      "id": "npc.102.Deaufrain",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 102,
+        "zone_name": "ラテーヌ高原"
+      },
+      "moves": false,
+      "name_en": "Deaufrain",
+      "same_name": false
+    },
+    {
+      "id": "npc.149.Zantaviat",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": false,
+      "name_en": "Zantaviat",
+      "same_name": false
+    },
+    {
+      "id": "obj.231.Door_Papal_Chambers",
+      "kind": "obj",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Door:Papal Chambers",
+      "same_name": false
+    },
+    {
+      "id": "npc.143.Refiner_Lid",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": false,
+      "name_en": "Refiner Lid",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Mourices",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Mourices",
+      "same_name": false
+    },
+    {
+      "id": "mob.145.Zhuu_Buxu_the_Silent",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 145,
+        "zone_name": "ギデアス"
+      },
+      "moves": true,
+      "name_en": "Zhuu Buxu the Silent",
+      "same_name": false
+    },
+    {
+      "id": "npc.E_Paleade",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "E Paleade",
+      "same_name": false
+    },
+    {
+      "id": "npc.149.Quemaricond",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": false,
+      "name_en": "Quemaricond",
+      "same_name": false
+    },
+    {
+      "id": "obj.104.Crystwater_Spring",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "Crystwater Spring",
+      "same_name": false
+    },
+    {
+      "id": "obj.Door_Great_Hall",
+      "kind": "obj",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典のサンドリアミッション：ドラギーユ城(I-9)のDoor:Great Hall",
+          "name": "用語辞典"
+        }
+      ],
+      "moves": false,
+      "name_en": "Door:Great Hall",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Nelcabrit",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Nelcabrit",
+      "same_name": false
+    },
+    {
+      "id": "mob.158.Porphyrion",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 158,
+        "zone_name": "デルクフの塔上層"
+      },
+      "moves": true,
+      "name_en": "Porphyrion",
+      "same_name": false
+    },
+    {
+      "id": "npc.Elevator",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Elevator",
+      "same_name": false
+    },
+    {
+      "id": "obj.184.Cermet_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "M-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 184,
+        "zone_name": "デルクフの塔下層"
+      },
+      "moves": false,
+      "name_en": "Cermet Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.243.Door_San_dOrian_Emb",
+      "kind": "obj",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Door:San d'Orian Emb.",
+      "same_name": false
+    },
+    {
+      "id": "obj.Door_Audience_Chamber",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Door:Audience Chamber",
+      "same_name": false
+    },
+    {
+      "id": "obj.244.Magicite",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Magicite",
+      "same_name": false
+    },
+    {
+      "id": "npc.151.Paya-Sabya",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 151,
+        "zone_name": "オズトロヤ城"
+      },
+      "moves": false,
+      "name_en": "Paya-Sabya",
+      "same_name": false
+    },
+    {
+      "id": "obj.204.Burning_Circle",
+      "kind": "obj",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 204,
+        "zone_name": "フェ・イン"
+      },
+      "moves": false,
+      "name_en": "Burning Circle",
+      "same_name": false
+    },
+    {
+      "id": "obj.Door_Prince_Royals_Rm",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Door:Prince Royal's Rm",
+      "same_name": false
+    },
+    {
+      "id": "obj.162.Throne_Room",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 162,
+        "zone_name": "ズヴァール城内郭"
+      },
+      "moves": false,
+      "name_en": "Throne Room",
+      "same_name": false
+    },
+    {
+      "id": "obj.161.Throne_Room",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 161,
+        "zone_name": "ズヴァール城外郭"
+      },
+      "moves": false,
+      "name_en": "Throne Room",
+      "same_name": false
+    },
+    {
+      "id": "mob.125.Sabotender_Enamorado",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 125,
+        "zone_name": "西アルテパ砂漠"
+      },
+      "moves": true,
+      "name_en": "Sabotender Enamorado",
+      "same_name": false
+    },
+    {
+      "id": "obj.Dreamrose",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Dreamrose",
+      "same_name": false
+    },
+    {
+      "id": "obj.190.Heavy_Stone_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 190,
+        "zone_name": "龍王ランペールの墓"
+      },
+      "moves": false,
+      "name_en": "Heavy Stone Door",
+      "same_name": false
+    },
+    {
+      "id": "mob.167.Marauder_Dvogzog",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 167,
+        "zone_name": "ボストーニュ監獄"
+      },
+      "moves": true,
+      "name_en": "Marauder Dvogzog",
+      "same_name": false
+    },
+    {
+      "id": "npc.142.Darokbok_of_Clan_Reaper",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 142,
+        "zone_name": "ユグホトの岩屋"
+      },
+      "moves": false,
+      "name_en": "Darokbok of Clan Reaper",
+      "same_name": false
+    },
+    {
+      "id": "obj.114.Fountain_of_Kings",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 114,
+        "zone_name": "東アルテパ砂漠"
+      },
+      "moves": false,
+      "name_en": "Fountain of Kings",
+      "same_name": false
+    },
+    {
+      "id": "npc.Rahal",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Rahal",
+      "same_name": false
+    },
+    {
+      "id": "npc.160.Tonberry_Slasher",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 160,
+        "zone_name": "怨念洞"
+      },
+      "moves": false,
+      "name_en": "Tonberry Slasher",
+      "same_name": false
+    },
+    {
+      "id": "mob.159.Temple_Guardian",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 159,
+        "zone_name": "ウガレピ寺院"
+      },
+      "moves": true,
+      "name_en": "Temple Guardian",
+      "same_name": false
+    },
+    {
+      "id": "mob.Nio-Hum",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": true,
+      "name_en": "Nio-Hum",
+      "same_name": false
+    },
+    {
+      "id": "mob.195.Suparna",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 195,
+        "zone_name": "エルディーム古墳"
+      },
+      "moves": true,
+      "name_en": "Suparna",
+      "same_name": false
+    }
+  ]
+}

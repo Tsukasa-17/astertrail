@@ -1,0 +1,2750 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「チョコボ乗り免許証」を持ち、Lv20以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Lost Chocobo",
+      "name_ja_ref": "迷子のチョコボ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "早く着くほど良い賞品（賞品はコースで違う）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8098.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「楼閣の下に」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローとの親密度が35以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "コンクェストの集計を越えるとまた受けられる",
+          "type": "other"
+        }
+      ],
+      "name_en": "Emptiness Investigation",
+      "name_ja_ref": "虚ろなる闇の調査",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "タクティクスパール"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェローに経験値（倒した敵の数と、調べた???の層で増える）。クエスト「心のシグナル」を終えていて2層目より奥まで調べると、自家製料理も"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5991.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "発生条件は「The Mothercrystals を終えている」と書かれていて用語辞典（「楼閣の下に」が発生している）と違う。デム4層の???は K-8（用語辞典は K-9）。フェローの経験値の数え方も用語辞典と違う",
+          "url": "https://www.bg-wiki.com/ffxi/Emptiness_Investigation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「悲しむだけじゃだめクポ」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "モグガーデンのモンスター飼育のランクが2",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Chacharoon's Cheer",
+      "name_ja_ref": "チャチャルンの応援",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "チャチャルンの応援：子羊。以後、星のきらめきを使って、持っているモンスターの思い出に合った応援に付け替えられる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32801.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "だいじなもの「Sakura and the Magic Spoon」でモンスター飼育がランク2になってからモグガーデンに入る。報酬で応援「子羊」が最初から有効になる",
+          "url": "https://www.bg-wiki.com/ffxi/Chacharoon's_Cheer",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "そのギルドの職人ランクが下級職人以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "納められるのは1日に1つのギルドだけ。指定生産品は地球時間の0時に変わる",
+          "type": "other"
+        }
+      ],
+      "name_en": "Accumulating Guild Points",
+      "name_ja_ref": "指定生産品クエスト",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ギルドポイント（そのギルドの報奨品と交換できる。職人装備・調度品・サインボードと替えると称号も）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6235.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "1日に貯められるポイントには上限があり、指定品は毎日変わる。用語辞典と同じ",
+          "url": "https://www.bg-wiki.com/ffxi/Guild_Points",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ヴァナ・ディール時間で1日に1回。補給先に選べるのは、今の所属国が支配しているリージョンだけ",
+          "type": "other"
+        }
+      ],
+      "name_en": "Supply Quest",
+      "name_ja_ref": "補給クエスト",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "補給したアウトポストへのワープ（テレポ・サービス）が使えるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/619.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上の正宗か、Lv99の鳥頭の太刀を持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Great Katana Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手刀＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「祖之太刀・不動」を覚える。以後、正宗や鳥頭の太刀を装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のカラドボルグか、Lv99のシフィアスを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Great Sword Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手剣＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「トアクリーバー」を覚える。以後、カラドボルグやシフィアスを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のウコンバサラか、Lv99のシャマシュを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Great Axe Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手斧＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ウッコフューリー」を覚える。以後、ウコンバサラやシャマシュを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のフヴェルゲルミルか、Lv99のパイケアを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Staff Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手棍＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ミルキル」を覚える。以後、フヴェルゲルミルやパイケアを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のロンゴミアントか、Lv99のダボヤを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Polearm Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手槍＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「カムラン」を覚える。以後、ロンゴミアントやダボヤを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のリデンプションか、Lv99のウミリアティを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Scythe Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜両手鎌＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「クワイタス」を覚える。以後、リデンプションやウミリアティを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のアルマゲドンか、Lv99のモルフリッスを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Marksmanship Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜射撃＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ワイルドファイア」を覚える。以後、アルマゲドンやモルフリッスを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のガーンデーヴァか、Lv99のキルキナエを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Archery Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜弓術＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ジシュヌの光輝」を覚える。以後、ガーンデーヴァやキルキナエを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のウルスラグナか、Lv99のデゥムズィを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Hand-to-Hand Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜格闘＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ビクトリースマイト」を覚える。以後、ウルスラグナやデゥムズィを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上の神無か、Lv99の鵲を持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Katana Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜片手刀＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「秘」を覚える。以後、神無や鵲を装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のアルマスか、Lv99のブルネロを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Sword Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜片手剣＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「シャンデュシニュ」を覚える。以後、アルマスやブルネロを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のファルシャか、Lv99のサクリパンテを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Axe Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜片手斧＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「クラウドスプリッタ」を覚える。以後、ファルシャやサクリパンテを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のガンバンテインか、Lv99のローズクーベルトを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Club Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜片手棍＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ダガン」を覚える。以後、ガンバンテインやローズクーベルトを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「彼方よりの使者」が発生している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv90以上のトゥワシュトラか、Lv99のカンドローマを持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "どれか1つのWSを覚えたら、次のWSはヴァナ・ディール時間の0時を越えてから",
+          "type": "other"
+        }
+      ],
+      "name_en": "Kupofried's Dagger Moogle Magic",
+      "name_ja_ref": "クポフリートの秘術＜短剣＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エンピリアンWS「ルドラストーム」を覚える。以後、トゥワシュトラやカンドローマを装備していなくても撃てる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しは Repeatable=Yes だが、武器ごとに別のクエストなので「くり返せる」にはしていない。-1の武器はル・ルデの庭のMagian Moogleのそばの Splintery Chest にある",
+          "url": "https://www.bg-wiki.com/ffxi/Kupofried's_Weapon_Skill_Moogle_Magic",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.182.Kupofried"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv60以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかの獣人帽子クエスト（ヤグードの勇胆・オークの謙譲・ゴブリンの仁義）を受けておらず、ヒーロー帽子を装備していない",
+          "type": "other"
+        }
+      ],
+      "name_en": "An Affable Adamantking?",
+      "name_ja_ref": "クゥダフの博雅",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ダ・ヴ・バルバト"
+        },
+        {
+          "kind": "item",
+          "name_ja": "獣人金貨"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ブロンズクゥダフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15811.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "クゥルンの大伽藍の入口は (H-7)（用語辞典は I-7）。断るとコンクェストの集計越えまで受け直せないとある（用語辞典はヴァナ0時越え）。Repeatable=Yes。クゥダフ冑パーツは翌日もらえ、エリアを出入りしなくてよい。クゥダフバルバトの材料は Quadav Parts・Tiger Leather・Lizard Molt・Bugard Tusk・Wool Thread・Red Grass Cloth・Black Pearl×2",
+          "url": "https://www.bg-wiki.com/ffxi/An_Affable_Adamantking%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.148.Raptorlegs_Gedwad"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv75以上で、だいじなもの「冒険者の証」を持っている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "プロマシアのヴォイドウォッチの1つ目。タブナジア地下壕まで来ていれば、プロマシアミッションを進めていなくても受けられる",
+          "type": "other"
+        }
+      ],
+      "name_en": "VW Op. #026: Tavnazian Terrors",
+      "name_ja_ref": "VW作戦第026計画タブナジア群島",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "六芒星の青紫色のジェイドII（六芒星の青紫色のジェイドが変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26576.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "位相の境界の場所は Fjalar アットワ地溝 I-9/K-7/K-10、Abununnu ルフェーゼ野 H-9/F-8/G-7、Tsui-Goab ミザレオ海岸 J-8/I-7/J-10、Isarukitsck ウルガラン山脈 G-11/G-10/J-10・J-11",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._026:_Tavnazian_Terrors",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Owain"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.022",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦第026計画タブナジア群島」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "プロマシアのヴォイドウォッチの2つ目。前のクエストを終えると自動で始まる",
+          "type": "other"
+        }
+      ],
+      "name_en": "VW Op. #004: Bibiki Bombardment",
+      "name_ja_ref": "VW作戦第004計画ビビキー湾",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26579.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Bismarck の位相の境界はビビキー湾 MAP2（プルゴノルゴ島）の F-9・J-9・I-10。ヴォイドウォッチのワープか、マナクリッパーで行く",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._004:_Bibiki_Bombardment",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Owain"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クリアすると、侯国騎士団長のカギをもらうサブクエストが始まる",
+          "type": "other"
+        }
+      ],
+      "name_en": "A Hard Day's Knight",
+      "name_ja_ref": "タブナジア侯国騎士団",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2100"
+        },
+        {
+          "kind": "title",
+          "name_ja": "タブナジア侯国騎士見習"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24516.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Quelveuiat は I-10（中の階）。ルフェーゼ野へは地下壕の南の出口 (I-6) から出る。近くのオークはリンクする。クリア後にシーライオンクレストキーとコーラルクレストキーを渡すと「Temple Knight key」がもらえる",
+          "url": "https://www.bg-wiki.com/ffxi/A_Hard_Day's_Knight",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Quelveuiat"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クリアのあとSuspicious Humeの話を最後まで聞くと、グラディエイターに参加でき、アドゥリンのクエスト「メルヴィアン殺人事件」の条件の1つも満たす",
+          "type": "other"
+        }
+      ],
+      "name_en": "Monstrosity",
+      "name_ja_ref": "モンストロス・プレッジ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「星辰の指輪」。モンストロス・プレッジに参加できるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29367.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Suspicious Hume へはユニティのワープ122かヴォイドウォッチのワープが近い。Bog Bunny が野兎の毛皮を落とす。三国のNPCはそれぞれホームポイント#3（北サンドリア・ウィンダス港）、#2（バストゥーク港）のそば",
+          "url": "https://www.bg-wiki.com/ffxi/Monstrosity_(Quest)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.109.Suspicious_Hume"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv60以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかの獣人帽子クエスト（クゥダフの博雅・オークの謙譲・ヤグードの勇胆）を受けておらず、ヒーロー帽子を装備していない",
+          "type": "other"
+        }
+      ],
+      "name_en": "A Generous General?",
+      "name_ja_ref": "ゴブリンの仁義",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "チョプリクスコイフ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "獣人金貨"
+        },
+        {
+          "kind": "title",
+          "name_ja": "モブリンキンズマン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15810.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Faulpie は革工ギルド（南サンドリア E-8、HP#4）。Repeatable=Yes（コンクェスト集計ごとに1回）。ゴブリンコイフは革細工75・鍛冶38・裁縫27、土のクリスタル。材料は Goblin Cutting・Steel Sheet・Linen Cloth・Artificial Lens×2・Moblin Thread・Undead Skin・Sheep Leather",
+          "url": "https://www.bg-wiki.com/ffxi/A_Generous_General%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.GuZho_Thunderblade"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「子羊を放ってみるクポ」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Feeding Frenzy",
+      "name_ja_ref": "ごはんをあげてみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31585.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ライドオン！」「モグの書」「みんな家族クポ」をすべて終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Glittering Gals",
+      "name_ja_ref": "たね★うえ？",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「♪大羊」"
+        },
+        {
+          "kind": "title",
+          "name_ja": "疾走ガーデンライダー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35683.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英名は Glittering Gals（用語辞典は Glittering Girls）。称号は Gardener for the Ages とあり用語辞典と違う。バルクルムの太陽砂はバルクルム砂丘(H-9)の???で砂塵の天候のときに拾える。トロピカルカクタスは競売でも買える",
+          "url": "https://www.bg-wiki.com/ffxi/Glittering_Gals",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.028",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「チャチャルンのお医者さん」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "モグガーデンのモンスター飼育のランクが7",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Rowing Together",
+      "name_ja_ref": "みんな家族クポ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "サッチブーツ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34947.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.029",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「サングラスなおもてなし」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "GPSクリスタルに星のきらめきが20回灯っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Hypnotic Hospitality",
+      "name_ja_ref": "グモパスなおもてなし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "クワ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "クワッどコア"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29734.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ノマドなおもてなし」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "GPSクリスタルに星のきらめきが10回灯っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trinket for the Tyrant",
+      "name_ja_ref": "サングラスなおもてなし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ワークス促成剤"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29239.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「チャチャルンの試練」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "モグガーデンのモンスター飼育のランクが5",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Doctor Chacharoon",
+      "name_ja_ref": "チャチャルンのお医者さん",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ワークグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33936.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.032",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「チャチャルンの応援」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "モグガーデンのモンスター飼育のランクが3",
+          "type": "condition"
+        },
+        {
+          "text_ja": "3種類のフェイス使用許可証のどれかを持っている",
+          "type": "item"
+        }
+      ],
+      "name_en": "Trial of the Chacharoon",
+      "name_ja_ref": "チャチャルンの試練",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェイス「チャチャルン」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32670.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ランク3はだいじなもの「Sakura and the Fountain」を買って上げる。飼育場へはボートの近くの小道から行く",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_of_the_Chacharoon",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.033",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「漂着物を調べてみるクポ」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "GPSクリスタルに星のきらめきが4回灯っている（数ではなく、ガーデンでログインして増えた回数）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Courtesy Crustacean",
+      "name_ja_ref": "ノマドなおもてなし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ワークス促成剤"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29238.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.034",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「たね★うえ？」を終えて、エリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Sally Forth!",
+      "name_ja_ref": "マウ★ント！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「♪モルボル」"
+        },
+        {
+          "kind": "title",
+          "name_ja": "伝説ラグーンライダー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35684.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.035",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「グモパスなおもてなし」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "モグガーデンのランク（畑・木立・鉱脈・池・海）がすべて7",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Titillating Tomes",
+      "name_ja_ref": "モグの書",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ストローハット"
+        },
+        {
+          "kind": "title",
+          "name_ja": "あばばばヒーラー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31518.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "畑・木立・鉱脈・池・海のランクが平均4以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "アシスタントのススルンを解放している（契約中でなくてよい）",
+          "type": "other"
+        }
+      ],
+      "name_en": "Release the Fleece",
+      "name_ja_ref": "子羊を放ってみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31584.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.037",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ごはんをあげてみるクポ」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Cry Not, Caretaker",
+      "name_ja_ref": "悲しむだけじゃだめクポ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マトンのロースト"
+        },
+        {
+          "kind": "title",
+          "name_ja": "命をかける飼育士"
+        },
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「子羊の思い出」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31586.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.038",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「畑の収穫をしてみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Green Groves",
+      "name_ja_ref": "木立の収穫をしてみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29045.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「鉱脈を調査してみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Pond Probing",
+      "name_ja_ref": "池の網を調べてみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29047.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.040",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「畑に種まきしてみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Flotsam Finding",
+      "name_ja_ref": "漂着物を調べてみるクポ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ガーデンワーム、木立蚯蚓、ストーンオイル、イワシ練り餌、イワシ撒き餌"
+        },
+        {
+          "kind": "title",
+          "name_ja": "モグガーデンのタマゴ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29050.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「砂浜で網を調べてみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Seed Sowing",
+      "name_ja_ref": "畑に種まきしてみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29049.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.280.Green_Thumb_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.042",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Full Fields",
+      "name_ja_ref": "畑の収穫をしてみるクポ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "GPSクリスタル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29044.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.043",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「池の網を調べてみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Coastal Chaos",
+      "name_ja_ref": "砂浜で網を調べてみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29048.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.044",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「木立の収穫をしてみるクポ」を終えている（続けて始まる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Mining Missive",
+      "name_ja_ref": "鉱脈を調査してみるクポ",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/29046.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「モグ祭りが近いクポの巻」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属国の名声ランク5（かなり知られる）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Moogle's Picnic!",
+      "name_ja_ref": "ピクニックに行きたいクポの巻",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モグ金庫が70個まで入るようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "すてきなご主人さま"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6068.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "所属国の名声ランク3（聞いた覚えがある）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Give a Moogle a Break",
+      "name_ja_ref": "モグ祭りが近いクポの巻",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モグ金庫が60個まで入るようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "やさしいご主人様"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5564.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ピクニックに行きたいクポの巻」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属国の名声ランク7以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Moogles in the Wild",
+      "name_ja_ref": "世界は広いクポの巻",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モグ金庫が80個まで入るようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ラブラブご主人さま"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7794.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=7（用語辞典はランク6「ほとんど知っている」）",
+          "url": "https://www.bg-wiki.com/ffxi/Moogles_in_the_Wild",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.048",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "イフリート・タイタン・リヴァイアサン・ガルーダ・シヴァ・ラムウの6体と契約している",
+          "type": "other"
+        }
+      ],
+      "name_en": "Waking the Beast",
+      "name_ja_ref": "神在月",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "カーバンクルポール"
+        },
+        {
+          "kind": "other",
+          "name_ja": "光を失った紅玉（だいじなもの）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5276.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Repeatable=Yes（用語辞典はコンクェスト集計ごと）。回廊戦の召喚獣はLv85。満月の泉へはHPワープでトライマライ水路から行くのが早い。報酬はカーバンクルポールのほか、カフスや各神獣の武器も挙がっている",
+          "url": "https://www.bg-wiki.com/ffxi/Waking_the_Beast",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.102.Carbuncle"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.049",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv60以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかの獣人帽子クエスト（ゴブリンの仁義・ヤグードの勇胆・クゥダフの博雅）を受けておらず、ヒーロー帽子を装備していない",
+          "type": "other"
+        }
+      ],
+      "name_en": "An Understanding Overlord?",
+      "name_ja_ref": "オークの謙譲",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ザラッドヘルム"
+        },
+        {
+          "kind": "item",
+          "name_ja": "獣人金貨"
+        },
+        {
+          "kind": "title",
+          "name_ja": "オーキシュサージェント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15812.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Repeatable=Yes。Cryptexphere は (F-6)。オークヘルムは革細工74・鍛冶31・裁縫22、土のクリスタル。材料は Orc Cutting・Iron Sheet・Linen Thread・Wool Thread・Manticore Hair×2・Black Pearl×2",
+          "url": "https://www.bg-wiki.com/ffxi/An_Understanding_Overlord%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.150.Loo_Kohor"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.050",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv60以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかの獣人帽子クエスト（ゴブリンの仁義・オークの謙譲・クゥダフの博雅）を受けておらず、ヒーロー帽子を装備していない",
+          "type": "other"
+        }
+      ],
+      "name_en": "A Moral Manifest?",
+      "name_ja_ref": "ヤグードの勇胆",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ハジャヘッドギア"
+        },
+        {
+          "kind": "item",
+          "name_ja": "獣人金貨"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ヤグードイニシエート"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15809.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Repeatable は空欄（用語辞典は再オファー可）。ヤグードヘッドギアは裁縫80・革細工50・骨細工55、土のクリスタル。材料は Yagudo Cutting・Bugard Tusk・Cockatrice Skin・Wool Thread・Yagudo Feather×2・Black Pearl×2。金貨のイベントは南側から出て入り直す",
+          "url": "https://www.bg-wiki.com/ffxi/A_Moral_Manifest%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.152.Hooknox"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジラートミッション「古代石碑巡礼」でテリガン岬の石碑の NM を倒した（いつのまにかオファーリストに載る）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Wandering Souls",
+      "name_ja_ref": "彷徨いし魂の鎮魂",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "フラジラントロープ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "時を越えた絆持つ者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10155.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cermet Headstone は テリガン岬(H-5)。ミッション「古代石碑巡礼」を受けている間から",
+          "url": "https://www.bg-wiki.com/ffxi/Wandering_Souls",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.113.Cermet_Headstone"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジラートミッション「古代石碑巡礼」で火の石碑の NM を倒し、だいじなもの「炎の祈り」を手に入れた（自動でオファーリストに載る）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Wrath of the Opo-opos",
+      "name_ja_ref": "オポオポの怒り",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "オポオポネックレス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "オポオポの友"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10154.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cermet Headstone は ユタンガ大森林(L-7)（用語辞典は L-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Wrath_of_the_Opo-opos",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.123.Cermet_Headstone"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジラートミッション「アーク・ガーディアン」を受けている（または終えている）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Divine Might",
+      "name_ja_ref": "神威",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "素破の耳／騎士の耳／暗黒の耳／獣使の耳／武士の耳 のどれか1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "神威"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/692.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Quest Reqs=Zilart Mission 13 complete。FLevel は空。Repeatable=Yes は耳の取り直し（別の同名クエスト）のこと。受けるのは ル・アビタウ神殿(G/H-11)の名前のない的で、受けずにBFに勝っても認められない。BFは30分・アライアンス18人まで",
+          "url": "https://www.bg-wiki.com/ffxi/Divine_Might",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.178.Yvenoile"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.054",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "1回目の「神威」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "今の神威耳を捨てて、エリアを出入りしておく（リサイクルに残っていると受けられない）",
+          "type": "condition"
+        },
+        {
+          "text_ja": "耳を取り直したあと、また受けるにはコンクェストの集計をはさむ",
+          "type": "other"
+        }
+      ],
+      "name_en": "Divine Might",
+      "name_ja_ref": "神威",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "素破の耳／騎士の耳／暗黒の耳／獣使の耳／武士の耳 のどれか1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "神威"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/692.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Re-Questing の節。コンクェスト集計ごとに1回。月光の鉱石は一人ひとつ必要。光の鉱石・光るインク・羊皮紙を同時に渡すと月光の鉱石しかもらえないので、2回に分けて渡す。一度使った五戦士魔法陣は使えない",
+          "url": "https://www.bg-wiki.com/ffxi/Divine_Might",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.178.Yvenoile"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.055",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Open Sesame",
+      "name_ja_ref": "1人でも開いちゃう？",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「重量石」（流砂洞の重量扉をひとりで開けられる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24835.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lokpix は 東アルテパ砂漠(G-7)。FLevel は空。震動石は流砂洞の西の震動の回廊にあり、流砂洞のホームポイント#2が近い。品はいっしょにトレードする",
+          "url": "https://www.bg-wiki.com/ffxi/Open_Sesame",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.114.Lokpix"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.056",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジラートミッション「古代石碑巡礼」でだいじなもの「光の祈り」を手に入れた（自動でオファーリストに載る）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ジラートミッション「宣託の間」をクリアしてだいじなもの「虹の祈り」を持っている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Soul Searching",
+      "name_ja_ref": "不浄なる魂の浄化",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "バットピアス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "聖地に魂導く者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cermet Headstone は 聖地ジ・タ(I-7)。FLevel=None。Quest Reqs=Zilart Mission 7（The Chamber of Oracles）、Prismatic fragment",
+          "url": "https://www.bg-wiki.com/ffxi/Soul_Searching",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.121.Cermet_Headstone"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.057",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「迎え火」を進めている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Bombs Away!",
+      "name_ja_ref": "スノールと狩人",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シュ・メーヨ海の塩"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7914.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Repeatable=Yes。Quest Reqs=プロマシアミッション Flames for the Dead の途中。Buffalostalker Dodzbraz は ウルガラン山脈(F-9)、ユニティワープ（Lv128）のすぐ南東。クラスターの魂はクラスター族がよく落とす",
+          "url": "https://www.bg-wiki.com/ffxi/Bombs_Away!",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.5.Buffalostalker_Dodzbraz"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.058",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「向かい風」を進めている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mithran Delicacies",
+      "name_ja_ref": "ミスラの大好物",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "サイレドンの黒焼き"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5400.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Repeatable=Yes。Quest Reqs=プロマシアミッション Head Wind の途中。Anguenet は ギルド桟橋(J-10)、サバイバルガイドのすぐ横。4番めの選択肢（井守が淵）を選ぶ。マッディサイレドンは競売でも買える。Lourdaude にトレードすると100ギルを求められる",
+          "url": "https://www.bg-wiki.com/ffxi/Mithran_Delicacies",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "100ギルは1回目だけ。2回目からはマッディサイレドンだけでよい",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Mithran_Delicacies",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.2.Anguenet"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.059",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Missionary Moblin",
+      "name_ja_ref": "ズィーロゾックの冒険",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12827.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame と FLevel は空。Koblakiq (H-11)。Soiled Letter はダボイかズヴァール城外郭の Orcish Footsoldier",
+          "url": "https://www.bg-wiki.com/ffxi/Missionary_Moblin",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.Koblakiq"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.060",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「ズィーロゾックの冒険」クリア後にエリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "For the Birds",
+      "name_ja_ref": "ズィーロゾックの思い出",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ジャガーマント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14240.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=O、FLevel は空。オズトロヤ城の Brass Door (I-8) → 次のマップ (G-7) → Daa Bola the Seer (I-7)。ベドーは (H-7) から地下、(F-8) の出口、(E-10) から上の段、(G-10) の島の Ge'Fhu Yagudoeye。Nickel Quadav 2体と Magnes Quadav 2体",
+          "url": "https://www.bg-wiki.com/ffxi/For_the_Birds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.Koblakiq"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「ズィーロゾックの思い出」クリア後にエリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Better the Demon You Know",
+      "name_ja_ref": "ズィーロゾックの帰還",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ゴブリングレネード"
+        },
+        {
+          "kind": "title",
+          "name_ja": "雇われ背信者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15806.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=O、FLevel は空。Demon Pen は Blood Demon か Demon General。??? はズヴァール城外郭 (I-8) の Dark Spark が出る門の奥、Marquis Andrealphus と Demon Banneret 2体・Demon Secretary 2体",
+          "url": "https://www.bg-wiki.com/ffxi/Better_the_Demon_You_Know",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.Koblakiq"
+      },
+      "steps": []
+    },
+    {
+      "category": "misc",
+      "game_ref": null,
+      "id": "quest.misc.062",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「誓いの雄叫び」まで進めている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Confessions of a Bellmaker",
+      "name_ja_ref": "鐘楼の名残",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミンストレルダガー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15807.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空、Repeatable=No。Stone Monument (C-7)、Reinberta は商業区 (I-8) の彫金ギルド（FFXIclopedia も I-8。用語辞典は H-8）、Mevreauche は北サンドリア (E-6)、Arcane Phantasm",
+          "url": "https://www.bg-wiki.com/ffxi/Confessions_of_a_Bellmaker",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.30.Stone_Monument"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.109.Suspicious_Hume",
+      "kind": "npc",
+      "location": {
+        "grid": "E-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 109,
+        "zone_name": "パシュハウ沼"
+      },
+      "moves": false,
+      "name_en": "Suspicious Hume",
+      "same_name": false
+    },
+    {
+      "id": "npc.11.GuZho_Thunderblade",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 11,
+        "zone_name": "ムバルポロス旧市街"
+      },
+      "moves": false,
+      "name_en": "Gu'Zho Thunderblade",
+      "same_name": false
+    },
+    {
+      "id": "npc.11.Koblakiq",
+      "kind": "npc",
+      "location": {
+        "grid": "H-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 11,
+        "zone_name": "ムバルポロス旧市街"
+      },
+      "moves": false,
+      "name_en": "Koblakiq",
+      "same_name": false
+    },
+    {
+      "id": "npc.114.Lokpix",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 114,
+        "zone_name": "東アルテパ砂漠"
+      },
+      "moves": false,
+      "name_en": "Lokpix",
+      "same_name": false
+    },
+    {
+      "id": "npc.148.Raptorlegs_Gedwad",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 148,
+        "zone_name": "クゥルンの大伽藍"
+      },
+      "moves": false,
+      "name_en": "Raptorlegs Gedwad",
+      "same_name": false
+    },
+    {
+      "id": "npc.150.Loo_Kohor",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 150,
+        "zone_name": "修道窟"
+      },
+      "moves": false,
+      "name_en": "Loo Kohor",
+      "same_name": false
+    },
+    {
+      "id": "npc.152.Hooknox",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 152,
+        "zone_name": "祭壇の間"
+      },
+      "moves": false,
+      "name_en": "Hooknox",
+      "same_name": false
+    },
+    {
+      "id": "npc.178.Yvenoile",
+      "kind": "npc",
+      "location": {
+        "grid": "H-11",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 178,
+        "zone_name": "ル・アビタウ神殿"
+      },
+      "moves": false,
+      "name_en": "Yve'noile",
+      "same_name": false
+    },
+    {
+      "id": "npc.182.Kupofried",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 182,
+        "zone_name": "ウォークオブエコーズ"
+      },
+      "moves": false,
+      "name_en": "Kupofried",
+      "same_name": false
+    },
+    {
+      "id": "npc.2.Anguenet",
+      "kind": "npc",
+      "location": {
+        "grid": "J-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 2,
+        "zone_name": "ギルド桟橋"
+      },
+      "moves": false,
+      "name_en": "Anguenet",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Owain",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Owain",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Quelveuiat",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10 I-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Quelveuiat",
+      "same_name": false
+    },
+    {
+      "id": "npc.280.Green_Thumb_Moogle",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 280,
+        "zone_name": "モグガーデン"
+      },
+      "moves": false,
+      "name_en": "Green Thumb Moogle",
+      "same_name": false
+    },
+    {
+      "id": "npc.5.Buffalostalker_Dodzbraz",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 5,
+        "zone_name": "ウルガラン山脈"
+      },
+      "moves": false,
+      "name_en": "Buffalostalker Dodzbraz",
+      "same_name": false
+    },
+    {
+      "id": "obj.102.Carbuncle",
+      "kind": "obj",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 102,
+        "zone_name": "ラテーヌ高原"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.113.Cermet_Headstone",
+      "kind": "obj",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 113,
+        "zone_name": "テリガン岬"
+      },
+      "moves": false,
+      "name_en": "Cermet Headstone",
+      "same_name": false
+    },
+    {
+      "id": "obj.121.Cermet_Headstone",
+      "kind": "obj",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 121,
+        "zone_name": "聖地ジ・タ"
+      },
+      "moves": false,
+      "name_en": "Cermet Headstone",
+      "same_name": false
+    },
+    {
+      "id": "obj.123.Cermet_Headstone",
+      "kind": "obj",
+      "location": {
+        "grid": "L-6 L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 123,
+        "zone_name": "ユタンガ大森林"
+      },
+      "moves": false,
+      "name_en": "Cermet Headstone",
+      "same_name": false
+    },
+    {
+      "id": "obj.30.Stone_Monument",
+      "kind": "obj",
+      "location": {
+        "grid": "C-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 30,
+        "zone_name": "リヴェーヌ岩塊群サイトA01"
+      },
+      "moves": false,
+      "name_en": "Stone Monument",
+      "same_name": false
+    }
+  ]
+}

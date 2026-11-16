@@ -1,0 +1,3649 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv3以上",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-1",
+      "name_en": "Resonance",
+      "name_ja_ref": "鳴くはクリスタル",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33721.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セルビナかマウラに入るとイベント。入った方の街で次の節が進む（FFXIclopedia も同じ。先に三国のモグハウスにつながるエリアに入ってイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「鳴くはクリスタル」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-2",
+      "name_en": "Emissary from the Seas",
+      "name_ja_ref": "外洋からの使者",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33722.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セルビナは町長官邸 F-9 の Naillina、マウラは総督府 F-9 の Numi Adaligo で最初の選択肢。前の節でイベントを見た街で決まる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.248.Naillina"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「外洋からの使者」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-3",
+      "name_en": "Set Free",
+      "name_ja_ref": "縛め解きて",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「ギルガメッシュの紹介状」（サポートジョブのクエストを済ませていないとき）／互助会引換券・銅（済ませているとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33723.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セルビナは Huge Wasp（ラテーヌ高原・コンシュタット高地）の Bee Pollen 3つを G-9 の Abelard に、マウラは Pygmaioi（タロンギ大峡谷）の Mandragora Dewdrop 3つを Ekokoko に。競売でも買える。紹介状は Lv18 以上でセルビナ G-10 の Isacio かマウラ G-10 の Vera に2回話すとサポートジョブが使える（FFXIclopedia も同じ。品を先に持っていればすぐ渡せる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「縛め解きて」クリア。「ジラートの幻影」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-4",
+      "name_en": "The Beginning",
+      "name_ja_ref": "ある始まり",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "醴泉神社の勾玉"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33724.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "セルビナ H-10 の Pacomart かマウラ H-9 の Tonasav に話してノーグへ。ノーグ K-8 の Oaken Door で Reisenjima Sanctorium orb（FFXIclopedia も同じ。体験版ではジラートがないので進めない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ある始まり」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-5",
+      "name_en": "Flames of Prayer",
+      "name_ja_ref": "祈りの炎",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【一奏】"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33725.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前の節のあとにもう一度ノーグ K-8 の Oaken Door を調べて Rhapsody in White（経験値・スキル上げ・フェイスの数・ホームポイントの料金などがよくなる。FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「祈りの炎」クリア。三国ミッション2-3クリア（所属国のランク3以上）",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-6",
+      "name_en": "The Path Untraveled",
+      "name_ja_ref": "第一の定め",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33726.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ホラ・デム・メアの岩のどれかの Shattered Telepoint（Telepoint とは別）を調べ、クフィム島を選ぶ。ランク3以上。ランク2-3 を先に済ませていれば、この節のあと Halver（ドラギーユ城 I-9）・Kupipi（天の塔）で Cipher: Halver・Cipher: Semih（FFXIclopedia も同じ岩。座標はどちらにもない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「第一の定め」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-7",
+      "name_en": "At the Heavens' Door",
+      "name_ja_ref": "天地の間に",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33727.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "クフィム島 G-8 のホームポイントの近くの Undulating Confluence（FFXIclopedia も同じ。次の戦いは一人ならLv40以上がよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.126.Undulating_Confluence"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天地の間に」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-8",
+      "name_en": "The Lion's Roar",
+      "name_ja_ref": "理外の獅子",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33728.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "もう一度 Undulating Confluence を調べるとすぐ Ophiotaurus が出る。救援要請しても倒せばよい。倒すと完了（FFXIclopedia も同じ。一人ならLv50以上がよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.126.Undulating_Confluence"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「理外の獅子」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-9",
+      "name_en": "Eddies of Despair",
+      "name_ja_ref": "害毒の渦",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33729.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ophiotaurus のあと、もう一度 Undulating Confluence を調べるとエスカ-ジ・タに移り、着くと完了（FFXIclopedia も同じ。エスカ-ジ・タでは何もしなくてよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.126.Undulating_Confluence"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「害毒の渦」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-10",
+      "name_en": "A Land After Time",
+      "name_ja_ref": "時のない世界",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【二奏】"
+        },
+        {
+          "kind": "item",
+          "name_ja": "盟-ライオンII"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33730.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ホラ・デム・メアの岩のどれかの Shattered Telepoint（前と違う岩でもよい）。Rhapsody in Umber と Cipher: Lion II。このあと Curio Vendor Moogle で宝箱のカギが買える（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「時のない世界」クリア。三国ミッション5-2で闇の王を倒した",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-11",
+      "name_en": "Fate's Call",
+      "name_ja_ref": "運命を奏でよ",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33731.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ランク5-2で闇の王を倒してから三国の街に入るとイロハのイベント（FFXIclopedia も同じ。ランク6になっていれば飛ばしてノーグへ行ってよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「運命を奏でよ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-12",
+      "name_en": "What Lies Beyond",
+      "name_ja_ref": "後の先",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33732.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグに入り、Gilgamesh の部屋の Oaken Door を調べる。ジラートのミッションを始めていなければ、ノーグに入ったときにジラート1のイベントになる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「後の先」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-13",
+      "name_en": "The Ties That Bind",
+      "name_ja_ref": "ざわめきの言霊",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33733.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "海蛇の岩窟 J-12（1枚目）の池のほとりの光る ???。ノーグから南へ歩くか、ウォンテッドのワープ（CL125）で4枚目に出て金貨扉から1枚目に戻る（FFXIclopedia も同じ。Ornamented Door には入らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-14",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.176.???_J-12"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ざわめきの言霊」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-14",
+      "name_en": "Impurity",
+      "name_ja_ref": "異質なるもの",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33734.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ユタンガ大森林 F-11 の光る ???。海蛇の岩窟からエスケプで出るか、ノーグ H-9 の Marilleune でチョコボを借りるか、ウォンテッドのワープ（CL119）（FFXIclopedia も同じ。次の戦いは一人ならLv80以上がよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-15",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.123.???_F-11"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「異質なるもの」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-15",
+      "name_en": "The Lost Avatar",
+      "name_ja_ref": "迷えし聖獣",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【三奏】"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33735.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "もう一度 ??? を調べるとすぐ Siren が出る。15分ほどで消えるので、その間に倒す。風の属性ダメージを吸収、エンタイス（魅了）は前方範囲。倒したら ??? をもう一度調べて Rhapsody in Azure（FFXIclopedia も同じ。一人ならLv90以上がよいとも）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-16",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.123.???_F-11"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「迷えし聖獣」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-16",
+      "name_en": "Volto Oscuro",
+      "name_ja_ref": "使者ヴォルトオスクーロ",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-ザイドII"
+        },
+        {
+          "kind": "title",
+          "name_ja": "運命を知った者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33736.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグ K-8 の Oaken Door で Cipher: Zeid II と称号 The Fated（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-17",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「使者ヴォルトオスクーロ」クリア。プロマシアミッションを始めている（「命の洗礼」が一覧にある）",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV1-17",
+      "name_en": "Ring My Bell",
+      "name_ja_ref": "誰がために鈴は鳴った",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/33737.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gilgamesh の部屋の扉を何度か調べ、中で Gilgamesh に話すと、Aldo・Tenzen・Zeid・Kagero・Prishe とのイベント。プロマシアの 5-2・7-5・8-1・8-3・8-4 の途中だと進めない。7-5 を始めたら 8-4 の最後のイベント（日本の0時の待ちあり）まで済ませる（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-18",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「誰がために鈴は鳴った」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-1",
+      "name_en": "Spirits Awoken",
+      "name_ja_ref": "御魂の声",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34160.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "クフィム島からデルクフの塔下層に入るとイベント（サバイバルガイドで飛んでもよい。起きなければ入り直す）。FFXIclopedia も同じ（選択肢にかかわらずル・ルデの庭へ行くよう言われる。プロマシアの条件を満たしていなくてもこの節は済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「御魂の声」クリア。プロマシアミッション第3章第2節「主のなき都」を終えている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-2",
+      "name_en": "Crashing Waves",
+      "name_ja_ref": "波の向こうに",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-テンゼンII"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34161.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・ルデの庭 H-7 の宮殿に近づくとイベントで Cipher: Tenzen II。プロマシア 3-2 まで進めていないと起きない。受け取れなかったら宮殿の入口の Mystic Retriever（FFXIclopedia も同じ。このあとプリッシュ・ウルミア・テンゼンがいなくなるプロマシアのミッションに注意）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「波の向こうに」クリア。プロマシアミッションでプリッシュが出られる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-3",
+      "name_en": "Call to Serve",
+      "name_ja_ref": "候ふ者たち",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-プリッシュII"
+        },
+        {
+          "kind": "other",
+          "name_ja": "プロマシアミッションの「心に宿る記憶」がすべて見られる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34162.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ港に入るとイベントで Cipher: Prishe II。プロマシア 3-5・5-3・6-4・8-4（戦いのあとのイベント）の途中だと起きない。受け取れなかったらジュノ港のガイドストーンの近くの Mystic Retriever（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「候ふ者たち」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-4",
+      "name_en": "Numbering Days",
+      "name_ja_ref": "待ち人来たらず（ミッション）",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34163.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ上層 F-7 の Door: Marble Bridge を調べるとイベント。中に入れなくてもよい（FFXIclopedia も同じ。このあとはプリッシュがいなくてもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Door_Marble_Bridge"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「待ち人来たらず」クリア。「アトルガンの秘宝」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-5",
+      "name_en": "Inescapable Binds",
+      "name_ja_ref": "逃れられぬ運命",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「渡航免状」（持っていないとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34164.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガン白門に入るとイベント。入れないときはジュノ下層 J-8 の天晶堂の Faursel で3つ目の空白の選択肢を2回選んでから「Where is Tenzen」で渡航免状（FFXIclopedia も同じ。渡航免状を持っていれば次の節へ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「逃れられぬ運命」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-6",
+      "name_en": "Desert Winds",
+      "name_ja_ref": "羅針に従え",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34165.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "渡航免状を持っていればこの節は飛ばされ、アトルガン白門でテンゼンのイベントを見ると済む（FFXIclopedia：アトルガン白門のホームポイント#2で入るのが早い。ワジャーム樹林 M-7 の扉からでもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「羅針に従え」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-7",
+      "name_en": "Ever Forward",
+      "name_ja_ref": "無頼な風",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "盟-アブクーバ（Abquhbahに話すと）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34166.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガンミッション12「Royal Puppeteer」まで進めていないとこの先に進めない。アトルガンミッションを全部済ませていれば Imperial Whitegate のイベントで Reunited まで飛ぶ。12 を始めていれば所属国でイベントのあと Aphmau's Light へ（FFXIclopedia は L-8/L-9。アフマウが白門にいないアトルガンミッションの途中だと止まる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「無頼な風」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-8",
+      "name_en": "The Endless Sky",
+      "name_ja_ref": "咎人を追え",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34167.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガンミッション12 まで済ませないと先に進めない（FFXIclopedia：所属国に入るとイベントで Aphmau's Light へ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「咎人を追え」クリア。アトルガンミッション「無手の傀儡師」まで進め、アフマウが白門にいる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-9",
+      "name_en": "Aphmau's Light",
+      "name_ja_ref": "浄化の光",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34168.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アフマウが白門にいるときに Imperial Whitegate（L-8/L-9）を調べる。アトルガン19・29 などの途中はいない（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「浄化の光」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-10",
+      "name_en": "Reunited",
+      "name_ja_ref": "胡乱なる目",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-ナシュメラII"
+        },
+        {
+          "kind": "other",
+          "name_ja": "アトルガンミッションの「心に宿る記憶」がすべて見られる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34169.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ワラーラ寺院に入って Nadeey に話すとイベント（FFXIclopedia は K-7。BG Wiki は盟-ナシュメラII を前の節の報酬にしている。入ったときに勝手に起きるイベントは「The Rider Cometh」のもので、この節とは別）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Nadeey"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「胡乱なる目」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-11",
+      "name_en": "Take Wing",
+      "name_ja_ref": "願え叶え賜え",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34170.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "K-12 の Shararat Teahouse に行くとイベント（FFXIclopedia は J/K-12）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「願え叶え賜え」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-12",
+      "name_en": "Prime Number",
+      "name_ja_ref": "つごもり",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34171.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アルザダール海底遺跡群に入るとイベント。移送の幻灯でナイズル島監視哨へ（皇国軍戦績200）、またはアサルトのナイズル島踏査指令で入る（FFXIclopedia：バフラウ段丘 F-6 で白銀貨を払っても入れる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「つごもり」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-13",
+      "name_en": "From the Ruins",
+      "name_ja_ref": "瓦解する存在",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【四奏】"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34172.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガン白門の Imperial Whitegate で Rhapsody in Crimson。2-39 までのあいだに、ほかの闇の場所のイベント（アトルガン全部のあとにアルザダール海底遺跡群へ入り直す、プロマシア 3-5 のあと異界の口、プロマシア全部のあと The Garden of Ru'Hmet の一番下の先）を見てもよい（FFXIclopedia は L-8/9。フェイスを5人呼べるようになる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「瓦解する存在」クリア。アルタナミッションを「ケット・シー、馳せる」を受けるところまで進めている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-14",
+      "name_en": "Cauterize",
+      "name_ja_ref": "暗中模索",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34173.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "バタリア丘陵・ロランベリー耕地・ソロムグ原野の Cavernous Maw の横の光る ??? を調べるとイベント。クエスト Champion of the Dawn・A Forbidden Reunion を受けていれば先に済ませる。アルタナを始めていなければ Uncertain Destinations、始めていれば Ganged Up On へ（FFXIclopedia：過去の3つのエリアの口でもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-14",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「暗中模索」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-15",
+      "name_en": "Uncertain Destinations",
+      "name_ja_ref": "流浪の旅",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「露光蟲」（ウォークオブエコーズに行ったことがないとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34174.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "3つの Cavernous Maw の横の青く光る ???（白いものではない）を調べるとイベント（FFXIclopedia：過去の3つのエリアの口でもよい。このあと Ganged Up On）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-15",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「流浪の旅」クリア。アルタナミッションでリリゼットが出られる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-16",
+      "name_en": "Ganged Up On",
+      "name_ja_ref": "仮面の一味",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-リリゼットII"
+        },
+        {
+          "kind": "other",
+          "name_ja": "「天涯の娘」まで進めたルートでは、アルタナミッションの「心に宿る記憶」がすべて見られ、だいじなもの「露光蟲」ももらえる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34175.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アルタナを全部済ませていれば Cavernous Maw の横の ??? でイベント。まだなら アルタナ8「In the Name of the Father」より先で南サンドリア〔Ｓ〕に入ると Lightsworm と Cipher: Lilisette II。起きなければ先に口の ??? を調べてから入り直す（FFXIclopedia も同じ。A Timeswept Butterfly の途中は起きない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-16",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「仮面の一味」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-17",
+      "name_en": "Sacrifice",
+      "name_ja_ref": "犠牲の上に",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34176.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アルタナ45 まで済ませていればパシュハウ沼〔Ｓ〕J-9 かグロウベルグ〔Ｓ〕F-5 から、そうでなければ Cavernous Maw の横の光る ???（バタリア丘陵 H-5・ロランベリー耕地 H-6・ソロムグ原野 K-9）で Lightsworm をかざしてウォークオブエコーズへ。階段の上の Ornate Door。次の節のあとは町へ戻る手段がないのでデジョンなどを持って行く（FFXIclopedia：ザルカバード〔Ｓ〕側からは入れない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-17",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.ウォークオブエコーズ.Ornate_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「犠牲の上に」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-18",
+      "name_en": "Somber Dreams",
+      "name_ja_ref": "理外の鯨",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "深淵を覗く者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34177.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "グロウベルグ〔Ｓ〕の幽境の沢で、Veridical Conflux の北東の青く光る ???（すぐ横のものではない）を調べると Cetus。倒したらもう一度調べてイベント、Veridical Conflux の横の ??? からウォークオブエコーズに入るとイベントで称号 Abyssal Purveyor。エーテリックプルのあとドレッドスパイク（FFXIclopedia：Lv90以上、遠隔のフェイスがよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-18",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.グロウベルグ〔Ｓ〕.???_Cetus"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「理外の鯨」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-19",
+      "name_en": "Of Light and Darkness",
+      "name_ja_ref": "ヴァナ・ディールの光と闇",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34178.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Gilgamesh の Oaken Door（FFXIclopedia も同じ。このあとはリリゼットがいなくてもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-19",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ヴァナ・ディールの光と闇」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-20",
+      "name_en": "Temporary Farewells",
+      "name_ja_ref": "長いお別れ",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34179.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸 G-5 の Undulating Confluence の横の光る ???。ホームポイントから川ぞいに橋の方へ（FFXIclopedia も同じ G-5）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-20",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.???_G-5"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「長いお別れ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-21",
+      "name_en": "Brushing Up",
+      "name_ja_ref": "ディスティニー",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34180.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸の Undulating Confluence の横の ??? をもう一度調べてイベント（FFXIclopedia：G-5。稽古の選択で次の節の品が決まる。strength は Beef Stewpot、endurance は Zaru Soba、style は Spicy Cracker 30。Curio Vendor Moogle でそれぞれ 15,000・15,000・13,500 ギル）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-21",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.???_G-5"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ディスティニー」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-22",
+      "name_en": "Keep On Giving",
+      "name_ja_ref": "イロハの特訓",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34181.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "イロハに頼まれた食べ物をミザレオ海岸の ??? にトレード。strength は Beef Stewpot（15,000）、style は Spicy Cracker 30（1つ450、計13,500）、endurance は Zaru Soba（15,000）。どれも Curio Vendor Moogle で買える（FFXIclopedia：G-5。最後の質問でアルタナの助けの選択肢を選ぶとイベントが終わる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-22",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.???_G-5"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「イロハの特訓」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-23",
+      "name_en": "Past Imperfect",
+      "name_ja_ref": "累々たる想い",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34182.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Oaken Door でイベント。ジラートミッション3「Kazham's Chieftainess」を受けているときは、カザム J-9 の Jakoh Wahcondalo に話してからもう一度 Oaken Door。ジラートの進み具合で止まることがある（FFXIclopedia：Welcome t'Norg のイベントが出たらもう一度調べる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-23",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「累々たる想い」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-24",
+      "name_en": "The Cursed Temple",
+      "name_ja_ref": "呪われし寺院",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34183.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジラートミッション4「The Temple of Uggalepih」を済ませていないと Granite Door のイベントは起きない。ヨアトル大森林 J-11 からウガレピ寺院に入るとイベント（サバイバルガイド、ユニティワープ122、怨念洞のホームポイント#1とエスケプでもよい）。MAP1 J-7 の Granite Door から隠れた道を J-3 まで進んでヨアトル大森林 J-9 に出て、右へ右へと進んで寺院に入り直し、左へ左へと進んで MAP3 J-6 の Granite Door（FFXIclopedia も同じ。これで Wisdom of Our Forefathers も済み Where Divinities Collide になる。テレポの魔法を持って行くと帰りが早い）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-24",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.159.Granite_Door_J-6"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「呪われし寺院」クリア。ジラートミッション「ウガレピ寺院」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-25",
+      "name_en": "Wisdom of Our Forefathers",
+      "name_ja_ref": "先人の知恵",
+      "order": 42,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34184.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Granite Door を調べるとイベントで完了（FFXIclopedia：MAP3 J-6。前の節と同じ道順）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-25",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.159.Granite_Door_J-6"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「先人の知恵」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-26",
+      "name_en": "Where Divinities Collide",
+      "name_ja_ref": "神々の住まう地",
+      "order": 43,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34185.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ホラ・デム・メアの岩のどれかの Shattered Telepoint から転移の間に入るとイベント（FFXIclopedia も同じ。Visions of Dread も同時に済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-26",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「神々の住まう地」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-27",
+      "name_en": "Visions of Dread",
+      "name_ja_ref": "石の見せる夢",
+      "order": 44,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34186.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "転移の間でイベント（FFXIclopedia：前の節と同時に済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-27",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「石の見せる夢」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-28",
+      "name_en": "To the Skies",
+      "name_ja_ref": "羽ばたくセイレーン",
+      "order": 45,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34187.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Oaken Door でイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-28",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「羽ばたくセイレーン」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-29",
+      "name_en": "Escha - Ru'Aun",
+      "name_ja_ref": "エスカ-ル・オン（ミッション）",
+      "order": 46,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34188.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸 G-5 の Undulating Confluence でイベント、もう一度調べてエスカ-ル・オンに入るとイベント。ホームポイントからすぐ（FFXIclopedia も同じ G-5）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-29",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.Undulating_Confluence"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「エスカ-ル・オン」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-30",
+      "name_en": "The Decisive Heroine",
+      "name_ja_ref": "イロハの決意",
+      "order": 47,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【五奏】"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "セイレーンの風切り羽根"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34189.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "入口から坂を北へ上り、最初の分かれ道を左（西北西、H-10）へ。階段の上の青い ??? でイベント、Siren's plume（FFXIclopedia：H-10 の南西のすみ。Rhapsody in Emerald で経験値とリミットポイント30%増し、Curio Vendor Moogle の品が増える）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-30",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.289.qqq_bell"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「イロハの決意」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-31",
+      "name_en": "Fall from Grace",
+      "name_ja_ref": "急転直下",
+      "order": 48,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34190.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ホラ・デム・メアの岩のどれかの Shattered Telepoint を調べるとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-31",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「急転直下」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-32",
+      "name_en": "Banishing the Darkness",
+      "name_ja_ref": "虚ろ晴れし日",
+      "order": 49,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34191.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Gilgamesh の Oaken Door でイベント。プロマシアミッション 3-5 Darkness Named・5-3 Three Paths・6-1 For Whom the Verse is Sung・6-2 A Place to Return・6-3 More Questions than Answers を受けているあいだは起きない（FFXIclopedia も同じ Oaken Door）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-32",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「虚ろ晴れし日」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-33",
+      "name_en": "Over the Rainbow",
+      "name_ja_ref": "虹の向こう",
+      "order": 50,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "魔法人形「ワルノリくん」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34192.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス石の区のホームポイント#3から、シャントット邸（K-7）の Shantotto に話すとイベント、Most curious curio（FFXIclopedia も同じ K-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-33",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「虹の向こう」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-34",
+      "name_en": "Cacophonous Discord",
+      "name_ja_ref": "不協和音",
+      "order": 51,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34193.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸の Undulating Confluence からエスカ-ル・オンに入るとイベント（FFXIclopedia も同じ。ゴブリンの足あとでの見直しでは「Both Paths Taken」と誤って出る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-34",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.Undulating_Confluence"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.053",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「不協和音」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-35",
+      "name_en": "Eddies of Despair",
+      "name_ja_ref": "迷宮の渦",
+      "order": 52,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34194.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "入口の左の ??? で Eschan Droplets をもらい、Eschan Portal で次へ。着いた先ごとに ??? を探して Droplets をもらい、#15 まで繰り返す。#15 の光る ??? でイベント。見つけにくいときは入口の ??? で取り直し、シルトを払ってポータルで戻ってもよい。夜は Eschan Limule が音、Eschan Murex が魔法とアビリティ、Eschan Amoeban が魔法に反応して襲ってくる",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-35",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.289.???_Portal15"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.054",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「迷宮の渦」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-36",
+      "name_en": "Pretender to the Throne",
+      "name_ja_ref": "面汚し",
+      "order": 53,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-バラモア"
+        },
+        {
+          "kind": "title",
+          "name_ja": "享楽と悪意を退けし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34195.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "??? をもう一度調べると Balamor。ラストラフ（前方範囲のHP吸収）を繰り返すので後衛は離れる。負けたらエリアを出て入り直すと Most curious curio をもう一度もらえる。倒したらもう一度 ??? で Cipher: Balamor、称号 Banisher of the Profane。ポータルの横の ??? で Eschan Droplets、#15 から #1 へ戻れる（FFXIclopedia：BF ではなく調べるとすぐ戦いになる。出すと curio が Most confounding curio に変わる。強いバイオ。フェイス5人で一人でも倒せる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-36",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.289.???_Portal15"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.055",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「面汚し」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-37",
+      "name_en": "Banished",
+      "name_ja_ref": "電撃",
+      "order": 54,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34196.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Oaken Door でイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-37",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.056",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「電撃」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-38",
+      "name_en": "Call of the Void",
+      "name_ja_ref": "澄んだ空の下",
+      "order": 55,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-セルテウス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34197.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "どれかの岩の Dimensional Portal を調べるとイベント、Cipher: Selh'teus。もらえなかったら天象の鎖の Mystic Retriever。これをもらわないと先へ進めない（FFXIclopedia：プロマシアの進み具合にかかわらず天象の鎖へ移る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-38",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.057",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「澄んだ空の下」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-39",
+      "name_en": "Both Paths Taken",
+      "name_ja_ref": "遥かな分岐点",
+      "order": 56,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "魂の眼を持つ者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34198.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前へ歩いて Transcendental Radiance を調べ、BF で Disjoined One と戦う。15分、フェイス5人で一人でも勝てる。イロハは倒れても15秒で何度も起き上がる。出たら岩の Dimensional Portal で戻れる。称号 Spirit Seeker（FFXIclopedia：入ると Siren's plume が Motionless plume に変わる。6人まで、強化は消える、フェイスは入ってから呼ぶ。勝つとどれかの岩の Dimensional Portal のそばに出る。IL115以上がよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-39",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Transcendental_Radiance"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.058",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遥かな分岐点」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-40",
+      "name_en": "The Man Behind the Mask",
+      "name_ja_ref": "あわい",
+      "order": 57,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【六奏】"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34199.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグの Oaken Door でイベント、Rhapsody in Mauve（FFXIclopedia：経験値とリミットポイント30%増し、ユニティの功績30%増し、ヴォイドウォッチ・レギオン・アビセア・リンバス・カンパニエなどの待ち時間や値段が軽くなる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-40",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.059",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「あわい」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV2-41",
+      "name_en": "Uncertain Futures",
+      "name_ja_ref": "時の溜り",
+      "order": 58,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34200.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "三国のモグハウスの出入り口があるエリアに入るとイベント、Song of hope（FFXIclopedia も同じ。これで Darkness Beckons になる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_2-41",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.060",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「時の溜り」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-1",
+      "name_en": "Darkness Beckons",
+      "name_ja_ref": "叫ぶ闇",
+      "order": 59,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "希望の唄"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34949.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ホラ・デム・メアの岩の Dimensional Portal で醴泉島へ。着くとイベント。入口のゴブリン Shiftrix に話すと Oseem の強化が使える。醴泉島の地図（50シルト）と次の節の Mollifier（500シルト）も売っている。道なりに進んで K-9 の Etched Rock でイベント。ここから Ethereal Ingress が取れる。Cumulus Masque +1 を使うと #6 のそばに出る。醴泉島の敵はほとんど襲ってきて、見破りや聞き破りもいる（FFXIclopedia：インビジとスニークがあるとよい。H/I-5 の Hippogryph は見破り。HPが減ると襲ってくる敵もいる。全部走って6分ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島.Etched_Rock"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.061",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「叫ぶ闇」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-2",
+      "name_en": "The Brewing Storm",
+      "name_ja_ref": "乱雲たちこめ",
+      "order": 60,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34953.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "#6 の近くで夜（20:00〜4:00）に出る Perfervid Naraka を3体倒す。星唄の煌めき【六奏】があると、からんだときにLv107に下がる。倒すと Ascended Naraka が出ることがあるので Mollifier を持っておく。進めている人がパーティを抜けたりエリアを移ったりすると、戦っている途中でもLvとHPが元に戻る（FFXIclopedia：Etched Rock K-9 の近く。音とHPの減りに反応し、リンクしない。3体倒す前にエリアを移ると数え直し。黒いピクシーには弱くならない。シートは K-8・エリアを移っても数は消えない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "mob.醴泉島.Perfervid_Naraka"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.062",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「乱雲たちこめ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-3",
+      "name_en": "The River Runs Red",
+      "name_ja_ref": "流るる血",
+      "order": 61,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【七奏】"
+        },
+        {
+          "kind": "other",
+          "name_ja": "だいじなもの「ロゼッタ石」（持っていないとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34954.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "K-9 の Etched Rock でイベント、Rhapsody in Fuchsia。Geomagnetron を持っていなければもらえ、もう合わせてあるので Darcia に話すだけで Adoulinian charter permit がもらえる（FFXIclopedia：醴泉島の祠に入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島.Etched_Rock"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.063",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「流るる血」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-4",
+      "name_en": "The Crucible",
+      "name_ja_ref": "坩堝",
+      "order": 62,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34955.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アドゥリンへ行くには The Geomagnetron を済ませる（前の節で品をもらっていればジュノ下層の Darcia に話すだけ）。三国のモグハウスの出入り口があるエリアに入るとイベント（しなくてもよい）。ケイザック古戦場に入るとイベント。アドゥリン 1-7 Meeting of the Minds を済ませていないと起きない（FFXIclopedia：Darcia H-7。Rumors from the West は自動で済む。アドゥリンの進み具合で Forward Thinking か Tears of the Generals になる）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.064",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「坩堝」クリア。アドゥリンミッション「リフキンを統べるもの」まで進めている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-5",
+      "name_en": "Forward Thinking",
+      "name_ja_ref": "関所を越えよ",
+      "order": 63,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "力を奪われた勾玉"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34956.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ケイザック古戦場に入るとイベント。Reisenjima Sanctorium orb が Drained orb に変わる（FFXIclopedia：アドゥリンが進んでいれば前の節と同時に済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.065",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「関所を越えよ」クリア。アドゥリンミッション「オーダーサイン」まで進めている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-6",
+      "name_en": "Tears of the Generals",
+      "name_ja_ref": "悲しみのケイザック",
+      "order": 64,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34957.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンの Castle Adoulin gates の Ploh Trishbahk に話す。アドゥリン 2-2 An Aimless Journey を済ませていないと起きない。アドゥリン 3-6-3 Stonewalled・3-6-4 Salvation・4-5 Balamor, the Deathborne Xol・4-5-1 Anagnorisis・5-4-1 Abomination を受けているあいだは起きない（FFXIclopedia：Ortharsyne のあと。3-6-1 Kumhau・4-4 の途中・5-5 でも起きない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.066",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「悲しみのケイザック」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-7",
+      "name_en": "What He Left Behind",
+      "name_ja_ref": "遺跡の奥に",
+      "order": 65,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アシェラII"
+        },
+        {
+          "kind": "other",
+          "name_ja": "アドゥリンの魔境ミッションの「心に宿る記憶」がすべて見られる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34958.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道 B-6 の Augural Conveyor の部屋の入口近くの床の光る ??? でイベント、Cipher: Arciela II。西アドゥリン F-5 の入口（Waypoint Adoulin Waterfront）から東へ進み、C-7 から B-6 に入る。Augural Conveyor が開いていれば Waypoint の enigmatic device で飛べる（FFXIclopedia：C-6 の南西のすみ。小さい橋を上ってすこし右。この盟をもらわないと先へ進めない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.067",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遺跡の奥に」クリア。アドゥリンミッション「水門の奥へ」のBFの手前まで進めている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-8",
+      "name_en": "Gone but Not Forgotten",
+      "name_ja_ref": "遺されし力",
+      "order": 66,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "覇王のオーブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34959.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道の Sluice Gate から C-6 のアジトに入り、Inconspicuous Barrel で Founder king's orb（FFXIclopedia：アドゥリン 2-7 Predators and Prey を済ませ、2-7-1 Behind the Sluices を受けて Waterway facility crank を持っていること。Sluice Gate を調べてイベント、もう一度調べて入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.258.Sluice_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.068",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「遺されし力」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-9",
+      "name_en": "August Artifacts",
+      "name_ja_ref": "秘められしオーブ",
+      "order": 67,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34960.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ララ水道の Augural Conveyor（C-6/B-6）の近くの ??? でイベント。前の節から走るならスニークだけでよい（FFXIclopedia：Augural Conveyor は B-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.069",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「秘められしオーブ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-10",
+      "name_en": "Solemnity",
+      "name_ja_ref": "論客バラモア",
+      "order": 68,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34961.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリンのセレニア図書館に入るとイベント（FFXIclopedia：東アドゥリン F-10 の Eppel-Treppel から）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.070",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「論客バラモア」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-11",
+      "name_en": "Eyes on You",
+      "name_ja_ref": "眼前の道",
+      "order": 69,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34962.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "神々の間に入るとイベント。ロ・メーヴのサバイバルガイドからすぐ、ル・オンの庭から戻って入ってもよい。ヴォイドウォッチの NPC のワープでもよい。ユニティワープ Lv125 はロ・メーヴの南の入口（FFXIclopedia も同じ。どの入口からでもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.071",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「眼前の道」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-12",
+      "name_en": "Exploring the Ruins",
+      "name_ja_ref": "リ・テロアを往く",
+      "order": 70,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34963.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "目の前の Cermet Grate でイベント。このあとル・ルデの庭 H-5 の Jamal に話すとエンブレムの課題が出て、済ませると Ark の5人の盟がもらえる（FFXIclopedia も同じ Cermet Grate）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.251.Cermet_Grate"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.072",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「リ・テロアを往く」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-13",
+      "name_en": "Become Something More",
+      "name_ja_ref": "大いなるものを超えよ",
+      "order": 71,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "時空の羅針盤"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34964.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島の祠に戻るとイベント、Dimensional compass。醴泉島へは岩の Dimensional Portal から（FFXIclopedia：K-9 の Etched Rock から入る。Curio Vendor Moogle で teleport ring が買える）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島.Etched_Rock"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.073",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「大いなるものを超えよ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-14",
+      "name_en": "Unshakable Nightmares",
+      "name_ja_ref": "蓄えられし悪夢",
+      "order": 72,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34965.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウォークオブエコーズに入るとイベント。バタリア丘陵・ロランベリー耕地・ソロムグ原野（現代か過去）の Cavernous Maw の横の青い ???（Lightsworm が要る）、グロウベルグ〔Ｓ〕、パシュハウ沼〔Ｓ〕から入る。ザルカバード〔Ｓ〕から入ると次の節の場所と違う。Champion of the Dawn で止まると出たら、ザルカバード〔Ｓ〕から入ってそのクエストを進める（FFXIclopedia：現代で入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-14",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.074",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「蓄えられし悪夢」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-15",
+      "name_en": "What Remains of Hope",
+      "name_ja_ref": "望みを繋ぎ",
+      "order": 73,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ケット・シーのヒゲ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34967.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "近くの白く光る ???（東、遠くの空に Atomos が見える方）でイベント、Desuetia - Empyreal Paradox に移って Cait Sith's whisker。ザルカバード〔Ｓ〕から入ったときは場所が違う（FFXIclopedia：Veridical Conflux の北東の ???）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-15",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.075",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「望みを繋ぎ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-16",
+      "name_en": "Death Cares Not",
+      "name_ja_ref": "死を死を死を",
+      "order": 74,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34968.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Transcendental Radiance でイベント（FFXIclopedia：Desuetia - Empyreal Paradox）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-16",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.デスエチア-天象の鎖.Transcendental_Radiance"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.076",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「死を死を死を」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-17",
+      "name_en": "No Time like the Future",
+      "name_ja_ref": "未来を導く",
+      "order": 75,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34969.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "もう一度 Transcendental Radiance で BF、Sempurne。アビセア-天象の鎖の Shinryu の弱い版で、技は同じだが、技や魔法の構え中に殴られてHPを戻すことはない。IL装備の前衛ならフェイスと一人で勝てる。負けたら BF の外の Cait Sith からもう一度 whisker（FFXIclopedia：HP約100,000。Mighty Guard を使い、青魔道士が覚えられる。状態異常を治す薬を持って行く。パーティで入ってから抜けてフェイスを呼んでもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-17",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.デスエチア-天象の鎖.Transcendental_Radiance"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.077",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「未来を導く」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-18",
+      "name_en": "Sin",
+      "name_ja_ref": "罪深き決断",
+      "order": 76,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34970.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BF のあともう一度 Transcendental Radiance を調べると長いイベント。あとで見直すときは醴泉島の Goblin Footprint の「Penance」（FFXIclopedia：イベントは10分以上）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-18",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.デスエチア-天象の鎖.Transcendental_Radiance"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.078",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「罪深き決断」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-19",
+      "name_en": "Penance",
+      "name_ja_ref": "償うためには",
+      "order": 77,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34971.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前の節のイベントを見ているあいだに済む。称号 The Decider と Rhapsody in Puce はこの節の終わり（FFXIclopedia：途中で切れたらデスエチア-天象の鎖に入り直す）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-19",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.079",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「償うためには」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-20",
+      "name_en": "Vessel of Light",
+      "name_ja_ref": "心の資格",
+      "order": 78,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【八奏】"
+        },
+        {
+          "kind": "title",
+          "name_ja": "裁定者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34972.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "もう一度岩の Dimensional Portal から醴泉島の祠へ行くとイベント（FFXIclopedia：醴泉島の祠に入るとイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-20",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.080",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「心の資格」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-21",
+      "name_en": "The Lifestream of Reisenjima",
+      "name_ja_ref": "醴泉島の地脈",
+      "order": 79,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34973.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島 H-5 の大きな遺跡の近くの丘の ??? でイベント。Tribulens の話が出たら別の ???（丘の下の方）。Ethereal Ingress #5 から西へ、見破る Hippogryph に注意。プロマシアミッション8-1・8-4（最後のイベントの前）のあいだは見られない（FFXIclopedia：H-5。次の節の討伐はこのイベントのあとから数える）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-21",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.081",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「醴泉島の地脈」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-22",
+      "name_en": "From West to East",
+      "name_ja_ref": "風向きは東",
+      "order": 80,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34974.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Obstreperous Panopt を11体倒す。Ethereal Ingress #1 のすぐ北の F-11 に多い。Ascended Panopt が出ないように Shiftrix で Mollifier を買っておく。エリアを移ると数え直し。星唄の煌めき【七奏】でLv112に下がる。エミネンス・レコードの醴泉島の戦闘（10体）と同時に進められる（FFXIclopedia：F-11。E-11 の ??? のあたりは開けていて釣りやすい。属性を吸う構えがあるので魔法のフェイスは避ける。Ascended Panopt も数に入る。11体倒したあとならエリアを移ってもよい。シート：Ethereal Ingress #1〜#2 のあいだに多く、#2 の南西 E-10 の橋の北にパノプトだけが3体、橋は安全）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-22",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "mob.醴泉島.Obstreperous_Panopt"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.082",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「風向きは東」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-23",
+      "name_en": "Good Things Come in Threes",
+      "name_ja_ref": "辣腕三人衆",
+      "order": 81,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34975.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島 K-9 の Etched Rock でイベント（Ethereal Ingress #6、祠の入口）（FFXIclopedia：K-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-23",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.083",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「辣腕三人衆」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-24",
+      "name_en": "Tackling the Problem",
+      "name_ja_ref": "問題解決",
+      "order": 82,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "次元の傷跡"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34976.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島の祠の Reisen Crystal でイベント（FFXIclopedia：長いイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-24",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島の祠.Reisen_Crystal"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.084",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「問題解決」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-25",
+      "name_en": "Way to Divinity",
+      "name_ja_ref": "蘇りし神への道",
+      "order": 83,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34977.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前の節から続くイベントを見ると済み、途中で天象の鎖に移る。称号 The Ascended（FFXIclopedia：前の節のイベントの中で済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-25",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島の祠.Reisen_Crystal"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.085",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「蘇りし神への道」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-26",
+      "name_en": "The Winds of Time",
+      "name_ja_ref": "ローディング",
+      "order": 84,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "神となりし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34978.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "天象の鎖の Transcendental Radiance で BF「The Winds of Time」、Metus を倒す。プロマシアの技と Osmotic Wave・Censure、メテオ。フェイスが使える。負けたら醴泉島の祠の Reisen Crystal で女神に会うと答えて天象の鎖に戻り、Metus のイベント、Transcendental Radiance の部屋の入口の右の Dimensional Portal で祠に戻り、もう一度 Reisen Crystal で Extradimensional scar（FFXIclopedia：HP約100,000。魔法と物理のフェイスを組み合わせ、IL装備がよい。勝つとまた長いイベント。ル・メトの園のホームポイント#1から近くのエレベーターで下りて Dimensional Portal を使うと早い）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-26",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Transcendental_Radiance"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.086",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ローディング」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-27",
+      "name_en": "Calm After the Storm",
+      "name_ja_ref": "静かなる嵐",
+      "order": 85,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34979.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前の戦いのあとのイベントを見る。Tenzen がプロマシアミッションで「ふさがって」いると（暁の最後のイベントの前など）進めないので、天象の鎖の Resume Point を調べる（FFXIclopedia：Metus を倒したあとのイベントの中で済む）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-27",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.087",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「静かなる嵐」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-28",
+      "name_en": "Nary a Cloud in Sight",
+      "name_ja_ref": "雲ひとつなし",
+      "order": 86,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-イロハ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【九奏】"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ヴァナ・ディールの救世主"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34980.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "同じイベントを見つづけ、終わりに Cipher: Iroha と Rhapsody in Ochre、称号 The Savior of Vana'diel（FFXIclopedia：盟を受け取れなかったときは、醴泉島 K-9 の Etched Rock のすぐ外の Mystic Retriever でもらう。受け取らないと先に進めない）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-28",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.088",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「雲ひとつなし」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-29",
+      "name_en": "An Unending Song",
+      "name_ja_ref": "終わりなき唄",
+      "order": 87,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34981.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "三国のモグハウスの入口があるエリアに入るとイベント。前の節でマイバッグがいっぱいだったら、醴泉島の Mystic Retriever で盟をもらってから（FFXIclopedia：Etched Rock のすぐ外 K-9。シート：K-9、醴泉島の祠の手前）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-29",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.089",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「終わりなき唄」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-30",
+      "name_en": "A Deep Sleep",
+      "name_ja_ref": "眠りの底で",
+      "order": 88,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34982.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島の祠へ行くとイベント。プロマシアミッションを済ませているか「暁」まで進めていれば、ル・メトの園のホームポイントからエレベーターで下り、天象の鎖の Dimensional Portal で醴泉島の祠へ（FFXIclopedia：醴泉島の祠に入るとイベント。シート：K-9 の Etched Rock から入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-30",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.090",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「眠りの底で」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-31",
+      "name_en": "Guardians",
+      "name_ja_ref": "ガーディアン（ミッション）",
+      "order": 89,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "大いなるものたちの息吹"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる力の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34983.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ラテーヌ高原 G-6 の Stone Circle の ??? でイベント、Breath of the avatars。ユニティのワープ（Lv99）で近くへ飛べる（FFXIclopedia：G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-31",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.091",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ガーディアン（ミッション）」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-32",
+      "name_en": "Iroha in Distress",
+      "name_ja_ref": "イロハを救え",
+      "order": 90,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ジラートの幻影ミッションの「心に宿る記憶」がすべて見られる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34984.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島の祠に戻るとイベント。ル・メトの園のホームポイントと天象の鎖の Dimensional Portal で早く行ける。ジラートミッションの記憶がすべて見られるようになる（FFXIclopedia：醴泉島の祠に入るとイベント）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-32",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.092",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「イロハを救え」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-33",
+      "name_en": "Absolute Trust",
+      "name_ja_ref": "真のフェイス",
+      "order": 91,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34985.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Reisen Crystal を調べてイベント（FFXIclopedia：醴泉島の祠の Reisen Crystal）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-33",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島の祠.Reisen_Crystal"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.093",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「真のフェイス」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-34",
+      "name_en": "The Orb's Radiance",
+      "name_ja_ref": "勾玉の輝き",
+      "order": 92,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-イロハII"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "鳳凰の息吹"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "星唄の煌めき【終奏】"
+        },
+        {
+          "kind": "title",
+          "name_ja": "星唄に乗せて歩み続ける者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34986.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "もう一度 Reisen Crystal を調べて Cloud of Darkness と BF。負けたらラテーヌ高原 G-6 の Stone Circle で Breath of the avatars をもう一度。済ませた人はだいじなものなしで手伝える。イロハが一緒に戦い、プロテス・シェル、フレアを使い、倒れても自分で起き上がり、レイズもする。Primordial Surge のあと物理か魔法を吸う（FFXIclopedia：勝ったあとのイベントとスタッフロールは15〜20分。フェイスで一人で勝つのは強い盾役でないと難しい。Reisen Shrine Glory は手伝ったとき）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-34",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.醴泉島の祠.Reisen_Crystal"
+      },
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.094",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「勾玉の輝き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "RoV3-35",
+      "name_en": "A Rhapsody for the Ages",
+      "name_ja_ref": "すべてが星の唄となる",
+      "order": 93,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/34987.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "エンディングのイベントを見る。このあと蝕世のエンブリオのミッションを始められる（FFXIclopedia：星唄の物語の終わり）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_3-35",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "rov",
+      "game_ref": null,
+      "id": "mission.rov.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv3以上で三国の街に入って「後にする」を選んだ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To Start RoV...",
+      "name_ja_ref": "「ヴァナ・ディールの星唄」を始めるには……",
+      "order": 999,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39146.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lv3以上で三国の街に入るとイベント。後にしたときは10か所の Tales' Beginning（南サンドリア H-8・北サンドリア J-10・サンドリア港 H-9・バストゥーク鉱山区 I-9・バストゥーク商業区 I-8・バストゥーク港 D-7・ウィンダス水の区 F-5・ウィンダス石の区 C-6・ウィンダス港 B-5・ウィンダス森の区 J-10）。済むとエスカ-ジ・タとエスカ-ル・オンに入れる（FFXIclopedia も同じ場所）",
+          "url": "https://www.bg-wiki.com/ffxi/Rhapsodies_of_Vanadiel_Mission_1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.231.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "mob.醴泉島.Obstreperous_Panopt",
+      "kind": "mob",
+      "location": {
+        "grid": "F-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 291,
+        "zone_name": "醴泉島"
+      },
+      "moves": false,
+      "name_en": "Obstreperous Panopt",
+      "same_name": false
+    },
+    {
+      "id": "mob.醴泉島.Perfervid_Naraka",
+      "kind": "mob",
+      "location": {
+        "grid": "K-8 K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 291,
+        "zone_name": "醴泉島"
+      },
+      "moves": false,
+      "name_en": "Perfervid Naraka",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Naillina",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Naillina",
+      "same_name": false
+    },
+    {
+      "id": "obj.123.???_F-11",
+      "kind": "obj",
+      "location": {
+        "grid": "F-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 123,
+        "zone_name": "ユタンガ大森林"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.126.Undulating_Confluence",
+      "kind": "obj",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 126,
+        "zone_name": "クフィム島"
+      },
+      "moves": false,
+      "name_en": "Undulating Confluence",
+      "same_name": false
+    },
+    {
+      "id": "obj.176.???_J-12",
+      "kind": "obj",
+      "location": {
+        "grid": "J-12",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 176,
+        "zone_name": "海蛇の岩窟"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.25.???_G-5",
+      "kind": "obj",
+      "location": {
+        "grid": "G-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 25,
+        "zone_name": "ミザレオ海岸"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.25.Undulating_Confluence",
+      "kind": "obj",
+      "location": {
+        "grid": "G-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 25,
+        "zone_name": "ミザレオ海岸"
+      },
+      "moves": false,
+      "name_en": "Undulating Confluence",
+      "same_name": false
+    },
+    {
+      "id": "obj.289.???_Portal15",
+      "kind": "obj",
+      "location": {
+        "grid": "H-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 289,
+        "zone_name": "エスカ-ル・オン"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.グロウベルグ〔Ｓ〕.???_Cetus",
+      "kind": "obj",
+      "location": {
+        "grid": "F-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 89,
+        "zone_name": "グロウベルグ〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.デスエチア-天象の鎖.Transcendental_Radiance",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 290,
+        "zone_name": "デスエチア-天象の鎖"
+      },
+      "moves": false,
+      "name_en": "Transcendental Radiance",
+      "same_name": false
+    },
+    {
+      "id": "obj.醴泉島.Etched_Rock",
+      "kind": "obj",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 291,
+        "zone_name": "醴泉島"
+      },
+      "moves": false,
+      "name_en": "Etched Rock",
+      "same_name": false
+    },
+    {
+      "id": "obj.醴泉島の祠.Reisen_Crystal",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 293,
+        "zone_name": "醴泉島の祠"
+      },
+      "moves": false,
+      "name_en": "Reisen Crystal",
+      "same_name": false
+    }
+  ]
+}

@@ -1,0 +1,6309 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「新たなる脅威」をコンプリート（自動で受ける）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「しばしの休息」で六芒星の白色のジェイドVIを手に入れている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "VW Op. #115: Valkurm Duster",
+      "name_ja_ref": "VW作戦第103計画バルクルム砂丘",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25916.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「新たなる脅威」をコンプリート（自動で受ける）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「しばしの休息」で六芒星の白色のジェイドVIを手に入れている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "VW Op. #118: Buburimu Squall",
+      "name_ja_ref": "VW作戦第118計画ブブリム半島",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25917.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "踊り子AFクエスト「追想のポリフォニー」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Dancer Attire",
+      "name_ja_ref": "ダンサー装束",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ダンサーティアラ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ダンサーバングル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ダンサートーシュー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15801.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Olgald"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "フェローがLv51以上、親密度55以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Regaining Trust",
+      "name_ja_ref": "ふたりの想い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が60になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "心の糧となりし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5990.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Luto Mewrilah の座標 G-8（用語辞典は G-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Regaining_Trust",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「カカシがいない」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Kind Cardian",
+      "name_ja_ref": "やさしいカカシ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "グリーンケープ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "しあわせ宅配人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4381.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Apururu の座標 H-9",
+          "url": "https://www.bg-wiki.com/ffxi/The_Kind_Cardian",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Monberaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "フェローとの親密度65以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Chameleon Capers",
+      "name_ja_ref": "カメレオンのまやかしを",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "変装グッズ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "作戦書：防戦／作戦書：力戦／作戦書：持久戦 から1つ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5937.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gelzerio の座標 H-7",
+          "url": "https://www.bg-wiki.com/ffxi/Chameleon_Capers",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「亡き夫へのキャンドル」を受けていること",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Candle-making",
+      "name_ja_ref": "キャンドルの原料",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "聖なるキャンドル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アルタナ教信者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9151.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Rouliette"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "三国ミッション「魔晶石を奪え」でAldoのイベントを済ませた後（銀の鈴を受け取った後）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crest of Davoi",
+      "name_ja_ref": "ダボイ村の紋章",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ダボイ村紋章"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9139.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Baudin"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "工房橋(G-7)のColletと話してイベントを見てから",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Clock Most Delicate",
+      "name_ja_ref": "デリケートな時計塔",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1200ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "機工士の軍手"
+        },
+        {
+          "kind": "title",
+          "name_ja": "街一番の油売り"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11566.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Galmut"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "シーフのAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Sneaky Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ シーフ ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ローグアームレット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ローグアームレット」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/2383.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Sneaky_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ナイトのAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Stalwart Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ ナイト ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ガラントガントレ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ガラントガントレ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/3063.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Stalwart_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "モンクのAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Striking Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ モンク ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "テンプルグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「テンプルグローブ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/7459.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Striking_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "侍のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Loyal Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 侍 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "明珍筒篭手"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「明珍筒篭手」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/5447.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Loyal_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "召喚士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Calling Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 召喚士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エボカーブレーサー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「エボカーブレーサー」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/7413.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Calling_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "吟遊詩人のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Harmonious Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 吟遊詩人 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コラルカフス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「コラルカフス」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/1247.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Harmonious_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "忍者のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Lurking Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 忍者 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "乱波手甲"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「乱波手甲」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/4651.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Lurking_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "戦士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Warring Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 戦士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ファイターマフラ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ファイターマフラ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/5146.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Warring_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "暗黒騎士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Shadowy Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 暗黒騎士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "カオスガントレット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「カオスガントレット」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/7425.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Shadowy_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "狩人のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Chasing Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 狩人 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ハンターブレーサー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ハンターブレーサー」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/5968.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Chasing_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "獣使いのAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Wild Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 獣使い ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ビーストグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ビーストグローブ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/6014.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Wild_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.022",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "白魔道士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Healing Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 白魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ヒーラーミトン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ヒーラーミトン」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/4955.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Healing_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "竜騎士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Dragon Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 竜騎士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ドラケンフィンガー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ドラケンフィンガー」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/7405.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Dragon_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "赤魔道士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Vermillion Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 赤魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ワーロックグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ワーロックグローブ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/4566.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Vermillion_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "黒魔道士のAF連続クエスト第二弾をオファー中かコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "同時に複数のジョブでは受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Borghertz's Sorcerous Hands",
+      "name_ja_ref": "ボルグヘルツの失われた魔手 ＜ 黒魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ウィザードグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2252.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬「ウィザードグローブ」は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/3630.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "初回は店内のDeadly Minnowに話してからYin Pocanakhuへ、Torchはズヴァール城外郭の最初の地図",
+          "url": "https://www.bg-wiki.com/ffxi/Borghertz%27s_Sorcerous_Hands",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Guslam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「チョコボ乗り免許証」「ジュノ周辺地図」所持、メインジョブLv20以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Full Speed Ahead!",
+      "name_ja_ref": "ライドオン！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "♪ラプトル"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "呼子霊笛"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35480.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Mapitoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Candlelight Vigil",
+      "name_ja_ref": "亡き夫へのキャンドル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "フラワーネックレス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "慈善活動家"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6991.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Ilumida"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.028",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天光」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローとの親密度85以上。イベントにはシグナルパールの所持が必要",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mirror Images",
+      "name_ja_ref": "伝える言葉",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローとの信頼関係がさらに深まる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ピンチのときフェローが「ブレスドレイディアンス」を使うようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5941.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.029",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv20以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Chocobo's Wounds",
+      "name_ja_ref": "傷ついたチョコボ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "チョコボ乗り免許証"
+        },
+        {
+          "kind": "title",
+          "name_ja": "チョコボ調教師"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2725.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Brutus の座標 G-7",
+          "url": "https://www.bg-wiki.com/ffxi/Chocobo%27s_Wounds",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.030",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Unlisted Qualities",
+      "name_ja_ref": "其の者の名は",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シルバーインゴット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5958.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「双対の力」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローとの親密度45以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blighted Gloom",
+      "name_ja_ref": "冥闇",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローの親密度の上限が70になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5938.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.032",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「導かれるもの」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローとの親密度30以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Past Reflection",
+      "name_ja_ref": "双対の力",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5847.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.033",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ライドオン！」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ジラートミッション「1万年の夢の終わりに」まで進んでいる",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Flying Machine of Eld",
+      "name_ja_ref": "古代の飛翔機",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "♪レヴィデイス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/37562.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Jeridade"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.034",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「冥闇」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローとの親密度70以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blessed Radiance",
+      "name_ja_ref": "天光",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローの親密度の上限が90になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5939.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "親密度の上限が90になる",
+          "url": "https://www.bg-wiki.com/ffxi/Blessed_Radiance",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.035",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ダボイ村の紋章」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Save My Sister",
+      "name_ja_ref": "姉ちゃんを助けて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3000ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ホーリーメイス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "エクソシスト見習い"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18167.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Brazier の座標（F-9→H-7→F-7→H-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Save_My_Sister",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Baudin"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「少女と鏡」をコンプリートし、エリアチェンジしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Mirror, Mirror",
+      "name_ja_ref": "導かれるもの",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シグナルパール"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェローを呼び出せるようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "導となる者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5936.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.037",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「其の者の名は」をコンプリートし、エリアチェンジしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Girl in the Looking Glass",
+      "name_ja_ref": "少女と鏡",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5967.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "入口はバタリア丘陵(G-8)、???はエルディーム古墳MAP2の(F-9)",
+          "url": "https://www.bg-wiki.com/ffxi/Girl_in_the_Looking_Glass",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.038",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Lure of the Wildcat (Jeuno)",
+      "name_ja_ref": "山猫の招待",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "白色の招待券"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5044.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ajithaam の座標 F-5（用語辞典は G-5）",
+          "url": "https://www.bg-wiki.com/ffxi/Lure_of_the_Wildcat_(Jeuno)",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Ajithaam"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ふたりの想い」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv56以上、親密度80以上、シグナルパールをマイバッグに入れている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mixed Signal",
+      "name_ja_ref": "心のシグナル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が65になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "助け合う者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13223.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Raimbroy は E-8 と F-8 の境目（このページは E-8、The Sweetest Things は F-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Mixed_Signal",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Ratoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.040",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「竜虎相搏つ」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv66以上、メイジャンの試練帖を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Trial in Tandem",
+      "name_ja_ref": "捲土重来",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が75になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/23795.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「署名を集めろ」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Clockmaster",
+      "name_ja_ref": "時計塔と青年",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1200ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "タイムハンマー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "時の旅人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11568.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Door_House_G-7"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.042",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「息子に罪はない」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Path of the Beastmaster",
+      "name_ja_ref": "獣使いジョブゲット",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "獣使いにジョブチェンジできるようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "モンスター調教師"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6551.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.043",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「心のシグナル」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv61以上、親密度100",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Clash of the Comrades",
+      "name_ja_ref": "竜虎相搏つ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が70になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "高め合う者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15315.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.044",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Chocobo on the Loose!",
+      "name_ja_ref": "逃げだしたチョコボ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "チョコボの卵（わずかに温かい）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7034.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Chocobo Tracks は (E-5) の北西の端、(E-4) のすぐ南",
+          "url": "https://www.bg-wiki.com/ffxi/Chocobo_on_the_Loose!",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「黄金の羽根を残して」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Scattered into Shadow",
+      "name_ja_ref": "闇に散りしものたち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ビーストゲートル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5049.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「阿吽の試練・肆式」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv86以上、メイジャンの試練帖を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Trial in Tandem Revisited",
+      "name_ja_ref": "阿吽の試練・伍式",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が99になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25903.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「阿吽の試練・弐式」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv76以上、メイジャンの試練帖を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Yet Another Trial in Tandem",
+      "name_ja_ref": "阿吽の試練・参式",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が85になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/23831.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "試練No.4446の目標",
+          "url": "https://www.bg-wiki.com/ffxi/Yet_Another_Trial_in_Tandem",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.048",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「捲土重来」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv71以上、メイジャンの試練帖を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Trial in Tandem, Redux",
+      "name_ja_ref": "阿吽の試練・弐式",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が80になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/23830.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "試練No.4445の目標",
+          "url": "https://www.bg-wiki.com/ffxi/A_Trial_in_Tandem,_Redux",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.049",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「阿吽の試練・参式」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "フェローがLv81以上、メイジャンの試練帖を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Quaternary Trial in Tandem",
+      "name_ja_ref": "阿吽の試練・肆式",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "フェローのレベル上限が90になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24834.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "試練No.4449の目標",
+          "url": "https://www.bg-wiki.com/ffxi/A_Quaternary_Trial_in_Tandem",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Luto_Mewrilah"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.050",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "獣使いLv40以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Wings of Gold",
+      "name_ja_ref": "黄金の羽根を残して",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "バルバロイアクス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8573.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "箱はデルクフの塔上層、カギを落とす敵",
+          "url": "https://www.bg-wiki.com/ffxi/Wings_of_Gold",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「マイ占い玉を作ろう！」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Kurou-Morouの占いをヴァナ時間で1日1回、3日に分けて3回以上受ける",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Never to Return",
+      "name_ja_ref": "なくしものはなんですか",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1200ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ガーネットリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6992.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク5（用語辞典に記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Never_to_Return",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Kurou-Morou"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Wonder Magic Set",
+      "name_ja_ref": "ひみつ魔術セット",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミスリルピアス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6100.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Panta-Putta"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンの秘宝の拡張コンテンツ登録が済んでいる",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「天晶堂入会」クリア（Faurselは天晶堂の中にいる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Road to Aht Urhgan",
+      "name_ja_ref": "アトルガン皇国へ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "渡航免状"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ギル払いのときはワジャーム樹林へのテレポと、だいじなもの「ワジャーム樹林地図」も"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4021.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Faursel の座標 J-8（用語辞典は J-7）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_to_Aht_Urhgan",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Faursel"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.054",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「主婦のこだわり」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Lost Cardian",
+      "name_ja_ref": "カカシがいない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2100ギル（「はい」を選んだとき）"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "Two of Swords（カーディアン）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "第一発見者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14360.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク4、Teigero-Bangero の座標 H-10（用語辞典は G-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Lost_Cardian",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Panta-Putta"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.055",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ヨバクリのかばん 4」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part X",
+      "name_ja_ref": "ゴウツバクリのかばん",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計80個になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ゴウツバクリ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク5（用語辞典の表はランク4）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_X",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.056",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Gobbiebag Part I",
+      "name_ja_ref": "ゴブリンのかばん 1",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計35個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク1（用語辞典の表はランク2）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_I",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.057",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ゴブリンのかばん 1」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part II",
+      "name_ja_ref": "ゴブリンのかばん 2",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計40個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク1（用語辞典の表はランク2）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_II",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.058",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ゴブリンのかばん 2」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part III",
+      "name_ja_ref": "ゴブリンのかばん 3",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計45個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク1（用語辞典の表はランク2）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_III",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.059",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ゴブリンのかばん 3」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part IV",
+      "name_ja_ref": "ゴブリンのかばん 4",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計50個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク1（用語辞典の表はランク2）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_IV",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.060",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ゴブリンのかばん 4」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part V",
+      "name_ja_ref": "ゴブリンのかばん 5",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計55個になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ヨバクリ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク3（用語辞典の表はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_V",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「タルットカード収集」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Chululuの占いをヴァナ時間で1日1回、3日に分けて3回以上受ける",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Rubbish Day",
+      "name_ja_ref": "ゴミのおつかい",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "チェーンチョーカー"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "6,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "街の掃除人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8125.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク4（用語辞典に記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Rubbish_Day",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Chululu"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.062",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Collect Tarut Cards",
+      "name_ja_ref": "タルットカード収集",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "Chululuに相性占いをしてもらえる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "カードコレクター"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が1.6上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7739.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク2（用語辞典はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/Collect_Tarut_Cards",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Chululu"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.063",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "三国ミッション「魔晶石を奪え」を受けている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mysteries of Beadeaux I",
+      "name_ja_ref": "ベドーの謎その1",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "妖光の数珠"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19396.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Sattal-Mansal"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.064",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "三国ミッション「魔晶石を奪え」を受けている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mysteries of Beadeaux II",
+      "name_ja_ref": "ベドーの謎その2",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "漆黒のマチネー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19397.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Sattal-Mansal"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.065",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Your Crystal Ball",
+      "name_ja_ref": "マイ占い玉を作ろう！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "Kurou-Morouに占いをしてもらえる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "見習い占い師"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が1.6上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5214.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク2（用語辞典はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/Your_Crystal_Ball",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Kurou-Morou"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.066",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ゴブリンのかばん 5」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part VI",
+      "name_ja_ref": "ヨバクリのかばん 1",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計60個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク3（用語辞典の表はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_VI",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.067",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ヨバクリのかばん 1」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part VII",
+      "name_ja_ref": "ヨバクリのかばん 2",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計65個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク4（用語辞典の表はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_VII",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.068",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ヨバクリのかばん 2」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part VIII",
+      "name_ja_ref": "ヨバクリのかばん 3",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計70個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク4（用語辞典の表はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_VIII",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.069",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「ヨバクリのかばん 3」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Gobbiebag Part IX",
+      "name_ja_ref": "ヨバクリのかばん 4",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マイバッグの最大収納数が計75個になる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1546.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク5（用語辞典の表はランク4）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gobbiebag_Part_IX",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bluffnix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.070",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「子供との取引」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Cook's Pride",
+      "name_ja_ref": "主婦のこだわり",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミスリルリング"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "上級ツカイッパー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14359.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク4、Naruru の座標 H-10",
+          "url": "https://www.bg-wiki.com/ffxi/Cook%27s_Pride",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Naruru"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.071",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Goblin Tailor",
+      "name_ja_ref": "仕立て屋ゴブリン",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "自分の種族の高級装束（4部位から1つ）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ゴブリン専属モデル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4355.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク3（用語辞典に記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Goblin_Tailor",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Guttrix"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.072",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Painful Memory",
+      "name_ja_ref": "傷ついたもの",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ペーパーナイフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8572.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Mertaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.073",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「タルットカード収集」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "前のクリアから地球時間の0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "All in the Cards",
+      "name_ja_ref": "占い普及大作戦！",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "600ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "カードコレクター"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が1.6上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24409.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク5（用語辞典に記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/All_in_the_Cards",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Chululu"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.074",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「デリケートな時計塔」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Deal with Tenshodo",
+      "name_ja_ref": "天晶堂での取引",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "時計塔の油"
+        },
+        {
+          "kind": "title",
+          "name_ja": "名トレーダー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11567.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Garnev"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.075",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上（紹介状をトレードするなら不要）",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Tenshodo Membership",
+      "name_ja_ref": "天晶堂入会",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "天晶堂会員証"
+        },
+        {
+          "kind": "item",
+          "name_ja": "天晶堂への紹介状"
+        },
+        {
+          "kind": "title",
+          "name_ja": "天晶堂会員"
+        },
+        {
+          "kind": "other",
+          "name_ja": "天晶堂・ノーグの名声が6.0上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12913.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Ghebi_Damomohe"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.076",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「傷ついたチョコボ」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "レベル30以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Save My Son",
+      "name_ja_ref": "息子に罪はない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "獣使いの呼び子"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,100ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "命の恩人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5500.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.245.Door_Merchants_House"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.077",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「闇に散りしものたち」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "獣使いで調べる",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A New Dawn",
+      "name_ja_ref": "新たなる朝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ビーストトラウザ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "熾烈なる大獣使い"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8393.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.245.Door_Merchants_House"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.078",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「錯綜メモリアル」クリア後、エリアを出入りする",
+          "type": "quest"
+        },
+        {
+          "text_ja": "エミネンス・レコードを150個以上達成している",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To Kill Mocking Birds",
+      "name_ja_ref": "核熱エミネンス",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "互助会引換券・銅*12"
+        },
+        {
+          "kind": "title",
+          "name_ja": "一天地六の観測者（後日談のあと）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31103.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.079",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アドゥリンミッション「ロゼッタ石」クリア（アドゥリン渡航免状がある）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "前のクリアから地球時間の0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Now Recording...",
+      "name_ja_ref": "磁場記録代行",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "300ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値（場所によって200〜500）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/28346.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Darcia"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.080",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "からくり士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Puppetmaster)",
+      "name_ja_ref": "神器 ＜ からくり士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "からくり士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.081",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "コルセアの鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Corsair)",
+      "name_ja_ref": "神器 ＜ コルセア ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "コルセアのミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.082",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "シーフの鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Thief)",
+      "name_ja_ref": "神器 ＜ シーフ ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "シーフのミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.083",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ナイトの鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Paladin)",
+      "name_ja_ref": "神器 ＜ ナイト ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ナイトのミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.084",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "モンクの鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Monk)",
+      "name_ja_ref": "神器 ＜ モンク ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モンクのミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.085",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "侍の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Samurai)",
+      "name_ja_ref": "神器 ＜ 侍 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "侍のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.086",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "召喚士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Summoner)",
+      "name_ja_ref": "神器 ＜ 召喚士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.087",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "吟遊詩人の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Bard)",
+      "name_ja_ref": "神器 ＜ 吟遊詩人 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "吟遊詩人のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.088",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "学者の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Scholar)",
+      "name_ja_ref": "神器 ＜ 学者 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "学者のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.089",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "忍者の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Ninja)",
+      "name_ja_ref": "神器 ＜ 忍者 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "忍者のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.090",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "戦士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Warrior)",
+      "name_ja_ref": "神器 ＜ 戦士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "戦士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.091",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "暗黒騎士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Dark Knight)",
+      "name_ja_ref": "神器 ＜ 暗黒騎士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "暗黒騎士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.092",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "狩人の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Ranger)",
+      "name_ja_ref": "神器 ＜ 狩人 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "狩人のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.093",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "獣使いの鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Beastmaster)",
+      "name_ja_ref": "神器 ＜ 獣使い ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "獣使いのミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.094",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "白魔道士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (White Mage)",
+      "name_ja_ref": "神器 ＜ 白魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "白魔道士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.095",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "竜騎士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Dragoon)",
+      "name_ja_ref": "神器 ＜ 竜騎士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "竜騎士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.096",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "赤魔道士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Red Mage)",
+      "name_ja_ref": "神器 ＜ 赤魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "赤魔道士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.097",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "踊り子の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Dancer)",
+      "name_ja_ref": "神器 ＜ 踊り子 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "踊り子のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.098",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "青魔道士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Blue Mage)",
+      "name_ja_ref": "神器 ＜ 青魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "青魔道士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.099",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "黒魔道士の鎮魂武器（ナイズル島で手に入る武器）を装備して話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Unlocking a Myth (Black Mage)",
+      "name_ja_ref": "神器 ＜ 黒魔道士 ＞",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "黒魔道士のミシックWSを覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15865.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zalsuhm"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.100",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "クエスト「デリケートな時計塔」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Save the Clock Tower",
+      "name_ja_ref": "署名を集めろ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "時計塔保存嘆願者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4719.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク5（用語辞典はランク4）",
+          "url": "https://www.bg-wiki.com/ffxi/Save_the_Clock_Tower",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Derrick"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.101",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークのクエスト「猛き獣の拳を」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "天晶堂の名声ランクが一定（3〜4ほど）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Fistful of Fury",
+      "name_ja_ref": "腕におぼえあり！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "茶帯"
+        },
+        {
+          "kind": "title",
+          "name_ja": "茶帯の有段者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6424.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Vola"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.102",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「古い歌碑」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Minstrel in Despair",
+      "name_ja_ref": "自暴自棄の吟遊詩人",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3728.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Mertaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.103",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ヴァナ時間の1日に1人だけ受けられる",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Community Service",
+      "name_ja_ref": "街燈ボランティア",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ともし火ランナー"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "街の灯火を守る会会員証（2回目の完了で）"
+        },
+        {
+          "kind": "other",
+          "name_ja": "3国の名声が0.5ずつ上がる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13283.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Zauko"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.104",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「傷ついたもの」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "吟遊詩人Lv50以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Requiem",
+      "name_ja_ref": "誰がための鎮魂歌",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コラルスリッパー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8398.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Bki_Tbujhja"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.105",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「黄昏テレポート」クリア後、エリアを出入りする",
+          "type": "quest"
+        },
+        {
+          "text_ja": "エミネンス・レコードを100個以上達成している",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Shifty Shades of Prey",
+      "name_ja_ref": "錯綜メモリアル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "互助会引換券・銅*5"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30320.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.106",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv75以上のジョブで話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "\"Data Analyzer and Logger EX\"",
+      "name_ja_ref": "魔法人形「みとどけくん」",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "59630ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15355.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Rakuru-Rakoru"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.107",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードを50個以上達成している",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Teleports by Twilight",
+      "name_ja_ref": "黄昏テレポート",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "互助会引換券・銅*3"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30319.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.108",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Antique Collector",
+      "name_ja_ref": "アンチーク・コレクター",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "デルクフの塔地図（持っていない場合）"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "お宝出品人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3810.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声ランク（用語辞典はランク3）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Antique_Collector",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.246.Imasuke"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.109",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Pretty Little Things",
+      "name_ja_ref": "キレイな石ころりんなのにゃ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モグハウスから出るエリアを選べるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/48.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.246.Zona_Shodhun"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.110",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ひみつ魔術セット」を受けていること",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Child's Play",
+      "name_ja_ref": "子供との取引",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ひみつ魔術セット"
+        },
+        {
+          "kind": "title",
+          "name_ja": "迷トレーダー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14358.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.246.Karl"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.111",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「誰がための鎮魂歌」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "吟遊詩人で話す。ドラギーユ城に入れること",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Circle of Time",
+      "name_ja_ref": "時の輪の交わる処",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コラルジュストコル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "典麗なる大吟遊詩人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8399.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "修道窟へはダボイ(H-11)から、話したあとはジョブを変えてよい",
+          "url": "https://www.bg-wiki.com/ffxi/The_Circle_of_Time",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.246.Imasuke"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.112",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv91以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「東方の秘術！」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Prelude to Puissance",
+      "name_ja_ref": "ある食客のメッセージ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "宝珠の鉤"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25828.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬は Soul gem clasp（用語辞典の「最後の試練！」の記事で だいじなもの「宝珠の鉤」）。香味石は Lv90以上のふつうの敵（アビセアの外）が落とし、ログインポイント5点でも交換できる。Nomad Moogle は Maat の隣",
+          "url": "https://www.bg-wiki.com/ffxi/Prelude_to_Puissance",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.113",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「限界への挑戦」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv51以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Atop the Highest Mountains",
+      "name_ja_ref": "すべての高い山に登れ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が60になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山の頂に立つ者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.114",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「危険地帯の磁場調査」をクリアしてエリアを出入りする（2回目からは出入りしなくてよい）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beam Me Up...No, Not There!",
+      "name_ja_ref": "ストレンジワープ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "経験値（ふつう400／難しい750〜1500／激ヤバ1500〜2000）"
+        },
+        {
+          "kind": "other",
+          "name_ja": "個人戦績（ふつう200／難しい400／激ヤバ800〜1000）"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ジャングルクッキー（ふつう3枚／難しい6枚／激ヤバ12枚。補正せずに報告すると1枚）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27539.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Anastase"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.115",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「西の国からの調査団」をクリアしてエリアを出入りする",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Middle Lands Investigation",
+      "name_ja_ref": "中の国の磁場調査",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ジャングルクッキー6枚"
+        },
+        {
+          "kind": "other",
+          "name_ja": "個人戦績2000"
+        },
+        {
+          "kind": "other",
+          "name_ja": "各磁場を記録したときに経験値"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27530.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Anastase"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.116",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv75でリミットブレーカーを受け取っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "New Worlds Await",
+      "name_ja_ref": "人体強化の術！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が80になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/20006.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.117",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Northward",
+      "name_ja_ref": "北の地への導き",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値（リミットポイント）2000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "北への使者"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ズヴァール城地図"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3820.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Radeivepart"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.118",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「中の国の磁場調査」をクリアしてエリアを出入りする",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Further Founts",
+      "name_ja_ref": "危険地帯の磁場調査",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ジャングルクッキー12枚"
+        },
+        {
+          "kind": "other",
+          "name_ja": "個人戦績3000"
+        },
+        {
+          "kind": "other",
+          "name_ja": "各磁場を記録したときに経験値"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27538.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Giant Scale の座標 C-10",
+          "url": "https://www.bg-wiki.com/ffxi/Further_Founts",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Anastase"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.119",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「風の行方は」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv61以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Riding on the Clouds",
+      "name_ja_ref": "天かける雲のごとく",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が70になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "雲入道"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.120",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv96以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「最後の試練！」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Martial Mastery",
+      "name_ja_ref": "契約と覚悟、武の道程",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "メリットポイントに「ウェポンスキル」のカテゴリーが増える"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "武の記憶"
+        },
+        {
+          "kind": "title",
+          "name_ja": "武神流免許皆伝"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25729.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.121",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天かける雲のごとく」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv66以上（受けたジョブでなくても、Lv66以上ならクリアできる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Shattering Stars",
+      "name_ja_ref": "星の輝きを手に",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が75になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "マート マッシャー（BFで勝ったとき）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ヴァナ・ディールのスター（報告したとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1002.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.122",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ある食客のメッセージ」をクリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beyond Infinity",
+      "name_ja_ref": "最後の試練！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が99になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "武神の門出に立つ者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "このあとジュノ下層(J-7)天晶堂入口のDomenicがギルでBFへ送ってくれる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/25735.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Olde Rarab Tail（しっぽ亭の特製漬物）の座標 I-10",
+          "url": "https://www.bg-wiki.com/ffxi/Beyond_Infinity",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.123",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv86以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「真・人体強化の術！」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Dormant Powers Dislodged",
+      "name_ja_ref": "東方の秘術！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が95になる"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "魂の宝珠"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24818.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.124",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv81以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「続・人体強化の術！」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beyond the Stars",
+      "name_ja_ref": "真・人体強化の術！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が90になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22245.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.125",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv76以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「人体強化の術！」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Expanding Horizons",
+      "name_ja_ref": "続・人体強化の術！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が85になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/21136.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Nomad_Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.126",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Researchers from the West",
+      "name_ja_ref": "西の国からの調査団",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ジャングルクッキー3枚"
+        },
+        {
+          "kind": "other",
+          "name_ja": "個人戦績400"
+        },
+        {
+          "kind": "other",
+          "name_ja": "各地のProto-Waypointでワープできるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/27529.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Anastase"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.127",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv50",
+          "type": "condition"
+        }
+      ],
+      "name_en": "In Defiant Challenge",
+      "name_ja_ref": "限界への挑戦",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が55になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "オーバー・ザ・トップ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Maat H-5",
+          "url": "https://www.bg-wiki.com/ffxi/In_Defiant_Challenge",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.128",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「すべての高い山に登れ」をコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "Lv56以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "深紅のオーブのほかのだいじなものは、三国ミッション「魔晶石を奪え」まで進めないと手に入らない（持っている人と一緒なら通れる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Whence Blows the Wind",
+      "name_ja_ref": "風の行方は",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "レベル上限が65になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "風来坊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Orcish crest の場所 ダボイ H-11（修道窟の入口）、Quadav crest の場所 ベドー K-6（地下道の入口）",
+          "url": "https://www.bg-wiki.com/ffxi/Whence_Blows_the_Wind",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.129",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Old Monument",
+      "name_ja_ref": "古い歌碑",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "詩が記された羊皮紙"
+        },
+        {
+          "kind": "title",
+          "name_ja": "古典研究家"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3729.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "羊皮紙はマウラ(G-9)の倉庫の Pikini-Mikini でも買える。歌碑へはマウラの西の浜(H-9)から入り、南西の隅の水中のトンネルを抜ける",
+          "url": "https://www.bg-wiki.com/ffxi/The_Old_Monument",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Mertaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.130",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「自暴自棄の吟遊詩人」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Path of the Bard",
+      "name_ja_ref": "吟遊詩人ジョブゲット",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "吟遊詩人にジョブチェンジできるようになる"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "心の歌うたい"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7631.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "依頼者は Bki Tbujhja（ジュノ下層 H-8）とある（用語辞典は Lewenhart）。Song Runes へはバルクルム砂丘(C-6)のトンネルを抜けた隠し海岸",
+          "url": "https://www.bg-wiki.com/ffxi/Path_of_the_Bard",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.103.Song_Runes"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.131",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・暗・獣・狩・剣で、片手斧スキル240以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Axe the Competition",
+      "name_ja_ref": "信じるは己の腕",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「デシメーション」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2931.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Brutus は ジュノ上層(G-7)、???は ウガレピ寺院 MAP3 (G-9)",
+          "url": "https://www.bg-wiki.com/ffxi/Axe_the_Competition",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Brutus"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.132",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノの名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「亡き夫へのキャンドル」「ゴミのおつかい」「なくしものはなんですか」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Searching for the Right Words",
+      "name_ja_ref": "君への忘れもの",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "スリプガIIのスクロール"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8164.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=6（用語辞典は「ある程度の名声」とだけ）。Ilumida は ジュノ上層(G-8)、???は ボヤーダ樹 MAP2 (H-8)、19:00〜4:00",
+          "url": "https://www.bg-wiki.com/ffxi/Searching_for_the_Right_Words",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Ilumida"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.133",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "天晶堂の名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "モンクLv71以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「腕におぼえあり！」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beat Around the Bushin",
+      "name_ja_ref": "武に賭けた想い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "黒帯"
+        },
+        {
+          "kind": "title",
+          "name_ja": "黒帯の有段者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1983.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Vola は ジュノ下層(J-8)、Degenhard は バストゥーク商業区(I-10)、Maat は ル・ルデの庭(H-5)",
+          "url": "https://www.bg-wiki.com/ffxi/Beat_Around_the_Bushin",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Vola"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.134",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「星の輝きを手に」で、ジラートまでの15ジョブすべてでMaatに勝つ（オファーリストには載らない）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「最後の試練！」を受けていたら、先に終える",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beyond the Sun",
+      "name_ja_ref": "光とともにあれ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マートキャップ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "天下無双魔阿斗戦覇者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6040.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Maat は ル・ルデの庭(H-5)。FLevel は空。勝ったジョブは、魂の聖櫃の Teyrnon でジョブの知識の交換値が 10000 から 5000 に下がっているかで分かる",
+          "url": "https://www.bg-wiki.com/ffxi/Beyond_the_Sun",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.135",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション第3章「主のなき都」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Chocobo's Tale",
+      "name_ja_ref": "消えた銀星号",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "5200ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "チョコボの愛を解いた者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12414.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空（用語辞典にも名声の条件はない。FFXIclopedia は「Jeuno Reputation ?」）。Quest Reqs=Promathia Mission 3-2。Wobke は バストゥーク鉱山区(I-9)、降魔の油はベドーの Emerald Quadav、???は バタリア丘陵(H-6)の墓石、Badshah 5匹。Outpost Gate の場所は用語辞典の パシュハウ沼(K-6)",
+          "url": "https://www.bg-wiki.com/ffxi/A_Chocobo%27s_Tale",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Nevela"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.136",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノの名声がある程度いる（段階は資料にない）",
+          "type": "fame"
+        },
+        {
+          "text_ja": "プロマシアミッション3-3「ふたつの道」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Reputation in Ruins",
+      "name_ja_ref": "謎の遺跡ソ・ジヤ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3,500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10371.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空（用語辞典は「ある程度のジュノの名声」で段階なし）。Quest Reqs=Promathia Mission 3-3。ボスディン氷河(G-9)の塔からソ・ジヤに入る。???は(I-8)と(H-7)、青い扉は(H-9)、Crystal Receptor は(G-8)、足場は120秒で消える、エレベーターは(H-8)。腕輪は2つとも残る（FFXIclopedia も同じマス）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Reputation_in_Ruins",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Migliorozz"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.137",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション第3章「主のなき都」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Hook, Line, and Sinker",
+      "name_ja_ref": "冤罪",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "勝訴の支援者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13427.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空（用語辞典にも名声の条件はない）。Quest Reqs=Promathia Mission 3-2。イーグレットの釣竿はクフィム島で釣れる Kraken が落とす（釣りスキルはいらない）。フレームレートが60だとイベントで止まる",
+          "url": "https://www.bg-wiki.com/ffxi/Hook,_Line,_and_Sinker",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Sea Bishop も落とす。最初のイベントは既定の30Hzで見る",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Hook,_Line,_and_Sinker",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Omer"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.138",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション第3章「主のなき都」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "In the Mood for Love",
+      "name_ja_ref": "本当の愛を求めて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4800ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ナンパな愛を解いた者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13425.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空（用語辞典にも名声の条件はない）。Quest Reqs=Promathia Mission 3-2。Odasel は ジュノ下層(H-9)の宝石店の前。カメレオンダイヤはルフェーゼ野の巨人族。終えたあと店の中の Matoaka に話すとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/In_the_Mood_for_Love",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Odasel"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.139",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「暁」クリアし、イベント「呪縛ほどけるとき」を見ている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Storms of Fate",
+      "name_ja_ref": "日輪を担いて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "龍王の息吹"
+        },
+        {
+          "kind": "title",
+          "name_ja": "人の系譜を開く者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1216.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空、Repeatable=No、Quest Reqs=Promathia Mission 8-4。ミザレオ海岸 (F-7) の Dilapidated Gate、サイトB01 (E-7) の Unstable Displacement、BF は Bahamut",
+          "url": "https://www.bg-wiki.com/ffxi/Storms_of_Fate",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Eshantarl"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.140",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジラートミッション「1万年の夢の終わりに」とクエスト「日輪を担いて」クリア後、ヴァナ時間0時を越えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Shadows of the Departed",
+      "name_ja_ref": "亡者の影",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "「世界に在りて君は何を想うのか？」へ続く"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5557.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空。Memory Flux はホラ (J-8)・デム (K-4)・メア (K-6) の第4層（用語辞典はホラが J-10）",
+          "url": "https://www.bg-wiki.com/ffxi/Shadows_of_the_Departed",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Eshantarl"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.141",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「亡者の影」クリア後、ヴァナ時間0時を越えてからエリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Apocalypse Nigh",
+      "name_ja_ref": "世界に在りて君は何を想うのか？",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "電界の耳・磁界の耳・虚界の耳・幽界の耳から1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "呪縛を葬りし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7291.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空、Repeatable=Yes、Quest Reqs=Zilart Mission 17, Promathia Mission 8-4。海獅子の巣窟で Sueleen、フ・ゾイの王宮の Gate of the Gods、天象の鎖の Transcendental Radiance、BF は Kam'lanaut と Eald'narche（フェイス可）",
+          "url": "https://www.bg-wiki.com/ffxi/Apocalypse_Nigh",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Eshantarl"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.142",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「主のなき都」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Ducal Hospitality",
+      "name_ja_ref": "故郷に錦を",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "搾取される弱者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7138.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Jeuno、FLevel は空、Repeatable=Yes、Quest Reqs=Promathia Mission 3-2。Taillegeas (I-7)。頼まれる品は20種類から決まった組",
+          "url": "https://www.bg-wiki.com/ffxi/Ducal_Hospitality",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Taillegeas"
+      },
+      "steps": []
+    },
+    {
+      "category": "jeuno",
+      "game_ref": null,
+      "id": "quest.jeuno.143",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロミヴォンに入ったことがある",
+          "type": "other"
+        }
+      ],
+      "name_en": "Empty Memories",
+      "name_ja_ref": "虚ろなる記憶",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "驚のアニマ・迷のアニマ・脅のアニマ・破魔弓・ディアワンド・ストーンゴルゲットのどれか"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11501.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=1、FLevel は空、Repeatable=Yes。Harith (H-5)。アニマの3つは記憶の一塊と 2,000 ギル、ほかの3つは記憶の一塊だけ（用語辞典は全部 2,000 ギル）",
+          "url": "https://www.bg-wiki.com/ffxi/Empty_Memories",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Harith"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.243.Anastase",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Anastase",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Eshantarl",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Esha'ntarl",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Harith",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Harith",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Maat",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Maat",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Nomad_Moogle",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Nomad Moogle",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Taillegeas",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Taillegeas",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Ajithaam",
+      "kind": "npc",
+      "location": {
+        "grid": "F-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Ajithaam",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Brutus",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Brutus",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Galmut",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Galmut",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Guslam",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Guslam",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Ilumida",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Ilumida",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Jeridade",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Jeridade",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Luto_Mewrilah",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Luto Mewrilah",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Mapitoto",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Mapitoto",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Migliorozz",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Migliorozz",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Nevela",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Nevela",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Olgald",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Olgald",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Ratoto",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Ratoto",
+      "same_name": false
+    },
+    {
+      "id": "npc.244.Rouliette",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Rouliette",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Bki_Tbujhja",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Bki Tbujhja",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Bluffnix",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Bluffnix",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Chululu",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Chululu",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Darcia",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Darcia",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Derrick",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Derrick",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Faursel",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Faursel",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Ghebi_Damomohe",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Ghebi Damomohe",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Guttrix",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Guttrix",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Kurou-Morou",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Kurou-Morou",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Mertaire",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Mertaire",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Nantoto",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Nantoto",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Odasel",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Odasel",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Omer",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Omer",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Rakuru-Rakoru",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Rakuru-Rakoru",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Vola",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Vola",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Zalsuhm",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Zalsuhm",
+      "same_name": false
+    },
+    {
+      "id": "npc.246.Imasuke",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 246,
+        "zone_name": "ジュノ港"
+      },
+      "moves": false,
+      "name_en": "Imasuke",
+      "same_name": false
+    },
+    {
+      "id": "npc.246.Karl",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 246,
+        "zone_name": "ジュノ港"
+      },
+      "moves": false,
+      "name_en": "Karl",
+      "same_name": false
+    },
+    {
+      "id": "npc.246.Zona_Shodhun",
+      "kind": "npc",
+      "location": {
+        "grid": "E-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 246,
+        "zone_name": "ジュノ港"
+      },
+      "moves": false,
+      "name_en": "Zona Shodhun",
+      "same_name": false
+    },
+    {
+      "id": "obj.103.Song_Runes",
+      "kind": "obj",
+      "location": {
+        "grid": "B-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 103,
+        "zone_name": "バルクルム砂丘"
+      },
+      "moves": false,
+      "name_en": "Song Runes",
+      "same_name": false
+    },
+    {
+      "id": "obj.244.Door_House_G-7",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Door: House",
+      "same_name": false
+    },
+    {
+      "id": "obj.245.Door_Merchants_House",
+      "kind": "obj",
+      "location": {
+        "grid": "G-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Door:Merchant's House",
+      "same_name": false
+    }
+  ]
+}

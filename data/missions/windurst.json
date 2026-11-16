@@ -1,0 +1,1226 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.001",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM1-1",
+      "name_en": "The Horutoto Ruins Experiment",
+      "name_ja_ref": "ホルトト遺跡の大実験",
+      "note_ja": "報酬の称号はオファー時",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "北風団の新米"
+        },
+        {
+          "kind": "title",
+          "name_ja": "天の塔前・魔戦士隊員"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ウェスト・オブ・ビースト"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ブーマガードの新米"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/6463.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.002",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM1-2",
+      "name_en": "The Heart of the Matter",
+      "name_ja_ref": "カーディアンの心",
+      "note_ja": "帰りに東サルタバルタへエリアチェンジすると野良カーディアンに奪われるイベント（デジョン等なら発生しない）。どちらでも完了。見逃したイベントは東サルタバルタのGoblin Footprintで見られる",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8256.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.003",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM1-3",
+      "name_en": "The Price of Peace",
+      "name_ja_ref": "平和のために",
+      "note_ja": "献上先のヤグードの奥の洞窟から敵が強くなるので行き過ぎに注意",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "1000G、ランク2"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6357.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Leepe-Hoppe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.004",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM2-1",
+      "name_en": "Lost for Words",
+      "name_ja_ref": "白き書",
+      "note_ja": "2011年5月以降、内ホルトト遺跡にLv80前後の敵。インスニ使用時は右手沿いに進む（隠し扉を開ける時はインビジを切る必要あり）",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8257.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Tosuka-Porika"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「白き書」クリア後",
+          "type": "condition"
+        },
+        {
+          "text_ja": "省略可",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM2-2",
+      "name_en": "A Testing Time",
+      "name_ja_ref": "試験の行方",
+      "note_ja": "報告が早すぎても失敗にはならない（残り時間を教えてもらえる）。期限を過ぎると失敗。テレポやデジョンを使うとよい",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7424.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Moreno-Toeno"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「試験の行方」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM2-3",
+      "name_en": "The Three Kingdoms",
+      "name_ja_ref": "三大強国",
+      "note_ja": "ドラゴンミッション。BFの詳細は記事「ドラゴンミッション」参照。星唄ミッション「第一の定め」まで進めていると「盟-セミ」「盟-ハルヴァー」を入手できる",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "公認冒険者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "冒険者の証"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク3、3、000G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5725.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Kupipi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.007",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM3-1",
+      "name_en": "To Each His Own Right",
+      "name_ja_ref": "それぞれの正義",
+      "note_ja": null,
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8258.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Kupipi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「それぞれの正義」クリア後、ガードに話すと発生",
+          "type": "condition"
+        },
+        {
+          "text_ja": "省略可",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM3-2",
+      "name_en": "Star Reading/Written in the Stars",
+      "name_ja_ref": "星読み",
+      "note_ja": "「魔晶石を奪え」を先にクリアすると初回でも2回目以降の内容になる。クリア後Kupipiにロランベリーを渡して魔封門の札をもらえる。内ホルトト遺跡にLv99でも絡むゴブリン・骸骨あり",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6786.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Zubaba"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.009",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM3-3",
+      "name_en": "A New Journey",
+      "name_ja_ref": "新たなる旅立ち",
+      "note_ja": "デルクフ認証キー所持者はNM～Elevatorの工程を省略可。デルクフのカギを持っていれば下層(E-8)のCermet Doorにトレードで認証キー入手。Lv40後半が目安",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8259.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天晶堂入会」済みであること",
+          "type": "quest"
+        }
+      ],
+      "mission_no": "WM4-1",
+      "name_en": "Magicite",
+      "name_ja_ref": "魔晶石を奪え",
+      "note_ja": "三国共通の記事（大使館の部分は自国の記載に置き換え）。自国のゲートハウスでは発生しないので、クリスタルをトレードし過ぎない。各獣人拠点は魔晶石ルートだとLv60未満は絡まれることがある。移籍後の2回目以降もアルドに話すイベントは必須",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "飛空艇パス（所持済みなら20、000ギル）、ランク5、10、000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1376.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Pakh_Jatalfih"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.011",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "WM5-1",
+      "name_en": "The Final Seal",
+      "name_ja_ref": "最後の護符",
+      "note_ja": "骨ミッション。BFの攻略は記事「骨ミッション」参照",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "アークメイジ アサシン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8216.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.天の塔.Door_Vestal_Chamber"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「最後の護符」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM5-2",
+      "name_en": "The Shadow Awaits",
+      "name_ja_ref": "最果てにて君を待つ闇",
+      "note_ja": "闇王ミッション。BFの詳細は記事「闇王ミッション」参照。完了でジラートミッション進行・Lv65以上でデュナミス突入が可能に",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク6、20000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4254.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": null
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「最果てにて君を待つ闇」終了後",
+          "type": "condition"
+        },
+        {
+          "text_ja": "トライマライ水路に入る手段が必要",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM6-1",
+      "name_en": "Full Moon Fountain",
+      "name_ja_ref": "満月の泉",
+      "note_ja": "NMが消える前に調べるとイベントが見られず進行しない。トライマライ水路への入り方は「星読み」参照",
+      "repeatable": "unknown",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1395.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Hakkuru-Rinkuru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「満月の泉」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM6-2",
+      "name_en": "Saintly Invitation",
+      "name_ja_ref": "聖者の招待",
+      "note_ja": "NMはスリプル有効",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ウィンダス代表の勇士"
+        },
+        {
+          "kind": "title",
+          "name_ja": "バルガ武闘会の勝利者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク7、40、000G、阿修羅の数珠"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8260.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.天の塔.Door_Vestal_Chamber"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「聖者の招待」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM7-1",
+      "name_en": "The Sixth Ministry",
+      "name_ja_ref": "第6の院",
+      "note_ja": null,
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "魔力を失いし神々の書"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8261.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Tosuka-Porika"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「第6の院」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM7-2",
+      "name_en": "Awakening of the Gods",
+      "name_ja_ref": "蘇る神々",
+      "note_ja": "ウガレピ寺院へはSurvival Guide（ウガレピ寺院またはヨアトル大森林）から。近道ワープなし",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク8、60、000G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5200.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Leepe-Hoppe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「蘇る神々」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM8-1",
+      "name_en": "Vain",
+      "name_ja_ref": "ヴェイン",
+      "note_ja": "人形はエリア移動時に方角のヒントを話す。NMの攻略は記事「Dirtyhanded Gochakzuk」参照",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "脱走院長追跡者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4493.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Moreno-Toeno"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ヴェイン」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM8-2",
+      "name_en": "The Jester Who'd Be King",
+      "name_ja_ref": "王と道化師",
+      "note_ja": "G-7側からCracked Wallに近づくとアクティブなスライムに絡まれる。NMは1体倒せば残りが時間で消えてもクリア扱い",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ランク9、80、000G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7541.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Apururu"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「王と道化師」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM9-1",
+      "name_en": "Doll of the Dead",
+      "name_ja_ref": "死者の人形",
+      "note_ja": "満月の泉へはトライマライ水路Home Point #1、またはSurvival GuideでMAP[1]へ飛び(F-8)から",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "導きの星"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7540.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Apururu"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "mission.windurst.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「死者の人形」終了後",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "WM9-2",
+      "name_en": "Moon Reading",
+      "name_ja_ref": "月詠み",
+      "note_ja": "マイバッグが一杯で報酬を受け取れないと未完了。その場合は天の塔入口横の「＿」を調べる。BF攻略は記事のネタバレ項",
+      "repeatable": "unknown",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "魔天のしるべ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ランク10、10万ギル、連邦旗"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1230.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.天の塔.Door_Vestal_Chamber"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.240.Hakkuru-Rinkuru",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Hakkuru-Rinkuru",
+      "same_name": false
+    },
+    {
+      "id": "obj.192.Gate_Magical_Gizmo",
+      "kind": "obj",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 192,
+        "zone_name": "内ホルトト遺跡"
+      },
+      "moves": false,
+      "name_en": "Gate: Magical Gizmo",
+      "same_name": false
+    },
+    {
+      "id": "obj.192.Ancient_Magical_Gizmo",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 192,
+        "zone_name": "内ホルトト遺跡"
+      },
+      "moves": false,
+      "name_en": "Ancient Magical Gizmo",
+      "same_name": false
+    },
+    {
+      "id": "npc.116.Pore-Ohre",
+      "kind": "npc",
+      "location": {
+        "grid": "J-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 116,
+        "zone_name": "東サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Pore-Ohre",
+      "same_name": false
+    },
+    {
+      "id": "obj.194.Ancient_Magical_Gizmo",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 194,
+        "zone_name": "外ホルトト遺跡"
+      },
+      "moves": false,
+      "name_en": "Ancient Magical Gizmo",
+      "same_name": false
+    },
+    {
+      "id": "obj.Gate_Magical_Gizmo",
+      "kind": "obj",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Gate: Magical Gizmo",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Leepe-Hoppe",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Leepe-Hoppe",
+      "same_name": false
+    },
+    {
+      "id": "npc.145.Ghoo_Pakya",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 145,
+        "zone_name": "ギデアス"
+      },
+      "moves": false,
+      "name_en": "Ghoo Pakya",
+      "same_name": false
+    },
+    {
+      "id": "obj.198.Fossil_Rock",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "moves": false,
+      "name_en": "Fossil Rock",
+      "same_name": false
+    },
+    {
+      "id": "npc.143.Patt-Pott",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": false,
+      "name_en": "Patt-Pott",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Kasaroro",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Kasaroro",
+      "same_name": false
+    },
+    {
+      "id": "npc.Rhy_Epocan",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Rhy Epocan",
+      "same_name": false
+    },
+    {
+      "id": "obj.151.Handle",
+      "kind": "obj",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 151,
+        "zone_name": "オズトロヤ城"
+      },
+      "moves": false,
+      "name_en": "Handle",
+      "same_name": false
+    },
+    {
+      "id": "npc.天の塔.Zubaba",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 242,
+        "zone_name": "天の塔"
+      },
+      "moves": false,
+      "name_en": "Zubaba",
+      "same_name": false
+    },
+    {
+      "id": "obj.169.Sealed_Portal",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 4
+        },
+        "zone_id": 169,
+        "zone_name": "トライマライ水路"
+      },
+      "moves": false,
+      "name_en": "Sealed Portal",
+      "same_name": false
+    },
+    {
+      "id": "obj.天の塔.Door_Vestal_Chamber",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 242,
+        "zone_name": "天の塔"
+      },
+      "moves": false,
+      "name_en": "Door:Vestal Chamber",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Pakh_Jatalfih",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Pakh Jatalfih",
+      "same_name": false
+    },
+    {
+      "id": "obj.184.Cermet_Door_3",
+      "kind": "obj",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 184,
+        "zone_name": "デルクフの塔下層"
+      },
+      "moves": false,
+      "name_en": "Cermet Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.243.Door_Windurstian_Emb",
+      "kind": "obj",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Door:Windurstian Emb.",
+      "same_name": false
+    },
+    {
+      "id": "obj.Throne_Room",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Throne Room",
+      "same_name": false
+    },
+    {
+      "id": "npc.Jack_of_Cups",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Jack of Cups",
+      "same_name": false
+    },
+    {
+      "id": "npc.Buu_Xolo_the_Bloodfaced",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Buu Xolo the Bloodfaced",
+      "same_name": false
+    },
+    {
+      "id": "mob.151.Yagudo_Flagellant",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 151,
+        "zone_name": "オズトロヤ城"
+      },
+      "moves": true,
+      "name_en": "Yagudo Flagellant",
+      "same_name": false
+    },
+    {
+      "id": "obj.151.Brass_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 151,
+        "zone_name": "オズトロヤ城"
+      },
+      "moves": false,
+      "name_en": "Brass Door",
+      "same_name": false
+    },
+    {
+      "id": "npc.Kaa_Toru_the_Just",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Kaa Toru the Just",
+      "same_name": false
+    },
+    {
+      "id": "mob.169.Hinge_Oil",
+      "kind": "mob",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 169,
+        "zone_name": "トライマライ水路"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 G-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Windurst_Mission_7-1",
+            "https://ffxiclopedia.fandom.com/wiki/The_Sixth_Ministry"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Hinge Oil",
+      "same_name": false
+    },
+    {
+      "id": "obj.Tome_of_Magic",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Tome of Magic",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Romaa_Mihgo",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Romaa Mihgo",
+      "same_name": false
+    },
+    {
+      "id": "obj.Granite_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "J-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Granite Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.122.QuHau_Spring",
+      "kind": "obj",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 122,
+        "zone_name": "ロ・メーヴ"
+      },
+      "moves": false,
+      "name_en": "Qu'Hau Spring",
+      "same_name": false
+    },
+    {
+      "id": "npc.149.Sedal-Godjal",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": false,
+      "name_en": "Sedal-Godjal",
+      "same_name": false
+    },
+    {
+      "id": "mob.Dirtyhanded_Gochakzuk",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": true,
+      "name_en": "Dirtyhanded Gochakzuk",
+      "same_name": false
+    },
+    {
+      "id": "obj.238.Cermet_Door",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Cermet Door",
+      "same_name": false
+    },
+    {
+      "id": "mob.115.Queen_of_Swords",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": true,
+      "name_en": "Queen of Swords",
+      "same_name": false
+    },
+    {
+      "id": "obj.Cracked_Wall",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Cracked Wall",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Apururu",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Apururu",
+      "same_name": false
+    },
+    {
+      "id": "npc.121.Goobbue_Gardener",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 121,
+        "zone_name": "聖地ジ・タ"
+      },
+      "moves": false,
+      "name_en": "Goobbue Gardener",
+      "same_name": false
+    },
+    {
+      "id": "npc.153.Mandragora_Warden",
+      "kind": "npc",
+      "location": {
+        "grid": "F-4",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 153,
+        "zone_name": "ボヤーダ樹"
+      },
+      "moves": false,
+      "name_en": "Mandragora Warden",
+      "same_name": false
+    },
+    {
+      "id": "npc.159.Tonberry_Cutter",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 159,
+        "zone_name": "ウガレピ寺院"
+      },
+      "moves": false,
+      "name_en": "Tonberry Cutter",
+      "same_name": false
+    }
+  ]
+}

@@ -1,0 +1,3970 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Streetsweeper III (S)",
+      "name_ja_ref": "不審物回収 III（王国軍）",
+      "order": 1,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14077.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Golden Star §§§§。Suspicious Object を5つ回収するとノルマを満たし、Rasdinice にもどると連合軍戦績。経験値260・連合軍戦績820。Campaign Ops のページ：受付は Rasdinice（I-9）、Op Credit 1つ（FFXIclopedia：Rasdinice I-9、1人。★ごとに経験値246〜386・戦績703〜1217）",
+          "url": "https://www.bg-wiki.com/ffxi/Streetsweeper_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Streetsweeper II (S)",
+      "name_ja_ref": "不審物回収 II（王国軍）",
+      "order": 2,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14076.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Allied Ribbon of Glory §§§§。Suspicious Object を3つ回収、いくつか同時に出ることがある。経験値160・連合軍戦績620（FFXIclopedia：Rasdinice I-9、1人。★ごとに経験値160〜259・戦績562〜920。だれかが拾うと別の場所に出る。2〜3分で消える）",
+          "url": "https://www.bg-wiki.com/ffxi/Streetsweeper_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Streetsweeper I (B)",
+      "name_ja_ref": "不審物回収 I（共和国軍）",
+      "order": 3,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14314.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Security、Bronze Ribbon of Service §。Suspicious Object を1つ。経験値60・連合軍戦績420。Campaign Ops のページ：受付は Hieronymus（E-8）（FFXIclopedia：Hieronymus E-8、1つだけでよい。★ごとに戦績516〜717）",
+          "url": "https://www.bg-wiki.com/ffxi/Streetsweeper_I_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Streetsweeper I (S)",
+      "name_ja_ref": "不審物回収 I（王国軍）",
+      "order": 4,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14075.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Bronze Ribbon of Service §。Suspicious Object を1つ。経験値60・連合軍戦績420（FFXIclopedia：Rasdinice I-9、1人、1つだけでよい。★ごとに経験値60〜147・戦績420〜590）",
+          "url": "https://www.bg-wiki.com/ffxi/Streetsweeper_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Streetsweeper I (W)",
+      "name_ja_ref": "不審物回収 I（連邦軍）",
+      "order": 5,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15288.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Security、Bronze Ribbon of Service §。Suspicious Object を1つ。経験値60・連合軍戦績420。Campaign Ops のページ：受付は Emhi Tchaoryo（H-9、北）（FFXIclopedia：Emhi Tchaoryo H-9、1人、1つだけでよい。★ごとに戦績422〜715。2〜3分で消える）",
+          "url": "https://www.bg-wiki.com/ffxi/Streetsweeper_I_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Vanguard-X III (S)",
+      "name_ja_ref": "兵員輸送 III（王国軍）",
+      "order": 6,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14065.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Golden Star §§§§（要確認の印つき）、1〜6人。Gate Sentry（東ロンフォール〔Ｓ〕J-11、ジャグナー森林〔Ｓ〕G-5、ブンカール浦〔Ｓ〕E-7、バタリア丘陵〔Ｓ〕F-8。Gate Sentry のページ）。Reinforcement を Campaign の NPC まで連れて行く。拠点の NPC は東ロンフォール〔Ｓ〕H-8（Arlayse, R.K. のページも H-8）、バタリア丘陵〔Ｓ〕J-8、ロランベリー耕地〔Ｓ〕J-7、ソロムグ原野〔Ｓ〕H-6、パシュハウ沼〔Ｓ〕K-6。離れすぎると自分で歩き出し、話すと戻る。III は2人。経験値200・連合軍戦績700（FFXIclopedia：Rasdinice I-9、1〜6人、制限30分。Gate Sentry は同じ4か所、拠点は東ロンフォール〔Ｓ〕H-8・ジャグナー森林〔Ｓ〕I-8・ブンカール浦〔Ｓ〕H-10・バタリア丘陵〔Ｓ〕J-7。★ごとに経験値418〜525・戦績1195〜1500）",
+          "url": "https://www.bg-wiki.com/ffxi/Vanguard-X_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Vanguard-X II (S)",
+      "name_ja_ref": "兵員輸送 II（王国軍）",
+      "order": 7,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14064.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Allied Ribbon of Glory §§§§、1〜6人。Gate Sentry（東ロンフォール〔Ｓ〕J-11、ジャグナー森林〔Ｓ〕G-5、ブンカール浦〔Ｓ〕E-7、バタリア丘陵〔Ｓ〕F-8。Gate Sentry のページ）。Reinforcement を Campaign の NPC まで連れて行く。拠点の NPC は東ロンフォール〔Ｓ〕H-8（Arlayse, R.K. のページも H-8）、バタリア丘陵〔Ｓ〕J-8、ロランベリー耕地〔Ｓ〕J-7、ソロムグ原野〔Ｓ〕H-6、パシュハウ沼〔Ｓ〕K-6。離れすぎると自分で歩き出し、話すと戻る。経験値200・連合軍戦績700（FFXIclopedia：Rasdinice I-9、1〜6人、制限30分。拠点は東ロンフォール〔Ｓ〕H-8・ジャグナー森林〔Ｓ〕I-8・ブンカール浦〔Ｓ〕H-10・バタリア丘陵〔Ｓ〕J-7。★ごとに経験値200〜375・戦績700〜1200）",
+          "url": "https://www.bg-wiki.com/ffxi/Vanguard-X_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Vanguard-X I (S)",
+      "name_ja_ref": "兵員輸送 I（王国軍）",
+      "order": 8,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14063.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Bronze Ribbon of Service §、1〜6人。Gate Sentry（東ロンフォール〔Ｓ〕J-11、ジャグナー森林〔Ｓ〕G-5、ブンカール浦〔Ｓ〕E-7、バタリア丘陵〔Ｓ〕F-8。Gate Sentry のページ）。Reinforcement を Campaign の NPC まで連れて行く。拠点の NPC は東ロンフォール〔Ｓ〕H-8（Arlayse, R.K. のページも H-8）、バタリア丘陵〔Ｓ〕J-8、ロランベリー耕地〔Ｓ〕J-7、ソロムグ原野〔Ｓ〕H-6、パシュハウ沼〔Ｓ〕K-6。離れすぎると自分で歩き出し、話すと戻る。経験値100・連合軍戦績500（FFXIclopedia：Rasdinice I-9、1〜6人、制限30分。拠点は東ロンフォール〔Ｓ〕H-8・ジャグナー森林〔Ｓ〕I-8・ブンカール浦〔Ｓ〕H-10・バタリア丘陵〔Ｓ〕J-7、Arlayse, R.K. に話す。13ヤルム以内なら逃げない。★ごとに経験値100〜225・戦績500〜900）",
+          "url": "https://www.bg-wiki.com/ffxi/Vanguard-X_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は3〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Brave Dawn III (S)",
+      "name_ja_ref": "兵士調練 III（王国軍）",
+      "order": 9,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14056.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Military training、Golden Star §§§§。Allied Ensign（東ロンフォール〔Ｓ〕G-5。Allied Ensign のページも G-5）から常花の石窟。兵士が戦い始め、メッセージが unfocused・training harder・fighting with vigor と変わる。本気になってから倒す。兵士は HP70% 以下で自分でケアル。制限30分。相手は Trained Scorpion。ケアルできるジョブを連れて行く。経験値310・連合軍戦績1020（FFXIclopedia：Rasdinice I-9、3〜6人。Trained Scorpion はとても強く、Death Scissors で1400、範囲技で300〜400。★ごとに経験値559〜668・戦績1599〜1950）",
+          "url": "https://www.bg-wiki.com/ffxi/Brave_Dawn_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は3〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Brave Dawn II (S)",
+      "name_ja_ref": "兵士調練 II（王国軍）",
+      "order": 10,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14055.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Military training、Allied Ribbon of Glory §§§§。Allied Ensign（東ロンフォール〔Ｓ〕G-5。Allied Ensign のページも G-5）から常花の石窟。兵士が戦い始め、メッセージが unfocused・training harder・fighting with vigor と変わる。本気になってから倒す。兵士は HP70% 以下で自分でケアル。制限30分。相手は Trained Bat。報酬の値は書いてない（FFXIclopedia：Rasdinice I-9、3〜6人。Dawn Aureola で出ると全員に経験値210、Rasdinice で戦績820。★ごとに経験値205〜487・戦績822〜1560）",
+          "url": "https://www.bg-wiki.com/ffxi/Brave_Dawn_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は3〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Brave Dawn I (S)",
+      "name_ja_ref": "兵士調練 I（王国軍）",
+      "order": 11,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14054.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Military training、Bronze Ribbon of Service §。Allied Ensign（東ロンフォール〔Ｓ〕G-5。Allied Ensign のページも G-5）から常花の石窟。兵士が戦い始め、メッセージが unfocused・training harder・fighting with vigor と変わる。本気になってから倒す。兵士は HP70% 以下で自分でケアル。制限30分。相手は Trained Crab。3人以上はもう要らない。Dawn Aureola から出る。経験値110・連合軍戦績620（FFXIclopedia：Rasdinice I-9、3〜6人。Trained Crab はほとんど兵士をねらう。兵士にプロテス・リジェネはかからず、ケアルは効く。★ごとに経験値205〜289・戦績822〜1158）",
+          "url": "https://www.bg-wiki.com/ffxi/Brave_Dawn_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（入る人は全員このopsを受けておく）",
+          "type": "condition"
+        },
+        {
+          "text_ja": "オズトロヤ城〔Ｓ〕を含むサルタバルタ戦線とアラゴーニュ戦線が、全部味方の支配になっている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Plucking Wings (W)",
+      "name_ja_ref": "即身成神討伐（連邦軍）",
+      "order": 12,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ワイズストラップ／ブレイブグリップ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "鴉天狗甲懸／クーフリンベルト／ラウンデルピアス（出ないこともある）"
+        },
+        {
+          "kind": "item",
+          "name_ja": "エンハンスマント・ピースリング・素材・薬品など"
+        },
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績はもらえない"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16031.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕、このページは H-10。NPC のページは H-9）、Offensive operations、Iron Emblem of Service §§、30分、Lv75。オズトロヤ城〔Ｓ〕がウィンダスの支配のときだけ。NM でないヤグードから Xicu's Rosary（受ける前でも取れる、エリアにいるパーティ全員）。最上階 H-7 の Collapsing Floor から BF。フェイス可、レベル制限なし。Soo Luma the Ascended（学者、睡眠が効かない）と Jii Xai the Rimebladed・Roo Beju the Eulogizer・Zjaa Bao the Wrathherald。倒すのは Soo Luma だけ。お供はすぐまた出る、敵対心は共有。Armoury Crate が出る。Emhi Tchaoryo に戻ると完了（FFXIclopedia：Emhi Tchaoryo H-10。サルタバルタ戦線・アラゴーニュ戦線が全部ウィンダスの支配、1〜6人。最上階 Brass Gate H-7 の Trap Door。全員が受けておく、Xicu's Rosary は入るとなくなる。入ると強化が消える。お供は1分でまた出るので寝かせる、寝かせ続けると耐性。Armoury Crate の中身の表。NPC のページは H-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Plucking_Wings_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose III (S)",
+      "name_ja_ref": "友軍支援 III（王国軍）",
+      "order": 13,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Defensive operations、勲章は Sterling Star §§ と書いてある、30分。バタリア丘陵〔Ｓ〕D-6（マップのいちばん西）の Fortilace から常花の石窟。Orc Stormer 9体、3体ずつ3人の友軍に向かう。全部倒して Dawn Aureola から出る。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Rasdinice I-9、Iron Emblem of Service §§（emblem2）、3〜6人。攻略は書いてない）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.060",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose II (S)",
+      "name_ja_ref": "友軍支援 II（王国軍）",
+      "order": 14,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Defensive operations、Sterling Star §§、30分。バタリア丘陵〔Ｓ〕D-6 の Fortilace から常花の石窟。Orc Stormer 6体、3体ずつ2人の友軍に向かう。全部倒して Dawn Aureola から出る。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Rasdinice I-9、star2、3〜6人。D-6 の Fortilace、3体ずつ2組がそれぞれ友軍に向かう。受けていない人は戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.061",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose I (S)",
+      "name_ja_ref": "友軍支援 I（王国軍）",
+      "order": 15,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Defensive operations、Brass Ribbon of Service §§、30分、経験値170・連合軍戦績640。バタリア丘陵〔Ｓ〕D-6（マップのいちばん西、サバイバルガイド）の Fortilace から常花の石窟。Orc Stormer 3体（RNG・PLD・WAR）、睡眠が効く、HP 1800ほど。Dawn Aureola から出る。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Rasdinice I-9、ribbon2、3〜6人。D-6 の南側の Fortilace。Orcish Stormer 3体（PLD・RNG・MNK）。★ごとに経験値170〜390・戦績640〜1365）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.062",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose III (B)",
+      "name_ja_ref": "友軍支援 III（共和国軍）",
+      "order": 16,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Defensive operations、Iron Emblem of Service §§、30分。ロランベリー耕地〔Ｓ〕D-9 の Fortilace からルホッツ銀山。Quadav 3体ずつ3組、HP が少なく睡眠が効く。Dawn Aureola から出ないと失敗（デジョンしない）。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Hieronymus E-8、emblem2、3〜6人。まっすぐ進むと友軍、9体が3体ずつ3回来る（WHM・PLD・WAR）。2回目と3回目はすぐ続く）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_III_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.063",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose II (B)",
+      "name_ja_ref": "友軍支援 II（共和国軍）",
+      "order": 17,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Defensive operations、Sterling Star §§、30分。ロランベリー耕地〔Ｓ〕D-9 の Fortilace からルホッツ銀山。Quadav 3体ずつ2組、睡眠が効く。Dawn Aureola から出ないと失敗。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Hieronymus E-8、star2、3〜6人。まっすぐ進むと友軍、3体のあと数分で2組目が同じ道を来る（WHM・PLD・WAR））",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_II_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.064",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose I (B)",
+      "name_ja_ref": "友軍支援 I（共和国軍）",
+      "order": 18,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Defensive operations、Brass Ribbon of Service §§、30分、経験値170・連合軍戦績640。ロランベリー耕地〔Ｓ〕D-9 の Fortilace からルホッツ銀山。Quadav 3体、睡眠が効き HP が少ない。Dawn Aureola から出ないと失敗。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Hieronymus E-8、ribbon2、3〜6人、30分。まっすぐ進むと友軍、待つと Quadav Stormer 3体（WHM・PLD・DRK・WAR）。★ごとに経験値170〜390・戦績640〜1365）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_I_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.065",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose III (W)",
+      "name_ja_ref": "友軍支援 III（連邦軍）",
+      "order": 19,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Defensive operations、Iron Emblem of Service §§、1〜6人、30分。ソロムグ原野〔Ｓ〕L-9 の Fortilace からゴユの空洞。Yagudo Stormer 9体。入る前の強化は残る。Dawn Aureola から出る。リーダーだけ受ければよい。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Emhi Tchaoryo H-9、emblem2、3〜6人。L-8 の上の坂から。3体ずつ3回（BLM・NIN・SAM）。Dawn Aureola の近くにいないと経験値なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_III_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.066",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose II (W)",
+      "name_ja_ref": "友軍支援 II（連邦軍）",
+      "order": 20,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる。倒された友軍の人数だけ減る）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Defensive operations、Sterling Star §§、1〜6人。ソロムグ原野〔Ｓ〕L-9 の Fortilace からゴユの空洞、30分。友軍は2人（入った先と、その西）。Yagudo Stormer 6体が北から、3体ずつ友軍に向かう。Dawn Aureola から出る。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Emhi Tchaoryo H-9、star2、3〜6人。L-8 の上の坂。友軍は Dawn Aureola の先の大部屋と、その西の通路。友軍が倒されると経験値・戦績が減る）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_II_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.067",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Granite Rose I (W)",
+      "name_ja_ref": "友軍支援 I（連邦軍）",
+      "order": 21,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14344.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Defensive operations、Brass Ribbon of Service §§、3〜6人、30分、経験値170・連合軍戦績640。ソロムグ原野〔Ｓ〕L-9 の Fortilace（BG Wiki は Fortilice と書く）からゴユの空洞。Yagudo 3体。入る前の強化は残る。Dawn Aureola から出る。リーダーだけ受ければよい。用語辞典の友軍支援のページ：指令書「防衛支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章、1〜6人（2015.2.19 から）、リーダーだけ受ければよい、友軍 I 1人・II 2人・III 3人、敵は3体1組（FFXIclopedia：Emhi Tchaoryo H-9、ribbon2、1〜6人。L-8 の上の坂。まっすぐ進むと友軍、待つと Yagudo Stormer 3体（BLM・SAM・NIN）。Dawn Aureola の近くにいないと経験値なし。★ごとに経験値170〜390・戦績640〜1365）",
+          "url": "https://www.bg-wiki.com/ffxi/Granite_Rose_I_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Delta Strike III (S)",
+      "name_ja_ref": "巡回任務 III（王国軍）",
+      "order": 22,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14080.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Iron Emblem of Service §§、Lv70以上。東ロンフォール〔Ｓ〕K-5 の南西のすみの ???。Goblin Picaroon 3体（WAR・RDM・RNG）。倒してもう一度 ??? で経験値。経験値4095・連合軍戦績5265。Goblin Picaroon のページ：東ロンフォール〔Ｓ〕の NM、HP 9500ほど（FFXIclopedia の Goblin Picaroon のページ：5分で再出現、10〜20分で強くなる（要確認）、1分だれも戦わないと消えて失敗）",
+          "url": "https://www.bg-wiki.com/ffxi/Delta_Strike_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Delta Strike II (S)",
+      "name_ja_ref": "巡回任務 II（王国軍）",
+      "order": 23,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14079.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Sterling Star §§、Lv70以上。東ロンフォール〔Ｓ〕I-5 の道の上の ???。Goblin Picaroon 2体。倒してもう一度 ??? で経験値160。連合軍戦績620（FFXIclopedia：Rasdinice I-9、1人、東ロンフォール〔Ｓ〕がサンドリアの支配。I-5 の ???、Goblin Picaroon 2体（WHM・BLM、名前は同じ）。片方を引き離すと消えて失敗。10〜20分で強くなる。手伝った人も ??? で経験値、戦績は受けた人だけ。★ごとに経験値260〜491・戦績820〜1475）",
+          "url": "https://www.bg-wiki.com/ffxi/Delta_Strike_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Delta Strike I (S)",
+      "name_ja_ref": "巡回任務 I（王国軍）",
+      "order": 24,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14078.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Security、Brass Ribbon of Service §§、Lv70以上。東ロンフォール〔Ｓ〕H-7 の ???。Goblin Picaroon を倒してもう一度 ??? で経験値160。連合軍戦績620（FFXIclopedia：Rasdinice I-9、1人、東ロンフォール〔Ｓ〕がサンドリアの支配。H-7 のまん中の大きな木のそばの ???。HP 8000〜10000 のシーフ、20%以下で強くなる、15分ほどで再出現。手伝った人も経験値。★ごとに経験値221〜321・戦績773〜1124）",
+          "url": "https://www.bg-wiki.com/ffxi/Delta_Strike_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe III (B)",
+      "name_ja_ref": "戦略物資収集 III（共和国軍）",
+      "order": 25,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16582.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Resource procurement、1人。Quartermaster H-9 がグロウベルグ〔Ｓ〕で収穫してこいと言う。Lesser Chigoe・Red Moko Grass・Burdock Root 各1。自分で収穫すると Supply Order。時間制限があるかは不明。経験値290・戦績880。勲章は Golden Star §§§§（star4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「黄金剣勲章 所持で受領可能」。（FFXIclopedia：Hieronymus E-8、Quartermaster H-9、Lesser Chigoe・Burdock・Red Moko Grass 各1。Supply Order は自分で取ったときだけで、なくてよい。★ごとに経験値344〜472・戦績985〜1350）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_III_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe III (S)",
+      "name_ja_ref": "戦略物資収集 III（王国軍）",
+      "order": 26,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14059.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、1人。Quartermaster は I-9（Rasdinice の向かいのテントのそば）。Willow Log・Walnut Log・Walnut。経験値290・戦績880。勲章は Golden Star §§§§（star4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「黄金剣勲章 所持で受領可能」。（FFXIclopedia：Rasdinice I-9、Quartermaster H-9、Walnut・Walnut Log・Willow Log 各1。★ごとに経験値316〜469・戦績904〜1341）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe III (W)",
+      "name_ja_ref": "戦略物資収集 III（連邦軍）",
+      "order": 27,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14611.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Resource procurement、1人。Quartermaster F-9。Nopales・Dragon Fruit・Holy Water 各1。経験値290・戦績880。勲章は Golden Star §§§§（star4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「黄金剣勲章 所持で受領可能」。（FFXIclopedia：Emhi Tchaoryo H-9、Quartermaster F-9（北）、Dragon Fruit・Holy Water・Nopales 各1。★ごとに経験値290〜469・戦績880〜1341）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_III_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe II (B)",
+      "name_ja_ref": "戦略物資収集 II（共和国軍）",
+      "order": 28,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15366.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Resource procurement、1人。Quartermaster H-9。Quadav Chestplate・Goblin Mess Tin・Wyvern Wing・Wivre Horn・Peiste Skin・Slug Eye・Cotton Cloth・Giant Sheep Meat x3・Rock Salt x3・Flint Stone x12・Spider Web・Revival Root・Malboro Vine・Beehive Chip x2。経験値190・戦績680。勲章は Allied Ribbon of Glory §§§§（ribbon4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「連合突撃章 所持で受領可能」。（FFXIclopedia：Hieronymus E-8、Quartermaster H-9。用語辞典の8品のほか Goblin Mess Tin・Heavy Quadav Backplate／Chestplate・Peiste Skin／Stinger・Speed Apple x4・Slug Eye・Wivre Horn・Wyvern Wing。★5で経験値1050・戦績1500ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_II_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe II (S)",
+      "name_ja_ref": "戦略物資収集 II（王国軍）",
+      "order": 29,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14058.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、1人。Quartermaster は I-9。用語辞典の8品のほか Gnole Claw・Orc Helm・Ladybug Wing x4。経験値190・戦績680。勲章は Allied Ribbon of Glory §§§§（ribbon4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「連合突撃章 所持で受領可能」。（FFXIclopedia：Rasdinice I-9、Quartermaster H-9。用語辞典の8品のほか Agaricus Mushroom・Djinn Ash・Gnole Claw・Ladybug Wing x4・Orc Helmet・Smilodon Hide・Smilodon Liver。★ごとに経験値226〜327・戦績723〜1047）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe II (W)",
+      "name_ja_ref": "戦略物資収集 II（連邦軍）",
+      "order": 30,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18156.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Resource procurement、1人。Quartermaster F-9。用語辞典の8品のほか Dhalmel Hair・Yagudo Kote・Gnat Wing x4・Rafflesia Petal・Lynx Hide（どれも要確認の印つき）。経験値190・戦績680。勲章は Allied Ribbon of Glory §§§§（ribbon4）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「連合突撃章 所持で受領可能」。（FFXIclopedia：Emhi Tchaoryo H-9、Quartermaster F-9。用語辞典の8品のほか Dhalmel Hair・Gnat Wing x4・Ice Crystal x12・Lynx Hide・Lynx Meat・Rafflesia Petal・Rafflesia Vine・Yagudo Kote。★ごとに経験値190〜333・戦績680〜1065）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_II_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級勲功翼章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe IV (B)",
+      "name_ja_ref": "戦略物資収集 IV（共和国軍）",
+      "order": 31,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15409.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Resource procurement、1人。Quartermaster H-9。Wyvern Wing・Goblin Mess Tin・Peiste Stinger・Peiste Skin・Wivre Horn・Heavy Quadav Chestplate・Heavy Quadav Backplate 各1（Slug Eye はない）。★5で経験値518・戦績1436。勲章は Brass Wings of Service §（wings1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級勲功翼章 所持で受領可能」。（FFXIclopedia：Hieronymus E-8、Quartermaster H-9、用語辞典と同じ8品 各1。★ごとに経験値407〜595・戦績1085〜1587）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_IV_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級勲功翼章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe IV (S)",
+      "name_ja_ref": "戦略物資収集 IV（王国軍）",
+      "order": 32,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18159.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、1人。Quartermaster は I-9。用語辞典と同じ8品（Ladybug Wing は2）。経験値390・戦績1080。勲章は Brass Wings of Service §（wings1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級勲功翼章 所持で受領可能」。（FFXIclopedia：Rasdinice I-9、Quartermaster H-9、用語辞典と同じ8品。★ごとに経験値407〜577・戦績1085〜1539）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_IV_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級勲功翼章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe IV (W)",
+      "name_ja_ref": "戦略物資収集 IV（連邦軍）",
+      "order": 33,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18160.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Resource procurement、1人。Quartermaster F-9。Gnat Wing のほかの7品 各1。報酬は要確認。勲章は Brass Wings of Service §（wings1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級勲功翼章 所持で受領可能」。（FFXIclopedia：Emhi Tchaoryo H-9、Quartermaster F-9、用語辞典と同じ8品（Gnat Wing x2）。★ごとに経験値407〜607・戦績1080〜1571）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_IV_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe I (B)",
+      "name_ja_ref": "戦略物資収集 I（共和国軍）",
+      "order": 34,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14626.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Resource procurement、1人。Quartermaster H-9。Copper Ore・Zinc Ore・Tin Ore 各1。経験値90・戦績480。勲章は Bronze Ribbon of Service §（ribbon1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級連合従軍章 所持で受領可能」。（FFXIclopedia：Hieronymus E-8、指令書は Resource Procurement、Quartermaster H-9 が北グスタベルグ〔Ｓ〕でと言う。Copper Ore・Tin Ore・Zinc Ore。銅鉱・亜鉛鉱は彫金ギルド（Teerth・Celestina）、スズ石は鍛冶ギルドで買える。採掘はゼーガム丘陵の2段目（J-8 から上がる）、Tunnel Worm が落とす。★ごとに経験値135〜540・戦績597〜1080）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_I_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe I (S)",
+      "name_ja_ref": "戦略物資収集 I（王国軍）",
+      "order": 35,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14057.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、1人。Quartermaster は I-9（Rasdinice の向かいのテントのそば）。Arrowwood Log・Ash Log・Maple Log 各1。経験値90・戦績480。勲章は Bronze Ribbon of Service §（ribbon1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級連合従軍章 所持で受領可能」。（FFXIclopedia：Rasdinice I-9、Quartermaster H-9。Arrowwood Log・Ash Log・Maple Log のほか Copper Ore・Walnut。★ごとに経験値135〜200・戦績542〜801）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stock and Awe I (W)",
+      "name_ja_ref": "戦略物資収集 I（連邦軍）",
+      "order": 36,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14625.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕H-9）、Resource procurement、1人。Quartermaster は酒場の前（西サルタバルタへの出口のアーチを向いて、橋の向こう）。Fresh Marjoram・Saruta Cotton・Moko Grass 各1（ギデアス・西サルタバルタで収穫、競売や店で買ってもよい）。経験値90・戦績480。勲章は Bronze Ribbon of Service §（ribbon1）（FFXIclopedia も同じ）。用語辞典の戦略物資収集のページ：「二級連合従軍章 所持で受領可能」。（FFXIclopedia：Emhi Tchaoryo H-9、Quartermaster F-9（北）、Fresh Marjoram・Moko Grass・Saruta Cotton。現代でも過去でも収穫できる。★ごとに経験値90〜201・戦績480〜804）",
+          "url": "https://www.bg-wiki.com/ffxi/Stock_and_Awe_I_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が41以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Iron Anvil III (S)",
+      "name_ja_ref": "技術供与 III（王国軍）",
+      "order": 37,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14074.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Iron Emblem of Service §§、Adjutant（D-8）に話す。2つの品のクリスタルと材料（8つまで、選び終わっても聞かれたら No additional materials）、聞かれる順はランダム。経験値340・連合軍戦績980。BG Wiki の Adjutant のページは D-7。用語辞典の技術供与のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8、2問続けて正解で成功、I・II は材料の選択肢の並びが決まっていて III からランダム、III は一級戦功水晶章を持ち合成スキルのどれかが41以上。（FFXIclopedia：Rasdinice I-9、Supply Manufacture、emblem2、1人、Op Credit 1。Adjutant D-8。時間制限があり、遅いか間違えると失敗。材料は8つまで、8つ未満なら No more ingredients。ジョブLv10より上でないと経験値なし。★ごとに経験値321〜478・戦績884〜1315）",
+          "url": "https://www.bg-wiki.com/ffxi/Iron_Anvil_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が21以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Iron Anvil II (S)",
+      "name_ja_ref": "技術供与 II（王国軍）",
+      "order": 38,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14073.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Sterling Star §§、Adjutant（D-8）に話す。2つの品のクリスタルと材料（5つまで）、聞かれる順は決まっている。選び終わっても聞かれたら No additional materials。経験値240・連合軍戦績780。BG Wiki の Adjutant のページは D-7。用語辞典の技術供与のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8、2問続けて正解で成功、I・II は材料の選択肢の並びが決まっていて III からランダム、II は白銀剣勲章を持ち合成スキルのどれかが21以上。（FFXIclopedia：Rasdinice I-9、Supply Manufacture、star2、1人、Op Credit 1。Adjutant D-8（革工ギルドの北西、外のたるの後ろ）。材料の並びが変わることがある。時間制限。スキル21より低い合成を選ぶと断られる。選んだあと No more ingredients を選ぶ。★ごとに経験値240〜603・戦績723〜1047）",
+          "url": "https://www.bg-wiki.com/ffxi/Iron_Anvil_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が1以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Iron Anvil I (S)",
+      "name_ja_ref": "技術供与 I（王国軍）",
+      "order": 39,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14035.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Brass Ribbon of Service §§、Adjutant（D-8）に話す。2つの品のクリスタルと材料（4つ目はないこともある）。職業訓練 I（Crystal Fist I）とほぼ同じで、問題が3つでなく2つ。経験値140・連合軍戦績580。BG Wiki の Adjutant のページは D-7。用語辞典の技術供与のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8、2問続けて正解で成功、I・II は材料の選択肢の並びが決まっていて III からランダム、I は一級連合従軍章を持ち合成スキルのどれかが1以上。（FFXIclopedia：Rasdinice I-9、Supply Manufacture、ribbon2、どれかの合成がLv1、1人、Op Credit 1。Adjutant D-8。時間制限があり、遅いか間違えると失敗。★ごとに経験値160〜236・戦績562〜826）",
+          "url": "https://www.bg-wiki.com/ffxi/Iron_Anvil_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Hawk Eye III (S)",
+      "name_ja_ref": "拠点偵察 III（王国軍）",
+      "order": 40,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14050.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel gathering、Golden Star §§§§。オークの支配するエリアの拠点へ行き、拠点の ??? を調べる（??? は2つあり、もう1つは Slaughterhouse 用）。Commencing intel extraction のあと Gathering intel が何度か出て Investigation complete!。国のエリアが獣人の支配になっているときだけ出る。用語辞典の拠点偵察のページ：指令書「諜報工作」、黄金剣勲章 所持で受領可能、1人。王国軍はオーク帝国軍の勢力圏（エルディーム古墳〔Ｓ〕・クロウラーの巣〔Ｓ〕・ガルレージュ要塞〔Ｓ〕は対象外の模様）。インビジ・スニーク・デオード中は調べられない。/blockaid で座り、Esc でやめない限り立てない。I 30秒ほど・III 80秒ほど。アライドタグがなければ襲われない（FFXIclopedia：Rasdinice I-9、star4、1人、Op Credit 1。スニーク・インビジ中は集められない。集めているあいだは絡まれない。アライドタグもバトルも要らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Hawk_Eye_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Hawk Eye II (S)",
+      "name_ja_ref": "拠点偵察 II（王国軍）",
+      "order": 41,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14049.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel gathering、Allied Ribbon of Glory §§§§。オークの支配するエリアの拠点へ行き、拠点の ??? を調べる（??? は2つあり、もう1つは Slaughterhouse 用）。Commencing intel extraction のあと Gathering intel が何度か出て Investigation complete!。国のエリアが獣人の支配になっているときだけ出る。用語辞典の拠点偵察のページ：指令書「諜報工作」、連合突撃章 所持で受領可能、1人。王国軍はオーク帝国軍の勢力圏（エルディーム古墳〔Ｓ〕・クロウラーの巣〔Ｓ〕・ガルレージュ要塞〔Ｓ〕は対象外の模様）。インビジ・スニーク・デオード中は調べられない。/blockaid で座り、Esc でやめない限り立てない。I 30秒ほど・III 80秒ほど。アライドタグがなければ襲われない（FFXIclopedia：Rasdinice I-9、ribbon4、1人、Op Credit 1。スニーク・インビジ中は集められない。集めているあいだは絡まれない。アライドタグもバトルも要らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Hawk_Eye_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Hawk Eye I (S)",
+      "name_ja_ref": "拠点偵察 I（王国軍）",
+      "order": 42,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14048.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel gathering、Bronze Ribbon of Service §。オークの支配するエリアの拠点へ行き、拠点の ??? を調べる（??? は2つあり、もう1つは Slaughterhouse 用）。Commencing intel extraction のあと Gathering intel が何度か出て Investigation complete!。国のエリアが獣人の支配になっているときだけ出る。用語辞典の拠点偵察のページ：指令書「諜報工作」、二級連合従軍章 所持で受領可能、1人。王国軍はオーク帝国軍の勢力圏（エルディーム古墳〔Ｓ〕・クロウラーの巣〔Ｓ〕・ガルレージュ要塞〔Ｓ〕は対象外の模様）。インビジ・スニーク・デオード中は調べられない。/blockaid で座り、Esc でやめない限り立てない。I 30秒ほど・III 80秒ほど。アライドタグがなければ襲われない（FFXIclopedia：Rasdinice I-9、ribbon1、1人、Op Credit 1。スニーク・インビジ中は集められない。集めているあいだは絡まれない。アライドタグもバトルも要らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Hawk_Eye_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Smokescreen III (S)",
+      "name_ja_ref": "拠点攻略 III（王国軍）",
+      "order": 43,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14038.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。用語辞典の拠点攻略のページ：指令書「侵攻支援」、黄金剣勲章 所持で受領可能、1人。オーク帝国軍の勢力圏で獣人血盟軍が支配するエリアのカンパニエバトル（I〜III は本拠地は対象外）。目安 I ほとんどなし・II 経験値1500・III 2400。足りるとバトルの終わりに報告するように出る。足りないまま報告するとあきらめるか聞かれ、はいで失敗。何度かに分けてよい、エリアチェンジ・ジョブチェンジ・ログアウトしてよい（FFXIclopedia：Rasdinice I-9、star4、獣人の支配するエリアがあること、1人、Op Credit 1。経験値3000要る）",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Smokescreen_III_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Smokescreen II (S)",
+      "name_ja_ref": "拠点攻略 II（王国軍）",
+      "order": 44,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14037.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。用語辞典の拠点攻略のページ：指令書「侵攻支援」、連合突撃章 所持で受領可能、1人。オーク帝国軍の勢力圏で獣人血盟軍が支配するエリアのカンパニエバトル（I〜III は本拠地は対象外）。目安 I ほとんどなし・II 経験値1500・III 2400。足りるとバトルの終わりに報告するように出る。足りないまま報告するとあきらめるか聞かれ、はいで失敗。何度かに分けてよい、エリアチェンジ・ジョブチェンジ・ログアウトしてよい（FFXIclopedia：Rasdinice I-9、ribbon4、獣人の支配するエリアがあること、1人、Op Credit 1。経験値2000要る）",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Smokescreen_II_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Smokescreen I (S)",
+      "name_ja_ref": "拠点攻略 I（王国軍）",
+      "order": 45,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14036.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Offensive operations、Bronze Ribbon of Service §。オークの支配するエリアの攻めるバトルに出る。経験値65・戦績68で足りる。経験値110・戦績520。用語辞典の拠点攻略のページ：指令書「侵攻支援」、二級連合従軍章 所持で受領可能、1人。オーク帝国軍の勢力圏で獣人血盟軍が支配するエリアのカンパニエバトル（I〜III は本拠地は対象外）。目安 I ほとんどなし・II 経験値1500・III 2400。足りるとバトルの終わりに報告するように出る。足りないまま報告するとあきらめるか聞かれ、はいで失敗。何度かに分けてよい、エリアチェンジ・ジョブチェンジ・ログアウトしてよい（FFXIclopedia：Rasdinice I-9、ribbon1、獣人の支配するエリアがあること、1人、Op Credit 1。経験値1000要る）",
+          "url": "https://www.bg-wiki.com/ffxi/Smokescreen_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Aegis Scream III (S)",
+      "name_ja_ref": "拠点防衛 III（王国軍）",
+      "order": 46,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14044.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。用語辞典の拠点防衛のページ：指令書「防衛支援」、黄金剣勲章 所持で受領可能、1人。自国が支配するエリアのうちオーク帝国軍の勢力圏のカンパニエバトル（本拠地は対象外）。目安 II 経験値1500・III 2400。I は何か行動すればよく、アライドタグを受けて1分たたないと経験値・戦績0。足りないまま報告するとあきらめるか聞かれる（FFXIclopedia：Rasdinice I-9、star4、1人、Op Credit 1。3000の経験値、何回・どのエリアに分けてもよい）",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Aegis_Scream_III_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Aegis Scream II (S)",
+      "name_ja_ref": "拠点防衛 II（王国軍）",
+      "order": 47,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14043.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Defensive operations、Allied Ribbon of Glory §§§§。サンドリアの支配するエリアのバトル。Objective Completed が出たら報告、出る前に報告すると失敗。経験値894・戦績1341。用語辞典の拠点防衛のページ：指令書「防衛支援」、連合突撃章 所持で受領可能、1人。自国が支配するエリアのうちオーク帝国軍の勢力圏のカンパニエバトル（本拠地は対象外）。目安 II 経験値1500・III 2400。I は何か行動すればよく、アライドタグを受けて1分たたないと経験値・戦績0。足りないまま報告するとあきらめるか聞かれる（FFXIclopedia：Rasdinice I-9、ribbon4、1人、Op Credit 1。1500の経験値、何回・どのエリアに分けてもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Aegis_Scream_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Aegis Scream I (S)",
+      "name_ja_ref": "拠点防衛 I（王国軍）",
+      "order": 48,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14042.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Defensive operations、Bronze Ribbon of Service §。サンドリアの支配するエリアのバトルに出る。バトルが終わらないとだめ（早めの査定で抜けると完了にならない）。経験値110・戦績520。用語辞典の拠点防衛のページ：指令書「防衛支援」、二級連合従軍章 所持で受領可能、1人。自国が支配するエリアのうちオーク帝国軍の勢力圏のカンパニエバトル（本拠地は対象外）。目安 II 経験値1500・III 2400。I は何か行動すればよく、アライドタグを受けて1分たたないと経験値・戦績0。足りないまま報告するとあきらめるか聞かれる（FFXIclopedia：Rasdinice I-9、ribbon1、1人、Op Credit 1。国の支配するエリアのバトルに出る。タグを受けて返すだけでよいとも（要確認の印つき））",
+          "url": "https://www.bg-wiki.com/ffxi/Aegis_Scream_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Deep Cover II (S)",
+      "name_ja_ref": "敵兵装備偵察 II（王国軍）",
+      "order": 49,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14805.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel gathering、Sterling Star §§。Crochepallade（H-9）から Fiendtrapper と Blank Fiend Plate 5枚。スニーク・インビジ中や遠いと撮れない。名前のちがうオークを正面から撮る、カンパニエバトルの敵もよい。Fiend Plate はスタックしない。1枚ずつトレードして3枚で完了。用語辞典の敵兵装備偵察のページ：指令書「諜報工作」、1人、II は白銀剣勲章以上、撮るオークはレベル70以上（三国のまわりの獣人程度はだめ、カンパニエバトルに出ている獣人ならどれでも可）。魔写器はレアなので持っていると次を受けられない。王国軍はオーク。正面から、ほぼ密着して撮る（2タルタルほどあけるとよい模様）。知覚遮断中は撮れない。寝かせてもよい。3枚要り、同じ名前の敵は2枚目を受け取らない。月牙隊のノール族はだめ。魔写器は12回まで。経験値は3枚目をトレードしたとき。用語辞典の敵兵装備偵察 II（王国軍）のページ：受領できる勲章は不明と書く。Crochepallade は H-9。かばんに空きがないと撮れない。東ロンフォール〔Ｓ〕のオークは「君の階級章は飾りか?」で失敗扱い、ジャグナー森林〔Ｓ〕のオークは受け取ってもらえる。経験値250・連合軍戦績800（FFXIclopedia：Rasdinice I-9、Sterling Star ∮∮、1人、Op Credit 1。Crochepallade H-9。Orcish Transporter はだめで後ろの Orcish Guard はよい。Dark Kindred はだめ。レベルの低いオークだと断られて封魔板は返ってくる。ジャグナー森林〔Ｓ〕の Orcish Veteran・Orcish Dragonbrander、カンパニエのオークは全部よい。War machine もよい。★4 経験値354〜359・戦績834〜1077）",
+          "url": "https://www.bg-wiki.com/ffxi/Deep_Cover_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Deep Cover I (S)",
+      "name_ja_ref": "敵兵装備偵察 I（王国軍）",
+      "order": 50,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14804.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel gathering、Brass Ribbon of Service §§。Crochepallade（H-9）から Fiendtrapper と Blank Fiend Plate 5枚。スニーク・インビジ中や遠いと撮れない。名前のちがうオークを正面から撮る、カンパニエバトルの敵もよい。Fiend Plate はスタックしない。1枚ずつトレードして3枚で完了。用語辞典の敵兵装備偵察のページ：指令書「諜報工作」、1人、I は一級連合従軍章所持で受領可能、撮る獣人のレベル制限はない。魔写器はレアなので持っていると次を受けられない。王国軍はオーク。正面から、ほぼ密着して撮る（2タルタルほどあけるとよい模様）。知覚遮断中は撮れない。寝かせてもよい。3枚要り、同じ名前の敵は2枚目を受け取らない。月牙隊のノール族はだめ。魔写器は12回まで。経験値は3枚目をトレードしたとき。用語辞典の敵兵装備偵察 I（王国軍）のページ：受領できる勲章は不明と書く。Crochepallade は H-9。かばんに空きがないと撮れない。撮れなかったときの魔影板は追加でもらえず、3枚に届かないとあきらめるしかない。経験値・戦績の値は空欄（FFXIclopedia：Rasdinice I-9、ribbon2、1人、Op Credit 1。Crochepallade H-9。Orcish Transporter はだめで後ろの Orcish Guard はよい。Dark Kindred はだめ。Fiendtrapper を持っているとくり返し受けられないので捨てる。★1 経験値180・戦績633ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Deep_Cover_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Slaughterhouse III (S)",
+      "name_ja_ref": "破壊工作 III（王国軍）",
+      "order": 51,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14053.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。FFXIclopedia：Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel Gathering、emblem2、1人、Op Credit 1。オークの支配する外のエリアの拠点へ行く（エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕はできない）。拠点の ??? は2つ（爆弾を置けるのは1つ）。調べて爆弾を置き、爆発を待ってもう一度調べる。爆発のあと遅い・ワープやエリアを出る・戦闘不能・獣人が近づいて爆弾を外すと失敗（外されてもメッセージなし）。パーティなら受けていないメンバーも爆発の直後に調べると経験値。衰弱中は経験値なし。爆発まで52秒ほど（ゲームの21分）。★1 経験値341〜361・戦績984〜994。用語辞典の破壊工作のページ：指令書「諜報工作」、1〜6人、一級戦功水晶章 所持で受領可能。獣人血盟軍の支配するエリアの拠点の ??? を調べると爆弾。爆発はグラフィックだけでログなし。爆発までの時間は難易度で増える（III 約50秒、IV 約1分20秒）。アライドタグがなければ攻撃されない。部隊や補給部隊に見つかると回収されて失敗。爆発後に調べる前にエリアチェンジすると失敗、時間がたちすぎても失敗（10秒以内がよい）。爆弾は1個でやり直しなし。他人が置いているあいだは置けない。王国軍はオーク帝国軍の勢力圏、エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕・クロウラーの巣〔Ｓ〕・ベドー〔Ｓ〕・ガルレージュ要塞〔Ｓ〕・オズトロヤ城〔Ｓ〕は対象外。PT なら1人の爆破で成功扱い、受けていない人にも経験値（戦績は爆破した1人）。用語辞典の破壊工作 III（王国軍）のページは指令内容と募集要員1〜6人だけ",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Slaughterhouse_III_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Slaughterhouse II (S)",
+      "name_ja_ref": "破壊工作 II（王国軍）",
+      "order": 52,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14052.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。FFXIclopedia：Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel Gathering、star2、1人、Op Credit 1。オークの支配する外のエリアの拠点へ行く（エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕はできない）。拠点の ??? は2つ（爆弾を置けるのは1つ）。調べて爆弾を置き、爆発を待ってもう一度調べる。爆発のあと遅い・ワープやエリアを出る・戦闘不能・獣人が近づいて爆弾を外すと失敗（外されてもメッセージなし）。パーティなら受けていないメンバーも爆発の直後に調べると経験値。衰弱中は経験値なし。★1 経験値271・戦績814ほど。用語辞典の破壊工作のページ：指令書「諜報工作」、1〜6人、白銀剣勲章 所持で受領可能。獣人血盟軍の支配するエリアの拠点の ??? を調べると爆弾。爆発はグラフィックだけでログなし。爆発までの時間は難易度で増える（III 約50秒、IV 約1分20秒）。アライドタグがなければ攻撃されない。部隊や補給部隊に見つかると回収されて失敗。爆発後に調べる前にエリアチェンジすると失敗、時間がたちすぎても失敗（10秒以内がよい）。爆弾は1個でやり直しなし。他人が置いているあいだは置けない。王国軍はオーク帝国軍の勢力圏、エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕・クロウラーの巣〔Ｓ〕・ベドー〔Ｓ〕・ガルレージュ要塞〔Ｓ〕・オズトロヤ城〔Ｓ〕は対象外。PT なら1人の爆破で成功扱い、受けていない人にも経験値（戦績は爆破した1人）。用語辞典の破壊工作 II（王国軍）のページは指令内容と募集要員1〜6人だけ",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Slaughterhouse_II_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "王国のまわりに獣人血盟軍が支配するエリアがある",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Slaughterhouse I (S)",
+      "name_ja_ref": "破壊工作 I（王国軍）",
+      "order": 53,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14051.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。FFXIclopedia：Rasdinice（南サンドリア〔Ｓ〕I-9）、Intel Gathering、ribbon2、1人、Op Credit 1。オークの支配する外のエリアの拠点へ行く（エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕はできない）。拠点の ??? は2つ（爆弾を置けるのは1つ）。調べて爆弾を置き、爆発を待ってもう一度調べる。爆発のあと遅い・ワープやエリアを出る・戦闘不能・獣人が近づいて爆弾を外すと失敗（外されてもメッセージなし）。パーティなら受けていないメンバーも爆発の直後に調べると経験値。衰弱中は経験値なし。★1 経験値180・戦績633ほど。用語辞典の破壊工作のページ：指令書「諜報工作」、1〜6人、一級連合従軍章 所持で受領可能。獣人血盟軍の支配するエリアの拠点の ??? を調べると爆弾。爆発はグラフィックだけでログなし。爆発までの時間は難易度で増える（III 約50秒、IV 約1分20秒）。アライドタグがなければ攻撃されない。部隊や補給部隊に見つかると回収されて失敗。爆発後に調べる前にエリアチェンジすると失敗、時間がたちすぎても失敗（10秒以内がよい）。爆弾は1個でやり直しなし。他人が置いているあいだは置けない。王国軍はオーク帝国軍の勢力圏、エルディーム古墳〔Ｓ〕・ラヴォール村〔Ｓ〕・クロウラーの巣〔Ｓ〕・ベドー〔Ｓ〕・ガルレージュ要塞〔Ｓ〕・オズトロヤ城〔Ｓ〕は対象外。PT なら1人の爆破で成功扱い、受けていない人にも経験値（戦績は爆破した1人）。用語辞典の破壊工作 I（王国軍）のページは指令内容と募集要員1〜6人だけ",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Slaughterhouse_I_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が黄金剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が41以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crystal Fist III (S)",
+      "name_ja_ref": "職業訓練 III（王国軍）",
+      "order": 54,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14072.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Golden Star §§§§。Adjutant（D-8）で合成を選び、3つの品のクリスタルと材料（3つまで）を答える。時間制限あり。経験値1054・連合軍戦績1406。用語辞典の職業訓練のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8・バストゥーク商業区〔Ｓ〕J-9・ウィンダス水の区〔Ｓ〕F-9。得意な合成（釣り以外）を言うと品を1つ言われ、レシピを選んで答える。3問続けて正解で成功。時間制限あり。III 黄金剣勲章所持、合成スキル（釣り以外）のどれかが41以上で受領可能。「これで全部」を選ぶ。用語辞典の職業訓練 III（王国軍）のページ：D-8 の Adjutant。スキル1〜60の素人〜目録のレシピ、クリスタル以外の材料1〜3。材料は6択で最後に「これで全部。」。制限時間がとても短い。全3問（FFXIclopedia：Rasdinice I-9、Supply Manufacture、star4、1人、Op Credit 1。Adjutant は Apprentice（少なくとも38）以上の合成でないと断る。材料は3つまで。選択肢は6つ。材料の出る順は毎回変わる。時間は選択肢が出ているあいだだけ数える。★ごとに経験値281〜403・戦績804〜1152）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystal_Fist_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が連合突撃章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が21以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crystal Fist II (S)",
+      "name_ja_ref": "職業訓練 II（王国軍）",
+      "order": 55,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14071.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Allied Ribbon of Glory §§§§。Adjutant（D-8）で合成を選び、3つの品のクリスタルと材料2つを答える。時間制限あり。合成スキル7では受けられず67ではできた。経験値190・連合軍戦績680。用語辞典の職業訓練のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8・バストゥーク商業区〔Ｓ〕J-9・ウィンダス水の区〔Ｓ〕F-9。得意な合成（釣り以外）を言うと品を1つ言われ、レシピを選んで答える。3問続けて正解で成功。時間制限あり。II 連合突撃章所持、合成スキル（釣り以外）のどれかが21以上で受領可能。五択。徒弟〜下級職人のクリスタル以外の材料1〜2のレシピ。申告した合成スキルが徒弟に満たないと断られる模様。用語辞典の職業訓練 II（王国軍）のページ：D-8 の Adjutant。スキル21〜40の徒弟〜下級職人のレシピ、材料1〜2。経験値190・連合軍戦績680（FFXIclopedia：Rasdinice I-9、Supply Manufacture、ribbon4、1人、Op Credit 1。Adjutant はスキル21以上の合成でないと断る。3つの品。時間は選択肢が出ているあいだだけ数える。★ごとに経験値201〜287・戦績643〜947）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystal_Fist_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が1以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crystal Fist I (B)",
+      "name_ja_ref": "職業訓練 I（共和国軍）",
+      "order": 56,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14156.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Supply manufacture、Bronze Ribbon of Service §。Adjutant（J-9）で合成を選び、3つの品のクリスタルと材料2つを答える。時間制限あり。経験値90・連合軍戦績480。用語辞典の職業訓練のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8・バストゥーク商業区〔Ｓ〕J-9・ウィンダス水の区〔Ｓ〕F-9。得意な合成（釣り以外）を言うと品を1つ言われ、レシピを選んで答える。3問続けて正解で成功。時間制限あり。I 二級連合従軍章所持、合成スキル（釣り以外）のどれかが1以上で受領可能。四択。素人〜見習のクリスタル以外の材料1〜2のレシピ。用語辞典の職業訓練 I（共和国軍）のページ：カーミライド宝石店と民家の間（J-9）の Adjutant に「支援する！」。クリスタル（四択）・材料（四択）・材料（四択）、選んだら変えられない、材料1つのレシピは1つ目で終わる。3問続けて正解で成功、経験値90・連合軍戦績480（FFXIclopedia：Hieronymus E-8、Supply Manufacture、ribbon1、合成のどれかがレベル1、1人、Op Credit 1。Adjutant J-9。3つの品。時間は選択肢が出ているあいだだけ数える）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystal_Fist_I_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が二級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "合成スキルのどれか（釣り以外）が1以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crystal Fist I (S)",
+      "name_ja_ref": "職業訓練 I（王国軍）",
+      "order": 57,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14070.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply manufacture、Bronze Ribbon of Service §。Adjutant（D-8）で合成を選び、3つの品のクリスタルと材料2つを答える。時間制限あり。経験値90・連合軍戦績480。用語辞典の職業訓練のページ：指令書「生産支援」、1人、Adjutant は南サンドリア〔Ｓ〕D-8・バストゥーク商業区〔Ｓ〕J-9・ウィンダス水の区〔Ｓ〕F-9。得意な合成（釣り以外）を言うと品を1つ言われ、レシピを選んで答える。3問続けて正解で成功。時間制限あり。I 二級連合従軍章所持、合成スキル（釣り以外）のどれかが1以上で受領可能。四択。素人〜見習のクリスタル以外の材料1〜2のレシピ。用語辞典の職業訓練 I（王国軍）のページ：D-8 は革工ギルドの近く（中ではない）の Adjutant に「支援する！」。クリスタル（四択）・材料（四択）・材料（四択）、選んだら変えられない、材料1つのレシピは1つ目で終わる。3問続けて正解で成功、経験値90・連合軍戦績480。時間は1問ごとに問題が出た瞬間から数え、選び終えるまでに使いすぎると失敗（FFXIclopedia：Rasdinice I-9、Supply Manufacture、ribbon1、合成のどれかがレベル1、1人、Op Credit 1。3つの品。時間は選択肢が出ているあいだだけ数える。★ごとに経験値120〜346・戦績482〜693）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystal_Fist_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider III (S)",
+      "name_ja_ref": "補給部隊強襲 III（王国軍）",
+      "order": 58,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "BG Wiki にこのランクのページはない。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値3587〜5355、戦績4612〜6885（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Rasdinice I-9、Offensive operations、emblem2、3〜6人、Op Credit 1。ブンカール浦〔Ｓ〕 の Beastman Ensign J-7 から 常花の石窟。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Pit_Spider_III_(San_d%27Oria)",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.068",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider II (S)",
+      "name_ja_ref": "補給部隊強襲 II（王国軍）",
+      "order": 59,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕 I-9）、Offensive operations、Brass Ribbon of Service §§。ブンカール浦〔Ｓ〕 の Beastman Ensign（J-7）から 常花の石窟。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。制限時間30分。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値2562〜3825、戦績3587〜5355（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Rasdinice I-9、Offensive operations、star2、3〜6人、Op Credit 1。ブンカール浦〔Ｓ〕 の Beastman Ensign J-7 から 常花の石窟。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.069",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider I (S)",
+      "name_ja_ref": "補給部隊強襲 I（王国軍）",
+      "order": 60,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕 I-9）、Offensive operations、Brass Ribbon of Service §§。ブンカール浦〔Ｓ〕 の Beastman Ensign（J-7）から 常花の石窟。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。制限時間30分。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値1537〜2295、戦績2562〜3825（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Rasdinice I-9、Offensive operations、ribbon2、3〜6人、Op Credit 1。ブンカール浦〔Ｓ〕 の Beastman Ensign J-7 から 常花の石窟。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.070",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider III (B)",
+      "name_ja_ref": "補給部隊強襲 III（共和国軍）",
+      "order": 61,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕 I-9 と書く）、Offensive operations、Iron Emblem of Service §§。グロウベルグ〔Ｓ〕 の Beastman Ensign（G-12）から ルホッツ銀山。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値3587〜5355、戦績4612〜6885（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Hieronymus E-8、Offensive operations、emblem2、3〜6人、Op Credit 1。グロウベルグ〔Ｓ〕 の Beastman Ensign G-12 から ルホッツ銀山。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_III_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.071",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider II (B)",
+      "name_ja_ref": "補給部隊強襲 II（共和国軍）",
+      "order": 62,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕 I-9 と書く）、Offensive operations、Sterling Star §§。グロウベルグ〔Ｓ〕 の Beastman Ensign（G-12）から ルホッツ銀山。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値2562〜3825、戦績3587〜5355（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Hieronymus E-8、Offensive operations、star2、3〜6人、Op Credit 1。グロウベルグ〔Ｓ〕 の Beastman Ensign G-12 から ルホッツ銀山。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_II_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.072",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider I (B)",
+      "name_ja_ref": "補給部隊強襲 I（共和国軍）",
+      "order": 63,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕 I-9 と書く）、Offensive operations、Brass Ribbon of Service §§。グロウベルグ〔Ｓ〕 の Beastman Ensign（G-12）から ルホッツ銀山。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値1537〜2295、戦績2562〜3825（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Hieronymus E-8、Offensive operations、ribbon2、3〜6人、Op Credit 1。グロウベルグ〔Ｓ〕 の Beastman Ensign G-12 から ルホッツ銀山。Twilight Aureola から出る。受けていないメンバーは戦績なし）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_I_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.073",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider III (W)",
+      "name_ja_ref": "補給部隊強襲 III（連邦軍）",
+      "order": 64,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕 H-9）、Offensive operations、Iron Emblem of Service §§。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign（I-8）から ゴユの空洞。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値3587〜5355、戦績4612〜6885（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Emhi Tchaoryo H-9、Offensive operations、emblem2、3〜6人、Op Credit 1。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign H-8/I-8 のさかい から ゴユの空洞。Twilight Aureola から出る。受けていないメンバーは戦績なし。制限時間30分。出るときメンバーが近くにいないと経験値が入らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_III_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.074",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider II (W)",
+      "name_ja_ref": "補給部隊強襲 II（連邦軍）",
+      "order": 65,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕 H-9）、Offensive operations、Brass Ribbon of Service §§。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign（I-8）から ゴユの空洞。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。制限時間30分。フェイスは呼べない（W）。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値2562〜3825、戦績3587〜5355（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Emhi Tchaoryo H-9、Offensive operations、star2、3〜6人、Op Credit 1。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign H-8/I-8 のさかい から ゴユの空洞。Twilight Aureola から出る。受けていないメンバーは戦績なし。制限時間30分。出るときメンバーが近くにいないと経験値が入らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_II_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.075",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「コブラ傭兵団入団試験」をクリアして、コブラ傭兵団（連邦軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が連邦軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人（opsを受けるのはリーダーだけでよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Pit Spider I (W)",
+      "name_ja_ref": "補給部隊強襲 I（連邦軍）",
+      "order": 66,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Emhi Tchaoryo（ウィンダス水の区〔Ｓ〕 H-9）、Offensive operations、Brass Ribbon of Service §§。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign（I-8）から ゴユの空洞。Carrier と Guard を全部倒し、Twilight Aureola から出る（ワープで出ると失敗）。制限時間30分。用語辞典の補給部隊強襲のページ（14342。王国軍の行ごとのページ 14039〜14041 はこのページへ転送）：指令書「侵攻支援」、I 一級連合従軍章・II 白銀剣勲章・III 一級戦功水晶章 所持で受領可能。1〜6人（2015年2月19日から。それまでは3〜6人）、リーダーだけ受ければよく、ほかのメンバーも経験値。受けた人がリーダーになって入る。Beastman Ensign は王国軍ブンカール浦 J-7（常花の石窟）・共和国軍グロウベルグ G-12（ルホッツ銀山）・連邦軍カルゴナルゴ城砦 外 I-8 北西（ゴユの空洞）。Carrier と Guard がゴールへ向かい、着くとデジョンで消える。Carrier に逃げられると失敗、Guard を逃がすと経験値・戦績が減る。入るとすぐ動き出すので強化は外で。Carrier は数割削ると逃げ出すのでグラビデ、ナイトのキャリアはスリプルをレジストすることがある。混んでいて入るのが遅れると、とんずらがないと追いつけない。全滅させて「作戦目標を達成した。」と出てもデジョンで帰ると失敗、START 地点の装置で出る。I 1部隊（Carrier1・Guard2）、II 2部隊が別々のゴール、III Guard4 で黒魔道士あり。経験値1537〜2295、戦績2562〜3825（Guard を全部倒したとき）。成功で自国の士気・軍資金が上がる。（FFXIclopedia：Emhi Tchaoryo H-9、Offensive operations、ribbon2、1〜6人、Op Credit 1。カルゴナルゴ城砦〔Ｓ〕 の Beastman Ensign H-8/I-8 のさかい から ゴユの空洞。Twilight Aureola から出る。受けていないメンバーは戦績なし。制限時間30分。出るときメンバーが近くにいないと経験値が入らない）",
+          "url": "https://www.bg-wiki.com/ffxi/Pit_Spider_I_(W)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Materiel Storm III (S)",
+      "name_ja_ref": "軍需品調達 III（王国軍）",
+      "order": 67,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14062.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、Iron Emblem of Service §§。Quartermaster は I-9。パーティだとメンバーごとに別の品を言われる。Deodorizer x5・Echo Drops x3・Eye Drops x3・Hi-Potion・Holy Water x3・Poison Potion x2・Potion x4・Silencing Potion x2・Silent Oil x5・Venom Potion。経験値340・戦績980。勲章は Iron Emblem of Service §§（emblem2）。用語辞典の軍需品調達のページ（14334）：指令書「物資確保」、1人、各国の補給担当官 Quartermaster に品を言われて調達しトレードする。品は三国共通。自作の HQ 品は渡せない。III 一級戦功水晶章所持で受領可能。薬品類16種。経験値1266〜1890・戦績1628〜2430。用語辞典の軍需品調達 III（王国軍）のページ：H-9 の Quartermaster、用語辞典の16種のどれか。★ごとに経験値361〜513・戦績994〜1410（FFXIclopedia：Rasdinice I-9、Resource Procurement、emblem2、1人、Op Credit 1。Quartermaster H-9。HQ品は受け取らない。★1で経験値361・戦績994ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Materiel_Storm_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Materiel Storm II (S)",
+      "name_ja_ref": "軍需品調達 II（王国軍）",
+      "order": 68,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14061.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、Sterling Star §§。Quartermaster は I-9。パーティだとメンバーごとに別の品を言われる。Soy Milk x3・Roasted Almonds x4・Smoked Salmon x6・Baked Popoto x4・Roast Pipira x4・Puls x4・Dhalmel Steak x3・Hard-boiled Egg x12・Boiled Crab x4 など。経験値240・戦績780。勲章は Sterling Star §§（star2）。用語辞典の軍需品調達のページ（14334）：指令書「物資確保」、1人、各国の補給担当官 Quartermaster に品を言われて調達しトレードする。品は三国共通。自作の HQ 品は渡せない。II 白銀剣勲章所持で受領可能。食品やチョコボレース用の品32種（パインジュース4を含む）。用語辞典の軍需品調達 II（王国軍）のページ：H-9 の Quartermaster、31種のどれか（パインジュースはない）。★ごとに経験値271〜400・戦績814〜1202（FFXIclopedia：Rasdinice I-9、Resource Procurement、star2、1人、Op Credit 1。Quartermaster H-9。どれも低いスキルの調理の品。HQ品は受け取らない。★1で経験値240・戦績780ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Materiel_Storm_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.053",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級勲功翼章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Materiel Storm IV (S)",
+      "name_ja_ref": "軍需品調達 IV（王国軍）",
+      "order": 69,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18161.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、勲章は Information Needed。Quartermaster は I-9。パーティだとメンバーごとに別の品を言われる。Apple Pie x4・Salmon Roe x6・Eel Kabob・Roast Trout x3・Icecap Rolanberry・Ginger Cookie x33・Bretzel x33。経験値1628・戦績1989。勲章は wings2（FFXIclopedia。BG Wiki は勲章を書いていない）。用語辞典の軍需品調達のページ（14334）：指令書「物資確保」、1人、各国の補給担当官 Quartermaster に品を言われて調達しトレードする。品は三国共通。自作の HQ 品は渡せない。IV 一級勲功翼章所持で受領可能。食品やチョコボレース用の品32種（グレープジュース1を含む）。用語辞典の軍需品調達 IV（王国軍）のページ：H-9 の Quartermaster、31種のどれか（グレープジュースはない）。★ごとに経験値452〜670・戦績1175〜1743（FFXIclopedia：Rasdinice I-9、Resource Procurement、wings2、1人、Op Credit 1。Quartermaster H-9。HQ品は受け取らない。★1で経験値440・戦績1180ほど）",
+          "url": "https://www.bg-wiki.com/ffxi/Materiel_Storm_IV_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.054",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Materiel Storm I (S)",
+      "name_ja_ref": "軍需品調達 I（王国軍）",
+      "order": 70,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14060.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Resource procurement、Brass Ribbon of Service §§。Quartermaster は I-9（Rasdinice を向いて後ろ、テントのそば）。Wind・Fire・Earth・Ice・Light・Dark・Lightning Crystal のどれか x12。経験値810・戦績1350。勲章は Brass Ribbon of Service §§（ribbon2）。用語辞典の軍需品調達のページ（14334）：指令書「物資確保」、1人、各国の補給担当官 Quartermaster に品を言われて調達しトレードする。品は三国共通。自作の HQ 品は渡せない。I 一級連合従軍章所持で受領可能。クリスタル1ダース、属性はランダム。経験値542〜810・戦績904〜1350。用語辞典の軍需品調達 I（王国軍）のページ：H-9 の Quartermaster、クリスタルのどれか一種を12個。入手方法は問われない。★ごとに経験値180〜268・戦績633〜938（FFXIclopedia：Rasdinice I-9、Resource Procurement、ribbon2、1人、Op Credit 1。Quartermaster H-9、属性はランダムのクリスタル12個。★ごとに経験値180〜256・戦績633〜900）",
+          "url": "https://www.bg-wiki.com/ffxi/Materiel_Storm_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.055",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crimson Domino III (S)",
+      "name_ja_ref": "軍需品運搬 III（王国軍）",
+      "order": 71,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14068.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Iron Emblem of Service §§（要確認の印）、1〜6人。Gate Sentry 東ロンフォール〔Ｓ〕J-11・ブンカール浦〔Ｓ〕E-7・ジャグナー森林〔Ｓ〕F-5・バタリア丘陵〔Ｓ〕F-8。??? I-11・G-6・F-8・G-8。拠点の NPC H-8・G-10・H-8/I-8・J-8。戦闘すると失敗、絡まれるだけなら失敗しない。時間制限は不明。経験値250・戦績800。（FFXIclopedia：Rasdinice I-9、Supply Transport、emblem2、1人、Op Credit 1。拠点の NPC は Arlayse, R.K.（東ロンフォール〔Ｓ〕H-8）・Roiloux, R.K.（ジャグナー森林〔Ｓ〕I-8、Gate Sentry G-5）・Toulsard, R.K.（ブンカール浦〔Ｓ〕G-10）・Myllue, R.K.（バタリア丘陵〔Ｓ〕J-7）。絡まれても止まって戦わなければ成功。落ちても物資は残る。成功でエリアの戦略物資が3増える。★ごとに経験値361〜538・戦績994〜1480）用語辞典の軍需品運搬のページ（14336）：指令書「輸送運搬」、1人。自国支配エリアの検問所 Gate Sentry で、カンパニエ補給物資を渡されるか、放棄された物資を ??? で探すかのどちらか（ランダム）。??? は王国軍 東ロンフォール〔Ｓ〕I-11・ジャグナー森林〔Ｓ〕F-8・ブンカール浦〔Ｓ〕G-6（洞窟の中）・バタリア丘陵〔Ｓ〕G-8（丘の上）、共通 ボスディン氷河〔Ｓ〕I-7・ザルカバード〔Ｓ〕H-7。「取り扱い注意」なら戦闘不可、「速やかに届けよ」なら時間制限があるようだ。物資を持って拠点のカンパニエ審理官と話せばクリア。エリアで報酬は変わらない。2014年に検問所の近くに Survival Guide、2016年からマウントが使える。III 一級戦功水晶章所持で受領可能。II と同じく条件が付くことが多く、2つ付くこともある。経験値1266〜1890・戦績1628〜2430。用語辞典の軍需品運搬 III（王国軍）のページは指令内容と募集要員1人だけ。",
+          "url": "https://www.bg-wiki.com/ffxi/Crimson_Domino_III_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.056",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が白銀剣勲章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crimson Domino II (S)",
+      "name_ja_ref": "軍需品運搬 II（王国軍）",
+      "order": 72,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14067.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Sterling Star §§、1〜6人。Gate Sentry 東ロンフォール〔Ｓ〕J-11・ブンカール浦〔Ｓ〕E-7・ジャグナー森林〔Ｓ〕F-5・バタリア丘陵〔Ｓ〕F-8。??? I-11・G-6・F-8・G-8。拠点の NPC H-8・G-10・H-8/I-8・J-8。経験値250・戦績800。（FFXIclopedia：Rasdinice I-9、Supply Transport、star2、1人、Op Credit 1。拠点の NPC は Arlayse, R.K.（東ロンフォール〔Ｓ〕H-8）・Toulsard, R.K.（ブンカール浦〔Ｓ〕G-10）・バタリア丘陵〔Ｓ〕。落ちても物資は残る。★ごとに経験値271〜400・戦績800〜1202）用語辞典の軍需品運搬のページ（14336）：指令書「輸送運搬」、1人。自国支配エリアの検問所 Gate Sentry で、カンパニエ補給物資を渡されるか、放棄された物資を ??? で探すかのどちらか（ランダム）。??? は王国軍 東ロンフォール〔Ｓ〕I-11・ジャグナー森林〔Ｓ〕F-8・ブンカール浦〔Ｓ〕G-6（洞窟の中）・バタリア丘陵〔Ｓ〕G-8（丘の上）、共通 ボスディン氷河〔Ｓ〕I-7・ザルカバード〔Ｓ〕H-7。「取り扱い注意」なら戦闘不可、「速やかに届けよ」なら時間制限があるようだ。物資を持って拠点のカンパニエ審理官と話せばクリア。エリアで報酬は変わらない。2014年に検問所の近くに Survival Guide、2016年からマウントが使える。II 白銀剣勲章所持で受領可能。I より「取り扱い注意」や「速やかに届けよ」の条件が付くことが多いようだ。経験値904〜1350・戦績1266〜1890。用語辞典の軍需品運搬 II（王国軍）のページは指令内容と募集要員1人だけ。",
+          "url": "https://www.bg-wiki.com/ffxi/Crimson_Domino_II_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.057",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級連合従軍章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Crimson Domino I (S)",
+      "name_ja_ref": "軍需品運搬 I（王国軍）",
+      "order": 73,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "連合軍戦績（受けたときの★の数で変わる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/14066.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Supply transport、Brass Ribbon of Service §§、1〜6人。Gate Sentry 東ロンフォール〔Ｓ〕J-11・ブンカール浦〔Ｓ〕E-7・バタリア丘陵〔Ｓ〕F-8。??? I-11・G-6・G-8。拠点の NPC H-8・G-10・J-8。経験値150・戦績600。（FFXIclopedia：Rasdinice I-9、Supply Transport、ribbon2、1人、Op Credit 1。Gate Sentry 東ロンフォール〔Ｓ〕J-11・ブンカール浦〔Ｓ〕E-7・バタリア丘陵〔Ｓ〕F-8、拠点の NPC Arlayse, R.K.（H-8）・Toulsard, R.K.（G-10）・Myllue, R.K.（J-7）。★ごとに経験値180〜266・戦績633〜932）用語辞典の軍需品運搬のページ（14336）：指令書「輸送運搬」、1人。自国支配エリアの検問所 Gate Sentry で、カンパニエ補給物資を渡されるか、放棄された物資を ??? で探すかのどちらか（ランダム）。??? は王国軍 東ロンフォール〔Ｓ〕I-11・ジャグナー森林〔Ｓ〕F-8・ブンカール浦〔Ｓ〕G-6（洞窟の中）・バタリア丘陵〔Ｓ〕G-8（丘の上）、共通 ボスディン氷河〔Ｓ〕I-7・ザルカバード〔Ｓ〕H-7。「取り扱い注意」なら戦闘不可、「速やかに届けよ」なら時間制限があるようだ。物資を持って拠点のカンパニエ審理官と話せばクリア。エリアで報酬は変わらない。2014年に検問所の近くに Survival Guide、2016年からマウントが使える。I 一級連合従軍章所持で受領可能。経験値542〜810・戦績904〜1350。用語辞典の軍需品運搬 I（王国軍）のページ：各エリアの Gate Sentry から2通りの指示のどちらか。「補給の小包だ。」なら物資を手渡される。「取り扱いには注意せよ。強い衝撃を与えないようにするのだ。」なら運搬中に戦闘すると失敗。補給隊が襲撃されたと言われたら、エリアの特定の ??? を調べる（ほかのクエストなどの ??? からは取れない）。届け先は同じエリアの拠点の自国軍ガード NPC。東ロンフォール〔Ｓ〕は Gate Sentry J-11 テンキー3、??? I-11 テンキー8（Lv60前後のオークがうろつく）、届け先 H-8 テンキー8 Arlayse,R.K.。任務完了で経験値150、報告で戦績600。時間制限は書いていない（TODO）。",
+          "url": "https://www.bg-wiki.com/ffxi/Crimson_Domino_I_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.058",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「第四共和軍団入団試験」をクリアして、第四共和軍団（共和国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が共和国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ベドー〔Ｓ〕を含むグスタベルグ戦線の全エリアと、ブンカール浦〔Ｓ〕を除くデルフラント戦線の全エリアがアルタナ連合軍の支配になっている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Cracking Shells (B)",
+      "name_ja_ref": "金剛王討伐（共和国軍）",
+      "order": 74,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "宝箱からワイズストラップかブレイブグリップのどちらか（必ず）、ほかに装備・素材・薬品"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16029.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hieronymus（バストゥーク商業区〔Ｓ〕E-8）、Offensive operations、Iron Emblem of Service §§、30分。ベドー〔Ｓ〕が共和国軍の支配のときだけ。Diamond Seal は NM 以外のクゥダフが落とし、そのエリアにいるパーティ全員に入る（作戦を受けていなくても取れる）。Qulun Dome の場所へ行くには Quadav Charm が要る。Map 2 の L-8 の Ironbound Gate から BF。フェイス可、レベル制限なし。Za'Dha Adamantking（狩人）・Di'Mho Platekeeper（白）・Zi'Bhe Gauntletkeeper（黒）・Zo'Bha Helmkeeper（赤）。Za'Dha Adamantking だけ倒せば勝ち。ボスは睡眠が効かず Eagle Eye Shot。護衛は倒すとすぐ戻る。（FFXIclopedia：Hieronymus E-8、グスタベルグ戦線・デルフラント戦線の全エリアが共和国軍の支配、emblem2、1〜6人、Op Credit 1。Quadav Charm は現代のベドーの De'Vyu Headhunter が落とし、Map 1 の I-9 の門を通るのに要る。Map 2 の L-8。全員が Diamond Seal を持っていること。Za'Dha Adamantking だけ倒せば勝ち、倒すと Armoury Crate。報告で完了）用語辞典の金剛王討伐（共和国軍）のページ（16029）：指令書「侵攻支援」、1〜6人、受ける条件（ベドー〔Ｓ〕を含むグスタベルグ戦線全エリアとブンカール浦〔Ｓ〕を除くデルフラント戦線全エリアがアルタナ連合軍支配、共和国軍の傭兵のみ、一級戦功水晶章以上）、参加者全員が受ける。ベドー〔Ｓ〕で通常のクゥダフを倒してだいじなもの「ダイアの宝印」（一度に全員分）。地下マップ L-8 の Ironbound Gate から BF。地上マップ I-9 の Corroded Gate はクゥダフの呪符で開けられる（1人が使えば全員通れ、なくならない）。6人・30分・フェイス可。最初はボスだけで、釣ると護衛 NM が出る。護衛は倒しても戻る、寝かせ続けると耐性。お供が少ないときもある。ボスは回避が高くトリプルアタック、HP1/3ほどでイーグルアイ（空蝉で避けられる）、炸裂岩投げ（ヘイトリセット）。白 NM はサイレスがないとケアルガで起こす。敵を殲滅すると宝箱が出て、開けるとクリア。戦利品はワイズストラップ・ブレイブグリップ（100%）など。成功で自国の士気・軍資金が上がる",
+          "url": "https://www.bg-wiki.com/ffxi/Cracking_Shells_(B)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus"
+      },
+      "steps": []
+    },
+    {
+      "category": "campaign",
+      "game_ref": null,
+      "id": "mission.campaign.059",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "過去世界クエスト「王立騎士団入団試験」をクリアして、鉄羊騎士隊（王国軍）に入っている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "所属軍が王国軍",
+          "type": "condition"
+        },
+        {
+          "text_ja": "勲章が一級戦功水晶章以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ラヴォール村〔Ｓ〕を含むロンフォール戦線・ノルバレン戦線の全エリアとブンカール浦〔Ｓ〕がアルタナ連合軍の支配になっている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員は1〜6人",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Splitting Heirs (S)",
+      "name_ja_ref": "黒太子討伐（王国軍）",
+      "order": 75,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "宝箱からワイズストラップかブレイブグリップのどちらか（必ず）、ほかに装備・素材・薬品"
+        },
+        {
+          "kind": "other",
+          "name_ja": "報告しても連合軍戦績はもらえない"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16026.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rasdinice（南サンドリア〔Ｓ〕I-9）、Offensive operations、Iron Emblem of Service §§、30分。ラヴォール村〔Ｓ〕が王国軍の支配のときだけ。Tigris Stone は NM 以外のオークが落とし、そのエリアにいるパーティ全員に入るが、作戦を受けた人しか入れない。F-9 の Reinforced Gateway から BF。Darkheir Grradhod（侍）と Gorepledge Rozzbrezz（ナイト）・Malicearm Razbhobb（モンク）・Slitherword Razghogg（黒）。Darkheir Grradhod だけ倒せば勝ち。明鏡止水、Tornado Edge。（FFXIclopedia：Rasdinice I-9、ノルバレン戦線・ロンフォール戦線の全エリアが王国軍の支配、emblem2、1〜6人、Op Credit 1。Tigris Stone は NM 以外のオーク。全員が作戦を受けていること。入ると作戦と Tigris Stone はなくなる。30分、入ると強化が消える。北の道をインビジで行くのが安全。いちばん近いのはジャグナー森林〔Ｓ〕の Survival Guide。護衛は1分ほどで戻る。Darkheir Grradhod を倒すとほかは消えて Armoury Crate。報告で報酬）用語辞典の黒太子討伐（王国軍）のページ（16026）：指令書「侵攻支援」、1〜6人、受ける条件（ラヴォール村〔Ｓ〕を含むロンフォール戦線・ノルバレン戦線の全エリアとブンカール浦〔Ｓ〕がアルタナ連合軍支配、王国軍の傭兵のみ、一級戦功水晶章以上）。ラヴォール村〔Ｓ〕以外が獣人血盟軍支配だと受けられても入れない。カンパニエのときユニオンにいると一定時間戦利品が入らない（エリアチェンジ）。参加者全員が受ける。ラヴォール村〔Ｓ〕で通常のオークかスミロドンを倒してだいじなもの「剣虎の石」（一度に全員分）。F-9 の Reinforced Gateway から BF。敵を殲滅すると宝箱、開けるとクリア。報告すると「成功には違いないさ」で、戦績はもらえない。条件を満たさなくなると入れない（コンクェストの集計で判定と推定）。6人・30分・フェイス可。釣ると護衛が出る、護衛はボスとヘイト連動（完全ではない）、スリプルは2回ほどで耐性、倒すとすぐ戻るのでキープ。トルネードエッジ・ショルダーチャージが危ない。入口近くの木は視線をさえぎる。戦利品はワイズストラップ・ブレイブグリップ（100%）など",
+          "url": "https://www.bg-wiki.com/ffxi/Splitting_Heirs_(S)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.南サンドリア〔Ｓ〕.Rasdinice"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.ウィンダス水の区〔Ｓ〕.Emhi_Tchaoryo",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 94,
+        "zone_name": "ウィンダス水の区〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Emhi Tchaoryo",
+      "same_name": false
+    },
+    {
+      "id": "npc.バストゥーク商業区〔Ｓ〕.Hieronymus",
+      "kind": "npc",
+      "location": {
+        "grid": "E-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 87,
+        "zone_name": "バストゥーク商業区〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Hieronymus",
+      "same_name": false
+    },
+    {
+      "id": "npc.南サンドリア〔Ｓ〕.Rasdinice",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 80,
+        "zone_name": "南サンドリア〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Rasdinice",
+      "same_name": false
+    }
+  ]
+}

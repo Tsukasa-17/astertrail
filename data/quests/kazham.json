@@ -1,0 +1,768 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦の表裏」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "VW Op. #054: Elshimo List",
+      "name_ja_ref": "VW作戦第250計画エルシモ島",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/24843.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Holy Moly ユタンガ大森林 F-11・G-6・J-7、Neith ウガレピ寺院 MAP1 I-9・K-6／MAP2 G-8、Ildebrann イフリートの釜 MAP3 F-9／MAP5 F-9・I-6。Hildegard はこのページだけ F-8、「VW作戦の表裏」と FFXIclopedia は F-9",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._054:_Elshimo_List",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Hildegard"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Gullible's Travels",
+      "name_ja_ref": "ああ！奇跡の出会い！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "いい人カモ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11427.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 6",
+          "url": "https://www.bg-wiki.com/ffxi/Gullible%27s_Travels",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Magriffon"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ああ！奇跡の出会い！」をコンプリートし、エリアを出入りしている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "カザムの名声ランク7以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Even More Gullible's Travels",
+      "name_ja_ref": "おお！勇気ある決断！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ラフレシアの蜜（3か所で1つずつ）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "もっといい人カモ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11428.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 7。Blue Rafflesia はユタンガ大森林 F-7・H-10・I-12",
+          "url": "https://www.bg-wiki.com/ffxi/Even_More_Gullible%27s_Travels",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Magriffon"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「画廊の迷宮」をコンプリートし、エリアを出入りしている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「消えたランタン」を「怨みの炎」に変えたことがある",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Everyone's Grudging",
+      "name_ja_ref": "みんなで怨み",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "11,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10216.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Altar of Rancor は怨念洞 D-5/E-5 と I-13/J-13（用語辞典は D-5 と I-13）",
+          "url": "https://www.bg-wiki.com/ffxi/Everyone%27s_Grudging",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Jakoh_Wahcondalo"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Blue Rafflesiaの花のにおいがついている（「おお！勇気ある決断！」で手に入る）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Opo-opo and I",
+      "name_ja_ref": "オポオポ王への道",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "オポオポ王の王冠"
+        },
+        {
+          "kind": "item",
+          "name_ja": "パママ*3"
+        },
+        {
+          "kind": "title",
+          "name_ja": "オポオポ王"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6488.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "オポオポの場所：Lulupp G-7、Kukupp I-11、Mumupp J-9、Roropp H-9、Popopp H-9、Bubupp I-8、Tatapp は歩き回る、Kakapp J-9、Lalapp F-9、Nenepp は BG Wiki が I-11・FFXIclopedia が H-11",
+          "url": "https://www.bg-wiki.com/ffxi/The_Opo-opo_and_I",
+          "via": "BG Wiki, FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Lulupp"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "You Call That a Knife?",
+      "name_ja_ref": "トンベリーニョ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "7,200ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アンタヤルーニャ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2701.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 6。トンベリのまな板は Tonberry Pursuer（ウガレピ寺院）・Tonberry Shadower（ヨアトル大森林）",
+          "url": "https://www.bg-wiki.com/ffxi/You_Call_That_a_Knife%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Mhebi_Juhbily"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・赤・シ・獣・吟・狩・忍・コ・踊で、短剣スキル230以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Cloak and Dagger",
+      "name_ja_ref": "不敗の心得",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「エヴィサレーション」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2930.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "???はグスタフの洞門 MAP2 I-9、NM は Baronial Bat",
+          "url": "https://www.bg-wiki.com/ffxi/Cloak_and_Dagger",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Jakoh_Wahcondalo"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Blue Rafflesiaの花のにおいがついている（「おお！勇気ある決断！」で手に入る）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Personal Hygiene",
+      "name_ja_ref": "温泉へ行こう",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミスラストーン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6489.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "温泉はコロロカの洞門 MAP4 G-9、近くに Jammer Leech が3匹",
+          "url": "https://www.bg-wiki.com/ffxi/Personal_Hygiene",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Gatih_Mijurabi"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Firebloom Tree",
+      "name_ja_ref": "火のなる木",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "5,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6093.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 6。Firebloom Tree Root はユタンガ大森林 H-9",
+          "url": "https://www.bg-wiki.com/ffxi/The_Firebloom_Tree",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Soun_Abralah"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial by Fire",
+      "name_ja_ref": "火の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "イフリートブレード／ファイアベルト／ファイアリング／エギルの松明／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“イフリート”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる火の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6091.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 6。試練の場はイフリートの釜、相手は Ifrit Prime",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Fire",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Ronta-Onta"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv15以上の召喚士",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trial Size Trial by Fire",
+      "name_ja_ref": "火の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣“イフリート”と契約できる"
+        },
+        {
+          "kind": "item",
+          "name_ja": "呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6092.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "報酬の「呪符デジョン」（Instant Warp）は用語辞典で確認",
+          "url": "https://wiki.ffo.jp/html/2389.html",
+          "via": "用語辞典"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Dodmos J-9。報酬に Scroll of Instant Warp。BG Wiki はLv20以上と書く（用語辞典の Lv15 を採用）",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_Size_Trial_by_Fire",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Dodmos"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク7以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Greetings to the Guardian",
+      "name_ja_ref": "王への挨拶",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "5,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "カザムの客人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12534.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 7。Altar of Ashes はイフリートの釜 MAP2 I-9。BG Wiki はワイルドパママを Young Opo-opo（ユタンガ大森林）と書く（用語辞典の Opo-opo族を採用、どちらもユタンガ大森林）",
+          "url": "https://www.bg-wiki.com/ffxi/Greetings_to_the_Guardian",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Hari_Pakhroib"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Question of Taste",
+      "name_ja_ref": "画廊の迷宮",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11431.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 6。Stone Picture Frame はウガレピ寺院 G-8 MAP1（用語辞典は F-8、FFXIclopedia に座標なし。BG Wiki を採用）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Question_of_Taste",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Etteh_Sulaej"
+      },
+      "steps": []
+    },
+    {
+      "category": "kazham",
+      "game_ref": null,
+      "id": "quest.kazham.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "カザムの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Missionary Man",
+      "name_ja_ref": "若きロテノーの悩み",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "テレポヨトスクロール"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4587.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "名声 Kazham 3。エルシモの名石は Ivory Lizard（ユタンガ大森林）。Mulaujeant は北サンドリア E-5",
+          "url": "https://www.bg-wiki.com/ffxi/Missionary_Man",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Rauteinot"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.250.Dodmos",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Dodmos",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Etteh_Sulaej",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Etteh Sulaej",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Gatih_Mijurabi",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Gatih Mijurabi",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Hari_Pakhroib",
+      "kind": "npc",
+      "location": {
+        "grid": "I-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Hari Pakhroib",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Hildegard",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Hildegard",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Jakoh_Wahcondalo",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Jakoh Wahcondalo",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Lulupp",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Lulupp",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Magriffon",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Magriffon",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Mhebi_Juhbily",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Mhebi Juhbily",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Rauteinot",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Rauteinot",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Ronta-Onta",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Ronta-Onta",
+      "same_name": false
+    },
+    {
+      "id": "npc.250.Soun_Abralah",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 250,
+        "zone_name": "カザム"
+      },
+      "moves": false,
+      "name_en": "Soun Abralah",
+      "same_name": false
+    }
+  ]
+}

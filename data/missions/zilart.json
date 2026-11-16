@@ -1,0 +1,741 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "闇王を倒したあと（所属国ランク6）",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ZM1",
+      "name_en": "The New Frontier",
+      "name_ja_ref": "新たなる世界",
+      "need_rank": 6,
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ノーグ地図（持っていなければ）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7538.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ランク6でノーグに入ると始まる。後にしたときはノーグ Home Point #1 近くの Tales' Beginning から。FFXIclopedia は H-9",
+          "url": "https://www.bg-wiki.com/ffxi/The_New_Frontier",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Tales_Beginning"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.002",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM2",
+      "name_en": "Welcome t'Norg",
+      "name_ja_ref": "海賊の巣窟ノーグ",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7547.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Oaken Door は L-8 と書かれている（FFXIclopedia と用語辞典、BG の「ロ・メーヴ」の節は K-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Welcome_t%27Norg",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「海賊の巣窟ノーグ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ZM3",
+      "name_en": "Kazham's Chieftainess",
+      "name_ja_ref": "カザム族長",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "生贄の間へのカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7548.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "カザム J-9 の Jakoh Wahcondalo から Sacrificial Chamber key。カザム Home Point #1 のそば（FFXIclopedia も J-9）。基礎シートには行がなく、ミッション一覧の最後に足した",
+          "url": "https://www.bg-wiki.com/ffxi/Kazham%27s_Chieftainess",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.250.Jakoh_Wahcondalo"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「カザム族長」で「生贄の間へのカギ」を受け取っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ZM4",
+      "name_en": "The Temple of Uggalepih",
+      "name_ja_ref": "ウガレピ寺院（ミッション）",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "闇の祈り"
+        },
+        {
+          "kind": "title",
+          "name_ja": "賢者の希望を担いし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35412.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "怨念洞 Home Point #1 から生贄の間へすぐ。ユニティワープ（CL128）で怨念洞へ。寺院から行くには Paintbrush of Souls、怨念洞の扉に Unlit Lantern",
+          "url": "https://www.bg-wiki.com/ffxi/The_Temple_of_Uggalepih",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.生贄の間.Mahogany_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.004",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM5",
+      "name_en": "Headstone Pilgrimage",
+      "name_ja_ref": "古代石碑巡礼",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "炎の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "土の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "水の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "風の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "氷の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "雷の祈り"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "光の祈り"
+        },
+        {
+          "kind": "title",
+          "name_ja": "八つの祈りを帯びし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2732.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "土 西アルテパ H-8/H-9（FFXIclopedia と用語辞典は H-9）、水 ラテーヌ G-11、氷 凍結の回廊の奥、炎 ユタンガ L-6/L-7（Carthi・Tipha）、雷 ベヒーモスの縄張り G-9（Legendary Weapon・Ancient Weapon）、風 テリガン H-5（Axesarion the Wanderer、用語辞典は G-5）、光 聖地ジ・タ I-7（Doomed Pilgrims）",
+          "url": "https://www.bg-wiki.com/ffxi/Headstone_Pilgrimage",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.005",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM6",
+      "name_en": "Through the Quicksand Caves",
+      "name_ja_ref": "流砂洞を越えて",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4373.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アルテパ C/D-11 のトンネルから D-12 の入口、流砂洞 I-9 と H-7 の重量扉（ガルカ1人・タルタル3人・ほか2人、または Loadstone）、穴を落ちて D-4 から宣託の間。アンティカ族NM3体。FFXIclopedia は重量扉を MAP4",
+          "url": "https://www.bg-wiki.com/ffxi/Through_the_Quicksand_Caves",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.006",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM7",
+      "name_en": "The Chamber of Oracles",
+      "name_ja_ref": "宣託の間（ミッション）",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "虹の祈り"
+        },
+        {
+          "kind": "title",
+          "name_ja": "光の紡ぎ手"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35783.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "装置の8か所を調べて祈りをはめるとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/The_Chamber_of_Oracles",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.007",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM8",
+      "name_en": "Return to Delkfutt's Tower",
+      "name_ja_ref": "デルクフの塔再び",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "いにしえを屠る者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4350.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Aldo は任意。デルクフの塔上層 Home Point #1 から天輪の場へ。Qe'lov Gate から BF、Kam'lanaut",
+          "url": "https://www.bg-wiki.com/ffxi/Return_to_Delkfutt%27s_Tower",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Aldo"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.008",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM9",
+      "name_en": "Ro'Maeve",
+      "name_ja_ref": "ロ・メーヴ（ミッション）",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35784.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Aldo は任意。ノーグ K-8 の Oaken Door で「扉を開ける」を選ぶ",
+          "url": "https://www.bg-wiki.com/ffxi/Ro%27Maeve_(Mission)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Aldo"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.009",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM10",
+      "name_en": "The Temple of Desolation",
+      "name_ja_ref": "聖地ジ・タ～滅びの神殿",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "神の扉を閉ざす者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7549.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "称号 Sealer of the Portal of the Gods はこの節（用語辞典はひとつ前の「ロ・メーヴ」の行）。ロ・メーヴ H-5 から神々の間、Cermet Grate を調べる",
+          "url": "https://www.bg-wiki.com/ffxi/The_Temple_of_Desolation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.010",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM11",
+      "name_en": "The Hall of the Gods",
+      "name_ja_ref": "神々の間（ミッション）",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35785.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグに戻り、扉を開けてギルガメッシュに話す",
+          "url": "https://www.bg-wiki.com/ffxi/The_Hall_of_the_Gods",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.011",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM12",
+      "name_en": "The Mithra and the Crystal",
+      "name_ja_ref": "ミスラとクリスタル",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "青水晶"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/915.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Maryoh Comyujah ラバオ G-7。西アルテパ C/D-11 の隠し入口、流砂洞の重量扉2つの先で穴を落ち、??? から Ancient Vessel、Scrap of papyrus。BG は MAP5・6、FFXIclopedia と用語辞典は MAP4 K-8・MAP7 G-8／I-8",
+          "url": "https://www.bg-wiki.com/ffxi/The_Mithra_and_the_Crystal",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Maryoh_Comyujah"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.012",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM13",
+      "name_en": "The Gate of the Gods",
+      "name_ja_ref": "神の扉トゥー・リア",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "トゥー・リアへ行けるようになる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3733.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "転送のあと進んでル・オンの庭に入ると次の節。Prishe's Boots +1 のクエスト中は別のイベントが先に出るので入り直す",
+          "url": "https://www.bg-wiki.com/ffxi/The_Gate_of_the_Gods",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.013",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM14",
+      "name_en": "Ark Angels",
+      "name_ja_ref": "アーク・ガーディアン",
+      "order": 14,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "無知のかけら"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "怯懦のかけら"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "嫉妬のかけら"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "驕慢のかけら"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "憎悪のかけら"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3734.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・オンの庭 H-8 からル・アビタウ神殿へ入り G/H-11 の印でイベント。BF はラ・ロフの劇場、入口はル・オンの庭 Home Point #1〜#5 のそば（HM #1、TT #2、MR #3、EV #4、GK #5）。島の座標は用語辞典だけ",
+          "url": "https://www.bg-wiki.com/ffxi/Ark_Angels",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.014",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM15",
+      "name_en": "The Sealed Shrine",
+      "name_ja_ref": "閉ざされし門",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7550.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグ K-8 の Oaken Door でギルガメッシュ、ル・アビタウ神殿に入るとイベント（ホームポイントで飛んでも可）。FFXIclopedia は Aldo（任意）も",
+          "url": "https://www.bg-wiki.com/ffxi/The_Sealed_Shrine",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Oaken_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.015",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM16",
+      "name_en": "The Celestial Nexus",
+      "name_ja_ref": "宿星の座（ミッション）",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35786.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・オンの庭 H-8 から入り H-10 の東のモノリスで黄色い扉を開け、I-6 から入って南へ、H-9 の階段を降りて宿星の座。Eald'narche（2形態）。称号 Burier of the Illusion（用語辞典は記載なし）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Celestial_Nexus",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.016",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "ZM17",
+      "name_en": "Awakening",
+      "name_ja_ref": "1万年の夢の終わりに",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7551.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグに入ってギルガメッシュ（出なければ部屋で話す）、ジュノ下層の Neptune's Spire の扉で Aldo。順は問わない",
+          "url": "https://www.bg-wiki.com/ffxi/Awakening",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「世界に在りて君は何を想うのか？」をクリア",
+          "type": "quest"
+        }
+      ],
+      "mission_no": "ZM18",
+      "name_en": "The Last Verse",
+      "name_ja_ref": "すべての終わりが閉ざされん",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7294.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジラートの18番目（プロマシアの8-5）。終わると一覧に出るだけ",
+          "url": "https://www.bg-wiki.com/ffxi/The_Last_Verse",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "zilart",
+      "game_ref": null,
+      "id": "mission.zilart.018",
+      "kind": "mission",
+      "lock_reasons": [],
+      "name_en": "To Commence RotZ",
+      "name_ja_ref": "「ジラートの幻影」を始めるには……",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39141.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "開始のイベントを飛ばしたら H-9 の Tales' Beginning から。BG Wiki にこの導入のページはない",
+          "url": "https://ffxiclopedia.fandom.com/wiki/The_New_Frontier",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "obj.252.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.247.Maryoh_Comyujah",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 247,
+        "zone_name": "ラバオ"
+      },
+      "moves": false,
+      "name_en": "Maryoh Comyujah",
+      "same_name": false
+    },
+    {
+      "id": "obj.252.Oaken_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Oaken Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.252.Tales_Beginning",
+      "kind": "obj",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Tales' Beginning",
+      "same_name": false
+    },
+    {
+      "id": "obj.生贄の間.Mahogany_Door",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 163,
+        "zone_name": "生贄の間"
+      },
+      "moves": false,
+      "name_en": "Mahogany Door",
+      "same_name": false
+    }
+  ]
+}

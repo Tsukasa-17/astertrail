@@ -1,0 +1,2069 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "ヴァナ・ディールの星唄をクリアし、拡張データのレジストレーションコード5つを登録している。盟-イロハIIを覚えている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "TVR1-1",
+      "name_en": "The Voracious Resurgence",
+      "name_ja_ref": "蝕世のエンブリオ",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/37995.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "星唄を済ませ、盟-イロハIIを覚えている必要がある。Gumbah はバストゥーク鉱山区 J-7。上の通路の家の奥の部屋で、ホームポイント#3が近い（FFXIclopedia：このミッションのページはない）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_1-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.002",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR1-2",
+      "name_en": "The Gloom Phantom's Approach",
+      "name_ja_ref": "グルームファントムの襲来",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38007.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "バストゥーク鉱山区から歩いてツェールン鉱山に入るとイベント。Makarim（H-11）と Rasmus（I-6）の話は任意。K-9 の Disturbed Dirt を2回調べて Gloom Phantom（約3万HP）とコンフロント戦（FFXIclopedia：Disturbed Dirt は K-9。15分制限でLv制限なし）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_1-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.172.Disturbed_Dirt"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.003",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR1-3",
+      "name_en": "The Brygid Cup",
+      "name_ja_ref": "ブリジッド杯",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38008.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gumbah の次に商業区の Brygid に2回話して、まねる人を選ぶ。頭・胴・両手・両脚・両足の見た目をそろえ（/lockstyle でもよい）、バストゥーク港 E-7 の Steaming Sheep の前の Ruenda に話す。いちばん楽なのは Nbu Latteh（Bronze Harness・Scale Cuisses・Scale Greaves。商業区 E-10 の Brunhilde Armorer かスパークス）。終わると 20,000〜22,000 ギル（FFXIclopedia：Ruenda は E-7。似ていなくても完了する）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_1-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Brygid"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.004",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR1-4",
+      "name_en": "The Destiny Destroyers",
+      "name_ja_ref": "ディスティニーデストロイヤー団",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マートの薬"
+        },
+        {
+          "kind": "item",
+          "name_ja": "オムレツサンド×12"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ディスティニーデストロイヤー団デストロイヤー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38046.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gumbah の次にコロロカの洞門 Map 1 D-9 の Stalagmite（下の段）を2回調べて Gloom Phantom・Dazbog・Magh Bihu とコンフロント戦。サバイバルガイドでツェールン鉱山へ飛ぶと近い（FFXIclopedia：Stalagmite は Map 1 D-9）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_1-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.173.Stalagmite"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.005",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR2-1",
+      "name_en": "Kupipi's Dilemma",
+      "name_ja_ref": "クピピの受難",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "完熟ヒーロー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38091.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "天の塔の Kupipi の次に Sassa-Kotassa に Red Grass Cloth、Sheelala に Yagudo Drink、Habida-Jubida に Dream Flower Petal を渡す（順不同）。Kupipi に White Berry か Ripe White Berry を渡し、ウィンダス石の区 K-7 の Shantotto に話す（FFXIclopedia：Kupipi は Map 2 H-6、Sassa-Kotassa は Map 2 H-7、Sheelala は H-9、Habida-Jubida は G-9）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_2-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Kupipi"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.006",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR2-2",
+      "name_en": "The Cardians' Duty",
+      "name_ja_ref": "カーディアンの使命",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38092.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Shantotto の次に Kupipi。東サルタバルタ J-8（塔の南、谷の壁ぎわ）の Disturbed Earth を2回調べ、Yagudo Underling 2体・Yagudo Centurion・Yagudo Vicar とコンフロント戦。King of Spades が倒れると失敗（FFXIclopedia：Disturbed Earth は J-8。やり直しは Disturbed Earth を調べるだけ）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_2-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.116.Disturbed_Earth"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.007",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR2-3",
+      "name_en": "Zhuu Buxu's Gambit",
+      "name_ja_ref": "ズー・ブシュの戯れ",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38102.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kupipi から召喚状をもらい、ウィンダス水の区の Tosuka-Porika。ギデアス Map 2 F-6（地下の宝物庫、Wistaria Door の奥）の Worn Chest を調べるとすぐ Yagudo Lookout（約3万HP）と戦う。戦ったあとにエリアを出ても、もう一度調べれば戦わずに進む（FFXIclopedia：Worn Chest は地下 F-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_2-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.145.Worn_Chest"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.008",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR2-4",
+      "name_en": "Star Onion Fortune",
+      "name_ja_ref": "スターオニオンズ団の幸運",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "おでん×12"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38103.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Tosuka-Porika の次にウィンダス港 G-5 の Kohlo-Lakolo（Shanruru のイベントは任意）。だいじなものを見てからもう一度 Kohlo-Lakolo。ボヤーダ樹 Map 1 の D-5・H-6・H-9 の Muggy Air のうち白く光るものを調べると Templar Crawler が出る（FFXIclopedia：光る場所は毎回変わる。Map 1 の D-5・H-6・H-9）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_2-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.153.Muggy_Air"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.009",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR2-5",
+      "name_en": "The Doll Whisperer",
+      "name_ja_ref": "魔法人形の呼び声",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マートの薬"
+        },
+        {
+          "kind": "item",
+          "name_ja": "完璧な幸運の卵"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ケテロテククムウラケミニ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38104.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kohlo-Lakolo の次に西サルタバルタ J-8（塔の南、木の陰。ウィンダス水の区のホームポイント#1が近い）の Secluded Spot を2回調べて Chepelle（獣使い）とコンフロント戦。Tiger で始まり、HP75%で Sheep、50%で Hare を呼ぶ。ペットは倒さなくてもよく、眠りが効く。勝ったら Secluded Spot、Kohlo-Lakolo で悪い魔法人形さん、Kupipi で報酬（FFXIclopedia：Secluded Spot は J-8、Rose Tower のそば。Kupipi は Map 2 H-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_2-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.115.Secluded_Spot"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.010",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR3-1",
+      "name_en": "Dancing Prince",
+      "name_ja_ref": "踊るトリオン",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38180.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Halver の次に西の王立騎士団の Rahal。ダボイの Quemaricond は G-7 か H-7 の道を行き来している（プロトワープかサバイバルガイドが近い）。ダボイ H-11 から修道窟に入り、H-10 と H-9 の境目の Ritual Site を調べて Orcish Bewitcher（黒/暗、約3万HP、魔力の泉）とコンフロント戦。倒すとオーク帝国の作戦図。Quemaricond でクマリコンの調査報告書、Rahal で報酬（FFXIclopedia：Rahal H-9、Quemaricond H-7、修道窟の入口 H-11、Ritual Site H-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.150.Ritual_Site"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.011",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR3-2",
+      "name_en": "Claidie's Concern",
+      "name_ja_ref": "クレーディの冴えたやり方",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38181.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Halver の次に中央庭園の西の Queen Leaute's Memorial Garden（F-7）へ行くとイベント。鎌を持ってアットワ地溝 H-8 の光る花の Harvesting Point で採るとキンノキリンソウ（Trailblazing Sickle とその+1は使えない。この場所だけ。ユニティのワープ125が近い）。Chalvatot、Halver で報酬（FFXIclopedia：Harvesting Point は H-8 の北西の隅。Chalvatot は F-7）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.7.Harvesting_Point_H-8"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.012",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR3-3",
+      "name_en": "Curilla Unleashed",
+      "name_ja_ref": "クリルラの狂おしき一日",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ペアリシールド"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ラブ・ア・ライブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38268.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前のミッションのあとエリアを移ってから Halver でアルテニアへの手紙。ラングモント峠 J-8 の Vicious Claw Marks で Harnessed Smilodon（戦、約3.5万HP、マイティストライク）とコンフロント戦。もう一度調べて Altennia のイベント、Halver、中央庭園の北の扉 H-7 の Door:Prince Royal's Rm。ボストーニュ監獄の上の階 H-9 の Frigid Confluence で Trion（約2.5万HP、防御が高い、インビンシブル）。E-7/E-8 の穴に落ちない。神殿騎士団の詰所の Curilla で報酬（FFXIclopedia：ボストーニュ監獄 Map 1 H-9。Curilla は I-9）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_3-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.013",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR3-4",
+      "name_en": "Run, Excenmille, Run!",
+      "name_ja_ref": "走れ、エグセニミル",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "Ｈエリクサータンク"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38293.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前のミッションからヴァナ時間の1日待つ。Halver、王立騎士団の詰所の Rahal。ボスディン氷河 H-8 の塔の東側の Ferric Stench で Orcish Atlatl・Orcish Axeman・Orcish Praetor・Harnessed Smilodon とコンフロント戦、紅燕騎士隊が記した地図。もう一度調べてイベント。いちばん下の段の Mirror Pond のそば、J-6/I-6 の左下の角の Point of Interest で報酬。次のミッションで Doll Gizmo が要る（競売か、ウガレピ寺院 Map 2 I-10/J-10 の Manipulator が必ず落とす）（FFXIclopedia：Rahal H-9。Ferric Stench は H-8 のサバイバルガイドのそば。Point of Interest は J-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_3-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.111.Ferric_Stench"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.014",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR3-5",
+      "name_en": "Of Knights and Orcs",
+      "name_ja_ref": "騎士とオークと喰らうものども",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マートの薬"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ペアリソード"
+        },
+        {
+          "kind": "title",
+          "name_ja": "目覚めを見届けし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38296.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "先に Doll Gizmo を用意する（競売か、ウガレピ寺院 Map 2 I-10/J-10 の Manipulator）。ボスディン氷河からフェ・インに入るとイベント。Map 2 H-7 の Talos（Capricious Cassie の大部屋から南の廊下 H-6 の先、扉の前の人形の残骸。ワイドスキャンに出ない）に Doll Gizmo をトレード。ボスディン氷河 J-6 の南西の角、Mirror Pond のそばの Point of Interest を2回調べて Slackjawed Mukdrom（戦、約5万HP、マイティストライクを何度も）とコンフロント戦。もう一度調べてイベント、ドラギーユ城 H-7 の Door:Prince Royal's Rm で報酬（FFXIclopedia：Talos は Map 2 H-7。Point of Interest は J-6。Excenmille が手伝う）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_3-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.111.Point_of_Interest"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.015",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR4-1",
+      "name_en": "Best Served Cold",
+      "name_ja_ref": "復讐のド・ボ",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ナジの包帯"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38304.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gumbah（ホームポイント#1、上の段 J-7）の次にツェールン鉱山の入口近くの Drangord（D-7）。バストゥーク鉱山区からツェールン鉱山に入るとイベント。Drake Fang（H-6）の話は任意。I-9 の Quadav Inquest を2回調べて Do'Bho Venomtail（黒、約3万HP、魔力の泉、攻撃に毒）・Old Quadav・Brass Quadav・Copper Quadav（約2.5万HP）とコンフロント戦。もう一度調べて報酬（FFXIclopedia：Quadav Inquest は I-9。Do'Bho Venomtail は早めに静寂にするとよい）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_4-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.172.Quadav_Inquest"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.016",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR4-2",
+      "name_en": "Cornelia's Call to Action",
+      "name_ja_ref": "決起のコーネリア",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "海の幸グラタン×12"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ロマンシング サ・ソリさん"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38306.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "大工房 J-8 の大統領執務室の Iron Eater。北グスタベルグからパルブロ鉱山に入るとイベント（パルブロ鉱山のホームポイントからエスケプすると入口）。Map 3 H-9（ホームポイント#1の北）の Perversion's Refuge を2回調べて Mind-warped Scorpion（約5万HP、攻撃でHP吸収）とコンフロント戦。もう一度調べて Iapetus、Iron Eater で Seafood Gratin（FFXIclopedia：Perversion's Refuge は Map 3 H-9、ホームポイントのすぐそば）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_4-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.143.Perversions_Refuge"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションをコンプリートしている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "TVR4-3",
+      "name_en": "Naja the Ambitious",
+      "name_ja_ref": "ナジャよ大志を抱け",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ザイアメクード"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ザイアメペティ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ザイアメバズバンド"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ザイアメシャルバル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ザイアメネール"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38342.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガンミッションを済ませている必要がある。アトルガン白門 I-10 の Naja Salaheem。ワジャーム樹林 H-13 の Engraved Tablet の後ろの光る Savage Scars を2回調べて Returned Soulflayer（青、約10万HP、アジュールロー・N.ウィズドム）とコンフロント戦。もう一度調べて金色の髪の毛、Naja で報酬（FFXIclopedia：Savage Scars は H-13）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_4-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.51.Savage_Scars"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションの「遇人の内懐」〜「戴冠の儀」のあいだでないこと。ビシージでガダラルが捕まっていないこと",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "TVR4-4",
+      "name_en": "Raubahn the Blue",
+      "name_ja_ref": "青のラウバーン",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "メネジンレシーバー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "再生を見届けし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38343.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アトルガン白門 L-9 の Imperial Whitegate。カダーバの浮沼 Map 4（ヘディバ島）へ（ユニティのワープ135、またはナイズル島踏査指令の入口からテレポーターで）。北東の隠れた道の先、I-6 の Engraved Tablet のそばの Savage Scars を2回調べて Arisen Soulflayer と Descended Winebibber 3体とコンフロント戦。Winebibber も全部倒す。Uran-Mafran が倒れると負け。もう一度調べてイベント、Imperial Whitegate でメネジンレシーバー（FFXIclopedia：Savage Scars は Map 4 I-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_4-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.019",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR5-1",
+      "name_en": "Ghatsad's Quandary",
+      "name_ja_ref": "憂鬱なるガッサド",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38376.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "オートマトン工房 I-7 の Ghatsad でメゴマックへのお土産。ゼオルム火山の Gates of Halvung（J-7、Cast metal plate が要る）の先、I-9 の北西の Acid-eaten Door。ハザルム試験場の Entry Gate。カダーバの浮沼 E-10（墓場、ハザルム試験場の外）の Vexing Sniffles を2回調べて Gloom Phantom・Magh Bihu（モンク）・Dazbog（約6万HP）とコンフロント戦、Mnejing を守る。真っ白なアンプル。もう一度調べてイベント、Acid-eaten Door、Ghatsad で報酬（FFXIclopedia：Acid-eaten Door は I-9、Vexing Sniffles は E-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_5-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.79.Vexing_Sniffles"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.020",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR5-2",
+      "name_en": "The Revelation",
+      "name_ja_ref": "アブダルラブダショック",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38377.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "オートマトン工房 I-7 の Abda-Lurabda。ワジャーム樹林 I-6 の入口からエジワ蘿洞に入るとイベント。Survey Point は Map 2 K-7、Map 2 の I-9/J-9 の境目、Map 5 F-8。Map 3 G-10 の Final Survey Point を調べ、もう一度調べて Missabikong（約15万HP、ショックスパイク、雷を吸う、打撃に弱い）とコンフロント戦。もう一度調べてイベント、Abda-Lurabda で報酬（FFXIclopedia：Survey Point は Map 2 K-7、Map 2 J-9（I-9 との境目）、Map 5 F-8。Final Survey Point は Map 3 G-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_5-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.68.Final_Survey_Point"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.021",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR5-3",
+      "name_en": "Tateeya's Worries",
+      "name_ja_ref": "タティーヤの失楽",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "雷槌"
+        },
+        {
+          "kind": "title",
+          "name_ja": "オルドゥームの秘宝"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38387.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "オートマトン工房 I-7 の Tateeya、つぎに Ghatsad でイベント（No Strings Attached の途中だと進まないことがある、要確認）。バフラウ段丘 Map 2 の Home Point #1 から翡翠廟へ（マムージャ監視哨から北でもよい）。Ornamental Door を調べてイベント、もう一度調べて BF「Tateeya's Worries」：Drakeweaver Hageel Ja（ナ、約6万）・Riftweaver Pomaal Ja（青、約6万）・Fistweaver Mufaal Ja（モ、約6万）・Glyphweaver Sikool Ja（黒、約10万、スタン・サンダーV/VI・アイオノヒックスII・サンダジャ）。フェイス可。Glyphweaver の武器を壊さないと1%で止まる。相手の通常攻撃中かその直後にWS。全員静寂・睡眠が効く。Imperial Whitegate で雷槌（あとのミッションで要る）（FFXIclopedia：Glyphweaver の武器の壊し方は同じ。1%になるとダメージ0なのでリゲイン等を持つ。Imperial Whitegate は L-8/L-9）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_5-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Tateeya"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.022",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR5-4",
+      "name_en": "The Seagull Phratrie",
+      "name_ja_ref": "海猫党の水難",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38388.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "先に Hamsi を用意（アトルガン白門 H-11 の Wahnid はギルドに売られたときだけ、競売、白門で釣れる）。Lamian Fang Key はカダーバの浮沼 Map 1 I-7 の ??? で1日1回、このあと少なくとも2つ要る。アラパゴ暗礁域 Map 1 H-10 の船の ???（コルセアのクエストと同じ、光る名前のない印のすぐ左）でイベント。Survival Guide が近い。Map 3 F-7 の Apkallu Guide に Hamsi をトレード（カダーバの浮沼の Survival Guide から東の洞窟。ないときはカギがもう1つ）。西の Camp Remnants（F-7）で Merrow Kabukidancer 2（侍、Torrent で装備を外す）・Qutrub 2（暗）・Mamool Ja Diver 2（モ）とコンフロント戦。範囲の技は1体にしか当たらない。Qutrub 以外は眠る。もう一度調べてイベント、H-10 の ??? で報酬（FFXIclopedia：??? は Map 1 H-10、Apkallu Guide は Map 3 F-7、Camp Remnants はその少し西）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_5-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.???_H-10"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.023",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR5-5",
+      "name_en": "The Sea Sage",
+      "name_ja_ref": "海の賢者ビージュ",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アプカルセプター"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アプクーップアプカリッチョ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38389.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "雷槌が要る。アラパゴ暗礁域 Map 3 F-7 の Apkallu Guide（カダーバの浮沼の Survival Guide から東）。ワジャーム樹林 G-8 の Leypoint（オルドゥームリングで直行、Survival Guide かユニティ125でも）。ワジャーム樹林 E-10 の入口8からエジワ蘿洞 Map 3 へ、左の壁沿いに落ちずに J-8 の出口7。最初の段差を下りた先の G-9 のマロリスに雷槌を装備して近づくと Aeropearl（ターゲットできない、Hydra は近づかなければ絡まない）。Apkallu Guide、白門 I-7 の Ghatsad。アルザダール海底遺跡群で Qiqirn を倒すと Panaiveriyamman（戦、約15万、マイティストライク、魔法とくに闇に強く水に弱い）。Man-made solution はパーティ全員。Ghatsad で Repaired aeropearl。Lamian Fang Key を持って H-10 の ???、Apkallu Guide で報酬。ジュノ上層の Elijah（FFXIclopedia：Leypoint G-8、マロリス G-9、エジワ蘿洞は E-10 から入り左の壁沿いに I-8 からワジャームへ（別の行では Map 3 J-8）、G-9 の段差を下りる。雷槌をなくしたら Abda-Lurabda にまたもらえる。Elijah は G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_5-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.54.Apkallu_Guide"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.024",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR6-1",
+      "name_en": "Sky, Moon, Incantrix",
+      "name_ja_ref": "空と月とインカントリックス",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38419.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島 K-8 の Reikuu（Ethereal Ingress #6 のそば）。Ingress #10 の Incantrix で「No, of course not」を選ぶ。H-6（Ingress #3 と #5 のあいだ）の Suspicious Overgrowth を調べ、Hoptoad 3つと Eastern Ginger 1つをトレード。Hoptoad は Ingress #2 のそばの橋から Fly Lure か Lufaise Fly で釣る。Eastern Ginger は醴泉島（Grimslight は Reaper が要る）・バフラウ段丘で採れる、醴泉島の宝箱。Reikuu で報酬（FFXIclopedia：Reikuu K-8、Suspicious Overgrowth H-6、Hoptoad は G-8 の川、Eastern Ginger はワジャーム樹林・バフラウ段丘）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_6-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.醴泉島.Reikuu"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.025",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR6-2",
+      "name_en": "Nii's Last Stand",
+      "name_ja_ref": "ニーの死地",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "独鈷杵"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ディスティニーシショー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38420.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Reikuu（前の節からエリアを移らなくてよい）。Ingress #10 の Incantrix。F-5（Ingress #4）の川の Babbling Brook。Incantrix。K-7（Ingress #6）の Aspirants' Grounds でイベントと Aspirant's canteen。もう一度調べて BF「Nii's Last Stand」（ひとり・10分、フェイス不可、パーティを抜ける）。敵の攻撃は1ダメージ。自分と Nii Aquu で半分ずつ倒す。Nii Aquu のせりふで差がわかる。勝つと報酬（FFXIclopedia：Incantrix のあと Reikuu にもう一度話す手順がある。Babbling Brook F-5、Aspirant's Grounds K-7。強化は消えない。差が1〜2までなら勝てる。負けてもすぐやり直せる）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_6-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.醴泉島.Reikuu"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.026",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR6-3",
+      "name_en": "Dance of the Tengu",
+      "name_ja_ref": "天狗の舞",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "天狗の葉団扇"
+        },
+        {
+          "kind": "item",
+          "name_ja": "天狗の隠れ蓑"
+        },
+        {
+          "kind": "title",
+          "name_ja": "葉団扇に乗せて歩み続ける者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38469.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "醴泉島 K-8 の Reikuu（Ingress #6 のそば）。F-5（Ingress #4）の Babbling Brook でイベント。もう一度調べて BF（Zhuu Buxu、約12.5万、15分、フェイス可、微塵がくれ、Nii Aquu を守る）。勝つと自動でイベント。もう一度調べて BF（Reikuu、約9万、15分、Gessho を守る、分身を出す、本体に当てると分身が消える、微塵がくれは -dt でも2千以上）。Reikuu で報酬。ジュノ上層 Home Point #1 のそばの Elijah（FFXIclopedia：Reikuu K-8、Babbling Brook F-5。6人・15分。Nii Aquu は白魔道士。Gessho が倒れると負け。分身は範囲のダメージを99%減らす。Elijah は F-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_6-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.醴泉島.Reikuu"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.027",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR7-1",
+      "name_en": "Raebrimm's Rebirth",
+      "name_ja_ref": "ラエブリームの転生",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38492.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "バストゥーク鉱山区 J-7 の Gumbah（上の通路の家の奥の部屋）。ラバオ G-6/G-7 の Dancing Wolf。任意で G-9 の Agado-Pugado と Rahi Fohlatti。西アルテパ砂漠 G-5 から流砂洞、重量扉を越えて G-11 の像の ???。次のミッションのため C-8 から西アルテパ砂漠へ出て sapphire column を押すとよい。D-12 から流砂洞、Map 5 の K-8 から出口 D を通って Map 6 の H-8 の ??? でコンフロント（Spelunking Sabotender・Sand Lizard・Sand Tarantula 各2、睡眠・石化が効きにくい）。もう一度 ??? で報酬（FFXIclopedia：G-11 は Map 5、G-5 は入口 #6。H-8 は Map 7、D-12 は入口 #4、Map 4 の L-8 の出口 D。Proto-Waypoint で Map 4 へ。6体は前置きなしにすぐ出る）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_7-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.028",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR7-2",
+      "name_en": "Uran-Mafran of the Maelstrom",
+      "name_ja_ref": "渦の末裔ウランマフラン",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "共和プラチナ章"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ガルカンハザード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38493.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ラバオ G-6 の Dancing Wolf。西アルテパ砂漠 I-6/7 のアルテパゲートから流砂洞に入るとイベント。K-10 の Journey's End を調べるとすぐ Uran-Mafran 戦（約18.5万、フェイス可、魔力の泉を何度も使い弱体が消える、精霊・メテオ・一人連携から MB）。Oggbi を守る。倒した扱いは自分が倒れても残る。もう一度 Journey's End。バストゥーク鉱山区 J-7 の Gumbah で報酬（FFXIclopedia：Journey's End は Map 6 の K-10。I-7 の柱が沈んでいればしかけは押してある）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_7-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.247.Dancing_Wolf"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.029",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR7-3",
+      "name_en": "Koru-Moru's Hypothesis",
+      "name_ja_ref": "コルモル博士の異常な理論",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シビルスカーフ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "魔法人形「思ひ出くん」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38513.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス石の区 K-7 の Shantotto。Spectral Crimson はミザレオ海岸・ルフェーゼ野のフォモル族（吟遊詩人・ナイト・赤魔道士）、Spect. Goldenrod はクフタルの洞門の Haunt かウルガラン山脈の Srei Ap、Luminicloth はゴースト族。3つを Shantotto にトレードして報酬と思ひ出くん。思ひ出くんで各地の記憶を集めると Depleted Memorian（7-4 のあと）（FFXIclopedia：Luminicloth はほとんどのゴースト族、Spectral Crimson は夜に出るフォモル族だけ）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_7-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.030",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR7-4",
+      "name_en": "Altennia Burns Bright",
+      "name_ja_ref": "燃えよアルテニア",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "上級近衛騎士カラー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "秘密を託されし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38514.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ドラギーユ城の Halver で Trion's directive。王立騎士団詰所の Rahal。任意の記憶：ウィンダス水の区 E-7 の Honoi-Gomoi（2階）、ラバオ G-7 の Dancing Wolf、G-9 の Rahi Fohlatti、アトルガン白門 I-7 の Ghatsad、北グスタベルグからパルブロ鉱山に入る。つるはしを多めに持ってイフリートの釜の Mining Point で Ember-encrusted orichalcum（南サンドリア E-9 の Ostalie がつるはしを売る。ユニティのワープ 125。正しい場所は7か所で順に移る：Map 5 G-8、Map 3 J-7、Map 3 F-7、Map 4 F-7、Map 1 F-9、Map 1 G-8、Map 7 I-10。見えるのはミッション中でまだ持っていない人だけ。品が出たら違う場所。「Event skipped.」でもだいじなものは入っている）。Rahal で報酬。ジュノ上層 Home Point #1 のそばの Elijah（FFXIclopedia：Halver I-9、Rahal H-9。採集道具は要らないとある。7か所は同じ。Rahi Fohlatti ではイベントにならない。Dancing Wolf は G-6。Elijah は G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_7-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.031",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR8-1",
+      "name_en": "Maat on the Rampage",
+      "name_ja_ref": "マート御乱心",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "獣人印章*99"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38539.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・ルデの庭 H-5 の Maat で Cloth-lined basket。ジュノ下層 H-10 の Muckvix（ゴブリンの店の奥）で Map to the woman's home。J-5 のモグハウスの入口そばの Miladi-Nildi。バタリア丘陵 K-7 の Goblin Festival Site を夜（18:00〜06:00）に調べる（ユニティのワープ 125 で K-8、Survival Guide、ジュノ上層から出てもよい。洞窟へ向かう海岸）。もう一度調べてコンフロント（The Shadow That Terrorizes Battalia Downs、約20万、15分、Mumor が倒れると負け、夜でなくてよい、女神の祝福を何度も使う、魔力の泉・百烈拳・連続魔・明鏡止水・ブラッドウェポンなど、連続魔のあいだ範囲の弱体、弱体は効く）。もう一度調べて Maat's pillow。Maat で報酬（FFXIclopedia：Goblin Festival Site は K-7 と J-7 の境。夜は 18:00〜4:00。Miladi-Nildi で basket と map がなくなる）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_8-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Maat"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.032",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR8-2",
+      "name_en": "Not Just a Pretty Face",
+      "name_ja_ref": "アイドルはやめられない",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ミュモルNo.1"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38563.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層 H-10 の Muckvix。クフィム島 G-6 の Before Delkfutt's Tower（Survival Guide が早い）。もう一度調べて Echion 戦（ギガース族の戦士、約20万、フェイス可、Destiny Destroyers が1体でも倒れると負け、味方は回復できない、Ice Roar のあと消えないアイススパイク、マイティストライク・百烈拳、50%以下で Colossal Slam、Daunting Hurl）。もう一度調べてイベント。Muckvix で報酬（FFXIclopedia：G-6。味方は Dazbog・Magh Bihu・Gloom Phantom。約21.6万）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_8-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Muckvix"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.033",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR8-3",
+      "name_en": "Delkfutt the Great",
+      "name_ja_ref": "大魔法使いデルクフ",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ハイエリクサー"
+        },
+        {
+          "kind": "item",
+          "name_ja": "チャックチャック"
+        },
+        {
+          "kind": "title",
+          "name_ja": "悪魔を見抜きし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38564.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "任意でジュノ上層 F-6 の Elijah。ジュノ港 H-8 の Shami。南サンドリア〔Ｓ〕 H-8 の Valaineral R Davilles（カンパニエで出ていたら戻るまで待つ。戻っても出ないときはエリアを出入りする。Voucheramme・Hinrich・Dallus-Mallus で居場所がわかる）。バタリア丘陵〔Ｓ〕 G-7 の東の端の光る Secret Entrance からエルディーム古墳〔Ｓ〕（Survival Guide かカンパニエワープが近い）。F-9 の Egg Discovery Site（Noillurie が出撃中・負傷中だと進まない）。もう一度調べてコンフロント（Sa'Jho Shieldbreaker・Enkelados と若木3・Sharpshot Luttdrutt、15分、若木以外は睡眠・ブレイクが効かない、Luttdrutt は高台から引きずり下ろす、若木を先に倒すと Enkelados があやつる）。もう一度調べてイベント。Valaineral で報酬（FFXIclopedia：Elijah は G-6。Egg Discovery Site は Map 2 の F-9。Luttdrutt はそのうち下りてくる）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_8-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.246.Shami"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.034",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR9-1",
+      "name_en": "Oshasha Violation",
+      "name_ja_ref": "オシャシャの守り手",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38582.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "アドゥリンミッションを終えていること。セレニア図書館（F-10）の Andreine（入って左の受付）。マリアミ渓谷 I-10 の Bibliomaniac's Lair（Waypoint #2 から南東、見張り台の北東の洞窟 J-9/10、I-10 のテントとレイヴのところで左の洞窟に入りつるを登る。Seat of Gramk-Droog の前の平らな岩）。調べるとすぐコンフロント（Gramk-Droog・Velkk Defiler・Velkk Inquisitor、3体とも睡眠・静寂が効く）。もう一度調べて Liber Daemonium。Andreine で報酬（FFXIclopedia：東アドゥリン F-10 から図書館。I-10。15分。小さい2体はバインドと睡眠を使う。Gramk-Droog は範囲の攻撃とアムネジア）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_9-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.セレニア図書館.Andreine"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.035",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR9-2",
+      "name_en": "Phantasmic Heroes",
+      "name_ja_ref": "夢幻なる英雄たち",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "オシャシャの原論文"
+        },
+        {
+          "kind": "title",
+          "name_ja": "デモニカル・ドリーマーズ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38587.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アドゥリン H-12 の Marjoirelle（Home Point #2 のそば）。リファーリアの Odyssean Passage。そばの Test of Talents でイベント。もう一度調べてひとりの BF（パーティを抜けるか同じエリアにほかの人がいないこと、強化は持ちこめる、フェイス不可）。Shadow Lord は二刀と両手剣を切り替え、強化を消し、マイティストライク・ブラッドウェポンを何度も使う。味方は Volker・Zeid・Valli・Oshasha・Romaa Mihgo、5人とも倒れると負け。戦いのあとイベント。セレニア図書館の Andreine で報酬（FFXIclopedia：Odyssean Passage は H-8。戦場は王の間〔Ｖ〕、15分。約17.5万。自分が倒れても味方が倒せば勝ち）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_9-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.256.Marjoirelle"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.036",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR9-3",
+      "name_en": "Skokkr Undrborn's Temptation",
+      "name_ja_ref": "誘惑のスコクル・ウンドルボルン",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38757.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "東アドゥリン H-6 の Glowing Hearth（Home Point #1 のそば、イベントでシルバー・ナイフの中へ）。Oscarnot（Auria Collection の入札が終わっていたら Gama-Shama の前に Zemerine）。Gama-Shama。東アドゥリン J-10 の Runje Desaali でマスクの話を聞いてから、IL106 か 115 の七支公レイヴの武器・防具・Rare/Ex のアクセサリーをトレード（Kupon AW-WK・Mog Kupon AW-WK でもよい）。「What does Geosuke recommend?」で Esthete's Masque・Coat・Hose を各30,000ベヤルド。装備かそのロックスタイルで Zemerine（ほかのロックスタイルは不可。イベントが出なければ次へ）。外して Oscarnot。外の Glowing Hearth で報酬（FFXIclopedia：H-6・J-10。七支公レイヴの報酬かクーポン）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_9-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.257.Glowing_Hearth"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.037",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR9-4",
+      "name_en": "The Prime Weapons",
+      "name_ja_ref": "プライムウェポンの復活",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "シルバー・ナイフ会員証"
+        },
+        {
+          "kind": "title",
+          "name_ja": "蝕む魂を求めるもの"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38758.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "見出しの開始は Andreine（セレニア図書館）。歩き方では任意でセレニア図書館の Andreine。リファーリアの Odyssean Passage。Stygian Ash をトレードして Bronze-hued tag（Stygian Ash はピクシー族、グロウベルグ〔Ｓ〕の Witchfire Glen。バタリア丘陵の Survival Guide のそばの青い光で Lightsworm を使い Walk of Echoes へ、うしろの conflux で Witchfire Glen へ。カンパニエワープや Survival Guide でもよい）。ラ・カザナル宮外郭 K-3 の上層（map 1）の Shrouded Workroom（J-3 の根は調べない、入口へ戻される。まわりに Umbril）。Odyssean Passage で報酬。このあとバストゥーク港 E-6 の Oggbi で Uran-Mafran's orb、シルバー・ナイフの Gama-Shama に 10k Gallimaufry でプライムウェポン（1日待つ）。最後のミッションには第2段階のプライムウェポンが要る（盾と楽器は不可）。ジュノ上層の Elijah（FFXIclopedia：Andreine でイベント。Stygian Ash はピクシー族かバザー。K-3。Umbril は目と魔法に反応。Oggbi E-6。Elijah G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_9-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.セレニア図書館.Andreine"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.038",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-1",
+      "name_en": "To Movalpolos!",
+      "name_ja_ref": "ムバルポロスへ集え",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38921.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "プロマシアミッションの後日談（Newfound Family、旧市街の Jabbos のイベント）を済ませていること。バストゥーク鉱山区 J-7 の Gumbah（HP#3、上の通路の家の奥の部屋）。ムバルポロス旧市街 K-10 の Tarnotik（Proto-Waypoint が一番近い、Survival Guide でもよい）。2716号採石場の Shaft Entrance でイベント（Tarnotik に Snow Lily で送ってもらえる。新市街の Home Point が近い。旧市街の Twinkbrix に 10k ギルでも送ってもらえる、E-13。開け方の欄では 2,716 ギル）。もう一度調べて BF（Gloom Phantom・Awoken Vampyr Jarl・Awoken Ariri Samariri・Awoken Hildesvini、フェイス可、Jabbos が1体を受け持つ、抜刀で Jabbos が戦い始める）。勝つとイベントで報酬（FFXIclopedia：Gumbah J-7、Tarnotik K-10。6人・15分・フェイス可。Jabbos が倒れると負け。Gloom Phantom 約15万。Awoken Vampyr Jarl は死の宣告）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.039",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-2",
+      "name_en": "Magh Bihu on the Prowl",
+      "name_ja_ref": "シマっていこうぜマッグビフ",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38922.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "先に Acidic Humus と Watermelon を1人1つずつ用意する。Acidic Humus はアビセア-タロンギ（conflux #2 から北）の Pachypodium が落とす Alkaline Humus を H-8 の東の ??? にトレードして出る Gancanagh が落とす。競売でも買える。Watermelon はラバオ F-7（HP#2 のそば）の Scamplix で買える。ボヤーダ樹 Map 1 F-4 の Mandragora Warden（F-4 に2か所あり、E-4 から入る方、1匹だけ。Proto-Waypoint が一番近い、クロイスターのそばの Home Point から北の F の出口へ、ユニティのワープ 135 でも近い）。Magh Bihu のことを聞き、Acidic Humus をトレードしてイベント。もう一度話して「Where did Magh Bihu go?」、Watermelon をトレードしてイベントと報酬（FFXIclopedia：Map 1 F-4。Proto-Waypoint が早い。Watermelon のあとにかんたんなミニゲーム）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.153.Mandragora_Warden"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.040",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-3",
+      "name_en": "101 Dazbogs",
+      "name_ja_ref": "101番目のダッツボグ",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "オーケストリオン譜：DD団"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38923.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "先にグスタフの洞門 Map 2 J-6 の Boulder Eater から Fat Worm Meat を6個（ユニティのワープ 128 で同じ地図、Ex なので買えない）。グスゲン鉱山 Map 4（Juggler Hecatomb の出る地図）H-7 の Hedrov（小屋の裏、部屋のまん中。Survival Guide から A の出口へ、次の地図で左を進み G のトンネルを降りる。または B・E のトンネルから地図3で西の H の穴を降りる）。Fat Worm Meat 6個をトレードしてイベントと報酬（FFXIclopedia：Boulder Eater はグスタフの洞門 Map 2 I-7 とその奥。Hedrov は Map 4 H-7）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.196.Hedrov"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.041",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-4",
+      "name_en": "Kipdrix the Faithful",
+      "name_ja_ref": "信徒キップドリックス",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38993.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ムバルポロス旧市街 K-10 の Tarnotik でイベント（Proto-Waypoint、Survival Guide）。2716号採石場に入るとイベント（Tarnotik に Snow Lily、新市街の Home Point、Twinkbrix に 10k ギル）。Tarnotik にもう一度話してイベント。王の間の Throne Room の扉でイベント（ズヴァール城内郭の Home Point が近い）。もう一度調べて BF（Orcish Warchief・Yagudo Inquisitor・Topaz Quadav、SP アビリティを使う、弱体・静寂・睡眠が効く、暗闇・アドル・スロウのオーラ、Magh Bihu と Dazbog が味方、抜刀で戦い始める）。30 FPS より上だとこのあとのイベントで落ちることがある。ザルカバードに出てイベントと報酬（FFXIclopedia：Tarnotik K-10。Dazbog か Magh Bihu が倒れると負け）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.Tarnotik"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.042",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-5",
+      "name_en": "Duke Alloces's Decision",
+      "name_ja_ref": "憂いのデュークアロセス",
+      "order": 42,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "20,000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アナザー・プシュケー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38994.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "第2段階まで鍛えたプライムウェポン（Loughnashade・Duban は不可）を装備して、ザルカバード J-9 の Heroes' Gambit でイベント（ユニティのワープ 125 が近い）。ズヴァール城内郭 G-7 の Valhallan Rift（Home Point の向かい、話が進んでいないと見えない）。もう一度調べて BF（Chaos、15分、Destiny Destroyers が味方で1人でも倒れると終わり、リレイズを用意、強い強化消し・装備を外す、弱体は効きにくい、魔力の泉で消える、どの武器でもダメージが出る、イベントのあとならジョブを変えてよい）。ザルカバードに出される。J-9 の Heroes' Gambit でイベントと報酬、Despairing psyche はなくなる（FFXIclopedia：Xarcabard J-9。Castle Zvahl Keep Map 4 G-7、Home Point #1 のそば。6人・15分・フェイス可。勝つと Despairing psyche。抜刀するとすぐ味方が突撃。Chaos はメテオ・インパクト・ケアルVI・連続魔、範囲の攻撃、強化消し、シーピングドレッドは範囲テラー）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.112.Heroes_Gambit"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.043",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR10-6",
+      "name_en": "Odin's Eye",
+      "name_ja_ref": "オーディンの左目",
+      "order": 43,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コーネリアの黒帯"
+        },
+        {
+          "kind": "title",
+          "name_ja": "闇の王を見送りし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38995.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "デュナミス-ザルカバードに入れること。前のミッションのあとエリアを出入りしないと始まらない（Twinkling Presence も見えない）。Heroes' Gambit でイベント、Despairing psyche をもう一度。デュナミス-ザルカバードの4か所の Twinkling Presence（I-9 の北西、平らなところでまわりにデーモン。H-7 の東、坂を上がると見える右の崖の上。F-7 の北のまん中、ウルガラン山脈への出口の上。G-10 の北西の角）で Suffering・Anguished・Rancorous・Determined psyche。D-7 の光る Before Castle Zvahl（ダイナミスロードの場所）でイベント、ザルカバードに出される。Raebrimm's memento。バストゥーク鉱山区 J-7 の Gumbah で報酬。ジュノ上層の Elijah（FFXIclopedia：エリアを出入りしてから J-9 の Heroes' Gambit、「Despairing psyche をなくした」と出たら前のミッションの最後なのでもう一度。近くの Trail Markings からデュナミス-ザルカバード。I-9 北西、H-7 坂を上がって東の崖の端、G-10 西側、F-7 北の高い崖の上。D-7 の Before Castle Zvahl、プシュケーはなくなる。Gumbah J-7。Elijah G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_10-6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.112.Heroes_Gambit"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.044",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR11-1",
+      "name_en": "Moglesse Oblige",
+      "name_ja_ref": "モーグリのありがとうクポ",
+      "order": 44,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "プラチナモグベルト"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39029.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "所属国のモグハウスの Moogle でイベント。ラテーヌ高原 G-6 のストーンサークルの ???（ユニティのワープ 99 が一番近い、Survival Guide やテレポホラでもよい）。ラテーヌ高原 H-10 の Moogle Meeting（オルデール鍾乳洞の Map 3 の出口から出る。Proto-Waypoint があれば近い。Survival Guide でオルデール鍾乳洞の入口から B、Map 1 の D の道、Map 2 の D で H-11 の南東の穴を降りると Map 3）。もう一度調べて BF（Spikehelm Argok・Tethys・Garmatur the Merciless・Antican Curule Aedilis、フェイス可、全部睡眠・静寂が効く）。勝つとイベントと報酬（FFXIclopedia：G-6 の ???、ユニティのワープ 99。H-10 の Moogle Meeting、Geomagnetic Fount のそば。戦場は常花の石窟、15分、全部睡眠が効く、SP アビリティを使う）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_11-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.Moogle"
+      },
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.045",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR11-2",
+      "name_en": "The Voracious Beast",
+      "name_ja_ref": "蝕世の霊獣カオス",
+      "order": 45,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メダダリング・クレブリング・コーネリアリング・ラジュリーズリング・レコリング・フィックリング・イフラマドリングから1つ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "カオスの血"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アストラルの理を守りし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39086.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ザルカバード J-9 の Heroes' Gambit でイベント。ズヴァール城内郭の Home Point の Valhallan Rift（G-7）でイベント。もう一度調べて1戦目（Garazu-Horeizu、両手棍の WS、連続魔と -ガIV、自分とディスティニーデストロイヤー団の分身を呼ぶ、Garazu-Horeizu だけ倒せばよい、入ると強化が消える、フェイス可、味方はディスティニーデストロイヤー団）。イベントのあと、第2段階以上のプライムウェポンを装備して2戦目（Chaos、パーティ全員が装備していないと入れない、Duban・Loughnashade は不可、ほかの武器や第1段階はダメージが7割減ってとどめをさせない、フェイス可、Gurebu-Ougrebu と Medada が味方、HP を減らすと fetter が出る、Cornelia・Lehko Habhoka・Ragelise・Fickblix・Luzaf が1人ずつ出る、Black Sanctus、とどめはプライムウェポンで）。Vial of Chaos's blood。Heroes' Gambit で最後のイベントとリング（あとで選んでもよい、次のミッションには進む。リングを捨てるとコンクェストの集計ごとに1回選び直せる。ザルカバードで捨てたらエリアを出入りする）（FFXIclopedia：Valhallan Rift は Map 4 G-7、Home Point #1 のすぐそば。1戦目は30分、ディスティニーデストロイヤー団が倒れると負け。2戦目は入ったらプライムウェポンを外してよい、30分、味方は2分30秒後に戦い始める）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_11-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.046",
+      "kind": "mission",
+      "lock_reasons": [],
+      "mission_no": "TVR11-3",
+      "name_en": "Your Decision",
+      "name_ja_ref": "あなたの選択",
+      "order": 46,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39087.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "前のミッションのイベントのあと自動でこのミッションになる。シルバー・ナイフの Gama-Shama に話すとプライムウェポンを最後まで鍛えられる話、ガリモーフリーの上限が 100,000,000 になる。Elijah に話し、エリアを出入りしてもう一度話すと Voracious Psyche を集められる。次は後日談（FFXIclopedia：最後の章、前のミッションのあと自動。後日談は下の相手に話す。持ち物がいっぱいでコンプリートの報酬をもらっていないときは、もらってから始まる）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Voracious_Resurgence_Mission_11-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "tvr",
+      "game_ref": null,
+      "id": "mission.tvr.047",
+      "kind": "mission",
+      "lock_reasons": [],
+      "name_en": "Epilogue",
+      "name_ja_ref": "蝕世のエンブリオ～後日談",
+      "order": 47,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ブードックススーツ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ブードックスマスク"
+        },
+        {
+          "kind": "item",
+          "name_ja": "マッグビフスーツ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "マッグビフマスク"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ダッツボグナックル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "マートの秘薬*3"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39147.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "下の相手に、どの順でも話すとイベント。クエストの一覧には出ない。持ち物がいっぱいでコンプリートの報酬をもらっていないときは、もらってから始まる。ムバルポロス旧市街 K-10 の Tarnotik（Boudox's Masque・Boudox's Suit、Proto-Waypoint が近い）。ボヤーダ樹 E-4 の Mandragora Warden（Magh Bihu's Masque・Magh Bihu's Suit、Proto-Waypoint で D-4 に出る）。グスゲン鉱山 H-7 の Hedrov（Dazbog's Knuckles、Survival Guide から A、次の地図で左を進み G のトンネルで地図4）。バストゥーク鉱山区 J-7 の Gumbah・ドラギーユ城 I-9 の Halver・ウィンダス石の区 K-7 の Shantotto（Maat's Concoc. を1つずつ）。ラバオ G-6 の Dancing Wolf（Uran-Mafran's orb が返ってくる、Carbuncle Debacle を済ませていること）（FFXIclopedia：Tarnotik K-10、Hedrov Map 4 H-7、Mandragora Warden Map 1 F-4、Gumbah J-7、Halver I-9、Shantotto K-7、Dancing Wolf G-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Epilogue_Quests",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.196.Hedrov",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 196,
+        "zone_name": "グスゲン鉱山"
+      },
+      "moves": false,
+      "name_en": "Hedrov",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Tateeya",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Tateeya",
+      "same_name": false
+    },
+    {
+      "id": "npc.醴泉島.Reikuu",
+      "kind": "npc",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 291,
+        "zone_name": "醴泉島"
+      },
+      "moves": false,
+      "name_en": "Reikuu",
+      "same_name": false
+    },
+    {
+      "id": "obj.111.Ferric_Stench",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 111,
+        "zone_name": "ボスディン氷河"
+      },
+      "moves": false,
+      "name_en": "Ferric Stench",
+      "same_name": false
+    },
+    {
+      "id": "obj.112.Heroes_Gambit",
+      "kind": "obj",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 112,
+        "zone_name": "ザルカバード"
+      },
+      "moves": false,
+      "name_en": "Heroes' Gambit",
+      "same_name": false
+    },
+    {
+      "id": "obj.115.Secluded_Spot",
+      "kind": "obj",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Secluded Spot",
+      "same_name": false
+    },
+    {
+      "id": "obj.116.Disturbed_Earth",
+      "kind": "obj",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 116,
+        "zone_name": "東サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Disturbed Earth",
+      "same_name": false
+    },
+    {
+      "id": "obj.143.Perversions_Refuge",
+      "kind": "obj",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": false,
+      "name_en": "Perversion's Refuge",
+      "same_name": false
+    },
+    {
+      "id": "obj.145.Worn_Chest",
+      "kind": "obj",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 145,
+        "zone_name": "ギデアス"
+      },
+      "moves": false,
+      "name_en": "Worn Chest",
+      "same_name": false
+    },
+    {
+      "id": "obj.150.Ritual_Site",
+      "kind": "obj",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 150,
+        "zone_name": "修道窟"
+      },
+      "moves": false,
+      "name_en": "Ritual Site",
+      "same_name": false
+    },
+    {
+      "id": "obj.153.Muggy_Air",
+      "kind": "obj",
+      "location": {
+        "grid": "D-5 H-6 H-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 153,
+        "zone_name": "ボヤーダ樹"
+      },
+      "moves": false,
+      "name_en": "Muggy Air",
+      "same_name": false
+    },
+    {
+      "id": "obj.172.Disturbed_Dirt",
+      "kind": "obj",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Disturbed Dirt",
+      "same_name": false
+    },
+    {
+      "id": "obj.172.Quadav_Inquest",
+      "kind": "obj",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Quadav Inquest",
+      "same_name": false
+    },
+    {
+      "id": "obj.173.Stalagmite",
+      "kind": "obj",
+      "location": {
+        "grid": "D-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 173,
+        "zone_name": "コロロカの洞門"
+      },
+      "moves": false,
+      "name_en": "Stalagmite",
+      "same_name": false
+    },
+    {
+      "id": "obj.51.Savage_Scars",
+      "kind": "obj",
+      "location": {
+        "grid": "H-13",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 51,
+        "zone_name": "ワジャーム樹林"
+      },
+      "moves": false,
+      "name_en": "Savage Scars",
+      "same_name": false
+    },
+    {
+      "id": "obj.68.Final_Survey_Point",
+      "kind": "obj",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 68,
+        "zone_name": "エジワ蘿洞"
+      },
+      "moves": false,
+      "name_en": "Final Survey Point",
+      "same_name": false
+    },
+    {
+      "id": "obj.7.Harvesting_Point_H-8",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 7,
+        "zone_name": "アットワ地溝"
+      },
+      "moves": false,
+      "name_en": "Harvesting Point",
+      "same_name": false
+    },
+    {
+      "id": "obj.79.Vexing_Sniffles",
+      "kind": "obj",
+      "location": {
+        "grid": "E-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 79,
+        "zone_name": "カダーバの浮沼"
+      },
+      "moves": false,
+      "name_en": "Vexing Sniffles",
+      "same_name": false
+    }
+  ]
+}

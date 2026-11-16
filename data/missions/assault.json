@@ -1,0 +1,2537 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が二等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Leujaoam Cleansing",
+      "name_ja_ref": "ルジャワン掃討作戦",
+      "order": 1,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3000（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4871.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC（二等傭兵）、30分、Lv.50。Leujaoam Worm 15体をすべて倒す。Assault のページ：ルジャワン霊窟の作戦は白門の Yahsra、認識票は Rytaal（公務代理店）、隊長腕章は監視哨の Imperial Guard に皇国軍戦績50（FFXIclopedia：Yahsra L-9/10。F/G-8 から始まり、全部倒すと I-8 に Rune of Release と Ancient Lockbox）",
+          "url": "https://www.bg-wiki.com/ffxi/Leujaoam_Cleansing",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が二等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Imperial Agent Rescue",
+      "name_ja_ref": "皇国エージェント救出作戦",
+      "order": 2,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8041.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.60。3つの門のどれかの奥の Pot Hatch に Brujeel。Mamool Ja Warder の Axe Throw・Staff Toss 1回か Firespit 4回で門が壊れる。忍者の Mamool Ja は武器を投げない。ペットがいると門が壊れないことがある。助けると J-8 の行き止まりの部屋に Rune of Release。Assault のページ：マムージャ兵訓練所の作戦は Isdebaaq（FFXIclopedia：Isdebaaq L-9/10。G-7 から入り、J-8 の池の部屋に Rune of Release と Ancient Lockbox）",
+          "url": "https://www.bg-wiki.com/ffxi/Imperial_Agent_Rescue",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が二等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Excavation Duty",
+      "name_ja_ref": "土竜作戦",
+      "order": 3,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5565.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.50。Brittle Rock 5つを壊す。岩は動かず攻撃しない。継続ダメージがよく効く。Qiqirn が落とす Qiqirn Mine を、岩と戦っている状態で使うと1回で壊れる。Volcanic Bomb は見て絡むのでインビジでかわせる。最後の岩を壊すと F-10 の行き止まりの部屋に Rune of Release。Assault のページ：レベロス風穴の作戦は Famad（FFXIclopedia：Famad L-9/10。G-11 から始まる。岩は G-10、北の G-6、H-8、I-7 に2つ。Rune of Release は F-10）",
+          "url": "https://www.bg-wiki.com/ffxi/Excavation_Duty",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が二等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Seagull Grounded",
+      "name_ja_ref": "海猫護送作戦",
+      "order": 4,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8043.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.70。捕虜の Excaliace を F-12 の Rune of Release の場所まで護送する。後ろに少し離れてつくと動き、近すぎると止まり、だれも近くにいないと逃げて失敗。敵を見ると逃げる。部屋 A・B・C のどれかに寄り、カニがいれば先に倒す。H-8 の分かれ道で D か E へ。G-10 と最後の部屋に Debaucher。Lageegee は L-9（FFXIclopedia：Lageegee L-10。H-6 の丸い部屋から始まる。いちばん南の部屋 F-11 の北西のすみに着くと勝ち、Rune of Release と Ancient Lockbox が出る）",
+          "url": "https://www.bg-wiki.com/ffxi/Seagull_Grounded",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が二等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Golden Salvage",
+      "name_ja_ref": "黄金の遺産収集作戦",
+      "order": 5,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6640.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.60。12個の箱のうち1つに船首像、残り11個は Cursed Chest（ミミック）。正しい箱を見つけるとスタートに Rune of Release。Bhoy Yhupplo は L-9（FFXIclopedia：Bhoy Yhupplo L-9/10。H-8 から始まり、船首像を見つけると H-7 の十字路の Rune of Release へ。4つの船の箱はいつも出る）",
+          "url": "https://www.bg-wiki.com/ffxi/Golden_Salvage",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "募集要員はレベル75・1〜6人（レベル制限はかからない。傭兵階級の制限はない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Nyzul Isle Investigation",
+      "name_ja_ref": "ナイズル島踏査指令",
+      "order": 6,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "トークン（作戦戦績はない。帰還したときに、進んだブロックに応じてもらえる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11114.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.75。作戦戦績のかわりにトークン。最初の部屋の Rune of Transfer で始めるブロックを選ぶ（1 からはただ、6 以上はトークン）。Vendor Box でトークンを使ってテンポラリアイテム。各ブロックの Rune of Transfer で目標を見て、達成すると点灯し、次へ進むか帰還を選ぶ。Assault のページ：ナイズル島の作戦は公務代理店の Sorrowful Sage。Sorrowful Sage は L-9。Runic Portal のページ：ナイズル島監視哨はアルザダール海底遺跡群 J-8（Nyzul Isle Staging Point のページは J-8 か J-9。Nyzul Isle のページは I-8/9）（FFXIclopedia：Sorrowful Sage L-10。ナイズル島監視哨は J-9/J-8。最初の部屋で Rune of Transfer を調べると Runic Disc がもらえる。時間切れは失敗）",
+          "url": "https://www.bg-wiki.com/ffxi/Nyzul_Isle_Investigation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Sorrowful_Sage"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "募集要員はレベル99・1〜6人（レベル制限はかからない。傭兵階級の制限はない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Nyzul Isle Uncharted Area Survey",
+      "name_ja_ref": "ナイズル島未開領域踏査指令",
+      "order": 7,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "トークン（作戦戦績はない。帰還したときに、進んだブロックに応じてもらえる）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "未踏領域を踏破せし者（100ブロックのボスを倒したとき）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26165.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PSC、30分、Lv.99。受付は Sorrowful Sage（Sorrowful Sage でテンポラリアイテムのリストを作っておける）。いつもブロック1から始まり、突入したときに目標のブロック（20・40・60・80・100）を選ぶ。その先には進まない。目標はブロックに着くと知らされる。20・40・60 は Stealthlord Haraal Ja・Dabargar the Stoic・Stheno のどれか、80 は Lord Vryko、100 は Dvali Jonah。ボスを決まった回数倒すと天文盤をもらい、白門 L-9 の Berangere で装備と交換（FFXIclopedia：Berangere は天文盤を装備と交換する）",
+          "url": "https://www.bg-wiki.com/ffxi/Nyzul_Isle_Uncharted_Area_Survey",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Sorrowful_Sage"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が一等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Orichalcum Survey",
+      "name_ja_ref": "オリハルコン鉱脈調査",
+      "order": 8,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,600（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7628.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PFC、30分、Lv.50。Mulwahah（H-8）からテンポラリアイテムのつるはしをもらい、Mining Point を調べて掘る。オリハルコン鉱・小石か亜鉛鉱・何も出ない・つるはしが壊れる・Mineral Worm が出る のどれか。鉱石が出ると Qiqirn Miner が襲ってくるようになるので、インビジで Mulwahah に戻り、掘った人が話すと完了（FFXIclopedia：Yahsra L-9/10。Rune of Release と Ancient Lockbox は H-8。ワームは1300〜1500HPでスニークを見破る。Qiqirn Miner は Lv76〜82）",
+          "url": "https://www.bg-wiki.com/ffxi/Orichalcum_Survey",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が一等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Preemptive Strike",
+      "name_ja_ref": "秘密訓練所急襲作戦",
+      "order": 9,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6099.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PFC、30分、Lv.60。Mamool Ja Executioner 13体（青・白・忍）を倒す。Puk Executioner は倒さなくてよい。全部倒すと I-7 の南東のすみの行き止まりに Rune of Release。遠隔や魔法がない人は、I-8 と G-8 のマムージャを倒すまでスタートの高台から降りない（戻る坂がない）（FFXIclopedia：Isdebaaq L-9/10。I-6 から入る。北の G-7 の高台だけ坂がある。Rune of Release は I-7 の下）",
+          "url": "https://www.bg-wiki.com/ffxi/Preemptive_Strike",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が一等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Lebros Supplies",
+      "name_ja_ref": "レベロス補給作戦",
+      "order": 10,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4909.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PFC、30分、Lv.60。Imperial Stormer 12人全員に食べ物を渡して満腹にする。Yazuhma（H-8）がテンポラリアイテムの食べ物をくれる（寄せ鍋7＋同じ組の全員・バイソンステーキ5・クァールサンド4・バイソンジャーキー3・豆のスープ2・白パン1。7で満腹）。食べ物を持たずに話すと満腹かどうかわかる。同じ場所の兵は盾で見分ける。西南西2・南南西2・南東3・北西3・北2。Rune of Release は Yazuhma のところに出る。Crimson Eruca はスニークを見破る（FFXIclopedia：Famad L-9/10。Yazuhma は入口。6か7で満腹。話すと勝手に渡る）",
+          "url": "https://www.bg-wiki.com/ffxi/Lebros_Supplies",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が一等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Requiem",
+      "name_ja_ref": "レクイエム作戦",
+      "order": 11,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4892.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PFC、30分、Lv.70。アンデッドを全部倒す（Batteilant Bhoot 4・Darkling Draugar 暗7・竜5・Putrid Immortal Guard 2）（FFXIclopedia：Lageegee L-10。F-9 から始まり、全部倒すとスタートに Rune of Release。H-8/9 と F/G-8 の門は気にしなくてよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Requiem_(Assault)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が一等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Lamia No.13",
+      "name_ja_ref": "ラミア13号討伐作戦",
+      "order": 12,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,600（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4675.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "PFC、30分、Lv.70。I-8 から始まり、北にいる狩人の Lamia No. 13 を倒す。魅了された Fallen Volunteer・Fallen Imperial Wizard・Fallen Imperial Trooper がついている。ディスペル・フィナーレなどで魅了をとくと味方になってラミアを攻撃する。ベリーダンス（範囲の魅了）でまた魅了される（FFXIclopedia：Bhoy Yhupplo L-9/10。南東 I-8 の船から始まる。倒すと北東 H-8 に Rune of Release。フォモルにとどめをとられると経験値と戦利品はない）",
+          "url": "https://www.bg-wiki.com/ffxi/Lamia_No.13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Escort Professor Chanoix",
+      "name_ja_ref": "クラボエール男爵警護",
+      "order": 13,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8800.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SP、30分、Lv.60。Professor Clavauert B Chanoix を J-5 か G-9 の部屋まで守る。だれかが横を通ると歩き出し、止められない。ときどき休む。ケアル・プロテス・シェルはかけられる。敵は Frozen Bones と Gelid Bhoot（アンデッド）で、男爵に近いと絡む。男爵が倒れると失敗（FFXIclopedia：Yahsra L-10。行き先は J-5 か G-9 の部屋。男爵はワイドスキャンに出る。骨9・お化け7）",
+          "url": "https://www.bg-wiki.com/ffxi/Escort_Professor_Chanoix",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる。レベル60と書く資料もある）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Sagelord Elimination",
+      "name_ja_ref": "賢哲王暗殺作戦",
+      "order": 14,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,600（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7630.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SP、30分、Lv.60。Sagelord Molaal Ja を攻撃して、HP15%で逃げると I-7 の南東のすみの行き止まりに Rune of Release。ダメージを受けると逃げ、逃げた先の Mamool Ja Trainee をリンクさせる。HPは回復しない。ペットやワイドスキャンで追う（FFXIclopedia：Isdebaaq L-10。Lv.70。HP10〜20%ごとにウォームアップのあと逃げる。スタンで止まるが、切れるとまた走る。Trainee 15）",
+          "url": "https://www.bg-wiki.com/ffxi/Sagelord_Elimination",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Troll Fugitives",
+      "name_ja_ref": "落ち武者追撃戦",
+      "order": 15,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8473.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SP、30分、Lv.70。Broken Troll Soldier（モ・ナ・赤・戦）15体を全部倒す。はじめからHPが25〜75%に減っていて、2時間アビを使う。足がおそい。Rune of Release は H-9 の北西、橋の下に出る（FFXIclopedia：Famad L-10。H-7 3・I-8 1・G-8 3・I-9 3・I-7 1・G-10 2・F-10 1・G-9 1 の順に倒すと、Rune of Release は G-9 のトロールのすぐ東）",
+          "url": "https://www.bg-wiki.com/ffxi/Troll_Fugitives",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Saving Private Ryaaf",
+      "name_ja_ref": "ライアーフ捜索作戦",
+      "order": 16,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4615.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SP、30分、Lv.70。I-7 から始まり、Rune of Release もそこに出る。北・東・南・西・中の5部屋のうち3つに捕まった3人（Ryaaf・Balarahb・Rhagmakah）、2つにフォモル。並び方は5通り。フォモルは東を向いている（東の部屋は見分けられない）。部屋ごとに Cursed Chigoe 3（呪いの追加効果）。Experimental Undead は音とアビリティを見破る（FFXIclopedia：Lageegee L-10。並び方は同じ5通り。北と西か、東と中を先に見ると、外れは1つまで）",
+          "url": "https://www.bg-wiki.com/ffxi/Saving_Private_Ryaaf",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Extermination",
+      "name_ja_ref": "蠱物駆除作戦",
+      "order": 17,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5245.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SP、30分、Lv.70。敵を全部倒す（Carrion Crab・Carrion Leech・Carrion Slime・Carrion Toad）。倒したあと、ランダムで1体が Undead（Crab・Leech・Slime・Toad のどれか）としてまた出るので、それも倒す（FFXIclopedia：Bhoy Yhupplo L-9/10。Crab 7・Leech 3・Slime 3・Toad 2。Undead は2体出たこともある。打撃はリーチとスライムに効きにくい）",
+          "url": "https://www.bg-wiki.com/ffxi/Extermination",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が傭兵長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Shanarha Grass Conservation",
+      "name_ja_ref": "シャナーハ草保護作戦",
+      "order": 18,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績（穴ウサギを倒しきったときに残っている薬草の数で変わる）（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8801.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "LC、30分、Lv.50。Coney 20匹を倒す。I-9 からはじまり、Coney も20匹ともそこにいて、少しすると北と南に分かれる。ノンアク・視覚リンク・ワイドスキャンに出ない。戦っていると逃げてタゲが切れ、放っておくとHPが全快する。数分待って散らばってから戦うとよい。薬草を食べすぎられると失敗。残った薬草が多いほど作戦戦績が多い（FFXIclopedia：Yahsra L-10。北と南に9〜11匹ずつ。HP約2200。Rune of Release は I-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Shanarha_Grass_Conservation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が傭兵長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Breaking Morale",
+      "name_ja_ref": "慰問物資強奪作戦",
+      "order": 19,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績2,400＋開けた箱の数×200（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8431.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "LC、15分、Lv.60。8つの箱の慰問物資を、スタートの Quhaaja に見つからずに渡す。1つでよい。Mamool Ja Trainer に見つかると I-8 の行き止まりに飛ばされ、持っている物資は箱に戻る。Recruit は襲ってくるが、寝かせるとすぐタゲが切れる。いちばん早いのは、トンネルを出て左の坂を上った I-7 の1つ目の箱。Quhaaja に話して終えると Rune of Release が出て、そのあとは渡せない（FFXIclopedia：Isdebaaq L-10。スタート・Rune of Release・Quhaaja は北の同じ場所。牢屋のそばの Viscous Liquid でマムージャに化けられるが、スリップがあり、箱を開けると解ける。箱は I-7 上段・H-7 地面・H-7 上段・H-8 上段・G-7 中段・G-7 上段・H-9 地面・I-8 中段。8つのうち5つは牢屋からしか行けない。3人なら2つ要る、とも書く）",
+          "url": "https://www.bg-wiki.com/ffxi/Breaking_Morale",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が傭兵長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Evade and Escape",
+      "name_ja_ref": "土筆作戦",
+      "order": 20,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8413.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "LC、30分、Lv.70。3つのスイッチを同時に入れる。スイッチは7か所の候補（マップのはしの行き止まり）のうち3か所に出て、入れると5分つづく。ワイドスキャンに出ない。Dahak 3体は視界がせまく、HPがとても多い。3つ入ると H-8 の洞くつに Rune of Release（FFXIclopedia：Famad L-10。7つの小部屋のうち3つ。いちばん西の2か所なら1人で両方押せる。G-7 の大部屋の南東のすみと G-8 の東に隠れられる岩。Dahak は見て絡み、引き寄せを使う。Rune of Release は H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Evade_and_Escape",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が傭兵長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Shooting Down the Baron",
+      "name_ja_ref": "黒い男爵撃墜作戦",
+      "order": 21,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8735.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "LC、15分、Lv.60。Black Baron を倒す。東の I-8 の部屋から入り、Rune of Release もそこに出る。Black Baron はまん中か北西・北東・南西・南東のトンネルのどこかに出て、ワイドスキャンに出ない。戦うと少しして別の場所へワープする。ペットは追っていく。Periqia Pugil 6（音で絡み、リンクする）（FFXIclopedia：Lageegee L-10。I-8 から入る。上から見えなければ、こわれた橋から下りる。スタートのそばに出ることもある。こちらからは絡まない。HP15%ほどごとにワープし、HPは回復しない。プギルは寝かせて離れるとタゲが切れる。倒すとスタートに Rune of Release と Ancient Lockbox）",
+          "url": "https://www.bg-wiki.com/ffxi/Shooting_Down_the_Baron",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が傭兵長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Demolition Duty",
+      "name_ja_ref": "イルルシ掃海作戦",
+      "order": 22,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8736.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "LC、30分、Lv.50。スタートの NPC に話すとオートマトンを1体借りられ、話した人について行く。5つの難破船をオートマトンに壊させる。範囲攻撃を近くに当てても削れる。オートマトンがWSを使うたびに Carrion Crab が出てオートマトンを狙う（HP2000ほど）。壊れたらスタートの NPC でまた借りられる。全部壊したらスタートの NPC に話すと Rune of Release（FFXIclopedia：Bhoy Yhupplo L-9/10。H-10 の船の上の Uzhahn から始まる。難破船は南側だけ。離れすぎると5秒後に止まる。Imp はオートマトンやペットにも絡み、5分ほどでまた出る。傷んだら Uzhahn で直せる）",
+          "url": "https://www.bg-wiki.com/ffxi/Demolition_Duty",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が伍長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Counting Sheep",
+      "name_ja_ref": "黒羊買付作戦",
+      "order": 23,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1000＋羊の数×500（最大3500）（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8276.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "C、15分、Lv.60。氷の壁の奥の Karakul を助ける。入口に Qiqirn 4人：Mine Baron（つるはし、鉱石を貨幣に）、Greengrocer（鎌、収穫物を食べ物に）、Dealer（青銅貨5か白銀貨1で賭け、勝つと黄金貨）、Shepherd（黄金貨1・白銀貨4・青銅貨20で雇える。氷の壁まで連れて行くと爆破する。食べ物を欲しがることがある）。部屋の中の Karakul を調べないと数えない。1匹で Rune of Release が出る（FFXIclopedia：Yahsra L-10。鉱石は1種類1つずつしか持てない。氷の壁はおよそ F-8・G-8・H-8・H-9・I-9。Rune of Release はスタートに出る）",
+          "url": "https://www.bg-wiki.com/ffxi/Counting_Sheep",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が伍長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Double Agent",
+      "name_ja_ref": "二重スパイ捕縛作戦",
+      "order": 24,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,600から誤認逮捕の回数だけ減る（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7037.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "C、30分、Lv.70。たくさんの Qiqirn Spy のうち1人がスパイ。話すと「捕まえる」「話す」。スパイだけがうそをつき、ほかはほんとうのことを言う（近い・遠い・方角・何ヤルム）。ちがうキキルンを捕まえると、もう話を聞けず、作戦戦績が減る。Puk はすぐタゲが切れ、すぐまた出る。Rune of Release は I-8 の南西（FFXIclopedia：Isdebaaq L-10。スパイは何も教えないこともある。Puk はキキルンの集まりごとに2体、3分ほどでまた出る。Rune of Release は I-8 の南）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Double_Agent",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が伍長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Siegemaster Assassination",
+      "name_ja_ref": "傭兵軍師狙撃作戦",
+      "order": 25,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,300（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5175.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "C、30分、Lv.70。Old Troll（狩人）8体のうち1体が Borgerlur。遠隔攻撃とイーグルアイは分身を通す。外れはすぐまた出るが、当たりは変わらない（また出たものはいつも外れ）。また出るまで3分45秒。倒すとほかは消え、G-7 に Rune of Release（FFXIclopedia：Famad L-10。入ると H-8 のあたりにトロールが多い部屋。G-7 から始めて南へ、と書く人もいる。また出るまで5分ほど。Rune of Release は G-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Siegemaster_Assassination",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が伍長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Building Bridges",
+      "name_ja_ref": "ペリキア架橋作戦",
+      "order": 26,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,600（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6406.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "C、15分、Lv.70。4つのスイッチを入れる。小さい地図から始まり、北東へ進んで大きい地図に出る。スイッチは西 F-8・南 H-10・北 H-6・東 J-8 の部屋で、どの順でもよく、ずっと入ったまま。Rune of Release はまん中の H-8。ラミア（NPC）は襲わないが、つかまるとスタートにもどされる。追うのは1人だけ（FFXIclopedia：Lageegee L-10。スタートは小さい地図の H-6 の部屋で、J-6 から大きい地図へ。ラミアは見破り、5歩ほどでつかまる。レーダーに緑の点で出るが、ワイドスキャンには出ない。スイッチ F-8・H-6・J-8・H-10、Rune of Release H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Building_Bridges",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が伍長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Searat Salvation",
+      "name_ja_ref": "シーラット送迎作戦",
+      "order": 27,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,000＋連れて行ったキキルン1匹につき500（1,500〜3,500）（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8797.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "C、15分、Lv.60。Qiqirn Diver を F-10 のスタートから J-6 の Qiqirn Chief Diver まで連れて行く。話すとついて来て、1人で何匹でも連れられる。Giant Orobon（NPC）に見られるとキキルンは逃げるので、また話しかける。1匹連れて行けば Rune of Release が出る（FFXIclopedia：Bhoy Yhupplo L-9/10。F-10 から始まり、目の前に Diver 5匹。最初に話した人について行く。オロボンは見て追い、細い視界のわきを通れる。Diver はワイドスキャンに出て、オロボンは出ない。Chief Diver は J-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Searat_Salvation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が軍曹以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Supplies Recovery",
+      "name_ja_ref": "補給物資奪還指令",
+      "order": 28,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績は取り返した補給物資の数で変わる（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6780.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "S、30分、Lv.70。スタートの Kuihlud に話すまでインプは出ない。インプが落とす補給物資（テンポラリアイテム）を不滅隊より多く集める。不滅隊が一度でも攻撃したインプの物資は不滅隊のもの。全部の物資が出るわけではない。6つ集めるとインプが残っていても達成。インプが全部倒れたときに同じか少ないと失敗。Rune of Release はスタートの Kuihlud の横（FFXIclopedia：Yahsra L-10。スタートは J-7。不滅隊は Gasharyad と Salimuhl の2人で、地形に関係なく動く）",
+          "url": "https://www.bg-wiki.com/ffxi/Supplies_Recovery",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が軍曹以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Imperial Treasure Retrieval",
+      "name_ja_ref": "魔宝石回収指令",
+      "order": 29,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績は回収した魔宝石の数で変わる（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8799.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "S、15分、Lv.50。戦闘はなく鬼ごっこ。宝箱（9つ、鍵はいらない）を開けると魔宝石。持っているときにマムージャ（Red・Blue・Yellow・Green・White・Black Badge Mamool Ja）に近づかれると取られてスタートにもどされる。持っていないときは、魔宝石を持ったマムージャに話して取り返せる。マムージャは F-7 の Mamool Ja Governor へ運ぶ。Governor に話すと魔宝石を取られてスタートにもどされる。1つ以上 Zahakahm に返してから話すと Rune of Release（FFXIclopedia：Isdebaaq L-10。スタートと Zahakahm は H-10、Rune of Release も H-10。マムージャはワイドスキャンに出ない。Governor は F-7）",
+          "url": "https://www.bg-wiki.com/ffxi/Imperial_Treasure_Retrieval",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が軍曹以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Apkallu Breeding",
+      "name_ja_ref": "アプカル繁殖指令",
+      "order": 30,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績500＋つがいの数で増える（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8803.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "S、15分、Lv.60。オスの Lebros Apkallu をメスのところへ連れて行ってつがいにする。1組で勝ち。鳴き声はモールス信号（Squee が短点、Quark が長点）。オスは西、メスは東に多い。オスは歩くより少し速く、離れすぎると止まる。メスはいつも同じあたり。組み合わせは Blue と Sky、Cod と Fish、Heat と Fire、Moon と Star、Orange と Apple、Rain と Cloud、Snow と White、Song と Sound。Rhap Nelhah に話して終えると Rhap Nelhah のところに Rune of Release。8組できると自動で終わる。Vulcanian Bomb はインビジでよけられ、そのあいだもアプカルはついて来る（FFXIclopedia：Famad L-10。オスは大きく、メスは小さい。オスの場所は毎回変わる。Rune of Release は Rhap Nelhah のうしろ）",
+          "url": "https://www.bg-wiki.com/ffxi/Apkallu_Breeding",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が軍曹以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル50・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Stop the Bloodshed",
+      "name_ja_ref": "ブラッドバス計画抑止作戦",
+      "order": 31,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6299.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "S、30分、Lv.50。Augmented Chigoe 35匹を倒す。Chigoe Breeder（黒魔道士）は見破りで、倒してもすぐまた出る。行き止まりの部屋の檻のまわりもよく探す。Rune of Release は H-8（FFXIclopedia：Lageegee L-10。スタートは黒い男爵撃墜作戦と同じ地図の H-8。チゴーはワイドスキャンに出ない。クリティカル・ジョブアビリティ・ウェポンスキルで1回で倒れる。Chigoe Breeder は3〜4体で倒さなくてよい。Rune of Release は H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Stop_the_Bloodshed",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が軍曹以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Apkallu Seizure",
+      "name_ja_ref": "アプカル捕獲指令",
+      "order": 32,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500＋アプカル捕獲数×500（最大4,000）（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8804.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "S、30分、Lv.70。Fairy Apkallu を1羽以上 Clavauert B Chanoix へ連れて行く。??? を調べて Hamsi。アプカルの前に出て「じっと見つめた」と出たら /bow、警戒を少し解いたら /welcome、「好意を持っているようだ」と出たら話して Hamsi を渡す。捕まえたらすぐうしろへ回り、2〜3歩うしろについて行く。前に出たり、3秒ほど止まらせたり、Kelp Pugil を見せたりすると逃げる。Kelp Pugil はまた出ない。1羽連れて行くとすぐ Rune of Release（FFXIclopedia：Bhoy Yhupplo L-9/10。スタートと Clavauert B Chanoix は F-10。最後の岩場がいちばん難しい）",
+          "url": "https://www.bg-wiki.com/ffxi/Apkallu_Seizure",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Azure Experiments",
+      "name_ja_ref": "青の治験",
+      "order": 33,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6638.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SM、30分、Lv.70。Nareema に話すとランダムに組織を移植され、ラミアの組が4か所（西に2つ・南・東）のどこかに出る。組を倒したらまた Nareema に話す。4組倒すとスタート(G-7)に Rune of Release。東の組は一方通行の段差の下なので遠くから釣るとよい。Lamia Prosector（黒魔道士）は睡眠が効かない（FFXIclopedia：Yahsra L-10。組は北東の通路・南東の通路・西の北側・西の南側。倒した組はもう出ない。終わったあと Nareema と話す選択肢がある）",
+          "url": "https://www.bg-wiki.com/ffxi/Azure_Experiments",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blitzkrieg",
+      "name_ja_ref": "謝鱗祭襲撃作戦",
+      "order": 34,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績2,000、第二波を倒すと2,200、捕虜を助けると400ふえる（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8638.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SM、30分、Lv.70。弱いマムージャとペット（ジズ・ブガード・ラプトル・プーク）の群れを200匹倒すと Rune of Release。ペットを残してマムージャを多く倒すと NM の Bluethunder Kaqool Ja が出て、倒すと Blackscale Key。カギで (I-6) の檻の Lumaayu を出すと、さらに100匹が来る。最後の波に Festive Firedrake。Rune of Release は入ったところ（FFXIclopedia：Isdebaaq L-10。捕虜は北東のすみ。最初の125匹でほとんどマムージャを倒すと Bluethunder Kaqool Ja が出ることがある。HP 3500ほどで青魔法。とどめを刺した人がカギ。200匹のあとは終えてもよい。300匹で「敵を殲滅した」）",
+          "url": "https://www.bg-wiki.com/ffxi/Blitzkrieg",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Wamoura Farm Raid",
+      "name_ja_ref": "ワモーラファーム襲撃作戦",
+      "order": 35,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000、成虫を倒した数だけ250ずつふえる（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8802.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SM、30分、Lv.70。ワモーラをすべて倒す。時間がたつと Wamouracampa のいくつかが Wamoura になる。Ranch Wamouracampa と Ranch Wamoura を全部倒すと (H-8) の南西に Rune of Release。ブレイズスパイクが強く、ディスペルが2回要ることもある（FFXIclopedia：Famad L-10。はじめは Ranch Wamouracampa 16匹で、1匹は北西・北東・北のまん中の通路の奥のどれかに出る。1〜3匹が Ranch Wamoura になる。どちらもMPがあってアスピルが効く。ワイドスキャンが役に立つ。Rune of Release はまん中）",
+          "url": "https://www.bg-wiki.com/ffxi/Wamoura_Farm_Raid",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Defuse the Threat",
+      "name_ja_ref": "地雷原処理作戦",
+      "order": 36,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,800＋除去した地雷1つにつき200（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8798.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SM、30分、Lv.60。かくれた Qiqirn Mine 15個を処理する。地雷は見えず、ワイドスキャンにも出ない。近づくとタイマーが動き、30秒のうちに見つける。「Kachink」のあとの点が少ないほど近く、「Kachink!」で地雷が出て、調べると除去。間に合わないと爆発して少しダメージ。15個が除去か爆発で片付くと H-9 に Rune of Release。全部爆発すると失敗。薄い壁の向こうからも動く。Qiqirn Miner はインビジでよけられる（FFXIclopedia：Lageegee L-10。入るのは H-9。全員がはじめから地雷探知機を持つ。(G-9) の橋の上からも動く。Qiqirn はにおいで追う。Rune of Release は H-9）",
+          "url": "https://www.bg-wiki.com/ffxi/Defuse_the_Threat",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル60・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Lost and Found",
+      "name_ja_ref": "指輪捜索指令",
+      "order": 37,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8805.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "SM、30分、Lv.60。なくした指輪（Eye of Zahak）を探す。Tian Tian に話すとついてきて、また話すと近くの手がかりのことを言う。???（1歩ほどまで近づくと出る）を調べると、Kelp Crab・海草（グラビデ）・手がかり・なにもない、のどれか。手がかり1つで指輪にいちばん近い人、2つで方角、3つで距離を言う。みんなで散らばって絞りこむ。指輪を見つけるとスタートに Rune of Release（FFXIclopedia：Bhoy Yhupplo L-10。ほかの人が話すとその人についていく。船の両はしから出られる。クラーケンは音で気づくが範囲がせまい。Rune of Release は地図に H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Lost_and_Found",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が特務曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Imperial Code",
+      "name_ja_ref": "オグマ奪取指令",
+      "order": 38,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績4,000（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11354.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "CS、30分、Lv.70。忍者の NM の Oko・Danzo・Saizo を倒す。倒したあとに ??? が出て、最後の1つがオグマ（OGMA）。取ると Rune of Release。Saizo は両手刀で微塵がくれ。Oko と Saizo の近くに Kusa がいる。Kudagitsune は近づくとすぐ Perdition（即死）。Rune of Release は下の層の G-8 と H-8 の境目で、上の層の穴の真下（FFXIclopedia：Yahsra L-10。入るのは南西のすみ G-10/H-10。Oko G-8、Danzo H-8、Saizo I-8。HP 4500ほど。オグマはいつも3体目。おすすめは Saizo・Oko・Danzo の順。Danzo のあと穴から落ちると下の層の G-8 に Rune of Release）",
+          "url": "https://www.bg-wiki.com/ffxi/Imperial_Code",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が特務曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Marids in the Mist",
+      "name_ja_ref": "マーリドガーデン作戦",
+      "order": 39,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績4,000、倒したマーリドの数だけ減る（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11356.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "CS、30分、Lv.70。Marid 8体を倒すか捕まえる。捕まえたほうが作戦戦績が多い。スタートの Zimahd に話すと Thunderguard Dart（テンポラリ）をもらえ、何度でももらえる。1人1本まで。Marid の TP が0（ウェポンスキルのすぐあと）でHPが半分より少ないときに使うと、ほぼ捕まえられる。Marid はTP技を使うと Chigoe を1匹出す。8体片付くと (I-9) の南西に Rune of Release。マムージャはインビジでよけられる（FFXIclopedia：Isdebaaq L-10。スタートは南東の下のトンネル。1部屋に2体。Marid は足がおそく、睡眠・グラビデ・バインドが効く。Dart を使うと2〜3秒すべて効かなくなる。外れると暴れ出す（眠らせておくと起きない）。G-9/H-9 のトンネルは東にしか行けない）",
+          "url": "https://www.bg-wiki.com/ffxi/Marids_in_the_Mist",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が特務曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Egg Conservation",
+      "name_ja_ref": "ハンターキラー作戦",
+      "order": 40,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績4,000、気絶した雌1羽につき400減る（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11359.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "CS、30分、Lv.70。アプカルを回復しながらキキルンを倒す。小さいのがメスで戦わない。メスが全部倒れると失敗。大きいオスは近くのキキルンを攻撃し、HPが半分を切ると倒れて戦わなくなる。キキルンは東と西から1〜2匹ずつ来る。15匹倒すと (I-8) に Rune of Release。Qiqirn Eggler は回避が高く、攻撃が速い（FFXIclopedia：Famad L-10。はじめは大きな部屋で、Rune of Release ははじめにいる Rhap Nelhah の横。アプカルは強化・回復ができて、ヘイトがたまらない。キキルンは睡眠・グラビデ・バインド・スタンが効かない。キキルンはペットにも向かう）",
+          "url": "https://www.bg-wiki.com/ffxi/Egg_Conservation",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が特務曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Operation: Snake Eyes",
+      "name_ja_ref": "双頭の蛇作戦",
+      "order": 41,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績4,000（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11375.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "CS、30分、Lv.70。スタート (I-9) のまわりの Qutrub 5体を倒すと北の扉が開く。北の6つの部屋のどこかで Merrow No.16 が Karazahm と戦っているので、Karazahm を死なせずに倒す（どちらもワイドスキャンに出ない）。(I-6) の Lamia No.14 を倒すと北の扉が開く。ベリーダンスは目で見る範囲の魅了。(H-6) の Umarid と戦い、HPを半分より少なくすると Lamia No.17 が出る。Umarid を倒すと失敗。Lamia No.17 を倒すと (I-5) に Rune of Release（FFXIclopedia：Lageegee L-10。Qutrub は H-9 の南西・北西・北東に2体・I-9 の北の扉のそば。Karazahm が倒れると失敗。Karazahm は回復できる。全員が魅了されると Lamia No.14 が扉の先へ連れて行く。Lamia No.14 は倒すと少しして扉が開く。Umarid は H-6 の北、HP 3600ほどで、30〜50%ほど減らす。Rune of Release は I-5）",
+          "url": "https://www.bg-wiki.com/ffxi/Operation:_Snake_Eyes",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が特務曹長以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Deserter",
+      "name_ja_ref": "脱走兵武装解除指令",
+      "order": 42,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績は武装解除1匹300、倒すと100（最大3,600）（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11376.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "CS、30分、Lv.70。ラミアかメローを1匹以上、武器を壊して降参させる。クリティカルやクリティカルのウェポンスキルで壊れることがある。壊すとすぐ降参してNPCになる。ラミアとメローは12匹。1匹降参させたあとは、スタートのNPCに話していつでも終われる。12匹全部を倒すか降参させると、1匹以上降参していれば Rune of Release が自動で出る。Rune of Release はスタートのNPCのところ（FFXIclopedia：Bhoy Yhupplo L-10。スタートは (H-9) の Raubahn の横。シールドバッシュなどでも壊せる。倒すと1匹ごとに120減る。1匹倒すか降参させれば勝てる。Raubahn に話して「やめる」で「はい」を選ぶと Rune of Release）",
+          "url": "https://www.bg-wiki.com/ffxi/Deserter",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が少尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Red Versus Blue",
+      "name_ja_ref": "不滅隊・魔滅隊合同演習",
+      "order": 43,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績5,000、魔滅隊員が1人倒されるごとに200減る（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12312.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は Raubahn を倒すこと。はじめの隊長の NPC に話すまで青軍と Raubahn は出ない。Raubahn たちは (I-6) の上に出る。隊長の Shailham が倒されるとすぐ失敗。味方が倒されるごとに作戦戦績が減る。味方は黒魔道士、青軍は青魔道士（FFXIclopedia：Yahsra L-10。スタートは (G-9)。Shailham に話すと始まる。青軍の出かたは4とおり。青魔道士は睡眠が効かないが、Raubahn は効く。Raubahn は HP 3000ほどで、倒すと残りの敵は消える。Rune of Release はスタートの (G-9)）",
+          "url": "https://www.bg-wiki.com/ffxi/Red_Versus_Blue",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が少尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Azure Ailments",
+      "name_ja_ref": "青の症例",
+      "order": 44,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500＋症例数×300（最大3,600）（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12314.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。敵からステータス異常をもらい、(H-8) の Soulflayer Garjham に話して報告する。3つ報告して Garjham にもう一度話すと Rune of Release。アムネジア（Qiqirn Huckster）、バイオ（Poroggo）、病気（Pit Lindwurm）、スロウ（Huge Spider・Pit Lindwurm）、STRダウン（Bugard）、攻撃力ダウン（Leech）、回避率ダウン（Slavering Lizard）。Mamool Ja はステータス異常をくれず、インビジでよけられる（FFXIclopedia：Isdebaaq L-10。Garjham は (H-8) のスタートの NPC。1つずつ報告してよく、だれが報告してもよいが、同じものは数えない。3つ報告したあと Garjham にもう一度話すと終わる。ラプトル・スパイダー・キキルンは東、リーチは北、ブガードは西、トカゲは南）",
+          "url": "https://www.bg-wiki.com/ffxi/Azure_Ailments",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が少尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Operation: Black Pearl",
+      "name_ja_ref": "ブラックパール作戦",
+      "order": 45,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績4,200、倒されたNPC1人につき400減る（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12318.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。Princess Kadjaya と Whyjham を、Jorporbor the Hellraker を倒すまで1回も攻撃させない。Kadjaya が攻撃されると失敗。敵は3つの通路から2組ずつ来て、Wamouracampa・Crimson Eruca・Vulcanian Bomb が5匹ずつ、最後に Troll Combatant。トロールを倒すと次の組が出る。通路の見張りは Yanshaal・Djahama・Kudjreel で、残った数で作戦戦績が変わる。何組か倒すと Jorporbor the Hellraker が来る。倒すと残りの敵は消え、Kadjaya のところに Rune of Release（FFXIclopedia：Famad L-10。スタートは (G-7)。まん中の NPC に話すと敵が来はじめる。ボムはファイアIV・フレア。トロール以外は睡眠がほとんど効かない。メッセージが出たらすぐまん中へもどる）",
+          "url": "https://www.bg-wiki.com/ffxi/Operation:_Black_Pearl",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が少尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Wake the Puppet",
+      "name_ja_ref": "人形の目覚め作戦",
+      "order": 46,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,800＋マイムン回収数×300（3,000〜3,600）（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12316.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。スタートの NPC の Adeeha のところへパペットを4体以上もどす。パペットは (H-6)・(F-8)・(J-8)・(H-10) の行き止まりの部屋に出て、3つの部屋に2体ずつ、1つは空。/salute で起動、/clap でついてくる、/goodbye で止める（Adeeha の近くで止めると名前が緑になり回収）、/hurray で戦う。同じ動作をくりかえしたら、決まったエモーションで直す。Wight はパペットを起動すると出て、パペットをねらう。4体で Rune of Release、6体まで作戦戦績が増える（FFXIclopedia：Lageegee L-10。スタートは (H-8)。Adeeha に話すと動かし方を教えてくれる。/clap は10より近くで。Rune of Release は (H-8)）",
+          "url": "https://www.bg-wiki.com/ffxi/Wake_the_Puppet",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が少尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Desperately Seeking Cephalopods",
+      "name_ja_ref": "鱆号作戦",
+      "order": 47,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績3,000（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12317.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。釣りで Orobon（NM）を釣って倒し、手に入るものをスタートの NPC に渡す。釣りスキルはいらない。Qiqirn Pecheur は Willow Fishing Rod か Fly Lure を落とす。どこで釣っても Orobon・Pugil・Crab・Kraken のどれかがかかる。Orobon は決まった場所でしか釣れない。4人の海兵は、4〜5匹釣ったあと話が変わり、1人だけが「いい場所」と言う。さらに釣ると場所をくわしく言う。とどめをさした人が ahtapot をもらう（FFXIclopedia：Bhoy Yhupplo L-10。ahtapot を Ulbuun に持って行く。Bhjaama G-8、Walagarim H-7、Zawahf I-8、Zshahda I-9。Qiqirn Pecheur は見て気づく。Orobon は静寂・睡眠の技があり、睡眠が効く）",
+          "url": "https://www.bg-wiki.com/ffxi/Desperately_Seeking_Cephalopods",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が中尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Bloody Rondo",
+      "name_ja_ref": "ヘルシング作戦",
+      "order": 48,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500（ルジャワン霊窟）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12922.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は Count Dracula を倒すこと。暗黒騎士で攻撃が強いが、足はふつうで、魔法をよく唱えるので逃げやすい。Bloodrake（吸収）、デコレーション（前方）、断罪の瞳（死の宣告・視線、カーズナ・聖水で治る）、Heliovoid、ノクトサービチュード（前方の魅了、コウモリになる）、ノスフェラトゥキス（まわりの HP・TP 吸収のあと Cursed Doppelganger が出る）、ウイング・オブ・ゲヘナ（まわり・ノックバック・スタン）（FFXIclopedia：Yahsra L-10。地図はない。HP 約21,000。魅了された人は寝かせられる。断罪の瞳は前にいる人に効き、うしろを向いていればかからない。Cursed Doppelganger は HP が少ない。左に大きな柱があり逃げやすい）",
+          "url": "https://www.bg-wiki.com/ffxi/Bloody_Rondo",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Yahsra"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が中尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Susanoo Shuffle",
+      "name_ja_ref": "スサノオ作戦",
+      "order": 49,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500（マムージャ兵訓練所）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12923.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は Orochi を倒すこと。Hydra より弱く、HP・リジェネが少なく、TP は自然に増えない。首が落ちてまた生える。引き寄せを使う。エレジー・スロウが入りやすい。ときどき「Orochi has begun to thrash its tail about」と出て30〜45秒ほど尾を向け、サーペンタインテール（1発で倒れることがある）を使う。「The thrashing has ceased.」で終わる。走って離れればよけられる（FFXIclopedia：Isdebaaq L-10。地図はない。開けた場所のまん中に出る。リジェネあり。闇の側の魔法に強い。ナーブガスは毒と呪い。全滅すると HP がすぐもどる）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Susanoo_Shuffle",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Isdebaaq"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が中尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Better than One",
+      "name_ja_ref": "ヘラクレス作戦",
+      "order": 50,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500（レベロス風穴）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12924.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は Black Shuck を倒すこと。ふつうのケルベロスより HP が少ない。引き寄せを使う。後衛は Black Shuck のいる場所の北東の通路にいると火のエレメンタルにからまれにくい。ときどき吠えて（その間はダメージを受けない）、Nocuous Inferno を8体呼ぶ、ブレイズスパイク、ゲーツオブハデス、命中・攻撃アップのどれかになる。Nocuous Inferno は魔法に反応してからむので、なるべく少しだけ引いて、消えるまで逃げる（FFXIclopedia：Famad L-10。地図はない。HP 約25,000。吠えるのは最初と HP が約4分の1減るごと。Nocuous Inferno は8体で、次に吠えると消える。睡眠・静寂が効かない。横から盾をしてもよい）",
+          "url": "https://www.bg-wiki.com/ffxi/Better_Than_One",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Famad"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が中尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Price Is Right",
+      "name_ja_ref": "キラーロード作戦",
+      "order": 51,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500（ペリキア）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12925.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は King Goldemar を倒すこと。黒魔道士で、-ga III・古代魔法・スリプガをとても速く唱える。弱体とディスペルにとても強い（フィナーレは入る）。戦いながら動く武器を1つずつ呼び、呼ぶときにどれが来るか言う。カックル（魔法攻撃・魔法防御・魔法命中ダウン）、Hellsnap（まわりにスタン、このあと武器を呼ぶ）、ネクロベイン（麻痺）、Necropurge（呪い）、Thundris Shriek（テラー）。武器は Demonic Rod（白魔法）、Living Staves（黒魔法）、Bloody Daggers（速い攻撃）、Cursed Axe（遅いがいつもクリティカル）、Magic Shields（シールドバッシュだけ）で、どれもダイアワール（FFXIclopedia：Lageegee L-10。地図はない。HP 約20,000。引き寄せはない。グラビデ・スロウが入る。武器は HP 約3,500で、King Goldemar が呼ぶまで攻撃できない）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Price_is_Right",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lageegee"
+      },
+      "steps": []
+    },
+    {
+      "category": "assault",
+      "game_ref": null,
+      "id": "mission.assault.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションを進めて、サラヒム・センチネルの傭兵になっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "傭兵階級が中尉以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "募集要員はレベル70・1〜6人（突入するときにレベル制限をかけられる）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Bellerophon's Bliss",
+      "name_ja_ref": "ベレロフォン作戦",
+      "order": 52,
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "作戦戦績1,500（イルルシ環礁）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12926.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "30分、Lv.70。目標は Khimaira 14X を倒すこと。Martial Maestro Megomak も攻撃してくる。1人が Megomak を引きつけて逃げ、Khimaira 14X に集中すると楽。どちらもスタンが効かない。Megomak がダイスをふった目で Khimaira 14X の技が決まる（トゥールビヨン・Tenebrous Mist・サンダーストライク・ドレッドストーム・岩息・Plague Swipe・フルミネーション）。Megomak は HP が少なくなるか Khimaira 14X が倒されるとワープして消える。「攻略」の欄は Megomak を倒してから Khimaira 14X を倒す（FFXIclopedia：Bhoy Yhupplo L-10。地図はない。Khimaira 14X を釣ると Megomak がリンクする。引き寄せを使う。Megomak は HP が少なく、約20%で逃げる。Khimaira 14X を倒すと、戦う場所の奥の Rune of Release が使えるようになる）",
+          "url": "https://www.bg-wiki.com/ffxi/Bellerophon's_Bliss",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Bhoy_Yhupplo"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.アトルガン白門.Bhoy_Yhupplo",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Bhoy Yhupplo",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Famad",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Famad",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Isdebaaq",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Isdebaaq",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Lageegee",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Lageegee",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Sorrowful_Sage",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Sorrowful Sage",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Yahsra",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9 L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Yahsra",
+      "same_name": false
+    }
+  ]
+}

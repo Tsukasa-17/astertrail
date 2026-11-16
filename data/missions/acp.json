@@ -1,0 +1,498 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "追加シナリオ「石の見る夢」を持っている、Lv10以上",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP1",
+      "name_en": "A Crystalline Prophecy",
+      "name_ja_ref": "石の見る夢",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16529.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lv10以上でジュノ下層に入るとイベント（FFXIclopedia にこの節の手順はない）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「石の見る夢」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP2",
+      "name_en": "The Echo Awakens",
+      "name_ja_ref": "よみがえりし原初の意志",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/22023.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "日光の欠片はジャグナー森林 G-11、月光の欠片はパシュハウ沼 K-10、星彩の欠片はメリファト山地 K-8 あたりの獣人から（FFXIclopedia も同じ）。??? はクフィム島 G-6 の東、2本の岩の柱のあいだ",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「よみがえりし原初の意志」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP3",
+      "name_en": "Gatherer of Light (I)",
+      "name_ja_ref": "神の歌の残響が呼ぶ　その1",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17314.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "??? はバタリア丘陵 F-5、ロランベリー耕地 D-11、ソロムグ原野 J-9（I/J-9/10 の角。FFXIclopedia も同じ）。どれも崖の上",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「神の歌の残響が呼ぶ　その1」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP4",
+      "name_en": "Gatherer of Light (II)",
+      "name_ja_ref": "神の歌の残響が呼ぶ　その2",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "黄玉のカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17315.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "クフィム島 G-6 の ??? からその場で戦う。Seed Mandragora を計30体（FFXIclopedia は最大5体ずつ・30分）。フェイスは呼べない。勝つと Amber Key",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.126.???_G-6"
+      },
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「神の歌の残響が呼ぶ　その2」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP5",
+      "name_en": "Those Who Lurk in Shadows (I)",
+      "name_ja_ref": "廃墟で待つ者は　その1",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17336.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "フェ・インに入るとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「廃墟で待つ者は　その1」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP6",
+      "name_en": "Those Who Lurk in Shadows (II)",
+      "name_ja_ref": "廃墟で待つ者は　その2",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "シードの紋章"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17337.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Seed Afterglow 9つを30分以内に。赤・橙・黄・緑は1階、白・水色・金・銀は地下（FFXIclopedia も同じ）。黄は大広間か H/I-9 の小さな部屋。集めると Mark of Seed か Azure Key を選ぶ",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「廃墟で待つ者は　その2」クリア、だいじなもの「シードの紋章」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP7",
+      "name_en": "Those Who Lurk in Shadows (III)",
+      "name_ja_ref": "廃墟で待つ者は　その3",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "白玉のカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17338.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Burning Circle を調べてもう一度調べると BF。Seed Yagudo・Seed Quadav・Seed Orc・Seed Goblin の4体（FFXIclopedia も同じ）。勝つと Ivory Key",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「廃墟で待つ者は　その3」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP8",
+      "name_en": "Remember Me in Your Dreams",
+      "name_ja_ref": "再会　時に引き裂かれし絆",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17345.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ロ・メーヴから神々の間に入るとイベント。ル・オンの庭から入ったときはロ・メーヴに出て入り直す（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「再会　時に引き裂かれし絆」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP9",
+      "name_en": "Born of Her Nightmares",
+      "name_ja_ref": "共鳴　悪夢と失われた頌歌と",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17346.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "デルクフの塔下層に入るとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「共鳴　悪夢と失われた頌歌と」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP10",
+      "name_en": "Banishing the Echo",
+      "name_ja_ref": "残響を打ち消す者",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "輝ける石"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17347.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "各塔の入口の Seed Fragment で Lv30 の制限。石の場所は 1階 J-10（FFXIclopedia は J-11）、2階 H-7、3階 I-9、4階 H-10、5階 G-7、6階 F-8、7階 H-9、8階 I-8、9階 G-8、10階 G-9、11階 H-7、12階 H-7（ほかは FFXIclopedia も同じ）。天輪の場の Seed Fragment で Omnis Stone",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「輝ける石」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP11",
+      "name_en": "Ode of Life Bestowing",
+      "name_ja_ref": "天よ聴け　魂の返歌",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "黒玉のカギ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "虹玉のカギ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "神の頌歌に返せる者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17348.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Qe'Iov Gate を調べてイベント、もう一度調べて BF。相手は Seed Crystal（FFXIclopedia も同じ。6人・30分・レベル制限なし）。称号 Silencer of the Echo、Ebon Key・Prismatic Key",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.天輪の場.Qe_Iov_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「天よ聴け　魂の返歌」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ACP12",
+      "name_en": "A Crystalline Prophecy (Fin.)",
+      "name_ja_ref": "石の見る夢＜完＞",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17370.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層の天晶堂の宝箱（FFXIclopedia は Treasure Coffer）を調べると、Mirke Wardecors・Nuevo Coselete・Royal Redingote のどれか。BG Wiki はカギの宝箱をジュノ下層 J-8 と書いている",
+          "url": "https://www.bg-wiki.com/ffxi/Crystalline_Mission_12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "acp",
+      "game_ref": null,
+      "id": "mission.acp.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノ下層に入って「後にする」を選んだ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To commence ACP",
+      "name_ja_ref": "「石の見る夢」を始めるには……",
+      "order": 999,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39143.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.245.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "obj.245.Tales_Beginning",
+      "kind": "obj",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Tales' Beginning",
+      "same_name": false
+    },
+    {
+      "id": "obj.天輪の場.Qe_Iov_Gate",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 179,
+        "zone_name": "天輪の場"
+      },
+      "moves": false,
+      "name_en": "Qe'Iov Gate",
+      "same_name": false
+    }
+  ]
+}

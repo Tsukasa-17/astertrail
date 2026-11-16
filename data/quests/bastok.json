@@ -1,0 +1,5056 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.001",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Minesweeper",
+      "name_ja_ref": "ツェールン鉱山の大掃除",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "150ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ツェールンスイーパー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/6497.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gerbaum"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.002",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Flash in the Pan",
+      "name_ja_ref": "カマドに火をつけて",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/10078.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Aquillina"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.003",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Breaking Stones",
+      "name_ja_ref": "ダングルフの奇岩",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "400ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/7852.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Horatius"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Fallen Comrades",
+      "name_ja_ref": "心の壁",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "550ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/10481.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Pavvke"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.005",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Mom, the Adventurer?",
+      "name_ja_ref": "ママは冒険者？",
+      "note_ja": "ママの大仕事が発生すると再オファー不可",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "200ギル（手紙を読むと100ギル）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "怪しい運び屋"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/15793.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Nbu_Latteh"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ママは冒険者？」コンプリート後にエリアチェンジする",
+          "type": "quest"
+        },
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Signpost Marks the Spot",
+      "name_ja_ref": "ママの大仕事",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "リネンローブ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "トレジャーハンター"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/15794.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Nbu_Latteh"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "週に1度のみ（依頼者に再度話すとキャンセル可）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "All by Myself",
+      "name_ja_ref": "ひとりでできる？",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6087.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Marin"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「遠い絆」進行中は受けられない",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Elvaan Goldsmith",
+      "name_ja_ref": "エルヴァーンの彫金師",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "180ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11045.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Michea"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク1（用語辞典はランク2）",
+            "url": "https://www.bg-wiki.com/ffxi/Father_Figure",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「エルヴァーンの彫金師」クリア、名声ランク1以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Father Figure",
+      "name_ja_ref": "クラウツ橋の隣人",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "クラウツ橋の友人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,200ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11046.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Michea"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.010",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Stamp Hunt",
+      "name_ja_ref": "スタンプラリー",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "スタンピオン"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "レザーゴルゲット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6629.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Stump Hunt）",
+          "url": "https://www.bg-wiki.com/ffxi/Stamp_Hunt",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Arawn"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.011",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Brygid the Stylist",
+      "name_ja_ref": "ブリジッドのファッションチェック",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ブリジッドのお墨付き"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "グローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2080.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Brygid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「クラウツ橋の隣人」クリア、名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Return of the Adventurer",
+      "name_ja_ref": "冒険者の帰還",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "木綿のヘッドバンド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6772.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Gwill"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンクエスト「「何もできない」だなんて言わせない」クリア、からくり士Lv66以上",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Achieving True Power",
+      "name_ja_ref": "力と覚悟",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "奔放不羈の業人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "からくり士のレベル上限75"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10167.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Shamarhaan"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク4（そこそこ知られる）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Curse Collector",
+      "name_ja_ref": "呪いの視線",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ポイズンセスタス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16255.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Zon-Fobun"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.015",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Cold Light of Day",
+      "name_ja_ref": "灯台もと暗し",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5761.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Malene"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.016",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Gourmet",
+      "name_ja_ref": "豊かな食卓",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ママのお手伝い"
+        },
+        {
+          "kind": "other",
+          "name_ja": "100ギル（時間帯の正解なら200／350ギル）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1662.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Salimah"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.017",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Buckets of Gold",
+      "name_ja_ref": "釣りとバケツの関係",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "バケツフィッシャー"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "300ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6214.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Foss"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.018",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Bare Bones",
+      "name_ja_ref": "骨のある生活",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ダングルフの涸れ谷地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1669.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Degenhard"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.019",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Wisdom of Elders",
+      "name_ja_ref": "おばあちゃんの知恵袋",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "旅人の帽子"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10510.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Benita"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "モンクLv40以上で話しかける",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Ghosts of the Past",
+      "name_ja_ref": "さまよえる亡霊",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ビートセスタス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8578.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Oggbi"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "モンクLv50以上、クエスト「さまよえる亡霊」クリア（要エリアチェンジ）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The First Meeting",
+      "name_ja_ref": "そして、めぐりあう",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テンプルゲートル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8372.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Oggbi"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.022",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Welcome to Bastok",
+      "name_ja_ref": "ようこそバストゥークへ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "バストゥークの案内人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スパタ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5170.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Powhatan"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上、飛空艇パス所持",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Stars of Ifrit",
+      "name_ja_ref": "イフリートの空に向かう船",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "イフリートの空に向かう者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10144.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Agapito"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.024",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Quadav's Curse",
+      "name_ja_ref": "クゥダフの呪い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブロンズサブリガ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10600.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Corann"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.025",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Lady's Heart",
+      "name_ja_ref": "センスを磨くのにゃ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "バストゥークの裏道情報（モグハウスから出るエリアを選択可能に）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5776.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Valah_Molkot"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Forever to Hold",
+      "name_ja_ref": "共に白髪の生えるまで",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "クィジの友人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "300ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10593.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Qiji"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク2以上、召喚士Lv15以上で話しかける",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial Size Trial by Earth",
+      "name_ja_ref": "土の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣「タイタン」との契約、呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10707.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Ferrol"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.028",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Lure of the Wildcat （Bastok）",
+      "name_ja_ref": "山猫の誘惑",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "青色の招待券"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5045.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Alib-Mufalib"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.029",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「工房長の秘密」コンプリート、名声ランク5（「かなり知られるように」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Usual",
+      "name_ja_ref": "常連客",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "「蒸気の羊"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スピードボウ"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "亭の常連客」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10714.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Hilda"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク3（用語辞典はランク4）",
+            "url": "https://www.bg-wiki.com/ffxi/Till_Death_Do_Us_Part",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「共に白髪の生えるまで」コンプリート、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Till Death Do Us Part",
+      "name_ja_ref": "幸せのさじ加減",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "クィジのライバル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10597.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Romilda"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3、クエスト「ようこそバストゥークへ」クリア",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Guest of Hauteur",
+      "name_ja_ref": "待ち人来たらず",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "タージェ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5255.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Powhatan"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.032",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv5以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「新魔法フェイス（サンドリア）」「新魔法フェイス（ウィンダス）」をオファー中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trust： Bastok",
+      "name_ja_ref": "新魔法フェイス（バストゥーク）",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "信頼・親愛・友情を抱く者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "バストゥークのフェイス使用許可証"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェイス「ナジ」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/30163.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Clarion_Star"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.033",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク2（用語辞典はランク3）",
+            "url": "https://www.bg-wiki.com/ffxi/Past_Perfect",
+            "via": "bg-wiki"
+          },
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Past Perfect",
+      "name_ja_ref": "決別",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スケイルメイル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10705.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Evi"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.034",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Foreman's Best Friend",
+      "name_ja_ref": "犬は忘れない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "グスゲン鉱山地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2、000ポイント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3814.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Gudav"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.035",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「イフリートの空に向かう船」の「鳥の届けた手紙」の中身を確認済み、名声一定以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「セイレーンの涙」を受けている間や未クリア時は発生しない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Love and Ice",
+      "name_ja_ref": "狂想曲「氷河に果てる恋」",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ラプソディコンダクター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ラミアの竪琴"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10143.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Carmelo"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "天晶堂の名声ランク一定以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Silence of the Rams",
+      "name_ja_ref": "猛き獣の拳を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "紫帯の有段者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "紫帯"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6427.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Paujean"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.037",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「クゥダフの呪い」コンプリート、名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Out of One's Shell",
+      "name_ja_ref": "甲羅を脱いで",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "甲羅からの解放者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "モンクヘッドギア"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10603.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Ronan"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.038",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Bite the Dust",
+      "name_ja_ref": "砂の道を拓く",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "砂の開拓者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "350ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/13456.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Yazan"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他の「落とし主は誰だ」（三国・カザム）がオファーリストに載っている間は発生しない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Discerning Eye （Bastok）",
+      "name_ja_ref": "落とし主は誰だinバストゥーク",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とても違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とてもとても違いの分かるヤツ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "500ギル（総クリア数5／20／100回で、）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10709.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Grin"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.040",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声「ほとんど知っている」",
+          "type": "fame"
+        },
+        {
+          "text_ja": "三国の「護衛の報酬」は1つしか受けられず、どれかをクリアするとコンクェスト集計後まで再挑戦不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Escort for Hire （Bastok）",
+      "name_ja_ref": "護衛の報酬～バストゥーク編",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "10、000ギル（初回のみ）、ミラテテ様言行録（毎回）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5719.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Trilok"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ガルカと少女」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Shady Business",
+      "name_ja_ref": "買い取りなら天晶堂",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "350ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6483.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Talib"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.042",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他国の「退魔の報酬」と合わせて地球時間1週間に1回・1つのみ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Eco-Warrior （Bastok）",
+      "name_ja_ref": "退魔の報酬～バストゥーク編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "蒼海の雇われハンター"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "5000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ランペール戦記"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10404.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Raifa"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.043",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Fear of Flying",
+      "name_ja_ref": "飛空艇の恐怖",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "飛空艇伝道師"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "黒絹のネッカチーフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16340.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Kurando"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.044",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク3（用語辞典はランク2）",
+            "url": "https://www.bg-wiki.com/ffxi/The_Eleventh's_Hour",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「ミスリルに賭けた男たち」コンプリート（直後はエリアチェンジ必要）、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Eleventh's Hour",
+      "name_ja_ref": "11人目の真実",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "真実の探求者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スモールソード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9074.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Elki"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「祖母の心孫知らず」コンプリート、戦士Lv50以上",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Talekeeper's Truth",
+      "name_ja_ref": "200年のすれ違い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ファイターカリガ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7041.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Deidogg"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "錬成スキル5以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Wondrous Whatchamacallit",
+      "name_ja_ref": "あの人のように",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "携帯錬成窯"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/18740.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Selliste"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4（「そこそこ知られるように」）以上、レベル10以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Altana's Sorrow",
+      "name_ja_ref": "アルタナの悲しみ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "デムの巡礼者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テレポデム"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10499.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Virnage"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.048",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Beauty and the Galka",
+      "name_ja_ref": "ガルカと少女",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブロンズナイフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6484.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Parraggoh"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.049",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Siren's Tear",
+      "name_ja_ref": "セイレーンの涙",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "水辺に立つ者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "150ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10508.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Wahid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.050",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Hearts of Mythril",
+      "name_ja_ref": "ミスリルに賭けた男たち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "過去を垣間見る者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "下ばき"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5407.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Elki"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Rivals",
+      "name_ja_ref": "ライバル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "勝負の采配人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウルフゴルゲット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10477.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Detzo"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Vengeful Wrath",
+      "name_ja_ref": "憎悪",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "死者を弔いし者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "900ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10480.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Goraow"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上のジョブ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blade of Darkness",
+      "name_ja_ref": "暗黒剣",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "暗き業宿りし者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "暗黒騎士へのジョブチェンジ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8944.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.054",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「暗黒剣」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Blade of Death",
+      "name_ja_ref": "死を運ぶ刃",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "黒の死神"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "デスブリンガー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8945.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.055",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Groceries",
+      "name_ja_ref": "男の仕事",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "10ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ラビットマント（メモを読まないと"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6573.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Tami"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.056",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "戦士Lv40以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Doorman",
+      "name_ja_ref": "祖母の心孫知らず",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "レイザーアクス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8579.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Phara"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.057",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Drachenfall",
+      "name_ja_ref": "臥竜の滝",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "臥竜の験者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10476.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Black_Mud"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.058",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「200年のすれ違い」終了後ヴァナ時間0時を過ぎること、戦士で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Talekeeper's Gift",
+      "name_ja_ref": "語り部の遺品",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "勇壮なる大戦士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ファイターロリカ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9145.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Deidogg"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.059",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Fully Mental Alchemist",
+      "name_ja_ref": "錬金レボリューション",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "トレイニーソード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/18402.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Titus"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.060",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Gustaberg Tour",
+      "name_ja_ref": "グスタベルグ観光案内",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "グスタベルグツーリスト"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4762.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Izabele"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声「どこかで聞いた覚えがあるような…」程度",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Mean Machine",
+      "name_ja_ref": "ゴキゲンナナメな機械",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "デジョンのスクロール"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/14527.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Unlucky_Rat"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.062",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Smoke on the Mountain",
+      "name_ja_ref": "スモークオンザマウンテン",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "スモーキー"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "300ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8848.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Hungry_Wolf"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.063",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Bait and Switch",
+      "name_ja_ref": "七つの緻密なトリックを",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "選んだ道具による（スコープ:サイレントオイル、詩人の竪琴:プリズムパウダー+20ギル、見張り人長証明書:ハイポーション、トラップ:ハイエーテル、お守り:キーリングベルト、懐中時計:エルメスクエンチャ、???:イカロスウィング）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1357.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Salim"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.064",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "モンク、クエスト「そして、めぐりあう」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "True Strength",
+      "name_ja_ref": "守るべき何か",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "孤高なる大格闘家"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テンプルホーズ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5343.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Ayame"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.065",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4（「そこそこ知られるように」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Cid's Secret",
+      "name_ja_ref": "工房長の秘密",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ラムマント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10715.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.066",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「黒の伝承」クリア後、Lv50以上の暗黒騎士で話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Dark Puppet",
+      "name_ja_ref": "暗黒の虜囚",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "カオスソルレット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8387.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.067",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Stardust",
+      "name_ja_ref": "砂丘に舞う光",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "300ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16147.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Baldric"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.068",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "2012年3月27日以降はオファー不可（「錬成支援」クリアで同時にコンプリート扱い）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Synergistic Pursuits",
+      "name_ja_ref": "錬成指南 注釈4 2012年3月27日のバージョンアップ 以降 オファー 不可能。",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "錬成ユニット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/18738.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Hildolf"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.069",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「錬成ユニット」所持",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Synergistic Support",
+      "name_ja_ref": "錬成支援",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "好きな属性のフュエル3個"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/26575.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Hildolf"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.070",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Beadeaux Smog",
+      "name_ja_ref": "雨煙るベドー",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ベドー調査員"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "チャクラム"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/21868.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.High_Bear"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.071",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "暗黒騎士Lv40以上で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Dark Legacy",
+      "name_ja_ref": "黒の伝承",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "レイヴンサイズ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8574.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Raibaht"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.072",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Darksmith",
+      "name_ja_ref": "黒の技",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "8000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/12411.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Mighty_Fist"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.073",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「暗黒の虜囚」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "暗黒騎士Lv50以上（受けるときだけ）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blade of Evil",
+      "name_ja_ref": "死神の刃は黒く輝く",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "カオスバーゴネット"
+        },
+        {
+          "kind": "title",
+          "name_ja": "威風なる大暗黒騎士"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8388.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Zeid は ベドー(G-8)。受けたあとはほかのジョブで進めてよい。デルクフの塔中層へは下層から上るか、上層のホームポイントから下りる",
+          "url": "https://www.bg-wiki.com/ffxi/Blade_of_Evil",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.147.Zeid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.074",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク5以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Wish Upon a Star",
+      "name_ja_ref": "星に願いを",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "謎の多肉植物の子株×4"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12510.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=5。BG Wiki は依頼者を Zacc（G-9、Enu の隣）とする。Malene は バストゥーク商業区(I-5)。晴れで星の見える夜でないと渡せない",
+          "url": "https://www.bg-wiki.com/ffxi/Wish_Upon_a_Star",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Enu"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.075",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv30以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Ayame and Kaede",
+      "name_ja_ref": "アヤメとカエデ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "忍者にジョブチェンジできるようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "忍びの道を往く者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8943.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=1。BG Wiki は始まりを Kaede（J-5）とする。用語辞典は依頼者を Ensetsu（I-5）とする",
+          "url": "https://www.bg-wiki.com/ffxi/Ayame_and_Kaede",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Kaede"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.076",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial by Earth",
+      "name_ja_ref": "土の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "タイタンカジェル／アースベルト／アースリング／砂漠の光／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“タイタン”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる土の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7572.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Juroro は バストゥーク港(I-8)（用語辞典は I-7）。Repeatable=Y、FLevel=6",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Earth",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Juroro"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.077",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「狂想曲「氷河に果てる恋」」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Test of True Love",
+      "name_ja_ref": "死に至る病",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "10,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10142.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=6（用語辞典は「一定以上」とだけ）。Carmelo は バストゥーク港(E-6)",
+          "url": "https://www.bg-wiki.com/ffxi/A_Test_of_True_Love",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Carmelo"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.078",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上のモンクかからくり士で、格闘スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Walls of Your Mind",
+      "name_ja_ref": "遺せなかった拳",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「夢想阿修羅拳」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2942.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Oggbi は バストゥーク港(E-6)（用語辞典は E-7）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Walls_of_Your_Mind",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Oggbi"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.079",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「死に至る病」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Lovers in the Dusk",
+      "name_ja_ref": "黄昏の恋人たち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "セイレーンフルート"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10141.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=6（用語辞典は「一定以上」とだけ）",
+          "url": "https://www.bg-wiki.com/ffxi/Lovers_in_the_Dusk",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.236.Carmelo"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.080",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・ナ・暗・剣で、両手剣スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Inheritance",
+      "name_ja_ref": "剣を継ぐ者",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「グラウンドストライク」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2933.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gumbah は バストゥーク鉱山区(J-7)",
+          "url": "https://www.bg-wiki.com/ffxi/Inheritance",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.234.Gumbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.081",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ノーグの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "忍者Lv20以上で話す（受けたあとはほかのジョブでよい）",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「アヤメとカエデ」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Faded Promises",
+      "name_ja_ref": "あの日の約束",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "梟"
+        },
+        {
+          "kind": "title",
+          "name_ja": "アサシン不採用"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11432.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Norg、FLevel=4（用語辞典に名声の条件はない）。Previous=Ayame and Kaede。Romualdo は 大工房(K-9)、Ayame は 同(K-7)、Alois は 同(J-8)の大統領府の会議室、Kagetora は バストゥーク港(F-6)。パルブロ鉱山の Treasure Chest は鍵で開ける",
+          "url": "https://www.bg-wiki.com/ffxi/Faded_Promises",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Romualdo"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.082",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・暗・剣で、両手斧スキル240以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Weight of Your Limits",
+      "name_ja_ref": "その重さとの闘い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「スチールサイクロン」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2934.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Iron Eater は 大工房(J-8)。???は 聖地ジ・タ(F-6)の北西の角（サバイバルガイドから）。同じ記事に「ロ・メーヴのユニティワープから入ると(F-5)の南西」とも書かれている",
+          "url": "https://www.bg-wiki.com/ffxi/The_Weight_of_Your_Limits",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Iron_Eater"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.083",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の狩人かコルセアで、射撃スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Shoot First, Ask Questions Later",
+      "name_ja_ref": "明日へと向かう銃弾",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「デトネーター」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2927.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cid は 大工房(H-8)。???は ボヤーダ樹 MAP3 (J-8)。ホームポイントかユニティワープで MAP2 に出て、(G-10)から南のトンネルに入ってすぐ",
+          "url": "https://www.bg-wiki.com/ffxi/Shoot_First,_Ask_Questions_Later",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.084",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ブリジッドのファッションチェック」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "アーティファクトの防具を1つ以上着ている（＋1や武器は不可）",
+          "type": "other"
+        }
+      ],
+      "name_en": "Brygid the Stylist Returns",
+      "name_ja_ref": "ブリジッドのファッションチェックII",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "13種類の胴装備から1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ベスト・オブ・サブリスト"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10241.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel は空、Repeatable=Y。Brygid (K-9)。サブリガはフォミュナ水道・礼拝堂のフォモル族が落とす",
+          "url": "https://www.bg-wiki.com/ffxi/Brygid_the_Stylist_Returns",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.235.Brygid"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.085",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "プロマシアの呪縛を入れている",
+          "type": "other"
+        }
+      ],
+      "name_en": "Out of the Depths",
+      "name_ja_ref": "暗き地の底より",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2200"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ニィジャンスカルッヘープ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9363.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=3。Ayame (K-7)、Ravorara (E-7)、Brakobrik は (K-10) と (K-11) の両方の書き方、Pavvke (I-7)。灰は 1・2・3・4 個で だいじなもの 4 つ、最後の1個で「いただかない」",
+          "url": "https://www.bg-wiki.com/ffxi/Out_of_the_Depths",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Ayame"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.086",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「暗き地の底より」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Question of Faith",
+      "name_ja_ref": "聖典の持ち主",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12513.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=4。Virnage (I-5)、Rakorok (K-10)、Bugallug は HP 5000 ほど",
+          "url": "https://www.bg-wiki.com/ffxi/A_Question_of_Faith",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Ayame"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.087",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「聖典の持ち主」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Return to the Depths",
+      "name_ja_ref": "ムバルポロスを探れ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ボウヤーリング"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ゴブリン人間"
+        },
+        {
+          "kind": "other",
+          "name_ja": "BFに勝つと預けた10,000ギルが戻る"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5505.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=5。報酬の 3000 ギルは BG Wiki だけ。Muckvix (H-10)、Magriffon (I-7)、Tarnotik に送ってもらうには各自アーリマンの涙。BF は 6人・30分、Twilotak",
+          "url": "https://www.bg-wiki.com/ffxi/Return_to_the_Depths",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Ayame"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.088",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Teak Me to the Stars",
+      "name_ja_ref": "美空を目指す",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2100"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12403.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=3。Raibaht (G-8) はシドの研究室",
+          "url": "https://www.bg-wiki.com/ffxi/Teak_Me_to_the_Stars",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Raibaht"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.089",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「美空を目指す」クリア後にエリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Hyper Active",
+      "name_ja_ref": "羽ばたく力を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12404.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=4。デルクフの塔下層の地下 (I-6) の Cermet Door、Orna と Fomorian Spear 2体、ジュノ下層の Street Lamp",
+          "url": "https://www.bg-wiki.com/ffxi/Hyper_Active",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Raibaht"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.090",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "バストゥークの名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「羽ばたく力を」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Naming Game",
+      "name_ja_ref": "名づけ子に",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3600"
+        },
+        {
+          "kind": "other",
+          "name_ja": "飛空艇の名前を決められる（3600ギルは初回だけ）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "翼の名づけ親"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12405.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=5、Repeatable=Y。オードリナイトはソ・ジヤ（ボスディン氷河 G-9 の塔）のクリプトンベリかチョコボ掘り",
+          "url": "https://www.bg-wiki.com/ffxi/The_Naming_Game",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Raibaht"
+      },
+      "steps": []
+    },
+    {
+      "category": "bastok",
+      "game_ref": null,
+      "id": "quest.bastok.091",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「畏れよ、我を」でシドと話している",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Chips",
+      "name_ja_ref": "回路をめぐる思惑",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ＣＣＢポリマー剤"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6560.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Bastok、FLevel=NA、Repeatable=Yes。Ghebi Damomohe (I-7)。チップはソ・ジヤの敵（ボスディン氷河 F-7 の塔がよい）、Cid にトレード",
+          "url": "https://www.bg-wiki.com/ffxi/Chips",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Ghebi_Damomohe"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "mob.103.Sand_Bats",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 103,
+        "zone_name": "バルクルム砂丘"
+      },
+      "moves": true,
+      "name_en": "Sand Bats",
+      "same_name": false
+    },
+    {
+      "id": "mob.106.Black_Wolf",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 106,
+        "zone_name": "北グスタベルグ"
+      },
+      "moves": true,
+      "name_en": "Black Wolf",
+      "same_name": false
+    },
+    {
+      "id": "mob.110.Silk_Caterpillar",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 110,
+        "zone_name": "ロランベリー耕地"
+      },
+      "moves": true,
+      "name_en": "Silk Caterpillar",
+      "same_name": false
+    },
+    {
+      "id": "mob.143.Greater_Quadav",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": true,
+      "name_en": "Greater Quadav",
+      "same_name": false
+    },
+    {
+      "id": "mob.143.NiGhu_Nestfender",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": true,
+      "name_en": "Ni'Ghu Nestfender",
+      "same_name": false
+    },
+    {
+      "id": "mob.147.Old_Quadav",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 147,
+        "zone_name": "ベドー"
+      },
+      "moves": true,
+      "name_en": "Old Quadav",
+      "same_name": false
+    },
+    {
+      "id": "mob.149.Deloknok",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": true,
+      "name_en": "Deloknok",
+      "same_name": false
+    },
+    {
+      "id": "mob.149.Gavotvut",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": true,
+      "name_en": "Gavotvut",
+      "same_name": false
+    },
+    {
+      "id": "mob.196.Pudding",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 196,
+        "zone_name": "グスゲン鉱山"
+      },
+      "moves": true,
+      "name_en": "Pudding",
+      "same_name": false
+    },
+    {
+      "id": "mob.Amethyst_Quadav",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Amethyst Quadav",
+      "same_name": false
+    },
+    {
+      "id": "mob.Huu_Xalmo_the_Savage",
+      "kind": "mob",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/True_Strength",
+            "https://ffxiclopedia.fandom.com/wiki/True_Strength"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Huu Xalmo the Savage",
+      "same_name": false
+    },
+    {
+      "id": "mob.Wandering_Ghost",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Wandering Ghost",
+      "same_name": false
+    },
+    {
+      "id": "npc.106.Hunting_Bear",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 106,
+        "zone_name": "北グスタベルグ"
+      },
+      "moves": false,
+      "name_en": "Hunting Bear",
+      "same_name": false
+    },
+    {
+      "id": "npc.106.Waterfall_Base",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 106,
+        "zone_name": "北グスタベルグ"
+      },
+      "moves": false,
+      "name_en": "Waterfall Base",
+      "same_name": false
+    },
+    {
+      "id": "npc.143.Talib",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": false,
+      "name_en": "Talib",
+      "same_name": false
+    },
+    {
+      "id": "npc.147.Zeid",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 147,
+        "zone_name": "ベドー"
+      },
+      "moves": false,
+      "name_en": "Zeid",
+      "same_name": false
+    },
+    {
+      "id": "npc.151.Yagudo_Parasite",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 151,
+        "zone_name": "オズトロヤ城"
+      },
+      "moves": false,
+      "name_en": "Yagudo Parasite",
+      "same_name": false
+    },
+    {
+      "id": "npc.172.Zeid",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Zeid",
+      "same_name": false
+    },
+    {
+      "id": "npc.172.Zelman",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 172,
+        "zone_name": "ツェールン鉱山"
+      },
+      "moves": false,
+      "name_en": "Zelman",
+      "same_name": false
+    },
+    {
+      "id": "npc.173.Brass_Quadav",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 173,
+        "zone_name": "コロロカの洞門"
+      },
+      "moves": false,
+      "name_en": "Brass Quadav",
+      "same_name": false
+    },
+    {
+      "id": "npc.191.Ken",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 191,
+        "zone_name": "ダングルフの涸れ谷"
+      },
+      "moves": false,
+      "name_en": "Ken",
+      "same_name": false
+    },
+    {
+      "id": "npc.196.Degga",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 196,
+        "zone_name": "グスゲン鉱山"
+      },
+      "moves": false,
+      "name_en": "Degga",
+      "same_name": false
+    },
+    {
+      "id": "npc.196.Garnet_Quadav",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 196,
+        "zone_name": "グスゲン鉱山"
+      },
+      "moves": false,
+      "name_en": "Garnet Quadav",
+      "same_name": false
+    },
+    {
+      "id": "npc.197.Guardian_Crawler",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "Guardian Crawler",
+      "same_name": false
+    },
+    {
+      "id": "npc.197.Survival_Guide",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "Survival Guide",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Black_Mud",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-7（BG Wiki と FFXIclopedia が一致、用語辞典は J-6）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Drachenfall",
+            "https://ffxiclopedia.fandom.com/wiki/Drachenfall"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Black Mud",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Detzo",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Detzo",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Elki",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Elki",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Gerbaum",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Gerbaum",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Goraow",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Goraow",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Gumbah",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Gumbah",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Parraggoh",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Parraggoh",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Pavvke",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Pavvke",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Roh_Latteh",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Roh Latteh",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Selliste",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Selliste",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Tami",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Tami",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Titus",
+      "kind": "npc",
+      "location": {
+        "grid": "L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Titus",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Virnage",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Virnage",
+      "same_name": false
+    },
+    {
+      "id": "npc.234.Wahid",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "moves": false,
+      "name_en": "Wahid",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Aquillina",
+      "kind": "npc",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Aquillina",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Arawn",
+      "kind": "npc",
+      "location": {
+        "grid": "J-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Arawn",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Brygid",
+      "kind": "npc",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Brygid",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Degenhard",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Degenhard",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Enu",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Enu",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Foss",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-7（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Buckets_of_Gold",
+            "https://ffxiclopedia.fandom.com/wiki/Buckets_of_Gold"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Foss",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Gwill",
+      "kind": "npc",
+      "location": {
+        "grid": "E-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Gwill",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Horatius",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Horatius",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Malene",
+      "kind": "npc",
+      "location": {
+        "grid": "I-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Malene",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Marin",
+      "kind": "npc",
+      "location": {
+        "grid": "E-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 E-10（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/All_by_Myself",
+            "https://ffxiclopedia.fandom.com/wiki/All_by_Myself"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Marin",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Michea",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Michea",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Nbu_Latteh",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Nbu Latteh",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Salimah",
+      "kind": "npc",
+      "location": {
+        "grid": "L-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Salimah",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Shamarhaan",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Shamarhaan",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Zon-Fobun",
+      "kind": "npc",
+      "location": {
+        "grid": "G-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Zon-Fobun",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Agapito",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Agapito",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Alib-Mufalib",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Alib-Mufalib",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Bartolomeo",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Bartolomeo",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Benita",
+      "kind": "npc",
+      "location": {
+        "grid": "J-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Benita",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Carmelo",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Carmelo",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Clarion_Star",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Clarion Star",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Corann",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Corann",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Evi",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Evi",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Ferrol",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-8（BG Wiki と FFXIclopedia が一致、用語辞典は I-7）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Trial-Size_Trial_by_Earth",
+            "https://ffxiclopedia.fandom.com/wiki/Trial_Size_Trial_by_Earth"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Ferrol",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Grin",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Grin",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Gudav",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Gudav",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Hilda",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Hilda",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Kaede",
+      "kind": "npc",
+      "location": {
+        "grid": "J-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Kaede",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Kurando",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-6（BG Wiki と FFXIclopedia が一致、用語辞典は H-7）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Fear_of_Flying",
+            "https://ffxiclopedia.fandom.com/wiki/Fear_of_Flying"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Kurando",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Oggbi",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Oggbi",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Paujean",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Paujean",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Powhatan",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Powhatan",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Qiji",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Qiji",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Raifa",
+      "kind": "npc",
+      "location": {
+        "grid": "D-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Raifa",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Romilda",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Romilda",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Ronan",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Ronan",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Steel_Bones",
+      "kind": "npc",
+      "location": {
+        "grid": "D-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Steel Bones",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Talib",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Talib",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Trilok",
+      "kind": "npc",
+      "location": {
+        "grid": "D-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 D-6（BG Wiki と FFXIclopedia が一致、用語辞典は E-6）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Escort_for_Hire_(Bastok)",
+            "https://ffxiclopedia.fandom.com/wiki/Escort_for_Hire_(Bastok)"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Trilok",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Valah_Molkot",
+      "kind": "npc",
+      "location": {
+        "grid": "J-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Valah Molkot",
+      "same_name": false
+    },
+    {
+      "id": "npc.236.Yazan",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 236,
+        "zone_name": "バストゥーク港"
+      },
+      "moves": false,
+      "name_en": "Yazan",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Ayame",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Ayame",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Baldric",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Baldric",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Cid",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Cid",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.High_Bear",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "High Bear",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Hildolf",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Hildolf",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Hungry_Wolf",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Hungry Wolf",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Izabele",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Izabele",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Manilam",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Manilam",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Mighty_Fist",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Mighty Fist",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Raibaht",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Raibaht",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Romualdo",
+      "kind": "npc",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Romualdo",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Salim",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Salim",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Tall_Mountain",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Tall Mountain",
+      "same_name": false
+    },
+    {
+      "id": "npc.237.Unlucky_Rat",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 237,
+        "zone_name": "大工房"
+      },
+      "moves": false,
+      "name_en": "Unlucky Rat",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Cochal-Monchal",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Cochal-Monchal",
+      "same_name": false
+    },
+    {
+      "id": "npc.Ahyeekih",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Ahyeekih",
+      "same_name": false
+    },
+    {
+      "id": "npc.Babenn",
+      "kind": "npc",
+      "location": {
+        "grid": "J-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Babenn",
+      "same_name": false
+    },
+    {
+      "id": "npc.Deidogg",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「200年のすれ違い」「語り部の遺品」依頼者：バストゥーク鉱山区の鉱石通り(H-6)",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/7041.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Deidogg",
+      "same_name": false
+    },
+    {
+      "id": "npc.Helmut",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Helmut",
+      "same_name": false
+    },
+    {
+      "id": "npc.Kaede",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Kaede",
+      "same_name": false
+    },
+    {
+      "id": "npc.Olavia",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Olavia",
+      "same_name": false
+    },
+    {
+      "id": "npc.Panana",
+      "kind": "npc",
+      "location": {
+        "grid": "D-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Panana",
+      "same_name": false
+    },
+    {
+      "id": "npc.Phara",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 234,
+        "zone_name": "バストゥーク鉱山区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「祖母の心孫知らず」依頼者：バストゥーク鉱山区(J-9)",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/8579.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Phara",
+      "same_name": false
+    },
+    {
+      "id": "npc.Rothais",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Rothais",
+      "same_name": false
+    },
+    {
+      "id": "npc.Tete",
+      "kind": "npc",
+      "location": {
+        "grid": "I-5",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Tete",
+      "same_name": false
+    },
+    {
+      "id": "obj.103.???_H-9",
+      "kind": "obj",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 103,
+        "zone_name": "バルクルム砂丘"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.107.???_K-9",
+      "kind": "obj",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 107,
+        "zone_name": "南グスタベルグ"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.108.???_G-8",
+      "kind": "obj",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 108,
+        "zone_name": "コンシュタット高地"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.108.Signpost",
+      "kind": "obj",
+      "location": {
+        "grid": "G-5",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 108,
+        "zone_name": "コンシュタット高地"
+      },
+      "moves": false,
+      "name_en": "Signpost",
+      "same_name": false
+    },
+    {
+      "id": "obj.111.Mirror_Pond",
+      "kind": "obj",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 111,
+        "zone_name": "ボスディン氷河"
+      },
+      "moves": false,
+      "name_en": "Mirror Pond",
+      "same_name": false
+    },
+    {
+      "id": "obj.127.???_K-9",
+      "kind": "obj",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 127,
+        "zone_name": "ベヒーモスの縄張り"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.191.???",
+      "kind": "obj",
+      "location": {
+        "grid": "I-5",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 191,
+        "zone_name": "ダングルフの涸れ谷"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.200.???_H-8",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 200,
+        "zone_name": "ガルレージュ要塞"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.89.Riverbed",
+      "kind": "obj",
+      "location": {
+        "grid": "F-13",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 89,
+        "zone_name": "グロウベルグ〔Ｓ〕"
+      },
+      "moves": false,
+      "name_en": "Riverbed",
+      "same_name": false
+    },
+    {
+      "id": "obj.Hide_Flap",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Hide Flap",
+      "same_name": false
+    }
+  ]
+}

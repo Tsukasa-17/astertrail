@@ -1,0 +1,8045 @@
+{
+"source": "LandSandBoat/server base 889078200b13e0d72399a0e8ebb64076bacaec98 (2026-11-15 08:42 JST): scripts/globals/quests.lua, scripts/globals/missions.lua, scripts/enum/assault.lua, src/map/enums/quest_log.h, src/map/enums/mission_log.h, src/map/packets/s2c/0x056_*.  GPL-3.0. Only the id numbers are used.",
+"mission_ids": {
+"6": [
+101,
+110,
+118,
+128,
+138,
+218,
+228,
+238,
+248,
+257,
+258,
+318,
+325,
+335,
+341,
+350,
+358,
+368,
+418,
+428,
+438,
+448,
+518,
+530,
+543,
+552,
+560,
+568,
+578,
+618,
+628,
+638,
+648,
+718,
+728,
+738,
+748,
+758,
+800,
+818,
+828,
+840,
+850
+],
+"9": [
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11
+],
+"10": [
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14
+],
+"11": [
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14
+],
+"12": [
+0,
+1,
+3,
+5,
+6,
+7,
+8,
+9,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+23,
+26,
+27,
+29,
+30,
+31,
+34,
+35,
+37,
+38,
+39,
+40,
+41,
+42,
+43,
+44,
+45,
+46,
+47,
+48,
+49,
+50,
+51,
+52,
+53,
+55,
+56,
+57,
+58,
+59,
+61,
+62,
+63,
+66,
+67,
+69,
+70,
+71,
+72,
+73,
+74,
+75,
+76,
+77,
+78,
+79,
+80,
+81,
+82,
+84,
+85,
+86,
+87,
+88,
+89,
+90,
+91,
+92,
+93,
+94,
+95,
+96,
+98,
+99,
+100,
+101,
+102,
+103,
+104,
+105,
+107,
+108,
+109,
+110,
+111,
+112,
+113,
+114,
+116,
+117,
+118,
+120,
+121,
+123,
+125,
+129
+],
+"13": [
+0,
+2,
+3,
+4,
+6,
+10,
+12,
+18,
+20,
+22,
+26,
+28,
+30,
+32,
+34,
+36,
+40,
+42,
+44,
+46,
+48,
+50,
+52,
+54,
+56,
+60,
+62,
+64,
+66,
+68,
+70,
+72,
+78,
+80,
+83,
+86,
+92,
+94,
+96,
+98,
+100,
+102,
+103,
+104,
+106,
+108,
+110,
+114,
+116,
+118,
+120,
+122,
+124,
+126,
+130,
+132,
+136,
+142,
+144,
+146,
+150,
+152,
+154,
+155,
+156,
+158,
+160,
+161,
+162,
+164,
+166,
+170,
+172,
+174,
+178,
+180,
+184,
+188,
+190,
+192,
+194,
+196,
+198,
+200,
+202,
+206,
+210,
+212,
+216,
+218,
+220,
+222,
+224,
+226
+]
+},
+"mission_ordered": [
+9,
+10,
+11,
+12,
+13
+],
+"refs": {
+"mission.acp.002": [
+"m",
+9,
+0
+],
+"mission.acp.003": [
+"m",
+9,
+1
+],
+"mission.acp.004": [
+"m",
+9,
+2
+],
+"mission.acp.005": [
+"m",
+9,
+3
+],
+"mission.acp.006": [
+"m",
+9,
+4
+],
+"mission.acp.007": [
+"m",
+9,
+5
+],
+"mission.acp.008": [
+"m",
+9,
+6
+],
+"mission.acp.009": [
+"m",
+9,
+7
+],
+"mission.acp.010": [
+"m",
+9,
+8
+],
+"mission.acp.011": [
+"m",
+9,
+9
+],
+"mission.acp.012": [
+"m",
+9,
+10
+],
+"mission.adoulin.001": [
+"m",
+12,
+0
+],
+"mission.adoulin.002": [
+"m",
+12,
+3
+],
+"mission.adoulin.003": [
+"m",
+12,
+5
+],
+"mission.adoulin.004": [
+"m",
+12,
+6
+],
+"mission.adoulin.005": [
+"m",
+12,
+7
+],
+"mission.adoulin.006": [
+"m",
+12,
+8
+],
+"mission.adoulin.007": [
+"m",
+12,
+9
+],
+"mission.adoulin.008": [
+"m",
+12,
+11
+],
+"mission.adoulin.009": [
+"m",
+12,
+12
+],
+"mission.adoulin.010": [
+"m",
+12,
+13
+],
+"mission.adoulin.011": [
+"m",
+12,
+14
+],
+"mission.adoulin.012": [
+"m",
+12,
+15
+],
+"mission.adoulin.013": [
+"m",
+12,
+16
+],
+"mission.adoulin.014": [
+"m",
+12,
+17
+],
+"mission.adoulin.015": [
+"m",
+12,
+18
+],
+"mission.adoulin.016": [
+"m",
+12,
+20
+],
+"mission.adoulin.017": [
+"m",
+12,
+21
+],
+"mission.adoulin.018": [
+"m",
+12,
+23
+],
+"mission.adoulin.019": [
+"m",
+12,
+26
+],
+"mission.adoulin.020": [
+"m",
+12,
+27
+],
+"mission.adoulin.021": [
+"m",
+12,
+29
+],
+"mission.adoulin.023": [
+"m",
+12,
+31
+],
+"mission.adoulin.024": [
+"m",
+12,
+34
+],
+"mission.adoulin.025": [
+"m",
+12,
+37
+],
+"mission.adoulin.026": [
+"m",
+12,
+38
+],
+"mission.adoulin.027": [
+"m",
+12,
+39
+],
+"mission.adoulin.028": [
+"m",
+12,
+40
+],
+"mission.adoulin.029": [
+"m",
+12,
+41
+],
+"mission.adoulin.030": [
+"m",
+12,
+42
+],
+"mission.adoulin.031": [
+"m",
+12,
+43
+],
+"mission.adoulin.032": [
+"m",
+12,
+44
+],
+"mission.adoulin.033": [
+"m",
+12,
+45
+],
+"mission.adoulin.034": [
+"m",
+12,
+46
+],
+"mission.adoulin.035": [
+"m",
+12,
+47
+],
+"mission.adoulin.036": [
+"m",
+12,
+48
+],
+"mission.adoulin.037": [
+"m",
+12,
+49
+],
+"mission.adoulin.038": [
+"m",
+12,
+50
+],
+"mission.adoulin.039": [
+"m",
+12,
+51
+],
+"mission.adoulin.040": [
+"m",
+12,
+52
+],
+"mission.adoulin.041": [
+"m",
+12,
+53
+],
+"mission.adoulin.042": [
+"m",
+12,
+55
+],
+"mission.adoulin.043": [
+"m",
+12,
+56
+],
+"mission.adoulin.044": [
+"m",
+12,
+57
+],
+"mission.adoulin.045": [
+"m",
+12,
+58
+],
+"mission.adoulin.046": [
+"m",
+12,
+59
+],
+"mission.adoulin.047": [
+"m",
+12,
+61
+],
+"mission.adoulin.048": [
+"m",
+12,
+62
+],
+"mission.adoulin.049": [
+"m",
+12,
+63
+],
+"mission.adoulin.050": [
+"m",
+12,
+66
+],
+"mission.adoulin.051": [
+"m",
+12,
+67
+],
+"mission.adoulin.052": [
+"m",
+12,
+69
+],
+"mission.adoulin.053": [
+"m",
+12,
+70
+],
+"mission.adoulin.055": [
+"m",
+12,
+71
+],
+"mission.adoulin.056": [
+"m",
+12,
+73
+],
+"mission.adoulin.057": [
+"m",
+12,
+74
+],
+"mission.adoulin.058": [
+"m",
+12,
+75
+],
+"mission.adoulin.059": [
+"m",
+12,
+76
+],
+"mission.adoulin.060": [
+"m",
+12,
+77
+],
+"mission.adoulin.061": [
+"m",
+12,
+78
+],
+"mission.adoulin.062": [
+"m",
+12,
+79
+],
+"mission.adoulin.063": [
+"m",
+12,
+80
+],
+"mission.adoulin.064": [
+"m",
+12,
+81
+],
+"mission.adoulin.065": [
+"m",
+12,
+82
+],
+"mission.adoulin.066": [
+"m",
+12,
+84
+],
+"mission.adoulin.067": [
+"m",
+12,
+85
+],
+"mission.adoulin.068": [
+"m",
+12,
+86
+],
+"mission.adoulin.069": [
+"m",
+12,
+87
+],
+"mission.adoulin.070": [
+"m",
+12,
+88
+],
+"mission.adoulin.071": [
+"m",
+12,
+89
+],
+"mission.adoulin.072": [
+"m",
+12,
+90
+],
+"mission.adoulin.073": [
+"m",
+12,
+91
+],
+"mission.adoulin.075": [
+"m",
+12,
+93
+],
+"mission.adoulin.076": [
+"m",
+12,
+94
+],
+"mission.adoulin.077": [
+"m",
+12,
+95
+],
+"mission.adoulin.078": [
+"m",
+12,
+96
+],
+"mission.adoulin.079": [
+"m",
+12,
+98
+],
+"mission.adoulin.080": [
+"m",
+12,
+99
+],
+"mission.adoulin.081": [
+"m",
+12,
+100
+],
+"mission.adoulin.082": [
+"m",
+12,
+101
+],
+"mission.adoulin.083": [
+"m",
+12,
+102
+],
+"mission.adoulin.084": [
+"m",
+12,
+103
+],
+"mission.adoulin.085": [
+"m",
+12,
+104
+],
+"mission.adoulin.086": [
+"m",
+12,
+105
+],
+"mission.adoulin.087": [
+"m",
+12,
+107
+],
+"mission.adoulin.090": [
+"m",
+12,
+108
+],
+"mission.adoulin.091": [
+"m",
+12,
+109
+],
+"mission.adoulin.092": [
+"m",
+12,
+110
+],
+"mission.adoulin.093": [
+"m",
+12,
+111
+],
+"mission.adoulin.094": [
+"m",
+12,
+112
+],
+"mission.adoulin.095": [
+"m",
+12,
+113
+],
+"mission.adoulin.096": [
+"m",
+12,
+114
+],
+"mission.adoulin.097": [
+"m",
+12,
+116
+],
+"mission.adoulin.098": [
+"m",
+12,
+117
+],
+"mission.adoulin.099": [
+"m",
+12,
+118
+],
+"mission.adoulin.100": [
+"m",
+12,
+120
+],
+"mission.adoulin.101": [
+"m",
+12,
+121
+],
+"mission.adoulin.102": [
+"m",
+12,
+123
+],
+"mission.adoulin.103": [
+"m",
+12,
+125
+],
+"mission.adoulin.104": [
+"m",
+12,
+129
+],
+"mission.adoulin.359": [
+"m",
+12,
+1
+],
+"mission.adoulin.360": [
+"m",
+12,
+19
+],
+"mission.adoulin.361": [
+"m",
+12,
+35
+],
+"mission.adoulin.362": [
+"m",
+12,
+72
+],
+"mission.aht_urhgan.001": [
+"m",
+4,
+0
+],
+"mission.aht_urhgan.002": [
+"m",
+4,
+1
+],
+"mission.aht_urhgan.003": [
+"m",
+4,
+2
+],
+"mission.aht_urhgan.004": [
+"m",
+4,
+3
+],
+"mission.aht_urhgan.005": [
+"m",
+4,
+4
+],
+"mission.aht_urhgan.006": [
+"m",
+4,
+5
+],
+"mission.aht_urhgan.007": [
+"m",
+4,
+6
+],
+"mission.aht_urhgan.008": [
+"m",
+4,
+7
+],
+"mission.aht_urhgan.009": [
+"m",
+4,
+8
+],
+"mission.aht_urhgan.010": [
+"m",
+4,
+9
+],
+"mission.aht_urhgan.011": [
+"m",
+4,
+10
+],
+"mission.aht_urhgan.012": [
+"m",
+4,
+11
+],
+"mission.aht_urhgan.013": [
+"m",
+4,
+12
+],
+"mission.aht_urhgan.014": [
+"m",
+4,
+13
+],
+"mission.aht_urhgan.015": [
+"m",
+4,
+14
+],
+"mission.aht_urhgan.016": [
+"m",
+4,
+15
+],
+"mission.aht_urhgan.017": [
+"m",
+4,
+16
+],
+"mission.aht_urhgan.018": [
+"m",
+4,
+17
+],
+"mission.aht_urhgan.019": [
+"m",
+4,
+18
+],
+"mission.aht_urhgan.020": [
+"m",
+4,
+19
+],
+"mission.aht_urhgan.021": [
+"m",
+4,
+20
+],
+"mission.aht_urhgan.022": [
+"m",
+4,
+21
+],
+"mission.aht_urhgan.023": [
+"m",
+4,
+22
+],
+"mission.aht_urhgan.024": [
+"m",
+4,
+23
+],
+"mission.aht_urhgan.025": [
+"m",
+4,
+24
+],
+"mission.aht_urhgan.026": [
+"m",
+4,
+25
+],
+"mission.aht_urhgan.027": [
+"m",
+4,
+26
+],
+"mission.aht_urhgan.028": [
+"m",
+4,
+27
+],
+"mission.aht_urhgan.029": [
+"m",
+4,
+28
+],
+"mission.aht_urhgan.030": [
+"m",
+4,
+29
+],
+"mission.aht_urhgan.031": [
+"m",
+4,
+30
+],
+"mission.aht_urhgan.032": [
+"m",
+4,
+31
+],
+"mission.aht_urhgan.033": [
+"m",
+4,
+32
+],
+"mission.aht_urhgan.034": [
+"m",
+4,
+33
+],
+"mission.aht_urhgan.035": [
+"m",
+4,
+34
+],
+"mission.aht_urhgan.036": [
+"m",
+4,
+35
+],
+"mission.aht_urhgan.037": [
+"m",
+4,
+36
+],
+"mission.aht_urhgan.038": [
+"m",
+4,
+37
+],
+"mission.aht_urhgan.039": [
+"m",
+4,
+38
+],
+"mission.aht_urhgan.040": [
+"m",
+4,
+39
+],
+"mission.aht_urhgan.041": [
+"m",
+4,
+40
+],
+"mission.aht_urhgan.042": [
+"m",
+4,
+41
+],
+"mission.aht_urhgan.043": [
+"m",
+4,
+42
+],
+"mission.aht_urhgan.044": [
+"m",
+4,
+43
+],
+"mission.aht_urhgan.045": [
+"m",
+4,
+44
+],
+"mission.aht_urhgan.046": [
+"m",
+4,
+45
+],
+"mission.aht_urhgan.047": [
+"m",
+4,
+46
+],
+"mission.aht_urhgan.048": [
+"m",
+4,
+47
+],
+"mission.altana.001": [
+"m",
+5,
+0
+],
+"mission.altana.002": [
+"m",
+5,
+1
+],
+"mission.altana.003": [
+"m",
+5,
+2
+],
+"mission.altana.004": [
+"m",
+5,
+3
+],
+"mission.altana.005": [
+"m",
+5,
+4
+],
+"mission.altana.006": [
+"m",
+5,
+5
+],
+"mission.altana.007": [
+"m",
+5,
+6
+],
+"mission.altana.008": [
+"m",
+5,
+7
+],
+"mission.altana.009": [
+"m",
+5,
+8
+],
+"mission.altana.010": [
+"m",
+5,
+9
+],
+"mission.altana.011": [
+"m",
+5,
+10
+],
+"mission.altana.012": [
+"m",
+5,
+11
+],
+"mission.altana.013": [
+"m",
+5,
+12
+],
+"mission.altana.014": [
+"m",
+5,
+13
+],
+"mission.altana.015": [
+"m",
+5,
+14
+],
+"mission.altana.016": [
+"m",
+5,
+15
+],
+"mission.altana.017": [
+"m",
+5,
+16
+],
+"mission.altana.018": [
+"m",
+5,
+17
+],
+"mission.altana.019": [
+"m",
+5,
+18
+],
+"mission.altana.020": [
+"m",
+5,
+19
+],
+"mission.altana.021": [
+"m",
+5,
+20
+],
+"mission.altana.022": [
+"m",
+5,
+21
+],
+"mission.altana.023": [
+"m",
+5,
+22
+],
+"mission.altana.024": [
+"m",
+5,
+23
+],
+"mission.altana.025": [
+"m",
+5,
+24
+],
+"mission.altana.026": [
+"m",
+5,
+25
+],
+"mission.altana.027": [
+"m",
+5,
+26
+],
+"mission.altana.028": [
+"m",
+5,
+27
+],
+"mission.altana.029": [
+"m",
+5,
+28
+],
+"mission.altana.030": [
+"m",
+5,
+29
+],
+"mission.altana.031": [
+"m",
+5,
+30
+],
+"mission.altana.032": [
+"m",
+5,
+31
+],
+"mission.altana.033": [
+"m",
+5,
+32
+],
+"mission.altana.034": [
+"m",
+5,
+33
+],
+"mission.altana.035": [
+"m",
+5,
+34
+],
+"mission.altana.036": [
+"m",
+5,
+35
+],
+"mission.altana.037": [
+"m",
+5,
+36
+],
+"mission.altana.038": [
+"m",
+5,
+37
+],
+"mission.altana.039": [
+"m",
+5,
+38
+],
+"mission.altana.040": [
+"m",
+5,
+39
+],
+"mission.altana.041": [
+"m",
+5,
+40
+],
+"mission.altana.042": [
+"m",
+5,
+41
+],
+"mission.altana.043": [
+"m",
+5,
+42
+],
+"mission.altana.044": [
+"m",
+5,
+43
+],
+"mission.altana.045": [
+"m",
+5,
+44
+],
+"mission.altana.046": [
+"m",
+5,
+45
+],
+"mission.altana.047": [
+"m",
+5,
+46
+],
+"mission.altana.048": [
+"m",
+5,
+47
+],
+"mission.altana.049": [
+"m",
+5,
+48
+],
+"mission.altana.050": [
+"m",
+5,
+49
+],
+"mission.altana.051": [
+"m",
+5,
+50
+],
+"mission.altana.052": [
+"m",
+5,
+51
+],
+"mission.altana.053": [
+"m",
+5,
+52
+],
+"mission.altana.054": [
+"m",
+5,
+53
+],
+"mission.asa.002": [
+"m",
+11,
+0
+],
+"mission.asa.003": [
+"m",
+11,
+1
+],
+"mission.asa.004": [
+"m",
+11,
+2
+],
+"mission.asa.005": [
+"m",
+11,
+3
+],
+"mission.asa.006": [
+"m",
+11,
+4
+],
+"mission.asa.007": [
+"m",
+11,
+5
+],
+"mission.asa.008": [
+"m",
+11,
+6
+],
+"mission.asa.009": [
+"m",
+11,
+7
+],
+"mission.asa.010": [
+"m",
+11,
+8
+],
+"mission.asa.011": [
+"m",
+11,
+9
+],
+"mission.asa.012": [
+"m",
+11,
+10
+],
+"mission.asa.013": [
+"m",
+11,
+11
+],
+"mission.asa.014": [
+"m",
+11,
+12
+],
+"mission.asa.015": [
+"m",
+11,
+13
+],
+"mission.assault.001": [
+"m",
+7,
+1
+],
+"mission.assault.002": [
+"m",
+7,
+11
+],
+"mission.assault.003": [
+"m",
+7,
+21
+],
+"mission.assault.004": [
+"m",
+7,
+31
+],
+"mission.assault.005": [
+"m",
+7,
+41
+],
+"mission.assault.006": [
+"m",
+7,
+51
+],
+"mission.assault.007": [
+"m",
+7,
+52
+],
+"mission.assault.008": [
+"m",
+7,
+2
+],
+"mission.assault.009": [
+"m",
+7,
+12
+],
+"mission.assault.010": [
+"m",
+7,
+22
+],
+"mission.assault.011": [
+"m",
+7,
+32
+],
+"mission.assault.012": [
+"m",
+7,
+42
+],
+"mission.assault.013": [
+"m",
+7,
+3
+],
+"mission.assault.014": [
+"m",
+7,
+13
+],
+"mission.assault.015": [
+"m",
+7,
+23
+],
+"mission.assault.016": [
+"m",
+7,
+33
+],
+"mission.assault.017": [
+"m",
+7,
+43
+],
+"mission.assault.018": [
+"m",
+7,
+4
+],
+"mission.assault.019": [
+"m",
+7,
+14
+],
+"mission.assault.020": [
+"m",
+7,
+24
+],
+"mission.assault.021": [
+"m",
+7,
+34
+],
+"mission.assault.022": [
+"m",
+7,
+44
+],
+"mission.assault.023": [
+"m",
+7,
+5
+],
+"mission.assault.024": [
+"m",
+7,
+15
+],
+"mission.assault.025": [
+"m",
+7,
+25
+],
+"mission.assault.026": [
+"m",
+7,
+35
+],
+"mission.assault.027": [
+"m",
+7,
+45
+],
+"mission.assault.028": [
+"m",
+7,
+6
+],
+"mission.assault.029": [
+"m",
+7,
+16
+],
+"mission.assault.030": [
+"m",
+7,
+26
+],
+"mission.assault.031": [
+"m",
+7,
+36
+],
+"mission.assault.032": [
+"m",
+7,
+46
+],
+"mission.assault.033": [
+"m",
+7,
+7
+],
+"mission.assault.034": [
+"m",
+7,
+17
+],
+"mission.assault.035": [
+"m",
+7,
+27
+],
+"mission.assault.036": [
+"m",
+7,
+37
+],
+"mission.assault.037": [
+"m",
+7,
+47
+],
+"mission.assault.038": [
+"m",
+7,
+8
+],
+"mission.assault.039": [
+"m",
+7,
+18
+],
+"mission.assault.040": [
+"m",
+7,
+28
+],
+"mission.assault.041": [
+"m",
+7,
+38
+],
+"mission.assault.042": [
+"m",
+7,
+48
+],
+"mission.assault.043": [
+"m",
+7,
+9
+],
+"mission.assault.044": [
+"m",
+7,
+19
+],
+"mission.assault.045": [
+"m",
+7,
+29
+],
+"mission.assault.046": [
+"m",
+7,
+39
+],
+"mission.assault.047": [
+"m",
+7,
+49
+],
+"mission.assault.048": [
+"m",
+7,
+10
+],
+"mission.assault.049": [
+"m",
+7,
+20
+],
+"mission.assault.050": [
+"m",
+7,
+30
+],
+"mission.assault.051": [
+"m",
+7,
+40
+],
+"mission.assault.052": [
+"m",
+7,
+50
+],
+"mission.bastok.001": [
+"m",
+1,
+0
+],
+"mission.bastok.003": [
+"m",
+1,
+2
+],
+"mission.bastok.004": [
+"m",
+1,
+3
+],
+"mission.bastok.005": [
+"m",
+1,
+4
+],
+"mission.bastok.006": [
+"m",
+1,
+5
+],
+"mission.bastok.007": [
+"m",
+1,
+10
+],
+"mission.bastok.008": [
+"m",
+1,
+11
+],
+"mission.bastok.009": [
+"m",
+1,
+12
+],
+"mission.bastok.010": [
+"m",
+1,
+13
+],
+"mission.bastok.011": [
+"m",
+1,
+14
+],
+"mission.bastok.012": [
+"m",
+1,
+15
+],
+"mission.bastok.013": [
+"m",
+1,
+16
+],
+"mission.bastok.014": [
+"m",
+1,
+17
+],
+"mission.bastok.015": [
+"m",
+1,
+18
+],
+"mission.bastok.016": [
+"m",
+1,
+19
+],
+"mission.bastok.017": [
+"m",
+1,
+20
+],
+"mission.bastok.018": [
+"m",
+1,
+21
+],
+"mission.bastok.019": [
+"m",
+1,
+22
+],
+"mission.bastok.020": [
+"m",
+1,
+23
+],
+"mission.mkd.001": [
+"m",
+10,
+0
+],
+"mission.mkd.002": [
+"m",
+10,
+1
+],
+"mission.mkd.003": [
+"m",
+10,
+2
+],
+"mission.mkd.004": [
+"m",
+10,
+3
+],
+"mission.mkd.005": [
+"m",
+10,
+4
+],
+"mission.mkd.006": [
+"m",
+10,
+5
+],
+"mission.mkd.007": [
+"m",
+10,
+6
+],
+"mission.mkd.008": [
+"m",
+10,
+7
+],
+"mission.mkd.009": [
+"m",
+10,
+8
+],
+"mission.mkd.010": [
+"m",
+10,
+9
+],
+"mission.mkd.011": [
+"m",
+10,
+10
+],
+"mission.mkd.012": [
+"m",
+10,
+11
+],
+"mission.mkd.013": [
+"m",
+10,
+12
+],
+"mission.mkd.014": [
+"m",
+10,
+13
+],
+"mission.promathia.001": [
+"m",
+6,
+110
+],
+"mission.promathia.002": [
+"m",
+6,
+118
+],
+"mission.promathia.003": [
+"m",
+6,
+128
+],
+"mission.promathia.004": [
+"m",
+6,
+138
+],
+"mission.promathia.005": [
+"m",
+6,
+218
+],
+"mission.promathia.006": [
+"m",
+6,
+228
+],
+"mission.promathia.007": [
+"m",
+6,
+238
+],
+"mission.promathia.008": [
+"m",
+6,
+248
+],
+"mission.promathia.009": [
+"m",
+6,
+258
+],
+"mission.promathia.010": [
+"m",
+6,
+318
+],
+"mission.promathia.011": [
+"m",
+6,
+325
+],
+"mission.promathia.014": [
+"m",
+6,
+335
+],
+"mission.promathia.017": [
+"m",
+6,
+341
+],
+"mission.promathia.020": [
+"m",
+6,
+350
+],
+"mission.promathia.021": [
+"m",
+6,
+358
+],
+"mission.promathia.022": [
+"m",
+6,
+368
+],
+"mission.promathia.023": [
+"m",
+6,
+418
+],
+"mission.promathia.024": [
+"m",
+6,
+428
+],
+"mission.promathia.025": [
+"m",
+6,
+438
+],
+"mission.promathia.026": [
+"m",
+6,
+448
+],
+"mission.promathia.027": [
+"m",
+6,
+530
+],
+"mission.promathia.032": [
+"m",
+6,
+543
+],
+"mission.promathia.034": [
+"m",
+6,
+568
+],
+"mission.promathia.036": [
+"m",
+6,
+552
+],
+"mission.promathia.040": [
+"m",
+6,
+560
+],
+"mission.promathia.043": [
+"m",
+6,
+578
+],
+"mission.promathia.044": [
+"m",
+6,
+618
+],
+"mission.promathia.045": [
+"m",
+6,
+628
+],
+"mission.promathia.046": [
+"m",
+6,
+638
+],
+"mission.promathia.047": [
+"m",
+6,
+648
+],
+"mission.promathia.048": [
+"m",
+6,
+718
+],
+"mission.promathia.049": [
+"m",
+6,
+728
+],
+"mission.promathia.050": [
+"m",
+6,
+738
+],
+"mission.promathia.051": [
+"m",
+6,
+748
+],
+"mission.promathia.052": [
+"m",
+6,
+800
+],
+"mission.promathia.053": [
+"m",
+6,
+818
+],
+"mission.promathia.054": [
+"m",
+6,
+828
+],
+"mission.promathia.055": [
+"m",
+6,
+840
+],
+"mission.promathia.062": [
+"m",
+6,
+518
+],
+"mission.rov.002": [
+"m",
+13,
+2
+],
+"mission.rov.003": [
+"m",
+13,
+3
+],
+"mission.rov.004": [
+"m",
+13,
+4
+],
+"mission.rov.005": [
+"m",
+13,
+6
+],
+"mission.rov.006": [
+"m",
+13,
+10
+],
+"mission.rov.007": [
+"m",
+13,
+12
+],
+"mission.rov.008": [
+"m",
+13,
+18
+],
+"mission.rov.009": [
+"m",
+13,
+20
+],
+"mission.rov.011": [
+"m",
+13,
+26
+],
+"mission.rov.012": [
+"m",
+13,
+28
+],
+"mission.rov.013": [
+"m",
+13,
+30
+],
+"mission.rov.014": [
+"m",
+13,
+32
+],
+"mission.rov.015": [
+"m",
+13,
+34
+],
+"mission.rov.016": [
+"m",
+13,
+36
+],
+"mission.rov.017": [
+"m",
+13,
+40
+],
+"mission.rov.018": [
+"m",
+13,
+42
+],
+"mission.rov.019": [
+"m",
+13,
+44
+],
+"mission.rov.020": [
+"m",
+13,
+46
+],
+"mission.rov.021": [
+"m",
+13,
+48
+],
+"mission.rov.022": [
+"m",
+13,
+50
+],
+"mission.rov.023": [
+"m",
+13,
+52
+],
+"mission.rov.024": [
+"m",
+13,
+54
+],
+"mission.rov.025": [
+"m",
+13,
+56
+],
+"mission.rov.026": [
+"m",
+13,
+60
+],
+"mission.rov.027": [
+"m",
+13,
+62
+],
+"mission.rov.028": [
+"m",
+13,
+64
+],
+"mission.rov.029": [
+"m",
+13,
+66
+],
+"mission.rov.030": [
+"m",
+13,
+68
+],
+"mission.rov.031": [
+"m",
+13,
+70
+],
+"mission.rov.032": [
+"m",
+13,
+72
+],
+"mission.rov.033": [
+"m",
+13,
+78
+],
+"mission.rov.034": [
+"m",
+13,
+80
+],
+"mission.rov.035": [
+"m",
+13,
+83
+],
+"mission.rov.036": [
+"m",
+13,
+86
+],
+"mission.rov.037": [
+"m",
+13,
+92
+],
+"mission.rov.038": [
+"m",
+13,
+94
+],
+"mission.rov.039": [
+"m",
+13,
+96
+],
+"mission.rov.040": [
+"m",
+13,
+98
+],
+"mission.rov.041": [
+"m",
+13,
+100
+],
+"mission.rov.042": [
+"m",
+13,
+102
+],
+"mission.rov.043": [
+"m",
+13,
+103
+],
+"mission.rov.044": [
+"m",
+13,
+104
+],
+"mission.rov.045": [
+"m",
+13,
+106
+],
+"mission.rov.046": [
+"m",
+13,
+108
+],
+"mission.rov.047": [
+"m",
+13,
+110
+],
+"mission.rov.048": [
+"m",
+13,
+114
+],
+"mission.rov.049": [
+"m",
+13,
+116
+],
+"mission.rov.050": [
+"m",
+13,
+118
+],
+"mission.rov.051": [
+"m",
+13,
+120
+],
+"mission.rov.052": [
+"m",
+13,
+122
+],
+"mission.rov.054": [
+"m",
+13,
+126
+],
+"mission.rov.055": [
+"m",
+13,
+130
+],
+"mission.rov.056": [
+"m",
+13,
+132
+],
+"mission.rov.057": [
+"m",
+13,
+136
+],
+"mission.rov.058": [
+"m",
+13,
+142
+],
+"mission.rov.059": [
+"m",
+13,
+144
+],
+"mission.rov.060": [
+"m",
+13,
+146
+],
+"mission.rov.061": [
+"m",
+13,
+150
+],
+"mission.rov.062": [
+"m",
+13,
+152
+],
+"mission.rov.063": [
+"m",
+13,
+154
+],
+"mission.rov.064": [
+"m",
+13,
+155
+],
+"mission.rov.065": [
+"m",
+13,
+156
+],
+"mission.rov.066": [
+"m",
+13,
+158
+],
+"mission.rov.067": [
+"m",
+13,
+160
+],
+"mission.rov.068": [
+"m",
+13,
+161
+],
+"mission.rov.069": [
+"m",
+13,
+162
+],
+"mission.rov.070": [
+"m",
+13,
+164
+],
+"mission.rov.071": [
+"m",
+13,
+166
+],
+"mission.rov.072": [
+"m",
+13,
+170
+],
+"mission.rov.073": [
+"m",
+13,
+172
+],
+"mission.rov.074": [
+"m",
+13,
+174
+],
+"mission.rov.075": [
+"m",
+13,
+178
+],
+"mission.rov.076": [
+"m",
+13,
+180
+],
+"mission.rov.077": [
+"m",
+13,
+184
+],
+"mission.rov.078": [
+"m",
+13,
+188
+],
+"mission.rov.079": [
+"m",
+13,
+190
+],
+"mission.rov.080": [
+"m",
+13,
+192
+],
+"mission.rov.081": [
+"m",
+13,
+194
+],
+"mission.rov.082": [
+"m",
+13,
+196
+],
+"mission.rov.083": [
+"m",
+13,
+198
+],
+"mission.rov.084": [
+"m",
+13,
+200
+],
+"mission.rov.085": [
+"m",
+13,
+202
+],
+"mission.rov.086": [
+"m",
+13,
+206
+],
+"mission.rov.087": [
+"m",
+13,
+210
+],
+"mission.rov.088": [
+"m",
+13,
+212
+],
+"mission.rov.089": [
+"m",
+13,
+216
+],
+"mission.rov.090": [
+"m",
+13,
+218
+],
+"mission.rov.091": [
+"m",
+13,
+220
+],
+"mission.rov.092": [
+"m",
+13,
+222
+],
+"mission.rov.093": [
+"m",
+13,
+224
+],
+"mission.rov.094": [
+"m",
+13,
+226
+],
+"mission.sandoria.002": [
+"m",
+0,
+1
+],
+"mission.sandoria.003": [
+"m",
+0,
+2
+],
+"mission.sandoria.004": [
+"m",
+0,
+3
+],
+"mission.sandoria.005": [
+"m",
+0,
+4
+],
+"mission.sandoria.006": [
+"m",
+0,
+5
+],
+"mission.sandoria.007": [
+"m",
+0,
+10
+],
+"mission.sandoria.008": [
+"m",
+0,
+11
+],
+"mission.sandoria.009": [
+"m",
+0,
+12
+],
+"mission.sandoria.010": [
+"m",
+0,
+13
+],
+"mission.sandoria.011": [
+"m",
+0,
+14
+],
+"mission.sandoria.012": [
+"m",
+0,
+15
+],
+"mission.sandoria.013": [
+"m",
+0,
+16
+],
+"mission.sandoria.014": [
+"m",
+0,
+17
+],
+"mission.sandoria.015": [
+"m",
+0,
+18
+],
+"mission.sandoria.016": [
+"m",
+0,
+19
+],
+"mission.sandoria.017": [
+"m",
+0,
+20
+],
+"mission.sandoria.018": [
+"m",
+0,
+21
+],
+"mission.sandoria.019": [
+"m",
+0,
+22
+],
+"mission.sandoria.020": [
+"m",
+0,
+23
+],
+"mission.windurst.001": [
+"m",
+2,
+0
+],
+"mission.windurst.002": [
+"m",
+2,
+1
+],
+"mission.windurst.003": [
+"m",
+2,
+2
+],
+"mission.windurst.004": [
+"m",
+2,
+3
+],
+"mission.windurst.005": [
+"m",
+2,
+4
+],
+"mission.windurst.006": [
+"m",
+2,
+5
+],
+"mission.windurst.007": [
+"m",
+2,
+10
+],
+"mission.windurst.008": [
+"m",
+2,
+11
+],
+"mission.windurst.009": [
+"m",
+2,
+12
+],
+"mission.windurst.010": [
+"m",
+2,
+13
+],
+"mission.windurst.011": [
+"m",
+2,
+14
+],
+"mission.windurst.012": [
+"m",
+2,
+15
+],
+"mission.windurst.013": [
+"m",
+2,
+16
+],
+"mission.windurst.014": [
+"m",
+2,
+17
+],
+"mission.windurst.015": [
+"m",
+2,
+18
+],
+"mission.windurst.016": [
+"m",
+2,
+19
+],
+"mission.windurst.017": [
+"m",
+2,
+20
+],
+"mission.windurst.018": [
+"m",
+2,
+21
+],
+"mission.windurst.019": [
+"m",
+2,
+22
+],
+"mission.windurst.020": [
+"m",
+2,
+23
+],
+"mission.zilart.001": [
+"m",
+3,
+0
+],
+"mission.zilart.002": [
+"m",
+3,
+4
+],
+"mission.zilart.003": [
+"m",
+3,
+8
+],
+"mission.zilart.004": [
+"m",
+3,
+10
+],
+"mission.zilart.005": [
+"m",
+3,
+12
+],
+"mission.zilart.006": [
+"m",
+3,
+14
+],
+"mission.zilart.007": [
+"m",
+3,
+16
+],
+"mission.zilart.008": [
+"m",
+3,
+18
+],
+"mission.zilart.009": [
+"m",
+3,
+20
+],
+"mission.zilart.010": [
+"m",
+3,
+22
+],
+"mission.zilart.011": [
+"m",
+3,
+23
+],
+"mission.zilart.012": [
+"m",
+3,
+24
+],
+"mission.zilart.013": [
+"m",
+3,
+26
+],
+"mission.zilart.014": [
+"m",
+3,
+27
+],
+"mission.zilart.015": [
+"m",
+3,
+28
+],
+"mission.zilart.016": [
+"m",
+3,
+30
+],
+"mission.zilart.017": [
+"m",
+3,
+31
+],
+"mission.zilart.019": [
+"m",
+3,
+6
+],
+"quest.abyssea.001": [
+"q",
+8,
+166
+],
+"quest.abyssea.002": [
+"q",
+8,
+40
+],
+"quest.abyssea.003": [
+"q",
+8,
+42
+],
+"quest.abyssea.004": [
+"q",
+8,
+41
+],
+"quest.abyssea.005": [
+"q",
+8,
+45
+],
+"quest.abyssea.006": [
+"q",
+8,
+47
+],
+"quest.abyssea.007": [
+"q",
+8,
+39
+],
+"quest.abyssea.008": [
+"q",
+8,
+46
+],
+"quest.abyssea.009": [
+"q",
+8,
+44
+],
+"quest.abyssea.010": [
+"q",
+8,
+43
+],
+"quest.abyssea.011": [
+"q",
+8,
+136
+],
+"quest.abyssea.012": [
+"q",
+8,
+139
+],
+"quest.abyssea.013": [
+"q",
+8,
+130
+],
+"quest.abyssea.014": [
+"q",
+8,
+133
+],
+"quest.abyssea.015": [
+"q",
+8,
+124
+],
+"quest.abyssea.016": [
+"q",
+8,
+127
+],
+"quest.abyssea.017": [
+"q",
+8,
+154
+],
+"quest.abyssea.018": [
+"q",
+8,
+145
+],
+"quest.abyssea.019": [
+"q",
+8,
+84
+],
+"quest.abyssea.020": [
+"q",
+8,
+87
+],
+"quest.abyssea.021": [
+"q",
+8,
+88
+],
+"quest.abyssea.022": [
+"q",
+8,
+89
+],
+"quest.abyssea.023": [
+"q",
+8,
+90
+],
+"quest.abyssea.024": [
+"q",
+8,
+91
+],
+"quest.abyssea.025": [
+"q",
+8,
+92
+],
+"quest.abyssea.026": [
+"q",
+8,
+93
+],
+"quest.abyssea.027": [
+"q",
+8,
+94
+],
+"quest.abyssea.028": [
+"q",
+8,
+95
+],
+"quest.abyssea.029": [
+"q",
+8,
+96
+],
+"quest.abyssea.030": [
+"q",
+8,
+97
+],
+"quest.abyssea.031": [
+"q",
+8,
+98
+],
+"quest.abyssea.032": [
+"q",
+8,
+99
+],
+"quest.abyssea.033": [
+"q",
+8,
+100
+],
+"quest.abyssea.034": [
+"q",
+8,
+86
+],
+"quest.abyssea.035": [
+"q",
+8,
+80
+],
+"quest.abyssea.036": [
+"q",
+8,
+81
+],
+"quest.abyssea.037": [
+"q",
+8,
+79
+],
+"quest.abyssea.038": [
+"q",
+8,
+82
+],
+"quest.abyssea.039": [
+"q",
+8,
+83
+],
+"quest.abyssea.040": [
+"q",
+8,
+85
+],
+"quest.abyssea.041": [
+"q",
+8,
+77
+],
+"quest.abyssea.042": [
+"q",
+8,
+78
+],
+"quest.abyssea.043": [
+"q",
+8,
+157
+],
+"quest.abyssea.044": [
+"q",
+8,
+148
+],
+"quest.abyssea.045": [
+"q",
+8,
+101
+],
+"quest.abyssea.046": [
+"q",
+8,
+102
+],
+"quest.abyssea.047": [
+"q",
+8,
+103
+],
+"quest.abyssea.048": [
+"q",
+8,
+104
+],
+"quest.abyssea.049": [
+"q",
+8,
+105
+],
+"quest.abyssea.050": [
+"q",
+8,
+106
+],
+"quest.abyssea.051": [
+"q",
+8,
+107
+],
+"quest.abyssea.052": [
+"q",
+8,
+108
+],
+"quest.abyssea.053": [
+"q",
+8,
+109
+],
+"quest.abyssea.054": [
+"q",
+8,
+110
+],
+"quest.abyssea.055": [
+"q",
+8,
+111
+],
+"quest.abyssea.056": [
+"q",
+8,
+112
+],
+"quest.abyssea.057": [
+"q",
+8,
+113
+],
+"quest.abyssea.058": [
+"q",
+8,
+114
+],
+"quest.abyssea.059": [
+"q",
+8,
+69
+],
+"quest.abyssea.060": [
+"q",
+8,
+74
+],
+"quest.abyssea.061": [
+"q",
+8,
+73
+],
+"quest.abyssea.062": [
+"q",
+8,
+75
+],
+"quest.abyssea.063": [
+"q",
+8,
+70
+],
+"quest.abyssea.064": [
+"q",
+8,
+71
+],
+"quest.abyssea.065": [
+"q",
+8,
+76
+],
+"quest.abyssea.066": [
+"q",
+8,
+68
+],
+"quest.abyssea.067": [
+"q",
+8,
+72
+],
+"quest.abyssea.068": [
+"q",
+8,
+67
+],
+"quest.abyssea.069": [
+"q",
+8,
+158
+],
+"quest.abyssea.070": [
+"q",
+8,
+149
+],
+"quest.abyssea.071": [
+"q",
+8,
+115
+],
+"quest.abyssea.072": [
+"q",
+8,
+116
+],
+"quest.abyssea.073": [
+"q",
+8,
+117
+],
+"quest.abyssea.074": [
+"q",
+8,
+118
+],
+"quest.abyssea.075": [
+"q",
+8,
+119
+],
+"quest.abyssea.076": [
+"q",
+8,
+120
+],
+"quest.abyssea.077": [
+"q",
+8,
+121
+],
+"quest.abyssea.078": [
+"q",
+8,
+122
+],
+"quest.abyssea.079": [
+"q",
+8,
+123
+],
+"quest.abyssea.080": [
+"q",
+8,
+187
+],
+"quest.abyssea.081": [
+"q",
+8,
+188
+],
+"quest.abyssea.082": [
+"q",
+8,
+189
+],
+"quest.abyssea.083": [
+"q",
+8,
+190
+],
+"quest.abyssea.084": [
+"q",
+8,
+191
+],
+"quest.abyssea.085": [
+"q",
+8,
+62
+],
+"quest.abyssea.086": [
+"q",
+8,
+63
+],
+"quest.abyssea.087": [
+"q",
+8,
+61
+],
+"quest.abyssea.088": [
+"q",
+8,
+64
+],
+"quest.abyssea.089": [
+"q",
+8,
+65
+],
+"quest.abyssea.090": [
+"q",
+8,
+66
+],
+"quest.abyssea.091": [
+"q",
+8,
+60
+],
+"quest.abyssea.092": [
+"q",
+8,
+57
+],
+"quest.abyssea.093": [
+"q",
+8,
+58
+],
+"quest.abyssea.094": [
+"q",
+8,
+59
+],
+"quest.abyssea.095": [
+"q",
+8,
+159
+],
+"quest.abyssea.096": [
+"q",
+8,
+150
+],
+"quest.abyssea.097": [
+"q",
+8,
+10
+],
+"quest.abyssea.098": [
+"q",
+8,
+11
+],
+"quest.abyssea.099": [
+"q",
+8,
+12
+],
+"quest.abyssea.100": [
+"q",
+8,
+13
+],
+"quest.abyssea.101": [
+"q",
+8,
+14
+],
+"quest.abyssea.102": [
+"q",
+8,
+15
+],
+"quest.abyssea.103": [
+"q",
+8,
+17
+],
+"quest.abyssea.104": [
+"q",
+8,
+18
+],
+"quest.abyssea.105": [
+"q",
+8,
+19
+],
+"quest.abyssea.106": [
+"q",
+8,
+16
+],
+"quest.abyssea.107": [
+"q",
+8,
+152
+],
+"quest.abyssea.108": [
+"q",
+8,
+143
+],
+"quest.abyssea.109": [
+"q",
+8,
+20
+],
+"quest.abyssea.110": [
+"q",
+8,
+28
+],
+"quest.abyssea.111": [
+"q",
+8,
+21
+],
+"quest.abyssea.112": [
+"q",
+8,
+23
+],
+"quest.abyssea.113": [
+"q",
+8,
+24
+],
+"quest.abyssea.114": [
+"q",
+8,
+25
+],
+"quest.abyssea.115": [
+"q",
+8,
+26
+],
+"quest.abyssea.116": [
+"q",
+8,
+27
+],
+"quest.abyssea.117": [
+"q",
+8,
+153
+],
+"quest.abyssea.118": [
+"q",
+8,
+144
+],
+"quest.abyssea.119": [
+"q",
+8,
+22
+],
+"quest.abyssea.120": [
+"q",
+8,
+29
+],
+"quest.abyssea.121": [
+"q",
+8,
+30
+],
+"quest.abyssea.122": [
+"q",
+8,
+141
+],
+"quest.abyssea.123": [
+"q",
+8,
+138
+],
+"quest.abyssea.124": [
+"q",
+8,
+32
+],
+"quest.abyssea.125": [
+"q",
+8,
+38
+],
+"quest.abyssea.126": [
+"q",
+8,
+156
+],
+"quest.abyssea.127": [
+"q",
+8,
+135
+],
+"quest.abyssea.128": [
+"q",
+8,
+132
+],
+"quest.abyssea.129": [
+"q",
+8,
+34
+],
+"quest.abyssea.130": [
+"q",
+8,
+31
+],
+"quest.abyssea.131": [
+"q",
+8,
+35
+],
+"quest.abyssea.132": [
+"q",
+8,
+36
+],
+"quest.abyssea.133": [
+"q",
+8,
+33
+],
+"quest.abyssea.134": [
+"q",
+8,
+147
+],
+"quest.abyssea.135": [
+"q",
+8,
+129
+],
+"quest.abyssea.136": [
+"q",
+8,
+126
+],
+"quest.abyssea.137": [
+"q",
+8,
+37
+],
+"quest.abyssea.138": [
+"q",
+8,
+54
+],
+"quest.abyssea.139": [
+"q",
+8,
+53
+],
+"quest.abyssea.140": [
+"q",
+8,
+140
+],
+"quest.abyssea.141": [
+"q",
+8,
+137
+],
+"quest.abyssea.142": [
+"q",
+8,
+55
+],
+"quest.abyssea.143": [
+"q",
+8,
+56
+],
+"quest.abyssea.144": [
+"q",
+8,
+49
+],
+"quest.abyssea.145": [
+"q",
+8,
+155
+],
+"quest.abyssea.146": [
+"q",
+8,
+134
+],
+"quest.abyssea.147": [
+"q",
+8,
+131
+],
+"quest.abyssea.148": [
+"q",
+8,
+48
+],
+"quest.abyssea.149": [
+"q",
+8,
+50
+],
+"quest.abyssea.150": [
+"q",
+8,
+51
+],
+"quest.abyssea.151": [
+"q",
+8,
+52
+],
+"quest.abyssea.152": [
+"q",
+8,
+146
+],
+"quest.abyssea.153": [
+"q",
+8,
+128
+],
+"quest.abyssea.154": [
+"q",
+8,
+125
+],
+"quest.abyssea.155": [
+"q",
+8,
+7
+],
+"quest.abyssea.156": [
+"q",
+8,
+6
+],
+"quest.abyssea.157": [
+"q",
+8,
+151
+],
+"quest.abyssea.158": [
+"q",
+8,
+9
+],
+"quest.abyssea.159": [
+"q",
+8,
+4
+],
+"quest.abyssea.160": [
+"q",
+8,
+5
+],
+"quest.abyssea.161": [
+"q",
+8,
+142
+],
+"quest.abyssea.162": [
+"q",
+8,
+2
+],
+"quest.abyssea.163": [
+"q",
+8,
+1
+],
+"quest.abyssea.164": [
+"q",
+8,
+3
+],
+"quest.abyssea.165": [
+"q",
+8,
+8
+],
+"quest.abyssea.166": [
+"q",
+8,
+0
+],
+"quest.abyssea.167": [
+"q",
+8,
+185
+],
+"quest.abyssea.168": [
+"q",
+8,
+186
+],
+"quest.abyssea.169": [
+"q",
+8,
+184
+],
+"quest.abyssea.170": [
+"q",
+8,
+164
+],
+"quest.abyssea.171": [
+"q",
+8,
+177
+],
+"quest.abyssea.172": [
+"q",
+8,
+172
+],
+"quest.abyssea.173": [
+"q",
+8,
+160
+],
+"quest.abyssea.174": [
+"q",
+8,
+175
+],
+"quest.abyssea.175": [
+"q",
+8,
+171
+],
+"quest.abyssea.176": [
+"q",
+8,
+179
+],
+"quest.abyssea.177": [
+"q",
+8,
+181
+],
+"quest.abyssea.178": [
+"q",
+8,
+161
+],
+"quest.abyssea.179": [
+"q",
+8,
+169
+],
+"quest.abyssea.180": [
+"q",
+8,
+167
+],
+"quest.abyssea.181": [
+"q",
+8,
+162
+],
+"quest.abyssea.182": [
+"q",
+8,
+170
+],
+"quest.abyssea.183": [
+"q",
+8,
+180
+],
+"quest.abyssea.184": [
+"q",
+8,
+165
+],
+"quest.abyssea.185": [
+"q",
+8,
+173
+],
+"quest.abyssea.186": [
+"q",
+8,
+174
+],
+"quest.abyssea.187": [
+"q",
+8,
+168
+],
+"quest.abyssea.188": [
+"q",
+8,
+163
+],
+"quest.abyssea.189": [
+"q",
+8,
+178
+],
+"quest.abyssea.190": [
+"q",
+8,
+176
+],
+"quest.abyssea.191": [
+"q",
+8,
+182
+],
+"quest.abyssea.192": [
+"q",
+8,
+183
+],
+"quest.adoulin.001": [
+"q",
+9,
+55
+],
+"quest.adoulin.002": [
+"q",
+9,
+12
+],
+"quest.adoulin.003": [
+"q",
+9,
+59
+],
+"quest.adoulin.004": [
+"q",
+9,
+10
+],
+"quest.adoulin.005": [
+"q",
+9,
+54
+],
+"quest.adoulin.006": [
+"q",
+9,
+61
+],
+"quest.adoulin.007": [
+"q",
+9,
+0
+],
+"quest.adoulin.008": [
+"q",
+9,
+53
+],
+"quest.adoulin.009": [
+"q",
+9,
+1
+],
+"quest.adoulin.010": [
+"q",
+9,
+2
+],
+"quest.adoulin.011": [
+"q",
+9,
+57
+],
+"quest.adoulin.012": [
+"q",
+9,
+32
+],
+"quest.adoulin.013": [
+"q",
+9,
+31
+],
+"quest.adoulin.014": [
+"q",
+9,
+141
+],
+"quest.adoulin.015": [
+"q",
+9,
+62
+],
+"quest.adoulin.016": [
+"q",
+9,
+56
+],
+"quest.adoulin.017": [
+"q",
+9,
+16
+],
+"quest.adoulin.018": [
+"q",
+9,
+60
+],
+"quest.adoulin.019": [
+"q",
+9,
+18
+],
+"quest.adoulin.020": [
+"q",
+9,
+6
+],
+"quest.adoulin.021": [
+"q",
+9,
+9
+],
+"quest.adoulin.022": [
+"q",
+9,
+58
+],
+"quest.adoulin.023": [
+"q",
+9,
+5
+],
+"quest.adoulin.024": [
+"q",
+9,
+34
+],
+"quest.adoulin.025": [
+"q",
+9,
+33
+],
+"quest.adoulin.031": [
+"q",
+9,
+132
+],
+"quest.adoulin.032": [
+"q",
+9,
+85
+],
+"quest.adoulin.033": [
+"q",
+9,
+79
+],
+"quest.adoulin.034": [
+"q",
+9,
+126
+],
+"quest.adoulin.036": [
+"q",
+9,
+70
+],
+"quest.adoulin.037": [
+"q",
+9,
+30
+],
+"quest.adoulin.038": [
+"q",
+9,
+129
+],
+"quest.adoulin.039": [
+"q",
+9,
+22
+],
+"quest.adoulin.040": [
+"q",
+9,
+94
+],
+"quest.adoulin.041": [
+"q",
+9,
+23
+],
+"quest.adoulin.042": [
+"q",
+9,
+25
+],
+"quest.adoulin.043": [
+"q",
+9,
+89
+],
+"quest.adoulin.044": [
+"q",
+9,
+138
+],
+"quest.adoulin.045": [
+"q",
+9,
+119
+],
+"quest.adoulin.046": [
+"q",
+9,
+24
+],
+"quest.adoulin.047": [
+"q",
+9,
+134
+],
+"quest.adoulin.048": [
+"q",
+9,
+123
+],
+"quest.adoulin.049": [
+"q",
+9,
+117
+],
+"quest.adoulin.050": [
+"q",
+9,
+91
+],
+"quest.adoulin.051": [
+"q",
+9,
+125
+],
+"quest.adoulin.052": [
+"q",
+9,
+96
+],
+"quest.adoulin.053": [
+"q",
+9,
+127
+],
+"quest.adoulin.054": [
+"q",
+9,
+100
+],
+"quest.adoulin.055": [
+"q",
+9,
+115
+],
+"quest.adoulin.056": [
+"q",
+9,
+51
+],
+"quest.adoulin.057": [
+"q",
+9,
+140
+],
+"quest.adoulin.058": [
+"q",
+9,
+121
+],
+"quest.adoulin.059": [
+"q",
+9,
+114
+],
+"quest.adoulin.060": [
+"q",
+9,
+116
+],
+"quest.adoulin.061": [
+"q",
+9,
+128
+],
+"quest.adoulin.062": [
+"q",
+9,
+71
+],
+"quest.adoulin.063": [
+"q",
+9,
+137
+],
+"quest.adoulin.064": [
+"q",
+9,
+93
+],
+"quest.adoulin.065": [
+"q",
+9,
+27
+],
+"quest.adoulin.066": [
+"q",
+9,
+131
+],
+"quest.adoulin.067": [
+"q",
+9,
+28
+],
+"quest.adoulin.069": [
+"q",
+9,
+105
+],
+"quest.adoulin.070": [
+"q",
+9,
+103
+],
+"quest.adoulin.071": [
+"q",
+9,
+102
+],
+"quest.adoulin.072": [
+"q",
+9,
+104
+],
+"quest.adoulin.073": [
+"q",
+9,
+26
+],
+"quest.adoulin.074": [
+"q",
+9,
+88
+],
+"quest.adoulin.075": [
+"q",
+9,
+78
+],
+"quest.adoulin.076": [
+"q",
+9,
+109
+],
+"quest.adoulin.077": [
+"q",
+9,
+110
+],
+"quest.adoulin.078": [
+"q",
+9,
+111
+],
+"quest.adoulin.079": [
+"q",
+9,
+108
+],
+"quest.adoulin.080": [
+"q",
+9,
+77
+],
+"quest.adoulin.081": [
+"q",
+9,
+46
+],
+"quest.adoulin.082": [
+"q",
+9,
+82
+],
+"quest.adoulin.083": [
+"q",
+9,
+29
+],
+"quest.adoulin.084": [
+"q",
+9,
+72
+],
+"quest.adoulin.085": [
+"q",
+9,
+84
+],
+"quest.adoulin.086": [
+"q",
+9,
+76
+],
+"quest.adoulin.087": [
+"q",
+9,
+74
+],
+"quest.adoulin.088": [
+"q",
+9,
+73
+],
+"quest.adoulin.089": [
+"q",
+9,
+50
+],
+"quest.adoulin.090": [
+"q",
+9,
+75
+],
+"quest.adoulin.091": [
+"q",
+9,
+120
+],
+"quest.adoulin.092": [
+"q",
+9,
+143
+],
+"quest.adoulin.093": [
+"q",
+9,
+37
+],
+"quest.adoulin.094": [
+"q",
+9,
+133
+],
+"quest.adoulin.095": [
+"q",
+9,
+135
+],
+"quest.adoulin.096": [
+"q",
+9,
+142
+],
+"quest.adoulin.097": [
+"q",
+9,
+139
+],
+"quest.adoulin.098": [
+"q",
+9,
+122
+],
+"quest.adoulin.099": [
+"q",
+9,
+35
+],
+"quest.adoulin.100": [
+"q",
+9,
+124
+],
+"quest.adoulin.101": [
+"q",
+9,
+136
+],
+"quest.adoulin.102": [
+"q",
+9,
+38
+],
+"quest.adoulin.103": [
+"q",
+9,
+36
+],
+"quest.adoulin.104": [
+"q",
+9,
+118
+],
+"quest.adoulin.105": [
+"q",
+10,
+78
+],
+"quest.adoulin.106": [
+"q",
+10,
+49
+],
+"quest.adoulin.107": [
+"q",
+10,
+27
+],
+"quest.adoulin.108": [
+"q",
+10,
+16
+],
+"quest.adoulin.109": [
+"q",
+10,
+66
+],
+"quest.adoulin.110": [
+"q",
+10,
+21
+],
+"quest.adoulin.111": [
+"q",
+10,
+1
+],
+"quest.adoulin.112": [
+"q",
+10,
+9
+],
+"quest.adoulin.113": [
+"q",
+10,
+81
+],
+"quest.adoulin.114": [
+"q",
+10,
+88
+],
+"quest.adoulin.115": [
+"q",
+10,
+93
+],
+"quest.adoulin.116": [
+"q",
+10,
+53
+],
+"quest.adoulin.117": [
+"q",
+10,
+31
+],
+"quest.adoulin.118": [
+"q",
+10,
+20
+],
+"quest.adoulin.119": [
+"q",
+10,
+70
+],
+"quest.adoulin.120": [
+"q",
+10,
+92
+],
+"quest.adoulin.121": [
+"q",
+10,
+25
+],
+"quest.adoulin.122": [
+"q",
+10,
+5
+],
+"quest.adoulin.123": [
+"q",
+10,
+13
+],
+"quest.adoulin.124": [
+"q",
+10,
+95
+],
+"quest.adoulin.125": [
+"q",
+10,
+85
+],
+"quest.adoulin.126": [
+"q",
+10,
+64
+],
+"quest.adoulin.127": [
+"q",
+10,
+48
+],
+"quest.adoulin.128": [
+"q",
+10,
+26
+],
+"quest.adoulin.129": [
+"q",
+10,
+80
+],
+"quest.adoulin.130": [
+"q",
+10,
+87
+],
+"quest.adoulin.131": [
+"q",
+10,
+0
+],
+"quest.adoulin.132": [
+"q",
+10,
+8
+],
+"quest.adoulin.133": [
+"q",
+10,
+74
+],
+"quest.adoulin.134": [
+"q",
+10,
+54
+],
+"quest.adoulin.135": [
+"q",
+10,
+55
+],
+"quest.adoulin.136": [
+"q",
+10,
+76
+],
+"quest.adoulin.137": [
+"q",
+10,
+71
+],
+"quest.adoulin.138": [
+"q",
+10,
+6
+],
+"quest.adoulin.139": [
+"q",
+10,
+14
+],
+"quest.adoulin.140": [
+"q",
+10,
+56
+],
+"quest.adoulin.141": [
+"q",
+10,
+77
+],
+"quest.adoulin.142": [
+"q",
+10,
+52
+],
+"quest.adoulin.143": [
+"q",
+10,
+30
+],
+"quest.adoulin.144": [
+"q",
+10,
+19
+],
+"quest.adoulin.145": [
+"q",
+10,
+69
+],
+"quest.adoulin.146": [
+"q",
+10,
+91
+],
+"quest.adoulin.147": [
+"q",
+10,
+24
+],
+"quest.adoulin.148": [
+"q",
+10,
+4
+],
+"quest.adoulin.149": [
+"q",
+10,
+12
+],
+"quest.adoulin.150": [
+"q",
+10,
+84
+],
+"quest.adoulin.151": [
+"q",
+10,
+94
+],
+"quest.adoulin.152": [
+"q",
+10,
+50
+],
+"quest.adoulin.153": [
+"q",
+10,
+28
+],
+"quest.adoulin.154": [
+"q",
+10,
+17
+],
+"quest.adoulin.155": [
+"q",
+10,
+67
+],
+"quest.adoulin.156": [
+"q",
+10,
+22
+],
+"quest.adoulin.157": [
+"q",
+10,
+2
+],
+"quest.adoulin.158": [
+"q",
+10,
+10
+],
+"quest.adoulin.159": [
+"q",
+10,
+82
+],
+"quest.adoulin.160": [
+"q",
+10,
+89
+],
+"quest.adoulin.161": [
+"q",
+10,
+75
+],
+"quest.adoulin.162": [
+"q",
+10,
+65
+],
+"quest.adoulin.163": [
+"q",
+10,
+51
+],
+"quest.adoulin.164": [
+"q",
+10,
+29
+],
+"quest.adoulin.165": [
+"q",
+10,
+18
+],
+"quest.adoulin.166": [
+"q",
+10,
+68
+],
+"quest.adoulin.167": [
+"q",
+10,
+90
+],
+"quest.adoulin.168": [
+"q",
+10,
+23
+],
+"quest.adoulin.169": [
+"q",
+10,
+3
+],
+"quest.adoulin.170": [
+"q",
+10,
+11
+],
+"quest.adoulin.171": [
+"q",
+10,
+83
+],
+"quest.adoulin.172": [
+"q",
+10,
+73
+],
+"quest.adoulin.173": [
+"q",
+10,
+86
+],
+"quest.adoulin.174": [
+"q",
+10,
+79
+],
+"quest.adoulin.175": [
+"q",
+10,
+7
+],
+"quest.adoulin.176": [
+"q",
+10,
+72
+],
+"quest.adoulin.177": [
+"q",
+10,
+15
+],
+"quest.adoulin.178": [
+"q",
+10,
+57
+],
+"quest.adoulin.179": [
+"q",
+10,
+61
+],
+"quest.adoulin.180": [
+"q",
+10,
+62
+],
+"quest.adoulin.181": [
+"q",
+10,
+60
+],
+"quest.adoulin.182": [
+"q",
+10,
+58
+],
+"quest.adoulin.183": [
+"q",
+10,
+59
+],
+"quest.adoulin.184": [
+"q",
+10,
+63
+],
+"quest.adoulin.185": [
+"q",
+10,
+44
+],
+"quest.adoulin.186": [
+"q",
+10,
+35
+],
+"quest.adoulin.187": [
+"q",
+10,
+39
+],
+"quest.adoulin.188": [
+"q",
+10,
+33
+],
+"quest.adoulin.189": [
+"q",
+10,
+40
+],
+"quest.adoulin.190": [
+"q",
+10,
+42
+],
+"quest.adoulin.191": [
+"q",
+10,
+43
+],
+"quest.adoulin.192": [
+"q",
+10,
+38
+],
+"quest.adoulin.193": [
+"q",
+10,
+36
+],
+"quest.adoulin.194": [
+"q",
+10,
+41
+],
+"quest.adoulin.195": [
+"q",
+10,
+34
+],
+"quest.adoulin.196": [
+"q",
+10,
+37
+],
+"quest.adoulin.197": [
+"q",
+10,
+32
+],
+"quest.adoulin.198": [
+"q",
+10,
+46
+],
+"quest.adoulin.199": [
+"q",
+10,
+45
+],
+"quest.aht_urhgan.005": [
+"q",
+6,
+29
+],
+"quest.aht_urhgan.006": [
+"q",
+6,
+1
+],
+"quest.aht_urhgan.007": [
+"q",
+6,
+16
+],
+"quest.aht_urhgan.008": [
+"q",
+6,
+13
+],
+"quest.aht_urhgan.009": [
+"q",
+6,
+0
+],
+"quest.aht_urhgan.010": [
+"q",
+6,
+63
+],
+"quest.aht_urhgan.011": [
+"q",
+6,
+26
+],
+"quest.aht_urhgan.012": [
+"q",
+6,
+74
+],
+"quest.aht_urhgan.013": [
+"q",
+6,
+2
+],
+"quest.aht_urhgan.014": [
+"q",
+6,
+7
+],
+"quest.aht_urhgan.015": [
+"q",
+6,
+28
+],
+"quest.aht_urhgan.016": [
+"q",
+6,
+61
+],
+"quest.aht_urhgan.017": [
+"q",
+6,
+12
+],
+"quest.aht_urhgan.018": [
+"q",
+6,
+60
+],
+"quest.aht_urhgan.019": [
+"q",
+6,
+32
+],
+"quest.aht_urhgan.020": [
+"q",
+6,
+4
+],
+"quest.aht_urhgan.021": [
+"q",
+6,
+40
+],
+"quest.aht_urhgan.022": [
+"q",
+6,
+65
+],
+"quest.aht_urhgan.023": [
+"q",
+6,
+78
+],
+"quest.aht_urhgan.024": [
+"q",
+6,
+22
+],
+"quest.aht_urhgan.025": [
+"q",
+6,
+30
+],
+"quest.aht_urhgan.026": [
+"q",
+6,
+77
+],
+"quest.aht_urhgan.027": [
+"q",
+6,
+76
+],
+"quest.aht_urhgan.028": [
+"q",
+6,
+31
+],
+"quest.aht_urhgan.029": [
+"q",
+6,
+17
+],
+"quest.aht_urhgan.030": [
+"q",
+6,
+46
+],
+"quest.aht_urhgan.031": [
+"q",
+6,
+23
+],
+"quest.aht_urhgan.032": [
+"q",
+6,
+43
+],
+"quest.aht_urhgan.033": [
+"q",
+6,
+9
+],
+"quest.aht_urhgan.034": [
+"q",
+6,
+8
+],
+"quest.aht_urhgan.035": [
+"q",
+6,
+3
+],
+"quest.aht_urhgan.036": [
+"q",
+6,
+27
+],
+"quest.aht_urhgan.037": [
+"q",
+6,
+90
+],
+"quest.aht_urhgan.038": [
+"q",
+6,
+91
+],
+"quest.aht_urhgan.039": [
+"q",
+6,
+98
+],
+"quest.aht_urhgan.040": [
+"q",
+6,
+93
+],
+"quest.aht_urhgan.041": [
+"q",
+6,
+92
+],
+"quest.aht_urhgan.042": [
+"q",
+6,
+99
+],
+"quest.aht_urhgan.043": [
+"q",
+6,
+97
+],
+"quest.aht_urhgan.044": [
+"q",
+6,
+95
+],
+"quest.aht_urhgan.045": [
+"q",
+6,
+96
+],
+"quest.aht_urhgan.046": [
+"q",
+6,
+94
+],
+"quest.aht_urhgan.047": [
+"q",
+6,
+47
+],
+"quest.aht_urhgan.048": [
+"q",
+6,
+6
+],
+"quest.aht_urhgan.049": [
+"q",
+6,
+62
+],
+"quest.aht_urhgan.050": [
+"q",
+6,
+5
+],
+"quest.aht_urhgan.051": [
+"q",
+6,
+48
+],
+"quest.aht_urhgan.052": [
+"q",
+6,
+75
+],
+"quest.aht_urhgan.053": [
+"q",
+6,
+70
+],
+"quest.aht_urhgan.054": [
+"q",
+6,
+67
+],
+"quest.aht_urhgan.055": [
+"q",
+6,
+10
+],
+"quest.aht_urhgan.056": [
+"q",
+6,
+72
+],
+"quest.aht_urhgan.057": [
+"q",
+6,
+44
+],
+"quest.aht_urhgan.058": [
+"q",
+6,
+21
+],
+"quest.aht_urhgan.059": [
+"q",
+6,
+45
+],
+"quest.aht_urhgan.060": [
+"q",
+6,
+24
+],
+"quest.aht_urhgan.061": [
+"q",
+6,
+41
+],
+"quest.aht_urhgan.062": [
+"q",
+6,
+25
+],
+"quest.aht_urhgan.063": [
+"q",
+6,
+14
+],
+"quest.aht_urhgan.064": [
+"q",
+6,
+20
+],
+"quest.aht_urhgan.065": [
+"q",
+6,
+73
+],
+"quest.aht_urhgan.066": [
+"q",
+6,
+15
+],
+"quest.aht_urhgan.067": [
+"q",
+6,
+101
+],
+"quest.aht_urhgan.068": [
+"q",
+6,
+102
+],
+"quest.aht_urhgan.069": [
+"q",
+6,
+103
+],
+"quest.aht_urhgan.070": [
+"q",
+6,
+18
+],
+"quest.aht_urhgan.071": [
+"q",
+6,
+71
+],
+"quest.aht_urhgan.072": [
+"q",
+6,
+19
+],
+"quest.aht_urhgan.073": [
+"q",
+6,
+66
+],
+"quest.aht_urhgan.074": [
+"q",
+6,
+64
+],
+"quest.altana.002": [
+"q",
+7,
+5
+],
+"quest.altana.003": [
+"q",
+7,
+4
+],
+"quest.altana.004": [
+"q",
+7,
+8
+],
+"quest.altana.005": [
+"q",
+7,
+56
+],
+"quest.altana.006": [
+"q",
+7,
+53
+],
+"quest.altana.007": [
+"q",
+7,
+39
+],
+"quest.altana.008": [
+"q",
+7,
+62
+],
+"quest.altana.009": [
+"q",
+7,
+26
+],
+"quest.altana.010": [
+"q",
+7,
+71
+],
+"quest.altana.011": [
+"q",
+7,
+27
+],
+"quest.altana.012": [
+"q",
+7,
+41
+],
+"quest.altana.013": [
+"q",
+7,
+54
+],
+"quest.altana.014": [
+"q",
+7,
+46
+],
+"quest.altana.015": [
+"q",
+7,
+3
+],
+"quest.altana.016": [
+"q",
+7,
+40
+],
+"quest.altana.017": [
+"q",
+7,
+18
+],
+"quest.altana.018": [
+"q",
+7,
+17
+],
+"quest.altana.019": [
+"q",
+7,
+28
+],
+"quest.altana.020": [
+"q",
+7,
+47
+],
+"quest.altana.021": [
+"q",
+7,
+74
+],
+"quest.altana.022": [
+"q",
+7,
+73
+],
+"quest.altana.023": [
+"q",
+7,
+94
+],
+"quest.altana.024": [
+"q",
+7,
+91
+],
+"quest.altana.025": [
+"q",
+7,
+75
+],
+"quest.altana.026": [
+"q",
+7,
+32
+],
+"quest.altana.027": [
+"q",
+7,
+33
+],
+"quest.altana.028": [
+"q",
+7,
+34
+],
+"quest.altana.029": [
+"q",
+7,
+23
+],
+"quest.altana.030": [
+"q",
+7,
+6
+],
+"quest.altana.031": [
+"q",
+7,
+63
+],
+"quest.altana.032": [
+"q",
+7,
+38
+],
+"quest.altana.033": [
+"q",
+7,
+22
+],
+"quest.altana.034": [
+"q",
+7,
+11
+],
+"quest.altana.035": [
+"q",
+7,
+21
+],
+"quest.altana.036": [
+"q",
+7,
+2
+],
+"quest.altana.037": [
+"q",
+7,
+55
+],
+"quest.altana.038": [
+"q",
+7,
+65
+],
+"quest.altana.040": [
+"q",
+7,
+52
+],
+"quest.altana.041": [
+"q",
+7,
+44
+],
+"quest.altana.047": [
+"q",
+7,
+59
+],
+"quest.altana.050": [
+"q",
+7,
+48
+],
+"quest.altana.051": [
+"q",
+7,
+49
+],
+"quest.altana.052": [
+"q",
+7,
+50
+],
+"quest.altana.053": [
+"q",
+7,
+70
+],
+"quest.altana.054": [
+"q",
+7,
+20
+],
+"quest.altana.055": [
+"q",
+7,
+42
+],
+"quest.altana.056": [
+"q",
+7,
+43
+],
+"quest.altana.057": [
+"q",
+7,
+58
+],
+"quest.altana.058": [
+"q",
+7,
+7
+],
+"quest.altana.059": [
+"q",
+7,
+19
+],
+"quest.altana.060": [
+"q",
+7,
+14
+],
+"quest.altana.061": [
+"q",
+7,
+36
+],
+"quest.altana.062": [
+"q",
+7,
+13
+],
+"quest.altana.063": [
+"q",
+7,
+35
+],
+"quest.altana.064": [
+"q",
+7,
+61
+],
+"quest.altana.065": [
+"q",
+7,
+0
+],
+"quest.altana.066": [
+"q",
+7,
+68
+],
+"quest.altana.068": [
+"q",
+7,
+80
+],
+"quest.altana.069": [
+"q",
+7,
+85
+],
+"quest.altana.070": [
+"q",
+7,
+24
+],
+"quest.altana.071": [
+"q",
+7,
+31
+],
+"quest.altana.072": [
+"q",
+7,
+88
+],
+"quest.altana.073": [
+"q",
+7,
+84
+],
+"quest.altana.074": [
+"q",
+7,
+90
+],
+"quest.altana.075": [
+"q",
+7,
+87
+],
+"quest.altana.076": [
+"q",
+7,
+82
+],
+"quest.altana.077": [
+"q",
+7,
+93
+],
+"quest.altana.078": [
+"q",
+7,
+89
+],
+"quest.altana.079": [
+"q",
+7,
+81
+],
+"quest.altana.080": [
+"q",
+7,
+86
+],
+"quest.altana.081": [
+"q",
+7,
+92
+],
+"quest.altana.082": [
+"q",
+7,
+12
+],
+"quest.altana.083": [
+"q",
+7,
+66
+],
+"quest.altana.085": [
+"q",
+7,
+72
+],
+"quest.altana.086": [
+"q",
+7,
+25
+],
+"quest.altana.087": [
+"q",
+7,
+16
+],
+"quest.altana.088": [
+"q",
+7,
+45
+],
+"quest.altana.089": [
+"q",
+7,
+51
+],
+"quest.altana.090": [
+"q",
+7,
+57
+],
+"quest.altana.091": [
+"q",
+7,
+15
+],
+"quest.altana.092": [
+"q",
+7,
+60
+],
+"quest.altana.093": [
+"q",
+7,
+64
+],
+"quest.altana.094": [
+"q",
+7,
+69
+],
+"quest.altana.095": [
+"q",
+7,
+29
+],
+"quest.altana.096": [
+"q",
+7,
+9
+],
+"quest.altana.097": [
+"q",
+7,
+30
+],
+"quest.altana.098": [
+"q",
+7,
+37
+],
+"quest.altana.099": [
+"q",
+7,
+10
+],
+"quest.altana.101": [
+"q",
+7,
+98
+],
+"quest.altana.102": [
+"q",
+7,
+96
+],
+"quest.altana.103": [
+"q",
+7,
+97
+],
+"quest.altana.104": [
+"q",
+7,
+95
+],
+"quest.bastok.001": [
+"q",
+1,
+39
+],
+"quest.bastok.002": [
+"q",
+1,
+14
+],
+"quest.bastok.003": [
+"q",
+1,
+10
+],
+"quest.bastok.004": [
+"q",
+1,
+19
+],
+"quest.bastok.005": [
+"q",
+1,
+21
+],
+"quest.bastok.006": [
+"q",
+1,
+22
+],
+"quest.bastok.007": [
+"q",
+1,
+76
+],
+"quest.bastok.008": [
+"q",
+1,
+13
+],
+"quest.bastok.009": [
+"q",
+1,
+29
+],
+"quest.bastok.010": [
+"q",
+1,
+16
+],
+"quest.bastok.011": [
+"q",
+1,
+44
+],
+"quest.bastok.012": [
+"q",
+1,
+30
+],
+"quest.bastok.013": [
+"q",
+1,
+85
+],
+"quest.bastok.014": [
+"q",
+1,
+34
+],
+"quest.bastok.015": [
+"q",
+1,
+11
+],
+"quest.bastok.016": [
+"q",
+1,
+12
+],
+"quest.bastok.017": [
+"q",
+1,
+41
+],
+"quest.bastok.018": [
+"q",
+1,
+38
+],
+"quest.bastok.019": [
+"q",
+1,
+36
+],
+"quest.bastok.020": [
+"q",
+1,
+51
+],
+"quest.bastok.021": [
+"q",
+1,
+52
+],
+"quest.bastok.022": [
+"q",
+1,
+2
+],
+"quest.bastok.023": [
+"q",
+1,
+42
+],
+"quest.bastok.024": [
+"q",
+1,
+4
+],
+"quest.bastok.025": [
+"q",
+1,
+50
+],
+"quest.bastok.026": [
+"q",
+1,
+17
+],
+"quest.bastok.027": [
+"q",
+1,
+72
+],
+"quest.bastok.028": [
+"q",
+1,
+84
+],
+"quest.bastok.029": [
+"q",
+1,
+27
+],
+"quest.bastok.030": [
+"q",
+1,
+18
+],
+"quest.bastok.031": [
+"q",
+1,
+3
+],
+"quest.bastok.032": [
+"q",
+1,
+92
+],
+"quest.bastok.033": [
+"q",
+1,
+23
+],
+"quest.bastok.034": [
+"q",
+1,
+9
+],
+"quest.bastok.035": [
+"q",
+1,
+43
+],
+"quest.bastok.036": [
+"q",
+1,
+48
+],
+"quest.bastok.037": [
+"q",
+1,
+5
+],
+"quest.bastok.038": [
+"q",
+1,
+46
+],
+"quest.bastok.039": [
+"q",
+1,
+71
+],
+"quest.bastok.040": [
+"q",
+1,
+70
+],
+"quest.bastok.041": [
+"q",
+1,
+8
+],
+"quest.bastok.042": [
+"q",
+1,
+65
+],
+"quest.bastok.043": [
+"q",
+1,
+35
+],
+"quest.bastok.044": [
+"q",
+1,
+7
+],
+"quest.bastok.045": [
+"q",
+1,
+55
+],
+"quest.bastok.046": [
+"q",
+1,
+90
+],
+"quest.bastok.047": [
+"q",
+1,
+49
+],
+"quest.bastok.048": [
+"q",
+1,
+1
+],
+"quest.bastok.049": [
+"q",
+1,
+0
+],
+"quest.bastok.050": [
+"q",
+1,
+6
+],
+"quest.bastok.051": [
+"q",
+1,
+20
+],
+"quest.bastok.052": [
+"q",
+1,
+32
+],
+"quest.bastok.053": [
+"q",
+1,
+28
+],
+"quest.bastok.054": [
+"q",
+1,
+47
+],
+"quest.bastok.055": [
+"q",
+1,
+37
+],
+"quest.bastok.056": [
+"q",
+1,
+54
+],
+"quest.bastok.057": [
+"q",
+1,
+31
+],
+"quest.bastok.058": [
+"q",
+1,
+56
+],
+"quest.bastok.059": [
+"q",
+1,
+88
+],
+"quest.bastok.060": [
+"q",
+1,
+45
+],
+"quest.bastok.061": [
+"q",
+1,
+25
+],
+"quest.bastok.062": [
+"q",
+1,
+15
+],
+"quest.bastok.063": [
+"q",
+1,
+83
+],
+"quest.bastok.064": [
+"q",
+1,
+53
+],
+"quest.bastok.065": [
+"q",
+1,
+26
+],
+"quest.bastok.066": [
+"q",
+1,
+58
+],
+"quest.bastok.067": [
+"q",
+1,
+24
+],
+"quest.bastok.069": [
+"q",
+1,
+91
+],
+"quest.bastok.070": [
+"q",
+1,
+33
+],
+"quest.bastok.071": [
+"q",
+1,
+57
+],
+"quest.bastok.072": [
+"q",
+1,
+40
+],
+"quest.bastok.073": [
+"q",
+1,
+59
+],
+"quest.bastok.074": [
+"q",
+1,
+64
+],
+"quest.bastok.075": [
+"q",
+1,
+60
+],
+"quest.bastok.076": [
+"q",
+1,
+61
+],
+"quest.bastok.077": [
+"q",
+1,
+62
+],
+"quest.bastok.078": [
+"q",
+1,
+69
+],
+"quest.bastok.079": [
+"q",
+1,
+63
+],
+"quest.bastok.080": [
+"q",
+1,
+68
+],
+"quest.bastok.081": [
+"q",
+1,
+73
+],
+"quest.bastok.082": [
+"q",
+1,
+66
+],
+"quest.bastok.083": [
+"q",
+1,
+67
+],
+"quest.bastok.084": [
+"q",
+1,
+74
+],
+"quest.bastok.085": [
+"q",
+1,
+75
+],
+"quest.bastok.086": [
+"q",
+1,
+77
+],
+"quest.bastok.087": [
+"q",
+1,
+78
+],
+"quest.bastok.088": [
+"q",
+1,
+79
+],
+"quest.bastok.089": [
+"q",
+1,
+80
+],
+"quest.bastok.090": [
+"q",
+1,
+81
+],
+"quest.bastok.091": [
+"q",
+1,
+82
+],
+"quest.jeuno.001": [
+"q",
+3,
+168
+],
+"quest.jeuno.002": [
+"q",
+3,
+169
+],
+"quest.jeuno.005": [
+"q",
+3,
+85
+],
+"quest.jeuno.006": [
+"q",
+3,
+8
+],
+"quest.jeuno.007": [
+"q",
+3,
+84
+],
+"quest.jeuno.008": [
+"q",
+3,
+22
+],
+"quest.jeuno.009": [
+"q",
+3,
+0
+],
+"quest.jeuno.010": [
+"q",
+3,
+2
+],
+"quest.jeuno.011": [
+"q",
+3,
+49
+],
+"quest.jeuno.012": [
+"q",
+3,
+50
+],
+"quest.jeuno.013": [
+"q",
+3,
+45
+],
+"quest.jeuno.014": [
+"q",
+3,
+55
+],
+"quest.jeuno.015": [
+"q",
+3,
+58
+],
+"quest.jeuno.016": [
+"q",
+3,
+53
+],
+"quest.jeuno.017": [
+"q",
+3,
+56
+],
+"quest.jeuno.018": [
+"q",
+3,
+44
+],
+"quest.jeuno.019": [
+"q",
+3,
+51
+],
+"quest.jeuno.020": [
+"q",
+3,
+54
+],
+"quest.jeuno.021": [
+"q",
+3,
+52
+],
+"quest.jeuno.022": [
+"q",
+3,
+46
+],
+"quest.jeuno.023": [
+"q",
+3,
+57
+],
+"quest.jeuno.024": [
+"q",
+3,
+48
+],
+"quest.jeuno.025": [
+"q",
+3,
+47
+],
+"quest.jeuno.026": [
+"q",
+3,
+179
+],
+"quest.jeuno.027": [
+"q",
+3,
+6
+],
+"quest.jeuno.028": [
+"q",
+3,
+83
+],
+"quest.jeuno.029": [
+"q",
+3,
+4
+],
+"quest.jeuno.030": [
+"q",
+3,
+77
+],
+"quest.jeuno.031": [
+"q",
+3,
+81
+],
+"quest.jeuno.034": [
+"q",
+3,
+82
+],
+"quest.jeuno.035": [
+"q",
+3,
+1
+],
+"quest.jeuno.036": [
+"q",
+3,
+79
+],
+"quest.jeuno.037": [
+"q",
+3,
+78
+],
+"quest.jeuno.038": [
+"q",
+3,
+90
+],
+"quest.jeuno.040": [
+"q",
+3,
+160
+],
+"quest.jeuno.041": [
+"q",
+3,
+21
+],
+"quest.jeuno.042": [
+"q",
+3,
+19
+],
+"quest.jeuno.043": [
+"q",
+3,
+101
+],
+"quest.jeuno.044": [
+"q",
+3,
+92
+],
+"quest.jeuno.045": [
+"q",
+3,
+61
+],
+"quest.jeuno.046": [
+"q",
+3,
+164
+],
+"quest.jeuno.047": [
+"q",
+3,
+162
+],
+"quest.jeuno.048": [
+"q",
+3,
+161
+],
+"quest.jeuno.049": [
+"q",
+3,
+163
+],
+"quest.jeuno.050": [
+"q",
+3,
+60
+],
+"quest.jeuno.051": [
+"q",
+3,
+14
+],
+"quest.jeuno.053": [
+"q",
+3,
+91
+],
+"quest.jeuno.054": [
+"q",
+3,
+18
+],
+"quest.jeuno.055": [
+"q",
+3,
+124
+],
+"quest.jeuno.056": [
+"q",
+3,
+27
+],
+"quest.jeuno.057": [
+"q",
+3,
+28
+],
+"quest.jeuno.058": [
+"q",
+3,
+29
+],
+"quest.jeuno.059": [
+"q",
+3,
+30
+],
+"quest.jeuno.060": [
+"q",
+3,
+74
+],
+"quest.jeuno.061": [
+"q",
+3,
+13
+],
+"quest.jeuno.062": [
+"q",
+3,
+10
+],
+"quest.jeuno.063": [
+"q",
+3,
+31
+],
+"quest.jeuno.064": [
+"q",
+3,
+32
+],
+"quest.jeuno.065": [
+"q",
+3,
+9
+],
+"quest.jeuno.066": [
+"q",
+3,
+75
+],
+"quest.jeuno.067": [
+"q",
+3,
+93
+],
+"quest.jeuno.068": [
+"q",
+3,
+94
+],
+"quest.jeuno.069": [
+"q",
+3,
+123
+],
+"quest.jeuno.070": [
+"q",
+3,
+16
+],
+"quest.jeuno.071": [
+"q",
+3,
+42
+],
+"quest.jeuno.072": [
+"q",
+3,
+63
+],
+"quest.jeuno.073": [
+"q",
+3,
+166
+],
+"quest.jeuno.074": [
+"q",
+3,
+26
+],
+"quest.jeuno.075": [
+"q",
+3,
+17
+],
+"quest.jeuno.076": [
+"q",
+3,
+5
+],
+"quest.jeuno.077": [
+"q",
+3,
+62
+],
+"quest.jeuno.080": [
+"q",
+3,
+119
+],
+"quest.jeuno.081": [
+"q",
+3,
+118
+],
+"quest.jeuno.082": [
+"q",
+3,
+107
+],
+"quest.jeuno.083": [
+"q",
+3,
+108
+],
+"quest.jeuno.084": [
+"q",
+3,
+103
+],
+"quest.jeuno.085": [
+"q",
+3,
+113
+],
+"quest.jeuno.086": [
+"q",
+3,
+116
+],
+"quest.jeuno.087": [
+"q",
+3,
+111
+],
+"quest.jeuno.088": [
+"q",
+3,
+121
+],
+"quest.jeuno.089": [
+"q",
+3,
+114
+],
+"quest.jeuno.090": [
+"q",
+3,
+102
+],
+"quest.jeuno.091": [
+"q",
+3,
+109
+],
+"quest.jeuno.092": [
+"q",
+3,
+112
+],
+"quest.jeuno.093": [
+"q",
+3,
+110
+],
+"quest.jeuno.094": [
+"q",
+3,
+104
+],
+"quest.jeuno.095": [
+"q",
+3,
+115
+],
+"quest.jeuno.096": [
+"q",
+3,
+106
+],
+"quest.jeuno.097": [
+"q",
+3,
+120
+],
+"quest.jeuno.098": [
+"q",
+3,
+117
+],
+"quest.jeuno.099": [
+"q",
+3,
+105
+],
+"quest.jeuno.100": [
+"q",
+3,
+3
+],
+"quest.jeuno.101": [
+"q",
+3,
+41
+],
+"quest.jeuno.102": [
+"q",
+3,
+12
+],
+"quest.jeuno.103": [
+"q",
+3,
+15
+],
+"quest.jeuno.104": [
+"q",
+3,
+64
+],
+"quest.jeuno.108": [
+"q",
+3,
+25
+],
+"quest.jeuno.109": [
+"q",
+3,
+43
+],
+"quest.jeuno.110": [
+"q",
+3,
+23
+],
+"quest.jeuno.111": [
+"q",
+3,
+65
+],
+"quest.jeuno.112": [
+"q",
+3,
+170
+],
+"quest.jeuno.113": [
+"q",
+3,
+129
+],
+"quest.jeuno.116": [
+"q",
+3,
+133
+],
+"quest.jeuno.117": [
+"q",
+3,
+24
+],
+"quest.jeuno.119": [
+"q",
+3,
+131
+],
+"quest.jeuno.120": [
+"q",
+3,
+167
+],
+"quest.jeuno.121": [
+"q",
+3,
+132
+],
+"quest.jeuno.122": [
+"q",
+3,
+137
+],
+"quest.jeuno.123": [
+"q",
+3,
+136
+],
+"quest.jeuno.124": [
+"q",
+3,
+135
+],
+"quest.jeuno.125": [
+"q",
+3,
+134
+],
+"quest.jeuno.127": [
+"q",
+3,
+128
+],
+"quest.jeuno.128": [
+"q",
+3,
+130
+],
+"quest.jeuno.129": [
+"q",
+3,
+11
+],
+"quest.jeuno.130": [
+"q",
+3,
+20
+],
+"quest.jeuno.131": [
+"q",
+3,
+59
+],
+"quest.jeuno.132": [
+"q",
+3,
+66
+],
+"quest.jeuno.133": [
+"q",
+3,
+67
+],
+"quest.jeuno.134": [
+"q",
+3,
+76
+],
+"quest.jeuno.135": [
+"q",
+3,
+72
+],
+"quest.jeuno.136": [
+"q",
+3,
+73
+],
+"quest.jeuno.137": [
+"q",
+3,
+71
+],
+"quest.jeuno.138": [
+"q",
+3,
+69
+],
+"quest.jeuno.139": [
+"q",
+3,
+86
+],
+"quest.jeuno.140": [
+"q",
+3,
+88
+],
+"quest.jeuno.141": [
+"q",
+3,
+89
+],
+"quest.jeuno.142": [
+"q",
+3,
+68
+],
+"quest.jeuno.143": [
+"q",
+3,
+70
+],
+"quest.kazham.001": [
+"q",
+5,
+101
+],
+"quest.kazham.002": [
+"q",
+5,
+8
+],
+"quest.kazham.003": [
+"q",
+5,
+9
+],
+"quest.kazham.004": [
+"q",
+5,
+4
+],
+"quest.kazham.005": [
+"q",
+5,
+11
+],
+"quest.kazham.006": [
+"q",
+5,
+6
+],
+"quest.kazham.007": [
+"q",
+5,
+13
+],
+"quest.kazham.008": [
+"q",
+5,
+10
+],
+"quest.kazham.009": [
+"q",
+5,
+1
+],
+"quest.kazham.010": [
+"q",
+5,
+12
+],
+"quest.kazham.011": [
+"q",
+5,
+15
+],
+"quest.kazham.012": [
+"q",
+5,
+2
+],
+"quest.kazham.013": [
+"q",
+5,
+3
+],
+"quest.kazham.014": [
+"q",
+5,
+7
+],
+"quest.misc.020": [
+"q",
+4,
+107
+],
+"quest.misc.021": [
+"q",
+4,
+84
+],
+"quest.misc.022": [
+"q",
+4,
+85
+],
+"quest.misc.023": [
+"q",
+4,
+64
+],
+"quest.misc.024": [
+"q",
+4,
+34
+],
+"quest.misc.025": [
+"q",
+4,
+109
+],
+"quest.misc.046": [
+"q",
+4,
+100
+],
+"quest.misc.047": [
+"q",
+4,
+102
+],
+"quest.misc.048": [
+"q",
+4,
+32
+],
+"quest.misc.049": [
+"q",
+4,
+106
+],
+"quest.misc.050": [
+"q",
+4,
+108
+],
+"quest.misc.051": [
+"q",
+5,
+161
+],
+"quest.misc.052": [
+"q",
+5,
+160
+],
+"quest.misc.055": [
+"q",
+5,
+165
+],
+"quest.misc.056": [
+"q",
+5,
+162
+],
+"quest.misc.057": [
+"q",
+4,
+96
+],
+"quest.misc.058": [
+"q",
+4,
+97
+],
+"quest.misc.059": [
+"q",
+4,
+103
+],
+"quest.misc.060": [
+"q",
+4,
+104
+],
+"quest.misc.061": [
+"q",
+4,
+105
+],
+"quest.misc.062": [
+"q",
+4,
+79
+],
+"quest.norg.001": [
+"q",
+5,
+100
+],
+"quest.norg.002": [
+"q",
+5,
+103
+],
+"quest.norg.003": [
+"q",
+5,
+104
+],
+"quest.norg.004": [
+"q",
+5,
+129
+],
+"quest.norg.005": [
+"q",
+5,
+134
+],
+"quest.norg.006": [
+"q",
+5,
+136
+],
+"quest.norg.007": [
+"q",
+5,
+130
+],
+"quest.norg.008": [
+"q",
+5,
+142
+],
+"quest.norg.009": [
+"q",
+5,
+146
+],
+"quest.norg.010": [
+"q",
+5,
+137
+],
+"quest.norg.011": [
+"q",
+5,
+131
+],
+"quest.norg.012": [
+"q",
+5,
+132
+],
+"quest.norg.013": [
+"q",
+5,
+144
+],
+"quest.norg.014": [
+"q",
+5,
+147
+],
+"quest.norg.015": [
+"q",
+5,
+133
+],
+"quest.norg.016": [
+"q",
+5,
+148
+],
+"quest.norg.018": [
+"q",
+5,
+135
+],
+"quest.norg.019": [
+"q",
+5,
+145
+],
+"quest.norg.020": [
+"q",
+5,
+140
+],
+"quest.norg.021": [
+"q",
+5,
+149
+],
+"quest.norg.022": [
+"q",
+5,
+138
+],
+"quest.norg.023": [
+"q",
+5,
+139
+],
+"quest.norg.024": [
+"q",
+5,
+141
+],
+"quest.rabao.001": [
+"q",
+5,
+102
+],
+"quest.rabao.002": [
+"q",
+5,
+195
+],
+"quest.rabao.004": [
+"q",
+5,
+193
+],
+"quest.rabao.005": [
+"q",
+5,
+196
+],
+"quest.rabao.006": [
+"q",
+5,
+201
+],
+"quest.rabao.008": [
+"q",
+5,
+192
+],
+"quest.rabao.009": [
+"q",
+5,
+194
+],
+"quest.rabao.010": [
+"q",
+5,
+197
+],
+"quest.rabao.011": [
+"q",
+5,
+199
+],
+"quest.rabao.012": [
+"q",
+5,
+200
+],
+"quest.sandoria.001": [
+"q",
+0,
+69
+],
+"quest.sandoria.002": [
+"q",
+0,
+77
+],
+"quest.sandoria.003": [
+"q",
+0,
+78
+],
+"quest.sandoria.004": [
+"q",
+0,
+23
+],
+"quest.sandoria.006": [
+"q",
+0,
+65
+],
+"quest.sandoria.007": [
+"q",
+0,
+64
+],
+"quest.sandoria.010": [
+"q",
+0,
+12
+],
+"quest.sandoria.011": [
+"q",
+0,
+67
+],
+"quest.sandoria.012": [
+"q",
+0,
+81
+],
+"quest.sandoria.013": [
+"q",
+0,
+6
+],
+"quest.sandoria.014": [
+"q",
+0,
+117
+],
+"quest.sandoria.015": [
+"q",
+0,
+3
+],
+"quest.sandoria.016": [
+"q",
+0,
+75
+],
+"quest.sandoria.018": [
+"q",
+0,
+100
+],
+"quest.sandoria.019": [
+"q",
+0,
+104
+],
+"quest.sandoria.020": [
+"q",
+0,
+16
+],
+"quest.sandoria.021": [
+"q",
+0,
+86
+],
+"quest.sandoria.022": [
+"q",
+0,
+106
+],
+"quest.sandoria.023": [
+"q",
+0,
+60
+],
+"quest.sandoria.024": [
+"q",
+0,
+62
+],
+"quest.sandoria.025": [
+"q",
+0,
+92
+],
+"quest.sandoria.026": [
+"q",
+0,
+85
+],
+"quest.sandoria.027": [
+"q",
+0,
+82
+],
+"quest.sandoria.028": [
+"q",
+0,
+58
+],
+"quest.sandoria.029": [
+"q",
+0,
+1
+],
+"quest.sandoria.030": [
+"q",
+0,
+89
+],
+"quest.sandoria.031": [
+"q",
+0,
+90
+],
+"quest.sandoria.032": [
+"q",
+0,
+101
+],
+"quest.sandoria.033": [
+"q",
+0,
+83
+],
+"quest.sandoria.034": [
+"q",
+0,
+79
+],
+"quest.sandoria.035": [
+"q",
+0,
+68
+],
+"quest.sandoria.036": [
+"q",
+0,
+91
+],
+"quest.sandoria.037": [
+"q",
+0,
+70
+],
+"quest.sandoria.038": [
+"q",
+0,
+72
+],
+"quest.sandoria.039": [
+"q",
+0,
+118
+],
+"quest.sandoria.040": [
+"q",
+0,
+7
+],
+"quest.sandoria.041": [
+"q",
+0,
+18
+],
+"quest.sandoria.042": [
+"q",
+0,
+87
+],
+"quest.sandoria.043": [
+"q",
+0,
+107
+],
+"quest.sandoria.044": [
+"q",
+0,
+4
+],
+"quest.sandoria.045": [
+"q",
+0,
+88
+],
+"quest.sandoria.046": [
+"q",
+0,
+26
+],
+"quest.sandoria.047": [
+"q",
+0,
+9
+],
+"quest.sandoria.048": [
+"q",
+0,
+30
+],
+"quest.sandoria.049": [
+"q",
+0,
+71
+],
+"quest.sandoria.050": [
+"q",
+0,
+103
+],
+"quest.sandoria.051": [
+"q",
+0,
+80
+],
+"quest.sandoria.052": [
+"q",
+0,
+15
+],
+"quest.sandoria.053": [
+"q",
+0,
+20
+],
+"quest.sandoria.054": [
+"q",
+0,
+11
+],
+"quest.sandoria.055": [
+"q",
+0,
+113
+],
+"quest.sandoria.056": [
+"q",
+0,
+119
+],
+"quest.sandoria.057": [
+"q",
+0,
+27
+],
+"quest.sandoria.058": [
+"q",
+0,
+66
+],
+"quest.sandoria.059": [
+"q",
+0,
+8
+],
+"quest.sandoria.060": [
+"q",
+0,
+10
+],
+"quest.sandoria.061": [
+"q",
+0,
+19
+],
+"quest.sandoria.062": [
+"q",
+0,
+0
+],
+"quest.sandoria.063": [
+"q",
+0,
+84
+],
+"quest.sandoria.064": [
+"q",
+0,
+5
+],
+"quest.sandoria.065": [
+"q",
+0,
+97
+],
+"quest.sandoria.066": [
+"q",
+0,
+74
+],
+"quest.sandoria.067": [
+"q",
+0,
+2
+],
+"quest.sandoria.068": [
+"q",
+0,
+29
+],
+"quest.sandoria.069": [
+"q",
+0,
+31
+],
+"quest.sandoria.070": [
+"q",
+0,
+61
+],
+"quest.sandoria.071": [
+"q",
+0,
+63
+],
+"quest.sandoria.072": [
+"q",
+0,
+95
+],
+"quest.sandoria.073": [
+"q",
+0,
+96
+],
+"quest.sandoria.074": [
+"q",
+0,
+102
+],
+"quest.sandoria.075": [
+"q",
+0,
+99
+],
+"quest.sandoria.076": [
+"q",
+0,
+59
+],
+"quest.sandoria.077": [
+"q",
+0,
+93
+],
+"quest.sandoria.078": [
+"q",
+0,
+94
+],
+"quest.sandoria.079": [
+"q",
+0,
+98
+],
+"quest.sandoria.080": [
+"q",
+0,
+105
+],
+"quest.sandoria.081": [
+"q",
+0,
+112
+],
+"quest.sandoria.082": [
+"q",
+0,
+110
+],
+"quest.sandoria.083": [
+"q",
+0,
+108
+],
+"quest.sandoria.084": [
+"q",
+0,
+109
+],
+"quest.selbina_mhaura.001": [
+"q",
+4,
+19
+],
+"quest.selbina_mhaura.002": [
+"q",
+4,
+24
+],
+"quest.selbina_mhaura.003": [
+"q",
+4,
+26
+],
+"quest.selbina_mhaura.004": [
+"q",
+4,
+21
+],
+"quest.selbina_mhaura.005": [
+"q",
+4,
+18
+],
+"quest.selbina_mhaura.006": [
+"q",
+4,
+23
+],
+"quest.selbina_mhaura.007": [
+"q",
+4,
+22
+],
+"quest.selbina_mhaura.008": [
+"q",
+4,
+25
+],
+"quest.selbina_mhaura.009": [
+"q",
+4,
+17
+],
+"quest.selbina_mhaura.010": [
+"q",
+4,
+31
+],
+"quest.selbina_mhaura.011": [
+"q",
+4,
+9
+],
+"quest.selbina_mhaura.012": [
+"q",
+4,
+10
+],
+"quest.selbina_mhaura.013": [
+"q",
+4,
+3
+],
+"quest.selbina_mhaura.014": [
+"q",
+4,
+4
+],
+"quest.selbina_mhaura.015": [
+"q",
+4,
+7
+],
+"quest.selbina_mhaura.016": [
+"q",
+4,
+29
+],
+"quest.selbina_mhaura.017": [
+"q",
+4,
+6
+],
+"quest.selbina_mhaura.018": [
+"q",
+4,
+8
+],
+"quest.selbina_mhaura.019": [
+"q",
+4,
+5
+],
+"quest.selbina_mhaura.020": [
+"q",
+4,
+1
+],
+"quest.selbina_mhaura.021": [
+"q",
+4,
+0
+],
+"quest.selbina_mhaura.022": [
+"q",
+4,
+11
+],
+"quest.selbina_mhaura.023": [
+"q",
+4,
+28
+],
+"quest.selbina_mhaura.024": [
+"q",
+4,
+2
+],
+"quest.selbina_mhaura.025": [
+"q",
+4,
+16
+],
+"quest.selbina_mhaura.026": [
+"q",
+4,
+20
+],
+"quest.selbina_mhaura.027": [
+"q",
+4,
+27
+],
+"quest.selbina_mhaura.028": [
+"q",
+4,
+30
+],
+"quest.tavnazia.001": [
+"q",
+4,
+78
+],
+"quest.tavnazia.002": [
+"q",
+4,
+71
+],
+"quest.tavnazia.003": [
+"q",
+4,
+74
+],
+"quest.tavnazia.004": [
+"q",
+4,
+65
+],
+"quest.tavnazia.005": [
+"q",
+4,
+75
+],
+"quest.tavnazia.006": [
+"q",
+4,
+76
+],
+"quest.tavnazia.007": [
+"q",
+4,
+73
+],
+"quest.tavnazia.008": [
+"q",
+4,
+70
+],
+"quest.tavnazia.009": [
+"q",
+4,
+77
+],
+"quest.tavnazia.010": [
+"q",
+4,
+66
+],
+"quest.tavnazia.011": [
+"q",
+4,
+81
+],
+"quest.tavnazia.012": [
+"q",
+4,
+67
+],
+"quest.tavnazia.013": [
+"q",
+4,
+68
+],
+"quest.tavnazia.014": [
+"q",
+4,
+72
+],
+"quest.tavnazia.015": [
+"q",
+4,
+69
+],
+"quest.tavnazia.016": [
+"q",
+4,
+82
+],
+"quest.tavnazia.017": [
+"q",
+4,
+83
+],
+"quest.tavnazia.018": [
+"q",
+4,
+80
+],
+"quest.windurst.001": [
+"q",
+2,
+39
+],
+"quest.windurst.002": [
+"q",
+2,
+60
+],
+"quest.windurst.003": [
+"q",
+2,
+28
+],
+"quest.windurst.004": [
+"q",
+2,
+25
+],
+"quest.windurst.005": [
+"q",
+2,
+68
+],
+"quest.windurst.006": [
+"q",
+2,
+24
+],
+"quest.windurst.007": [
+"q",
+2,
+18
+],
+"quest.windurst.008": [
+"q",
+2,
+70
+],
+"quest.windurst.009": [
+"q",
+2,
+44
+],
+"quest.windurst.010": [
+"q",
+2,
+71
+],
+"quest.windurst.011": [
+"q",
+2,
+62
+],
+"quest.windurst.012": [
+"q",
+2,
+69
+],
+"quest.windurst.013": [
+"q",
+2,
+94
+],
+"quest.windurst.014": [
+"q",
+2,
+26
+],
+"quest.windurst.015": [
+"q",
+2,
+74
+],
+"quest.windurst.016": [
+"q",
+2,
+96
+],
+"quest.windurst.017": [
+"q",
+2,
+47
+],
+"quest.windurst.018": [
+"q",
+2,
+43
+],
+"quest.windurst.019": [
+"q",
+2,
+73
+],
+"quest.windurst.020": [
+"q",
+2,
+31
+],
+"quest.windurst.021": [
+"q",
+2,
+45
+],
+"quest.windurst.022": [
+"q",
+2,
+27
+],
+"quest.windurst.023": [
+"q",
+2,
+72
+],
+"quest.windurst.024": [
+"q",
+2,
+61
+],
+"quest.windurst.025": [
+"q",
+2,
+13
+],
+"quest.windurst.026": [
+"q",
+2,
+2
+],
+"quest.windurst.027": [
+"q",
+2,
+29
+],
+"quest.windurst.028": [
+"q",
+2,
+5
+],
+"quest.windurst.029": [
+"q",
+2,
+51
+],
+"quest.windurst.030": [
+"q",
+2,
+64
+],
+"quest.windurst.031": [
+"q",
+2,
+30
+],
+"quest.windurst.032": [
+"q",
+2,
+17
+],
+"quest.windurst.033": [
+"q",
+2,
+15
+],
+"quest.windurst.034": [
+"q",
+2,
+49
+],
+"quest.windurst.035": [
+"q",
+2,
+0
+],
+"quest.windurst.036": [
+"q",
+2,
+46
+],
+"quest.windurst.037": [
+"q",
+2,
+37
+],
+"quest.windurst.038": [
+"q",
+2,
+38
+],
+"quest.windurst.039": [
+"q",
+2,
+20
+],
+"quest.windurst.040": [
+"q",
+2,
+50
+],
+"quest.windurst.041": [
+"q",
+2,
+7
+],
+"quest.windurst.042": [
+"q",
+2,
+12
+],
+"quest.windurst.043": [
+"q",
+2,
+1
+],
+"quest.windurst.044": [
+"q",
+2,
+14
+],
+"quest.windurst.045": [
+"q",
+2,
+84
+],
+"quest.windurst.046": [
+"q",
+2,
+4
+],
+"quest.windurst.047": [
+"q",
+2,
+6
+],
+"quest.windurst.048": [
+"q",
+2,
+16
+],
+"quest.windurst.049": [
+"q",
+2,
+8
+],
+"quest.windurst.050": [
+"q",
+2,
+48
+],
+"quest.windurst.051": [
+"q",
+2,
+52
+],
+"quest.windurst.052": [
+"q",
+2,
+40
+],
+"quest.windurst.053": [
+"q",
+2,
+42
+],
+"quest.windurst.054": [
+"q",
+2,
+21
+],
+"quest.windurst.055": [
+"q",
+2,
+41
+],
+"quest.windurst.056": [
+"q",
+2,
+3
+],
+"quest.windurst.057": [
+"q",
+2,
+53
+],
+"quest.windurst.058": [
+"q",
+2,
+36
+],
+"quest.windurst.059": [
+"q",
+2,
+23
+],
+"quest.windurst.060": [
+"q",
+2,
+89
+],
+"quest.windurst.061": [
+"q",
+2,
+88
+],
+"quest.windurst.062": [
+"q",
+2,
+75
+],
+"quest.windurst.063": [
+"q",
+2,
+63
+],
+"quest.windurst.064": [
+"q",
+2,
+34
+],
+"quest.windurst.065": [
+"q",
+2,
+65
+],
+"quest.windurst.066": [
+"q",
+2,
+10
+],
+"quest.windurst.068": [
+"q",
+2,
+19
+],
+"quest.windurst.069": [
+"q",
+2,
+35
+],
+"quest.windurst.070": [
+"q",
+2,
+11
+],
+"quest.windurst.072": [
+"q",
+2,
+66
+],
+"quest.windurst.073": [
+"q",
+2,
+67
+],
+"quest.windurst.074": [
+"q",
+2,
+85
+],
+"quest.windurst.075": [
+"q",
+2,
+77
+],
+"quest.windurst.076": [
+"q",
+2,
+9
+],
+"quest.windurst.077": [
+"q",
+2,
+80
+],
+"quest.windurst.078": [
+"q",
+2,
+78
+],
+"quest.windurst.079": [
+"q",
+2,
+86
+],
+"quest.windurst.080": [
+"q",
+2,
+76
+],
+"quest.windurst.081": [
+"q",
+2,
+81
+],
+"quest.windurst.082": [
+"q",
+2,
+82
+],
+"quest.windurst.083": [
+"q",
+2,
+87
+],
+"quest.windurst.084": [
+"q",
+2,
+83
+],
+"quest.windurst.085": [
+"q",
+2,
+79
+],
+"quest.windurst.086": [
+"q",
+2,
+90
+],
+"quest.windurst.087": [
+"q",
+2,
+91
+],
+"quest.windurst.088": [
+"q",
+2,
+93
+],
+"quest.windurst.089": [
+"q",
+2,
+92
+]
+}
+}

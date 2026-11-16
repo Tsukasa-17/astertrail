@@ -1,0 +1,1266 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「驕慢」で腐らせろ」を終えてアークEVを覚え、Jamalに話してからエリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Stifle Your Envy",
+      "name_ja_ref": "「嫉妬」でかじりとれ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アークMR"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/36224.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Jamal ル・ルデの庭 H-5",
+          "url": "https://www.bg-wiki.com/ffxi/Jamal",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Jamal"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「嫉妬」でかじりとれ」を終えてアークMRを覚え、Jamalに話してからエリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Overcome Your Cowardice",
+      "name_ja_ref": "「怯懦」で押しつぶせ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アークTT"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/36408.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Jamal"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.003",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Quell Your Rage",
+      "name_ja_ref": "「憎悪」で焼きこがせ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アークGK"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35753.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Jamal"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「怯懦」で押しつぶせ」を終えてアークTTを覚え、Jamalに話してからエリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Eliminate Your Apathy",
+      "name_ja_ref": "「無知」でうつろにしろ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アークHM"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/36751.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Jamal"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「憎悪」で焼きこがせ」を終えてアークGKを覚え、Jamalに話してからエリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Temper Your Arrogance",
+      "name_ja_ref": "「驕慢」で腐らせろ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-アークEV"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35765.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Jamal"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「もっと絆パワーですわ！」を達成している",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Way Over Capacity",
+      "name_ja_ref": "もっともっと絆パワーですわ！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-オーグスト"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "想いの詰まったダイアモンド"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "マージョリー論文"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/37158.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Marjory ル・ルデの庭 H-5",
+          "url": "https://www.bg-wiki.com/ffxi/Marjory",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Marjory"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「絆パワーですわ！」を達成している",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Over Capacity",
+      "name_ja_ref": "もっと絆パワーですわ！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-ロスレーシャ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/37157.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Marjory"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令6」を達成し、ヴァナ時間の0時を過ぎている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Arciela Directive",
+      "name_ja_ref": "アシェラ激励指令",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "高純度ベヤルド*50"
+        },
+        {
+          "kind": "title",
+          "name_ja": "侍女と葉っぱに翻弄されし功労者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/36553.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ploh Trishbahk 東アドゥリン K-9、Runje Desaali 東アドゥリン J-10",
+          "url": "https://www.bg-wiki.com/ffxi/Ploh_Trishbahk",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プレイ時間が180時間以上（/playtime で7日12時間以上）",
+          "type": "condition"
+        },
+        {
+          "text_ja": "エミネンス・レコード「アンバスケードをクリアする」をコンプリート",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Mentor License",
+      "name_ja_ref": "メンターライセンス",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "メンターになれるようになる"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000・ユニティポイント1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/38094.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「始まりの軌跡」を達成し、アドゥリンミッションをコンプリート",
+          "type": "quest"
+        },
+        {
+          "text_ja": "だいじなもの「黄金スコップ勲章」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Ygnas Directive 1",
+      "name_ja_ref": "ユグナス調査指令1",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35640.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Chalvava ララ水道 F-11",
+          "url": "https://www.bg-wiki.com/ffxi/Chalvava",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令1」を達成している",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Ygnas Directive 2",
+      "name_ja_ref": "ユグナス調査指令2",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35641.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Virsaint 西アドゥリン H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Virsaint",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令2」を達成し、ヴァナ時間の0時を過ぎている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Ygnas Directive 3",
+      "name_ja_ref": "ユグナス調査指令3",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "デレゲートカフス"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35714.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Roskin 東アドゥリン H-8、Runje Desaali J-10",
+          "url": "https://www.bg-wiki.com/ffxi/Roskin",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令3」を達成している",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Ygnas Directive 4",
+      "name_ja_ref": "ユグナス調査指令4",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "デレゲートガーブ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35715.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Levil 西アドゥリン E-8、Masad 西アドゥリン G-10",
+          "url": "https://www.bg-wiki.com/ffxi/Levil",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令4」を達成し、ヴァナ時間の0時を過ぎている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Ygnas Directive 5",
+      "name_ja_ref": "ユグナス調査指令5",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "高純度ベヤルド*20"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35993.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "目標「ユグナス調査指令5」を達成している（自動で受けられる）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Ygnas Directive 6",
+      "name_ja_ref": "ユグナス調査指令6",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "高純度ベヤルド*30"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ユグナスの紹介状"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35994.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Zaffeld 東アドゥリン J-8",
+          "url": "https://www.bg-wiki.com/ffxi/Zaffeld",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.東アドゥリン.Ploh_Trishbahk"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を300個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Panta Rhei",
+      "name_ja_ref": "万物流転",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31207.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を393個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Shiver Me Timbers",
+      "name_ja_ref": "兎死狗烹",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス3000・経験値7000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31269.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を250個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Impermanence",
+      "name_ja_ref": "夢幻泡影",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31206.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を600個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Over Ninety-Thousand",
+      "name_ja_ref": "天下無双",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス9999・経験値9999"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35020.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.020",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "First Step Forward",
+      "name_ja_ref": "始まりの軌跡",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "干し肉*6"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス100・経験値300"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30533.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "案内人：Rolandienne 南サンドリア G-10、Isakoth バストゥーク商業区 E-11、Fhelm Jobeizat ウィンダス森の区 J-10、Eternal Flame 西アドゥリン H-11",
+          "url": "https://www.bg-wiki.com/ffxi/Rolandienne",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Rolandienne"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を900個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Disappointment Valley",
+      "name_ja_ref": "子虚烏有",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35017.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.022",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を200個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Golden Rule",
+      "name_ja_ref": "忘己利他",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス10・経験値200"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31205.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「錯綜メモリアル」を終え、エリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Petals of Recollection",
+      "name_ja_ref": "思い出の地に花びらを",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス3・経験値10"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30537.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を700個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Minnow Wrangler",
+      "name_ja_ref": "滄海一粟",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35019.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を349個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Leonine Excruciation",
+      "name_ja_ref": "獅子雷閃",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス3000・経験値7000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31208.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「無知」でうつろにしろ」を終えてJamalに話している",
+          "type": "quest"
+        },
+        {
+          "text_ja": "だいじなもの「ジョブブレーカー」と「盟環の腕輪」を持ち、フェイスを86以上覚えている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Filled to Capacity",
+      "name_ja_ref": "絆パワーですわ！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "盟-イングリッドII"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス1000・経験値5000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/37150.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Marjory"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードを10個以上コンプリートした状態で、三国かアドゥリンの街に入る",
+          "type": "condition"
+        }
+      ],
+      "name_en": "All for One",
+      "name_ja_ref": "繋がりの軌跡",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ユニティに入る"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス100・経験値300・ユニティポイント1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/32090.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Urbiolaine 南サンドリア G-10、Igsli バストゥーク商業区 E-11、Teldro-Kesdrodo ウィンダス森の区 J-10、Nunaarl Bthtrogg 西アドゥリン H-11",
+          "url": "https://www.bg-wiki.com/ffxi/Urbiolaine",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Urbiolaine"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.028",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を473個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Go With the Flow",
+      "name_ja_ref": "行雲流水",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/31431.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.029",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を800個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Thousand Cuts",
+      "name_ja_ref": "諸行無常",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス100"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35018.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "エミネンス・レコードの目標を999個コンプリート",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ジュノのクエスト「核熱エミネンス」を終え、西アドゥリン(H-11)のDuberassonから後日談を聞いている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Remembrance of Flowers Past",
+      "name_ja_ref": "銘心鏤骨",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "互助会引換券・銅*99"
+        },
+        {
+          "kind": "title",
+          "name_ja": "悠久の風"
+        },
+        {
+          "kind": "other",
+          "name_ja": "エミネンス7388・経験値37339"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/35016.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "records",
+      "game_ref": null,
+      "id": "quest.records.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「錯綜メモリアル」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Culling the Darkness",
+      "name_ja_ref": "闇狩り",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "エミネンス500・経験値2500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/30538.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.245.Nantoto"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.230.Rolandienne",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Rolandienne",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Urbiolaine",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Urbiolaine",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Jamal",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Jamal",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Marjory",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Marjory",
+      "same_name": false
+    },
+    {
+      "id": "npc.東アドゥリン.Ploh_Trishbahk",
+      "kind": "npc",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 257,
+        "zone_name": "東アドゥリン"
+      },
+      "moves": false,
+      "name_en": "Ploh Trishbahk",
+      "same_name": false
+    }
+  ]
+}

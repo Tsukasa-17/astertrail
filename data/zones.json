@@ -1,0 +1,1423 @@
+{
+  "data_schema": 1,
+  "zones": [
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 1,
+      "zone_name": "ファノエ運河"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 2,
+      "zone_name": "ギルド桟橋"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 4,
+      "zone_name": "ビビキー湾"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 5,
+      "zone_name": "ウルガラン山脈"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 6,
+      "zone_name": "熊爪嶽"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 7,
+      "zone_name": "アットワ地溝"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 8,
+      "zone_name": "千骸谷"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 9,
+      "zone_name": "ソ・ジヤ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 10,
+      "zone_name": "異界の口"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 11,
+      "zone_name": "ムバルポロス旧市街"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 12,
+      "zone_name": "ムバルポロス新市街"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 13,
+      "zone_name": "2716号採石場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 14,
+      "zone_name": "転移の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 15,
+      "zone_name": "アビセア-コンシュタット"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 16,
+      "zone_name": "プロミヴォン-ホラ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 18,
+      "zone_name": "プロミヴォン-デム"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 20,
+      "zone_name": "プロミヴォン-メア"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 22,
+      "zone_name": "プロミヴォン-ヴァズ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 24,
+      "zone_name": "ルフェーゼ野"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 25,
+      "zone_name": "ミザレオ海岸"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 26,
+      "zone_name": "タブナジア地下壕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 27,
+      "zone_name": "フォミュナ水道"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 28,
+      "zone_name": "礼拝堂"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 29,
+      "zone_name": "リヴェーヌ岩塊群サイトB01"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 30,
+      "zone_name": "リヴェーヌ岩塊群サイトA01"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 31,
+      "zone_name": "帝龍の飛泉"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 32,
+      "zone_name": "海獅子の巣窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 33,
+      "zone_name": "アル・タユ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 34,
+      "zone_name": "フ・ゾイの王宮"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 35,
+      "zone_name": "ル・メトの園"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 36,
+      "zone_name": "天象の鎖"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 45,
+      "zone_name": "アビセア-タロンギ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 48,
+      "zone_name": "アルザビ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 50,
+      "zone_name": "アトルガン白門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 51,
+      "zone_name": "ワジャーム樹林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 52,
+      "zone_name": "バフラウ段丘"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 53,
+      "zone_name": "ナシュモ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 54,
+      "zone_name": "アラパゴ暗礁域"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 55,
+      "zone_name": "イルルシ環礁"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 56,
+      "zone_name": "ペリキア"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 57,
+      "zone_name": "タラッカ入江"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 60,
+      "zone_name": "アシュタリフ号"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 61,
+      "zone_name": "ゼオルム火山"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 62,
+      "zone_name": "ハルブーン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 63,
+      "zone_name": "レベロス風穴"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 64,
+      "zone_name": "ナバゴ処刑場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 65,
+      "zone_name": "マムーク"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 66,
+      "zone_name": "マムージャ兵訓練所"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 67,
+      "zone_name": "翡翠廟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 68,
+      "zone_name": "エジワ蘿洞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 69,
+      "zone_name": "ルジャワン霊窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 72,
+      "zone_name": "アルザダール海底遺跡群"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 73,
+      "zone_name": "ゼオルム遺構"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 77,
+      "zone_name": "ナイズル島"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 78,
+      "zone_name": "ハザルム試験場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 79,
+      "zone_name": "カダーバの浮沼"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 80,
+      "zone_name": "南サンドリア〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 81,
+      "zone_name": "東ロンフォール〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 82,
+      "zone_name": "ジャグナー森林〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 83,
+      "zone_name": "ブンカール浦〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 84,
+      "zone_name": "バタリア丘陵〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 85,
+      "zone_name": "ラヴォール村〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 86,
+      "zone_name": "常花の石窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 87,
+      "zone_name": "バストゥーク商業区〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 88,
+      "zone_name": "北グスタベルグ〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 89,
+      "zone_name": "グロウベルグ〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 90,
+      "zone_name": "パシュハウ沼〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 91,
+      "zone_name": "ロランベリー耕地〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 92,
+      "zone_name": "ベドー〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 93,
+      "zone_name": "ルホッツ銀山"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 94,
+      "zone_name": "ウィンダス水の区〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 95,
+      "zone_name": "西サルタバルタ〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 96,
+      "zone_name": "カルゴナルゴ城砦〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 97,
+      "zone_name": "メリファト山地〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 98,
+      "zone_name": "ソロムグ原野〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 99,
+      "zone_name": "オズトロヤ城〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 100,
+      "zone_name": "西ロンフォール"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 101,
+      "zone_name": "東ロンフォール"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 102,
+      "zone_name": "ラテーヌ高原"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 103,
+      "zone_name": "バルクルム砂丘"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 104,
+      "zone_name": "ジャグナー森林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 105,
+      "zone_name": "バタリア丘陵"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 106,
+      "zone_name": "北グスタベルグ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 107,
+      "zone_name": "南グスタベルグ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 108,
+      "zone_name": "コンシュタット高地"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 109,
+      "zone_name": "パシュハウ沼"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 110,
+      "zone_name": "ロランベリー耕地"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 111,
+      "zone_name": "ボスディン氷河"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 112,
+      "zone_name": "ザルカバード"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 113,
+      "zone_name": "テリガン岬"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 114,
+      "zone_name": "東アルテパ砂漠"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 115,
+      "zone_name": "西サルタバルタ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 116,
+      "zone_name": "東サルタバルタ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 117,
+      "zone_name": "タロンギ大峡谷"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 118,
+      "zone_name": "ブブリム半島"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 119,
+      "zone_name": "メリファト山地"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 120,
+      "zone_name": "ソロムグ原野"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 121,
+      "zone_name": "聖地ジ・タ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 122,
+      "zone_name": "ロ・メーヴ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 123,
+      "zone_name": "ユタンガ大森林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 124,
+      "zone_name": "ヨアトル大森林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 125,
+      "zone_name": "西アルテパ砂漠"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 126,
+      "zone_name": "クフィム島"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 127,
+      "zone_name": "ベヒーモスの縄張り"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 128,
+      "zone_name": "慟哭の谷"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 129,
+      "zone_name": "ゴユの空洞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 130,
+      "zone_name": "ル・オンの庭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 132,
+      "zone_name": "アビセア-ラテーヌ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 135,
+      "zone_name": "デュナミス-ザルカバード"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 136,
+      "zone_name": "ボスディン氷河〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 137,
+      "zone_name": "ザルカバード〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 138,
+      "zone_name": "ズヴァール城外郭〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 139,
+      "zone_name": "ホルレーの岩峰"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 140,
+      "zone_name": "ゲルスバ野営陣"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 142,
+      "zone_name": "ユグホトの岩屋"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 143,
+      "zone_name": "パルブロ鉱山"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 144,
+      "zone_name": "ワールンの祠"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 145,
+      "zone_name": "ギデアス"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 147,
+      "zone_name": "ベドー"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 148,
+      "zone_name": "クゥルンの大伽藍"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 149,
+      "zone_name": "ダボイ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 150,
+      "zone_name": "修道窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 151,
+      "zone_name": "オズトロヤ城"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 152,
+      "zone_name": "祭壇の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 153,
+      "zone_name": "ボヤーダ樹"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 155,
+      "zone_name": "ズヴァール城内郭〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 156,
+      "zone_name": "王の間〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 157,
+      "zone_name": "デルクフの塔中層"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 158,
+      "zone_name": "デルクフの塔上層"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 159,
+      "zone_name": "ウガレピ寺院"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 160,
+      "zone_name": "怨念洞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 161,
+      "zone_name": "ズヴァール城外郭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 162,
+      "zone_name": "ズヴァール城内郭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 163,
+      "zone_name": "生贄の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 164,
+      "zone_name": "ガルレージュ要塞〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 165,
+      "zone_name": "王の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 166,
+      "zone_name": "ラングモント峠"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 167,
+      "zone_name": "ボストーニュ監獄"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 168,
+      "zone_name": "宣託の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 169,
+      "zone_name": "トライマライ水路"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 170,
+      "zone_name": "満月の泉"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 171,
+      "zone_name": "クロウラーの巣〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 172,
+      "zone_name": "ツェールン鉱山"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 173,
+      "zone_name": "コロロカの洞門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 174,
+      "zone_name": "クフタルの洞門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 175,
+      "zone_name": "エルディーム古墳〔Ｓ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 176,
+      "zone_name": "海蛇の岩窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 177,
+      "zone_name": "ヴェ・ルガノン宮殿"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 178,
+      "zone_name": "ル・アビタウ神殿"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 179,
+      "zone_name": "天輪の場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 180,
+      "zone_name": "ラ・ロフの劇場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 181,
+      "zone_name": "宿星の座"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 182,
+      "zone_name": "ウォークオブエコーズ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 184,
+      "zone_name": "デルクフの塔下層"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 190,
+      "zone_name": "龍王ランペールの墓"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 191,
+      "zone_name": "ダングルフの涸れ谷"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 192,
+      "zone_name": "内ホルトト遺跡"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 193,
+      "zone_name": "オルデール鍾乳洞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 194,
+      "zone_name": "外ホルトト遺跡"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 195,
+      "zone_name": "エルディーム古墳"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 196,
+      "zone_name": "グスゲン鉱山"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 197,
+      "zone_name": "クロウラーの巣"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 198,
+      "zone_name": "シャクラミの地下迷宮"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 200,
+      "zone_name": "ガルレージュ要塞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 203,
+      "zone_name": "凍結の回廊"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 204,
+      "zone_name": "フェ・イン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 205,
+      "zone_name": "イフリートの釜"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 206,
+      "zone_name": "ク・ビアの闘技場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 208,
+      "zone_name": "流砂洞"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 212,
+      "zone_name": "グスタフの洞門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 213,
+      "zone_name": "オンゾゾの迷路"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 215,
+      "zone_name": "アビセア-アットワ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 216,
+      "zone_name": "アビセア-ミザレオ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 217,
+      "zone_name": "アビセア-ブンカール"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 218,
+      "zone_name": "アビセア-アルテパ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 222,
+      "zone_name": "真界"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 230,
+      "zone_name": "南サンドリア"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 231,
+      "zone_name": "北サンドリア"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 232,
+      "zone_name": "サンドリア港"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 233,
+      "zone_name": "ドラギーユ城"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 234,
+      "zone_name": "バストゥーク鉱山区"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 235,
+      "zone_name": "バストゥーク商業区"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 236,
+      "zone_name": "バストゥーク港"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 237,
+      "zone_name": "大工房"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 238,
+      "zone_name": "ウィンダス水の区"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 239,
+      "zone_name": "ウィンダス石の区"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 240,
+      "zone_name": "ウィンダス港"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 241,
+      "zone_name": "ウィンダス森の区"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 242,
+      "zone_name": "天の塔"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 243,
+      "zone_name": "ル・ルデの庭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 244,
+      "zone_name": "ジュノ上層"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 245,
+      "zone_name": "ジュノ下層"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 246,
+      "zone_name": "ジュノ港"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 247,
+      "zone_name": "ラバオ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 248,
+      "zone_name": "セルビナ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 249,
+      "zone_name": "マウラ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 250,
+      "zone_name": "カザム"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 251,
+      "zone_name": "神々の間"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 252,
+      "zone_name": "ノーグ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 253,
+      "zone_name": "アビセア-ウルガラン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 254,
+      "zone_name": "アビセア-グロウベルグ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 255,
+      "zone_name": "アビセア-天象の鎖"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 256,
+      "zone_name": "西アドゥリン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 257,
+      "zone_name": "東アドゥリン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 258,
+      "zone_name": "ララ水道"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 259,
+      "zone_name": "ララ水道〔Ｕ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 260,
+      "zone_name": "ヤッセの狩り場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 261,
+      "zone_name": "ケイザック古戦場"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 262,
+      "zone_name": "エヌティエル水林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 263,
+      "zone_name": "ヨルシア森林"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 264,
+      "zone_name": "ヨルシア森林〔Ｕ〕"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 265,
+      "zone_name": "モリマー台地"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 266,
+      "zone_name": "マリアミ渓谷"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 267,
+      "zone_name": "カミール山麓"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 268,
+      "zone_name": "シィの門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 269,
+      "zone_name": "モーの門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 270,
+      "zone_name": "シルダス洞窟"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 272,
+      "zone_name": "ドーの門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 273,
+      "zone_name": "ウォーの門"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 274,
+      "zone_name": "ラ・カザナル宮外郭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 276,
+      "zone_name": "ラ・カザナル宮内郭"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 277,
+      "zone_name": "ラ・カザナル宮天守"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 280,
+      "zone_name": "モグガーデン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 281,
+      "zone_name": "リファーリア"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 283,
+      "zone_name": "シルバー・ナイフ"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 284,
+      "zone_name": "セレニア図書館"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 289,
+      "zone_name": "エスカ-ル・オン"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 290,
+      "zone_name": "デスエチア-天象の鎖"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "zone_id": 291,
+      "zone_name": "醴泉島"
+    },
+    {
+      "checked": false,
+      "maps": "unknown",
+      "source": "Windower Resources zones.lua (ja)",
+      "zone_id": 293,
+      "zone_name": "醴泉島の祠"
+    }
+  ]
+}

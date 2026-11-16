@@ -1,0 +1,664 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "追加シナリオ「シャントット帝国の陰謀」を持っている、Lv10以上",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA1",
+      "name_en": "A Shantotto Ascension",
+      "name_ja_ref": "シャントット帝国の陰謀",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16530.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lv10以上でウィンダス森の区か水の区からウィンダス石の区に入るとイベント。モグハウスから出たときなどは起きない（FFXIclopedia にこの節の手順はない）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「シャントット帝国の陰謀」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA2",
+      "name_en": "Burgeoning Dread",
+      "name_ja_ref": "不吉な予感",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18193.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダスの門から東サルタバルタか西サルタバルタに出るとイベント。言われる呪符キットの種類を覚えておく（FFXIclopedia も同じ。チョコボを借りたとき・アウトポストのワープ・タロンギ大峡谷から入ったときは起きない）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「不吉な予感」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA3",
+      "name_en": "That Which Curdles Blood",
+      "name_ja_ref": "謎の召集令状",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・灼熱のお札"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・海流のお札"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・突風のお札"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・雷鳴のお札"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・凍結のお札"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ドルチェ特製・震動のお札"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18206.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "呪符キットは沈黙・睡眠・毒・暗闇のどれか。Padded Box（土・Bast Parchment 2・Inferior Cocoon、または Woodworking Kit 5）、Fine Parchment 2（闇・Parchment・Pumice Stone）、Enchanted Ink 2（闇・Black Ink・Magicked Blood）と薬を土のクリスタルで合成。錬金術10くらいがよい。キットは本人が合成する。クフィム島 H-7 の Trodden Snow にトレード（FFXIclopedia も同じ。6枚のお札はこの節の報酬）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「謎の召集令状」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA4",
+      "name_en": "Sugar-coated Directive",
+      "name_ja_ref": "甘美なる指令",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3,000～50,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18208.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "6つの回廊のプロトクリスタルのうち3つ以上で BF「Sugar-coated Directive」。弱い召喚獣はアストラルフロウを5回使うまで倒れない。フェイス不可。勝ったらもう一度調べてお札を貼り台紙をもらう。台紙3枚 3,000・4枚 10,000・5枚 30,000・6枚 50,000ギル（FFXIclopedia も同じ。回廊はイフリートの釜・フェ・イン・テリガン岬・ボヤーダ樹・怨念洞・流砂洞）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.126.Trodden_Snow"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「甘美なる指令」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA5",
+      "name_en": "Enemy of the Empire (I)",
+      "name_ja_ref": "アルド暗殺計画　その1",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "黒革の帳面"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18209.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ノーグ I-8 の Andrause に海蛇の岩窟の敵3種を言われ、Soultrapper と Blank Soul Plate 12枚を800ギルで買える（次は日本時間0時のあと）。海蛇の岩窟の敵だけ。Soul Plate を1枚ずつトレードして Black book。グスタフの洞門 F-10 の Outcropping でイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.252.Andrause"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アルド暗殺計画　その1」クリア、だいじなもの「黒革の帳面」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA6",
+      "name_en": "Enemy of the Empire (II)",
+      "name_ja_ref": "アルド暗殺計画　その2",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "サボテンダー座のカギ"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18189.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Outcropping をもう一度調べるとその場の戦い。Renfred・Bompupu・Gorattz の3人で、分身が出る。フェイス不可。帳面は始めると消える。勝つと Cactuar key（FFXIclopedia も同じ。経験値500）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.212.Outcropping"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「アルド暗殺計画　その2」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA7",
+      "name_en": "Sugar-coated Subterfuge",
+      "name_ja_ref": "甘美なる企み",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18210.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層 J-8 の天晶堂の中の Aldo に話すとイベント（FFXIclopedia も同じ。座標なし）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「甘美なる企み」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA8",
+      "name_en": "Shantotto in Chains",
+      "name_ja_ref": "囚われのシャントット",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18217.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ロ・メーヴ B-10 の Ensorcelled Door を調べてから6体のNMで欠片。Lode Golem E-9/10、Fired Urn K-9/10、Steely Weapon G-10/11（FFXIclopedia は G-10〜I-11）、聖地ジ・タ（17:00〜7:00）の Holey Horror H-8、Skeleton Scuffler F-8、Blest Bones F-7（FFXIclopedia は E/F-7）。パーティなら全員に出る。NMは数分で消え、2分ほどでまた出る",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.122.Ensorcelled_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「囚われのシャントット」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA9",
+      "name_en": "Fountain of Trouble",
+      "name_ja_ref": "くじけ！甘美なる陰謀",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18218.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "トライマライ水路の光る ??? で8属性の sap のどれか1つ以上。闇は1枚目 F-8 でホームポイント#1の近く。ほかは場所が動く（FFXIclopedia も同じ）。満月の泉の Moon Spiral でイベント",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「くじけ！甘美なる陰謀」クリア、だいじなもの「大樹の星屑」を1つ以上持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA10",
+      "name_en": "Battaru Royale",
+      "name_ja_ref": "クローン・タルタル部隊",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "チョコボ座のカギ"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "700"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18242.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Moon Spiral をもう一度調べて BF「Battaru Royale」。8属性のクローン8体。HP50%ほどで召喚獣を呼んでアストラルフロウ。フェイス可。勝つと Chocobo key（FFXIclopedia も同じ。30分・経験値700・入ると強化が消える）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.満月の泉.Moon_Spiral"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「クローン・タルタル部隊」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA11",
+      "name_en": "Romancing the Clone",
+      "name_ja_ref": "ふたりがちからを合わせたら",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18243.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層 J-8 の天晶堂の中の Aldo に話すとイベント（FFXIclopedia も J-8）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ふたりがちからを合わせたら」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA12",
+      "name_en": "Sisters in Arms",
+      "name_ja_ref": "ストップ！ダブル・シャントット",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18245.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウガレピ寺院と怨念洞の光る ??? で Tablet of Hexes 16枚。寺院 1枚目 F-10・F-8、2枚目 F-8・G-10・J-11・I-8。怨念洞 1枚目 E-5・H-6・J-9・E-10・F-11・K-11・J-13、3枚目 F-9、2枚目 L-13・H-9（FFXIclopedia も同じ。番号は FFXIclopedia の順）。1枚あれば次の BF に入れる。生贄の間の Mahogany Door でイベント",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ストップ！ダブル・シャントット」クリア、だいじなもの「呪いの古代文字」を1つ以上持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA13",
+      "name_en": "Project: Shantottofication",
+      "name_ja_ref": "呪われる世界",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "トンベリ座のカギ"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "750"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18187.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mahogany Door をもう一度調べて BF。相手は D. Shantotto と Shantotto。古代文字は入ると消えて、それぞれ強化になる。HP50%で連携の時間になり、そのあいだ倒れない。勝つと Tonberry key（FFXIclopedia にこの節のページはない）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.生贄の間.Mahogany_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「呪われる世界」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA14",
+      "name_en": "An Uneasy Peace",
+      "name_ja_ref": "悪夢去りし後……",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ベヒーモス座のカギ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "シャントット帝国反乱分子"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18259.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス森の区か水の区からウィンダス石の区に入るとイベント。モグハウスやホームポイントのワープでは起きない。称号 Arrester of the Ascension、Behemoth key（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_14",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「悪夢去りし後……」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "ASA15",
+      "name_en": "A Shantotto Ascension (Fin)",
+      "name_ja_ref": "シャントット帝国の陰謀＜完＞",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/18262.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層の天晶堂で Behemoth key を使うと Blitzer Poleyn・Desultor Tassets・Tatsumaki Sitagoromo のどれか（FFXIclopedia も同じ）。BG Wiki はカギの宝箱をジュノ下層 J-8 と書いている",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_15",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "asa",
+      "game_ref": null,
+      "id": "mission.asa.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダス石の区に入って「後にする」を選んだ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To Begin ASA...",
+      "name_ja_ref": "「シャントット帝国の陰謀」を始めるには……",
+      "order": 999,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39144.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "「後にする」を選ぶと一覧に出て、ウィンダス石の区 C-6/D-6 の Tales' Beginning を調べると始まる。本は後にした人にしか見えない",
+          "url": "https://www.bg-wiki.com/ffxi/A_Shantotto_Ascension_Mission_1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.239.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.252.Andrause",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 252,
+        "zone_name": "ノーグ"
+      },
+      "moves": false,
+      "name_en": "Andrause",
+      "same_name": false
+    },
+    {
+      "id": "obj.122.Ensorcelled_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "B-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 122,
+        "zone_name": "ロ・メーヴ"
+      },
+      "moves": false,
+      "name_en": "Ensorcelled Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.239.Tales_Beginning",
+      "kind": "obj",
+      "location": {
+        "grid": "C-6 D-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Tales' Beginning",
+      "same_name": false
+    }
+  ]
+}

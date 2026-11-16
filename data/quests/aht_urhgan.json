@@ -1,0 +1,3522 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「やがて海霧の夜に翔ぶ」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Corsair Attire",
+      "name_ja_ref": "コルセア装束",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コルセアガントリー"
+        },
+        {
+          "kind": "item",
+          "name_ja": "コルセアブーツ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "コルセアフラック"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5182.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Leleroon ナシュモ G-7",
+          "url": "https://www.bg-wiki.com/ffxi/Leleroon",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Leleroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「「何もできない」だなんて言わせない」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Puppetry Attire",
+      "name_ja_ref": "パペトリ装束",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "パペトリトベ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "パペトリダスタナ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "パペトリバブーシュ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5183.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Dhima Polevhia アトルガン白門 J-8",
+          "url": "https://www.bg-wiki.com/ffxi/Dhima_Polevhia",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Dhima_Polevhia"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "からくり士Lv10以上（2つ目はLv20、3つ目はLv30から）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Choosing an Automaton Frame",
+      "name_ja_ref": "フレームの選択",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ホワイトキャンサー・ヘーゼルサジタリウス・カーマインスコーピオーのヘッドとフレーム"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13124.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ghatsad アトルガン白門 I-7",
+          "url": "https://www.bg-wiki.com/ffxi/Ghatsad",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ghatsad"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「変容」を受けている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Magus Attire",
+      "name_ja_ref": "メガス装束",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メガスシャルワー"
+        },
+        {
+          "kind": "item",
+          "name_ja": "メガスバズバンド"
+        },
+        {
+          "kind": "item",
+          "name_ja": "メガスジュバ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5181.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lathuya アトルガン白門 F-8",
+          "url": "https://www.bg-wiki.com/ffxi/Lathuya",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Lathuya"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「キモいから名前で呼ぶな」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "からくり士で話しかける",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Puppetmaster Blues",
+      "name_ja_ref": "「何もできない」だなんて言わせない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "パペトリタージ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "痛快なる大からくり士"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7013.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Iruki-Waraki アトルガン白門 K-9",
+          "url": "https://www.bg-wiki.com/ffxi/Iruki-Waraki",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Iruki-Waraki"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.006",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Arts and Crafts",
+      "name_ja_ref": "ことばのパズル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シュトラッチ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5373.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hadahda アトルガン白門 F-10",
+          "url": "https://www.bg-wiki.com/ffxi/Hadahda",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Hadahda"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.007",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Die Is Cast",
+      "name_ja_ref": "その女、性悪につき",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ランダムリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6947.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ratihb アトルガン白門 J-12、Jijiroon ナシュモ H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Ratihb",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ratihb"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.008",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Such Sweet Sorrow",
+      "name_ja_ref": "にわか雨～君の面影を探して",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メロー17号ロケット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12495.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Dabhuh アトルガン白門 K-11",
+          "url": "https://www.bg-wiki.com/ffxi/Dabhuh",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Dabhuh"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.009",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Keeping Notes",
+      "name_ja_ref": "はやくメモメモにゃ！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "モグハウスから出るエリアを選べるようになる（アルザビの裏道）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/40.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ahkk Jharcham アトルガン白門 I-10",
+          "url": "https://www.bg-wiki.com/ffxi/Ahkk_Jharcham",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ahkk_Jharcham"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.010",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Striking a Balance",
+      "name_ja_ref": "ふたりのバランス",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨*3"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5375.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Saliyahf アトルガン白門 G-7、Wazyih F-11",
+          "url": "https://www.bg-wiki.com/ffxi/Saliyahf",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Saliyahf"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "コルセアLv50以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「白昼わだつみを駆る」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Against All Odds",
+      "name_ja_ref": "やがて海霧の夜に翔ぶ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コルセアトリコルヌ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "剛胆なる大海賊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4973.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ratihb"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションをコンプリートしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Waking the Colossus",
+      "name_ja_ref": "アトルガンの守護者",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コロッサスマント・コロッサスピアス・コロッサストルク・10,000ギル・アレキサンダーとの契約から1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる天光の継承者"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19540.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.013",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Olduum",
+      "name_ja_ref": "オルドゥーム",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "雷輪"
+        },
+        {
+          "kind": "other",
+          "name_ja": "雷輪をLeypointで掲げると「オルドゥームリング」になる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7472.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Dkhaaya アトルガン白門 G-9",
+          "url": "https://www.bg-wiki.com/ffxi/Dkhaaya",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Dkhaaya"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上のジョブ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "No Strings Attached",
+      "name_ja_ref": "オートマトン",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "からくり士になれる"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ストリンガー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "からくりオーナー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8488.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Iruki-Waraki"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "からくり士Lv50以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「投げ込んだのは貴方じゃないですか」を終えてエリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Operation Teatime",
+      "name_ja_ref": "キモいから名前で呼ぶな",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "パペトリチュリダル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8527.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Dnegan ナシュモ H-6",
+          "url": "https://www.bg-wiki.com/ffxi/Dnegan",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Iruki-Waraki"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.016",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Delivering the Goods",
+      "name_ja_ref": "グルメな人々",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨*3"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6569.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fochacha アトルガン白門 I-9、Ulamaal・Qutiba K-12",
+          "url": "https://www.bg-wiki.com/ffxi/Fochacha",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Fochacha"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「消えたカボチャ頭」を終えて1分たち、エリアを出入りしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Taste of Honey",
+      "name_ja_ref": "シャララト日和",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "イルミクヘルバス"
+        },
+        {
+          "kind": "other",
+          "name_ja": "イルミクヘルバスの作り方を教わる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5322.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Qutiba"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.018",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Prankster",
+      "name_ja_ref": "トリックスターの描く夢",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "カダーバの浮沼地図"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5377.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ahaadah アトルガン白門 G-6",
+          "url": "https://www.bg-wiki.com/ffxi/Ahaadah",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ahaadah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「バラカフ回想録」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Five Seconds of Fame",
+      "name_ja_ref": "バラカフ事件録",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨*3"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨*2"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン霊銀貨*1"
+        },
+        {
+          "kind": "title",
+          "name_ja": "バラカフ発明品の使い手"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12492.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Balakaf"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.020",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Get the Picture",
+      "name_ja_ref": "バラカフ回想録",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨（1枚撮るごとに1枚）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "風景記録の達人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5376.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Balakaf"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「変容」を終えて1分たっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "青魔道士Lv66以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Beast Within",
+      "name_ja_ref": "不滅",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "青魔道士のレベル上限が75になる"
+        },
+        {
+          "kind": "item",
+          "name_ja": "呪符デジョン"
+        },
+        {
+          "kind": "title",
+          "name_ja": "慧眼を断つモノ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/10166.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Waoud アトルガン白門 J-10",
+          "url": "https://www.bg-wiki.com/ffxi/Waoud",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Waoud"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.022",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Led Astray",
+      "name_ja_ref": "主人と私",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨*1"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11739.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mhasbaf アトルガン白門 J-8、Rubahah F-9、Cacaroon G-11、Tataroon ナシュモ G-8",
+          "url": "https://www.bg-wiki.com/ffxi/Mhasbaf",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Mhasbaf"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「冥路の磁針」を11回終え、オーディンと契約して冥路の騎士になっている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Stygian Pact",
+      "name_ja_ref": "修羅の道",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エーシルマント・エーシルイヤリング・エーシルトルク・10,000ギル・オーディンとの契約から1つ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19734.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "青魔道士Lv50以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「開門」を終えてエリアを出入りし、1分たっている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Omens",
+      "name_ja_ref": "兆候",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メガスチャルク"
+        },
+        {
+          "kind": "title",
+          "name_ja": "蒼き獅子"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2637.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Waoud"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「始まりの夜」を終えて地球時間の0時を過ぎている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Moment of Truth",
+      "name_ja_ref": "再会の暁",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ジョブで変わる（赤・青はバイルエリクサー+1、召はプロエーテル+1、侍はイカロスウィング、シはエルメスクエンチャ、ほかは能力の薬。風水士・魔導剣士はなし）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12494.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mishhar アトルガン白門 H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Mishhar",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Mishhar"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「冥途の紋」を終えて地球時間の0時を過ぎている（くり返すときも同じ）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Unwavering Resolve",
+      "name_ja_ref": "冥路の磁針",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エーシルマント・エーシルイヤリング・エーシルトルク・10,000ギル・オーディンとの契約から1つ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19685.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Yoyoroon ナシュモ G-6、Naja Salaheem アトルガン白門 I-10",
+          "url": "https://www.bg-wiki.com/ffxi/Yoyoroon",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッションをコンプリートしている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Rider Cometh",
+      "name_ja_ref": "冥途の紋",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エーシルマント・エーシルイヤリング・エーシルトルク・10,000ギル・オーディンとの契約から1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる冥闇の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19592.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.028",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「恋のレシピ」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Three Men and a Closet",
+      "name_ja_ref": "友情のカルテ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11740.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kubhe Ijyuhla アトルガン白門 I-8",
+          "url": "https://www.bg-wiki.com/ffxi/Kubhe_Ijyuhla",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Kubhe_Ijyuhla"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.029",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Two Horn the Savage",
+      "name_ja_ref": "双角の仕事人",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン霊銀貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7542.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Milazahn アトルガン白門 G-8",
+          "url": "https://www.bg-wiki.com/ffxi/Milazahn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Milazahn"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「詠うは誰そ彼の」を受けている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ザザーグがアルザビにいる（捕虜になっていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Fist of the People",
+      "name_ja_ref": "土噛みし拳",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "土蛇将の突撃隊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12290.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Talhaal アルザビ H-6",
+          "url": "https://www.bg-wiki.com/ffxi/Fist_of_the_People",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アルザビ.Talhaal"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「兆候」を終え、エリアを出入りして1分たっている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "青魔道士で話す（受けたあとはほかのジョブでもよい）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Transformations",
+      "name_ja_ref": "変容",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メガスケフィエ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "冷厳なる大青魔道士"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3310.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Waoud"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.032",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Saga of the Skyserpent",
+      "name_ja_ref": "天駆ける剣",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        },
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績1000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "天蛇将の遊撃隊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9041.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fari-Wari アトルガン白門 K-12",
+          "url": "https://www.bg-wiki.com/ffxi/Fari-Wari",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Fari-Wari"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.033",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Give Peace a Chance",
+      "name_ja_ref": "始まりの夜",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6628.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Mishhar"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.034",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッション「不滅の防人」を終えている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「苦闘打開作戦」を受けていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Finding Faults",
+      "name_ja_ref": "弱点分析作戦",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "正解1つで皇国軍戦績200、2つで選んだ種族の？？？ボックス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15064.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Hishahma"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.035",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Got It All",
+      "name_ja_ref": "恋のレシピ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ビビキーの潮騒"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5374.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Tehf_Kimasnahya"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "からくり士Lv40以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Wayward Automaton",
+      "name_ja_ref": "投げ込んだのは貴方じゃないですか",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ターボストリンガー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6995.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Iruki-Waraki"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.037",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Abquhbahに「今日明日にでも、社長から一声かかりますよ！！」と言われる勤務評価",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Private First Class",
+      "name_ja_ref": "昇進試験～一等傭兵",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫一等傭兵バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫一等傭兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7222.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Abquhbah アトルガン白門 I-10",
+          "url": "https://www.bg-wiki.com/ffxi/Abquhbah",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.038",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～一等傭兵」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Superior Private",
+      "name_ja_ref": "昇進試験～上等傭兵",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫上等傭兵バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫上等傭兵"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7223.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～少尉」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: First Lieutenant",
+      "name_ja_ref": "昇進試験～中尉",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫中尉バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫中尉"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12966.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Abquhbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.040",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～傭兵長」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Corporal",
+      "name_ja_ref": "昇進試験～伍長",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫伍長バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫伍長"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7225.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～上等傭兵」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Lance Corporal",
+      "name_ja_ref": "昇進試験～傭兵長",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫傭兵長バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫傭兵長"
+        },
+        {
+          "kind": "other",
+          "name_ja": "出来に応じたアトルガン貨幣（最大で黄金貨2枚）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7224.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Abquhbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.042",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～中尉」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "アサルト50個（各監視哨10個）をすべて終えている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "アトルガンミッションをすべて終えている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Captain",
+      "name_ja_ref": "昇進試験～大尉",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫大尉バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫大尉"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12988.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Abquhbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.043",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～特務曹長」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Second Lieutenant",
+      "name_ja_ref": "昇進試験～少尉",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫少尉バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫少尉"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12304.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Abquhbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.044",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～軍曹」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Sergeant Major",
+      "name_ja_ref": "昇進試験～曹長",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫曹長バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫曹長"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7227.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～曹長」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Chief Sergeant",
+      "name_ja_ref": "昇進試験～特務曹長",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫特務曹長バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫特務曹長"
+        },
+        {
+          "kind": "other",
+          "name_ja": "磨いた回数に応じたアトルガン霊銀貨（5回で黄金貨も）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11168.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Abquhbah"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「昇進試験～伍長」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "勤務評価が最高",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Promotion: Sergeant",
+      "name_ja_ref": "昇進試験～軍曹",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "山猫軍曹バッジ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "山猫軍曹"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7226.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「詠うは誰そ彼の」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "アトルガンミッション「無手の傀儡師」以降まで進んでいる",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ミリ・アリアポーがアルザビにいる（捕虜になっていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Soothing Waters",
+      "name_ja_ref": "水和ぐ盾",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        },
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "水蛇将の親衛隊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12997.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Eunheem アトルガン白門 G-9",
+          "url": "https://www.bg-wiki.com/ffxi/Eunheem",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Nadeey アトルガン白門 K-7",
+          "url": "https://www.bg-wiki.com/ffxi/Nadeey",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mihli Aliapoh アルザビ H-7",
+          "url": "https://www.bg-wiki.com/ffxi/Mihli_Aliapoh",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Fari-Wari"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.048",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上のジョブ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Luck of the Draw",
+      "name_ja_ref": "海鳥は賽を振る",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ジョブ「コルセア」"
+        },
+        {
+          "kind": "item",
+          "name_ja": "コルセアのダイス"
+        },
+        {
+          "kind": "title",
+          "name_ja": "海猫党クルー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3354.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Mafwahb アトルガン白門 L-9",
+          "url": "https://www.bg-wiki.com/ffxi/Mafwahb",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ratihb"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.049",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「グルメな人々」を終え、エリアを出入りして1分たっている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Vanishing Act",
+      "name_ja_ref": "消えたカボチャ頭",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨"
+        },
+        {
+          "kind": "other",
+          "name_ja": "アトルガンのレシピ1つ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6571.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Ulamaal"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.050",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上のジョブ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "An Empty Vessel",
+      "name_ja_ref": "渇望",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ジョブ「青魔道士」"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ザッハークの呪印"
+        },
+        {
+          "kind": "title",
+          "name_ja": "双頭蛇の印背負いしモノ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7847.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Waoud"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「水和ぐ盾」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ガダラルがアルザビにいる（捕虜になっていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Embers of His Past",
+      "name_ja_ref": "炎熾す鎌",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        },
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "炎蛇将の特攻隊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16665.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Fari-Wari"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「アトルガンの守護者」を終え、地球時間の0時を過ぎている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Divine Interference",
+      "name_ja_ref": "白き神",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コロッサスマント・コロッサスピアス・コロッサストルク・10,000ギル・アレキサンダーとの契約から1つ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/19593.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "山猫大尉",
+          "type": "condition"
+        }
+      ],
+      "name_en": "An Imperial Heist",
+      "name_ja_ref": "盗まれた皇宮の宝",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15562.html",
+          "via": "wiki.ffo.jp"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Naja_Salaheem"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.054",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Prince and the Hopper",
+      "name_ja_ref": "翠緑のむこうへ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シャノアゴルジェ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13089.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Maudaal アトルガン白門 E-9",
+          "url": "https://www.bg-wiki.com/ffxi/Maudaal",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Maudaal"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.055",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「弱点分析作戦」で3種族とも調べ終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "山猫上等傭兵以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「弱点分析作戦」を受けていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Art of War",
+      "name_ja_ref": "苦闘打開作戦",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "？？？ボックス"
+        },
+        {
+          "kind": "other",
+          "name_ja": "中身は調べたモンスターにちなんだ品"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15065.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ornery Orobon アラパゴ暗礁域 E-11 MAP2、Wheel Wamoura ハルブーン L-8、Carpophagous Puk マムーク G-8",
+          "url": "https://www.bg-wiki.com/ffxi/The_Art_of_War",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Hishahma"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.056",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「任務、任務……また任務！」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Forging a New Myth",
+      "name_ja_ref": "英魂と鎮魂",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "英魂武器（盗まれた皇宮の宝で渡した鎮魂武器に対応するもの）"
+        },
+        {
+          "kind": "other",
+          "name_ja": "アトルガン黄金貨1枚"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "レリーフの欠片"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15564.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Runic Seal I-9、BF の相手は Zahak と Balrahn",
+          "url": "https://www.bg-wiki.com/ffxi/Forging_a_New_Myth",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アトルガン白門.Imperial_Whitegate"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.057",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天駆ける剣」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Ode to the Serpents",
+      "name_ja_ref": "詠うは誰そ彼の",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "アトルガン黄金貨1枚"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12249.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gaweesh アルザビ G-8、Talhaal アルザビ H-6",
+          "url": "https://www.bg-wiki.com/ffxi/Ode_to_the_Serpents",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Fari-Wari"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.058",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "青魔道士Lv40以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "アトルガンミッション「不滅の防人」を終えている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「渇望」を終えて、そのあとのイベントを見ている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Beginnings",
+      "name_ja_ref": "開門",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "イモータルシミター"
+        },
+        {
+          "kind": "title",
+          "name_ja": "五蛇の烙印押されしモノ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3309.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "各監視哨の不滅隊士は Nareema・Nahshib・Daswil・Waudeen・Meyaada",
+          "url": "https://www.bg-wiki.com/ffxi/Beginnings",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アトルガン白門.Waoud"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.059",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「詠うは誰そ彼の」を受けている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ナジュリスがアルザビにいる（捕虜になっていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "When the Bow Breaks",
+      "name_ja_ref": "風纏う弓",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "皇国軍戦績500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "風蛇将の教導隊"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12289.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gaweesh アルザビ G-8、ギワブ監視塔 ワジャーム樹林 F-5",
+          "url": "https://www.bg-wiki.com/ffxi/When_the_Bow_Breaks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アルザビ.Gaweesh"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.060",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "コルセアLv40以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ラミアの牙のカギ",
+          "type": "item"
+        }
+      ],
+      "name_en": "Equipped for All Occasions",
+      "name_ja_ref": "双翼は朝凪に舞う",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "トランプガン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7470.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "??? アラパゴ暗礁域 H-10、Iron Door シャクラミの地下迷宮 MAP2 K-9",
+          "url": "https://www.bg-wiki.com/ffxi/Equipped_for_All_Occasions",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.???_H-10"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「やがて海霧の夜に翔ぶ」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "コルセアLv66以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Breaking the Bonds of Fate",
+      "name_ja_ref": "海路の果てに",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "コルセアのレベル上限が75になる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "碧海の勝負師"
+        },
+        {
+          "kind": "item",
+          "name_ja": "呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7906.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "??? アラパゴ暗礁域 MAP1 H-10",
+          "url": "https://www.bg-wiki.com/ffxi/Breaking_the_Bonds_of_Fate",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.???_H-10"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.062",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「双翼は朝凪に舞う」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "コルセアLv50以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ラミアの牙のカギ",
+          "type": "item"
+        }
+      ],
+      "name_en": "Navigating the Unfriendly Seas",
+      "name_ja_ref": "白昼わだつみを駆る",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "コルセアトルーズ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5750.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "??? アラパゴ暗礁域 MAP1 H-10、Leleroon ナシュモ G-7、Leypoint ワジャーム樹林 G-8",
+          "url": "https://www.bg-wiki.com/ffxi/Navigating_the_Unfriendly_Seas",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.54.???_H-10"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.063",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Suldiranがアルザビにいる（捕虜になっていない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Fear of the Dark II",
+      "name_ja_ref": "闇への抵抗II",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "200ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "冥闇への抵抗者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5055.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Suldiran アルザビ J-10 2階",
+          "url": "https://www.bg-wiki.com/ffxi/Fear_of_the_Dark_II",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.アルザビ.Suldiran"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.064",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Rock Bottom",
+      "name_ja_ref": "つるはしにかける思い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ゼオルム火山地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "2000ギル、経験値（またはリミットポイント）2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7471.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Zurtermor ゼオルム火山 L-7",
+          "url": "https://www.bg-wiki.com/ffxi/Rock_Bottom",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.61.Zurtermor"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.065",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「英魂と鎮魂」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Coming Full Circle",
+      "name_ja_ref": "アトルガンの秘宝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "英魂武器が本来の性能になる、アトルガン白銀貨3枚"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15863.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Seaprince's Tombstone カダーバの浮沼 E-10",
+          "url": "https://www.bg-wiki.com/ffxi/Coming_Full_Circle",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.カダーバの浮沼.Seaprinces_Tombstone"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.066",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Cook-a-roon?",
+      "name_ja_ref": "Cook☆ルン",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ナシュモ風シチュー"
+        },
+        {
+          "kind": "other",
+          "name_ja": "料理に失敗するとシチューはもらえないが、完了にはなる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5814.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ququroon ナシュモ H-6（NPC のページも H-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Cook-a-roon%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Ququroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.067",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アトルガンミッション「賓客の資格」を終えている",
+          "type": "condition"
+        },
+        {
+          "text_ja": "アトルガン青銅貨3枚",
+          "type": "item"
+        }
+      ],
+      "name_en": "Scouting the Ashu Talif",
+      "name_ja_ref": "アシュタリフ号威力偵察",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "？？？ボックス"
+        },
+        {
+          "kind": "item",
+          "name_ja": "？？？ダガー"
+        },
+        {
+          "kind": "item",
+          "name_ja": "甲賀手裏剣"
+        },
+        {
+          "kind": "other",
+          "name_ja": "Swiftwinged Gekko を倒すと箱がもう1つ出る"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4814.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Halshaob ナシュモ H-10、Cutter アラパゴ暗礁域 H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Scouting_the_Ashu_Talif",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Halshaob"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.068",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「アシュタリフ号威力偵察」を終えて、地球時間の0時を過ぎている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "アトルガン白銀貨1枚",
+          "type": "item"
+        }
+      ],
+      "name_en": "Royal Painter Escort",
+      "name_ja_ref": "宮廷絵師護衛指令",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "？？？ボックス"
+        },
+        {
+          "kind": "item",
+          "name_ja": "？？？ヘッドウェア"
+        },
+        {
+          "kind": "item",
+          "name_ja": "甲賀手裏剣"
+        },
+        {
+          "kind": "other",
+          "name_ja": "箱の数は、雑魚を全部倒す・Black Bartholomew を倒す・Faluuya を無傷で守る、で変わる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4813.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Halshaob ナシュモ H-10、Cutter アラパゴ暗礁域 H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Royal_Painter_Escort",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Halshaob"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.069",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「宮廷絵師護衛指令」を終えている",
+          "type": "quest"
+        },
+        {
+          "text_ja": "アトルガン霊銀貨1枚",
+          "type": "item"
+        }
+      ],
+      "name_en": "Targeting the Captain",
+      "name_ja_ref": "アシュタリフ号船長暗殺指令",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "？？？ボックス"
+        },
+        {
+          "kind": "item",
+          "name_ja": "？？？グローブ"
+        },
+        {
+          "kind": "item",
+          "name_ja": "甲賀手裏剣"
+        },
+        {
+          "kind": "item",
+          "name_ja": "バルバロッサゼレハ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "箱の数は、ボスを倒す・Bubbly を先に倒す・ボスに奇襲する、で変わる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4815.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Halshaob ナシュモ H-10、Cutter アラパゴ暗礁域 H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Targeting_the_Captain",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Halshaob"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.070",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Totoroon's Treasure Hunt",
+      "name_ja_ref": "トトルンのトレジャーハント",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "？？？ボックス"
+        },
+        {
+          "kind": "other",
+          "name_ja": "中身は採集したエリアで変わる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12496.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Totoroon ナシュモ G-8",
+          "url": "https://www.bg-wiki.com/ffxi/Totoroon%27s_Treasure_Hunt",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Totoroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.071",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「盗まれた皇宮の宝」を終えている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Duties, Tasks, and Deeds",
+      "name_ja_ref": "任務、任務……また任務！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "パパルンの推薦状"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15563.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Paparoon ナシュモ G-7（NPC のページも G-7）、Zasshal アトルガン白門 K-9、Kilusha ナシュモ H-7",
+          "url": "https://www.bg-wiki.com/ffxi/Duties,_Tasks,_and_Deeds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Paparoon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.072",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "What Friends Are For",
+      "name_ja_ref": "封滅トレージアンター",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "エジワ蘿洞地図"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン青銅貨"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        },
+        {
+          "kind": "other",
+          "name_ja": "アトルガン青銅貨は、???で「いただく」を選んだときだけ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6160.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Tsetseroon ナシュモ G-6、??? エジワ蘿洞 MAP3 G-10",
+          "url": "https://www.bg-wiki.com/ffxi/What_Friends_Are_For",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Tsetseroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.073",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Rat Race",
+      "name_ja_ref": "愛あるがゆえに",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨2枚"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン霊銀貨2枚"
+        },
+        {
+          "kind": "item",
+          "name_ja": "アトルガン白銀貨3枚"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12476.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kakkaroon ナシュモ H-8、Nadee Periyaha アトルガン白門 H-9、Cacaroon アトルガン白門 G-11、Kyokyoroon ナシュモ H-7",
+          "url": "https://www.bg-wiki.com/ffxi/Rat_Race",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Kakkaroon"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.074",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Not Meant to Be",
+      "name_ja_ref": "空知らぬ雨",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "アトルガン黄金貨3枚"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4295.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fhe Maksojha ナシュモ H-6、??? カダーバの浮沼 K-8",
+          "url": "https://www.bg-wiki.com/ffxi/Not_Meant_to_Be",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ナシュモ.Fhe_Maksojha"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.075",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv75以上で、だいじなもの「冒険者の証」を持っている",
+          "type": "condition"
+        }
+      ],
+      "name_en": "VW Op. #050: Aht Urhgan Assault",
+      "name_ja_ref": "VW作戦第050計画西アトルガン地方",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "六芒星の紅緋色のジェイドII"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26577.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Camille ワジャーム樹林 M-7。ヴォイドウォーカーの出る場所：Dimgruzub アラパゴ暗礁域 MAP1 G-8・G-10・I-10、Brekekekex カダーバの浮沼 MAP1 F-11・I-9・I-11、Yalungur マムーク MAP1 I-7・J-8・L-8、Vanasarvik ゼオルム火山 M-6・J-8・L-8",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._050:_Aht_Urhgan_Assault",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ワジャーム樹林.Camille"
+      },
+      "steps": []
+    },
+    {
+      "category": "aht_urhgan",
+      "game_ref": null,
+      "id": "quest.aht_urhgan.076",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「VW作戦第050計画西アトルガン地方」を終えている（続けて受ける）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "VW Op. #068: Subterranean Skirmish",
+      "name_ja_ref": "VW作戦第068計画エジワ蘿洞",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/26578.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ヴォイドウォーカーの出る場所：Morta エジワ蘿洞 MAP1 G-8・I-8／MAP2 F-8",
+          "url": "https://www.bg-wiki.com/ffxi/VW_Op._068:_Subterranean_Skirmish",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.ワジャーム樹林.Camille"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.61.Zurtermor",
+      "kind": "npc",
+      "location": {
+        "grid": "L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 61,
+        "zone_name": "ゼオルム火山"
+      },
+      "moves": false,
+      "name_en": "Zurtermor",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Abquhbah",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Abquhbah",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Ahaadah",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Ahaadah",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Ahkk_Jharcham",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Ahkk Jharcham",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Dabhuh",
+      "kind": "npc",
+      "location": {
+        "grid": "K-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Dabhuh",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Dhima_Polevhia",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Dhima Polevhia",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Dkhaaya",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Dkhaaya",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Fochacha",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Fochacha",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Ghatsad",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Ghatsad",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Hadahda",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Hadahda",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Iruki-Waraki",
+      "kind": "npc",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Iruki-Waraki",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Kubhe_Ijyuhla",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Kubhe Ijyuhla",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Lathuya",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Lathuya",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Maudaal",
+      "kind": "npc",
+      "location": {
+        "grid": "E-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Maudaal",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Milazahn",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Milazahn",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Mishhar",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Mishhar",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Ratihb",
+      "kind": "npc",
+      "location": {
+        "grid": "J-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Ratihb",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Saliyahf",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Saliyahf",
+      "same_name": false
+    },
+    {
+      "id": "npc.アトルガン白門.Waoud",
+      "kind": "npc",
+      "location": {
+        "grid": "J-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Waoud",
+      "same_name": false
+    },
+    {
+      "id": "npc.アルザビ.Suldiran",
+      "kind": "npc",
+      "location": {
+        "grid": "J-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 48,
+        "zone_name": "アルザビ"
+      },
+      "moves": false,
+      "name_en": "Suldiran",
+      "same_name": false
+    },
+    {
+      "id": "npc.アルザビ.Talhaal",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 48,
+        "zone_name": "アルザビ"
+      },
+      "moves": false,
+      "name_en": "Talhaal",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Fhe_Maksojha",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Fhe Maksojha",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Halshaob",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Halshaob",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Kakkaroon",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Kakkaroon",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Leleroon",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Leleroon",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Paparoon",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Paparoon",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Ququroon",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Ququroon",
+      "same_name": false
+    },
+    {
+      "id": "npc.ナシュモ.Tsetseroon",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 53,
+        "zone_name": "ナシュモ"
+      },
+      "moves": false,
+      "name_en": "Tsetseroon",
+      "same_name": false
+    },
+    {
+      "id": "npc.ワジャーム樹林.Camille",
+      "kind": "npc",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 51,
+        "zone_name": "ワジャーム樹林"
+      },
+      "moves": false,
+      "name_en": "Camille",
+      "same_name": false
+    },
+    {
+      "id": "obj.アトルガン白門.Imperial_Whitegate",
+      "kind": "obj",
+      "location": {
+        "grid": "L-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 50,
+        "zone_name": "アトルガン白門"
+      },
+      "moves": false,
+      "name_en": "Imperial Whitegate",
+      "same_name": false
+    }
+  ]
+}

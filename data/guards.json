@@ -1,0 +1,234 @@
+{
+  "data_schema": 1,
+  "guards": [
+    {
+      "id": "guard.Ambrotien",
+      "location": null,
+      "moves": false,
+      "name_en": "Ambrotien",
+      "nation": "sandoria",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Endracion",
+      "location": null,
+      "moves": false,
+      "name_en": "Endracion",
+      "nation": "sandoria",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Grilau",
+      "location": null,
+      "moves": false,
+      "name_en": "Grilau",
+      "nation": "sandoria",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Argus",
+      "location": null,
+      "moves": false,
+      "name_en": "Argus",
+      "nation": "bastok",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Cleades",
+      "location": null,
+      "moves": false,
+      "name_en": "Cleades",
+      "nation": "bastok",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Malduc",
+      "location": null,
+      "moves": false,
+      "name_en": "Malduc",
+      "nation": "bastok",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Rashid",
+      "location": null,
+      "moves": false,
+      "name_en": "Rashid",
+      "nation": "bastok",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Mokyokyo",
+      "location": null,
+      "moves": false,
+      "name_en": "Mokyokyo",
+      "nation": "windurst",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Janshura-Rashura",
+      "location": {
+        "grid": "B-5",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Janshura-Rashura",
+      "nation": "windurst",
+      "note_ja": "ウィンダスミッション1-1の行に「移籍者はウィンダス港(B-5)のJanshura-Rashura」とある",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Rakoh_Buuma",
+      "location": null,
+      "moves": false,
+      "name_en": "Rakoh Buuma",
+      "nation": "windurst",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    },
+    {
+      "id": "guard.Zokima-Rokima",
+      "location": null,
+      "moves": false,
+      "name_en": "Zokima-Rokima",
+      "nation": "windurst",
+      "same_name": false,
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://pegasusxi.com/wiki/Category:Gate_Guard",
+          "via": "web"
+        },
+        {
+          "checked": "2026-11-14",
+          "url": "https://ffxi.allakhazam.com/db/npc-function/9",
+          "via": "web"
+        }
+      ]
+    }
+  ],
+  "note_ja": "所属国は確かめたもの（出典は各ガードの sources）。場所は確かめてから入れる"
+}

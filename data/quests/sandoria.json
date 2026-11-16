@@ -1,0 +1,5320 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.001",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Merchant's Bidding",
+      "name_ja_ref": "商人のお願い",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "120ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ワイルドハンター"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/6465.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Parvipon"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.002",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Starting a Flame",
+      "name_ja_ref": "火打石の調達",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/6034.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Legata"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.003",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Fear of the Dark",
+      "name_ja_ref": "闇への抵抗",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "200ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/5054.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Secodiand"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Tiger's Teeth",
+      "name_ja_ref": "トラの牙",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2,100ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ファング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/4247.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Taumila"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.005",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "～ Teamwork",
+      "name_ja_ref": "パーティの心得",
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/29004.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Vilatroire"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「パーティの心得～中級編」コンプリート済み、名声ランク4「そこそこ知られるように」以上、Lv10以上で話しかける",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Advanced Teamwork",
+      "name_ja_ref": "パーティの心得～上級編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "上級オーガナイザー"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ホーンリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9283.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.100.Vilatroire"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「パーティの心得～初級編」コンプリート済み、名声ランク3「聞いた覚えがあるぞ」以上、Lv10以上で話しかける",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Intermediate Teamwork",
+      "name_ja_ref": "パーティの心得～中級編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "中級オーガナイザー"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "魔道士のバラード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9281.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.100.Vilatroire"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「意地」「根性」はどちらか一方しか受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "こんじょう/The Rivalry/The Competition",
+      "name_ja_ref": "太公望クエスト",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "フナ釣りマイスター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "表彰状"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "10ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "15ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "太公望の釣竿"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（途中報酬：堀ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "森ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2750.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Gallijaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「意地」「根性」はどちらか一方しか受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Competition",
+      "name_ja_ref": "意地・根性",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "フナ釣りマイスター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "表彰状"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "10ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "15ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "太公望の釣竿"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（途中報酬：堀ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "森ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2750.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Gallijaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.010",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Brugaire Consortium",
+      "name_ja_ref": "ブルゲール商会",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "凄腕の運び屋"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ラワンシールド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10170.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Fontoumant"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリア名声ランク5（「かなり知られる」）以上、だいじなもの「飛空艇パス」所持、クエスト「天晶堂入会」クリア済み",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Job for the Consortium",
+      "name_ja_ref": "ブルゲール商会の密輸",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6321.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Portaure"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.012",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Lufet's Lake Salt",
+      "name_ja_ref": "マメ料理の隠し味",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "マメ料理人手伝い"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "600ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5341.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Nogelle"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「肉料理」コンプリート済み",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Dismayed Customer",
+      "name_ja_ref": "困った客",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "遺失物捜索隊員"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "560ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10180.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Gulemont"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Thick Shells",
+      "name_ja_ref": "固い殻",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "虫採り名人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "750ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10263.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Vounebariont"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "先にサンドリア港の埠頭(I-9)のMieneに話してから依頼者と話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Pickpocket",
+      "name_ja_ref": "形見の品",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "街の名探偵"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ライトアクス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10147.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Altiret"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「意地」「根性」はどちらか一方しか受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Rivalry",
+      "name_ja_ref": "意地",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "フナ釣りマイスター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "表彰状"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "10ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "15ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "太公望の釣竿"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（途中報酬：堀ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "森ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2750.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Gallijaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「意地」「根性」はどちらか一方しか受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Competition",
+      "name_ja_ref": "根性",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "フナ釣りマイスター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "表彰状"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "10ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "15ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "太公望の釣竿"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（途中報酬：堀ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "森ブナ1匹"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2750.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Joulet"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "酒場の客Antreneauに話しかけると発生（オファーリストには載らない）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Taste for Meat",
+      "name_ja_ref": "肉料理",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "150ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/2572.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Thierride"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他国・カザムの「落とし主は誰だ」がオファーリストに載っている間は発生しない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Discerning Eye （San d'Oria）",
+      "name_ja_ref": "落とし主は誰だinサンドリア",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とても違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とてもとても違いの分かるヤツ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "500ギル（総クリア数5／20／100回で、）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10709.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Eddy"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.020",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Flyers for Regine",
+      "name_ja_ref": "魔法屋のチラシ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "呼び込み名人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "440ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3300.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Regine"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「闇にまぎれし者」コンプリート済み、赤魔道士で話しかける",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Peace for the Spirit",
+      "name_ja_ref": "さまよえる魂よ、安らかに",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "比類なき大赤魔道士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ワーロックシャポー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3979.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Curilla"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.022",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Fit for a Prince",
+      "name_ja_ref": "ドラギーユ城の休日",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "月下氷人"
+        },
+        {
+          "kind": "title",
+          "name_ja": "サンドリア王子妃候補"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "カストルリング"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（花嫁候補役：ポルックスリング"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8966.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Halver"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.023",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The General's Secret",
+      "name_ja_ref": "女将軍の秘密",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "リンクスバグナウ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9153.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Curilla"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランクが一定水準以上（具体値は記事に記載なし）",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Her Majesty's Garden",
+      "name_ja_ref": "王妃ローテの庭で",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "雪原エリア地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "2000ギル、経験値2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3821.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Chalvatot"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「小公望」終了時に「受ける」を選ぶと自動で開始",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Under Oath",
+      "name_ja_ref": "誓いの剣",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "高雅なる大騎士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ガラントサーコート"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8384.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Trion"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.026",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv50以上の赤魔道士、前クエスト「赤き試練」",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Enveloped in Darkness",
+      "name_ja_ref": "闇にまぎれし者",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ワーロックブーツ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5051.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Curilla"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4（「そこそこ知られるように」）以上、レベル10以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Healing the Land",
+      "name_ja_ref": "あまねく地に祝福を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ホラの巡礼者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テレポホラ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6496.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Eperdur"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.028",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Growing Flowers",
+      "name_ja_ref": "お庭にお花さんを植えたいにゃ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "サンドリアの裏道情報（モグハウスから出るエリアを選択可能に）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/47.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Kuu_Mohzolhi"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.029",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Waters of the Cheval",
+      "name_ja_ref": "シュヴァル川の水",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "清らかなる者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウィングペンダント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5686.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Cheval Water）",
+          "url": "https://www.bg-wiki.com/ffxi/Waters_of_the_Cheval",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Miageau"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「白と黒のプレリュード」コンプリート、白魔道士Lv50以上",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Pieuje's Decision",
+      "name_ja_ref": "ピエージェの決断",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "高潔なる大白魔道士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ヒーラーブリオー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6036.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Narcheral"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.031",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ナイトLv40以上で話しかける",
+          "type": "condition"
+        },
+        {
+          "text_ja": "事前にクエスト「父と子」をクリアし「ヤナギの釣竿」をAilbecheに渡しておく",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Sharpening the Sword",
+      "name_ja_ref": "剣に磨きをかけて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "オナーソード"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8575.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Ailbeche"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.032",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Exit the Gambler",
+      "name_ja_ref": "勝負師は何処に",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "暁の勝負師"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "龍王ランペールの墓地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2、000ポイント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3812.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Aurege"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.033",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク4（用語辞典はランク5）",
+            "url": "https://www.bg-wiki.com/ffxi/Sorcery_of_the_North",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「あまねく地に祝福を」クリア済み（要エリアチェンジ）、名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Sorcery of the North",
+      "name_ja_ref": "北の地の秘法",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テレポヴァズ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6572.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Eperdur"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.034",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Warding Vampires",
+      "name_ja_ref": "吸血鬼護身術",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "低級ヴァンパイアハンター"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "900ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9315.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Maloquedil"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.035",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「地下牢番人の噂」コンプリート済み、名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trouble at the Sluice",
+      "name_ja_ref": "呪われた水門",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ヘヴィアクス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7098.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Belgidiveau"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「剣に磨きをかけて」クリア、ナイトLv50以上",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Boy's Dream",
+      "name_ja_ref": "小公望",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ガラントレギンス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6455.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Ailbeche"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.037",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュスティ家具店でカップボード（Ex）を買ってモグハウスに置き、サンドリア名声が一定以上の状態でエリアチェンジ後にMoogleに話すとイベント",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Unexpected Treasure",
+      "name_ja_ref": "平穏なる日々を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "12,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6231.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Morunaude"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.038",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5（「かなり知られるように」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Setting Sun",
+      "name_ja_ref": "斜陽",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "10,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9316.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Vamorcote"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "木工ギルドに所属していること",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Forest for the Trees",
+      "name_ja_ref": "木を見て森も見よ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "トレイニーアクス（渡した原木も返却）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16642.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Ramua"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.040",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Trader in the Forest",
+      "name_ja_ref": "森の仲買人",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ベジタブル特急"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5585.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Abeaule"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Gates to Paradise",
+      "name_ja_ref": "楽園への扉",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "信心深き者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "コットンケープ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4631.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Olbergieut"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.042",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "白魔道士Lv40以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Messenger from Beyond",
+      "name_ja_ref": "死者の国からの伝令",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブレスドハンマー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8577.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Narcheral_2"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.043",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリア名声ランク2以上、召喚士Lv15以上で話しかける",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial Size Trial by Ice",
+      "name_ja_ref": "氷の試練・改",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "召喚獣「シヴァ」との契約、呪符デジョン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9375.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Castilchat"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.044",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Father and Son",
+      "name_ja_ref": "父と子",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "迷子引受人"
+        },
+        {
+          "kind": "title",
+          "name_ja": "小さな親切運動家"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ヤナギの釣竿"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（釣竿をAilbecheに返すと"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6457.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Ailbeche"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「死者の国からの伝令」コンプリート、白魔道士Lv50以上",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Prelude of Black and White",
+      "name_ja_ref": "白と黒のプレリュード",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ヒーラーダックビル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8374.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Narcheral"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Undying Flames",
+      "name_ja_ref": "絶えざる炎",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "炎の信者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "修道士の荒縄"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9310.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Pagisalis"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「シュヴァル川の水」コンプリート済み",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Vicasque's Sermon",
+      "name_ja_ref": "総長講話会",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "慈悲深き者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブラスリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5685.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Abioleget"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.048",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「森の仲買人」コンプリート済み、名声ランク3（「聞いた覚えがあるぞ」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Medicine Woman",
+      "name_ja_ref": "老婆の薬",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "旅の調剤士"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9201.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Abeaule"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.049",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Blackmail",
+      "name_ja_ref": "脅迫者",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "900ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9323.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Dauperiat"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.050",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声「ほとんど知っている」",
+          "type": "fame"
+        },
+        {
+          "text_ja": "三国の「護衛の報酬」は1つしか受けられず、どれかをクリアするとコンクェスト集計後まで再挑戦不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Escort for Hire （San d'Oria）",
+      "name_ja_ref": "護衛の報酬～サンドリア編",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "10、000ギル（初回のみ）、ミラテテ様言行録（毎回）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5719.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Rondipur"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Sleepless Nights",
+      "name_ja_ref": "インソムニアの女",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "羊乳配達人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "5,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9299.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Paouala"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「身だしなみ」コンプリート済み、名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Lizard Skins",
+      "name_ja_ref": "トカゲの皮",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "リザードキラー"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "リザードグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9358.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hanaa_Punaa"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "南サンドリアの民家(F-6)のNenneと話しておく",
+          "type": "condition"
+        },
+        {
+          "text_ja": "クエスト「老婆の薬」コンプリート済み、名声ランクが一定以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "To Cure a Cough",
+      "name_ja_ref": "冒険者の日記1",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "心優しき者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "財宝の書"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3,000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（エピローグで"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9376.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Amaura"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.054",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "アンデシアに2回話しかける必要がある",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Grave Concerns",
+      "name_ja_ref": "墓守の悩み",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "龍王の墓守"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "560ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9377.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Andecia"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.055",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ドラギーユ城に入る必要があるため、サンドリアミッションランク2（またはM2-3サンドリア編オファー）が実質必要",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Lure of the Wildcat（San d'Oria）",
+      "name_ja_ref": "山猫のいざない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "赤色の招待券"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5042.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Amutiyaal"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.056",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv5以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「新魔法フェイス（バストゥーク）」「新魔法フェイス（ウィンダス）」をオファー中は受けられない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trust： San d'Oria",
+      "name_ja_ref": "新魔法フェイス（サンドリア）",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "信頼・親愛・友情を抱く者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "サンドリアのフェイス使用許可証"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェイス「エグセニミル」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/30161.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Gondebaud"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.057",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「父と子」コンプリート済み、名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Purchase of Arms",
+      "name_ja_ref": "武器の仕入れ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "取引代理人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "エルムスタッフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9736.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Helbort"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.058",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Grimy Signposts",
+      "name_ja_ref": "汚れた道しるべ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1,500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9735.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Maugie"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.059",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Sweetest Things",
+      "name_ja_ref": "甘い蜜の誘惑",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ハチミツ博士"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "400ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10077.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Raimbroy"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.060",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Squire's Test",
+      "name_ja_ref": "見習い登用試験",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "見習い騎士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スパタ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5435.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Balasiel"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「見習い登用試験」コンプリート済み、名声ランク2（「聞いた覚えがあるような」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Squire's Test II",
+      "name_ja_ref": "見習い登用試験2",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "洞窟探検隊"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "騎士見習い証明書"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "1200ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（ログには出ない）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5433.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Balasiel"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.062",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Sentry's Peril",
+      "name_ja_ref": "警備兵は傷だらけ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "森の救急隊員"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブロンズサブリガ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9344.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Glenne"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.063",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "レベル40以上の赤魔道士で話しかける",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Crimson Trial",
+      "name_ja_ref": "赤き試練",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "フェンスデーゲン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8576.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Sharzalion"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.064",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Seamstress",
+      "name_ja_ref": "身だしなみ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "沈黙の羊飼い"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "レザーグローブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9357.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hanaa_Punaa"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.065",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他国の「退魔の報酬」と合わせて地球時間1週間に1回・1つのみ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Eco-Warrior （San d'Oria）",
+      "name_ja_ref": "退魔の報酬～サンドリア編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "紅霞の雇われハンター"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "5000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ランペール戦記"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10403.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Norejaie"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.066",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4（「そこそこ知られるように」）以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "バストゥークのクエスト「エルヴァーンの彫金師」とは同時に受けられない",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Distant Loyalties",
+      "name_ja_ref": "遠い絆",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ホワイトケープ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9593.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Femitte"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.067",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Rosel the Armorer",
+      "name_ja_ref": "防具屋ローゼル",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "門前払い"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "200ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "100ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（相手を間違えると"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6771.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Rosel"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.068",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「見習い登用試験2」コンプリート済み、Lv30以上で話しかける",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Knight's Test",
+      "name_ja_ref": "騎士登用試験",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "騎士の魂宿りし者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ナイトへのジョブチェンジ解禁、カイトシールド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8942.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Balasiel"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.069",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上、クエスト「トカゲの皮」コンプリート済み",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Black Tiger Skins",
+      "name_ja_ref": "黒虎の毛皮",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "虎ハンター"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "タイガーストール"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9131.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hanaa_Punaa"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.070",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク3（聞いた覚えがある）以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "メインLv5以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ドラギーユ城に出入りできる（ボストーニュ監獄に入るため）",
+          "type": "other"
+        }
+      ],
+      "name_en": "The Rumor",
+      "name_ja_ref": "地下牢番人の噂",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ドレイン（魔法）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2963.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Level=10（用語辞典はメインLv5以上）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Rumor",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.167.Novalmauge"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.071",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Introduction to Teamwork",
+      "name_ja_ref": "パーティの心得～初級編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シェルリング"
+        },
+        {
+          "kind": "title",
+          "name_ja": "下級オーガナイザー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/9280.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "北サンドリア(C-7)から見張り塔に入る。Lv10以上とある",
+          "url": "https://www.bg-wiki.com/ffxi/Introduction_to_Teamwork",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.100.Vilatroire"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.072",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "竜騎士Lv50以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「職人は眠らない」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Chasing Quotas",
+      "name_ja_ref": "大いなる遺産",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ドラケンブレー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8400.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ceraulian は サンドリア港(I-10)の倉庫A（用語辞典の手順は I-9）。バタリア丘陵の小島(I-11)へはエルディーム古墳(I-10)から入り、(G-9)の部屋の墓から MAP2 へ落ちる。門は2人で開けるか、だいじなもの「魔法の天体観測儀」があればひとりで開けられる",
+          "url": "https://www.bg-wiki.com/ffxi/Chasing_Quotas",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Ceraulian"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.073",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "竜騎士で話す",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「大いなる遺産」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Knight Stalker",
+      "name_ja_ref": "信じあう者たち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ドラケンアーメット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8401.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Rahal は ドラギーユ城(H-9)、Balasiel は 南サンドリア(F-7)。ウガレピ寺院の???は MAP1 の(F-10)（用語辞典は F-9）。子竜を出していないと NM は出ない。出るのは Cleuvarion M Resoaix と Rompaulion S Citalle で、倒すのは Rompaulion S Citalle だけでよい",
+          "url": "https://www.bg-wiki.com/ffxi/Knight_Stalker",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Rahal"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.074",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・赤・ナ・暗・青・コ・剣で、片手剣スキル240以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Old Wounds",
+      "name_ja_ref": "秘めた破片",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「サベッジブレード」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2929.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Curilla は ドラギーユ城(I-9)。???は アルテパゲートの奥、流砂洞(I-6)の大部屋の北の端。ひとりで重さのスイッチを使うには、東アルテパ砂漠(G-7)の Lokpix のクエスト「1人でも開いちゃう？」で だいじなもの「重量石」を取っておく",
+          "url": "https://www.bg-wiki.com/ffxi/Old_Wounds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.233.Curilla"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.075",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・暗・獣で、両手鎌スキル240以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Souls in Shadow",
+      "name_ja_ref": "囚われの魂たち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「スパイラルヘル」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2938.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Novalmauge は ボストーニュ監獄(G-8)",
+          "url": "https://www.bg-wiki.com/ffxi/Souls_in_Shadow",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.167.Novalmauge"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.076",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Trial by Ice",
+      "name_ja_ref": "氷の試練",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "シヴァクロー／アイスベルト／アイスリング／サビトレール／10,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "何もいらないを選ぶと、召喚獣“シヴァ”と契約できる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "大いなる氷の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7574.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gulmama は 北サンドリア(E-7)。Repeatable=Yes、FLevel=6。ボスディン氷河(J-4)からフェ・インに入り、(G-9)の階段を下りた地下の(I-5)が回廊の入口。音叉は一人ひとつ、30分・6人まで",
+          "url": "https://www.bg-wiki.com/ffxi/Trial_by_Ice",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Gulmama"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.077",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv30以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ドラギーユ城に入れる（サンドリアはミッションランク2以上、ほかの国はミッション2-3を受けている）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Holy Crest",
+      "name_ja_ref": "聖なる印",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "竜騎士にジョブチェンジできるようになる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "聖なる印を継ぐ者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1884.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=1。Arminibit と Ceraulian は サンドリア港(I-9)の倉庫A（用語辞典は I-10）。Novalmauge は ボストーニュ監獄 MAP1 の(F-8)〜(G-8)を歩く（用語辞典は G-8）。Morjean は 北サンドリア(L-7)の大聖堂の書庫。Trailblazing Pickaxe は使えない。Hut Door は(F-10/G-10)、BFのワイバーンはLv40ぐらい",
+          "url": "https://www.bg-wiki.com/ffxi/The_Holy_Crest",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Morjean"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.078",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "竜騎士Lv40以上で話す（受けたあとはほかのジョブでよい）",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「聖なる印」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "A Craftsman's Work",
+      "name_ja_ref": "職人は眠らない",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ペレグリン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8569.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=1。Miaux は 北サンドリア(E-6)。???は 東アルテパ砂漠(H-8)の南寄り。サバイバルガイドかテレポアルテが近い",
+          "url": "https://www.bg-wiki.com/ffxi/A_Craftsman%27s_Work",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Miaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.079",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・侍・竜で、両手槍スキル240以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Methods Create Madness",
+      "name_ja_ref": "新・騎士団訓練要項",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「インパルスドライヴ」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2937.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Balasiel は 南サンドリア(F-7)。海蛇の岩窟の(J-10)の Ornamented Door を「サハギンのカギ」で開け、南の橋を渡った先の(H-6)に???",
+          "url": "https://www.bg-wiki.com/ffxi/Methods_Create_Madness",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Balasiel"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.080",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Timely Visit",
+      "name_ja_ref": "稀なる客人",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メディバルカラー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "漆黒の稲妻"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4227.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=3（用語辞典はランク4）。Narvecaint は ラテーヌ高原(F-7)のオルデール鍾乳洞の入口、Halver は ドラギーユ城、Phillone は 南サンドリア(D-7)。ジャグナー森林(F-5)の???は18:00〜4:00で、Giollemitte B Feroun と Skeleton Esquire の2体が出て、両方倒す",
+          "url": "https://www.bg-wiki.com/ffxi/A_Timely_Visit",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Deraquien"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.081",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク8以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "南サンドリア(G-7)の民家2階のDiaryを4ページ目まで読んでおく",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Over the Hills and Far Away",
+      "name_ja_ref": "ウルガラン越え",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ウルガラン山脈地図（持っていないとき）"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,000ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2,000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4044.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=San d'Oria、FLevel=8（用語辞典も8）。Antreneau は サンドリア港(G-7)。モブリンの温石は ムバルポロス旧市街の Moblin Ashman・Moblin Gurneyman、新市街の Moblin Groundman。ウルガラン山脈の頂上近くから南の斜面を滑り、左の岩棚に降りて穴に入る（斜面の上は BG Wiki が (F-9)、用語辞典は (G-9)）。???の場所は用語辞典の (F-8)",
+          "url": "https://www.bg-wiki.com/ffxi/Over_the_Hills_and_Far_Away",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西の斜面から滑って別の岩棚の穴に入っても行ける。「肉料理」のイベントになるときは、それを終えて Diary から読み直す",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Over_the_Hills_and_Far_Away",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.232.Antreneau"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.082",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "プロマシアミッション「流転」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Spice Gals",
+      "name_ja_ref": "タブナジアの商人",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミラテテ様言行録"
+        },
+        {
+          "kind": "other",
+          "name_ja": "終えると「失われた料理」が受けられる"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4130.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=San d'Oria、FLevel=1、Repeatable=Yes、Quest Reqs=Promathia Mission 2-5。Rouva (I-8)。??? はサイトB01 (E-7) か サイトA01 (E-8)（用語辞典も同じ）。コンクェストの集計ごとにできる",
+          "url": "https://www.bg-wiki.com/ffxi/Spice_Gals",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Rouva"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.083",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Signed in Blood",
+      "name_ja_ref": "貴き血流れて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "カンニングピアス"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8051.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=San d'Oria、FLevel=3。Sobane (D-6)、聖布は Fort Ghelsba かユグホトの岩屋の Orcish Fighter、Abelard (G-9)、オルデール鍾乳洞の宝箱のカギは中の敵が落とす",
+          "url": "https://www.bg-wiki.com/ffxi/Signed_in_Blood",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Sobane"
+      },
+      "steps": []
+    },
+    {
+      "category": "sandoria",
+      "game_ref": null,
+      "id": "quest.sandoria.084",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "サンドリアの名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「貴き血流れて」クリア後にエリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Tea with a Tonberry?",
+      "name_ja_ref": "卑しき血流れず",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ウィルパワートルク"
+        },
+        {
+          "kind": "title",
+          "name_ja": "残党の標的"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8052.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=San d'Oria、FLevel=4。Anguenet (J-10)、ジンセンはアットワ地溝の Gallinipper・Ogrefly など、バージは 00:50 発、Riche に5つ全部聞く、Treasury Gold はフェ・インの Shadow、ダボイ (J-11) の??? で Hematic Cyst",
+          "url": "https://www.bg-wiki.com/ffxi/Tea_with_a_Tonberry%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Sobane"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "mob.100.River_Crab",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 100,
+        "zone_name": "西ロンフォール"
+      },
+      "moves": true,
+      "name_en": "River Crab",
+      "same_name": false
+    },
+    {
+      "id": "mob.108.Stray_Mary",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 108,
+        "zone_name": "コンシュタット高地"
+      },
+      "moves": true,
+      "name_en": "Stray Mary",
+      "same_name": false
+    },
+    {
+      "id": "mob.149.One-eyed_Gwajboj",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": true,
+      "name_en": "One-eyed Gwajboj",
+      "same_name": false
+    },
+    {
+      "id": "mob.149.Purpleflash_Brukdok",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": true,
+      "name_en": "Purpleflash Brukdok",
+      "same_name": false
+    },
+    {
+      "id": "mob.193.Necroplasm",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 4
+        },
+        "zone_id": 193,
+        "zone_name": "オルデール鍾乳洞"
+      },
+      "moves": true,
+      "name_en": "Necroplasm",
+      "same_name": false
+    },
+    {
+      "id": "mob.193.Polevik",
+      "kind": "mob",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 193,
+        "zone_name": "オルデール鍾乳洞"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-10（BG Wiki。FFXIclopedia には座標の記載なし）",
+          "name": "BG Wiki",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Sharpening_the_Sword"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Polevik",
+      "same_name": false
+    },
+    {
+      "id": "mob.195.Dark_Stalker",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 195,
+        "zone_name": "エルディーム古墳"
+      },
+      "moves": true,
+      "name_en": "Dark Stalker",
+      "same_name": false
+    },
+    {
+      "id": "mob.197.Dreadbug",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": true,
+      "name_en": "Dreadbug",
+      "same_name": false
+    },
+    {
+      "id": "mob.200.Guardian_Statue",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 200,
+        "zone_name": "ガルレージュ要塞"
+      },
+      "moves": true,
+      "name_en": "Guardian Statue",
+      "same_name": false
+    },
+    {
+      "id": "mob.Ahtu",
+      "kind": "mob",
+      "location": null,
+      "moves": true,
+      "name_en": "Ahtu",
+      "same_name": false
+    },
+    {
+      "id": "mob.Marchelute",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": true,
+      "name_en": "Marchelute",
+      "same_name": false
+    },
+    {
+      "id": "npc.100.Aaveleon",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 100,
+        "zone_name": "西ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Aaveleon",
+      "same_name": false
+    },
+    {
+      "id": "npc.100.Esca",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 100,
+        "zone_name": "西ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Esca",
+      "same_name": false
+    },
+    {
+      "id": "npc.100.Phairet",
+      "kind": "npc",
+      "location": {
+        "grid": "I-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 100,
+        "zone_name": "西ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Phairet",
+      "same_name": false
+    },
+    {
+      "id": "npc.100.Vilatroire",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 100,
+        "zone_name": "西ロンフォール"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-5（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Advanced_Teamwork",
+            "https://ffxiclopedia.fandom.com/wiki/Advanced_Teamwork"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Vilatroire",
+      "same_name": false
+    },
+    {
+      "id": "npc.101.Andelain",
+      "kind": "npc",
+      "location": {
+        "grid": "J-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 101,
+        "zone_name": "東ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Andelain",
+      "same_name": false
+    },
+    {
+      "id": "npc.101.Cheval_River",
+      "kind": "npc",
+      "location": {
+        "grid": "H-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 101,
+        "zone_name": "東ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Cheval River",
+      "same_name": false
+    },
+    {
+      "id": "npc.102.Faurbellant",
+      "kind": "npc",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 102,
+        "zone_name": "ラテーヌ高原"
+      },
+      "moves": false,
+      "name_en": "Faurbellant",
+      "same_name": false
+    },
+    {
+      "id": "npc.103.Survival_Guide",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 103,
+        "zone_name": "バルクルム砂丘"
+      },
+      "moves": false,
+      "name_en": "Survival Guide",
+      "same_name": false
+    },
+    {
+      "id": "npc.104.Ailbeche",
+      "kind": "npc",
+      "location": {
+        "grid": "E-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "Ailbeche",
+      "same_name": false
+    },
+    {
+      "id": "npc.104.Alexius_2",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-6（BG Wiki と FFXIclopedia が一致、用語辞典は I-5）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/A_Purchase_of_Arms",
+            "https://ffxiclopedia.fandom.com/wiki/A_Purchase_of_Arms"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Alexius",
+      "same_name": false
+    },
+    {
+      "id": "npc.104.Orcish_Cursemaker",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "Orcish Cursemaker",
+      "same_name": false
+    },
+    {
+      "id": "npc.149.Storage_Hole",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": false,
+      "name_en": "Storage Hole",
+      "same_name": false
+    },
+    {
+      "id": "npc.162.Yagudo_Abbot",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 162,
+        "zone_name": "ズヴァール城内郭"
+      },
+      "moves": false,
+      "name_en": "Yagudo Abbot",
+      "same_name": false
+    },
+    {
+      "id": "npc.167.Novalmauge",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 167,
+        "zone_name": "ボストーニュ監獄"
+      },
+      "moves": false,
+      "name_en": "Novalmauge",
+      "same_name": false
+    },
+    {
+      "id": "npc.193.Rojaireaut",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 193,
+        "zone_name": "オルデール鍾乳洞"
+      },
+      "moves": false,
+      "name_en": "Rojaireaut",
+      "same_name": false
+    },
+    {
+      "id": "npc.193.Sobane",
+      "kind": "npc",
+      "location": {
+        "grid": "D-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 193,
+        "zone_name": "オルデール鍾乳洞"
+      },
+      "moves": false,
+      "name_en": "Sobane",
+      "same_name": false
+    },
+    {
+      "id": "npc.195.Survival_Guide",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 195,
+        "zone_name": "エルディーム古墳"
+      },
+      "moves": false,
+      "name_en": "Survival Guide",
+      "same_name": false
+    },
+    {
+      "id": "npc.197.Doom_Scorpion",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "Doom Scorpion",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Adaunel",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Adaunel",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Ailbeche",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Ailbeche",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Amaura",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Amaura",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Amutiyaal",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Amutiyaal",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Andecia",
+      "kind": "npc",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Andecia",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Balasiel",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Balasiel",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Cahaurme",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Cahaurme",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Daggao",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Daggao",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Deraquien",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Deraquien",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Exoroche",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 K-7（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Father_and_Son",
+            "https://ffxiclopedia.fandom.com/wiki/Exoroche"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Exoroche",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Femitte",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Femitte",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Glenne",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Glenne",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Gondebaud",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Gondebaud",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Hanaa_Punaa",
+      "kind": "npc",
+      "location": {
+        "grid": "D-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Hanaa Punaa",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Helbort",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Helbort",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Legata",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Legata",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Maugie",
+      "kind": "npc",
+      "location": {
+        "grid": "L-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Maugie",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Nenne",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Nenne",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Norejaie",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Norejaie",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Paouala",
+      "kind": "npc",
+      "location": {
+        "grid": "M-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Paouala",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Parvipon",
+      "kind": "npc",
+      "location": {
+        "grid": "E-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Parvipon",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Raimbroy",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-8（BG Wiki と FFXIclopedia が一致、用語辞典は E-8）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Sweetest_Things",
+            "https://ffxiclopedia.fandom.com/wiki/The_Sweetest_Things"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Raimbroy",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Rosel",
+      "kind": "npc",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Rosel",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Rouva",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Rouva",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Sharzalion",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Sharzalion",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Taumila",
+      "kind": "npc",
+      "location": {
+        "grid": "E-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 E-9（BG Wiki と FFXIclopedia が一致、用語辞典は F-9）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Tiger's_Teeth",
+            "https://ffxiclopedia.fandom.com/wiki/Tiger's_Teeth"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Taumila",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Varchet",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Varchet",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Vemalpeau",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Vemalpeau",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Abeaule",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Abeaule",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Abioleget",
+      "kind": "npc",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Abioleget",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Ailbeche",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Ailbeche",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Anilla",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Anilla",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Aurege",
+      "kind": "npc",
+      "location": {
+        "grid": "F-3",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Aurege",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Belgidiveau",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Belgidiveau",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Calovour",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Calovour",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Castilchat",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Castilchat",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Coullene",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Coullene",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Dauperiat",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Dauperiat",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Excenmille",
+      "kind": "npc",
+      "location": {
+        "grid": "D-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Excenmille",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Gulmama",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Gulmama",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Kuu_Mohzolhi",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Kuu Mohzolhi",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Maloquedil",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Maloquedil",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Miageau",
+      "kind": "npc",
+      "location": {
+        "grid": "L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Miageau",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Morjean",
+      "kind": "npc",
+      "location": {
+        "grid": "L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Morjean",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Morunaude",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Morunaude",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Narcheral",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Narcheral",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Narcheral_2",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Narcheral",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Olbergieut",
+      "kind": "npc",
+      "location": {
+        "grid": "L-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Olbergieut",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Pagisalis",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Pagisalis",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Ramua",
+      "kind": "npc",
+      "location": {
+        "grid": "E-3",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 E-3（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Forest_for_the_Trees",
+            "https://ffxiclopedia.fandom.com/wiki/Forest_for_the_Trees"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Ramua",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Rondipur",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-6（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Escort_for_Hire_(San_d'Oria)",
+            "https://ffxiclopedia.fandom.com/wiki/Escort_for_Hire_(San_d'Oria)"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Rondipur",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Secodiand",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Secodiand",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Vamorcote",
+      "kind": "npc",
+      "location": {
+        "grid": "F-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Vamorcote",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Vilatroire",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Vilatroire",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Altiret",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Altiret",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Answald",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Answald",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Antreneau",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Antreneau",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Ceraulian",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9 I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Ceraulian",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Eddy",
+      "kind": "npc",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-6（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/A_Discerning_Eye_(San_d'Oria)",
+            "https://ffxiclopedia.fandom.com/wiki/A_Discerning_Eye"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Eddy",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Fontoumant",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-9（BG Wiki と FFXIclopedia が一致、用語辞典は H-10）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Brugaire_Consortium",
+            "https://ffxiclopedia.fandom.com/wiki/The_Brugaire_Consortium"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Fontoumant",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Gallijaux",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Gallijaux",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Gulemont",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Gulemont",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Joulet",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Joulet",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Miene",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-8（BG Wiki と FFXIclopedia が一致、用語辞典は I-9）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Pickpocket",
+            "https://ffxiclopedia.fandom.com/wiki/The_Pickpocket"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Miene",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Nogelle",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Nogelle",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Parcarin",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Parcarin",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Portaure",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-9（BG Wiki と FFXIclopedia が一致、用語辞典は H-10）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/A_Job_for_the_Consortium",
+            "https://ffxiclopedia.fandom.com/wiki/A_Job_for_the_Consortium"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Portaure",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Thierride",
+      "kind": "npc",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "moves": false,
+      "name_en": "Thierride",
+      "same_name": false
+    },
+    {
+      "id": "npc.232.Vounebariont",
+      "kind": "npc",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-10（BG Wiki と FFXIclopedia が一致、用語辞典は H-10）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Thick_Shells",
+            "https://ffxiclopedia.fandom.com/wiki/Thick_Shells"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Vounebariont",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Chalvatot",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Chalvatot",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Curilla",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Curilla",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Guilerme",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Guilerme",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Halver",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Halver",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Maloquedil",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Maloquedil",
+      "same_name": false
+    },
+    {
+      "id": "npc.233.Trion",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Trion",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Yin_Pocanakhu",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Yin Pocanakhu",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Ailbeche",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Ailbeche",
+      "same_name": false
+    },
+    {
+      "id": "npc.Amaura",
+      "kind": "npc",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Amaura",
+      "same_name": false
+    },
+    {
+      "id": "npc.Antreneau",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Antreneau",
+      "same_name": false
+    },
+    {
+      "id": "npc.Cannau",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Cannau",
+      "same_name": false
+    },
+    {
+      "id": "npc.Moogle",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Moogle",
+      "same_name": false
+    },
+    {
+      "id": "npc.Nouveil",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Nouveil",
+      "same_name": false
+    },
+    {
+      "id": "npc.Oaken_Box",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Oaken Box",
+      "same_name": false
+    },
+    {
+      "id": "npc.Orcish_Serjeant",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Orcish Serjeant",
+      "same_name": false
+    },
+    {
+      "id": "npc.Regine",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 232,
+        "zone_name": "サンドリア港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「魔法屋のチラシ」依頼者：サンドリア港の魔法屋「ルジヌ魔法用品店」(J-8)",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/3300.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Regine",
+      "same_name": false
+    },
+    {
+      "id": "npc.Treasure_Coffer",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Treasure Coffer",
+      "same_name": false
+    },
+    {
+      "id": "npc.Ufanne",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Rivalry/The_Competition",
+            "https://ffxiclopedia.fandom.com/wiki/Ufanne"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Ufanne",
+      "same_name": false
+    },
+    {
+      "id": "obj.101.Signpost",
+      "kind": "obj",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 101,
+        "zone_name": "東ロンフォール"
+      },
+      "moves": false,
+      "name_en": "Signpost",
+      "same_name": false
+    },
+    {
+      "id": "obj.104.Signpost",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "Signpost",
+      "same_name": false
+    },
+    {
+      "id": "obj.142.Hot_Springs",
+      "kind": "obj",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 142,
+        "zone_name": "ユグホトの岩屋"
+      },
+      "moves": false,
+      "name_en": "Hot Springs",
+      "same_name": false
+    },
+    {
+      "id": "obj.149.???_F-9",
+      "kind": "obj",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 149,
+        "zone_name": "ダボイ"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.190.Tombstone",
+      "kind": "obj",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 190,
+        "zone_name": "龍王ランペールの墓"
+      },
+      "moves": false,
+      "name_en": "Tombstone",
+      "same_name": false
+    },
+    {
+      "id": "obj.196.???_G-8",
+      "kind": "obj",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "number",
+          "n": 5
+        },
+        "zone_id": 196,
+        "zone_name": "グスゲン鉱山"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.197.???_I-10",
+      "kind": "obj",
+      "location": {
+        "grid": "I-10",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.197.Treasure_Chest",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "Treasure Chest",
+      "same_name": false
+    },
+    {
+      "id": "obj.204.Dry_Fountain",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 204,
+        "zone_name": "フェ・イン"
+      },
+      "moves": false,
+      "name_en": "Dry Fountain",
+      "same_name": false
+    },
+    {
+      "id": "obj.204.Treasure_Chest",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 204,
+        "zone_name": "フェ・イン"
+      },
+      "moves": false,
+      "name_en": "Treasure Chest",
+      "same_name": false
+    },
+    {
+      "id": "obj.230.Diary",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Diary",
+      "same_name": false
+    },
+    {
+      "id": "obj.233.Door_Prince_Regents_Rm",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Door:Prince Regent's Rm",
+      "same_name": false
+    },
+    {
+      "id": "obj.233.Door_Prince_Royals_Rm",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 233,
+        "zone_name": "ドラギーユ城"
+      },
+      "moves": false,
+      "name_en": "Door:Prince Royal's Rm",
+      "same_name": false
+    },
+    {
+      "id": "obj.???_G-7",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.Stalagmite",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Stalagmite",
+      "same_name": false
+    }
+  ]
+}

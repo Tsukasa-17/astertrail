@@ -1,0 +1,172 @@
+{
+  "built": "2026-11-13",
+  "categories": [
+    {
+      "id": "sandoria",
+      "label_en": "San d'Oria",
+      "label_ja": "サンドリア"
+    },
+    {
+      "id": "bastok",
+      "label_en": "Bastok",
+      "label_ja": "バストゥーク"
+    },
+    {
+      "id": "windurst",
+      "label_en": "Windurst",
+      "label_ja": "ウィンダス"
+    },
+    {
+      "id": "zilart",
+      "label_en": "Rise of the Zilart",
+      "label_ja": "ジラート"
+    },
+    {
+      "id": "promathia",
+      "label_en": "Chains of Promathia",
+      "label_ja": "プロマシア"
+    },
+    {
+      "id": "jeuno",
+      "label_en": "Jeuno",
+      "label_ja": "ジュノ"
+    },
+    {
+      "id": "selbina_mhaura",
+      "label_en": "Selbina / Mhaura",
+      "label_ja": "セルビナ・マウラ"
+    },
+    {
+      "id": "norg",
+      "label_en": "Norg",
+      "label_ja": "ノーグ"
+    },
+    {
+      "id": "kazham",
+      "label_en": "Kazham",
+      "label_ja": "カザム"
+    },
+    {
+      "id": "rabao",
+      "label_en": "Rabao",
+      "label_ja": "ラバオ"
+    },
+    {
+      "id": "tavnazia",
+      "label_en": "Tavnazian Safehold",
+      "label_ja": "タブナジア"
+    },
+    {
+      "id": "records",
+      "label_en": "Records of Eminence",
+      "label_ja": "エミネンス・レコード"
+    },
+    {
+      "id": "aht_urhgan",
+      "label_en": "Aht Urhgan",
+      "label_ja": "アトルガン"
+    },
+    {
+      "id": "altana",
+      "label_en": "Wings of the Goddess",
+      "label_ja": "アルタナ"
+    },
+    {
+      "id": "acp",
+      "label_en": "A Crystalline Prophecy",
+      "label_ja": "石の見る夢"
+    },
+    {
+      "id": "mkd",
+      "label_en": "A Moogle Kupo d'Etat",
+      "label_ja": "戦慄！モグ祭りの夜"
+    },
+    {
+      "id": "asa",
+      "label_en": "A Shantotto Ascension",
+      "label_ja": "シャントット帝国の陰謀"
+    },
+    {
+      "id": "abyssea",
+      "label_en": "Abyssea",
+      "label_ja": "アビセア"
+    },
+    {
+      "id": "adoulin",
+      "label_en": "Adoulin",
+      "label_ja": "アドゥリン"
+    },
+    {
+      "id": "rov",
+      "label_en": "Rhapsodies of Vana'diel",
+      "label_ja": "ヴァナ・ディールの星唄"
+    },
+    {
+      "id": "tvr",
+      "label_en": "The Voracious Resurgence",
+      "label_ja": "蝕世のエンブリオ"
+    },
+    {
+      "id": "assault",
+      "label_en": "Assault",
+      "label_ja": "アサルト"
+    },
+    {
+      "id": "campaign",
+      "label_en": "Campaign",
+      "label_ja": "カンパニエ"
+    },
+    {
+      "id": "misc",
+      "label_en": "Other",
+      "label_ja": "その他"
+    }
+  ],
+  "data_schema": 1,
+  "data_version": "2026.11.16-112",
+  "files": [
+    "zones.json",
+    "guards.json",
+    "maps.json",
+    "quests/sandoria.json",
+    "quests/bastok.json",
+    "quests/windurst.json",
+    "quests/jeuno.json",
+    "quests/selbina_mhaura.json",
+    "quests/norg.json",
+    "quests/kazham.json",
+    "quests/rabao.json",
+    "quests/records.json",
+    "quests/aht_urhgan.json",
+    "quests/altana.json",
+    "quests/abyssea.json",
+    "quests/adoulin.json",
+    "quests/misc.json",
+    "quests/tavnazia.json",
+    "missions/sandoria.json",
+    "missions/bastok.json",
+    "missions/windurst.json",
+    "missions/zilart.json",
+    "missions/promathia.json",
+    "missions/aht_urhgan.json",
+    "missions/altana.json",
+    "missions/acp.json",
+    "missions/mkd.json",
+    "missions/asa.json",
+    "missions/adoulin.json",
+    "missions/rov.json",
+    "missions/tvr.json",
+    "missions/assault.json",
+    "missions/campaign.json",
+    "guides/steps_v2.json",
+    "guides/step_map.json"
+  ],
+  "guides_ja": "手順は guides/steps_v2.json（記事をもとに書き直したもの。出典は各手順の sources）だけを使う。古い下書きはゲーム用データから外した（文はシートにある）。guides/step_map.json は古い手順 id → 新しい id の対応表。",
+  "renamed": {},
+  "scope": "公式本編の三国クエストと三国ミッション（クエスト214件・ミッション60件）。CatsEye独自は含めない。手順の文はシートの要点（下書き）。書いていない座標・MAPは埋め込んでいない。",
+  "source": {
+    "read_on": "2026-11-13",
+    "reference": "https://wiki.ffo.jp/",
+    "sheet": "https://docs.google.com/spreadsheets/d/1YMnJiDxFuuV-JOe3NJXz1TqYHAdFFese4ScXhMFETf0"
+  }
+}

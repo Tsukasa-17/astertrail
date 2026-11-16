@@ -1,0 +1,931 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.001",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「微笑みの模像」クリア（終えてから地球時間で1分待つ）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Knocking on Forbidden Doors",
+      "name_ja_ref": "しとやかな傀儡",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "可動関節図版集"
+        },
+        {
+          "kind": "other",
+          "name_ja": "マウラでマネキンのポーズを変えてもらえる（200ギル）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11564.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Enaremand は (J-7)、Chemioue は (J-6)。Wooden Ladder は フォミュナ水道 MAP2 (C-9)、古の芥の香の???は ミザレオ海岸(I-6)、滝の下の???は(F-4)、Alsha。図版集はマウラの Fyi Chalmwoh に渡す（FFXIclopedia も同じマス）",
+          "url": "https://www.bg-wiki.com/ffxi/Knocking_on_Forbidden_Doors",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Enaremand"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.002",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「よりしろ」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Fly High",
+      "name_ja_ref": "その翼、空高く",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "雲消霧散石"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7557.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Repeatable=yes。Quest Reqs=Promathia Mission 4-2。Ferchinne は (G-9)、入口のある階（MAP2）の滝と橋のそば。ヒポグリフの尾羽根はリヴェーヌ岩塊群サイトA01・B01のヒポグリフ族が落とす（競売でも買える）。雲消霧散石は Ouryu を地上に降ろす",
+          "url": "https://www.bg-wiki.com/ffxi/Fly_High",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Ferchinne"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.003",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション第3章第5節「神を名乗りて」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "先にChemioueとParelbriauxのイベントを見る",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Petals for Parelbriaux",
+      "name_ja_ref": "ふたりはいつか",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "パワフルロープ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ちょっと臭う人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12079.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Quest Reqs=Promathia Mission 3-5。Chemioue (J-6)、Tressia はその隣、Parelbriaux (K-7)、Ondieulix (I-7)。???は ルフェーゼ野(G-6)で、霧の時だけ Baumesel が出る（FFXIclopedia も同じマス。霧は朝の2:00〜7:00ごろ）",
+          "url": "https://www.bg-wiki.com/ffxi/Petals_for_Parelbriaux",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Ondieulix"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション第3章の途中から受けられる",
+          "type": "other"
+        }
+      ],
+      "name_en": "X Marks the Spot",
+      "name_ja_ref": "スカリーX",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1471.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Despachiaire (K-10、K-9 の Walnut Door の奥)、Parelbriaux (K-7)、Odeya (J-10)。フォミュナ水道は MAP1 (F-6) のはしご → MAP2 (J-6) の Iron Gate → (M-8) のはしご → MAP3 (J-9) 北東の??? → 隠し通路 (K-8) の2つ目の Ornate Gate（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/X_Marks_the_Spot",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「そしりを受けつつも」とクエスト「失われた料理」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Elderly Pursuits",
+      "name_ja_ref": "信仰と信頼と",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エレガントリボン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15802.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Rouva は南サンドリア (I-8)、ギルド桟橋 (F-9) の??? で Para（ジャグナー森林 (E-6) から入る）",
+          "url": "https://www.bg-wiki.com/ffxi/Elderly_Pursuits",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「古代の園」まで進めている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "In the Name of Science",
+      "name_ja_ref": "古の秘術",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "各種属性帯・各種属性ゴルゲット・サナティヴピアス・リラクシングピアスから1つ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3939.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame と FLevel は空、Repeatable=Yes。Yurim は (J-8) の最上階。ピアスはシルバーピアス、帯は銀の帯、ゴルゲットはゴルゲットに、属性チップを添えて渡す",
+          "url": "https://www.bg-wiki.com/ffxi/In_the_Name_of_Science",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Yurim"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「流転」とクエスト「タブナジアの商人」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Secrets of Ovens Lost",
+      "name_ja_ref": "失われた料理",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ミラテテ様言行録"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4139.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空、Repeatable=Yes。Jonette (G-9)。??? はフォミュナ水道 MAP3 か礼拝堂 MAP2 に出て、時間で動く",
+          "url": "https://www.bg-wiki.com/ffxi/Secrets_of_Ovens_Lost",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Jonette"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.008",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Big One",
+      "name_ja_ref": "巨大な影の正体",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ランペール戦記・シンキングミノー・グラスロッドなど"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2145.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空、Repeatable=Yes、Level=45。Travonce (F-9)、13:00〜16:00 に南東の出口からルフェーゼ野へ。釣れる NM は Asrai、Abhac、Vu-Murt、Petrocrab、Cetic Parasite、Ferrocrab、Nakki",
+          "url": "https://www.bg-wiki.com/ffxi/The_Big_One_(Quest)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Travonce"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "マウラのクエスト「呪われた人形」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Behind the Smile",
+      "name_ja_ref": "微笑みの模像",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "マヌカンパンプス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/11563.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Enaremand (J-7)、Fyi Chalmwoh はマウラ (G-8)、ギルド桟橋 (I-10) の赤いキノコの上の???、ジャグナー森林 (J-8) から入る（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Behind_the_Smile",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Enaremand"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.010",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Bitter Past",
+      "name_ja_ref": "愛する君達へ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "陰陽のローネット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/12080.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Frescheque (H-8)、Raminey (J-7)、Equette (I-9、2F)、ルフェーゼ野 (I-8) の???、Blackbone Frazdiz と Rainbringer Vjatvot（FFXIclopedia も Vjatvot）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Bitter_Past",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Frescheque"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク1以上（どの地域の名声かは資料にない）",
+          "type": "fame"
+        },
+        {
+          "text_ja": "プロマシアミッション「猛き者たちよ」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Uninvited Guests",
+      "name_ja_ref": "招かざる影たち",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "帝龍の飛泉調査員"
+        },
+        {
+          "kind": "item",
+          "name_ja": "ランダムで1つ（ミラテテ様言行録が多い）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3837.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=O、FLevel=1、Repeatable=Yes。Justinius (J-6) 最上階。Mammet-800 は 2 人ごとに 1 体増え、最大 9 体",
+          "url": "https://www.bg-wiki.com/ffxi/Uninvited_Guests",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Justinius"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.012",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Call of the Sea",
+      "name_ja_ref": "海からの贈り物",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "メメントマフラー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/13424.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Leporaitceau と Anteurephiaux は (J-8) の3F、Equette (I-9) の2F、ミザレオ海岸 (K-12) の???で Bloody Coffin",
+          "url": "https://www.bg-wiki.com/ffxi/The_Call_of_the_Sea",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Anteurephiaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.013",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「礼拝の意味」で礼拝堂に行っている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Paradise, Salvation, and Maps",
+      "name_ja_ref": "神の御許に",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "礼拝堂地図"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "2000"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8814.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=o、FLevel=unknown/none（用語辞典にも名声の記載なし）。Nivorajean (I-9)。礼拝堂の宝箱は専用のカギで開ける。答えが合えば翌日0時を過ぎて報酬",
+          "url": "https://www.bg-wiki.com/ffxi/Paradise,_Salvation,_and_Maps",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Nivorajean"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.014",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Unforgiven",
+      "name_ja_ref": "秘めたる想い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "タブナジア群島地図"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "2000"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6102.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Elysia (G-10)、???は 3F の (K-9) で Walnut Door のそばの柱の裏、Pradiulot (H-9)",
+          "url": "https://www.bg-wiki.com/ffxi/Unforgiven",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Elysia"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「猛き者たちよ」まで進め、リヴェーヌ岩塊群サイトB01に一度入っている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Go! Go! Gobmuffin!",
+      "name_ja_ref": "空に浮かぶ岩塊",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "リヴェーヌ岩塊群地図"
+        },
+        {
+          "kind": "exp",
+          "name_ja": "2000"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8813.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空、Quest Reqs=Promathia Mission 4-2。(J-6) の島に着くと NM 3 体。FFXIclopedia の道順は (M-9) → (K-8) → (K-7) → (J-6)、名前は Spell Spitter Spiluspok（BG Wiki は Spilospok）",
+          "url": "https://www.bg-wiki.com/ffxi/Go!_Go!_Gobmuffin!",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Epinolle"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「武士道とは」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Tango with a Tracker",
+      "name_ja_ref": "罪狩りたちの舞踏曲",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "10000"
+        },
+        {
+          "kind": "title",
+          "name_ja": "決闘の勝利者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1475.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Quest Reqs=Promathia Mission 7-5。千骸谷の Dark Miasma で BF、6人・30分、Lv制限なし、フェイス不可。Shikaree X（獣/忍）とウサギ、Shikaree Y（暗/モ）",
+          "url": "https://www.bg-wiki.com/ffxi/Tango_with_a_Tracker",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「罪狩りたちの舞踏曲」とプロマシアミッション後日談「メーガスの名は永遠に」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Requiem of Sin",
+      "name_ja_ref": "罪狩りたちの鎮魂歌",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "正義の勝利者"
+        },
+        {
+          "kind": "item",
+          "name_ja": "宝箱から（Ｘナイフ・Ｙサイズ・Ｚトライデント・素材など）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1476.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空、Repeatable=Yes。Quest Reqs=Promathia Mission 8-4。2回目からは Letter from the Mithran Trackers。Shikaree X（獣/忍）とウサギ、Y（暗/モ）、Z（竜/白）と子竜",
+          "url": "https://www.bg-wiki.com/ffxi/Requiem_of_Sin",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "tavnazia",
+      "game_ref": null,
+      "id": "quest.tavnazia.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "プロマシアミッション「よりしろ」まで進めている",
+          "type": "quest"
+        }
+      ],
+      "name_en": "In Search of the Truth",
+      "name_ja_ref": "誠実なる予告を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "グラマリーケープ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/15804.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Other、FLevel は空。Quest Reqs=Promathia Mission 3-5 クリア。並べる順は Fouagine、Zadant、Raminey、Noam か Fouagine、Zadant、Noam、Raminey。報告の場所は 1:I-8、2:H-8、3:G-9、4:J-7。???は Noam の横 (G-9) → (G-7) → (G-8) → (H-8) → (H-8) 右下",
+          "url": "https://www.bg-wiki.com/ffxi/In_Search_of_the_Truth",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Tressia"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.26.Anteurephiaux",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Anteurephiaux",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Despachiaire",
+      "kind": "npc",
+      "location": {
+        "grid": "K-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Despachiaire",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Elysia",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Elysia",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Enaremand",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Enaremand",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Epinolle",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Epinolle",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Ferchinne",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Ferchinne",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Frescheque",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Frescheque",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Jonette",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Jonette",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Justinius",
+      "kind": "npc",
+      "location": {
+        "grid": "J-6",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Justinius",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Nivorajean",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Nivorajean",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Ondieulix",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Ondieulix",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Travonce",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Travonce",
+      "same_name": false
+    },
+    {
+      "id": "npc.26.Yurim",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Yurim",
+      "same_name": false
+    }
+  ]
+}

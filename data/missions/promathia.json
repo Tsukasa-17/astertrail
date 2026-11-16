@@ -1,0 +1,2532 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「プロマシアの呪縛」をインストール済み",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM1-1",
+      "name_en": "The Rites of Life",
+      "name_ja_ref": "命の洗礼",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4756.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "デルクフの塔下層に入ると始まる。後にしたときは H-10 の Tales' Beginning から。ジュノ上層 G-10 の診療所の Monberaux（FFXIclopedia も G-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Rites_of_Life",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.184.Tales_Beginning"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「命の洗礼」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM1-2",
+      "name_en": "Below the Arks",
+      "name_ja_ref": "楼閣の下に",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ホラの輝き／デムの輝き／メアの輝き（入ったプロミヴォンのもの）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4129.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "宮殿の Pherimociel G-6（FFXIclopedia も G-6）。Rainhard H-6 と Harith H-5 は話さなくてもよい",
+          "url": "https://www.bg-wiki.com/ffxi/Below_the_Arks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Pherimociel"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「楼閣の下に」で1か所目のプロミヴォンをクリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM1-3",
+      "name_en": "The Mothercrystals",
+      "name_ja_ref": "母なる石",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ホラの輝き"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "デムの輝き"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "メアの輝き"
+        },
+        {
+          "kind": "title",
+          "name_ja": "古のほむらに触れし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1515.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "転移の間の Large Apparatus は左手。3か所目を終えるとルフェーゼ野へ飛ばされる",
+          "url": "https://www.bg-wiki.com/ffxi/The_Mothercrystals",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "ホラ・デム・メアの3プロミヴォンをクリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM2-1",
+      "name_en": "An Invitation West",
+      "name_ja_ref": "西への誘い",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "どざえもん"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7035.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ルフェーゼ野 K-9 に出てイベント（FFXIclopedia のイベント位置は K-8）。タブナジア地下壕の入口は F-10（FFXIclopedia は E-8 と F-10）",
+          "url": "https://www.bg-wiki.com/ffxi/An_Invitation_West",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「西への誘い」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM2-2",
+      "name_en": "The Lost City",
+      "name_ja_ref": "忘却の町",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6768.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "上の階の南の Walnut Door K-9（北の K-7 ではない）の奥に Despachiaire K-10、最下層の Sewer Entrance I-7。FFXIclopedia も同じ座標",
+          "url": "https://www.bg-wiki.com/ffxi/The_Lost_City",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「忘却の町」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM2-3",
+      "name_en": "Distant Beliefs",
+      "name_ja_ref": "隔たれし信仰",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4131.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Minotaur は 2枚目の J-2（FFXIclopedia は J-3）。Iron Gate G-8、Wooden Ladder E-8（2枚目、FFXIclopedia も同じ）。3枚目 F-7 の ???、F-8 の Oil Lamp。Justinius J-6",
+          "url": "https://www.bg-wiki.com/ffxi/Distant_Beliefs",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.26.Sewer_Entrance"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「隔たれし信仰」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM2-4",
+      "name_en": "An Eternal Melody",
+      "name_ja_ref": "とこしえに響く歌",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7290.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "上の階の北の Walnut Door K-7、ミザレオ海岸 I-11 の Dilapidated Gate、本階の橋 H/I-8。FFXIclopedia も K-7 と I-11",
+          "url": "https://www.bg-wiki.com/ffxi/An_Eternal_Melody",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.26.Walnut_Door_K-7"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「とこしえに響く歌」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM2-5",
+      "name_en": "Ancient Vows",
+      "name_ja_ref": "誓いの雄叫び",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "聖者の島を訪れし者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2566.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸 F-7 の Dilapidated Gate、D-6 の Spatial Displacement。サイトA01 G-10 と E-10 の Unstable Displacement に Giant Scale を1枚ずつ（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Ancient_Vows",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.Dilapidated_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前章「誓いの雄叫び」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-1",
+      "name_en": "The Call of the Wyrmking",
+      "name_ja_ref": "龍王の導き",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4841.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "南グスタベルグの灯台のそばから。バストゥーク港 F-7 の飛空艇乗り場の入口の外、大工房2階 H-8 の Cid（FFXIclopedia も F-7 と H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_3-1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「龍王の導き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-2",
+      "name_en": "A Vessel Without a Captain",
+      "name_ja_ref": "主のなき都",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7057.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層 J-7 の天晶堂の奥の扉、ル・ルデの庭の宮殿の Audience Chamber への階段でイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_3-2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.245.Door_Neptunes_Spire"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ふたつの道」を受けている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3A1",
+      "name_en": "Emerald Waters",
+      "name_ja_ref": "瑠璃色の川",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2100.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サンドリア編の最初。北サンドリアに入るとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「瑠璃色の川」のイベントを見ている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3A2",
+      "name_en": "Vicissitudes",
+      "name_ja_ref": "流転",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4872.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "大聖堂の祭壇の Arnau M-6（FFXIclopedia も M-6）、Manuscript room の Chasalvige L-6",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Arnau"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「流転」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3A3",
+      "name_en": "Descendants of a Line Lost",
+      "name_ja_ref": "累家の末流",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4867.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名は BG Wiki・FFXIclopedia の Descendants of a Line Lost（基礎シートは Descendents of Line Lost）。ジャグナー森林 E-6 からギルド桟橋、H-10 の Guilloud に話すと Overgrown Ivy が出る（FFXIclopedia も H-10）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.2.Guilloud"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「累家の末流」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3A4",
+      "name_en": "Louverance",
+      "name_ja_ref": "ルーヴランスという者",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4859.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "南サンドリア B-6、Count's Manor 2階の Hinaree（FFXIclopedia も B-6）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hinaree"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.016",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ふたつの道」を受けている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3B1",
+      "name_en": "Memories of a Maiden",
+      "name_ja_ref": "をとめの記憶",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2101.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス編の最初。ウィンダス水の区に入るとイベント",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.017",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「をとめの記憶」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3B2",
+      "name_en": "Comedy of Errors, Act I",
+      "name_ja_ref": "をかしき祖国",
+      "order": 16,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4608.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "鼻の院の Ohbiru-Dohbiru J-9（南のマップ）、Yoran-Oran E-5、酒場の Kyume-Romeh F-10（北のマップ）。FFXIclopedia も同じ",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Ohbiru-Dohbiru"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.018",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「をかしき祖国」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3B3",
+      "name_en": "Comedy of Errors, Act II",
+      "name_ja_ref": "をかしき再会",
+      "order": 17,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4607.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Honoi-Gomoi E-7（南のマップ）、アットワ地溝 K-8 の Loose Sand で Lioumere、パラダモの丘の上の Cradle of Rebirth。登り口は K-9。FFXIclopedia も K-8",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Honoi-Gomoi"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.019",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「をかしき再会」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3B4",
+      "name_en": "Exit Stage Left",
+      "name_ja_ref": "をかしき旅立ち",
+      "order": 18,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4609.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kyume-Romeh は話さなくてもよい。ウィンダス港 M-6 の Yujuju、目の院東棟の Tosuka-Porika G-8（北のマップ）、Yoran-Oran E-5。FFXIclopedia も同じ",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Yujuju"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「主のなき都」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-3",
+      "name_en": "The Road Forks",
+      "name_ja_ref": "ふたつの道",
+      "order": 19,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2102.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "サンドリア編とウィンダス編はどちらが先でもよく、同時に進めてもよい。両方が要る",
+          "url": "https://www.bg-wiki.com/ffxi/The_Road_Forks",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.020",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「ふたつの道」のサンドリア編・ウィンダス編を両方クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-4",
+      "name_en": "Tending Aged Wounds",
+      "name_ja_ref": "戦慄き",
+      "order": 20,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2098.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層に入るとイベント、天晶堂の扉でもう一度。FFXIclopedia のイベント一覧の最初は大工房",
+          "url": "https://www.bg-wiki.com/ffxi/Tending_Aged_Wounds",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.021",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「戦慄き」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM3-5",
+      "name_en": "Darkness Named",
+      "name_ja_ref": "神を名乗りて",
+      "order": 21,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ソ・ジヤ識別札"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "500"
+        },
+        {
+          "kind": "title",
+          "name_ja": "夢を断つ者"
+        },
+        {
+          "kind": "title",
+          "name_ja": "うたかたなる夢を見し者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4136.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Monberaux G-10、天晶堂の Ghebi Damomohe にチップ1つで 500 ギルと Pso'Xja pass（FFXIclopedia は I-7）。ボスディン氷河 H-8 の入口から。色の壁は 赤・黒・赤・黒の順、エレベーターで下りて北西の Stone Gate から異界の口",
+          "url": "https://www.bg-wiki.com/ffxi/Darkness_Named",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Monberaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.022",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「神を名乗りて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM4-1",
+      "name_en": "Sheltering Doubt",
+      "name_ja_ref": "よりしろ",
+      "order": 22,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2236.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "地下壕に入るとイベント、上の階の Despachiaire K-10、Justinius J-6 は話さなくてもよい、ミザレオ海岸 I-11 の Dilapidated Gate（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Sheltering_Doubt",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.023",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「よりしろ」の天華崎でのイベントを見ている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM4-2",
+      "name_en": "The Savage",
+      "name_ja_ref": "猛き者たちよ",
+      "order": 23,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "龍に応える者"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ナグモラーダのなじみ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4138.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸 F-7 の門からサイトB01、Unstable Displacement は G-8（FFXIclopedia は G-8/H-8）に Giant Scale 1枚。サイトA01 からの帝龍の飛泉とは別の場所。Justinius J-6",
+          "url": "https://www.bg-wiki.com/ffxi/The_Savage",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.Dilapidated_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.024",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「猛き者たちよ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM4-3",
+      "name_en": "The Secrets of Worship",
+      "name_ja_ref": "礼拝の意味",
+      "order": 24,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2245.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸の Iron Gate は G-4（FFXIclopedia も G-4）。2枚目 H-7 のカギ穴2つの扉、G-8 の Wooden Gate、6つの教室の机の ??? から Old Professor Mariselle。Keremet は FFXIclopedia で K-8 の奥の部屋",
+          "url": "https://www.bg-wiki.com/ffxi/The_Secrets_of_Worship",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.26.Walnut_Door_K-7"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.025",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「礼拝の意味」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM4-4",
+      "name_en": "Slanderous Utterings",
+      "name_ja_ref": "そしりを受けつつも",
+      "order": 25,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "迷いに心揺れし者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7558.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "海獅子の巣窟への入口は地下壕 H-9、Iron Gate は海獅子の巣窟 H-6（BG Wiki と用語辞典には座標がない）。BG Wiki の Despachiaire は K-10",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Slanderous_Utterings",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.026",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「そしりを受けつつも」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-1",
+      "name_en": "The Enduring Tumult of War",
+      "name_ja_ref": "鍔音やむことなく",
+      "order": 26,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "不思議なアミュレット"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "ヴァズの輝き"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7559.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Despachiaire・Chasalvige・Anoki（サンドリア港 H-6）は話さなくてもよい。ボスディン氷河 F-7 のヌエ塔、ソ・ジヤの Stone Door で Nunyunuwi（FFXIclopedia は Map 1 の H-8、用語辞典は MAP12 の H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/The_Enduring_Tumult_of_War",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.062",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「鍔音やむことなく」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-2",
+      "name_en": "Desires of Emptiness",
+      "name_ja_ref": "願わくば闇よ",
+      "order": 27,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ドザえもん"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値1500"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4140.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "3階 J-8・4階 M-6・5階 D-6 の Memory Flux で Propagator・Solicitor・Ponderer、F-8 からヴァズの塔（FFXIclopedia・用語辞典も同じ）。基礎シートには行がなく、ミッション一覧の最後に足した",
+          "url": "https://www.bg-wiki.com/ffxi/Desires_of_Emptiness",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.042",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「みっつの道」でルーヴランスの道（アル・タユを探す）を選んでいる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3L1",
+      "name_en": "Past Sins",
+      "name_ja_ref": "汝の罪は",
+      "order": 28,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7023.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "上の階の Despachiaire K-10。ほかのイベントが先に出ることがある",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Louverance%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.26.Despachiaire"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.031",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「汝の罪は」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3L2",
+      "name_en": "Southern Legend",
+      "name_ja_ref": "南方の伝説",
+      "order": 29,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7024.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス森の区 K-7 の Perih Vashai、Home Point #1",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Louverance%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.032",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「南方の伝説」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3L3",
+      "name_en": "Partners Without Fame",
+      "name_ja_ref": "名捨て人ふたり",
+      "order": 30,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7001.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "プルゴノルゴ島 H-11 の ??? Warmachine（FFXIclopedia も H-11）。マナクリッパーはビビキー湾 H-7、Atmacite Refiner からも島へ行ける",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Louverance%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.4.???_Warmachine"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.029",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「名捨て人ふたり」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3L4",
+      "name_en": "A Century of Hardship",
+      "name_ja_ref": "なにゆえにその子は",
+      "order": 31,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "経験値1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7014.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "旧市街に入るとイベント。K-10 の Tarnotik に Snow Lily で 2716号採石場へ（FFXIclopedia も K-10）。新市街 Home Point #1 があればすぐ前。BF はモブリン4体と Bugbby",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Louverance%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.11.Tarnotik"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.030",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「なにゆえにその子は」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3L5",
+      "name_en": "Departures",
+      "name_ja_ref": "永いお別れ",
+      "order": 32,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ルーヴランスの友人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6986.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gold Key は新市街の旧市街側のモブリンが落とす。Shaft Entrance に渡してイベント、そのあと Cid",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Louverance%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.035",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「みっつの道」でテンゼンの道（セルテウスを探す）を選んでいる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3T1",
+      "name_en": "The Pursuit of Paradise",
+      "name_ja_ref": "楽園を求めるは",
+      "order": 33,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4144.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ラテーヌ高原 G-6 の ???（FFXIclopedia も G-6）。カーバンクルとテンゼンのイベントが正しいもの",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Tenzen%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.102.???_G-6"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.036",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「楽園を求めるは」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3T2",
+      "name_en": "Spiral",
+      "name_ja_ref": "螺旋",
+      "order": 34,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4146.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ボスディン氷河 J-8 の塔（FFXIclopedia も J-8）、Stone Door 16枚、多くで Gargoyle が出る。エレベーターの下の Avatar Gate",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Tenzen%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.9.Avatar_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.037",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「螺旋」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3T3",
+      "name_en": "Branded",
+      "name_ja_ref": "烙印ありて",
+      "order": 35,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4630.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Monberaux G-10、Pherimociel G-6（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Tenzen%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.244.Monberaux"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.038",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「烙印ありて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3T4",
+      "name_en": "Pride and Honor",
+      "name_ja_ref": "礼賛者",
+      "order": 36,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4616.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "バタリア丘陵の ??? は K-8/9（FFXIclopedia は K-9）、ジュノ上層からの出口の壁の外。デルクフの塔下層1階 H-5 の Cermet Door で Disaster Idol（FFXIclopedia も H-5）",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Tenzen%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.105.???_K-9"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.039",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「礼賛者」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3T5",
+      "name_en": "And the Compass Guides",
+      "name_ja_ref": "羅針の示すもの",
+      "order": 37,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "テンゼンの盟友"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4147.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ボスディン氷河 H-10 の塔（FFXIclopedia も H-10）。外まわりを回って I-8 で穴に落ち、南・西・北のあとエレベーターで Avatar Gate",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Tenzen%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.9.Avatar_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.040",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「みっつの道」でウルミアの道（プリッシュを探す）を選んでいる",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3U1",
+      "name_en": "Where Messengers Gather",
+      "name_ja_ref": "群れ立つ使者は",
+      "order": 38,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5509.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "南サンドリアの Hinaree は A-6（FFXIclopedia は B-6）、Home Point #4",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Ulmia%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hinaree"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.041",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「群れ立つ使者は」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3U2",
+      "name_en": "Entanglement",
+      "name_ja_ref": "結び目",
+      "order": 39,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5501.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名は BG Wiki・FFXIclopedia の Entanglement（基礎シートは Enlanglement）。サンドリア港に入るとイベント、大聖堂の Chasalvige L-6（FFXIclopedia も L-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Ulmia%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.231.Chasalvige"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.033",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「結び目」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3U3",
+      "name_en": "Head Wind",
+      "name_ja_ref": "向かい風",
+      "order": 40,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "デルタを狩る者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1474.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "鼻の院の北の Kerutoto J-8（FFXIclopedia も南のマップの J-8）、Yoran-Oran E-5、アットワ地溝 H-6 から千骸谷の Dark Miasma",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Ulmia%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Kerutoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.034",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「向かい風」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3U4",
+      "name_en": "Flames for the Dead",
+      "name_ja_ref": "迎え火",
+      "order": 41,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "真のルーヴランスの友人"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ウルミアの理解者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5489.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウルガラン山脈 J-9 の穴に落ちて熊爪嶽（FFXIclopedia も J-9、いちばん北西の穴）。BF は Snoll Tzar、勝ったら Cid",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_5-3/Ulmia%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.027",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「願わくば闇よ」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM5-3",
+      "name_en": "Three Paths",
+      "name_ja_ref": "みっつの道",
+      "order": 50,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "凍てつく過去を踏みしめる者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5429.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ルーヴランス・テンゼン・ウルミアの3つの道。どれから進めても、途中で切りかえてもよい",
+          "url": "https://www.bg-wiki.com/ffxi/Three_Paths",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.043",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「みっつの道」の3つの道をすべてクリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM6-1",
+      "name_en": "For Whom the Verse is Sung",
+      "name_ja_ref": "歌うは誰がため",
+      "order": 51,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7615.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pherimociel G-6、ジュノ上層 F-7 のマーブルブリッジの扉（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/For_Whom_the_Verse_is_Sung",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Pherimociel"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.044",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「歌うは誰がため」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM6-2",
+      "name_en": "A Place to Return",
+      "name_ja_ref": "ゐぬる場所",
+      "order": 52,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4604.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "宮殿 H-7 でイベント、ミザレオ海岸 I-11 の Dilapidated Gate で Warder 3体（FFXIclopedia も I-11）",
+          "url": "https://www.bg-wiki.com/ffxi/A_Place_to_Return",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.045",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ゐぬる場所」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM6-3",
+      "name_en": "More Questions than Answers",
+      "name_ja_ref": "望むはあらゆる答え",
+      "order": 53,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7077.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Pherimociel G-6、セルビナ H-9 の織工ギルドの Mathilde。謁見の間の扉のことは BG Wiki にはない",
+          "url": "https://www.bg-wiki.com/ffxi/Promathia_Mission_6-3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.243.Pherimociel"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.046",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「望むはあらゆる答え」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM6-4",
+      "name_en": "One to be Feared",
+      "name_ja_ref": "畏れよ、我を",
+      "order": 54,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7855.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "海獅子の巣窟から BF。3連戦で、あいだにロビーの Airship Door から入る。Iron Gate は FFXIclopedia で H-6",
+          "url": "https://www.bg-wiki.com/ffxi/One_to_be_Feared",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.047",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「畏れよ、我を」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM7-1",
+      "name_en": "Chains and Bonds",
+      "name_ja_ref": "鎖と絆",
+      "order": 55,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "大公親衛隊制式指輪"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7614.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "海獅子の巣窟への入口は地下壕のいちばん下の階 H-9（用語辞典は H-10）、Sewer Entrance I-7、Walnut Door K-7。BG Wiki も Walnut Door K-7",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Chains_and_Bonds",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.048",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「鎖と絆」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM7-2",
+      "name_en": "Flames in the Darkness",
+      "name_ja_ref": "闇に炎",
+      "order": 56,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "エシャンタールの戦友"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5050.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ミザレオ海岸 F-7 の門、Sueleen H-6、宮殿 H-7、マーブルブリッジ F-7（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Flames_in_the_Darkness",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.25.Dilapidated_Gate"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.049",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「闇に炎」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM7-3",
+      "name_en": "Fire in the Eyes of Men",
+      "name_ja_ref": "眦決して",
+      "order": 57,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "プリッシュの同志"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5296.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "2716号採石場の Shaft Entrance、新市街 Home Point #1（FFXIclopedia は M-9）か Tarnotik（K-10）。そのあと Cid H-8",
+          "url": "https://www.bg-wiki.com/ffxi/Fire_in_the_Eyes_of_Men",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Shaft_Entrance"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.050",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「眦決して」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM7-4",
+      "name_en": "Calm Before the Storm",
+      "name_ja_ref": "決別の前",
+      "order": 58,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "光の箱"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "プリッシュたちの手紙"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7613.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ギルド桟橋 I-9 の ??? で Cryptonberry Executor、ビビキー湾 F-6 の洞窟の ??? で Dalham、ミザレオ海岸 E-7 の Storage Compartment で Boggelmann（FFXIclopedia も F-6・E-7）。Sueleen H-6",
+          "url": "https://www.bg-wiki.com/ffxi/Calm_Before_the_Storm",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.051",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「決別の前」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM7-5",
+      "name_en": "The Warrior's Path",
+      "name_ja_ref": "武士道とは",
+      "order": 59,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "経験値1000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6194.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "海獅子の巣窟の Sueleen（H-6）と Iron Gate から BF",
+          "url": "https://www.bg-wiki.com/ffxi/The_Warrior%27s_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.32.Sueleen"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.052",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「武士道とは」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-1",
+      "name_en": "Garden of Antiquity",
+      "name_ja_ref": "古代の園",
+      "order": 60,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アル・タユの輝き（ガルカ以外）"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "タブナジアリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6196.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Crystalline Field H-11、Rubious Crystal は D-10・H-13・L-10 で Ru'aern 3体ずつ、Gate of the Gods と東の Particle Gate H-8（FFXIclopedia も H-11・H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Garden_of_Antiquity",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.アル・タユ.Crystalline_Field"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.053",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「古代の園」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-2",
+      "name_en": "A Fate Decided",
+      "name_ja_ref": "選ばれし死",
+      "order": 61,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7612.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "護衛は MAP1 J-8（5分）、MAP2 L-8（用語辞典は M-8、30分）、MAP2 I-10（30分）、MAP1 G-10（40分）。ワープは MAP1 L-7、MAP2 G-12、MAP1 G-4（用語辞典は G-5）。MAP2 H-8 の Cermet Portal で Ix'ghrah",
+          "url": "https://www.bg-wiki.com/ffxi/A_Fate_Decided",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.34.Particle_Gate_East"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.054",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「選ばれし死」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-3",
+      "name_en": "When Angels Fall",
+      "name_ja_ref": "天使たちの抗い",
+      "order": 62,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "暁の印"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "黄昏の印"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7611.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Gate of the Gods でイベント、ル・メトの園の5つの塔の Ebon Panel（種族の塔なら2回調べて輝き）、中央のエレベーター、2階で暁の印（北）と黄昏の印（南）、3階の Particle Gate から BF",
+          "url": "https://www.bg-wiki.com/ffxi/When_Angels_Fall",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.34.Gate_of_the_Gods"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.055",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「天使たちの抗い」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4",
+      "name_en": "Dawn",
+      "name_ja_ref": "暁",
+      "order": 63,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "アルタナの涙"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/3499.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ル・メトの園 Home Point #1 から中央のエレベーター（FFXIclopedia は MAP1 H-8）で下りて天象の鎖へ",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.056",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁」のBFに勝ったあと、リアルの0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E1",
+      "name_en": "Return to the East",
+      "name_ja_ref": "さらばでござる",
+      "order": 64,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8205.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Cid H-8（FFXIclopedia も H-8）",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.237.Cid"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.057",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁」のBFに勝ったあと、リアルの0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E2",
+      "name_en": "A Meteoric Reunion",
+      "name_ja_ref": "究極魔法の起源",
+      "order": 65,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "イエロードロップ・クリアドロップ・グリーンドロップ・パープルドロップ・ブラックドロップ・ブルードロップ・ホワイトドロップ・レッドドロップのどれか"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8206.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス港 C-8 の Fishing Guild の Chipmy-Popmy、プルゴノルゴ島 H-11 の ??? Warmachine（FFXIclopedia も C-8・H-11）",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Chipmy-Popmy"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.058",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁」のBFに勝ったあと、リアルの0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E3",
+      "name_en": "A Name for the Ages",
+      "name_ja_ref": "悠久の名を求め",
+      "order": 66,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5118.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Hinaree B-6、ウルガラン山脈に入ったあと屋敷 B-6 の前（FFXIclopedia も B-6）",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.230.Hinaree"
+      },
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.059",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁」のBFに勝ったあと、リアルの0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E4",
+      "name_en": "In the Name of Justice",
+      "name_ja_ref": "メーガスの名は永遠に",
+      "order": 67,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5517.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "マウラに入るとスカリーのイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.060",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁」のBFに勝ったあと、リアルの0時を過ぎている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E5",
+      "name_en": "Newfound Family",
+      "name_ja_ref": "澪標",
+      "order": 68,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5391.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ムバルポロス旧市街に入るとジャボスのイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.061",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "後日談「さらばでござる」「究極魔法の起源」「悠久の名を求め」「メーガスの名は永遠に」「澪標」のイベントをすべて見ている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "PM8-4E6",
+      "name_en": "The Chains Fall Free",
+      "name_ja_ref": "呪縛ほどけるとき",
+      "order": 69,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ラジャスリング・タマスリング・サットヴァリングから1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "虚ろなる闇に涙する者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェイス「Prishe」（あとでプリッシュの部屋で）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8199.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "宮殿 H-7、マーブルブリッジ F-7、Walnut Door K-7、ルフェーゼ野 J-6 の蒼剣の丘（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Dawn",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "promathia",
+      "game_ref": null,
+      "id": "mission.promathia.028",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "デルクフの塔下層に入って「後にする」を選んだ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "To Begin CoP...",
+      "name_ja_ref": "「プロマシアの呪縛」を始めるには……",
+      "order": 999,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/39142.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "後にしたときは「To Start CoP...」がミッションのリストに出る。デルクフの塔下層 H-10 の Tales' Beginning を調べると始まる",
+          "url": "https://www.bg-wiki.com/ffxi/The_Rites_of_Life",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.184.Tales_Beginning"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.2.Guilloud",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 2,
+        "zone_name": "ギルド桟橋"
+      },
+      "moves": false,
+      "name_en": "Guilloud",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Hinaree",
+      "kind": "npc",
+      "location": {
+        "grid": "B-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Hinaree",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Arnau",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Arnau",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Honoi-Gomoi",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Honoi-Gomoi",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Ohbiru-Dohbiru",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Ohbiru-Dohbiru",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Yujuju",
+      "kind": "npc",
+      "location": {
+        "grid": "M-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Yujuju",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Pherimociel",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Pherimociel",
+      "same_name": false
+    },
+    {
+      "id": "obj.105.???_K-9",
+      "kind": "obj",
+      "location": {
+        "grid": "K-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 105,
+        "zone_name": "バタリア丘陵"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.184.Tales_Beginning",
+      "kind": "obj",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 184,
+        "zone_name": "デルクフの塔下層"
+      },
+      "moves": false,
+      "name_en": "Tales' Beginning",
+      "same_name": false
+    },
+    {
+      "id": "obj.26.Walnut_Door_K-7",
+      "kind": "obj",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 26,
+        "zone_name": "タブナジア地下壕"
+      },
+      "moves": false,
+      "name_en": "Walnut Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.4.???_Warmachine",
+      "kind": "obj",
+      "location": {
+        "grid": "H-11",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 4,
+        "zone_name": "ビビキー湾"
+      },
+      "moves": false,
+      "name_en": "??? Warmachine",
+      "same_name": false
+    },
+    {
+      "id": "obj.アル・タユ.Crystalline_Field",
+      "kind": "obj",
+      "location": {
+        "grid": "H-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 33,
+        "zone_name": "アル・タユ"
+      },
+      "moves": false,
+      "name_en": "Crystalline Field",
+      "same_name": false
+    }
+  ]
+}

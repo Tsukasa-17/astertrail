@@ -1,0 +1,639 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.001",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "追加シナリオ「戦慄！モグ祭りの夜」を持っている、Lv10以上",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD1",
+      "name_en": "A Moogle Kupo d'Etat",
+      "name_ja_ref": "戦慄！モグ祭りの夜",
+      "order": 1,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/16528.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Lv10以上で所属国のモグハウスのモーグリに話すとイベント。レンタルハウスではだめ（FFXIclopedia にこの節の手順はない）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_1",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.002",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「戦慄！モグ祭りの夜」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD2",
+      "name_en": "Drenched! It Began with a Raindrop",
+      "name_ja_ref": "ぴちょん！始まりは一滴の雨漏り",
+      "order": 2,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17681.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Orc. Armor Plate はユグホトの岩屋のオーク族、Quadav Backscale はパルブロ鉱山のクゥダフ族、Yagudo Caulk はギデアスのヤグード族（FFXIclopedia は龍王ランペールの墓・ダングルフの涸れ谷・内ホルトト遺跡のゴブリン族も）。所属国のモグハウスで3つまとめてトレード",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_2",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.003",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ぴちょん！始まりは一滴の雨漏り」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD3",
+      "name_en": "Hasten! In a Jam in Jeuno?",
+      "name_ja_ref": "いざゆけ！出張モグハウス",
+      "order": 3,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17682.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ上層 H-8、Durable Shields の向かいの Inconspicuous Door（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_3",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Inconspicuous_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.004",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「いざゆけ！出張モグハウス」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD4",
+      "name_en": "Welcome! To My Decrepit Domicile",
+      "name_ja_ref": "ようこそ！スウィート・モグリハウス",
+      "order": 4,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17691.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "採掘で sturdy metal strip、伐採で piece of rugged tree bark、収穫で savory lamb roast（FFXIclopedia はオリジナル・ジラートのエリアならどこでも）。3つとも先に集めてよい。1つ渡すごとにイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_4",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Inconspicuous_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.005",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「ようこそ！スウィート・モグリハウス」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD5",
+      "name_en": "Curses! A Horrifically Harrowing Hex",
+      "name_ja_ref": "恐怖！呪われし悪霊の部屋",
+      "order": 5,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17692.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ウィンダス石の区 K-7 の Shantotto に話すとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_5",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.006",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「恐怖！呪われし悪霊の部屋」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD6",
+      "name_en": "An Errand! The Professor's Price",
+      "name_ja_ref": "走れ！解呪の品を求めて",
+      "order": 6,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "熟れた星の木の実"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "桃珊瑚のカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17693.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "外ホルトト遺跡のカーディアン族から Orb of Swords・Cups・Batons・Coins。東サルタバルタ H-3 から入ってすぐの H-6 の ??? でその場の戦い（FFXIclopedia は入口の向かいの台の上と書いていて座標はない）。Shantotto に5000ギル",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_6",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.007",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「走れ！解呪の品を求めて」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD7",
+      "name_en": "Shock! Arrant Abuse of Authority",
+      "name_ja_ref": "愕然！今日から借金王",
+      "order": 7,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "泥だらけの木箱"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17698.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "モーグリが言うエリアでチョコボ掘り。掘るたびに方角と近さが出る（FFXIclopedia も同じ。エリアを移ると箱の場所が変わる）。Moldy, worm-eaten chest",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_7",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Inconspicuous_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.008",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「愕然！今日から借金王」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD8",
+      "name_en": "Lender Beware! Read the Fine Print",
+      "name_ja_ref": "モグ金！ご利用は計画的に",
+      "order": 8,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17699.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Shady Sconce は海蛇の岩窟 C-5（C-8 の隠し部屋の奥。FFXIclopedia も同じ）。J-11 の Ornamented Door をサハギンのカギで抜け、Waterfall Basin は H-6（BG Wiki は Map 5）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_8",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.176.Shady_Sconce"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.009",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「モグ金！ご利用は計画的に」クリア、だいじなもの「流砂洞地図」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD9",
+      "name_en": "Rescue! A Moogle's Labor of Love",
+      "name_ja_ref": "焦燥！愛しいあの子はいずこ",
+      "order": 9,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "九曜星の数珠"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17704.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "西アルテパ砂漠 D-12 から入った流砂洞の Goblin Geologist は J-11（FFXIclopedia は座標なし）。??? 9か所は人によって違い、地図の緑のマーカーに出る。宣託の間の Shimmering Circle でイベント",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_9",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.208.Goblin_Geologist"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.010",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「九曜星の数珠」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD10",
+      "name_en": "Roar! A Cat Burglar Bares Her Fangs",
+      "name_ja_ref": "吠えよ！やとわれ用心棒",
+      "order": 10,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "紅珊瑚のカギ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17705.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Shimmering Circle から BF。Nanaa Mihgo を倒せば勝ち（FFXIclopedia も同じ。ゴブリン3体と、途中でミスラ2人が出る）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_10",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.宣託の間.Shimmering_Circle"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.011",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「吠えよ！やとわれ用心棒」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD11",
+      "name_en": "Relief! A Triumphant Return",
+      "name_ja_ref": "帰還！ふたりの家路",
+      "order": 11,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17749.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ上層 H-8 の Inconspicuous Door（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_11",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.244.Inconspicuous_Door"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.012",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「帰還！ふたりの家路」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD12",
+      "name_en": "Joy! Summoned to a Fabulous Fete",
+      "name_ja_ref": "歓喜！モグ祭りへの招待状",
+      "order": 12,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17750.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ズヴァール城外郭に入るとイベント（FFXIclopedia も同じ）",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_12",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.013",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "前節「歓喜！モグ祭りへの招待状」クリア、だいじなもの「雪原エリア地図」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD13",
+      "name_en": "A Challenge! You Could Be a Winner",
+      "name_ja_ref": "めざせ！超モグボナンザ抽選会",
+      "order": 13,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "超モグボナンザ参加券"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17751.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "最初にズヴァール城外郭 J-8 の Shadowy Pillar を調べる（FFXIclopedia も同じ）。Lonely Evergreen G-7、Goblin Grenadier H-8（FFXIclopedia は H-8/H-9）。Option One G/H-8（FFXIclopedia は H-8）・Two G-9・Three G-8。Flame of Fate は外郭の2枚目 G-8。Ominous Pillar は内郭に入ってすぐ",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_13",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.111.Lonely_Evergreen"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.014",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "だいじなもの「超モグボナンザ参加券」を持っている",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD14",
+      "name_en": "Smash! A Malevolent Menace",
+      "name_ja_ref": "砕け！邪なる者の野望",
+      "order": 14,
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "key_item",
+          "name_ja": "ボケ珊瑚のカギ"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "血赤珊瑚のカギ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "モグハウス・キーパー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17752.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Throne Room から BF、相手は Riko Kupenreich（FFXIclopedia も同じ。称号 Mog House Handyperson）。負けたらボスディン氷河の Lonely Evergreen からやり直す",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_14",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.王の間.Throne_Room"
+      },
+      "steps": []
+    },
+    {
+      "category": "mkd",
+      "game_ref": null,
+      "id": "mission.mkd.015",
+      "kind": "mission",
+      "lock_reasons": [
+        {
+          "text_ja": "「砕け！邪なる者の野望」クリア",
+          "type": "condition"
+        }
+      ],
+      "mission_no": "MKD15",
+      "name_en": "A Moogle Kupo d'Etat (Fin.)",
+      "name_ja_ref": "戦慄！モグ祭りの夜＜完＞",
+      "order": 15,
+      "repeatable": "no",
+      "rewards": [],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/17753.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "ジュノ下層の天晶堂の宝箱（FFXIclopedia は Treasure Coffer）を調べると、Anwig Salade・Champion's Galea・Selenian Cap のどれか。BG Wiki はカギの宝箱をジュノ下層 J-8 と書いている",
+          "url": "https://www.bg-wiki.com/ffxi/Kupo_Mission_15",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": null,
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "npc.208.Goblin_Geologist",
+      "kind": "npc",
+      "location": {
+        "grid": "J-11",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 208,
+        "zone_name": "流砂洞"
+      },
+      "moves": false,
+      "name_en": "Goblin Geologist",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Shantotto",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Shantotto",
+      "same_name": false
+    },
+    {
+      "id": "obj.111.Lonely_Evergreen",
+      "kind": "obj",
+      "location": {
+        "grid": "G-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 111,
+        "zone_name": "ボスディン氷河"
+      },
+      "moves": false,
+      "name_en": "Lonely Evergreen",
+      "same_name": false
+    },
+    {
+      "id": "obj.176.Shady_Sconce",
+      "kind": "obj",
+      "location": {
+        "grid": "C-5",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 176,
+        "zone_name": "海蛇の岩窟"
+      },
+      "moves": false,
+      "name_en": "Shady Sconce",
+      "same_name": false
+    },
+    {
+      "id": "obj.244.Inconspicuous_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 244,
+        "zone_name": "ジュノ上層"
+      },
+      "moves": false,
+      "name_en": "Inconspicuous Door",
+      "same_name": false
+    }
+  ]
+}

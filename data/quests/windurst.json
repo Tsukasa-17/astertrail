@@ -1,0 +1,5547 @@
+{
+  "data_schema": 1,
+  "quests": [
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.001",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Creepy Crawlies",
+      "name_ja_ref": "クロウラーを狩る者",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "600ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "クロウラーバスター"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/11704.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Illu_Bohjaa"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.002",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Paying Lip Service",
+      "name_ja_ref": "売れ筋商品",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "蜂の巣のかけら3個で150G、レミ貝の殻2個で200G"
+        },
+        {
+          "kind": "title",
+          "name_ja": "美の開拓者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/14380.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Tapoh_Lihzeh"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.003",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Teacher's Pet",
+      "name_ja_ref": "教材募集",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "250ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/11705.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Moreno-Toeno"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.004",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "シーフAFクエスト進行中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Mihgo's Amigo",
+      "name_ja_ref": "仲良くしたい？",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "200ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "泥棒ミスラのコブン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-12",
+          "url": "https://wiki.ffo.jp/html/4240.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Nanaa_Mihgo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.005",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「思ひ出」コンプリート（要エリアチェンジ）、黒魔道士で話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Root of the Problem",
+      "name_ja_ref": "星の大樹（クエスト）",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "偉大なる大黒魔道士"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウィザードペタソス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/36543.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Chumimi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.006",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジュノのクエスト「やさしいカカシ」進行中は不可",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The All-New C-2000",
+      "name_ja_ref": "NEWカーディアンくんの誕生",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "カーディアン教育者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "200ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11707.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kopuro-Popuro"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.007",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「伝説の大作戦」クリア",
+          "type": "quest"
+        },
+        {
+          "text_ja": "ウィンダスミッション「月詠み」受領中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The All-New C-3000",
+      "name_ja_ref": "NEWカーディアンさまの野望",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "600ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11710.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kopuro-Popuro"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.008",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「天晶堂へ集え」クリア後、シーフLv50以上で話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "As Thick as Thieves",
+      "name_ja_ref": "アタルフォーネ盗賊団の宝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ローグボンネット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8385.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Nanaa_Mihgo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.009",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「正しいあいさつ」",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Legendary Plan B",
+      "name_ja_ref": "伝説の大作戦",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "700ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "無臭の腕輪"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11709.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kopuro-Popuro"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.010",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「アタルフォーネ盗賊団の宝」クリア後エリアチェンジ、シーフで話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Hitting the Marquisate",
+      "name_ja_ref": "侯国の栄光",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "華麗なる大盗賊"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ローグプーレーヌ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8386.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Nanaa_Mihgo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.011",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3（聞いた覚えがある）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Twinstone Bonding",
+      "name_ja_ref": "双子石の絆",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "絆の証人"
+        },
+        {
+          "kind": "other",
+          "name_ja": "ラップドボウ（初回）、900ギル（2回目以降）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11703.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Gioh_Ajihri"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.012",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "シーフLv40以上で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Tenshodo Showdown",
+      "name_ja_ref": "天晶堂へ集え",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "マローダーナイフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/1579.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Nanaa_Mihgo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.013",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Lure of the Wildcat （Windurst）",
+      "name_ja_ref": "山猫のウィンク",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "緑色の招待券"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5043.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Ibwam"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.014",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「仲良くしたい？」",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Rock Racketeer",
+      "name_ja_ref": "手ごたえは宝石",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "2100ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/15846.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Nanaa_Mihgo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.015",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「火の部族」クリア後エリアチェンジ、メインジョブ狩人で話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Unbridled Passion",
+      "name_ja_ref": "断ち切らん、その鎖を",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "果敢なる大狩人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ハンターソックス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8394.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.016",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv5以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「新魔法フェイス（サンドリア）」「新魔法フェイス（バストゥーク）」をオファー中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Trust： Windurst",
+      "name_ja_ref": "新魔法フェイス（ウィンダス）",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "信頼・親愛・友情を抱く者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウィンダスのフェイス使用許可証"
+        },
+        {
+          "kind": "other",
+          "name_ja": "フェイス「クピピ」"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/30162.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Wetata"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.017",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「NEWカーディアンさまの野望」",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Can Cardians Cry?",
+      "name_ja_ref": "星の涙",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "銀色の涙の使者"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "5000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11711.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Apururu"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.018",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「NEWカーディアンくんの誕生」コンプリート後、手の院のSpare Oneに「アイサツ ノ コトバ」を教え（何でも可）、エリアチェンジして1分経過",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Greeting Cardian",
+      "name_ja_ref": "正しいあいさつ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "トルマリンピアス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11708.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kororo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.019",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「罪狩り」クリア後エリアチェンジ、Lv50以上の狩人で話す",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Fire and Brimstone",
+      "name_ja_ref": "火の部族",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ハンターベレー"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6094.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Fire Tribe）",
+          "url": "https://www.bg-wiki.com/ffxi/Fire_and_Brimstone",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.020",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv30以上で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Fanged One",
+      "name_ja_ref": "牙もつもの",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "牙持つ者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "狩人の首飾り、狩人へのジョブチェンジ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8947.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.021",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク3（用語辞典はランク2）",
+            "url": "https://www.bg-wiki.com/ffxi/In_a_Stew",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「病気のチョコボ」コンプリート、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "In a Stew",
+      "name_ja_ref": "特製シチュー",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "900ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/14379.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kuoh_Rhel"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.022",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Chocobilious",
+      "name_ja_ref": "病気のチョコボ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/14378.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Kuoh_Rhel"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.023",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Sin Hunting",
+      "name_ja_ref": "罪狩り",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "スナイプボウ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8571.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.024",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Amazin' Scorpio",
+      "name_ja_ref": "闘魂伝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "格闘家スコーピオン！？"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/15828.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Soni-Muni"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.025",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「知識の守り手」クリア（連続で受ける場合はエリアチェンジ）、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Chasing Tales",
+      "name_ja_ref": "ある愛のうた",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "知識の守り手"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "2,800ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4804.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は A Song of Love）",
+          "url": "https://www.bg-wiki.com/ffxi/Chasing_Tales",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Tosuka-Porika"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.026",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "A Crisis in the Making",
+      "name_ja_ref": "いきなりウィンダスの危機",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "400ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/14377.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Ranpi-Monpi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.027",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「暁を覚えず」進行中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Reap What You Sow",
+      "name_ja_ref": "トップを目指すタイプ",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "初回：500ギルと文房具一式、2回目以降：500ギル（シャクリタケ）／700ギル（デスボール）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16116.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Mashuu-Ajuu"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.028",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "In a Pickle",
+      "name_ja_ref": "ララブのしっぽ亭",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "骨の髪飾り（1回目）、200ギル（2回目以降）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4687.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Chamama"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.029",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「主婦のこだわり」を受けていること",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Hoist the Jelly, Roger",
+      "name_ja_ref": "ロイヤルお鍋",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "特製お鍋"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4948.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Maysoon"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.030",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク4（「そこそこ知られるように」）以上、レベル10以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Acting in Good Faith",
+      "name_ja_ref": "信仰の行く先",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "メアの巡礼者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "テレポメア"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10507.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Gantineux"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.031",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Glyph Hanger",
+      "name_ja_ref": "古文書の解読",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ホルトト遺跡地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値2000"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3813.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Hariga-Origa"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.032",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「魔法の水」クリア後エリアチェンジ、名声5（「かなり知られる」）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Blue Ribbon Blues",
+      "name_ja_ref": "呪われたリボン",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "リッチ バニッシャー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "ゴーストバスター"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "3600ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブルーリボン"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10406.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Kerutoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.033",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク2（用語辞典はランク3）",
+            "url": "https://www.bg-wiki.com/ffxi/Overnight_Delivery",
+            "via": "bg-wiki"
+          },
+          "text_ja": "前クエスト「買出し部隊」クリア後エリアチェンジ、7:00～23:59に話す、名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Overnight Delivery",
+      "name_ja_ref": "夜に隠れて",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "力だすき"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5201.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Kenapa-Keppa"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.034",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク5（かなり知られる）以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Heaven Cent",
+      "name_ja_ref": "夜空はコイン",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "夜空の航海士"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "4800ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5196.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Ropunono"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.035",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Hat in Hand",
+      "name_ja_ref": "帽子屋の宣伝",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "20～29P:50G、30～39P:120G、40～79P:150G+風切り帽子、80P以上:200G+風切り帽子"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6575.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Baren-Moren"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.036",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「教材募集」",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「トップを目指すタイプ」受諾中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Let Sleeping Dogs Lie",
+      "name_ja_ref": "暁を覚えず",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "マナー違反者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ヒュプノスタッフ（クリア後にPechiru-Mashiruから）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/11706.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Paku-Nakku"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.037",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Making Headlines",
+      "name_ja_ref": "特ダネ・ウィンダス",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "編集長の刺客"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "560ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9642.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Naiko-Paneiko"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.038",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「特ダネ・ウィンダス」クリア（直後はエリアチェンジ必要）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Scooped!",
+      "name_ja_ref": "盗まれた特ダネ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/16166.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Naiko-Paneiko"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.039",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「古文書の解読」クリア（連続で受ける場合はエリアチェンジ）、名声ランク2以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Early Bird Catches the Bookworm",
+      "name_ja_ref": "知識の守り手",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "知識の守り手"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4439.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Savior of Knowledge）",
+          "url": "https://www.bg-wiki.com/ffxi/Early_Bird_Catches_the_Bookworm",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Tosuka-Porika"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.040",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "WM「平和のために」進行中は正解ルート不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Say It With Flowers",
+      "name_ja_ref": "花と修羅",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "花鼻キューピッド"
+        },
+        {
+          "kind": "other",
+          "name_ja": "1回目：アイアンソード、2回目以降：400ギル、（不正解の花なら100ギル）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5887.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Moari-Kaaori"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.041",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ジョブに対応する装備を身に着けていないこと",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Pose by Any Other Name",
+      "name_ja_ref": "芸術家によるラプソディ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ナイスモデル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "アンジェリカのサイン"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "太古の血潮"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5988.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Angelica"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.042",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「ある愛のうた」クリア（連続で受ける場合はエリアチェンジ）、名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Smudge On One's Record",
+      "name_ja_ref": "茶褐色の秘密",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "フェ・イン地図"
+        },
+        {
+          "kind": "other",
+          "name_ja": "5000ギル、経験値2000ポイント"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3815.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Hariga-Origa"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.043",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「帽子屋の宣伝」クリア、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "A Feather In One's Cap",
+      "name_ja_ref": "貴婦人の所望",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "1500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/15163.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Baren-Moren"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.044",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「花と修羅」進行中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Food For Thought",
+      "name_ja_ref": "買出し部隊",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "買出し部隊員"
+        },
+        {
+          "kind": "other",
+          "name_ja": "Kerutoto、440ギル、Ohbiru-Dohbiru、440ギル、Kenapa-Keppa、120ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8751.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Kerutoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.045",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他国の「退魔の報酬」と合わせて地球時間1週間に1回・1つのみ",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Eco-Warrior （Windurst）",
+      "name_ja_ref": "退魔の報酬～ウィンダス編",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "翠嶺の雇われハンター"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "5000ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ランペール戦記"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10405.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Lumomo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.046",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「教材募集」コンプリート、名声ランク3以上、レベル10以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「暁を覚えず」進行中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Making the Grade",
+      "name_ja_ref": "間違いと過ち",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "アスピル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4280.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Fuepepe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.047",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声がある程度以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Wondering Minstrel",
+      "name_ja_ref": "音楽のあるレストラン",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "栄光なる薔薇の笛吹き"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "フェアリーピッコロ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/14394.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Jatan-Paratan"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.048",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "前クエスト「夜に隠れて」クリア後エリアチェンジ",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「花と修羅」再オファー中はそちらのクリアが先",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Water Way to Go!",
+      "name_ja_ref": "魔法の水",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "900ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10407.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.Ohbiru-Dohbiru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.049",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク4（用語辞典はランク3）",
+            "url": "https://www.bg-wiki.com/ffxi/Making_Amens!",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「壊れた世界」クリア後エリアチェンジしてHakkuru-Rinkuruと話す、名声ランク4以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "WMの進行状況によっては発生しない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Making Amens!",
+      "name_ja_ref": "2人の世界",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "ハックルリンクルの恩人"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "6,000ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6256.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kuroido-Moido"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.050",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「2人の世界」クリア後エリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Wonder Wands",
+      "name_ja_ref": "3本の杖",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "シャントット博士の実験台"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "4800ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "朔の腕輪"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8128.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Hakkuru-Rinkuru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.051",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「過去からの呼び声」受領中は2回連続で話す",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Something Fishy",
+      "name_ja_ref": "おさかなチェック",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "70ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5752.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Tokaka"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.052",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv5以上、クエスト「正義の一味」コンプリート後エリアチェンジ",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Know One's Onions",
+      "name_ja_ref": "オバケの家",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "正義の味方"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブレイズスパイク"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4276.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は ghosty house）",
+          "url": "https://www.bg-wiki.com/ffxi/Know_One's_Onions",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.053",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク3（用語辞典はランク4）",
+            "url": "https://www.bg-wiki.com/ffxi/Onion_Rings",
+            "via": "bg-wiki"
+          },
+          "text_ja": "名声ランク3以上、「名探偵誕生？」コンプリート後エリアチェンジ、だいじなもの「古い指輪」所持",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Onion Rings",
+      "name_ja_ref": "スターオニオンズ危機一髪",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "オニオンヒーロー"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "バウンサークラブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/15132.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.054",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「3本の杖」発生中は不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Catch It If You Can!",
+      "name_ja_ref": "スーパードクターO",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "呪詛1200G／沈黙1000G／悪疫1500G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9200.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Ohruru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.055",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上、クエスト「オバケの家」コンプリート後エリアチェンジ",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Inspector's Gadget!",
+      "name_ja_ref": "名探偵誕生？",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "つけひげの名探偵"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "兵児帯"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5529.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.056",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク2以上、WM「ホルトト遺跡の大実験」を受けていないこと",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Making Amends",
+      "name_ja_ref": "壊れた世界",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "お手軽修繕屋"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "1,500ギル"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6462.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Hakkuru-Rinkuru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.057",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "To Catch a Falling Star",
+      "name_ja_ref": "星降る丘",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "魚鱗の盾"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6226.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Starfall Hillock）",
+          "url": "https://www.bg-wiki.com/ffxi/To_Catch_a_Falling_Star",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Sigismund"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.058",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Truth, Justice, and the Onion Way!",
+      "name_ja_ref": "正義の一味",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "スターオニオンズ団員"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "正義バッジ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/8470.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.059",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "All at Sea",
+      "name_ja_ref": "航海帽子",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ダルメルマント（帽子屋で）"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "レザーリング"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6224.html",
+          "via": "sheet"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "英語名（シート・用語辞典は Sailor's Cap）",
+          "url": "https://www.bg-wiki.com/ffxi/All_at_Sea",
+          "via": "bg-wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Paytah"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.060",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "他の「落とし主は誰だ」（三国・カザム）がオファーリストに載っている間は発生しない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "A Discerning Eye （Windurst）",
+      "name_ja_ref": "落とし主は誰だinウィンダス",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とても違いの分かるヤツ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "とてもとても違いの分かるヤツ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "500ギル（総クリア数5／20／100回で、）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/10709.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Pygmalion"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.061",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "名声「ほとんど知っている」",
+          "type": "fame"
+        },
+        {
+          "text_ja": "三国の「護衛の報酬」は1つしか受けられず、どれかをクリアするとコンクェスト集計後まで再挑戦不可",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Escort for Hire （Windurst）",
+      "name_ja_ref": "護衛の報酬～ウィンダス編",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "10、000ギル（初回のみ）、ミラテテ様言行録（毎回）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5719.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Dehn_Harzhapan"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.062",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "レベル30以上、カーバンクルの紅玉を所持",
+          "type": "condition"
+        }
+      ],
+      "name_en": "I Can Hear a Rainbow",
+      "name_ja_ref": "7色の光を！",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "虹を織りし者"
+        },
+        {
+          "kind": "other",
+          "name_ja": "召喚士へのジョブチェンジ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/7011.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "obj.Door_House_of_the_Hero"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.063",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「死神のまなざし」コンプリート後エリアチェンジ、Lv10以上、名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Curses, Foiled A-Golem!?",
+      "name_ja_ref": "ゴーレムのまなざし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "シャントット博士のお気に入り"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "デジョンII"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3794.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.064",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Mandragora-Mad",
+      "name_ja_ref": "マンドラゴラの軌跡",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "マンドラゴラの四葉120G／コルネット200G／ユタンガの硫黄250G／マンドラゴラの三葉1200G／偉そうな手紙5500G"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/4300.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Yoran-Oran"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.065",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Flower Child",
+      "name_ja_ref": "一輪のお花さんがほしいにゃ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウィンダスの裏道情報（モグハウスから出るエリアを選択可能に）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/27008.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Ojha_Rhawash"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.066",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク1（用語辞典はランク2）",
+            "url": "https://www.bg-wiki.com/ffxi/Star_Struck",
+            "via": "bg-wiki"
+          },
+          "text_ja": "クエスト「競売所の手紙」の「破れたラブレター」を入手済み、名声ランク1以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Star Struck",
+      "name_ja_ref": "天からの贈り物",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "蟲眼のサークレット"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/9.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Koru-Moru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.067",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "source": {
+            "checked": "2026-11-14",
+            "fact_ja": "名声ランク2（用語辞典はランク3）",
+            "url": "https://www.bg-wiki.com/ffxi/Curses,_Foiled...Again!?",
+            "via": "bg-wiki"
+          },
+          "text_ja": "名声ランク2以上、「闇のまなざし」コンプリート後ヴァナ0時をまたいでShantottoに話し「～～心配しなくても…」を読んでからエリアチェンジ",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Curses, Foiled...Again!?",
+      "name_ja_ref": "死神のまなざし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "殺タルタル容疑者"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "不幸の杖"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（受注時）「不幸な呪い師」（クリア時）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3797.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.068",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "The Postman Always K.O.'s Twice",
+      "name_ja_ref": "競売所の手紙",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "50ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "150ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "250ギル"
+        },
+        {
+          "kind": "gil",
+          "name_ja": "500ギル"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "1通"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "2通"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "3通"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "4通"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6577.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Ambrosius"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.069",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「競売所の手紙」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "To Bee or not to Bee?",
+      "name_ja_ref": "美声のススメ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "アクアムルスム3個"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/13881.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Raamimi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.070",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "クエスト「天からの贈り物」クリア後エリアチェンジ、名声ランク3以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Blast From the Past",
+      "name_ja_ref": "過去からの呼び声",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "太古の海人"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "グレートクラブ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/5756.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Koru-Moru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.071",
+      "kind": "quest",
+      "lock_reasons": [],
+      "name_en": "Curses, Foiled Again!",
+      "name_ja_ref": "闇のまなざし",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ブラスロッド"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/3796.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.072",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "黒魔道士Lv40以上",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Three Magi",
+      "name_ja_ref": "3賢者",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "title",
+          "name_ja": "（3博士いずれかの名前）の味方"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "キャストワンド"
+        },
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "（選択肢で決まる）"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6248.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Chumimi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.073",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「3賢者」コンプリート済み、黒魔道士Lv50以上（連続して受ける場合はエリアチェンジ）",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Recollections",
+      "name_ja_ref": "思ひ出",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_en": null,
+          "name_ja": "ウィザードサボ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-13",
+          "url": "https://wiki.ffo.jp/html/6246.html",
+          "via": "sheet"
+        }
+      ],
+      "start": {
+        "target": "npc.天の塔.Chumimi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.074",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の狩人で、弓術スキル250以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "From Saplings Grow",
+      "name_ja_ref": "若木",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「エンピリアルアロー」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2928.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Perih Vashai は ウィンダス森の区(K-7)、???は テリガン岬(G-7)。突風の回廊のホームポイントや、テリガン岬のサバイバルガイドからが近い",
+          "url": "https://www.bg-wiki.com/ffxi/From_Saplings_Grow",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.241.Perih_Vashai"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.075",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「泥棒スターオニオンズ団」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Wild Card",
+      "name_ja_ref": "カーディアンはトライマライの夢を見るか？",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "8,000ギル（ランク8未満で、分解の依頼を断ってほしいと言われて「いいえ」を選ぶと3,000ギル）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "夢の住人"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7400.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Honoi-Gomoi は ウィンダス水の区南(E-7)。トライマライ水路の宝のカギが要る",
+          "url": "https://www.bg-wiki.com/ffxi/Wild_Card_(Quest)",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.Honoi-Gomoi"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.076",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク6以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "The Moonlit Path",
+      "name_ja_ref": "月の導き",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "フェンリルストーン／フェンリルケープ／フェンリルトルク／フェンリルピアス／古代種のカギ／15,000ギル のどれか1つ"
+        },
+        {
+          "kind": "other",
+          "name_ja": "召喚士になれれば召喚獣“フェンリル”と契約できる。マウント「フェンリル」（だいじなもの「♪フェンリル」）も選べる"
+        },
+        {
+          "kind": "title",
+          "name_ja": "新しい力の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7569.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Leepe-Hoppe は ウィンダス水の区南(J-9)、ホームポイント#3。FLevel=6、Repeatable=Yes。用語辞典は「それなりに名声が必要」とだけ書く",
+          "url": "https://www.bg-wiki.com/ffxi/The_Moonlit_Path",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Leepe-Hoppe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.077",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク6以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「呪われたリボン」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        },
+        {
+          "text_ja": "「花と修羅」を受けている間は受けられない",
+          "type": "other"
+        }
+      ],
+      "name_en": "Toraimarai Turmoil",
+      "name_ja_ref": "水呼びの扉",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4,500ギル"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "鼻の院の認可証"
+        },
+        {
+          "kind": "title",
+          "name_ja": "鼻の院認可冒険者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/5421.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ohbiru-Dohbiru は ウィンダス水の区南(J-9)。Repeatable=yes。Starmite は トライマライ水路(G-9)あたり",
+          "url": "https://www.bg-wiki.com/ffxi/Toraimarai_Turmoil",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.Ohbiru-Dohbiru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.078",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「カーディアンはトライマライの夢を見るか？」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "The Promise",
+      "name_ja_ref": "ヤクソク",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "約束バッジ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4979.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=5（用語辞典はランク7「みんなが知っております」）。Kohlo-Lakolo は ウィンダス港(G-5)、Chamama は ウィンダス水の区(F-10)",
+          "url": "https://www.bg-wiki.com/ffxi/The_Promise",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.079",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・モ・白・黒・ナ・召・青・学・風で、片手棍スキル230以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Orastery Woes",
+      "name_ja_ref": "口の院の悲劇",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「ブラックヘイロー」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2932.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Kuroido-Moido は ウィンダス港(E-7)、???は ロ・メーヴ(M-8)。月の門の先、入れない横穴の前の地面",
+          "url": "https://www.bg-wiki.com/ffxi/Orastery_Woes",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kuroido-Moido"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.080",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク5以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「スターオニオンズ危機一髪」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Crying Over Onions",
+      "name_ja_ref": "泥棒スターオニオンズ団",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "スターズネックレス"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7543.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=?（BG Wiki は名声が空き）。Spelunking Sabotender は 流砂洞(F-7)あたりの通路。流砂洞へは西アルテパ砂漠(G-5)から入る",
+          "url": "https://www.bg-wiki.com/ffxi/Crying_Over_Onions",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Kohlo-Lakolo"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.081",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv40以上の召喚士",
+          "type": "condition"
+        }
+      ],
+      "name_en": "The Puppet Master",
+      "name_ja_ref": "人形使い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ククルカンスタッフ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7046.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=1。Juroro は バストゥーク港(I-8)、ホームポイント#1（用語辞典は I-7）。震動の回廊へは東アルテパ砂漠(K-7)から流砂洞に入り、(C-9)へ下りる",
+          "url": "https://www.bg-wiki.com/ffxi/The_Puppet_Master",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Door_House_of_the_Hero"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.082",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク1以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "Lv50以上の召喚士",
+          "type": "condition"
+        },
+        {
+          "text_ja": "「人形使い」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Class Reunion",
+      "name_ja_ref": "同窓の輪",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エボカースパッツ"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8391.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=1。Fuepepe は ウィンダス水の区北(L-6)、Furakku-Norakku は 同(G-8)、Shantotto は ウィンダス石の区(K-7)、Gulmama は 北サンドリア(E-7)。凍結の回廊はフェ・イン MAP2(I-5)",
+          "url": "https://www.bg-wiki.com/ffxi/Class_Reunion",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Door_House_of_the_Hero"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.083",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "Lv71以上の戦・モ・白・黒・ナ・吟・竜・召・学・風で、両手棍スキル230以上",
+          "type": "condition"
+        },
+        {
+          "text_ja": "ほかのウェポンスキルのクエストを進めていない",
+          "type": "condition"
+        }
+      ],
+      "name_en": "Blood and Glory",
+      "name_ja_ref": "血塗られた道",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "other",
+          "name_ja": "ウェポンスキル「レトリビューション」を覚える"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/2939.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Shantotto は ウィンダス石の区(K-7)。イフリートの釜はホームポイント#1から MAP7 へ、(J-4)の段差を下りて南の(J-8)から先の広場",
+          "url": "https://www.bg-wiki.com/ffxi/Blood_and_Glory",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Shantotto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.084",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「同窓の輪」クリア（エリアを出入りしておく）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Carbuncle Debacle",
+      "name_ja_ref": "誰そ彼そ",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "エボカーホーン"
+        },
+        {
+          "kind": "title",
+          "name_ja": "博雅なる大召喚士"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/8305.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Ripapa は マウラ(I-9)、Agado-Pugado は ラバオ(G-9)。雷鳴の回廊は聖地ジ・タ(K-12)からボヤーダ樹へ、突風の回廊は テリガン岬(F-5)",
+          "url": "https://www.bg-wiki.com/ffxi/Carbuncle_Debacle",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "obj.Door_House_of_the_Hero"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.085",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク8以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "「過去からの呼び声」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Nothing Matters",
+      "name_ja_ref": "錬金術の実験",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "10,000ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "クイズに全問正解するとバイルエリクサー"
+        },
+        {
+          "kind": "title",
+          "name_ja": "真理を垣間見た者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4919.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "FLevel=8。Fuepepe は ウィンダス水の区北(L-6)、寄宿舎は(K-6)、管理人室は(K-5)。4〜6問正しく答える",
+          "url": "https://www.bg-wiki.com/ffxi/Nothing_Matters",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.239.Koru-Moru"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.086",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク4以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "Tuning In",
+      "name_ja_ref": "スカリーY",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "4000ギル"
+        },
+        {
+          "kind": "title",
+          "name_ja": "死ぬ気で冒険者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/1472.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Windurst、FLevel=4（用語辞典は「名声か何らかのフラグが必要な模様」で段階なし）。Leepe-Hoppe は ウィンダス水の区南(J-9)の鼻の院の屋上。スプルース材のタウルスはフォミュナ水道 MAP1 (G-6)。3つはまとめてトレードする",
+          "url": "https://www.bg-wiki.com/ffxi/Tuning_In",
+          "via": "BG Wiki"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "受ける前に品を集めてもよい。油目ヤスリのフォモルは夜、ルフェーゼ野の見張り塔(H-8)とたき火(G-6)のまわりに出る",
+          "url": "https://ffxiclopedia.fandom.com/wiki/Tuning_In",
+          "via": "FFXIclopedia"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Leepe-Hoppe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.087",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "「スカリーY」クリア（終えてから地球時間で1分待つ）",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Tuning Out",
+      "name_ja_ref": "仮面同盟",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "6000ギル"
+        },
+        {
+          "kind": "item",
+          "name_ja": "カシュネ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "仮面同盟員"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/7804.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Windurst、FLevel は空（用語辞典にも名声の条件はない）。Jakoh Wahcondalo は カザム(J-9)、Romaa Mihgo は 同(H-11)、???は ユタンガ大森林(K-7)のジェミナイの滝を見下ろす所（(I-7)のトンネルから行ける）、Nasus 5匹。ノーグ(K-8)の門番は BG Wiki では Comitolus、FFXIclopedia と用語辞典は Comitiolus。Torino-Samarino は ボスディン氷河(I-7)の塔。完了のあと Leepe-Hoppe に話すとカシュネ",
+          "url": "https://www.bg-wiki.com/ffxi/Tuning_Out",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Leepe-Hoppe"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.088",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク3以上",
+          "type": "fame"
+        },
+        {
+          "text_ja": "プロマシアミッション第3章第5節「神を名乗りて」クリア",
+          "type": "quest"
+        }
+      ],
+      "name_en": "Waking Dreams",
+      "name_ja_ref": "笑み曲ぐ夢魔と",
+      "repeatable": "yes",
+      "rewards": [
+        {
+          "kind": "item",
+          "name_ja": "ディアボロスポール・ディアボロストルク・ディアボロスピアス・ディアボロスリング・15,000ギル・召喚獣ディアボロスとの契約から1つ"
+        },
+        {
+          "kind": "title",
+          "name_ja": "夢渡る力の継承者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/4606.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Windurst、FLevel=3（用語辞典に名声の条件はない）。Repeatable=Yes（用語辞典と FFXIclopedia は地球時間の1日をまたげば受け直せる）。Kerutoto は ウィンダス水の区南(J-8)、ホームポイント#3のすぐ北。BF はフェイス不可。ソ・ジヤのホームポイント#1のすぐ先が異界の口",
+          "url": "https://www.bg-wiki.com/ffxi/Waking_Dreams",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.238.Kerutoto"
+      },
+      "steps": []
+    },
+    {
+      "category": "windurst",
+      "game_ref": null,
+      "id": "quest.windurst.089",
+      "kind": "quest",
+      "lock_reasons": [
+        {
+          "text_ja": "ウィンダスの名声ランク5以上",
+          "type": "fame"
+        }
+      ],
+      "name_en": "One Good Deed?",
+      "name_ja_ref": "プルゴノルゴ島の戦い",
+      "repeatable": "no",
+      "rewards": [
+        {
+          "kind": "gil",
+          "name_ja": "3200ギル"
+        },
+        {
+          "kind": "other",
+          "name_ja": "経験値（リミットポイント）2000"
+        },
+        {
+          "kind": "key_item",
+          "name_ja": "アットワ地溝地図（持っていないとき）"
+        },
+        {
+          "kind": "title",
+          "name_ja": "千骸谷の逃亡者"
+        }
+      ],
+      "sources": [
+        {
+          "checked": "2026-11-14",
+          "url": "https://wiki.ffo.jp/html/6322.html",
+          "via": "wiki.ffo.jp"
+        },
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "Fame=Windurst、FLevel=5（用語辞典も5）。???は ビビキー湾・プルゴノルゴ島(H-9)、Peerifool 6匹。千骸谷はアットワ地溝(F-6)のトンネルから入り、入るとすぐイベント",
+          "url": "https://www.bg-wiki.com/ffxi/One_Good_Deed%3F",
+          "via": "BG Wiki"
+        }
+      ],
+      "start": {
+        "target": "npc.240.Chipmy-Popmy"
+      },
+      "steps": []
+    }
+  ],
+  "targets": [
+    {
+      "id": "mob.106.Gambilox_Wanderling",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 106,
+        "zone_name": "北グスタベルグ"
+      },
+      "moves": true,
+      "name_en": "Gambilox Wanderling",
+      "same_name": false
+    },
+    {
+      "id": "mob.112.Koenigstiger",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 112,
+        "zone_name": "ザルカバード"
+      },
+      "moves": true,
+      "name_en": "Koenigstiger",
+      "same_name": false
+    },
+    {
+      "id": "mob.115.Crawler",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": true,
+      "name_en": "Crawler",
+      "same_name": false
+    },
+    {
+      "id": "mob.119.Hill_Lizard",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 119,
+        "zone_name": "メリファト山地"
+      },
+      "moves": true,
+      "name_en": "Hill Lizard",
+      "same_name": false
+    },
+    {
+      "id": "mob.120.Climbpix_Highrise",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 120,
+        "zone_name": "ソロムグ原野"
+      },
+      "moves": true,
+      "name_en": "Climbpix Highrise",
+      "same_name": false
+    },
+    {
+      "id": "mob.166.Evil_Weapon",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 166,
+        "zone_name": "ラングモント峠"
+      },
+      "moves": true,
+      "name_en": "Evil Weapon",
+      "same_name": false
+    },
+    {
+      "id": "mob.198.Ichorous_Ire",
+      "kind": "mob",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Blast_from_the_Past",
+            "https://ffxiclopedia.fandom.com/wiki/Blast_from_the_Past"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Ichorous Ire",
+      "same_name": false
+    },
+    {
+      "id": "mob.198.Wyrmfly",
+      "kind": "mob",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "moves": true,
+      "name_en": "Wyrmfly",
+      "same_name": false
+    },
+    {
+      "id": "mob.Lich_C_Magnus",
+      "kind": "mob",
+      "location": {
+        "grid": "M-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 M-10（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Blue_Ribbon_Blues",
+            "https://ffxiclopedia.fandom.com/wiki/Blue_Ribbon_Blues"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Lich C Magnus",
+      "same_name": false
+    },
+    {
+      "id": "mob.Magic_Sludge",
+      "kind": "mob",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-8（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Root_of_the_Problem",
+            "https://ffxiclopedia.fandom.com/wiki/The_Root_of_the_Problem"
+          ]
+        }
+      ],
+      "moves": true,
+      "name_en": "Magic Sludge",
+      "same_name": false
+    },
+    {
+      "id": "npc.104.Alexius",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "Alexius",
+      "same_name": false
+    },
+    {
+      "id": "npc.111.Torino-Samarino",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 111,
+        "zone_name": "ボスディン氷河"
+      },
+      "moves": false,
+      "name_en": "Torino-Samarino",
+      "same_name": false
+    },
+    {
+      "id": "npc.112.Cursed_Weapon",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 112,
+        "zone_name": "ザルカバード"
+      },
+      "moves": false,
+      "name_en": "Cursed Weapon",
+      "same_name": false
+    },
+    {
+      "id": "npc.112.Telepoint",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 112,
+        "zone_name": "ザルカバード"
+      },
+      "moves": false,
+      "name_en": "Telepoint",
+      "same_name": false
+    },
+    {
+      "id": "npc.115.Bumblebee",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Bumblebee",
+      "same_name": false
+    },
+    {
+      "id": "npc.115.Ipupu",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Ipupu",
+      "same_name": false
+    },
+    {
+      "id": "npc.115.Savanna_Rarab",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Savanna Rarab",
+      "same_name": false
+    },
+    {
+      "id": "npc.115.Twinkle_Tree",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Twinkle Tree",
+      "same_name": false
+    },
+    {
+      "id": "npc.118.Spades",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 118,
+        "zone_name": "ブブリム半島"
+      },
+      "moves": false,
+      "name_en": "Spades",
+      "same_name": false
+    },
+    {
+      "id": "npc.145.Quu_Bokye",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 145,
+        "zone_name": "ギデアス"
+      },
+      "moves": false,
+      "name_en": "Quu Bokye",
+      "same_name": false
+    },
+    {
+      "id": "npc.147.Zircon_Quadav",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 147,
+        "zone_name": "ベドー"
+      },
+      "moves": false,
+      "name_en": "Zircon Quadav",
+      "same_name": false
+    },
+    {
+      "id": "npc.161.Chancellor",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 161,
+        "zone_name": "ズヴァール城外郭"
+      },
+      "moves": false,
+      "name_en": "Chancellor",
+      "same_name": false
+    },
+    {
+      "id": "npc.166.Perchond",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 166,
+        "zone_name": "ラングモント峠"
+      },
+      "moves": false,
+      "name_en": "Perchond",
+      "same_name": false
+    },
+    {
+      "id": "npc.169.Lost_Soul",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 169,
+        "zone_name": "トライマライ水路"
+      },
+      "moves": false,
+      "name_en": "Lost Soul",
+      "same_name": false
+    },
+    {
+      "id": "npc.191.Saltvix",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 191,
+        "zone_name": "ダングルフの涸れ谷"
+      },
+      "moves": false,
+      "name_en": "Saltvix",
+      "same_name": false
+    },
+    {
+      "id": "npc.195.Hume_Bones",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 195,
+        "zone_name": "エルディーム古墳"
+      },
+      "moves": false,
+      "name_en": "Hume Bones",
+      "same_name": false
+    },
+    {
+      "id": "npc.197.Worker_Pephredo",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 197,
+        "zone_name": "クロウラーの巣"
+      },
+      "moves": false,
+      "name_en": "Worker Pephredo",
+      "same_name": false
+    },
+    {
+      "id": "npc.198.Ahko_Mhalijikhari",
+      "kind": "npc",
+      "location": {
+        "grid": "C-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "moves": false,
+      "name_en": "Ahko Mhalijikhari",
+      "same_name": false
+    },
+    {
+      "id": "npc.198.Wight",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "moves": false,
+      "name_en": "Wight",
+      "same_name": false
+    },
+    {
+      "id": "npc.200.Survival_Guide",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 200,
+        "zone_name": "ガルレージュ要塞"
+      },
+      "moves": false,
+      "name_en": "Survival Guide",
+      "same_name": false
+    },
+    {
+      "id": "npc.230.Hae_Jakhya",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 230,
+        "zone_name": "南サンドリア"
+      },
+      "moves": false,
+      "name_en": "Hae Jakhya",
+      "same_name": false
+    },
+    {
+      "id": "npc.231.Eperdur",
+      "kind": "npc",
+      "location": {
+        "grid": "M-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 231,
+        "zone_name": "北サンドリア"
+      },
+      "moves": false,
+      "name_en": "Eperdur",
+      "same_name": false
+    },
+    {
+      "id": "npc.235.Ardea",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 235,
+        "zone_name": "バストゥーク商業区"
+      },
+      "moves": false,
+      "name_en": "Ardea",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Angelica",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-10（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/A_Pose_by_Any_Other_Name",
+            "https://ffxiclopedia.fandom.com/wiki/A_Pose_by_Any_Other_Name"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Angelica",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Baren-Moren",
+      "kind": "npc",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Baren-Moren",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Chamama",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 F-10（BG Wiki と FFXIclopedia が一致、用語辞典は F-11）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/In_a_Pickle",
+            "https://ffxiclopedia.fandom.com/wiki/In_a_Pickle"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Chamama",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Fuepepe",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Fuepepe",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Gantineux",
+      "kind": "npc",
+      "location": {
+        "grid": "E-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Gantineux",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Hariga-Origa",
+      "kind": "npc",
+      "location": {
+        "grid": "F-8",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Hariga-Origa",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Jatan-Paratan",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Jatan-Paratan",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Kenapa-Keppa",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-9（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Overnight_Delivery",
+            "https://ffxiclopedia.fandom.com/wiki/Overnight_Delivery"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Kenapa-Keppa",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Kerutoto",
+      "kind": "npc",
+      "location": {
+        "grid": "J-8",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Kerutoto",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Leepe-Hoppe",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Leepe-Hoppe",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Lumomo",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Lumomo",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Mashuu-Ajuu",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Mashuu-Ajuu",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Maysoon",
+      "kind": "npc",
+      "location": {
+        "grid": "E-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 E-9（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Hoist_the_Jelly,_Roger",
+            "https://ffxiclopedia.fandom.com/wiki/Hoist_the_Jelly,_Roger"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Maysoon",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Moari-Kaaori",
+      "kind": "npc",
+      "location": {
+        "grid": "C-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Moari-Kaaori",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Moreno-Toeno",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Moreno-Toeno",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Naiko-Paneiko",
+      "kind": "npc",
+      "location": {
+        "grid": "C-11",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Naiko-Paneiko",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Paku-Nakku",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Paku-Nakku",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Ranpi-Monpi",
+      "kind": "npc",
+      "location": {
+        "grid": "D-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Ranpi-Monpi",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Ropunono",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Ropunono",
+      "same_name": false
+    },
+    {
+      "id": "npc.238.Tosuka-Porika",
+      "kind": "npc",
+      "location": {
+        "grid": "G-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "moves": false,
+      "name_en": "Tosuka-Porika",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Ambrosius",
+      "kind": "npc",
+      "location": {
+        "grid": "J-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Ambrosius",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Koru-Moru",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Koru-Moru",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Ojha_Rhawash",
+      "kind": "npc",
+      "location": {
+        "grid": "C-13",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Ojha Rhawash",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Raamimi",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Raamimi",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Shantotto",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Shantotto",
+      "same_name": false
+    },
+    {
+      "id": "npc.239.Yoran-Oran",
+      "kind": "npc",
+      "location": {
+        "grid": "E-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "moves": false,
+      "name_en": "Yoran-Oran",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Chipmy-Popmy",
+      "kind": "npc",
+      "location": {
+        "grid": "C-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Chipmy-Popmy",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Dehn_Harzhapan",
+      "kind": "npc",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Dehn Harzhapan",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Kohlo-Lakolo",
+      "kind": "npc",
+      "location": {
+        "grid": "G-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Kohlo-Lakolo",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Kuroido-Moido",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Kuroido-Moido",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Luuh_Koplehn",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Luuh Koplehn",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Maabu-Sonbu",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Maabu-Sonbu",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Ohruru",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 E-7（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Catch_It_If_You_Can!",
+            "https://ffxiclopedia.fandom.com/wiki/Catch_It_If_You_Can!"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Ohruru",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Paytah",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Paytah",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Pygmalion",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Pygmalion",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Sigismund",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Sigismund",
+      "same_name": false
+    },
+    {
+      "id": "npc.240.Tokaka",
+      "kind": "npc",
+      "location": {
+        "grid": "C-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 240,
+        "zone_name": "ウィンダス港"
+      },
+      "moves": false,
+      "name_en": "Tokaka",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Apururu",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Apururu",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Bopa_Greso",
+      "kind": "npc",
+      "location": {
+        "grid": "J-4",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Bopa Greso",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Gioh_Ajihri",
+      "kind": "npc",
+      "location": {
+        "grid": "K-5",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Gioh Ajihri",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Ibwam",
+      "kind": "npc",
+      "location": {
+        "grid": "G-11",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Ibwam",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Illu_Bohjaa",
+      "kind": "npc",
+      "location": {
+        "grid": "I-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Illu Bohjaa",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Kopuro-Popuro",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Kopuro-Popuro",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Kororo",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Kororo",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Kuoh_Rhel",
+      "kind": "npc",
+      "location": {
+        "grid": "K-12",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Kuoh Rhel",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Nanaa_Mihgo",
+      "kind": "npc",
+      "location": {
+        "grid": "J-3",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Nanaa Mihgo",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Perih_Vashai",
+      "kind": "npc",
+      "location": {
+        "grid": "K-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Perih Vashai",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Roberta",
+      "kind": "npc",
+      "location": {
+        "grid": "I-13",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Roberta",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Soni-Muni",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Soni-Muni",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Tapoh_Lihzeh",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Tapoh Lihzeh",
+      "same_name": false
+    },
+    {
+      "id": "npc.241.Wetata",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 241,
+        "zone_name": "ウィンダス森の区"
+      },
+      "moves": false,
+      "name_en": "Wetata",
+      "same_name": false
+    },
+    {
+      "id": "npc.243.Laityn",
+      "kind": "npc",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 243,
+        "zone_name": "ル・ルデの庭"
+      },
+      "moves": false,
+      "name_en": "Laityn",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Harnek",
+      "kind": "npc",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 J-7（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/The_Tenshodo_Showdown",
+            "https://ffxiclopedia.fandom.com/wiki/The_Tenshodo_Showdown"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Harnek",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Naruru",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Naruru",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Ruslan",
+      "kind": "npc",
+      "location": {
+        "grid": "I-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Ruslan",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Sniggnix",
+      "kind": "npc",
+      "location": {
+        "grid": "H-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-10（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/As_Thick_as_Thieves",
+            "https://ffxiclopedia.fandom.com/wiki/As_Thick_as_Thieves"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Sniggnix",
+      "same_name": false
+    },
+    {
+      "id": "npc.245.Yatniel",
+      "kind": "npc",
+      "location": {
+        "grid": "G-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "Yatniel",
+      "same_name": false
+    },
+    {
+      "id": "npc.248.Elfriede",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 248,
+        "zone_name": "セルビナ"
+      },
+      "moves": false,
+      "name_en": "Elfriede",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Hagain",
+      "kind": "npc",
+      "location": {
+        "grid": "H-8",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 H-8（BG Wiki と FFXIclopedia が一致、用語辞典は I-8）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Hitting_the_Marquisate",
+            "https://ffxiclopedia.fandom.com/wiki/Hitting_the_Marquisate"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Hagain",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Koh_Lenbalalako",
+      "kind": "npc",
+      "location": {
+        "grid": "F-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Koh Lenbalalako",
+      "same_name": false
+    },
+    {
+      "id": "npc.249.Kotan-Purutan",
+      "kind": "npc",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 249,
+        "zone_name": "マウラ"
+      },
+      "moves": false,
+      "name_en": "Kotan-Purutan",
+      "same_name": false
+    },
+    {
+      "id": "npc.Etsa_Rhuyuli",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Etsa Rhuyuli",
+      "same_name": false
+    },
+    {
+      "id": "npc.Five_of_Diamonds",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Five of Diamonds",
+      "same_name": false
+    },
+    {
+      "id": "npc.Furakku-Norakku",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Furakku-Norakku",
+      "same_name": false
+    },
+    {
+      "id": "npc.Goblin_Thug",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Goblin Thug",
+      "same_name": false
+    },
+    {
+      "id": "npc.Hae_Jakkya",
+      "kind": "npc",
+      "location": {
+        "grid": "I-12",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-12（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Chasing_Tales",
+            "https://ffxiclopedia.fandom.com/wiki/Chasing_Tales"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Hae Jakkya",
+      "same_name": false
+    },
+    {
+      "id": "npc.Hiwon-Biwon",
+      "kind": "npc",
+      "location": {
+        "grid": "K-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Hiwon-Biwon",
+      "same_name": false
+    },
+    {
+      "id": "npc.Honoi-Gomoi",
+      "kind": "npc",
+      "location": {
+        "grid": "E-7",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「カーディアンはトライマライの夢を見るか？」依頼者：ウィンダス水の区（南）の商人の家(E-7)。南は MAP2",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/7400.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Honoi-Gomoi",
+      "same_name": false
+    },
+    {
+      "id": "npc.Kunchichi",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Kunchichi",
+      "same_name": false
+    },
+    {
+      "id": "npc.Kyume-Romeh",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Kyume-Romeh",
+      "same_name": false
+    },
+    {
+      "id": "npc.Mashira",
+      "kind": "npc",
+      "location": {
+        "grid": "I-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 I-7（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Making_Amens!",
+            "https://ffxiclopedia.fandom.com/wiki/Mashira"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Mashira",
+      "same_name": false
+    },
+    {
+      "id": "npc.Npopo",
+      "kind": "npc",
+      "location": {
+        "grid": "G-4",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-14",
+          "fact_ja": "座標 G-4（BG Wiki と FFXIclopedia が一致）",
+          "name": "BG Wiki, FFXIclopedia",
+          "urls": [
+            "https://www.bg-wiki.com/ffxi/Lure_of_the_Wildcat_(Windurst)",
+            "https://ffxiclopedia.fandom.com/wiki/Lure_of_the_Wildcat_(Windurst)"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Npopo",
+      "same_name": false
+    },
+    {
+      "id": "npc.Ocean_Crab",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Ocean Crab",
+      "same_name": false
+    },
+    {
+      "id": "npc.Ohbiru-Dohbiru",
+      "kind": "npc",
+      "location": {
+        "grid": "J-9",
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 238,
+        "zone_name": "ウィンダス水の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「水呼びの扉」「魔法の水」依頼者：ウィンダス水の区の鼻の院（南マップ J-9）。南は MAP2",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/5421.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Ohbiru-Dohbiru",
+      "same_name": false
+    },
+    {
+      "id": "npc.Orn",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Orn",
+      "same_name": false
+    },
+    {
+      "id": "npc.Passenger",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Passenger",
+      "same_name": false
+    },
+    {
+      "id": "npc.Pechiru-Mashiru",
+      "kind": "npc",
+      "location": {
+        "grid": "L-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Pechiru-Mashiru",
+      "same_name": false
+    },
+    {
+      "id": "npc.Perih_Vashai",
+      "kind": "npc",
+      "location": {
+        "grid": "K-6",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Perih Vashai",
+      "same_name": false
+    },
+    {
+      "id": "npc.Ryan",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Ryan",
+      "same_name": false
+    },
+    {
+      "id": "npc.Spare_One",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Spare One",
+      "same_name": false
+    },
+    {
+      "id": "npc.Varun",
+      "kind": "npc",
+      "location": {
+        "grid": "H-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Varun",
+      "same_name": false
+    },
+    {
+      "id": "npc.Wanzo-Unzozo",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Wanzo-Unzozo",
+      "same_name": false
+    },
+    {
+      "id": "npc.Yoriri",
+      "kind": "npc",
+      "location": null,
+      "moves": false,
+      "name_en": "Yoriri",
+      "same_name": false
+    },
+    {
+      "id": "npc.Yuli_Yaam",
+      "kind": "npc",
+      "location": {
+        "grid": "F-10",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Yuli Yaam",
+      "same_name": false
+    },
+    {
+      "id": "npc.Zayhi-Bauhi",
+      "kind": "npc",
+      "location": {
+        "grid": "F-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Zayhi-Bauhi",
+      "same_name": false
+    },
+    {
+      "id": "npc.天の塔.Chumimi",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 242,
+        "zone_name": "天の塔"
+      },
+      "moves": false,
+      "name_en": "Chumimi",
+      "same_name": false
+    },
+    {
+      "id": "npc.天の塔.Kupipi",
+      "kind": "npc",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 242,
+        "zone_name": "天の塔"
+      },
+      "moves": false,
+      "name_en": "Kupipi",
+      "same_name": false
+    },
+    {
+      "id": "obj.104.???_H-6",
+      "kind": "obj",
+      "location": {
+        "grid": "H-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 104,
+        "zone_name": "ジャグナー森林"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.115.Altar_of_Offerings",
+      "kind": "obj",
+      "location": {
+        "grid": "G-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 115,
+        "zone_name": "西サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Altar of Offerings",
+      "same_name": false
+    },
+    {
+      "id": "obj.116.Mahogany_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "J-7",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 116,
+        "zone_name": "東サルタバルタ"
+      },
+      "moves": false,
+      "name_en": "Mahogany Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.117.Tahrongi_Cacti",
+      "kind": "obj",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 117,
+        "zone_name": "タロンギ大峡谷"
+      },
+      "moves": false,
+      "name_en": "Tahrongi Cacti",
+      "same_name": false
+    },
+    {
+      "id": "obj.120.Tiger_Bones",
+      "kind": "obj",
+      "location": {
+        "grid": "L-10",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 120,
+        "zone_name": "ソロムグ原野"
+      },
+      "moves": false,
+      "name_en": "Tiger Bones",
+      "same_name": false
+    },
+    {
+      "id": "obj.143.Mythril_Seam",
+      "kind": "obj",
+      "location": {
+        "grid": "I-9",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 143,
+        "zone_name": "パルブロ鉱山"
+      },
+      "moves": false,
+      "name_en": "Mythril Seam",
+      "same_name": false
+    },
+    {
+      "id": "obj.145.Giddeus_Spring",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 145,
+        "zone_name": "ギデアス"
+      },
+      "moves": false,
+      "name_en": "Giddeus Spring",
+      "same_name": false
+    },
+    {
+      "id": "obj.162.Ore_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 162,
+        "zone_name": "ズヴァール城内郭"
+      },
+      "moves": false,
+      "name_en": "Ore Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.169.???_H-7",
+      "kind": "obj",
+      "location": {
+        "grid": "H-7",
+        "map": {
+          "kind": "number",
+          "n": 1
+        },
+        "zone_id": 169,
+        "zone_name": "トライマライ水路"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.195.???",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": 195,
+        "zone_name": "エルディーム古墳"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.198.Iron_Door",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "number",
+          "n": 2
+        },
+        "zone_id": 198,
+        "zone_name": "シャクラミの地下迷宮"
+      },
+      "moves": false,
+      "name_en": "Iron Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.204.Cermet_Door",
+      "kind": "obj",
+      "location": {
+        "grid": "F-6",
+        "map": {
+          "kind": "number",
+          "n": 3
+        },
+        "zone_id": 204,
+        "zone_name": "フェ・イン"
+      },
+      "moves": false,
+      "name_en": "Cermet Door",
+      "same_name": false
+    },
+    {
+      "id": "obj.245.???",
+      "kind": "obj",
+      "location": {
+        "grid": null,
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 245,
+        "zone_name": "ジュノ下層"
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.???",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.???_E-8",
+      "kind": "obj",
+      "location": {
+        "grid": "E-8",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "???",
+      "same_name": false
+    },
+    {
+      "id": "obj.Chest",
+      "kind": "obj",
+      "location": null,
+      "moves": false,
+      "name_en": "Chest",
+      "same_name": false
+    },
+    {
+      "id": "obj.Door_House_of_the_Hero",
+      "kind": "obj",
+      "location": {
+        "grid": "G-3",
+        "map": {
+          "kind": "single"
+        },
+        "zone_id": 239,
+        "zone_name": "ウィンダス石の区"
+      },
+      "location_sources": [
+        {
+          "checked": "2026-11-16",
+          "fact_ja": "用語辞典「7色の光を！」「人形使い」依頼者：ウィンダス石の区の英雄の家(G-3)",
+          "name": "用語辞典",
+          "urls": [
+            "https://wiki.ffo.jp/html/7011.html"
+          ]
+        }
+      ],
+      "moves": false,
+      "name_en": "Door:House of the Hero",
+      "same_name": false
+    },
+    {
+      "id": "obj.Gravestone",
+      "kind": "obj",
+      "location": {
+        "grid": "G-9",
+        "map": {
+          "kind": "unknown"
+        },
+        "zone_id": null,
+        "zone_name": null
+      },
+      "moves": false,
+      "name_en": "Gravestone",
+      "same_name": false
+    }
+  ]
+}
