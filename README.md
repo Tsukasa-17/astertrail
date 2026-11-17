@@ -4,7 +4,7 @@
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**版 1.1.211**（公開 β）／ データ `2026.11.16-112`
+**版 1.1.226**（公開 β）／ データ `2026.11.17-124`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -24,23 +24,23 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ## できること
 
-- **冒険の本**：ミッション・クエスト・エミネンスの一覧。左に見出しの木（クエストは地域とエリア、ミッションは系列、エミネンスは分類。件数（達成数/総数）つき。いちばん上は「すべて」）、中央に項目の表、右に詳細です。地域や分類・状態・検索で表を絞り込めます。列の並びと幅、出す・隠すを変えられ、タブごとに覚えます。行を選ぶと右側に詳細、ダブルクリックで詳細だけの窓になります。本を閉じているときは、画面の入口アイコンから開けます。
+- **冒険の本**：ミッション・クエスト・エミネンスの一覧。左に見出しの木（クエストは地域とエリア、ミッションは系列、エミネンスは分類。件数（達成数/総数）つき。いちばん上は「すべて」）、中央に項目の表、右に詳細です。左の見出しで地域や分類を選び、2行目の「表示」のチェック（受注中・未受注・完了／達成）と検索で表を絞り込めます。列の並びと幅、出す・隠すを変えられ、タブごとに覚えます。行を選ぶと右側に詳細、ダブルクリックで詳細だけの窓になります。本を閉じているときは、画面の入口アイコンから開けます。
 - **詳細**：場所と発生 NPC、状態（未受注・受注中・完了。ゲームの記録から読みます）、手順と今の手順（自分で選べます）、ピン留め。相手の名前を押すと地図を開きます。出典は画面に出しません。
 - **トラッカー**：ピン留めしたものを最大 10 件まで（数は設定で変えられます）。ミッションはいつも上。今の手順、時間帯・天候（資料にあるときだけ）、必要な品の所持、◀▶ で手順を送れます。一覧とタブの出し方を選べます。
-- **エミネンス**：受けているものと進みを小さな窓に出せます（初期は隠す）。本の「エミネンス」タブで全部のレコードを見られ、「受ける」「解除」は **押したときに 1 回だけ**、ゲームのメニューと同じ通信を送ります（自動では送りません）。名前・目標・報酬などは、手元のゲームのデータファイルから読みます（同梱しません）。お気に入りと ★（窓のピン）は別です。「達成済みを非表示」にしても、くり返しできるものは残します。
+- **エミネンス**：受けているものと進みを小さな窓に出せます（初期は隠す）。本の「エミネンス」タブで全部のレコードを見られ、「受ける」「解除」は **押したときに 1 回だけ**、ゲームのメニューと同じ通信を送ります（自動では送りません）。名前・目標・報酬などは、手元のゲームのデータファイルから読みます（同梱しません）。お気に入りと ★（窓のピン）は別です。「達成」のチェックを外しても、くり返しできる達成は残します（初期はオフです）。今日・今週は受けられない目標は灰色で出して、「受ける」は押せません。
 - **コンパス**：いまいるエリアで受けられるクエストを、近い順に出します（初期は隠す）。
 - **地図**：手順の場所に印を出します。地図の画像は同梱せず、手元のクライアントの地図 DAT を実行時に読みます（読めなければマス目の方眼になります）。自分の位置、となりのエリアへの出口、着いた位置の輪（◎）が出ます。出口がどの階層にあるか分からないときは置きません。
 - **アイコンと足元の輪**：見えている相手にだけ、クエストの状態に合わせた印を出します（未受注・受注中・討伐・ゲートガード・名声を教えてくれる人など）。討伐は、手順に名前や種族が書いてあるモンスターに出します。印を付けた相手の足元には、同じ色の光の輪が出ます。自分の絵に差し替えるときは、`assets/marks/` に PNG を置きます。無い名前は `assets/marks/example/` の絵を使います。詳しくはそのフォルダの `README.txt` を見てください。`/astertrail icons` で読み直せます。
 - **所持**：手順の必要品を、かばん・金庫・金庫2・モグ収納・モグロッカー・サッチェル・サック・ケース・ワードローブ1〜8 から数えます（テンポラリは数えません）。足りていれば「○」、足りなければ「持っている数/必要な数」。マウスを乗せると、どこにいくつあるかが出ます。まだ読み込まれていない入れ物は空とみなさず「未確認」と出します。持っているだけで手順は終わりません。報酬は数えません。
 - **お知らせと効果音**：ログイン時の「前回の続き」（初期はオフ。設定の「お知らせ」で出せます）。遊んでいるあいだにクエスト・ミッションを受けた・終えたときは、ふわっと出る知らせと、このアドオンで作った、明るい長調の短いファンファーレを出します（ゲームやほかのアドオンの音は使いません。よく知られた既存のメロディは使いません）。ピン留めするかどうかを聞けます（ボタンは中央。出ているあいだはパッドで選べます）。設定の「お知らせ」で効果音の音量を 0〜100%（10% きざみ、初期 70%、0 は無音）に変えられ、受注時・完了時の表示を試せます。
-- **ゲームの記録**：受注・完了を、ゲームが持っている記録から合わせます（読むだけです）。つながるのは 1547 件で、282 件はつながりません（後述）。
+- **ゲームの記録**：受注・完了を、ゲームが持っている記録から合わせます（読むだけです）。つながるのは 1625 件で、204 件はつながりません（後述）。
 - **マイレイアウト**：設定の「保存」に 5 つの枠があります。各窓の位置・大きさ・出す／隠すと、見た目や列などの設定を覚えられます。進行・ピン・お気に入り・名声・デバッグは入りません。
 - **ショートカット**：設定の「操作」で、本を開く、トラッカーの表示／非表示と操作、エミネンスとコンパスの表示／非表示を、パッドのボタンの組み合わせに割り当てられます（初期値はなし）。
 - **見た目**：初期はクラシックです。設定の「見た目」で YunaUI 風に変えられます。文字サイズと背景の濃さは窓ごとに変えられます。自分で決めた窓の大きさは、文字サイズを変えてもそのままです。
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-1.1.211.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-1.1.226.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -83,7 +83,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 | `/astertrail save` | 今すぐ保存する |
 | `/astertrail status` | 版・データ・キャラ・状態を表示する |
 | `/astertrail floor` | いまいる階の判定を表示する |
-| `/astertrail target`（別名 `pos`） | いまのターゲットの座標を表示する |
+| `/astertrail target`（別名 `pos`） | いまのターゲットの座標と番号を表示する |
 | `/astertrail gamelog [read]` | ゲームの記録の読み取りの様子。`read` で読み直す |
 | `/astertrail roe [read/reload]` | エミネンスの読み取りの様子。`read` で読み直し、`reload` でデータファイルを読み直す |
 | `/astertrail menus` | ゲームのメニューの読み取りの様子 |
@@ -118,7 +118,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 ## わかっている制限（β）
 
 - これは β 版です。まだ変わることがあり、不具合もあるかもしれません。
-- 収録はクエスト・ミッション 1829 件です。このうち **ゲームの記録とつながるのは 1547 件** で、**282 件はつながりません**（カンパニエ・TVR、一部のミッションなど）。つながらないものは、受注・完了が自動では変わりません（公開版では手で変える操作はありません）。
+- 収録はクエスト・ミッション 1829 件です。このうち **ゲームの記録とつながるのは 1625 件** で、**204 件はつながりません**（カンパニエ・TVR、一部のミッションなど）。つながらないものは、受注・完了が自動では変わりません（公開版では手で変える操作はありません）。
 - 手順ごとの進み具合は、ゲームから自動では読みません（受注・完了だけです）。
 - 名声の段階は、ゲームの数値としては読めません。名声を教えてくれる人に話すと覚えます。
 - 最後の手順をチェックしても、クエストは自動では完了になりません。
@@ -151,7 +151,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.211, data `2026.11.16-112`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.226, data `2026.11.17-124`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 
@@ -163,7 +163,7 @@ In the book, with a pad or keys, up/down picks a heading (or a row) at the curre
 
 To update, replace the addon folder. Progress and settings stay in `Vanacore\config\addons\astertrail\catseye_<character>\`.
 
-It is not affiliated with or endorsed by Square Enix, CatsEyeXI, or VanaCore. No game assets are bundled. Maps are read from your local client DAT files at runtime. Sounds are original. Of 1829 quests and missions, 1547 can be matched to the game's records; **282 cannot** (including Campaign, TVR, and some missions).
+It is not affiliated with or endorsed by Square Enix, CatsEyeXI, or VanaCore. No game assets are bundled. Maps are read from your local client DAT files at runtime. Sounds are original. Of 1829 quests and missions, 1625 can be matched to the game's records; **204 cannot** (including Campaign, TVR, and some missions).
 
 Update notice: when enabled, the addon reads this repository's `version.json` once after loading (read-only) and prints one chat line if a newer version exists. You can turn it off in the settings.
 

@@ -11,6 +11,9 @@
     ミスラ・ノーグなどの「その他の地域」「辺境」は 2 つのログのどちらか。misc・records は全部のログ。
   - 一致が 0 個・2 個以上のものは結ばない（推測しない）。
   - カンパニエ（LSB に id がない）、ヴァナ・ディールの星唄 TVR（LSB で「推測」と書いてある）は結ばない。
+足りないもの（0.1.216〜）：dev/sources/game_refs_extra.json の refs。クライアントの DAT のクエスト・ミッション名と
+  英語名・日本語名のどちらも1つだけ一致したもの（2026-11-17 に照合。番号だけ）。LSB で結べたものはそのまま、
+  LSB で結べなかったものだけに足す。同じゲーム番号がもう使われていれば足さない。
 出力：data/game_refs.json（{ "quest.bastok.001": ["q", 1, 12], "mission.zilart.002": ["m", 3, 4] } など）
 """
 import glob, json, os, re, sys
@@ -134,6 +137,24 @@ def main():
     for k, v in dups.items():
         for qid in v:
             del refs[qid]
+    # DAT で確かめた足し分（0.1.216〜）。LSB で結べたものは変えない
+    extra_path = os.path.join(ROOT, 'dev', 'sources', 'game_refs_extra.json')
+    extra_added, extra_skipped = 0, []
+    if os.path.exists(extra_path):
+        extra = json.load(open(extra_path, encoding='utf-8'))
+        used = {tuple(r) for r in refs.values()}
+        for qid, r in sorted(extra.get('refs', {}).items()):
+            if qid not in order:
+                extra_skipped.append((qid, 'no such quest'))
+            elif qid in refs:
+                if refs[qid] != r:
+                    extra_skipped.append((qid, 'LSB has %r' % (refs[qid],)))
+            elif tuple(r) in used:
+                extra_skipped.append((qid, 'slot used %r' % (r,)))
+            else:
+                refs[qid] = list(r)
+                used.add(tuple(r))
+                extra_added += 1
     # 今のミッションだけが届くログ（プロマシア・追加シナリオ・アドゥリン・星唄）は、
     # 番号の並び（mission_ids）を出す。「今より前の番号は済み」とするのは、LSB の番号が資料の順（話の順）に
     # 増えているログ（mission_ordered）だけ。プロマシアは道が分かれるので「今のミッション＝受注中」だけ。
@@ -148,14 +169,19 @@ def main():
         if ok:
             ordered.append(log)
         print(' order %-4s %s (%d mapped)' % (area, 'ok' if ok else 'NOT increasing - current only', len(nums)))
-    out = {'source': open(os.path.join(SRC, 'SOURCE.txt'), encoding='utf-8').read().strip(),
+    # SOURCE.txt の1行目が番号の表の版（2行目からは別のビルダーの分）
+    src_note = open(os.path.join(SRC, 'SOURCE.txt'), encoding='utf-8').read().strip().split('\n')[0]
+    out = {'source': src_note,
            'mission_ids': order_logs,
            'mission_ordered': ordered,
            'refs': dict(sorted(refs.items()))}
     with open(os.path.join(ROOT, 'data', 'game_refs.json'), 'w', encoding='utf-8') as fp:
         json.dump(out, fp, ensure_ascii=False, indent=0, sort_keys=False)
         fp.write('\n')
-    print('game_refs', len(refs), 'dups dropped', sum(len(v) for v in dups.values()))
+    print('game_refs', len(refs), 'dups dropped', sum(len(v) for v in dups.values()),
+          'extra added', extra_added, 'extra skipped', len(extra_skipped))
+    for row in extra_skipped:
+        print('  extra skipped', row)
     for k in sorted(stats):
         print(' %-22s mapped %4d  unmapped %4d' % (k, stats[k][0], stats[k][1]))
     if '-v' in sys.argv:

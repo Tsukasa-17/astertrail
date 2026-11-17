@@ -669,23 +669,12 @@ local last_state_held = {}   -- xinput_state で前に読んだ押している�
 -- xinput_state（毎回の XInputGetState）：書き換える前の値から、ショートカットと画面の操作の両方を読む（0.1.68〜）。
 -- 0.1.67 までは画面の操作を xinput_button だけで読んでいた。トラッカーの操作中は、ここで XINPUT_STATE を全部 0 に
 -- 書き換えるため、それをもとに作られる xinput_button が届かず、十字キー・×・○ が一つも効かなかった。
--- 左スティックを十字と同じ方向に（遊びの半分を超えたら。お知らせなどの画面操作用。0.1.197〜）
-platform.STICK_DEADZONE = 16000
-local function merge_stick(held, lx, ly)
-    local dead = platform.STICK_DEADZONE or 16000
-    lx, ly = tonumber(lx) or 0, tonumber(ly) or 0
-    if lx <= -dead then held.left = true end
-    if lx >=  dead then held.right = true end
-    if ly >=  dead then held.up = true end
-    if ly <= -dead then held.down = true end
-    return held
-end
-
+-- 0.1.226〜：画面の操作は十字キーだけ（左スティックでは動かさない）
 local function on_xinput_state(e)
     if not app or not app.pad_held then return end
     local u = tonumber(e.user)
     if u and u ~= 0 then return end   -- 1台目のパッドだけ
-    local b, lt, rt, lx, ly = read_xstate(e.state)
+    local b, lt, rt = read_xstate(e.state)
     if not b then return end
     pad_source = 'state'
     local held = shortcut.held_from_state(b, lt, rt)
@@ -694,7 +683,6 @@ local function on_xinput_state(e)
     if not (app.pad_capturing and app.pad_capturing()) then
         nav = {}
         for k in pairs(held) do nav[k] = true end
-        merge_stick(nav, lx, ly)
         pad_edges(last_state_held, nav)
     end
     last_state_held = nav
@@ -884,6 +872,7 @@ local EN_NAME = { 'GetName' }
 local EN_SERVERID = { 'GetServerId', 'GetServerID' }
 local EN_SPAWNFLAGS = { 'GetSpawnFlags' }
 local EN_STATUS = { 'GetStatus' }
+local EN_RENDERFLAGS = { 'GetRenderFlags0' }
 
 local function ent_call(ent, names, index)
     for _, n in ipairs(names) do
@@ -918,6 +907,19 @@ local function clean_name(name)
     return name
 end
 
+-- 0.1.213〜：いま出ている（描かれている）相手か。render の 0x200 が「描かれている」の印。
+-- 読めない（nil）ときは分からない（nil）を返す。
+local RENDER_SHOWN = 0x200
+local function render_shown(render)
+    render = tonumber(render)
+    if render == nil then return nil end
+    return band(render, RENDER_SHOWN) ~= 0
+end
+platform._render_shown = render_shown
+-- render の印が使えるか（全体の読み直しのたびに決める）。だれか1人（自分など）に印があれば使える。
+-- 印がだれにも無いときは、読み方が合っていないとみなして、前のやり方（spawn の値）に戻す。
+local render_usable = false
+
 local function is_question_name(name)
     if name == '???' or name == '？？？' then return true end
     if type(name) ~= 'string' or name == '' then return false end
@@ -935,6 +937,8 @@ local function add_official_question(i, by_index, out)
     if not (ok_e and type(e) == 'table') then return nil end
     local name = clean_name(e.name)
     if not (name and is_question_name(name)) then return nil end
+    -- 0.1.213〜：消えた ??? は足さない（前は出ていなくても足していて、天気で消えた ??? の印が残った）
+    if render_usable and render_shown(e.render_flags) == false then return nil end
     local row = {
         index = i,
         name = name,
@@ -946,6 +950,7 @@ local function add_official_question(i, by_index, out)
         model_size = tonumber(e.model_size),
         distance = tonumber(e.distance),
         server_id = tonumber(e.id),
+        render_flags = tonumber(e.render_flags),
         kind = 'other',
         _official = true,
     }
@@ -960,13 +965,22 @@ local function scan_entities_full()
         return AshitaCore:GetMemoryManager():GetEntity()
     end)
     if not ok or not ent then return out end
+    -- 0.1.213〜：いま出ている相手だけ。render の 0x200（描かれている）で見る。
+    -- 前は「??? は名前が出なくてもメモリ上にいることがある」ので spawn の値が 0 でも ??? を残していたが、
+    -- 消えた（天気・時間で消えた、別の場所に移った）??? も残り、古い場所に印が出たままになっていた。
+    -- render が読めないときだけ、前のやり方（spawn が 0 の相手は外す。??? だけは残す）に戻す。
+    local raw = {}
+    local any_shown = false
     for i = 0, ENTITY_MAX do
         local pok, row = pcall(function ()
             local name = clean_name(ent_call(ent, EN_NAME, i))
             if not name then return nil end
             local flags = tonumber(ent_call(ent, EN_SPAWNFLAGS, i)) or 0
-            -- ??? は名前が出なくてもメモリ上にいることがある。flags が 0 でも名前があれば残す。
-            if flags == 0 and not is_question_name(name) then return nil end
+            local render = tonumber(ent_call(ent, EN_RENDERFLAGS, i))
+            local shown = render_shown(render)
+            if shown then any_shown = true end
+            -- どちらのやり方でも残らない相手は、ここで外す（残りは下で、render が使えるかを見てから決める）
+            if shown ~= true and flags == 0 and not is_question_name(name) then return nil end
             local hpp = tonumber(ent_call(ent, EN_HEALTHPERCENT, i))
             local status = tonumber(ent_call(ent, EN_STATUS, i))
             -- 状態 2 は死亡（よく使われる値）。hpp 0 も死亡とみなす。
@@ -986,10 +1000,19 @@ local function scan_entities_full()
                 model_size = tonumber(ent_call(ent, EN_MODELSIZE, i)),
                 distance = tonumber(ent_call(ent, EN_DISTANCE, i)),
                 server_id = tonumber(ent_call(ent, EN_SERVERID, i)),
+                render_flags = render,
                 kind = kind_of(flags, ent_call(ent, EN_ENTITYTYPE, i)),
             }
         end)
-        if pok and row then out[#out + 1] = row end
+        if pok and row then raw[#raw + 1] = row end
+    end
+    render_usable = any_shown
+    for _, row in ipairs(raw) do
+        if render_usable then
+            if render_shown(row.render_flags) ~= false then out[#out + 1] = row end
+        elseif row.spawn_flags ~= 0 or is_question_name(row.name) then
+            out[#out + 1] = row
+        end
     end
     -- 公式 vana.game.entity で、位置が無い相手を補い、Ashita が見逃した ??? を足す。
     if ext and ext.game_entity then
@@ -1043,6 +1066,11 @@ end
 platform.ENTITY_SCAN_EVERY = 0.25
 local ent_cache = { rows = nil, at = -1 }
 
+-- render の印で「いま出ているか」を見ているか（/astertrail status・確認用）
+function platform.entity_render_usable()
+    return render_usable
+end
+
 function platform.clear_entity_cache()
     ent_cache.rows, ent_cache.at = nil, -1
 end
@@ -1053,6 +1081,8 @@ local function refresh_row(ent, row)
         local ok_e, e = pcall(ext.game_entity, row.index)
         if not (ok_e and type(e) == 'table') then return false end
         if clean_name(e.name) ~= row.name then return false end
+        -- 0.1.213〜：消えたらすぐ外す（次の全体の読み直しを待たない）
+        if render_usable and render_shown(e.render_flags) == false then return false end
         row.x, row.y, row.z = tonumber(e.x), tonumber(e.y), tonumber(e.z)
         row.hpp = tonumber(e.hpp)
         row.dead = (row.hpp == 0)
@@ -1062,6 +1092,12 @@ local function refresh_row(ent, row)
     local i = row.index
     local name = clean_name(ent_call(ent, EN_NAME, i))
     if name ~= row.name then return false end
+    -- 0.1.213〜：消えたらすぐ外す（次の全体の読み直しを待たない）
+    if render_usable then
+        local render = tonumber(ent_call(ent, EN_RENDERFLAGS, i))
+        if render_shown(render) == false then return false end
+        row.render_flags = render
+    end
     local hpp = tonumber(ent_call(ent, EN_HEALTHPERCENT, i))
     local status = tonumber(ent_call(ent, EN_STATUS, i))
     row.hpp, row.status = hpp, status
@@ -1390,18 +1426,21 @@ function platform.current_target()
         return nil
     end
     local e = platform.game_entity(idx)
-    local name, x, y, z, model_size
+    local name, x, y, z, model_size, id, render_flags
     if type(e) == 'table' then
         name = clean_name(e.name)
         x, y, z = tonumber(e.x), tonumber(e.y), tonumber(e.z)
         model_size = tonumber(e.model_size)
+        id = tonumber(e.id)
+        render_flags = tonumber(e.render_flags)
     end
     return {
         index = idx,
-        id = t.id,
+        id = id or t.id,
         name = name,
         x = x, y = y, z = z,
         model_size = model_size,
+        render_flags = render_flags,
     }
 end
 
@@ -1678,7 +1717,7 @@ end
 ---------------------------------------------------------------------------
 -- クエスト・ミッションの記録（0.1.169〜、t223。読むだけ。通信は送らない・変えない・止めない）
 -- ゲームは届いた 0x056 の中身を FFXiMain.dll の中に写している。その場所を 0x056 の処理の命令から探す
--- （2026-11-16、実機で処理を読んで確かめた。どれも一致は 1 つ）。
+-- （2026-11-16、GAME-PC で処理を読んで確かめた。どれも一致は 1 つ）。
 ---------------------------------------------------------------------------
 
 local game_log = require('src.core.game_log')
@@ -1765,7 +1804,7 @@ end
 ---------------------------------------------------------------------------
 -- エミネンス・レコード（0.1.172〜、t243）。ゲームが 0x111・0x112 を写した場所を読む（読むだけ）
 -- 0x111 の処理：64 個の u32 を写す mov eax,番地（＋5）、終わりの cmp eax,番地＋0x100（＋23）、届いた印（＋31）
--- 0x112 の処理：128 バイトを [ecx+eax+番地] へ写す（＋36）。2026-11-16、実機で処理を読んで確かめた（どれも一致は 1 つ）
+-- 0x112 の処理：128 バイトを [ecx+eax+番地] へ写す（＋36）。2026-11-16、GAME-PC で処理を読んで確かめた（どれも一致は 1 つ）
 -- 印のビット 2 は 0x111 が届いた、ビット 4 は 0x112 が 4 つ届いた（0 番目が来ると落ちる）
 ---------------------------------------------------------------------------
 
@@ -2077,7 +2116,8 @@ function platform.start(the_app)
             if app.on_inventory_packet then pcall(app.on_inventory_packet, id) end
             return
         end
-        if id ~= 0x056 and id ~= 0x111 and id ~= 0x112 and id ~= 0x029 then return end
+        -- 0.1.224〜：0x110（ユニティの今日の組・今週）・0x061（自分のユニティのリーダー）も読む
+        if id ~= 0x056 and id ~= 0x111 and id ~= 0x112 and id ~= 0x029 and id ~= 0x110 and id ~= 0x061 then return end
         local d = e.data
         if type(d) ~= 'string' then return end
         if id == 0x056 then

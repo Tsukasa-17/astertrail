@@ -1795,11 +1795,30 @@
       "location": {
         "grid": "H-7",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 5
+        },
+        "pos": {
+          "x": -124.772,
+          "y": 338.461,
+          "z": 1.773
         },
         "zone_id": 196,
         "zone_name": "グスゲン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-124.772 y=338.461 z=1.773（id 17580431。地図の換算で MAP5 の H-7、マス目 H-7 と同じ）。MAP5 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/gusgen_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hedrov",
       "same_name": false
@@ -1812,9 +1831,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 37.236,
+          "y": 43.047,
+          "z": -7.199
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=37.236 y=43.047 z=-7.199（id 16982163。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tateeya",
       "same_name": false
@@ -1827,9 +1861,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 273.264,
+          "y": 101.531,
+          "z": -86.975
+        },
         "zone_id": 291,
         "zone_name": "醴泉島"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=273.264 y=101.531 z=-86.975（id 17970049。地図の換算で MAP1 の K-8、マス目 K-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/reisenjima/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Reikuu",
       "same_name": false
@@ -1842,9 +1891,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -5.253,
+          "y": -59.815,
+          "z": -59.427
+        },
         "zone_id": 111,
         "zone_name": "ボスディン氷河"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-5.253 y=-59.815 z=-59.427（id 17232347。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/beaucedine_glacier/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ferric Stench",
       "same_name": false
@@ -1857,9 +1921,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 562.862,
+          "y": -286.108,
+          "z": -0.106
+        },
         "zone_id": 112,
         "zone_name": "ザルカバード"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=562.862 y=-286.108 z=-0.106（id 17236376。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Heroes' Gambit",
       "same_name": false
@@ -1872,9 +1951,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 255.43,
+          "y": 3.245,
+          "z": -4.935
+        },
         "zone_id": 115,
         "zone_name": "西サルタバルタ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=255.430 y=3.245 z=-4.935（id 17248941。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/west_sarutabaruta/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Secluded Spot",
       "same_name": false
@@ -1887,9 +1981,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 395.108,
+          "y": 43.94,
+          "z": -15.895
+        },
         "zone_id": 116,
         "zone_name": "東サルタバルタ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=395.108 y=43.940 z=-15.895（id 17253134。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/east_sarutabaruta/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Disturbed Earth",
       "same_name": false
@@ -1903,9 +2012,24 @@
           "kind": "number",
           "n": 3
         },
+        "pos": {
+          "x": 100.0,
+          "y": -60.0,
+          "z": -32.0
+        },
         "zone_id": 143,
         "zone_name": "パルブロ鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=100.000 y=-60.000 z=-32.000（id 17363404。地図の換算で MAP3 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/palborough_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Perversion's Refuge",
       "same_name": false
@@ -1919,9 +2043,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -170.85,
+          "y": 187.3,
+          "z": 15.95
+        },
         "zone_id": 145,
         "zone_name": "ギデアス"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-170.850 y=187.300 z=15.950（id 17371629。地図の換算で MAP2 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/giddeus/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Worn Chest",
       "same_name": false
@@ -1934,9 +2073,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 11.634,
+          "y": -283.555,
+          "z": -0.256
+        },
         "zone_id": 150,
         "zone_name": "修道窟"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=11.634 y=-283.555 z=-0.256（id 17391862。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/monastic_cavern/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ritual Site",
       "same_name": false
@@ -1965,9 +2119,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 142.15,
+          "y": -195.95,
+          "z": 8.25
+        },
         "zone_id": 172,
         "zone_name": "ツェールン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=142.150 y=-195.950 z=8.250（id 17481876。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/zeruhn_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Disturbed Dirt",
       "same_name": false
@@ -1980,9 +2149,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 1.696,
+          "y": -138.686,
+          "z": 9.749
+        },
         "zone_id": 172,
         "zone_name": "ツェールン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=1.696 y=-138.686 z=9.749（id 17481877。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/zeruhn_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Quadav Inquest",
       "same_name": false
@@ -1996,9 +2180,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 50.93,
+          "y": 74.57,
+          "z": 0.35
+        },
         "zone_id": 173,
         "zone_name": "コロロカの洞門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=50.930 y=74.570 z=0.350（id 17486281。地図の換算で MAP1 の D-9、マス目 D-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/korroloka_tunnel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Stalagmite",
       "same_name": false
@@ -2011,9 +2210,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -61.068,
+          "y": -642.887,
+          "z": -11.158
+        },
         "zone_id": 51,
         "zone_name": "ワジャーム樹林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-61.068 y=-642.887 z=-11.158（id 16986849。地図の換算で MAP1 の H-13、マス目 H-13 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/wajaom_woodlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Savage Scars",
       "same_name": false
@@ -2027,9 +2241,24 @@
           "kind": "number",
           "n": 3
         },
+        "pos": {
+          "x": -396.426,
+          "y": -439.935,
+          "z": 10.674
+        },
         "zone_id": 68,
         "zone_name": "エジワ蘿洞"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-396.426 y=-439.935 z=10.674（id 17056493。地図の換算で MAP3 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aydeewa_subterrane/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Final Survey Point",
       "same_name": false
@@ -2042,9 +2271,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -75.886,
+          "y": 112.456,
+          "z": -5.925
+        },
         "zone_id": 7,
         "zone_name": "アットワ地溝"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-75.886 y=112.456 z=-5.925（id 16806394。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/attohwa_chasm/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Harvesting Point",
       "same_name": false
@@ -2058,9 +2302,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -446.7,
+          "y": -594.5,
+          "z": 8.249
+        },
         "zone_id": 79,
         "zone_name": "カダーバの浮沼"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-446.700 y=-594.500 z=8.249（id 17101419。地図の換算で MAP1 の E-10、マス目 E-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/caedarva_mire/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vexing Sniffles",
       "same_name": false

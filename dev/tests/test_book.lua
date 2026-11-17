@@ -58,7 +58,13 @@ for _, use_table in ipairs({ false, true }) do
     check(not texted('手順は独自'), 'no source note in UI')
     check(not texted('ピンだけ'), 'no ピンだけ filter')
     check(not texted('次: '), 'no 次 line in book (nothing pinned)')
-    check((FAKE.calls.BeginCombo or 0) >= 2, 'area and state are combos')
+    -- 0.1.225〜（t497/t498）：ミッション・クエストに地域・状態の選択は無い（地域は木、状態は「表示：」のチェック）
+    check(not labeled('##f_area') and not labeled('##f_state'), 'no area/state combos on quest')
+    do
+        local have = {}
+        for _, it in ipairs(require('src.ui.focus').windows.book.list or {}) do have[it.id] = true end
+        check(have.show_accepted and have.show_not_accepted and have.show_completed, 'show checks on quest')
+    end
     -- 地域がすべてなら、地域ごとの表
     if use_table then
         FAKE.tables = {}

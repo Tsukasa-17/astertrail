@@ -1824,9 +1824,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 17.205,
+          "y": 51.161,
+          "z": -5.999
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=17.205 y=51.161 z=-5.999（id 16982137。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rodin-Comidin",
       "same_name": false

@@ -7,7 +7,7 @@
 
 local update = {}
 
--- 新しい版を書いたファイル（リポジトリの main にある version.json。{"version": "1.1.211"} の形）。
+-- 新しい版を書いたファイル（リポジトリの main にある version.json。{"version": "1.1.226"} の形）。
 -- 読み込んだあと 1 回だけ GET で読む（読むだけ・64KB まで・つながらなければ何もしない）。
 -- 版を出すときは、リリースと同じ版をこのファイルに書く。
 update.URL = 'https://raw.githubusercontent.com/Tsukasa-17/astertrail/main/version.json'

@@ -3091,9 +3091,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 35.524,
+          "y": -58.237,
+          "z": -6.601
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=35.524 y=-58.237 z=-6.601（id 16982157。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Abquhbah",
       "same_name": false
@@ -3106,9 +3121,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -70.243,
+          "y": 105.246,
+          "z": -5.999
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-70.243 y=105.246 z=-5.999（id 16982261。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ahaadah",
       "same_name": false
@@ -3121,9 +3151,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.142,
+          "y": -76.332,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.142 y=-76.332 z=0.000（id 16982293。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ahkk Jharcham",
       "same_name": false
@@ -3136,9 +3181,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 97.939,
+          "y": -91.53,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=97.939 y=-91.530 z=0.000（id 16982339。地図の換算で MAP1 の K-11、マス目 K-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dabhuh",
       "same_name": false
@@ -3151,9 +3211,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 67.802,
+          "y": 26.315,
+          "z": -6.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=67.802 y=26.315 z=-6.000（id 16982331。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dhima Polevhia",
       "same_name": false
@@ -3166,9 +3241,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -73.212,
+          "y": -5.842,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-73.212 y=-5.842 z=0.000（id 16982292。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dkhaaya",
       "same_name": false
@@ -3181,9 +3271,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 2.897,
+          "y": -10.781,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=2.897 y=-10.781 z=0.000（id 16982270。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fochacha",
       "same_name": false
@@ -3196,9 +3301,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 34.325,
+          "y": 57.511,
+          "z": -7.804
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=34.325 y=57.511 z=-7.804（id 16982161。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ghatsad",
       "same_name": false
@@ -3211,9 +3331,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -112.029,
+          "y": -66.114,
+          "z": -5.999
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-112.029 y=-66.114 z=-5.999（id 16982312。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hadahda",
       "same_name": false
@@ -3226,9 +3361,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 101.329,
+          "y": -29.042,
+          "z": -5.999
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=101.329 y=-29.042 z=-5.999（id 16982325。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Iruki-Waraki",
       "same_name": false
@@ -3241,9 +3391,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 23.257,
+          "y": 21.532,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=23.257 y=21.532 z=0.000（id 16982134。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kubhe Ijyuhla",
       "same_name": false
@@ -3256,9 +3421,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -95.081,
+          "y": 31.638,
+          "z": -6.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-95.081 y=31.638 z=-6.000（id 16982302。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lathuya",
       "same_name": false
@@ -3271,9 +3451,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -147.198,
+          "y": -3.121,
+          "z": 1.8
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-147.198 y=-3.121 z=1.800（id 16982104。地図の換算で MAP1 の E-9、マス目 E-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Maudaal",
       "same_name": false
@@ -3286,9 +3481,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -56.492,
+          "y": 2.158,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-56.492 y=2.158 z=0.000（id 16982105。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Milazahn",
       "same_name": false
@@ -3301,9 +3511,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -12.195,
+          "y": 29.371,
+          "z": -5.999
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-12.195 y=29.371 z=-5.999（id 16982446。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mishhar",
       "same_name": false
@@ -3316,9 +3541,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 75.225,
+          "y": -137.203,
+          "z": -6.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=75.225 y=-137.203 z=-6.000（id 16982264。地図の換算で MAP1 の J-12。同じ名前 2 件から選んだ：候補 2 件がすべて 0.7 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ratihb",
       "same_name": false
@@ -3331,9 +3571,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -59.923,
+          "y": 64.855,
+          "z": 0.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-59.923 y=64.855 z=0.000（id 16982275。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Saliyahf",
       "same_name": false
@@ -3346,9 +3601,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 65.616,
+          "y": -78.222,
+          "z": -6.0
+        },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=65.616 y=-78.222 z=-6.000（id 16982297。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Waoud",
       "same_name": false
@@ -3361,9 +3631,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 41.658,
+          "y": -42.528,
+          "z": -5.999
+        },
         "zone_id": 48,
         "zone_name": "アルザビ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=41.658 y=-42.528 z=-5.999（id 16974334。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/al_zahbi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Suldiran",
       "same_name": false
@@ -3376,9 +3661,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -35.897,
+          "y": 107.16,
+          "z": -6.0
+        },
         "zone_id": 48,
         "zone_name": "アルザビ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-35.897 y=107.160 z=-6.000（id 16974338。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/al_zahbi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Talhaal",
       "same_name": false
@@ -3391,9 +3691,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 19.084,
+          "y": 71.287,
+          "z": -6.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=19.084 y=71.287 z=-6.000（id 16994353。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fhe Maksojha",
       "same_name": false
@@ -3406,9 +3721,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 28.537,
+          "y": -85.25,
+          "z": -6.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=28.537 y=-85.250 z=-6.000（id 16994427。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Halshaob",
       "same_name": false
@@ -3421,9 +3751,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 13.245,
+          "y": -25.307,
+          "z": 0.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=13.245 y=-25.307 z=0.000（id 16994430。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kakkaroon",
       "same_name": false
@@ -3436,9 +3781,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -14.687,
+          "y": 25.114,
+          "z": 0.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-14.687 y=25.114 z=0.000（id 16994359。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Leleroon",
       "same_name": false
@@ -3451,9 +3811,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -2.009,
+          "y": 10.771,
+          "z": 0.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-2.009 y=10.771 z=0.000（id 16994398。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Paparoon",
       "same_name": false
@@ -3462,13 +3837,29 @@
       "id": "npc.ナシュモ.Ququroon",
       "kind": "npc",
       "location": {
-        "grid": "H-6",
+        "grid": "G-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -2.4,
+          "y": 66.824,
+          "z": 0.0
         },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-2.400 y=66.824 z=0.000（id 16994382。地図の換算で MAP1 の G-6、マス目 H-6 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ququroon",
       "same_name": false
@@ -3481,9 +3872,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -13.014,
+          "y": 68.971,
+          "z": -6.0
+        },
         "zone_id": 53,
         "zone_name": "ナシュモ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-13.014 y=68.971 z=-6.000（id 16994345。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/nashmau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tsetseroon",
       "same_name": false
@@ -3496,9 +3902,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 682.899,
+          "y": 229.807,
+          "z": -15.75
+        },
         "zone_id": 51,
         "zone_name": "ワジャーム樹林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=682.899 y=229.807 z=-15.750（id 16986837。地図の換算で MAP1 の M-7、マス目 M-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/wajaom_woodlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Camille",
       "same_name": false
@@ -3507,13 +3928,29 @@
       "id": "obj.アトルガン白門.Imperial_Whitegate",
       "kind": "obj",
       "location": {
-        "grid": "L-9",
+        "grid": "L-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 154.296,
+          "y": 0.03,
+          "z": -4.199
         },
         "zone_id": 50,
         "zone_name": "アトルガン白門"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=154.296 y=0.030 z=-4.199（id 16982081。地図の換算で MAP1 の L-8、マス目 L-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "L-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/aht_urhgan_whitegate/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Imperial Whitegate",
       "same_name": false

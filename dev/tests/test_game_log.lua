@@ -30,7 +30,7 @@ end
 do
     local p, w = gl.parse_packet(packet(0x58, words_with({ 14, 40 })))
     eq(p, 0x58, 'port'); check(gl.bit_on(w, 14) and gl.bit_on(w, 40) and not gl.bit_on(w, 15), 'bits')
-    -- 実機で届いた 0x056（2026-11-16、実機、40 バイト、Port 0xFFFE）
+    -- 実機で届いた 0x056（2026-11-16、GAME-PC、40 バイト、Port 0xFFFE）
     local hex = '56 14 09 00' .. string.rep(' 00', 32) .. ' FE FF 00 00'
     local live = hex:gsub('%s*(%x%x)', function (h) return string.char(tonumber(h, 16)) end)
     eq(#live, 40, 'live packet size')
@@ -229,7 +229,7 @@ check(printed('ゲームの記録') or printed('Game log'), 'gamelog printed')
 
 -- 公開版の切り替え（t225）：手で状態・チェックを変える操作を受けない。今の手順を選ぶのは残す
 local flags = require('src.build_flags')
-eq(flags.public, false, 'this build is the debug build')
+eq(flags.public, true, 'this build is the public build')
 local q = app._data():quest(qid)
 app.PUBLIC = true
 eq(app.request('set_state', qid, 'completed').code, 'public_build', 'public: no set_state')

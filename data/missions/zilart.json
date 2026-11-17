@@ -685,9 +685,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -0.774,
+          "y": 75.177,
+          "z": 8.039
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-0.774 y=75.177 z=8.039（id 17788931。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Maryoh Comyujah",
       "same_name": false
@@ -700,9 +715,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 101.969,
+          "y": -12.0,
+          "z": -8.554
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=101.969 y=-12.000 z=-8.554（id 17809458。地図の換算で MAP1 の K-8、マス目 K-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oaken Door",
       "same_name": false
@@ -715,9 +745,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -25.784,
+          "y": -40.953,
+          "z": 1.097
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-25.784 y=-40.953 z=1.097（id 17809554。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tales' Beginning",
       "same_name": false

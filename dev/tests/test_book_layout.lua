@@ -12,7 +12,7 @@ local S = app._settings()
 app.open_window('book'); frame(); frame()
 -- ボタンは上の行（タブと同じ行）。下の行はない
 local function item(id)
-    for _, it in ipairs(focus._list and focus._list('book') or {}) do if it.id == id then return it end end
+    for _, it in ipairs(focus.windows.book and focus.windows.book.list or {}) do if it.id == id then return it end end
 end
 for _, id in ipairs({ 'compass_toggle', 'tracker_toggle', 'eminence_toggle', 'open_settings', 'close' }) do
     check(labeled('##' .. id), 'button ' .. id)
@@ -20,6 +20,8 @@ end
 -- タブの行で右へ動くと、右端のボタンに届く（0.1.202 どおり。タブは上の行）
 focus.set('book', 'tab_eminence'); frame()   -- 右端のタブ（0.1.172〜 エミネンス）
 press(0xCD); frame()
+-- 0.1.225〜：地域・状態が無くなり、検索がタブの行に入ることがある（入れば検索を通ってから右端のボタン）
+if focus.current('book') == 'search' then press(0xCD); frame() end
 eq(focus.current('book'), 'compass_toggle', 'right from tabs reaches compass button (0.1.173)')
 press(0xCD); frame()
 eq(focus.current('book'), 'tracker_toggle', 'then tracker button')
@@ -34,46 +36,18 @@ app.open_window('book'); frame(); frame()
 local cur0 = tostring(focus.current('book') or '')
 check(cur0:find('^sec_') or cur0:find('^cat_') or cur0:find('^row_'), 'reopen on a heading or a list row: ' .. cur0)
 
--- 検索は地域・状態と同じ行（右へ動くと 地域 → 状態 → 検索）
+-- 0.1.225〜（t497/t498）：ミッション・クエストに地域・状態の選択は無い
 S.book.tab = 'mission'; frame(); frame()
-focus.set('book', 'f_area'); frame()
-press(0xCD); frame(); eq(focus.current('book'), 'f_state', 'area -> state')
-press(0xCD); frame(); eq(focus.current('book'), 'search', 'state -> search on same row')
-
--- 地域：決定で一覧を開き、下で動かし、決定で選ぶ
-S.book.filters.area = 'all'
-focus.set('book', 'f_area'); frame()
-press(0x1C); frame()
-local dd = focus.dropdown('book')
-check(dd ~= nil and dd.id == 'f_area', 'dropdown opened by confirm')
-eq(S.book.filters.area, 'all', 'value not changed by opening')
-press(0xD0); frame()
-eq(focus.dropdown('book').idx, 2, 'down moves in the list')
-eq(focus.current('book'), 'f_area', 'cursor stays on the control')
-press(0x1C); frame(); frame()
-eq(focus.dropdown('book'), nil, 'closed after pick')
-check(S.book.filters.area ~= 'all', 'area picked: ' .. tostring(S.book.filters.area))
--- キャンセルは一覧だけ閉じる（本は閉じない、値も変わらない）
-local before = S.book.filters.area
-press(0x1C); frame(); press(0xD0); frame()
-press(0x01); frame()
-eq(focus.dropdown('book'), nil, 'cancel closes the dropdown')
-eq(app.state.open.book, true, 'book stays open')
-eq(S.book.filters.area, before, 'value unchanged by cancel')
--- 上で一番上から最後へ回る
-S.book.filters.area = 'all'; frame()
-press(0x1C); frame(); press(0xC8); frame()
-eq(focus.dropdown('book').idx, focus.dropdown('book').n, 'up wraps to last')
-press(0x01); frame()
-S.book.filters.area = 'all'
--- 状態も同じ（パッド）
-focus.set('book', 'f_state'); frame()
-pad(12, 1); pad(12, 0); frame()
-check(focus.dropdown('book') ~= nil, 'state dropdown by pad A')
-pad(13, 1); pad(13, 0); frame()
-eq(focus.dropdown('book'), nil, 'pad B closes dropdown only')
-eq(app.state.open.book, true, 'book still open after pad B')
-S.book.filters.state = 'all'
+check(item('f_area') == nil and item('f_state') == nil, 'no area/state on missions')
+S.book.tab = 'quest'; frame(); frame()
+check(item('f_area') == nil and item('f_state') == nil, 'no area/state on quests')
+-- 0.1.226〜：エミネンスの分類・状態の選択もなくした（分類は木、状態は「表示：」のチェック）
+S.book.tab = 'eminence'; frame(); frame()
+check(item('roe_root') == nil and item('roe_state') == nil, 'no category/state filter on eminence')
+check(item('roe_show_accepted') and item('roe_show_not_accepted') and item('roe_show_completed') and not item('roe_hide_done'), 'eminence show checks (no 達成済みを非表示)')
+eq(item('roe_search') and item('roe_search').row, 'tabs', 'eminence search on the tab row')
+eq(item('roe_show_accepted').row, 'f2', 'eminence show checks on the second row')
+S.book.tab = 'mission'; frame()
 
 -- 境目：幅の計算（両側に最低限）
 eq(book.list_width(1000, 0.56), 560, 'ratio')

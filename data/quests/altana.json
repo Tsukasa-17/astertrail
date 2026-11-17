@@ -4242,9 +4242,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 123.38,
+          "y": 84.673,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=123.380 y=84.673 z=0.000（id 17719610。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Atelloune",
       "same_name": false
@@ -4257,9 +4272,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -23.092,
+          "y": -27.157,
+          "z": -10.0
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-23.092 y=-27.157 z=-10.000（id 17748006。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ferghus",
       "same_name": false
@@ -4273,9 +4303,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 11.0,
+          "y": 21.0,
+          "z": -1.0
+        },
         "zone_id": 238,
         "zone_name": "ウィンダス水の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=11.000 y=21.000 z=-1.000（id 17752345。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Khoto Rokkorah",
       "same_name": false
@@ -4289,9 +4334,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 3.167,
+          "y": 15.545,
+          "z": -1.0
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.167 y=15.545 z=-1.000（id 17162751。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dhea Prandoleh",
       "same_name": false
@@ -4305,9 +4365,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -115.597,
+          "y": -158.703,
+          "z": -1.0
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-115.597 y=-158.703 z=-1.000（id 17162684。地図の換算で MAP2 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hampu-Kampu",
       "same_name": false
@@ -4321,9 +4396,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -41.465,
+          "y": -163.018,
+          "z": -1.125
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-41.465 y=-163.018 z=-1.125（id 17162752。地図の換算で MAP2 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kocco Ehllek",
       "same_name": false
@@ -4337,9 +4427,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 5.323,
+          "y": 37.462,
+          "z": -1.0
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=5.323 y=37.462 z=-1.000（id 17162750。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Miah Riyuh",
       "same_name": false
@@ -4353,9 +4458,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 156.069,
+          "y": -15.667,
+          "z": 0.999
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=156.069 y=-15.667 z=0.999（id 17162690。地図の換算で MAP1 の K-11、マス目 K-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ponono",
       "same_name": false
@@ -4369,9 +4489,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -115.452,
+          "y": 43.389,
+          "z": -2.0
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-115.452 y=43.389 z=-2.000（id 17162718。地図の換算で MAP1 の E-9、マス目 E-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ranpi-Monpi",
       "same_name": false
@@ -4385,9 +4520,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 376.936,
+          "y": 17.914,
+          "z": -39.999
+        },
         "zone_id": 175,
         "zone_name": "エルディーム古墳〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=376.936 y=17.914 z=-39.999（id 17494732。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/the_eldieme_necropolis_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Erlene",
       "same_name": false
@@ -4398,11 +4548,30 @@
       "location": {
         "grid": "H-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 256.196,
+          "y": 20.073,
+          "z": -31.999
         },
         "zone_id": 175,
         "zone_name": "エルディーム古墳〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=256.196 y=20.073 z=-31.999（id 17494773。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/the_eldieme_necropolis_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Heptachiond",
       "same_name": false
@@ -4416,9 +4585,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -64.809,
+          "y": 3.608,
+          "z": -75.585
+        },
         "zone_id": 96,
         "zone_name": "カルゴナルゴ城砦〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-64.809 y=3.608 z=-75.585（id 17171150。地図の換算で MAP2 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/fort_karugo_narugo_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rotih Moalghett",
       "same_name": false
@@ -4432,9 +4616,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -107.785,
+          "y": 193.665,
+          "z": 0.0
+        },
         "zone_id": 164,
         "zone_name": "ガルレージュ要塞〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-107.785 y=193.665 z=0.000（id 17449498。地図の換算で MAP1 の I-6、マス目 I-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/garlaige_citadel_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Diordinne",
       "same_name": false
@@ -4448,9 +4647,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -95.21,
+          "y": 195.616,
+          "z": 0.0
+        },
         "zone_id": 164,
         "zone_name": "ガルレージュ要塞〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-95.210 y=195.616 z=0.000（id 17449518。地図の換算で MAP1 の I-6、マス目 I-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/garlaige_citadel_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fondactiont",
       "same_name": false
@@ -4464,9 +4678,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 146.175,
+          "y": 93.04,
+          "z": -6.0
+        },
         "zone_id": 164,
         "zone_name": "ガルレージュ要塞〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=146.175 y=93.040 z=-6.000（id 17449492。地図の換算で MAP2 の J-6、マス目 J-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/garlaige_citadel_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rarcasmeault",
       "same_name": false
@@ -4480,9 +4709,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 294.03,
+          "y": -28.637,
+          "z": -33.443
+        },
         "zone_id": 171,
         "zone_name": "クロウラーの巣〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=294.030 y=-28.637 z=-33.443（id 17478341。地図の換算で MAP1 の L-8、マス目 L-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/crawlers_nest_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Naiko-Paneiko",
       "same_name": false
@@ -4493,11 +4737,30 @@
       "location": {
         "grid": "J-7",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 129.24,
+          "y": 25.927,
+          "z": -34.353
         },
         "zone_id": 171,
         "zone_name": "クロウラーの巣〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=129.240 y=25.927 z=-34.353（id 17478358。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/crawlers_nest_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rodeupansat",
       "same_name": false
@@ -4510,9 +4773,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -102.0,
+          "y": 538.0,
+          "z": -11.9
+        },
         "zone_id": 89,
         "zone_name": "グロウベルグ〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-102.000 y=538.000 z=-11.900（id 17142618。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/grauberg_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Callisto",
       "same_name": false
@@ -4525,9 +4803,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -54.045,
+          "y": 100.996,
+          "z": 0.0
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-54.045 y=100.996 z=0.000（id 17776826。地図の換算で MAP1 の G-7。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Laila",
       "same_name": false
@@ -4540,9 +4833,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -281.628,
+          "y": -140.607,
+          "z": -15.971
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-281.628 y=-140.607 z=-15.971（id 17739818。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Offa",
       "same_name": false
@@ -4555,9 +4863,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -248.677,
+          "y": -125.734,
+          "z": -8.523
+        },
         "zone_id": 87,
         "zone_name": "バストゥーク商業区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-248.677 y=-125.734 z=-8.523（id 17134119。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Loussaire",
       "same_name": false
@@ -4570,9 +4893,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -233.989,
+          "y": 67.638,
+          "z": -2.0
+        },
         "zone_id": 87,
         "zone_name": "バストゥーク商業区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-233.989 y=67.638 z=-2.000（id 17134047。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Scarred Shark",
       "same_name": false
@@ -4585,9 +4923,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -141.761,
+          "y": -86.367,
+          "z": -4.0
+        },
         "zone_id": 87,
         "zone_name": "バストゥーク商業区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-141.761 y=-86.367 z=-4.000（id 17134154。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Wahid",
       "same_name": false
@@ -4600,9 +4953,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 54.304,
+          "y": 141.055,
+          "z": -13.836
+        },
         "zone_id": 84,
         "zone_name": "バタリア丘陵〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=54.304 y=141.055 z=-13.836（id 17122127。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/batallia_downs_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Romualdo",
       "same_name": false
@@ -4630,9 +4998,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 72.325,
+          "y": -38.515,
+          "z": 1.999
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=72.325 y=-38.515 z=1.999（id 17105322。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Exoroche",
       "same_name": false
@@ -4645,9 +5028,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -93.505,
+          "y": 49.356,
+          "z": -4.0
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-93.505 y=49.356 z=-4.000（id 17105404。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Louxiard",
       "same_name": false
@@ -4656,13 +5054,29 @@
       "id": "npc.南サンドリア〔Ｓ〕.Nichais",
       "kind": "npc",
       "location": {
-        "grid": "L-7",
+        "grid": "L-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 133.742,
+          "y": 80.773,
+          "z": 0.0
         },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=133.742 y=80.773 z=0.000（id 17105607。地図の換算で MAP1 の L-6、マス目 L-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "L-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nichais",
       "same_name": false
@@ -4675,9 +5089,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -124.538,
+          "y": 14.598,
+          "z": -2.0
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-124.538 y=14.598 z=-2.000（id 17105324。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Thierride",
       "same_name": false
@@ -4690,9 +5119,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 124.017,
+          "y": 84.169,
+          "z": 0.0
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=124.017 y=84.169 z=0.000（id 17105382。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Wyatt",
       "same_name": false
@@ -4703,11 +5147,30 @@
       "location": {
         "grid": "K-5",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 124.0,
+          "y": 222.215,
+          "z": -3.0
         },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=124.000 y=222.215 z=-3.000（id 17162705。地図の換算で MAP1 の K-5、マス目 K-5 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Acolyte Hostel",
       "same_name": false
@@ -4716,14 +5179,30 @@
       "id": "obj.ウィンダス水の区〔Ｓ〕.Door_Rhinostery",
       "kind": "obj",
       "location": {
-        "grid": "I-8",
+        "grid": "J-9",
         "map": {
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 3.168,
+          "y": -197.0,
+          "z": -5.812
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.168 y=-197.000 z=-5.812（id 17162703。地図の換算で MAP2 の J-9。同じ名前 2 件から選んだ：LSB のクエスト・ミッションの台本（The Lost Book）がこの相手（17162703 Door_Rhinostery_South）だけを使う）",
+          "grid_from": "I-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Rhinostery",
       "same_name": false
@@ -4737,9 +5216,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 3.168,
+          "y": -163.0,
+          "z": -5.812
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.168 y=-163.000 z=-5.812（id 17162704。地図の換算で MAP2 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Rhinostery",
       "same_name": false
@@ -4767,9 +5261,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 543.954,
+          "y": -290.313,
+          "z": -0.522
+        },
         "zone_id": 137,
         "zone_name": "ザルカバード〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=543.954 y=-290.313 z=-0.522（id 17339102。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Animal Spoor",
       "same_name": false
@@ -4782,9 +5291,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 342.749,
+          "y": -161.469,
+          "z": 24.999
+        },
         "zone_id": 90,
         "zone_name": "パシュハウ沼〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=342.749 y=-161.469 z=24.999（id 17146658。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/pashhow_marshlands_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Veridical Conflux",
       "same_name": false
@@ -4797,9 +5321,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -725.275,
+          "y": -114.724,
+          "z": -27.149
+        },
         "zone_id": 91,
         "zone_name": "ロランベリー耕地〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-725.275 y=-114.724 z=-27.149（id 17150746。地図の換算で MAP1 の D-9、マス目 D-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rolanberry_fields_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fortilace",
       "same_name": false

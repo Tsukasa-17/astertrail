@@ -35,14 +35,15 @@ for old, news in pairs(map_doc.map) do
     check(D:is_draft_step(old), 'old id known ' .. old)
     eq(D.step_alias[old], news[1], 'alias ' .. old)
     eq(D:step(old), nil, 'old id not active ' .. old)
-    local qid = old:match('^(.-)#s%d+$')
+    -- 0.1.217〜：まとめて消した新しい手順（BM7-1 の g03 → g02）も対応表に入る
+    local qid = old:match('^(.-)#s%d+$') or (old == 'mission.bastok.015#g03' and 'mission.bastok.015') or nil
     check(qid, 'old id form ' .. old)
     for _, n in ipairs(news) do
         check(D:step(n), 'new step ' .. n)
         eq(D:quest_of_step(n).id, qid, 'same quest ' .. n)
     end
 end
-eq(n_old, 1168, 'all old ids mapped')
+eq(n_old, 1169, 'all old ids mapped (1168 drafts + 1 merged step)')
 -- 対応表に文は入れない（id と一覧だけ）
 for k, v in pairs(map_doc) do check(k ~= 'steps' and k ~= 'quests', 'no text in map: ' .. k) end
 

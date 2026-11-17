@@ -109,21 +109,20 @@ do
     eq(roe.parse_quests('short', nil, 'en'), nil, 'bad size')
 end
 
--- 本物の DAT（環境変数 ASTERTRAIL_ROE_DAT にフォルダがあるときだけ。同梱しない）
+-- 本物の DAT（開発機にあるときだけ。同梱しない）
 do
-    local dat_dir = os.getenv('ASTERTRAIL_ROE_DAT') or '__no_dat__'
-    local f = io.open(dat_dir .. '/307_15.DAT', 'rb')
+    local f = io.open('/workspace/t243/dat/307_15.DAT', 'rb')
     if f then
         local raw = f:read('*a'); f:close()
         local q, n = roe.parse_quests(raw, nil, 'ja')
         check(n > 1500, 'real ja objectives: ' .. tostring(n))
         eq(q[12].target, 200, 'real: #12 needs 200 (in-game 142/200)')
         eq(q[12].repeatable, true, 'real: #12 repeatable')
-        local cf = io.open(dat_dir .. '/307_23.DAT', 'rb')
+        local cf = io.open('/workspace/t243/dat/307_23.DAT', 'rb')
         local c = roe.parse_categories(cf:read('*a')); cf:close()
         local db = roe.build(q, c)
         check(roe.in_zone(db, roe.objectives_in(db, 0xF253)[1], 101), 'real: gathering East Ronfaure is area 101')
-        local ef = io.open(dat_dir .. '/307_16.DAT', 'rb')
+        local ef = io.open('/workspace/t243/dat/307_16.DAT', 'rb')
         local qe = roe.parse_quests(ef:read('*a'), nil, 'en'); ef:close()
         eq(qe[12].name, 'Vanquish Multiple Enemies I', 'real en name')
         check(qe[12].desc and qe[12].desc:find('Defeat', 1, true), 'real en description')
@@ -149,7 +148,7 @@ local function msg_packet(num, p1)
     return hdr(0x029, 28) .. u32(1) .. u32(1) .. u32(p1) .. u32(0) .. string.char(0, 0, 0, 0) .. string.char(num % 256, math.floor(num / 256)) .. string.char(0, 0)
 end
 do
-    -- 実機の 0x111 の頭（2026-11-16、実機）：0C E0 08 00 → #12 進み 142
+    -- 実機の 0x111 の頭（2026-11-16、GAME-PC）：0C E0 08 00 → #12 進み 142
     local live = act_packet({ [1] = { 12, 142 }, [2] = { 0x16, 9 }, [64] = { 0xFAF, 0 } })
     eq(live:sub(5, 8), string.char(0x0C, 0xE0, 0x08, 0x00), 'live bytes')
     local a = roe.parse_active(live)
@@ -390,10 +389,13 @@ do
     eq(INJ[#INJ].id, 0x10C); eq(INJ[#INJ].data:byte(5), 12)
     frame(); frame()
     eq(#INJ, n0 + 1, 'drawing again sends nothing')
-    -- 分類なし（0.1.203：初期は達成済みを非表示なので、見せるために一度オフにする）
-    eq(S.eminence.hide_completed, true, 'hide completed on by default')
-    S.eminence.hide_completed = false
-    S.eminence.book_root = -1; frame()
+    -- 分類なし（0.1.226：達成の初期はオフなので、見せるために一度オンにする）
+    S.eminence.book_show = S.eminence.book_show or { accepted = true, not_accepted = true }
+    eq(S.eminence.book_show.completed, false, '達成 off by default')
+    eq(S.eminence.hide_completed, nil, 'hide_completed dropped')
+    S.eminence.book_show.completed = true
+    S.book.last_heading = S.book.last_heading or {}
+    S.book.last_heading.eminence = 'loose'; frame()
     check(labeled('Loose One'), 'loose objective')
     check(texted('［達成］') or texted('[Done]'), 'done tag')
     -- 0.1.203：達成済みでくり返せないものはボタンを出さない（一覧も詳細も）
@@ -406,52 +408,52 @@ do
             'no detail button for completed non-repeatable')
         em.select(nil)
     end
-    -- 達成を隠す（くり返しできない達成だけ。0.1.194〜 くり返しできる達成は残す）
-    S.eminence.hide_completed = true; frame()
+    -- 達成オフ：くり返しできない達成だけ隠す。くり返しできる達成は残す
+    S.eminence.book_show.completed = false; frame()
     check(not labeled('Loose One'), 'non-repeatable done is hidden')
-    S.eminence.book_root = -2
+    S.book.last_heading.eminence = 'all'
     local c = st.roe.complete
     check(c ~= nil, 'completion table exists')
     local idx, bit = math.floor(12 / 8) + 1, 2 ^ (12 % 8)
     if math.floor((c[idx] or 0) / bit) % 2 ~= 1 then c[idx] = (c[idx] or 0) + bit end
     check(roe.is_complete(c, 12), '#12 marked complete')
-    FAKE.labels = {}; frame(); frame()
-    check(labeled('Vanquish Multiple Enemies I'), 'repeatable completed stays visible')
+    local emh = require('src.ui.eminence')
+    emh.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_12') and labeled('Vanquish Multiple Enemies I'), 'repeatable completed stays visible')
     check(labeled('##roe_start_12'), 'repeatable completed still has accept button')
-    check(not labeled('Loose One'), 'non-repeatable completed still hidden')
-    S.eminence.hide_completed = false
+    check(not labeled('##roesel_300') and not labeled('Loose One'), 'non-repeatable completed still hidden')
+    S.eminence.book_show.completed = true
+    emh.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_12') and labeled('##roesel_300'), '達成 on shows all completed')
+    S.eminence.book_show.completed = true
     -- ビットを戻す（あとの受けられ判定に影響しないように）
     c[idx] = (c[idx] or 0) - bit
     -- 検索
-    S.eminence.book_root = 0
     S.eminence.book_text = 'unity'; require('src.ui.eminence').reset_search(); frame()
     check(labeled('Unity Leader A'), 'search finds')
     check(texted('［未実装］') or texted('[Not on this server]'), 'not implemented tag')
     S.eminence.book_text = ''; require('src.ui.eminence').reset_search()
-    -- 0.1.182〜（t293）：分類は「すべて」といちばん上の分類だけ（下の分類は出さない）
+    -- 0.1.226〜：分類の選択はなくした。いちばん上の分類は左の見出しの木（下の分類も木に出す）
     FAKE.texts, FAKE.labels = {}, {}
-    S.eminence.book_root = require('src.core.settings').defaults().eminence.book_root; frame()
-    eq(S.eminence.book_root, -2, 'default is すべて')
+    S.book.last_heading.eminence = 'all'; frame()
+    eq(require('src.core.settings').defaults().eminence.book_root, -2, 'default is すべて')
     local em0 = require('src.ui.eminence')
+    eq(em0.current_root({ settings = S }), em0.ALL, 'current_root always すべて')
     for _, nm in ipairs({ 'Tutorial', 'Combat (Region)' }) do
-        check(labeled(nm), 'top category in the combo: ' .. nm)
+        check(labeled(nm), 'top category in the tree: ' .. nm)
     end
-    do
-        local vals = {}
-        for _, c in ipairs(em0.root_choices({ settings = S, t = function (k) return k end, state = app.state, roe_db = app.roe_db })) do vals[#vals + 1] = c.value end
-        local has = {}
-        for _, v in ipairs(vals) do has[v] = true end
-        check(not has[0xF230] and not has[0xF259], 'no sub categories in the combo')
-    end
-    check(labeled('すべて') or labeled('All'), 'すべて in the combo')
+    check(labeled('##cat_' .. 0xF230) and labeled('##cat_' .. 0xF259), 'sub categories in the tree')
+    check(labeled('すべて') or labeled('All'), 'すべて in the tree')
     -- すべて：全部のレコード
     check(labeled('Combat: West Ronfaure') and labeled('Vanquish Multiple Enemies II') and labeled('Loose One'), 'すべて shows every record')
-    -- いちばん上の分類：下の分類のレコードも入る
-    S.eminence.book_root = 0xF212; frame()
-    check(labeled('Combat: West Ronfaure') and not labeled('Vanquish Multiple Enemies II'), 'top category includes its sub category records')
-    -- 0.1.189〜（t316）：一覧は下の分類の見出しと、その下のレコード（0.1.181 までの形）。見出しは開け閉めできる
-    check(labeled('##cat_' .. 0xF259), 'sub category header in the list')
-    check(not labeled('##cat_' .. 0xF212), 'no header for the chosen category itself')
+    -- 左の見出しでいちばん上の分類を選ぶ：下の分類のレコードも入る
+    S.book.last_heading.eminence = tostring(0xF212); frame()
+    check(labeled('Combat: West Ronfaure') and not labeled('Vanquish Multiple Enemies II'), 'top heading includes its sub category records')
+    -- 木には選んだ分類自身と、その下の分類の見出しが出る
+    check(labeled('##cat_' .. 0xF259), 'sub category header in the tree')
+    check(labeled('##cat_' .. 0xF212), 'chosen top category stays in the tree')
     local function label_at(pat) for i, l in ipairs(FAKE.labels) do if l:find(pat, 1, true) then return i end end end
     check(label_at('##cat_' .. 0xF259) < label_at('Combat: West Ronfaure'), 'records under their header')
     FAKE.clicks['##cat_' .. 0xF259] = true; frame(); frame()
@@ -459,7 +461,7 @@ do
     FAKE.clicks['##sec_eminence_all'] = true; frame(); frame()
     check(labeled('Combat: West Ronfaure'), 'すべて still includes the sub category records')
     -- すべて：いちばん上の分類の見出し → 下の分類の見出し → レコード、最後に分類なし
-    S.eminence.book_root = -2; frame()
+    S.book.last_heading.eminence = 'all'; frame()
     local iT, iB, i12 = label_at('##cat_' .. 0xF210), label_at('##cat_' .. 0xF230), label_at('Vanquish Multiple Enemies I')
     local iC, iO, i215 = label_at('##cat_' .. 0xF212), label_at('##cat_' .. 0xF259), label_at('Combat: West Ronfaure')
     local iL, iLo = label_at('##cat_loose'), label_at('Loose One')
@@ -471,14 +473,15 @@ do
     FAKE.clicks['##tw_cat_' .. 0xF210] = true; frame(); frame()
     check(labeled('##cat_' .. 0xF230) and labeled('Vanquish Multiple Enemies I'), 'すべて: top heading opens again')
 
-    -- 前の保存が下の分類なら「すべて」
-    S.eminence.book_root = 0xF259; FAKE.labels = {}; frame()
-    check(labeled('Combat: West Ronfaure') and labeled('Vanquish Multiple Enemies II'), 'old sub category falls back to すべて')
-    S.eminence.book_root = 0xF210; FAKE.labels = {}; frame()
-    check(labeled('Vanquish Multiple Enemies I') and not labeled('Combat: West Ronfaure'), 'records under a top category')
+    -- 保存してあった分類は使わない（すべてを出す。左の見出しで選び直す）
+    S.eminence.book_root = 0xF259
+    S.book.last_heading.eminence = 'all'; FAKE.labels = {}; frame()
+    check(labeled('Combat: West Ronfaure') and labeled('Vanquish Multiple Enemies II'), 'stale book_root is ignored; すべて shows every record')
+    S.book.last_heading.eminence = tostring(0xF210); FAKE.labels = {}; frame()
+    check(labeled('Vanquish Multiple Enemies I') and not labeled('Combat: West Ronfaure'), 'records under a top heading')
     -- 窓の出す・隠すのボタンは本のエミネンスには無い（上の行のボタンだけ）
     check(not labeled('##roe_window'), 'no window toggle in the eminence tab')
-    S.eminence.book_root = 0xF210; frame()
+    S.book.last_heading.eminence = 'all'; frame()
     -- 右の詳細：名前を押すと出す
     local em = require('src.ui.eminence')
     check(texted('一覧の名前を押すと') or texted('Select a name'), 'detail hint before selecting')
@@ -506,10 +509,9 @@ do
     -- ★：一覧で付けて、「★だけ」で分類によらず出す
     S.eminence.pins = {}
     FAKE.clicks['##roe_fav_215'] = nil
-    S.eminence.book_root = 0xF212; frame()
+    S.book.last_heading.eminence = 'all'; frame()
     FAKE.clicks['##roe_fav_215'] = true; frame()
     eq(S.eminence.pins['215'], true, 'star from the book list')
-    S.eminence.book_root = 0xF210; frame()
     FAKE.clicks['##roe_fav_12'] = true; frame()
     eq(S.eminence.pins['12'], true, 'second star')
     local n2 = #INJ
@@ -520,7 +522,6 @@ do
     check(labeled('##roe_heart_12') and labeled('##roe_fav_12'), 'heart button next to the star')
     FAKE.clicks['##roe_heart_12'] = true; frame()
     eq(S.eminence.favs['12'], true, 'favorite from the book list')
-    S.eminence.book_root = 0xF212; frame()
     FAKE.clicks['##roe_heart_215'] = true; frame()
     eq(S.eminence.favs['215'], true, 'second favorite')
     FAKE.clicks['##roe_fav_215'] = true; frame()
@@ -558,7 +559,6 @@ do
     local m3 = smod.merge({ eminence = { favs = { ['12'] = true, x = true }, book_favs_only = 1 } })
     eq(m3.eminence.favs['12'], true, 'favorite saved'); eq(m3.eminence.favs.x, nil, 'bad favorite dropped')
     eq(m3.eminence.book_favs_only, false, 'bad favorites-only value')
-    S.eminence.book_root = 0
     -- ほかのタブはそのまま
     S.book.tab = 'quest'; frame()
     check(not labeled('##roe_start_12'), 'quest tab has no eminence rows')
@@ -569,7 +569,7 @@ do
     local em = require('src.ui.eminence')
     S.eminence.book_root = -2
     S.eminence.book_favs_only = false
-    S.eminence.hide_completed = false
+    S.eminence.book_show = S.eminence.book_show or { accepted = true, not_accepted = true }; S.eminence.book_show.completed = true
     S.book.tab = 'eminence'
     app.open_window('book')
     em.select(12)
@@ -669,7 +669,7 @@ do
     local m2 = smod.merge({ fonts = { tracker = 1.4, eminence = 0.9 }, alphas = { tracker = 0.6, eminence = 1.0 } })
     eq(m2.fonts.eminence, 0.9, 'own eminence font kept'); eq(m2.alphas.eminence, 1.0, 'own eminence background kept')
     eq(smod.alpha_for(m2, 'eminence'), 1.0, 'window uses its own background')
-    eq(smod.alpha_for(m2, 'compass'), 0.6, 'compass still follows the tracker')
+    eq(smod.alpha_for(m2, 'compass'), 0.6, 'compass inherits the tracker when it has no own value (0.1.212)')
     eq(require('src.ui.window').FONT_AREA.eminence, 'eminence', 'window uses its own font size')
     local sui = require('src.ui.settings_ui')
     app.open_window('settings'); frame()
@@ -760,6 +760,115 @@ do
     FAKE.table_error = nil; em.table_failed = nil
     im.Button, im.GetFontSize, im.CalcTextSize = ob, ofs, octs
     FAKE.table = false
+    app.close_window('book'); frame()
+end
+
+-- 0.1.225（t502）：エミネンスも 決定 見出し → 一覧 → 詳細、キャンセル 詳細 → 一覧 → 見出し → 閉じる
+do
+    local focus = require('src.ui.focus')
+    local bk = require('src.ui.book')
+    local em = require('src.ui.eminence')
+    local function key(a) app.input(a, true, 'key'); app.input(a, false, 'key'); frame(); frame() end
+    local function cur() return tostring(focus.current('book') or '') end
+    local function area_now()
+        for _, it in ipairs(focus.windows.book.list or {}) do if it.id == cur() then return bk.area_of(it.section) end end
+    end
+    if not app.state.open.book then app.open_window('book') end
+    S.book.tab = 'eminence'
+    S.eminence.book_root = -2; S.eminence.book_text = ''; S.eminence.book_favs_only = false
+    S.eminence.book_state = 'all'; S.eminence.book_show = S.eminence.book_show or { accepted = true, not_accepted = true }; S.eminence.book_show.completed = true
+    bk.set_heading(S, 'eminence', 'all', function () end)
+    frame(); frame()
+    focus.set('book', 'roesel_12', true); frame(); frame()
+    eq(cur(), 'roesel_12', 'on an eminence row')
+    key('confirm')
+    eq(cur(), bk.DETAIL_ANCHOR, 'confirm on the row → detail')
+    eq(em.selected(), 12, 'the row is selected')
+    eq(area_now(), 'detail', 'in the detail area')
+    key('down')
+    eq(area_now(), 'detail', 'down moves among the detail buttons: ' .. cur())
+    check(cur():find('^roed_') ~= nil, 'reaches a detail button: ' .. cur())
+    for _ = 1, 10 do key('down') end
+    eq(area_now(), 'detail', 'stays in the detail')
+    key('back')
+    eq(cur(), 'roesel_12', 'cancel → back to the row')
+    key('back')
+    eq(area_now(), 'tree', 'cancel → heading: ' .. cur())
+    key('back')
+    eq(app.state.open.book, false, 'cancel → book closes')
+    -- t503：閉じた見出しで決定しても開かない。表へ入り、その見出しのレコードが出る
+    app.open_window('book'); S.book.tab = 'eminence'; frame(); frame()
+    focus.set('book', bk.tree_wid('eminence', 0xF210), true); frame(); frame()
+    eq(cur(), bk.tree_wid('eminence', 0xF210), 'on the Tutorial heading')
+    key('left')
+    eq(bk.is_collapsed(S, 'eminence', 0xF210), true, 'left collapses the heading')
+    key('confirm')
+    eq(bk.is_collapsed(S, 'eminence', 0xF210), true, 'confirm keeps it collapsed')
+    check(cur():find('^roesel_') ~= nil, 'confirm enters the records: ' .. cur())
+    key('back')
+    key('right')
+    eq(bk.is_collapsed(S, 'eminence', 0xF210), false, 'right expands')
+    app.close_window('book'); frame()
+end
+-- 0.1.226：状態は「表示：」のチェック（受注中・未受注・達成）。分類の選択はなく、左の見出しで選ぶ
+do
+    local em = require('src.ui.eminence')
+    local focus = require('src.ui.focus')
+    FAKE.events.packet_in({ id = 0x111, data = act_packet({ [1] = { 215, 9 }, [2] = { 13, 0 } }) })
+    S.book.tab = 'eminence'
+    S.eminence.book_text = ''; S.eminence.book_favs_only = false
+    S.eminence.book_show = { accepted = true, not_accepted = true, completed = true }
+    S.eminence.book_root = 0xF212   -- 残っていても使わない
+    require('src.ui.book').set_heading(S, 'eminence', 'all', function () end)
+    em.reset_search()
+    em.select(nil)
+    S.eminence.last_id = nil
+    if not app.state.open.book then app.open_window('book') end
+    frame(); frame(); frame()
+    local function item(id)
+        for _, it in ipairs(focus.windows.book.list or {}) do if it.id == id then return it end end
+    end
+    check(item('roe_show_accepted') and item('roe_show_not_accepted') and item('roe_show_completed'), '受注中 / 未受注 / 達成 checks')
+    eq(item('roe_hide_done'), nil, 'no 達成済みを非表示 checkbox')
+    eq(item('roe_root'), nil, 'no category filter')
+    eq(item('roe_state'), nil, 'no state filter')
+    eq(item('roe_show_accepted').row, 'f2', 'show checks on the second row')
+    eq(item('roe_show_completed').row, 'f2', '達成 on the same row')
+    check(item('roe_favs_only'), 'favorites stay')
+    -- 受注中だけ（未受注オフ＋達成オフ）
+    S.eminence.book_show.not_accepted = false
+    S.eminence.book_show.completed = false
+    em.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_13') and labeled('##roesel_215'), 'accepted stay')
+    check(not labeled('##roesel_12') and not labeled('##roesel_300') and not labeled('##roesel_3055'),
+        'not accepted hidden by 未受注; non-repeatable completed hidden by 達成 off')
+    -- 古い分類の保存は使わない（すべて＋チェックの結果のまま）
+    eq(em.current_root({ settings = S }), em.ALL, 'stale book_root ignored')
+    -- 達成オン：くり返しできない達成も全部出す
+    S.eminence.book_show = { accepted = true, not_accepted = true, completed = true }
+    em.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_300'), '達成 on shows completed')
+    check(labeled('##roesel_12'), 'not accepted still shown')
+    -- 達成オフ：くり返しできない達成だけ隠す（#12 は未受注のまま残る）
+    S.eminence.book_show.completed = false
+    em.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(not labeled('##roesel_300'), '達成 off hides non-repeatable completed')
+    check(labeled('##roesel_12'), 'not accepted still shown')
+    S.eminence.book_show.completed = true
+    -- 左の見出しで分類を選ぶ
+    S.eminence.book_show = { accepted = true, not_accepted = true, completed = true }
+    require('src.ui.book').set_heading(S, 'eminence', 0xF210, function () end)
+    em.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_12') and labeled('##roesel_13'), 'heading shows its records')
+    check(not labeled('##roesel_215') and not labeled('##roesel_3055'), 'other categories hidden')
+    require('src.ui.book').set_heading(S, 'eminence', 'all', function () end)
+    em.select(nil); S.eminence.last_id = nil
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(labeled('##roesel_12') and labeled('##roesel_215'), 'すべて shows both')
     app.close_window('book'); frame()
 end
 print('test_eminence ok')

@@ -3487,9 +3487,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -66.827,
+          "y": -0.785,
+          "z": -11.287
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-66.827 y=-0.785 z=-11.287（id 17793040。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Naillina",
       "same_name": false
@@ -3502,9 +3517,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -409.553,
+          "y": -380.626,
+          "z": 17.356
+        },
         "zone_id": 123,
         "zone_name": "ユタンガ大森林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-409.553 y=-380.626 z=17.356（id 17281682。地図の換算で MAP1 の F-11。同じ名前 3 件から選んだ：LSB のクエスト・ミッションの台本（Impurity, The Lost Avatar）がこの相手（17281682 qm11）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yuhtunga_jungle/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -3517,9 +3547,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -204.531,
+          "y": 75.318,
+          "z": -20.027
+        },
         "zone_id": 126,
         "zone_name": "クフィム島"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-204.531 y=75.318 z=-20.027（id 17293832。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/qufim_island/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Undulating Confluence",
       "same_name": false
@@ -3533,9 +3578,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 110.909,
+          "y": -6.851,
+          "z": 9.095
+        },
         "zone_id": 176,
         "zone_name": "海蛇の岩窟"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=110.909 y=-6.851 z=9.095（id 17498671。地図の換算で MAP1 の J-12、マス目 J-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/sea_serpent_grotto/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -3548,9 +3608,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -44.741,
+          "y": 568.504,
+          "z": -23.753
+        },
         "zone_id": 25,
         "zone_name": "ミザレオ海岸"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-44.741 y=568.504 z=-23.753（id 16880005。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/misareaux_coast/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -3563,9 +3638,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -48.977,
+          "y": 572.489,
+          "z": -23.309
+        },
         "zone_id": 25,
         "zone_name": "ミザレオ海岸"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-48.977 y=572.489 z=-23.309（id 16880000。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/misareaux_coast/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Undulating Confluence",
       "same_name": false
@@ -3578,9 +3668,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -1.302,
+          "y": -603.471,
+          "z": -54.038
+        },
         "zone_id": 289,
         "zone_name": "エスカ-ル・オン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-1.302 y=-603.471 z=-54.038（id 17961683。地図の換算で MAP1 の H-12、マス目 H-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/escha_ruaun/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -3593,9 +3698,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -127.055,
+          "y": 600.212,
+          "z": -7.849
+        },
         "zone_id": 89,
         "zone_name": "グロウベルグ〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-127.055 y=600.212 z=-7.849（id 17142638。地図の換算で MAP1 の F-5。同じ名前 4 件から選んだ：文は「Veridical Confluxのすぐ横の???ではなく、北東のもの」「Cetusを出す」。LSB の名前が qm_cetus のものはこれだけで、LSB の Somber Dreams の台本の !pos もこの位置）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/grauberg_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -3623,9 +3743,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 259.617,
+          "y": 53.371,
+          "z": -89.0
+        },
         "zone_id": 291,
         "zone_name": "醴泉島"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=259.617 y=53.371 z=-89.000（id 17969914。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/reisenjima/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Etched Rock",
       "same_name": false

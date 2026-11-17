@@ -1999,9 +1999,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -142.28,
+          "y": 585.24,
+          "z": -6.749
+        },
         "zone_id": 89,
         "zone_name": "グロウベルグ〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-142.280 y=585.240 z=-6.749（id 17142631。地図の換算で MAP1 の F-5、マス目 F-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/grauberg_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Veridical Conflux",
       "same_name": false
@@ -2014,9 +2029,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 135.783,
+          "y": -23.819,
+          "z": -17.151
+        },
         "zone_id": 137,
         "zone_name": "ザルカバード〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=135.783 y=-23.819 z=-17.151（id 17339220。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rally Point: Blue",
       "same_name": false
@@ -2029,9 +2059,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 54.013,
+          "y": -203.103,
+          "z": -23.402
+        },
         "zone_id": 137,
         "zone_name": "ザルカバード〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=54.013 y=-203.103 z=-23.402（id 17339221。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rally Point: Green",
       "same_name": false
@@ -2044,9 +2089,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -106.071,
+          "y": -52.841,
+          "z": -25.5
+        },
         "zone_id": 137,
         "zone_name": "ザルカバード〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-106.071 y=-52.841 z=-25.500（id 17339219。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rally Point: Red",
       "same_name": false
@@ -2060,9 +2120,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 179.439,
+          "y": 100.032,
+          "z": -24.056
+        },
         "zone_id": 138,
         "zone_name": "ズヴァール城外郭〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=179.439 y=100.032 z=-24.056（id 17343243。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/castle_zvahl_baileys_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Peculiar Glint",
       "same_name": false
@@ -2075,9 +2150,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 314.083,
+          "y": -181.455,
+          "z": -1.16
+        },
         "zone_id": 84,
         "zone_name": "バタリア丘陵〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=314.083 y=-181.455 z=-1.160（id 17122264。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/batallia_downs_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Underpass Hatch",
       "same_name": false
@@ -2090,9 +2180,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -145.266,
+          "y": -174.171,
+          "z": -61.851
+        },
         "zone_id": 136,
         "zone_name": "ボスディン氷河〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-145.266 y=-174.171 z=-61.851（id 17335153。地図の換算で MAP1 の G-9。同じ名前 2 件から選んだ：LSB のクエスト・ミッションの台本（Dungeons and Dancers）がこの相手（17335153 Regal_Pawprints_8）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/beaucedine_glacier_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Regal Pawprints",
       "same_name": false
@@ -2105,9 +2210,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 54.437,
+          "y": 104.974,
+          "z": -41.904
+        },
         "zone_id": 136,
         "zone_name": "ボスディン氷河〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=54.437 y=104.974 z=-41.904（id 17335154。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/beaucedine_glacier_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Regal Pawprints",
       "same_name": false
@@ -2120,9 +2240,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -15.066,
+          "y": -217.276,
+          "z": -40.249
+        },
         "zone_id": 136,
         "zone_name": "ボスディン氷河〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-15.066 y=-217.276 z=-40.249（id 17335118。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/beaucedine_glacier_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Regal Pawprints",
       "same_name": false
@@ -2135,9 +2270,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -114.386,
+          "y": -179.804,
+          "z": -3.599
+        },
         "zone_id": 85,
         "zone_name": "ラヴォール村〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-114.386 y=-179.804 z=-3.599（id 17126107。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/la_vaule_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Reinforced Gateway",
       "same_name": false
@@ -2150,9 +2300,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 96.716,
+          "y": 107.262,
+          "z": -1.0
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=96.716 y=107.262 z=-1.000（id 17105537。地図の換算で MAP1 の K-6。同じ名前 2 件から選んだ：LSB のクエスト・ミッションの台本（The Queen of the Dance, In the Name of the Father, Dancers in Distress, Sandswept Memories, Fate in Haze, Adieu, Lilisette, Where It All Began）がこの相手（17105537 Lion_Springs）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:\"Lion Springs\"",
       "same_name": false

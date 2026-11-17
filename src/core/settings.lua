@@ -27,7 +27,7 @@ function settings.defaults()
         theme = 'dark_calm',
         background_alpha = 0.85,
         -- 窓ごとの背景の濃さ（0.1.42）。古い保存は background_alpha を引き継ぐ
-        alphas = { book = 0.85, detail = 0.85, tracker = 0.85, eminence = 0.85, map = 0.85, settings = 0.85, other = 0.85 },
+        alphas = { book = 0.85, detail = 0.85, tracker = 0.85, eminence = 0.85, compass = 0.85, map = 0.85, settings = 0.85, other = 0.85 },
         reduce_motion = false,
         windows = {
             book = win(false),
@@ -67,7 +67,8 @@ function settings.defaults()
             scroll = { mission = 0, quest = 0, eminence = 0 },
             -- 見出しの木の縦位置（0.1.208〜）
             tree_scroll = { mission = 0, quest = 0, eminence = 0 },
-            filters = { area = 'all', state = 'all', text = '' },
+            -- 0.1.225〜：area・state は使わない（古い保存との互換で 'all' のまま残す）。show は「表示：」のチェック
+            filters = { area = 'all', state = 'all', text = '', show = { accepted = true, not_accepted = true, completed = true } },
         },
         tracker = {
             visible = true,
@@ -90,11 +91,11 @@ function settings.defaults()
             collapsed = false,      -- ピン留め（0.1.177〜。前の「たたむ」）：★ を付けたものだけ
             filter = 'all',         -- いつも 'all'。'near'（達成間近）は 0.1.177、'area'（このエリア）は 0.1.179 でなくした（'all' に戻す）
             near_pct = 80,          -- 達成間近の目安（目標の数の %）。50〜95
-            hide_completed = true,  -- 0.1.203〜：本で達成したもの（くり返せないもの）を隠す。くり返しできる達成は残す。オフなら薄く
             pins = json.object({}), -- ピン { ["12"] = true }
             failed = json.object({}), -- 受けられない・まだ無いと言われた番号 { ["3055"] = { why = 'not_impl', at = ... } }
-            book_root = -2,         -- 本で選んだ分類：-2 すべて（0.1.182〜の初期）・-1 分類なし・ほかはいちばん上の分類
-            book_state = 'all',     -- 'all' / 'not_accepted' / 'accepted' / 'completed'
+            book_root = -2,         -- 0.1.226〜：分類の選択はなくした（左の見出しの木で選ぶ）。古い保存との互換で -2 のまま残す
+            book_state = 'all',     -- 0.1.226〜：状態の選択はなくした（古い保存との互換で 'all' のまま残す）
+            book_show = { accepted = true, not_accepted = true, completed = false },  -- 表示：受注中・未受注・達成。達成の初期はオフ（古い「達成済みを非表示」の初期オンに合わせる）
             book_text = '',
             favs = json.object({}), -- お気に入り（0.1.182〜、本だけ。★ のピンとは別）{ ["12"] = true }
             book_favs_only = false, -- 本でお気に入りだけ出す（0.1.182〜。前の「★だけ」はなくした）
@@ -144,6 +145,9 @@ function settings.defaults()
             -- 文字の色（0.1.47〜）。{r, g, b}（0〜255）。グラデーションは左から右へ、終わりの色まで
             label_color = { 248, 244, 232 }, label_grad = false, label_color2 = { 190, 168, 255 },   -- クエスト名（どのアイコンも）
             under_color = { 248, 244, 232 }, under_grad = false, under_color2 = { 120, 200, 255 },   -- オブジェクト名（??? など）
+            -- 頭上の文字の背景の濃さ（0.1.215〜）。0〜1。初期 0.8 は今までの #000000CC
+            label_bg_alpha = 0.8,   -- クエスト名
+            under_bg_alpha = 0.8,   -- オブジェクト名（近くのオブジェクト名も同じ）
             -- 足元の輪（0.1.171〜）。公式 vana.world.marks で、印を付けた相手の足元に、アイコンと同じ色の光の輪
             show_rings = true, ring_size = 1.0,
             -- 輪の色（種類ごと、{r, g, b} 0〜255）。初期値は今のアイコンの色（theme.palette の ic_* ・mob・gold）
@@ -264,6 +268,8 @@ function settings.merge(loaded)
         local v = tonumber(loaded_alphas[area])
         -- 0.1.177〜：エミネンスの窓の背景。まだ無い保存はトラッカーの値
         if v == nil and area == 'eminence' then v = tonumber(loaded_alphas.tracker) end
+        -- 0.1.212〜：コンパスの窓の背景。まだ無い保存はトラッカーの値（いままでの見た目のまま）
+        if v == nil and area == 'compass' then v = tonumber(loaded_alphas.tracker) end
         v = v or merged.background_alpha
         merged.alphas[area] = util.clamp(math.floor(v * 100 + 0.5) / 100, 0.3, 1.0)
     end
@@ -326,24 +332,37 @@ function settings.merge(loaded)
         local E = merged.eminence
         E.visible = E.visible == true
         E.collapsed = E.collapsed == true
-        -- 0.1.203〜（defaults_rev 5）：「達成済みを非表示」の初期をオンに。
-        -- 前の初期値（オフ）のままならオンへ。すでにオンの保存と、改訂後にオフにしたものはそのまま。
-        do
-            local raw = type(loaded.eminence) == 'table' and loaded.eminence.hide_completed
-            if (tonumber(loaded.defaults_rev) or 1) < 5 then
-                E.hide_completed = true
-            elseif raw == nil then
-                E.hide_completed = true
-            else
-                E.hide_completed = raw == true
-            end
-        end
         if E.filter ~= 'all' then E.filter = 'all' end   -- 0.1.179〜：このエリアもなくした
         E.near_pct = util.clamp(math.floor(tonumber(E.near_pct) or 80), 50, 95)
-        if E.book_state ~= 'all' and E.book_state ~= 'not_accepted' and E.book_state ~= 'accepted' and E.book_state ~= 'completed' then
+        -- 0.1.226〜：「達成済みを非表示」はやめた。達成は「表示：☑達成」（オン＝全部出す、オフ＝くり返しできない達成だけ隠す）。
+        -- 状態の選択 → 受注中・未受注・達成のチェック。分類の選択は使わない（左の見出しの木で選ぶ）
+        do
+            local raw = type(loaded) == 'table' and type(loaded.eminence) == 'table' and loaded.eminence or nil
+            -- 0.1.203 と同じ：defaults_rev < 5 の「非表示オフ」は、当時の初期値なのでオン扱い
+            local hide = true
+            if raw then
+                if (tonumber(loaded.defaults_rev) or 1) >= 5 and raw.hide_completed == false then
+                    hide = false
+                end
+            end
+            local show = { accepted = true, not_accepted = true, completed = not hide }
+            if raw and type(raw.book_show) == 'table' then
+                show = { accepted = true, not_accepted = true, completed = not hide }
+                for k in pairs(show) do if raw.book_show[k] == false then show[k] = false end end
+                if raw.book_show.completed == true then show.completed = true end
+                if raw.book_show.completed == false then show.completed = false end
+            elseif raw and raw.book_state == 'accepted' then
+                show = { accepted = true, not_accepted = false, completed = false }
+            elseif raw and raw.book_state == 'not_accepted' then
+                show = { accepted = false, not_accepted = true, completed = false }
+            elseif raw and raw.book_state == 'completed' then
+                show = { accepted = false, not_accepted = false, completed = true }
+            end
+            E.book_show = show
             E.book_state = 'all'
+            E.book_root = -2
+            E.hide_completed = nil
         end
-        E.book_root = math.floor(tonumber(E.book_root) or -2)   -- いちばん上の分類でなければ、画面で「すべて」として出す
         E.book_favs_only = E.book_favs_only == true
         E.book_fav_only = nil   -- 前の「★だけ」（0.1.177〜0.1.181）。お気に入りは空から始める
         -- 0.1.193〜：列の並びと隠す列（くり返しの列は捨てる）
@@ -400,8 +419,20 @@ function settings.merge(loaded)
             merged.look = raw
         end
     end
-    if merged.book and merged.book.filters and merged.book.filters.state == 'unknown' then
-        merged.book.filters.state = 'all'
+    -- 0.1.225〜（t497/t498）：状態の選択 → 「表示：」のチェック。地域の選択は使わない（左の見出しの木で選ぶ）
+    if merged.book and type(merged.book.filters) == 'table' then
+        local f = merged.book.filters
+        local raw = type(loaded) == 'table' and type(loaded.book) == 'table' and type(loaded.book.filters) == 'table'
+            and loaded.book.filters or nil
+        local show = { accepted = true, not_accepted = true, completed = true }
+        if raw and type(raw.show) == 'table' then
+            for k in pairs(show) do if raw.show[k] == false then show[k] = false end end
+        elseif raw and (raw.state == 'accepted' or raw.state == 'not_accepted' or raw.state == 'completed') then
+            for k in pairs(show) do show[k] = (k == raw.state) end
+        end
+        f.show = show
+        f.state = 'all'
+        f.area = 'all'
     end
     if getmetatable(merged.notify.muted_zones) == nil then json.array(merged.notify.muted_zones) end
     -- 以前は予約で enabled=false のまま画面に出していなかった。
@@ -445,6 +476,10 @@ function settings.merge(loaded)
         end
         for _, k in ipairs({ 'label_grad', 'under_grad' }) do
             merged.marks[k] = type(loaded_marks) == 'table' and loaded_marks[k] == true or false
+        end
+        -- 頭上の文字の背景の濃さ（0.1.215〜）。無い保存は今までの見た目（80%）
+        for _, k in ipairs({ 'label_bg_alpha', 'under_bg_alpha' }) do
+            merged.marks[k] = settings.clamp_label_bg_alpha(type(loaded_marks) == 'table' and loaded_marks[k] or nil)
         end
         -- 足元の輪（0.1.171〜）：大きさは 0.5〜3 倍（0.1 刻み）
         merged.marks.show_rings = merged.marks.show_rings ~= false
@@ -527,12 +562,12 @@ end
 
 -- 文字の大きさを分けている場所（それ以外の窓は font_scale）
 -- 背景の濃さの場所。ここに無い窓（必要品まとめ・お知らせ・入口）は「その他」
-settings.ALPHA_AREAS = { 'book', 'detail', 'tracker', 'eminence', 'map', 'settings', 'other' }
-settings.ALPHA_OF = { book = 'book', detail = 'detail', tracker = 'tracker', map = 'map', settings = 'settings', eminence = 'eminence', compass = 'tracker' }   -- コンパス（0.1.173〜）はトラッカーと同じ。エミネンスは 0.1.177〜 自分の値
+settings.ALPHA_AREAS = { 'book', 'detail', 'tracker', 'eminence', 'compass', 'map', 'settings', 'other' }
+settings.ALPHA_OF = { book = 'book', detail = 'detail', tracker = 'tracker', map = 'map', settings = 'settings', eminence = 'eminence', compass = 'compass' }   -- エミネンスは 0.1.177〜、コンパスは 0.1.212〜 自分の値（無ければトラッカー）
 function settings.alpha_for(S, win)
     local area = settings.ALPHA_OF[win] or 'other'
     local a = type(S.alphas) == 'table' and tonumber(S.alphas[area]) or nil
-    if a == nil and area == 'eminence' and type(S.alphas) == 'table' then a = tonumber(S.alphas.tracker) end
+    if a == nil and (area == 'eminence' or area == 'compass') and type(S.alphas) == 'table' then a = tonumber(S.alphas.tracker) end
     return a or tonumber(S.background_alpha) or 0.85
 end
 
@@ -682,6 +717,24 @@ end
 settings.OFFSET_MIN, settings.OFFSET_MAX, settings.OFFSET_STEP = -256, 256, 2
 -- 文字の色
 settings.COLOR_KEYS = { 'label_color', 'label_color2', 'under_color', 'under_color2' }
+
+-- 頭上の文字の背景の濃さ（0.1.215〜）。初期 0.8 は今までの #000000CC。0 で背景なし
+settings.LABEL_BG_ALPHA_DEFAULT = 0.8
+settings.LABEL_BG_ALPHA_MIN = 0
+settings.LABEL_BG_ALPHA_MAX = 1
+function settings.clamp_label_bg_alpha(v)
+    v = tonumber(v)
+    if v == nil then v = settings.LABEL_BG_ALPHA_DEFAULT end
+    v = math.floor(v * 100 + 0.5) / 100
+    if v < settings.LABEL_BG_ALPHA_MIN then v = settings.LABEL_BG_ALPHA_MIN
+    elseif v > settings.LABEL_BG_ALPHA_MAX then v = settings.LABEL_BG_ALPHA_MAX end
+    return v
+end
+-- which は 'label'（クエスト名）または 'under'（オブジェクト名）
+function settings.label_bg_alpha(marks, which)
+    local key = (which == 'under') and 'under_bg_alpha' or 'label_bg_alpha'
+    return settings.clamp_label_bg_alpha(type(marks) == 'table' and marks[key] or nil)
+end
 -- 足元の輪の種類（0.1.171〜）。設定の並び：未受注・進行中・進行できない・目標達成・くり返し・受注できない・討伐・ミッション・ゲートガード・名声
 settings.RING_KINDS = { 'sub', 'progress', 'blocked', 'complete', 'repeat', 'unavailable', 'hunt', 'main', 'guard', 'fame' }
 settings.RING_SIZE_MIN, settings.RING_SIZE_MAX = 0.5, 3.0

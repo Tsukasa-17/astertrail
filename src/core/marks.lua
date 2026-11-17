@@ -530,6 +530,10 @@ function marks.grid_of(data, zone_id, world_x, world_y, preferred_map_n)
 end
 
 local function role_of(step, tg)
+    -- 0.1.214〜：BF の戦いの手順の相手は入口（entrance）。戦う相手ではないので、入口の種類で決める
+    if step and step.entrance and tg then
+        return (tg.kind == 'obj') and 'examine' or 'talk'
+    end
     local t = step and step.type
     if t and HUNT_TYPES[t] then return 'hunt' end
     if t and EXAMINE_TYPES[t] then return 'examine' end
@@ -565,7 +569,9 @@ local function wanted_from_target(tg, role, q, step)
     local moves = tg.moves == true
     local same = tg.same_name == true
     local name = marks.norm_name(tg.name_en)
-    local require_grid = (name == '???') or (same and not moves)
+    -- 0.1.213〜：サーバーの番号が分かっている相手（場所が変わる ??? など）は番号だけで見分ける。マスは見ない
+    local server_id = tonumber(tg.server_id)
+    local require_grid = (not server_id) and ((name == '???') or (same and not moves))
     return {
         role = role,
         name = name,
@@ -578,6 +584,7 @@ local function wanted_from_target(tg, role, q, step)
         quest_id = q and q.id or nil,
         step_id = step and step.id or nil,
         target_id = tg.id,
+        server_id = server_id,
     }
 end
 
@@ -639,6 +646,21 @@ function marks.add_step_mobs(data, q, step, add)
     end
 end
 
+-- 手順の相手がほかにもいるとき（extra_targets、0.1.214〜）。「8人に話す」「各地の Stone Monument」など。
+-- それぞれ自分の場所（ゾーン・マス）で探す。手順の場所は使わない（ゾーンがちがうことがある）。
+function marks.add_extra_targets(data, q, step, icon, add, with_icon)
+    if type(step.extra_targets) ~= 'table' then return end
+    for _, tid in ipairs(step.extra_targets) do
+        local tg = data:target(tid)
+        local role = tg and role_of(step, tg)
+        local w = role and wanted_from_target(tg, role, q, nil)
+        if w then
+            w.step_id = step.id
+            add(with_icon and with_icon(w, icon) or w)
+        end
+    end
+end
+
 -- 探したい相手の一覧（未受注・受注中の今の手順の相手、とゲートガード）
 -- 未受注は、今の手順に相手がいなくても発生NPCに印を出す（「話して受ける」相手）。
 -- 0.1.63〜：それぞれにアイコン（icon）を付ける。完了したくり返しのクエストは発生NPCにくり返しの印。
@@ -684,6 +706,7 @@ function marks.wanted(data, progress, opts)
                 local role = role_of(step, tg)
                 add_wanted(role and with_icon(wanted_from_target(tg, role, q, step), icon))
             end
+            if step then marks.add_extra_targets(data, q, step, icon, add_wanted, with_icon) end
             -- 受注中の今の手順の文に書いてある、落とすモンスター・種族（0.1.190〜）
             if st == 'accepted' and step then
                 marks.add_step_mobs(data, q, step, add_wanted)
@@ -717,6 +740,7 @@ function marks.wanted(data, progress, opts)
                         local role = role_of(step, tg)
                         add_wanted(role and with_icon(wanted_from_target(tg, role, q, step), icon))
                     end
+                    marks.add_extra_targets(data, q, step, icon, add_wanted, with_icon)
                     marks.add_step_mobs(data, q, step, add_wanted)
                 end
             end
@@ -767,6 +791,17 @@ function marks.wanted(data, progress, opts)
     return marks.keep_current_chain(data, progress, out)
 end
 
+-- 1つの手順の相手（0.1.217〜）。地図で見ている手順が「今」の手順でないときも、
+-- 頭上の印と同じ見分け方（番号・名前・マス）で、読み込まれている本物を探せるように。印には使わない。
+function marks.wanted_for_step(data, step)
+    if not step or not step.target or not data or not data.target then return nil end
+    local tg = data:target(step.target)
+    if not tg then return nil end
+    local role = role_of(step, tg)
+    if not role then return nil end
+    return wanted_from_target(tg, role, nil, step)
+end
+
 -- このゾーンで探す相手だけに絞る（ゾーン不明のガードは残す）
 function marks.in_zone(wanted_list, zone_id)
     local out = {}
@@ -810,6 +845,46 @@ local function family_ok(w, ent, zone_id)
 end
 marks._family_ok = family_ok
 
+-- サーバーの番号（0.1.213〜）。NPC・物の番号は 0x01000000 + ゾーン×0x1000 + 読み込みの番号（下の 12 ビット）。
+-- 相手の server_id が読めればそれで比べ、読めないときだけ、ゾーンと読み込みの番号で比べる。
+function marks.same_server_id(id, ent, zone_id)
+    id = tonumber(id)
+    if not id or not ent then return false end
+    local sid = tonumber(ent.server_id)
+    if sid and sid ~= 0 then return sid == id end
+    local idx = tonumber(ent.index)
+    zone_id = tonumber(zone_id)
+    if not idx or not zone_id then return false end
+    local want_idx = id % 0x1000
+    local want_zone = math.floor(id / 0x1000) % 0x1000
+    return idx == want_idx and zone_id == want_zone
+end
+
+-- 場所の候補（0.1.213〜）。場所が変わる ??? などで、出るかもしれない場所の一覧。
+-- 手順の location.candidates が先、なければ相手の candidates。ゾーンがちがう候補は使わない。
+function marks.candidates_for(data, step)
+    if not step then return nil end
+    local loc = step.location
+    local list = loc and loc.candidates
+    local tg = step.target and data and data.target and data:target(step.target) or nil
+    if type(list) ~= 'table' or #list == 0 then list = tg and tg.candidates end
+    if type(list) ~= 'table' or #list == 0 then return nil end
+    local zone = tonumber(loc and loc.zone_id) or tonumber(tg and tg.location and tg.location.zone_id)
+    local out = {}
+    for _, c in ipairs(list) do
+        local pos = type(c) == 'table' and c.pos
+        if type(pos) == 'table' and tonumber(pos.x) and tonumber(pos.y) then
+            local cz = tonumber(c.zone_id) or zone
+            if zone == nil or cz == zone then
+                out[#out + 1] = { x = tonumber(pos.x), y = tonumber(pos.y), z = tonumber(pos.z),
+                                  grid = c.grid, zone_id = cz }
+            end
+        end
+    end
+    if #out == 0 then return nil end
+    return out
+end
+
 -- 見えている相手と照合する。画面外は呼び出し側で落とす。
 -- ctx: { zone_id, grid_of(ent, wanted) -> grid or nil }
 function marks.match(wanted_list, entities, ctx)
@@ -844,7 +919,14 @@ function marks.match(wanted_list, entities, ctx)
     local ents_by_key = nil
     for _, w in ipairs(wanted_list or {}) do
         local cands = {}
-        if w.family then
+        if w.server_id then
+            -- サーバーの番号で見分ける（0.1.213〜）。同じゾーンのほかの ??? には付けない
+            for _, ent in ipairs(entities or {}) do
+                if marks.same_server_id(w.server_id, ent, ctx.zone_id) then
+                    if not (w.role == 'hunt' and ent.dead) then add(ent, w) end
+                end
+            end
+        elseif w.family then
             -- 種族（0.1.190〜）：名前はその相手の名前にして付ける（ヒントに出す）
             for _, ent in ipairs(entities or {}) do
                 if family_ok(w, ent, ctx.zone_id) then
@@ -905,7 +987,7 @@ function marks.match(wanted_list, entities, ctx)
             -- 同名で座標がある（require_grid と同じだが、上で既に処理）
         end
         -- 調べる対象：名前で見つからなければ、同じマス（と隣）の名前が出ない相手も候補にする
-        if w.role == 'examine' and #cands == 0 and w.grid then
+        if w.role == 'examine' and #cands == 0 and w.grid and not w.server_id then
             local exact, near = {}, {}
             for _, ent in ipairs(entities or {}) do
                 local n = marks.norm_name(ent and ent.name)

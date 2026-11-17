@@ -35,7 +35,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.211',
+    VERSION = '1.1.226',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -110,7 +110,8 @@ local state = {
     popup_back = nil,         -- お知らせを操作する前に操作していた窓
     -- エミネンス・レコード（0.1.172〜、t243）
     roe = { db = nil, db_lang = nil, db_why = nil, active = nil, complete = nil, parts = {}, src = nil,
-            mem_due = nil, packets = 0, sent = {}, last_send = nil, game_sent = nil },
+            mem_due = nil, packets = 0, sent = {}, last_send = nil, game_sent = nil,
+            unity = nil, leader = nil },   -- 0.1.224〜：0x110 の組・週 { shared, week, day_at, week_at }、0x061 のリーダー
 }
 app.state = state
 local SC = shortcut_mod.new()   -- パッドのショートカットの判定（本を開く）
@@ -1690,6 +1691,17 @@ function app.read_roe(why)
         local act = p and roe_mod.parse_active(p)
         if act then r.active, r.src, r.at = act, 'last_packet', state.now end
     end
+    -- 日・週で替わる目標の組・週・リーダー（0.1.224〜）：まだ届いていなければ最後に届いたものを読む
+    if P.last_packet then
+        if not r.unity then
+            local p = P.last_packet(roe_mod.PKT_UNITY)
+            if p then app.on_roe_packet(roe_mod.PKT_UNITY, p) end
+        end
+        if r.leader == nil then
+            local p = P.last_packet(roe_mod.PKT_STATUS)
+            if p then app.on_roe_packet(roe_mod.PKT_STATUS, p) end
+        end
+    end
     if snap and snap.complete then
         r.complete = snap.complete
         r.parts = { [0] = true, true, true, true }
@@ -1732,9 +1744,48 @@ function app.roe_failed(id)
     return f and f[tostring(id)] or nil
 end
 
--- 届いた 0x111・0x112・0x029（platform の packet_in から。読むだけ）
+-- いまの時刻（秒）。日・週で替わる目標の組を進めるのに使う（テストで差し替える）
+function app.epoch_now() return os.time() end
+
+-- 日・週で替わる目標の、いまの組・週・リーダー。戻り値: { shared, week, leader } または nil
+function app.roe_rotation_now()
+    local r = state.roe
+    local cur = roe_mod.rotation_now(r.unity, app.epoch_now()) or {}
+    cur.leader = r.leader
+    return cur
+end
+
+-- いま受けられない理由（受けている目標・分からないときは nil）。戻り値: 理由, 今日の組の字
+function app.roe_rotation(id)
+    id = tonumber(id)
+    if not id or app.roe_active_entry(id) then return nil end
+    local cur = app.roe_rotation_now()
+    return roe_mod.rotation_block(id, cur, cur.leader)
+end
+
+-- 押せない理由の文（ボタンの説明・お知らせ）
+function app.roe_why_text(why, id)
+    local cur = app.roe_rotation_now()
+    local today = cur.shared and roe_mod.BLOCKS[cur.shared + 1] or '?'
+    local first = cur.shared and (roe_mod.SHARED_FIRST + cur.shared * 9) or 0
+    return T('roe.msg.' .. tostring(why), { name = id and roe_name(id) or '', today = today,
+        from = tostring(first), to = tostring(first + 8) })
+end
+
+-- 届いた 0x111・0x112・0x029・0x110・0x061（platform の packet_in から。読むだけ）
 function app.on_roe_packet(id, data)
     local r = state.roe
+    if id == roe_mod.PKT_UNITY then
+        local u = roe_mod.parse_unity(data)
+        if not u then return end
+        local now = app.epoch_now()
+        r.unity = { shared = u.shared, week = u.week, day_at = roe_mod.days_since(now), week_at = roe_mod.weeks_since(now) }
+        return
+    elseif id == roe_mod.PKT_STATUS then
+        local l = roe_mod.parse_leader(data)
+        if l ~= nil then r.leader = l end
+        return
+    end
     if id == roe_mod.PKT_ACTIVE then
         local act = roe_mod.parse_active(data)
         if not act then return end
@@ -1772,9 +1823,18 @@ function app.on_roe_packet(id, data)
         end
         if not rid then return end
         if kind == 'unable' then
-            app.roe_mark_failed(rid, 'unable')
             local s = r.sent[rid]
+            -- 日・週で替わる目標は「受けられなかった」を覚えない（次の日・週には受けられる）。わけを名前つきで出す（0.1.224〜）
+            if roe_mod.is_rotating(rid) then
+                diag.log('roe', 'unable (rotating) ' .. tostring(rid))
+            else
+                app.roe_mark_failed(rid, 'unable')
+            end
             if s and not s.answered_at then s.answered_at = state.now end   -- 断られたのも答え
+            if ls and ls.id == rid and state.now - ls.at <= app.ROE_UNABLE_WINDOW then
+                app.flash(T(roe_mod.is_rotating(rid) and 'roe.msg.unable_rotating' or 'roe.msg.unable_named',
+                    { name = roe_name(rid) }))
+            end
         elseif kind == 'start' then
             local f = S and S.eminence and S.eminence.failed
             if f and f[tostring(rid)] then f[tostring(rid)] = nil; app.mark_settings_dirty() end
@@ -1828,6 +1888,9 @@ function app.roe_can(op, id)
     local e = app.roe_active_entry(id)
     if op == 'start' then
         if e then return false, 'already' end
+        -- 日・週で替わる目標・期間限定（0.1.224〜、t496）
+        local rot = app.roe_rotation(id)
+        if rot then return false, rot end
         if app.roe_active_count() >= roe_mod.MAX_ACTIVE then return false, 'full' end
         local db = app.roe_db()
         local q = db and db.quests[id]
@@ -1846,7 +1909,7 @@ function app.roe_send(op, id)
     id = tonumber(id)
     local can, why = app.roe_can(op, id)
     if not can then
-        app.flash(T('roe.msg.' .. why, { name = id and roe_name(id) or '' }))
+        app.flash(app.roe_why_text(why, id))
         return { ok = false, code = why }
     end
     local pid, data = roe_mod.build_packet(op, id)
@@ -2361,6 +2424,8 @@ local function make_ui(imgui)
     ui.roe_send = app.roe_send
     ui.roe_can = app.roe_can
     ui.roe_failed = app.roe_failed
+    ui.roe_rotation = app.roe_rotation
+    ui.roe_why_text = app.roe_why_text
     ui.roe_active_entry = app.roe_active_entry
     ui.roe_active_count = app.roe_active_count
     ui.toggle_eminence = app.toggle_eminence
@@ -2571,6 +2636,34 @@ local function target_want_note(name, grid_text)
 end
 
 -- /astertrail と短い /ast（0.1.196〜）。/assist や /as には合わせない
+
+-- ターゲット（いなければ自分）の ID・読み込み番号・「出ている」合図（0.1.215〜）
+local function target_id_line(tgt)
+    local idx = tgt and tonumber(tgt.index) or nil
+    local e
+    if idx and P.game_entity then
+        local ok, r = pcall(P.game_entity, idx)
+        if ok and type(r) == 'table' then e = r end
+    end
+    local id = (e and tonumber(e.id)) or tonumber(tgt and tgt.id) or tonumber(tgt and tgt.server_id)
+    local render = (e and tonumber(e.render_flags)) or tonumber(tgt and tgt.render_flags)
+    local shown
+    if P._render_shown then
+        shown = P._render_shown(render)
+    end
+    local shown_text = '?'
+    if shown == true then
+        shown_text = T('cmd.target_shown')
+    elseif shown == false then
+        shown_text = T('cmd.target_hidden')
+    end
+    local id_text, idx_text, flags_text = '?', '?', '?'
+    if id then id_text = tostring(math.floor(id)) end
+    if idx then idx_text = tostring(math.floor(idx)) end
+    if render then flags_text = string.format('0x%X', math.floor(render)) end
+    return T('cmd.target_id', { id = id_text, index = idx_text, shown = shown_text, flags = flags_text })
+end
+
 function app.is_addon_command(text)
     local head = util.lower((util.split_words(text or '')[1]) or '')
     return head == '/astertrail' or head == '/ast'
@@ -2758,6 +2851,17 @@ function app.command(text)
     elseif sub == 'target' or sub == 'pos' then
         local tgt = P.current_target and P.current_target()
         if type(tgt) ~= 'table' then
+            -- ターゲットがいないときは自分の座標と ID を出す（0.1.215〜）
+            local pl = P.player and P.player()
+            if type(pl) == 'table' and (pl.ready == true or (pl.name and pl.name ~= '') or pl.x ~= nil) then
+                tgt = {
+                    name = pl.name, x = pl.x, y = pl.y, z = pl.z,
+                    index = pl.index, id = pl.id, server_id = pl.server_id,
+                    render_flags = pl.render_flags,
+                }
+            end
+        end
+        if type(tgt) ~= 'table' then
             P.print(T('cmd.target_none'))
         else
             local name = tgt.name
@@ -2774,6 +2878,7 @@ function app.command(text)
                 grid = grid,
                 note = target_want_note(name, grid),
             }))
+            P.print(target_id_line(tgt))
             -- アイコンのズーム合わせ（試し）の縮み具合
             if P.zoom_info and tgt.index then
                 local f, h, ref = P.zoom_info(tgt.index)

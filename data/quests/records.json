@@ -1195,9 +1195,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -85.278,
+          "y": -50.708,
+          "z": 1.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-85.278 y=-50.708 z=1.000（id 17719638。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rolandienne",
       "same_name": false
@@ -1210,9 +1225,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -88.0,
+          "y": -50.75,
+          "z": 1.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-88.000 y=-50.750 z=1.000（id 17719643。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Urbiolaine",
       "same_name": false
@@ -1221,13 +1251,29 @@
       "id": "npc.243.Jamal",
       "kind": "npc",
       "location": {
-        "grid": "H-5",
+        "grid": "H-4",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 3.779,
+          "y": 140.932,
+          "z": 2.0
         },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.779 y=140.932 z=2.000（id 17772852。地図の換算で MAP1 の H-4、マス目 H-5 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-5",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jamal",
       "same_name": false
@@ -1240,9 +1286,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -3.9,
+          "y": 139.0,
+          "z": 2.0
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-3.900 y=139.000 z=2.000（id 17772853。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Marjory",
       "same_name": false
@@ -1255,9 +1316,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 100.58,
+          "y": -63.83,
+          "z": -40.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=100.580 y=-63.830 z=-40.150（id 17830030。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ploh Trishbahk",
       "same_name": false

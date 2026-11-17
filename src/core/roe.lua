@@ -5,7 +5,7 @@
     1件の箱は 0xC00 バイト（新しい版は 0x1400）。どのバイトも右へ 5 ビット回して戻す。
     レコード：id・日付・くり返し・目標の数・報酬 4 つ（古い版は 3 つ）の後に文字の表（名前・説明）。
     分類：id・子の数・子 28 個（子の id、印）・文字の表（名前）。子の印の上の 8 ビットが 4 なら、下の 24 ビットがエリアの番号
-    （2026-11-16、実機の DAT で確かめた。「採集：東ロンフォール」の印の下が 101 など）。
+    （2026-11-16、GAME-PC の DAT で確かめた。「採集：東ロンフォール」の印の下が 101 など）。
   - 受けているもの：0x111（u32 が 64 個。下 12 ビットが番号、上 20 ビットが進み。1〜30 番目と、64 番目が時限のもの）。
     達成：0x112（128 バイトの 4 つ。番号 n はバイト n/8 のビット n%8。最後の u16 が何番目か）。
     ゲームは同じ形を FFXiMain.dll の中に写している（platform が読む）。
@@ -414,6 +414,83 @@ end
 function roe.in_zone(db, id, zone_id)
     local z = db and db.zones[id]
     return z ~= nil and zone_id ~= nil and z[tonumber(zone_id)] == true
+end
+
+
+---------------------------------------------------------------------------
+-- 日・週で替わる目標（0.1.224〜、t496）。LSB の roe.cpp・0x10c_roe_start.cpp・0x110_unity.cpp・0x061_clistatus.h を読んで確かめた
+-- - ユニティ共通 3000〜3053：9 件ずつ 6 日の組（A〜F）。今日の組だけ受けられる（0x110 の RoEUnityShared が今日の組 0〜5）。
+-- - ユニティリーダー 3488〜3707：リーダー 11 人 × 20 件、その中が 4 週 × 5 件。自分のリーダー（0x061 の unity_info の下 5 ビット）
+--   で、今週（0x110 の RoEUnityLeader 0〜3）の分だけ受けられる。
+-- - 期間限定 4008〜4021：ゲームが 4 時間ごとに入れる。0x10C では受けられない（サーバーが受け付けない）。
+-- 組・週は、届いた 0x110 の値を、届いた日（2002-01-01 0:00 JST からの日・週）からの日数・週数だけ進めて使う（0:00 JST に替わる）。
+-- どれも分からないあいだは止めない（推測しない）。
+---------------------------------------------------------------------------
+roe.PKT_UNITY = 0x110
+roe.PKT_STATUS = 0x061
+roe.SHARED_FIRST, roe.SHARED_LAST = 3000, 3053
+roe.LEADER_FIRST, roe.LEADER_LAST = 3488, 3707
+roe.TIMED_FIRST, roe.TIMED_LAST = 4008, 4021
+roe.EPOCH = 1009810800      -- 2002-01-01 00:00 JST（LSB の vanadiel_epoch）
+roe.BLOCKS = { 'A', 'B', 'C', 'D', 'E', 'F' }
+
+function roe.days_since(t) return math.floor(((tonumber(t) or 0) - roe.EPOCH) / 86400) end
+function roe.weeks_since(t) return math.floor(((tonumber(t) or 0) - roe.EPOCH) / (86400 * 7)) end
+
+-- 届いた 0x110。戻り値: { shared = 0〜5, week = 0〜3 } または nil
+function roe.parse_unity(data)
+    -- 頭 4 ＋ Sparks u32・Deeds u16・Plaudits u16 の後（0 から数えて 12・13 バイト目）
+    if type(data) ~= 'string' or #data < 14 then return nil end
+    if (data:byte(1) + (data:byte(2) % 2) * 256) ~= roe.PKT_UNITY then return nil end
+    local sh, wk = data:byte(13), data:byte(14)
+    if not sh or sh > 5 or not wk or wk > 3 then return nil end
+    return { shared = sh, week = wk }
+end
+
+-- 届いた 0x061。戻り値: 自分のユニティのリーダー 1〜11（入っていなければ 0）、または nil
+function roe.parse_leader(data)
+    -- unity_info は CLISTATUS の 84 バイト目（頭 4 を足して 0 から数えて 0x58）。下 5 ビットがリーダー
+    if type(data) ~= 'string' or #data < 0x58 + 4 then return nil end
+    if (data:byte(1) + (data:byte(2) % 2) * 256) ~= roe.PKT_STATUS then return nil end
+    local v = u32_at(data, 0x58 + 1)
+    if not v then return nil end
+    local f = v % 32
+    if f > 11 then return nil end
+    return f
+end
+
+-- 届いた 0x110 の値を、いまの時刻まで進める。rot: { shared, week, day_at, week_at }
+function roe.rotation_now(rot, now)
+    if not rot or rot.shared == nil then return nil end
+    local d = roe.days_since(now) - (rot.day_at or roe.days_since(now))
+    local w = roe.weeks_since(now) - (rot.week_at or roe.weeks_since(now))
+    return { shared = (rot.shared + d) % 6, week = rot.week and ((rot.week + w) % 4) or nil }
+end
+
+function roe.shared_block(id) return math.floor((id - roe.SHARED_FIRST) / 9) end
+function roe.leader_of(id) return math.floor((id - roe.LEADER_FIRST) / 20) + 1 end
+function roe.leader_week_of(id) return math.floor(((id - roe.LEADER_FIRST) % 20) / 5) end
+function roe.is_rotating(id)
+    id = tonumber(id)
+    return id ~= nil and ((id >= roe.SHARED_FIRST and id <= roe.SHARED_LAST) or (id >= roe.LEADER_FIRST and id <= roe.LEADER_LAST))
+end
+
+-- いま受けられない理由（受けられる・分からないなら nil）。cur: rotation_now の値、leader: 1〜11
+-- 戻り値: 理由, 今日の組の字（'D' など）
+function roe.rotation_block(id, cur, leader)
+    id = tonumber(id)
+    if not id then return nil end
+    if id >= roe.TIMED_FIRST and id <= roe.TIMED_LAST then return 'timed_auto' end
+    if id >= roe.SHARED_FIRST and id <= roe.SHARED_LAST then
+        if cur and cur.shared ~= nil and roe.shared_block(id) ~= cur.shared then return 'not_today', roe.BLOCKS[cur.shared + 1] end
+        return nil
+    end
+    if id >= roe.LEADER_FIRST and id <= roe.LEADER_LAST then
+        if leader and leader >= 1 and roe.leader_of(id) ~= leader then return 'other_leader' end
+        if leader and leader >= 1 and cur and cur.week ~= nil and roe.leader_week_of(id) ~= cur.week then return 'not_this_week' end
+        return nil
+    end
+    return nil
 end
 
 return roe

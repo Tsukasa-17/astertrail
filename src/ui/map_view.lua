@@ -32,6 +32,13 @@ local function add_quest_mark(dl, sx, sy)
     halo(dl, sx, sy, theme.u32('pin', 1), 10, 16)
 end
 
+-- 場所の候補（0.1.213〜）：小さい白抜きの丸。ピン（塗りの丸）より小さく、見分けがつくように
+local function add_candidate_mark(dl, sx, sy)
+    dl:AddCircleFilled({ sx, sy }, 6, theme.u32('ink', 0.85), 12)
+    dl:AddCircleFilled({ sx, sy }, 4.6, theme.u32('paper', 0.95), 12)
+    dl:AddCircle({ sx, sy }, 3.2, theme.u32('pin', 1), 12, 2)
+end
+
 local function add_player_mark(dl, sx, sy)
     -- 菱形（頂点 4）＋中心。クエストの丸ピンと見分けがつくように
     halo(dl, sx, sy, theme.u32('player', 1), 12, 4)
@@ -161,6 +168,10 @@ local function draw_overlay(dl, to_screen, box, pin, me, ov, mouse)
     for _, m in ipairs(ov.mobs or {}) do
         local sx, sy = to_screen(m.base_x, m.base_y)
         if sx then add_mob_mark(dl, sx, sy) end
+    end
+    for _, c in ipairs(ov.cands or {}) do
+        local sx, sy = to_screen(c.base_x, c.base_y)
+        if sx then add_candidate_mark(dl, sx, sy) end
     end
     if ov.arrive then
         local sx, sy = to_screen(ov.arrive.base_x, ov.arrive.base_y)
@@ -517,6 +528,40 @@ function map_view.go_back(ui)
     return true
 end
 
+-- 見ている手順のピンと候補（0.1.217〜 で分けた）。本物が見えていればピン1つ（kind='live'）で候補なし、
+-- 見えていなければ候補（あれば）。fixed_loc は場所を選んで見ているとき（そのときは相手を探さない）
+function map_view.step_pin(ui, D, floor, loc, step, fixed_loc)
+    local pin = maps.pin(floor, loc, maps.BASE)
+    -- 相手が同じゾーンで読み込まれていれば（NPCも ??? などのオブジェクトも）、本当の座標に出す
+    -- 0.1.217〜：「今」の手順でなくても、見ている手順の相手が見えていれば本当の座標に1つだけ出す
+    if floor and loc and step and step.target and not fixed_loc then
+        local live = marks_ui.step_live_position(ui, loc.zone_id, step)
+        if live then
+            local bx, by = maps.world_px(floor, live.x, live.y)
+            if bx and bx >= 0 and by >= 0 and bx <= maps.BASE and by <= maps.BASE then
+                pin = { x = bx, y = by, kind = 'live', base_x = bx, base_y = by,
+                        grid = maps.grid_name(bx, by) }
+            end
+        end
+    end
+    -- 場所が変わる ??? など（0.1.213〜）：本物が見えていなければ、候補の場所を小さく全部出す
+    local cands = nil
+    if floor and loc and step and not fixed_loc and not (pin and pin.kind == 'live') then
+        local list_c = marks_core.candidates_for(D, step)
+        if list_c then
+            cands = {}
+            for _, c in ipairs(list_c) do
+                local bx, by = maps.world_px(floor, c.x, c.y)
+                if bx and bx >= 0 and by >= 0 and bx <= maps.BASE and by <= maps.BASE then
+                    cands[#cands + 1] = { base_x = bx, base_y = by, grid = maps.grid_name(bx, by) }
+                end
+            end
+            if #cands == 0 then cands = nil else pin = nil end
+        end
+    end
+    return pin, cands
+end
+
 -- 近くにいる討伐の相手（0.1.171〜）。いまいるゾーンで、読み込まれている相手だけ。
 -- 名前が同じ・生きている・ターゲットできる（読めるときだけ見る）。0.5 秒ごとに探し直す。
 -- 戻り値: list（近い順。{ x, y, dist }）または nil, 理由（'other_zone' | 'no_platform'）
@@ -681,20 +726,10 @@ function map_view.draw(ui)
             W.colored(ui, 'warn', t('map.no_map'))
         end
 
-        local pin = maps.pin(floor, loc, maps.BASE)
-        -- 相手が同じゾーンで読み込まれていれば（NPCも ??? などのオブジェクトも）、本当の座標に出す
-        if floor and loc and step and step.target and not info.loc then
-            local live = marks_ui.live_position(ui, loc.zone_id, step.target)
-            if live then
-                local bx, by = maps.world_px(floor, live.x, live.y)
-                if bx and bx >= 0 and by >= 0 and bx <= maps.BASE and by <= maps.BASE then
-                    pin = { x = bx, y = by, kind = 'live', base_x = bx, base_y = by,
-                            grid = maps.grid_name(bx, by) }
-                end
-            end
-        end
+        local pin, cands = map_view.step_pin(ui, D, floor, loc, step, info.loc)
         local on_dest = maps.dest_on_floor(floor, loc, #list)
         if pin and not on_dest then pin = nil end
+        if cands and not on_dest then cands = nil end
         local me = maps.player_pin(floor, ui.player, loc)
         -- いまいる MAP が分かっていれば、ほかの MAP には菱形を出さない（分からなければこれまでどおり）
         local here_other = nil
@@ -710,7 +745,7 @@ function map_view.draw(ui)
 
         -- 地図の上の印（0.1.171〜）：自分の矢印と輪・出口・来たときに立つ位置・近くの討伐の相手
         local ov = { t = (ui.state and ui.state.now) or os.clock(), reduce = ui.reduce_motion,
-                     heading = ui.player and tonumber(ui.player.heading) or nil, exits = {} }
+                     heading = ui.player and tonumber(ui.player.heading) or nil, exits = {}, cands = cands }
         local learned = learned_of(ui)
         local dat = dat_of(ui)
         local unplaced = 0
@@ -788,6 +823,8 @@ function map_view.draw(ui)
             elseif info.arrive then W.muted(ui, t('map.arrive_unknown')) end
         elseif pin and pin.kind == 'live' then
             W.muted(ui, t('map.live_pin'))
+        elseif cands then
+            W.muted(ui, t('map.cand_pin', { n = tostring(#cands) }))
         elseif pin and pin.kind == 'grid' then
             W.muted(ui, t('map.grid_pin'))
         elseif pin and pin.kind == 'pos' then

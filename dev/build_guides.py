@@ -14,7 +14,7 @@ OUT = common.DATA / 'guides' / 'steps_v2.json'
 REL = 'guides/steps_v2.json'
 MAP_OUT = common.DATA / 'guides' / 'step_map.json'
 MAP_REL = 'guides/step_map.json'
-DATA_VERSION = '2026.11.16-112'
+DATA_VERSION = '2026.11.17-124'
 
 guides = pilot_missions.G + pilot_quests.G
 GD_DIR = pathlib.Path(__file__).resolve().parent / 'guides'
@@ -30,6 +30,11 @@ _names = {tid: t.get('name_en') for tid, t in common.EXISTING_T.items()}
 _names.update({tid: t.get('name_en') for tid, t in common.NEW_TARGETS.items()})
 print('coords', coords.apply(guides, common.NEW_TARGETS, _names))
 print('game', coords.apply_game(guides, common.NEW_TARGETS))
+print('moving', coords.apply_moving(common.NEW_TARGETS))
+print('links', coords.apply_links(guides, common.NEW_TARGETS))
+print('exact', coords.apply_exact(guides, common.NEW_TARGETS))
+print('named texts', coords.apply_named_texts(guides, common.NEW_TARGETS))   # 0.1.220〜
+print('numpad', coords.apply_numpad(guides))   # 0.1.221〜
 doc = {
     'data_schema': 1,
     'data_kind': 'guides',

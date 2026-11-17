@@ -3465,9 +3465,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -232.415,
+          "y": 426.495,
+          "z": 41.465
+        },
         "zone_id": 106,
         "zone_name": "北グスタベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-232.415 y=426.495 z=41.465（id 17212050。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/north_gustaberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hunting Bear",
       "same_name": false
@@ -3480,9 +3495,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -217.594,
+          "y": 464.722,
+          "z": 98.644
+        },
         "zone_id": 106,
         "zone_name": "北グスタベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-217.594 y=464.722 z=98.644（id 17212048。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/north_gustaberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Waterfall Base",
       "same_name": false
@@ -3556,9 +3586,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 17.095,
+          "y": -52.995,
+          "z": 7.704
+        },
         "zone_id": 172,
         "zone_name": "ツェールン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=17.095 y=-52.995 z=7.704（id 17481832。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/zeruhn_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zelman",
       "same_name": false
@@ -3602,9 +3647,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 40.224,
+          "y": -257.831,
+          "z": -68.105
+        },
         "zone_id": 196,
         "zone_name": "グスゲン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=40.224 y=-257.831 z=-68.105（id 17580407。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/gusgen_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Degga",
       "same_name": false
@@ -3663,6 +3723,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 59.707,
+          "y": -1.088,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
@@ -3674,6 +3739,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Drachenfall",
             "https://ffxiclopedia.fandom.com/wiki/Drachenfall"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=59.707 y=-1.088 z=6.999（id 17735739。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
           ]
         }
       ],
@@ -3689,9 +3762,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 5.365,
+          "y": 9.891,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=5.365 y=9.891 z=6.999（id 17735702。地図の換算で MAP1 の I-6、マス目 I-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Detzo",
       "same_name": false
@@ -3704,9 +3792,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -17.087,
+          "y": 52.745,
+          "z": -0.05
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.087 y=52.745 z=-0.050（id 17735703。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Elki",
       "same_name": false
@@ -3719,9 +3822,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -119.899,
+          "y": -74.651,
+          "z": -3.492
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-119.899 y=-74.651 z=-3.492（id 17735693。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gerbaum",
       "same_name": false
@@ -3734,9 +3852,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 38.4,
+          "y": 14.1,
+          "z": 0.0
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=38.400 y=14.100 z=0.000（id 17735740。地図の換算で MAP1 の I-6、マス目 I-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Goraow",
       "same_name": false
@@ -3749,9 +3882,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 53.532,
+          "y": -37.149,
+          "z": -0.051
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=53.532 y=-37.149 z=-0.051（id 17735684。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gumbah",
       "same_name": false
@@ -3764,9 +3912,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -14.467,
+          "y": 55.068,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-14.467 y=55.068 z=6.999（id 17735690。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Parraggoh",
       "same_name": false
@@ -3779,9 +3942,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": 16.586,
+          "y": -14.843,
+          "z": 6.985
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=16.586 y=-14.843 z=6.985（id 17735735。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pavvke",
       "same_name": false
@@ -3794,9 +3972,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -11.823,
+          "y": -9.249,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-11.823 y=-9.249 z=6.999（id 17735700。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Roh Latteh",
       "same_name": false
@@ -3809,9 +4002,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 83.808,
+          "y": -6.868,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=83.808 y=-6.868 z=6.999（id 17735861。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Selliste",
       "same_name": false
@@ -3824,9 +4032,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 62.617,
+          "y": -68.222,
+          "z": 0.0
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=62.617 y=-68.222 z=0.000（id 17735754。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tami",
       "same_name": false
@@ -3839,9 +4062,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 127.356,
+          "y": -8.799,
+          "z": 2.017
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=127.356 y=-8.799 z=2.017（id 17735712。地図の換算で MAP1 の L-7。同じ名前 2 件から選んだ：候補 2 件がすべて 0.9 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Titus",
       "same_name": false
@@ -3869,9 +4107,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 26.305,
+          "y": -66.403,
+          "z": 0.0
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=26.305 y=-66.403 z=0.000（id 17735699。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Wahid",
       "same_name": false
@@ -3880,13 +4133,29 @@
       "id": "npc.235.Aquillina",
       "kind": "npc",
       "location": {
-        "grid": "K-9",
+        "grid": "K-8",
         "map": {
           "kind": "unknown"
+        },
+        "pos": {
+          "x": -98.884,
+          "y": -79.0,
+          "z": -4.809
         },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-98.884 y=-79.000 z=-4.809（id 17739784。地図の換算で MAP1 の K-8、マス目 K-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "K-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Aquillina",
       "same_name": false
@@ -3899,9 +4168,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -121.492,
+          "y": -123.923,
+          "z": -4.0
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-121.492 y=-123.923 z=-4.000（id 17739782。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Arawn",
       "same_name": false
@@ -3914,9 +4198,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -90.197,
+          "y": -108.509,
+          "z": -4.302
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-90.197 y=-108.509 z=-4.302（id 17739813。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brygid",
       "same_name": false
@@ -3929,9 +4228,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -173.975,
+          "y": -136.313,
+          "z": 1.999
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-173.975 y=-136.313 z=1.999（id 17739842。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Degenhard",
       "same_name": false
@@ -3944,9 +4258,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -253.673,
+          "y": -92.326,
+          "z": -12.0
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-253.673 y=-92.326 z=-12.000（id 17739890。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Enu",
       "same_name": false
@@ -3959,6 +4288,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -282.653,
+          "y": -36.735,
+          "z": -12.0
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
@@ -3970,6 +4304,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Buckets_of_Gold",
             "https://ffxiclopedia.fandom.com/wiki/Buckets_of_Gold"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-282.653 y=-36.735 z=-12.000（id 17739843。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
           ]
         }
       ],
@@ -3985,9 +4327,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -317.829,
+          "y": -177.375,
+          "z": -15.948
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-317.829 y=-177.375 z=-15.948（id 17739781。地図の換算で MAP1 の E-11、マス目 E-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gwill",
       "same_name": false
@@ -4000,9 +4357,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -158.392,
+          "y": -117.061,
+          "z": -4.839
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-158.392 y=-117.061 z=-4.839（id 17739778。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Horatius",
       "same_name": false
@@ -4015,9 +4387,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -173.798,
+          "y": 63.639,
+          "z": -4.839
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-173.798 y=63.639 z=-4.839（id 17739780。地図の換算で MAP1 の I-5、マス目 I-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Malene",
       "same_name": false
@@ -4030,6 +4417,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -340.06,
+          "y": -148.181,
+          "z": -10.003
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
@@ -4041,6 +4433,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/All_by_Myself",
             "https://ffxiclopedia.fandom.com/wiki/All_by_Myself"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-340.060 y=-148.181 z=-10.003（id 17739892。地図の換算で MAP1 の E-10、マス目 E-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
           ]
         }
       ],
@@ -4056,9 +4456,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -297.596,
+          "y": -157.074,
+          "z": -15.948
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-297.596 y=-157.074 z=-15.948（id 17739820。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Michea",
       "same_name": false
@@ -4071,9 +4486,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -114.777,
+          "y": -113.301,
+          "z": -4.0
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-114.777 y=-113.301 z=-4.000（id 17739826。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nbu Latteh",
       "same_name": false
@@ -4086,9 +4516,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -31.687,
+          "y": -73.282,
+          "z": -6.824
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-31.687 y=-73.282 z=-6.824（id 17739815。地図の換算で MAP1 の L-8、マス目 L-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Salimah",
       "same_name": false
@@ -4101,9 +4546,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -285.382,
+          "y": -84.743,
+          "z": -12.021
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-285.382 y=-84.743 z=-12.021（id 17739926。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Shamarhaan",
       "same_name": false
@@ -4116,9 +4576,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -240.975,
+          "y": 63.978,
+          "z": -2.0
+        },
         "zone_id": 235,
         "zone_name": "バストゥーク商業区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-240.975 y=63.978 z=-2.000（id 17739841。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zon-Fobun",
       "same_name": false
@@ -4131,9 +4606,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -72.093,
+          "y": 9.309,
+          "z": -2.097
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-72.093 y=9.309 z=-2.097（id 17743902。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Agapito",
       "same_name": false
@@ -4146,9 +4636,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 116.08,
+          "y": -31.82,
+          "z": 8.372
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=116.080 y=-31.820 z=8.372（id 17744039。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Alib-Mufalib",
       "same_name": false
@@ -4176,9 +4681,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 49.692,
+          "y": 36.189,
+          "z": -4.771
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=49.692 y=36.189 z=-4.771（id 17743930。地図の換算で MAP1 の J-6、マス目 J-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Benita",
       "same_name": false
@@ -4191,9 +4711,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -146.476,
+          "y": 10.889,
+          "z": -7.48
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-146.476 y=10.889 z=-7.480（id 17743884。地図の換算で MAP1 の E-6、マス目 E-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Carmelo",
       "same_name": false
@@ -4206,9 +4741,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 81.478,
+          "y": -24.169,
+          "z": 7.5
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=81.478 y=-24.169 z=7.500（id 17744189。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Clarion Star",
       "same_name": false
@@ -4221,9 +4771,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 90.935,
+          "y": 32.564,
+          "z": -8.772
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=90.935 y=32.564 z=-8.772（id 17743921。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Corann",
       "same_name": false
@@ -4236,9 +4801,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -4.656,
+          "y": 1.664,
+          "z": -2.101
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-4.656 y=1.664 z=-2.101（id 17743903。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Evi",
       "same_name": false
@@ -4247,9 +4827,14 @@
       "id": "npc.236.Ferrol",
       "kind": "npc",
       "location": {
-        "grid": "I-8",
+        "grid": "I-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 33.708,
+          "y": -39.425,
+          "z": 7.499
         },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
@@ -4262,6 +4847,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Trial-Size_Trial_by_Earth",
             "https://ffxiclopedia.fandom.com/wiki/Trial_Size_Trial_by_Earth"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=33.708 y=-39.425 z=7.499（id 17744009。地図の換算で MAP1 の I-7、マス目 I-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "I-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
           ]
         }
       ],
@@ -4292,9 +4886,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -3.286,
+          "y": 50.591,
+          "z": 1.407
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-3.286 y=50.591 z=1.407（id 17743915。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gudav",
       "same_name": false
@@ -4307,9 +4916,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -159.641,
+          "y": 16.276,
+          "z": -10.535
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-159.641 y=16.276 z=-10.535（id 17743936。地図の換算で MAP1 の E-6、マス目 E-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hilda",
       "same_name": false
@@ -4322,9 +4946,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 48.35,
+          "y": 69.181,
+          "z": -6.872
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=48.350 y=69.181 z=-6.872（id 17743910。地図の換算で MAP1 の J-5。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kaede",
       "same_name": false
@@ -4336,6 +4975,11 @@
         "grid": "H-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -23.887,
+          "y": 0.87,
+          "z": 4.898
         },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
@@ -4349,6 +4993,14 @@
             "https://www.bg-wiki.com/ffxi/Fear_of_Flying",
             "https://ffxiclopedia.fandom.com/wiki/Fear_of_Flying"
           ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-23.887 y=0.870 z=4.898（id 17743905。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -4359,13 +5011,29 @@
       "id": "npc.236.Oggbi",
       "kind": "npc",
       "location": {
-        "grid": "E-6",
+        "grid": "D-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -160.604,
+          "y": 3.141,
+          "z": -7.48
         },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-160.604 y=3.141 z=-7.480（id 17743997。地図の換算で MAP1 の D-6、マス目 E-6 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "E-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oggbi",
       "same_name": false
@@ -4378,9 +5046,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -93.738,
+          "y": 34.373,
+          "z": 4.649
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-93.738 y=34.373 z=4.649（id 17743881。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Paujean",
       "same_name": false
@@ -4393,9 +5076,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -152.135,
+          "y": 19.014,
+          "z": -7.48
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-152.135 y=19.014 z=-7.480（id 17743886。地図の換算で MAP1 の E-6、マス目 E-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Powhatan",
       "same_name": false
@@ -4408,9 +5106,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 4.257,
+          "y": -18.92,
+          "z": 4.898
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=4.257 y=-18.920 z=4.898（id 17743916。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Qiji",
       "same_name": false
@@ -4423,9 +5136,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -166.416,
+          "y": 7.153,
+          "z": -7.48
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-166.416 y=7.153 z=-7.480（id 17744020。地図の換算で MAP1 の D-6、マス目 D-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Raifa",
       "same_name": false
@@ -4438,9 +5166,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 5.424,
+          "y": -18.699,
+          "z": 4.898
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=5.424 y=-18.699 z=4.898（id 17743917。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Romilda",
       "same_name": false
@@ -4453,9 +5196,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 84.712,
+          "y": 20.301,
+          "z": -8.772
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=84.712 y=20.301 z=-8.772（id 17743920。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ronan",
       "same_name": false
@@ -4468,9 +5226,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -185.766,
+          "y": -57.631,
+          "z": 1.999
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-185.766 y=-57.631 z=1.999（id 17743912。地図の換算で MAP1 の D-8、マス目 D-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Steel Bones",
       "same_name": false
@@ -4483,9 +5256,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -101.133,
+          "y": 28.803,
+          "z": 4.649
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-101.133 y=28.803 z=4.649（id 17743880。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Talib",
       "same_name": false
@@ -4498,6 +5286,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -163.787,
+          "y": 5.594,
+          "z": -7.482
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
@@ -4509,6 +5302,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Escort_for_Hire_(Bastok)",
             "https://ffxiclopedia.fandom.com/wiki/Escort_for_Hire_(Bastok)"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-163.787 y=5.594 z=-7.482（id 17743889。地図の換算で MAP1 の D-6、マス目 D-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
           ]
         }
       ],
@@ -4524,9 +5325,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 59.852,
+          "y": -221.67,
+          "z": 8.499
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=59.852 y=-221.670 z=8.499（id 17743942。地図の換算で MAP1 の J-12、マス目 J-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Valah Molkot",
       "same_name": false
@@ -4539,9 +5355,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -20.06,
+          "y": 24.471,
+          "z": -3.3
+        },
         "zone_id": 236,
         "zone_name": "バストゥーク港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-20.060 y=24.471 z=-3.300（id 17743977。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_bastok/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yazan",
       "same_name": false
@@ -4554,9 +5385,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 133.972,
+          "y": 33.288,
+          "z": -18.983
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=133.972 y=33.288 z=-18.983（id 17748015。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ayame",
       "same_name": false
@@ -4569,9 +5415,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -50.858,
+          "y": -31.141,
+          "z": 2.777
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-50.858 y=-31.141 z=2.777（id 17748024。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Baldric",
       "same_name": false
@@ -4584,9 +5445,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -12.598,
+          "y": 2.43,
+          "z": -10.988
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-12.598 y=2.430 z=-10.988（id 17748011。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cid",
       "same_name": false
@@ -4599,9 +5475,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 25.231,
+          "y": 4.552,
+          "z": -13.999
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=25.231 y=4.552 z=-13.999（id 17748030。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "High Bear",
       "same_name": false
@@ -4614,9 +5505,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -83.999,
+          "y": -17.999,
+          "z": 2.0
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-83.999 y=-17.999 z=2.000（id 17748169。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hildolf",
       "same_name": false
@@ -4629,9 +5535,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -25.861,
+          "y": -30.172,
+          "z": -10.0
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-25.861 y=-30.172 z=-10.000（id 17748007。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hungry Wolf",
       "same_name": false
@@ -4644,9 +5565,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -45.956,
+          "y": -4.734,
+          "z": -9.999
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-45.956 y=-4.734 z=-9.999（id 17748063。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Izabele",
       "same_name": false
@@ -4674,9 +5610,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -45.206,
+          "y": -32.202,
+          "z": 2.777
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-45.206 y=-32.202 z=2.777（id 17748026。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mighty Fist",
       "same_name": false
@@ -4689,9 +5640,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -26.263,
+          "y": -3.596,
+          "z": -10.0
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-26.263 y=-3.596 z=-10.000（id 17748012。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Raibaht",
       "same_name": false
@@ -4704,9 +5670,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 135.035,
+          "y": -37.419,
+          "z": -18.475
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=135.035 y=-37.419 z=-18.475（id 17748022。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Romualdo",
       "same_name": false
@@ -4719,9 +5700,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -59.29,
+          "y": 21.78,
+          "z": -10.0
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-59.290 y=21.780 z=-10.000（id 17747999。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Salim",
       "same_name": false
@@ -4749,9 +5745,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -59.724,
+          "y": 30.179,
+          "z": 1.999
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-59.724 y=30.179 z=1.999（id 17748027。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Unlucky Rat",
       "same_name": false
@@ -4760,14 +5771,30 @@
       "id": "npc.238.Cochal-Monchal",
       "kind": "npc",
       "location": {
-        "grid": "F-8",
+        "grid": "F-7",
         "map": {
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -50.897,
+          "y": 110.772,
+          "z": -6.25
+        },
         "zone_id": 238,
         "zone_name": "ウィンダス水の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-50.897 y=110.772 z=-6.250（id 17752263。地図の換算で MAP1 の F-7、マス目 F-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cochal-Monchal",
       "same_name": false
@@ -4803,6 +5830,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -13.893,
+          "y": 25.683,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
@@ -4813,6 +5845,14 @@
           "name": "用語辞典",
           "urls": [
             "https://wiki.ffo.jp/html/7041.html"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-13.893 y=25.683 z=6.999（id 17735683。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
           ]
         }
       ],
@@ -4867,6 +5907,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 75.12,
+          "y": -81.44,
+          "z": 0.0
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
@@ -4877,6 +5922,14 @@
           "name": "用語辞典",
           "urls": [
             "https://wiki.ffo.jp/html/8579.html"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=75.120 y=-81.440 z=0.000（id 17735787。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
           ]
         }
       ],
@@ -4930,9 +5983,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 461.841,
+          "y": -580.105,
+          "z": -21.515
+        },
         "zone_id": 107,
         "zone_name": "南グスタベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=461.841 y=-580.105 z=-21.515（id 17216173。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/south_gustaberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -4945,9 +6013,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -201.531,
+          "y": 82.714,
+          "z": 16.0
+        },
         "zone_id": 108,
         "zone_name": "コンシュタット高地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-201.531 y=82.714 z=16.000（id 17220137。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/konschtat_highlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -4960,9 +6043,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -183.607,
+          "y": 599.174,
+          "z": 64.734
+        },
         "zone_id": 108,
         "zone_name": "コンシュタット高地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-183.607 y=599.174 z=64.734（id 17220136。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/konschtat_highlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Signpost",
       "same_name": false
@@ -4990,9 +6088,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 212.781,
+          "y": -76.91,
+          "z": 3.232
+        },
         "zone_id": 127,
         "zone_name": "ベヒーモスの縄張り"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=212.781 y=-76.910 z=3.232（id 17297484。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/behemoths_dominion/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5006,9 +6119,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -120.041,
+          "y": 415.989,
+          "z": 2.621
+        },
         "zone_id": 191,
         "zone_name": "ダングルフの涸れ谷"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-120.041 y=415.989 z=2.621（id 17559912。地図の換算で MAP1 の I-5、マス目 I-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/dangruf_wadi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5022,9 +6150,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -282.339,
+          "y": 261.707,
+          "z": 0.0
+        },
         "zone_id": 200,
         "zone_name": "ガルレージュ要塞"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-282.339 y=261.707 z=0.000（id 17596815。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/garlaige_citadel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5037,9 +6180,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -179.186,
+          "y": -673.199,
+          "z": 41.65
+        },
         "zone_id": 89,
         "zone_name": "グロウベルグ〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-179.186 y=-673.199 z=41.650（id 17142570。地図の換算で MAP1 の F-13、マス目 F-13 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/grauberg_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Riverbed",
       "same_name": false

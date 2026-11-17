@@ -2352,9 +2352,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -123.77,
+          "y": -469.062,
+          "z": -5.654
+        },
         "zone_id": 2,
         "zone_name": "ギルド桟橋"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-123.770 y=-469.062 z=-5.654（id 16785749。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/carpenters_landing/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Guilloud",
       "same_name": false
@@ -2363,13 +2378,29 @@
       "id": "npc.230.Hinaree",
       "kind": "npc",
       "location": {
-        "grid": "B-6",
+        "grid": "A-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -301.535,
+          "y": 97.698,
+          "z": -9.199
         },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-301.535 y=97.698 z=-9.199（id 17719391。地図の換算で MAP1 の A-6、マス目 B-6 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "B-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hinaree",
       "same_name": false
@@ -2382,9 +2413,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 149.892,
+          "y": 141.873,
+          "z": -0.601
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=149.892 y=141.873 z=-0.601（id 17723406。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Arnau",
       "same_name": false
@@ -2398,9 +2444,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -194.13,
+          "y": -122.941,
+          "z": -10.399
+        },
         "zone_id": 238,
         "zone_name": "ウィンダス水の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-194.130 y=-122.941 z=-10.399（id 17752156。地図の換算で MAP2 の E-7。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Honoi-Gomoi",
       "same_name": false
@@ -2414,9 +2475,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 22.704,
+          "y": -195.018,
+          "z": -5.377
+        },
         "zone_id": 238,
         "zone_name": "ウィンダス水の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=22.704 y=-195.018 z=-5.377（id 17752109。地図の換算で MAP2 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ohbiru-Dohbiru",
       "same_name": false
@@ -2429,9 +2505,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 201.523,
+          "y": 138.978,
+          "z": -4.785
+        },
         "zone_id": 240,
         "zone_name": "ウィンダス港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=201.523 y=138.978 z=-4.785（id 17760365。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_windurst/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yujuju",
       "same_name": false
@@ -2444,9 +2535,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -31.627,
+          "y": 67.956,
+          "z": 2.002
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-31.627 y=67.956 z=2.002（id 17772559。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pherimociel",
       "same_name": false
@@ -2459,9 +2565,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 426.315,
+          "y": -163.337,
+          "z": 8.563
+        },
         "zone_id": 105,
         "zone_name": "バタリア丘陵"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=426.315 y=-163.337 z=8.563（id 17207826。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/batallia_downs/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -2475,9 +2596,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 463.897,
+          "y": -66.035,
+          "z": 0.038
+        },
         "zone_id": 184,
         "zone_name": "デルクフの塔下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=463.897 y=-66.035 z=0.038（id 17531245。地図の換算で MAP2 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_delkfutts_tower/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tales' Beginning",
       "same_name": false
@@ -2491,9 +2627,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 117.029,
+          "y": 41.997,
+          "z": -42.799
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=117.029 y=41.997 z=-42.799（id 16883740。地図の換算で MAP1 の K-7。同じ名前 2 件から選んだ：LSB のクエスト・ミッションの台本（An Eternal Melody, The Secrets of Worship, Chains and Bonds）がこの相手（16883740 _0qa）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Walnut Door",
       "same_name": false
@@ -2504,11 +2655,30 @@
       "location": {
         "grid": "H-11",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 2
+        },
+        "pos": {
+          "x": -345.236,
+          "y": -976.563,
+          "z": -3.188
         },
         "zone_id": 4,
         "zone_name": "ビビキー湾"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-345.236 y=-976.563 z=-3.188（id 16794001。地図の換算で MAP2 の H-11、マス目 H-11 と同じ）。MAP2 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bibiki_bay/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "??? Warmachine",
       "same_name": false
@@ -2521,9 +2691,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.0,
+          "y": -460.0,
+          "z": -12.5
+        },
         "zone_id": 33,
         "zone_name": "アル・タユ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.000 y=-460.000 z=-12.500（id 16912899。地図の換算で MAP1 の H-11、マス目 H-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/altaieu/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Crystalline Field",
       "same_name": false

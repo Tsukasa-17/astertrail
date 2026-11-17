@@ -8,7 +8,7 @@ Astertrail - となりのエリアへの出口（data/exits.json）を作る（0
   to    … 行き先のエリア（data/enums/zone.yaml の名前 → 番号）
   at    … 行き先で立つ位置（[x, 高さ, y(, 向き)]）
 ゲームの座標（vana.game.entity）は x・y が水平面、z が高さなので、[x, 高さ, y] → x, y, z に入れ替える。
-取ってきた yaml は LSB_ZONES_CACHE（初期 dev/.cache/lsb_zones）に置く（2回目からはそれを読む。--fetch で取り直す）。
+取ってきた yaml は LSB_ZONES_CACHE（初期 /workspace/t227/lsb_zones）に置く（2回目からはそれを読む。--fetch で取り直す）。
 """
 import json, os, re, sys, urllib.request
 
@@ -41,7 +41,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMMIT = '889078200b13e0d72399a0e8ebb64076bacaec98'
 RAW = 'https://raw.githubusercontent.com/LandSandBoat/server/%s/' % COMMIT
 # 取ってきた yaml の置き場（配る zip には入れない。6MB ほど）
-CACHE = os.environ.get('LSB_ZONES_CACHE', 'dev/.cache/lsb_zones')
+CACHE = os.environ.get('LSB_ZONES_CACHE', '/workspace/t227/lsb_zones')
 OUT = os.path.join(ROOT, 'data', 'exits.json')
 
 

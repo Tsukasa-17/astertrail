@@ -472,9 +472,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -76.524,
+          "y": -113.286,
+          "z": 0.0
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-76.524 y=-113.286 z=0.000（id 17781072。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tales' Beginning",
       "same_name": false

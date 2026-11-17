@@ -1293,7 +1293,7 @@
           "type": "condition"
         }
       ],
-      "name_en": "Past Reflection",
+      "name_en": "Past Reflections",
       "name_ja_ref": "双対の力",
       "repeatable": "no",
       "rewards": [],
@@ -1554,7 +1554,7 @@
           "type": "condition"
         }
       ],
-      "name_en": "Mixed Signal",
+      "name_en": "Mixed Signals",
       "name_ja_ref": "心のシグナル",
       "repeatable": "no",
       "rewards": [
@@ -2063,7 +2063,7 @@
           "type": "fame"
         }
       ],
-      "name_en": "Wonder Magic Set",
+      "name_en": "The Wonder Magic Set",
       "name_ja_ref": "ひみつ魔術セット",
       "repeatable": "no",
       "rewards": [
@@ -4131,7 +4131,7 @@
           "type": "condition"
         }
       ],
-      "name_en": "\"Data Analyzer and Logger EX\"",
+      "name_en": "The Miraculous Dale",
       "name_ja_ref": "魔法人形「みとどけくん」",
       "repeatable": "no",
       "rewards": [
@@ -5698,9 +5698,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -36.977,
+          "y": -38.532,
+          "z": 0.0
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-36.977 y=-38.532 z=0.000（id 17772843。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Anastase",
       "same_name": false
@@ -5709,13 +5724,29 @@
       "id": "npc.243.Eshantarl",
       "kind": "npc",
       "location": {
-        "grid": "H-7",
+        "grid": "H-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 0.0,
+          "y": 85.174,
+          "z": -4.999
         },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.000 y=85.174 z=-4.999（id 17772716。地図の換算で MAP1 の H-6、マス目 H-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Esha'ntarl",
       "same_name": false
@@ -5728,9 +5759,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -4.349,
+          "y": 134.014,
+          "z": 2.0
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-4.349 y=134.014 z=2.000（id 17772595。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Harith",
       "same_name": false
@@ -5743,9 +5789,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 10.877,
+          "y": 119.468,
+          "z": 3.101
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=10.877 y=119.468 z=3.101（id 17772593。地図の換算で MAP1 の H-5。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Maat",
       "same_name": false
@@ -5758,9 +5819,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 10.012,
+          "y": 121.883,
+          "z": 2.453
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=10.012 y=121.883 z=2.453（id 17772661。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nomad Moogle",
       "same_name": false
@@ -5773,9 +5849,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 31.0,
+          "y": 57.971,
+          "z": 1.995
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=31.000 y=57.971 z=1.995（id 17772720。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Taillegeas",
       "same_name": false
@@ -5788,9 +5879,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -81.184,
+          "y": 161.539,
+          "z": 0.0
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-81.184 y=161.539 z=0.000（id 17776815。地図の換算で MAP1 の F-5、マス目 F-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ajithaam",
       "same_name": false
@@ -5803,9 +5909,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -57.023,
+          "y": 97.519,
+          "z": 8.199
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-57.023 y=97.519 z=8.199（id 17776652。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brutus",
       "same_name": false
@@ -5833,9 +5954,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -4.232,
+          "y": 49.746,
+          "z": 1.299
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-4.232 y=49.746 z=1.299（id 17776695。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Guslam",
       "same_name": false
@@ -5848,9 +5984,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -75.041,
+          "y": 57.281,
+          "z": -1.2
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-75.041 y=57.281 z=-1.200（id 17776667。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ilumida",
       "same_name": false
@@ -5863,9 +6014,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -53.95,
+          "y": 88.96,
+          "z": 8.2
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-53.950 y=88.960 z=8.200（id 17776899。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jeridade",
       "same_name": false
@@ -5878,9 +6044,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -55.378,
+          "y": 44.873,
+          "z": -0.301
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-55.378 y=44.873 z=-0.301（id 17776780。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Luto Mewrilah",
       "same_name": false
@@ -5893,9 +6074,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -54.31,
+          "y": 85.94,
+          "z": 8.2
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-54.310 y=85.940 z=8.200（id 17776896。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mapitoto",
       "same_name": false
@@ -5908,9 +6104,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -37.76,
+          "y": 12.924,
+          "z": -1.499
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-37.760 y=12.924 z=-1.499（id 17776773。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Migliorozz",
       "same_name": false
@@ -5923,9 +6134,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -60.114,
+          "y": 81.125,
+          "z": 0.0
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-60.114 y=81.125 z=0.000（id 17776689。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nevela",
       "same_name": false
@@ -5938,9 +6164,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -53.072,
+          "y": 103.38,
+          "z": 0.0
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-53.072 y=103.380 z=0.000（id 17776828。地図の換算で MAP1 の G-7。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Olgald",
       "same_name": false
@@ -5953,9 +6194,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 27.483,
+          "y": -32.516,
+          "z": -0.999
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=27.483 y=-32.516 z=-0.999（id 17776724。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ratoto",
       "same_name": false
@@ -5968,9 +6224,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -21.234,
+          "y": 12.559,
+          "z": -1.5
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-21.234 y=12.559 z=-1.500（id 17776662。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rouliette",
       "same_name": false
@@ -5983,9 +6254,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -23.391,
+          "y": -57.75,
+          "z": -0.1
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-23.391 y=-57.750 z=-0.100（id 17780766。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Bki Tbujhja",
       "same_name": false
@@ -5998,9 +6284,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -43.179,
+          "y": -113.002,
+          "z": 5.899
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-43.179 y=-113.002 z=5.899（id 17780762。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Bluffnix",
       "same_name": false
@@ -6013,9 +6314,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -10.492,
+          "y": -43.987,
+          "z": -6.673
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-10.492 y=-43.987 z=-6.673（id 17780771。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chululu",
       "same_name": false
@@ -6028,9 +6344,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -38.617,
+          "y": -14.506,
+          "z": -1.0
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-38.617 y=-14.506 z=-1.000（id 17780959。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Darcia",
       "same_name": false
@@ -6043,9 +6374,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -33.904,
+          "y": -6.128,
+          "z": -0.999
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-33.904 y=-6.128 z=-0.999（id 17780769。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Derrick",
       "same_name": false
@@ -6058,9 +6404,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 37.985,
+          "y": -45.208,
+          "z": 4.118
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=37.985 y=-45.208 z=4.118（id 17780924。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Faursel",
       "same_name": false
@@ -6073,9 +6434,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 15.535,
+          "y": -7.603,
+          "z": -0.111
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=15.535 y=-7.603 z=-0.111（id 17780742。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ghebi Damomohe",
       "same_name": false
@@ -6088,9 +6464,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -36.01,
+          "y": -139.714,
+          "z": 5.499
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-36.010 y=-139.714 z=5.499（id 17780798。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Guttrix",
       "same_name": false
@@ -6103,9 +6494,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -2.662,
+          "y": -30.137,
+          "z": -6.673
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-2.662 y=-30.137 z=-6.673（id 17780770。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kurou-Morou",
       "same_name": false
@@ -6118,9 +6524,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -17.201,
+          "y": -60.072,
+          "z": -0.1
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.201 y=-60.072 z=-0.100（id 17780764。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mertaire",
       "same_name": false
@@ -6133,9 +6554,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -46.399,
+          "y": -49.532,
+          "z": 0.0
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-46.399 y=-49.532 z=0.000（id 17780982。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nantoto",
       "same_name": false
@@ -6148,9 +6584,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -58.366,
+          "y": -111.696,
+          "z": -6.0
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-58.366 y=-111.696 z=-6.000（id 17780783。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Odasel",
       "same_name": false
@@ -6159,13 +6610,29 @@
       "id": "npc.245.Omer",
       "kind": "npc",
       "location": {
-        "grid": "G-10",
+        "grid": "G-9",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -86.501,
+          "y": -119.815,
+          "z": 0.0
         },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-86.501 y=-119.815 z=0.000（id 17780787。地図の換算で MAP1 の G-9、マス目 G-10 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-10",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Omer",
       "same_name": false
@@ -6193,9 +6660,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 44.315,
+          "y": -45.38,
+          "z": 3.899
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=44.315 y=-45.380 z=3.899（id 17780795。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vola",
       "same_name": false
@@ -6208,9 +6690,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -32.99,
+          "y": -117.458,
+          "z": 5.901
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-32.990 y=-117.458 z=5.901（id 17780931。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zalsuhm",
       "same_name": false
@@ -6223,9 +6720,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -165.787,
+          "y": 96.414,
+          "z": 10.999
+        },
         "zone_id": 246,
         "zone_name": "ジュノ港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-165.787 y=96.414 z=10.999（id 17784840。地図の換算で MAP1 の E-6、マス目 E-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Imasuke",
       "same_name": false
@@ -6238,9 +6750,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -60.886,
+          "y": -8.909,
+          "z": 0.0
+        },
         "zone_id": 246,
         "zone_name": "ジュノ港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-60.886 y=-8.909 z=0.000（id 17784836。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Karl",
       "same_name": false
@@ -6253,9 +6780,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -175.11,
+          "y": -4.207,
+          "z": -4.999
+        },
         "zone_id": 246,
         "zone_name": "ジュノ港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-175.110 y=-4.207 z=-4.999（id 17784896。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zona Shodhun",
       "same_name": false
@@ -6268,9 +6810,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -717.633,
+          "y": 102.987,
+          "z": -7.574
+        },
         "zone_id": 103,
         "zone_name": "バルクルム砂丘"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-717.633 y=102.987 z=-7.574（id 17199695。地図の換算で MAP1 の B-7、マス目 B-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/valkurm_dunes/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Song Runes",
       "same_name": false
@@ -6279,13 +6836,29 @@
       "id": "obj.244.Door_House_G-7",
       "kind": "obj",
       "location": {
-        "grid": "G-7",
+        "grid": "F-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -81.578,
+          "y": 107.533,
+          "z": -2.749
         },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-81.578 y=107.533 z=-2.749（id 17776740。地図の換算で MAP1 の F-7。同じ名前 3 件から選んだ：LSB のクエスト・ミッションの台本（The Clockmaster）がこの相手（17776740 _6s2）だけを使う）",
+          "grid_from": "G-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door: House",
       "same_name": false
@@ -6298,9 +6871,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -82.22,
+          "y": -168.839,
+          "z": -7.65
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-82.220 y=-168.839 z=-7.650（id 17780840。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Merchant's House",
       "same_name": false

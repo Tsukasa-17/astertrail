@@ -8414,9 +8414,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -39.786,
+          "y": 183.082,
+          "z": 33.044
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-39.786 y=183.082 z=33.044（id 17318634。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Exoroche",
       "same_name": false
@@ -8429,9 +8444,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -44.651,
+          "y": 174.797,
+          "z": 31.817
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-44.651 y=174.797 z=31.817（id 17318627。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fontoumant",
       "same_name": false
@@ -8444,9 +8474,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 601.911,
+          "y": -507.084,
+          "z": 40.486
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=601.911 y=-507.084 z=40.486（id 17318644。地図の換算で MAP1 の L-11、マス目 L-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Glenne",
       "same_name": false
@@ -8459,9 +8504,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 599.813,
+          "y": -516.663,
+          "z": 40.0
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=599.813 y=-516.663 z=40.000（id 17318637。地図の換算で MAP1 の L-11、マス目 L-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Halver",
       "same_name": false
@@ -8474,9 +8534,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -35.884,
+          "y": 176.334,
+          "z": 33.632
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-35.884 y=176.334 z=33.632（id 17318625。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Joulet",
       "same_name": false
@@ -8485,13 +8560,29 @@
       "id": "npc.132.Machine_Outfitter",
       "kind": "npc",
       "location": {
-        "grid": "E-4",
+        "grid": "E-3",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -482.857,
+          "y": 781.614,
+          "z": 0.918
         },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-482.857 y=781.614 z=0.918（id 17318650。地図の換算で MAP1 の E-3、マス目 E-4 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "E-4",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -8504,9 +8595,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 597.73,
+          "y": -517.039,
+          "z": 40.0
+        },
         "zone_id": 132,
         "zone_name": "アビセア-ラテーヌ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=597.730 y=-517.039 z=40.000（id 17318639。地図の換算で MAP1 の L-11、マス目 L-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_la_theine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Miageau",
       "same_name": false
@@ -8549,9 +8655,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 105.788,
+          "y": -817.506,
+          "z": -72.758
+        },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=105.788 y=-817.506 z=-72.758（id 16839219。地図の換算で MAP1 の I-13、マス目 I-13 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ayame",
       "same_name": false
@@ -8564,9 +8685,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -119.323,
+          "y": 492.21,
+          "z": 50.052
+        },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-119.323 y=492.210 z=50.052（id 16839227。地図の換算で MAP1 の G-5、マス目 G-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cleades",
       "same_name": false
@@ -8575,13 +8711,29 @@
       "id": "npc.15.Julio",
       "kind": "npc",
       "location": {
-        "grid": "F-10",
+        "grid": "F-9",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -267.064,
+          "y": -198.099,
+          "z": -29.768
         },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-267.064 y=-198.099 z=-29.768（id 16839222。地図の換算で MAP1 の F-9、マス目 F-10 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-10",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Julio",
       "same_name": false
@@ -8590,13 +8742,29 @@
       "id": "npc.15.Machine_Outfitter",
       "kind": "npc",
       "location": {
-        "grid": "I-13",
+        "grid": "H-13",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 78.66,
+          "y": -801.367,
+          "z": -72.578
         },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=78.660 y=-801.367 z=-72.578（id 16839218。地図の換算で MAP1 の H-13、マス目 I-13 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "I-13",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -8609,9 +8777,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -629.722,
+          "y": 201.685,
+          "z": 7.79
+        },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-629.722 y=201.685 z=7.790（id 16839223。地図の換算で MAP1 の D-7、マス目 D-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Silver Owl",
       "same_name": false
@@ -8624,9 +8807,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -647.309,
+          "y": 182.767,
+          "z": 6.743
+        },
         "zone_id": 15,
         "zone_name": "アビセア-コンシュタット"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-647.309 y=182.767 z=6.743（id 16839224。地図の換算で MAP1 の D-7、マス目 D-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_konschtat/npcs.yaml"
+          ]
+        }
+      ],
       "moves": true,
       "name_en": "Talib",
       "same_name": false
@@ -8639,9 +8837,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -8.0,
+          "y": 152.0,
+          "z": -4.0
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-8.000 y=152.000 z=-4.000（id 17658603。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brutus",
       "same_name": false
@@ -8654,9 +8867,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -136.688,
+          "y": -168.047,
+          "z": 20.0
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-136.688 y=-168.047 z=20.000（id 17658592。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chapi Galepilai",
       "same_name": false
@@ -8669,9 +8897,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.334,
+          "y": 159.438,
+          "z": -4.0
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.334 y=159.438 z=-4.000（id 17658597。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Colti",
       "same_name": false
@@ -8680,13 +8923,29 @@
       "id": "npc.215.Garnev",
       "kind": "npc",
       "location": {
-        "grid": "F-9",
+        "grid": "F-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -289.954,
+          "y": 11.626,
+          "z": -5.443
         },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-289.954 y=11.626 z=-5.443（id 17658614。地図の換算で MAP1 の F-8、マス目 F-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Garnev",
       "same_name": false
@@ -8699,9 +8958,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -141.852,
+          "y": -209.746,
+          "z": 18.771
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-141.852 y=-209.746 z=18.771（id 17658618。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Harith",
       "same_name": false
@@ -8714,9 +8988,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -149.61,
+          "y": -184.782,
+          "z": 19.316
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-149.610 y=-184.782 z=19.316（id 17658655。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -8729,9 +9018,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -163.537,
+          "y": -177.431,
+          "z": 19.622
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-163.537 y=-177.431 z=19.622（id 17658619。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Naruru",
       "same_name": false
@@ -8744,9 +9048,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -10.511,
+          "y": 159.457,
+          "z": -3.656
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-10.511 y=159.457 z=-3.656（id 17658613。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ponono",
       "same_name": false
@@ -8759,9 +9078,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -290.0,
+          "y": -5.0,
+          "z": -4.0
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-290.000 y=-5.000 z=-4.000（id 17658656。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Resistance Sapper",
       "same_name": false
@@ -8774,9 +9108,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -163.035,
+          "y": -183.605,
+          "z": 18.882
+        },
         "zone_id": 215,
         "zone_name": "アビセア-アットワ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-163.035 y=-183.605 z=18.882（id 17658615。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_attohwa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yoran-Oran",
       "same_name": false
@@ -8804,9 +9153,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -88.537,
+          "y": 260.701,
+          "z": -32.149
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-88.537 y=260.701 z=-32.149（id 17662737。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hungry Wolf",
       "same_name": false
@@ -8819,9 +9183,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 634.098,
+          "y": 301.912,
+          "z": -15.216
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=634.098 y=301.912 z=-15.216（id 17662725。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Iron Eater",
       "same_name": false
@@ -8834,9 +9213,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -73.77,
+          "y": 264.23,
+          "z": -30.195
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-73.770 y=264.230 z=-30.195（id 17662734。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jonette",
       "same_name": false
@@ -8849,9 +9243,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 635.836,
+          "y": 318.79,
+          "z": -16.316
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=635.836 y=318.790 z=-16.316（id 17662778。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -8864,9 +9273,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 282.424,
+          "y": 241.059,
+          "z": -16.153
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=282.424 y=241.059 z=-16.153（id 17662779。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Resistance Sapper",
       "same_name": false
@@ -8879,9 +9303,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 647.796,
+          "y": 292.275,
+          "z": -15.837
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=647.796 y=292.275 z=-15.837（id 17662732。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Sieglinde",
       "same_name": false
@@ -8890,13 +9329,29 @@
       "id": "npc.216.Veit",
       "kind": "npc",
       "location": {
-        "grid": "H-4",
+        "grid": "H-5",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 42.637,
+          "y": 632.94,
+          "z": -24.014
         },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=42.637 y=632.940 z=-24.014（id 17662731。地図の換算で MAP1 の H-5、マス目 H-4 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-4",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Veit",
       "same_name": false
@@ -8909,9 +9364,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -80.611,
+          "y": 257.032,
+          "z": -30.431
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-80.611 y=257.032 z=-30.431（id 17662736。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yasuji",
       "same_name": false
@@ -8924,9 +9394,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 626.664,
+          "y": 294.25,
+          "z": -15.512
+        },
         "zone_id": 216,
         "zone_name": "アビセア-ミザレオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=626.664 y=294.250 z=-15.512（id 17662733。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_misareaux/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yurim",
       "same_name": false
@@ -8939,9 +9424,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -562.976,
+          "y": 222.041,
+          "z": -46.772
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-562.976 y=222.041 z=-46.772（id 17666755。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Aladoverre",
       "same_name": false
@@ -8954,9 +9454,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -327.376,
+          "y": 646.797,
+          "z": -40.017
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-327.376 y=646.797 z=-40.017（id 17666761。地図の換算で MAP1 の F-4、マス目 F-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Belgidiveau",
       "same_name": false
@@ -8969,9 +9484,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -554.837,
+          "y": 215.73,
+          "z": -45.813
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-554.837 y=215.730 z=-45.813（id 17666746。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cheupirudaux",
       "same_name": false
@@ -8984,9 +9514,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -326.749,
+          "y": 674.197,
+          "z": -40.017
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-326.749 y=674.197 z=-40.017（id 17666762。地図の換算で MAP1 の F-4、マス目 F-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Deraquien",
       "same_name": false
@@ -8999,9 +9544,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 167.632,
+          "y": -151.368,
+          "z": -38.261
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=167.632 y=-151.368 z=-38.261（id 17666751。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ferdechiond",
       "same_name": false
@@ -9014,9 +9574,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 162.983,
+          "y": -169.884,
+          "z": -38.086
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=162.983 y=-169.884 z=-38.086（id 17666740。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "High Bear",
       "same_name": false
@@ -9029,9 +9604,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -329.97,
+          "y": 660.555,
+          "z": -39.469
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-329.970 y=660.555 z=-39.469（id 17666771。地図の換算で MAP1 の F-4、マス目 F-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -9044,9 +9634,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -327.54,
+          "y": 665.45,
+          "z": -39.202
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-327.540 y=665.450 z=-39.202（id 17666738。地図の換算で MAP1 の F-4、マス目 F-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rahal",
       "same_name": false
@@ -9059,9 +9664,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 170.264,
+          "y": -158.405,
+          "z": -38.757
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=170.264 y=-158.405 z=-38.757（id 17666772。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Resistance Sapper",
       "same_name": false
@@ -9074,9 +9694,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -555.966,
+          "y": 221.712,
+          "z": -46.187
+        },
         "zone_id": 217,
         "zone_name": "アビセア-ブンカール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-555.966 y=221.712 z=-46.187（id 17666765。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_vunkerl/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Teigero-Bangero",
       "same_name": false
@@ -9089,9 +9724,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -851.621,
+          "y": -593.55,
+          "z": -10.47
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-851.621 y=-593.550 z=-10.470（id 17670745。地図の換算で MAP1 の C-11、マス目 C-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Alisa",
       "same_name": false
@@ -9100,13 +9750,29 @@
       "id": "npc.218.Brygid",
       "kind": "npc",
       "location": {
-        "grid": "D-11",
+        "grid": "C-11",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -845.029,
+          "y": -610.72,
+          "z": -9.959
         },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-845.029 y=-610.720 z=-9.959（id 17670755。地図の換算で MAP1 の C-11、マス目 D-11 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "D-11",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brygid",
       "same_name": false
@@ -9119,9 +9785,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -848.093,
+          "y": -605.97,
+          "z": -9.813
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-848.093 y=-605.970 z=-9.813（id 17670779。地図の換算で MAP1 の C-11、マス目 C-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9134,9 +9815,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -330.655,
+          "y": -612.885,
+          "z": -2.12
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-330.655 y=-612.885 z=-2.120（id 17670778。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9149,9 +9845,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -319.894,
+          "y": -167.842,
+          "z": -0.736
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-319.894 y=-167.842 z=-0.736（id 17670780。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9164,9 +9875,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -328.724,
+          "y": -611.791,
+          "z": -2.43
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-328.724 y=-611.791 z=-2.430（id 17670762。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Excenmille",
       "same_name": false
@@ -9179,9 +9905,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -310.656,
+          "y": -162.754,
+          "z": -1.295
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-310.656 y=-162.754 z=-1.295（id 17670759。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ken",
       "same_name": false
@@ -9194,9 +9935,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 412.094,
+          "y": 307.752,
+          "z": -0.426
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=412.094 y=307.752 z=-0.426（id 17670781。地図の換算で MAP1 の K-5、マス目 K-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -9209,9 +9965,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 411.189,
+          "y": 303.303,
+          "z": -0.519
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=411.189 y=303.303 z=-0.519（id 17670743。地図の換算で MAP1 の K-5、マス目 K-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Moreno-Toeno",
       "same_name": false
@@ -9224,9 +9995,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 415.966,
+          "y": 311.882,
+          "z": -0.225
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=415.966 y=311.882 z=-0.225（id 17670744。地図の換算で MAP1 の K-5、マス目 K-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nogelle",
       "same_name": false
@@ -9239,9 +10025,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -289.794,
+          "y": 54.172,
+          "z": -5.852
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-289.794 y=54.172 z=-5.852（id 17670752。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oiheaurese",
       "same_name": false
@@ -9254,9 +10055,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -335.14,
+          "y": -614.153,
+          "z": -1.516
+        },
         "zone_id": 218,
         "zone_name": "アビセア-アルテパ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-335.140 y=-614.153 z=-1.516（id 17670750。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_altepa/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Titus",
       "same_name": false
@@ -9269,9 +10085,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -52.844,
+          "y": -9.978,
+          "z": 0.0
+        },
         "zone_id": 246,
         "zone_name": "ジュノ港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-52.844 y=-9.978 z=0.000（id 17784979。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Joachim",
       "same_name": false
@@ -9284,9 +10115,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 319.463,
+          "y": 504.617,
+          "z": -100.265
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=319.463 y=504.617 z=-100.265（id 17814094。地図の換算で MAP1 の J-5、マス目 J-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Baldric",
       "same_name": false
@@ -9295,13 +10141,29 @@
       "id": "npc.253.Dominion_Sergeant_G-7",
       "kind": "npc",
       "location": {
-        "grid": "G-7",
+        "grid": "F-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -245.618,
+          "y": 233.764,
+          "z": -176.195
         },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-245.618 y=233.764 z=-176.195（id 17814177。地図の換算で MAP1 の F-7、マス目 G-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9314,9 +10176,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 316.182,
+          "y": 498.208,
+          "z": -99.837
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=316.182 y=498.208 z=-99.837（id 17814175。地図の換算で MAP1 の J-5、マス目 J-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9329,9 +10206,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 493.868,
+          "y": -104.535,
+          "z": -20.082
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=493.868 y=-104.535 z=-20.082（id 17814176。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9344,9 +10236,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -261.0,
+          "y": 224.0,
+          "z": -178.0
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-261.000 y=224.000 z=-178.000（id 17814156。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Guilboire",
       "same_name": false
@@ -9359,9 +10266,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -206.833,
+          "y": -519.759,
+          "z": -39.859
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-206.833 y=-519.759 z=-39.859（id 17814178。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -9374,9 +10296,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -225.0,
+          "y": -508.0,
+          "z": -41.0
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-225.000 y=-508.000 z=-41.000（id 17814158。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Michilca",
       "same_name": false
@@ -9389,9 +10326,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -252.904,
+          "y": 232.781,
+          "z": -176.5
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-252.904 y=232.781 z=-176.500（id 17814099。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Moogle",
       "same_name": false
@@ -9404,9 +10356,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 526.023,
+          "y": -97.068,
+          "z": -19.927
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=526.023 y=-97.068 z=-19.927（id 17814109。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oruga",
       "same_name": false
@@ -9419,9 +10386,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -175.938,
+          "y": -501.573,
+          "z": -39.723
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-175.938 y=-501.573 z=-39.723（id 17814114。地図の換算で MAP1 の G-11、マス目 G-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rondipur",
       "same_name": false
@@ -9434,9 +10416,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -264.752,
+          "y": 229.59,
+          "z": -176.133
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-264.752 y=229.590 z=-176.133（id 17814102。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tyamah",
       "same_name": false
@@ -9449,9 +10446,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 518.818,
+          "y": -103.409,
+          "z": -19.957
+        },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=518.818 y=-103.409 z=-19.957（id 17814088。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zauko",
       "same_name": false
@@ -9460,13 +10472,29 @@
       "id": "npc.253.Zazarg",
       "kind": "npc",
       "location": {
-        "grid": "G-7",
+        "grid": "F-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -241.731,
+          "y": 237.771,
+          "z": -176.0
         },
         "zone_id": 253,
         "zone_name": "アビセア-ウルガラン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-241.731 y=237.771 z=-176.000（id 17814113。地図の換算で MAP1 の F-7、マス目 G-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_uleguerand/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zazarg",
       "same_name": false
@@ -9479,9 +10507,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 776.948,
+          "y": 450.244,
+          "z": 22.749
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=776.948 y=450.244 z=22.749（id 17818241。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brugaire",
       "same_name": false
@@ -9494,9 +10537,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -217.521,
+          "y": -161.383,
+          "z": -47.329
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-217.521 y=-161.383 z=-47.329（id 17818273。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9509,9 +10567,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -15.255,
+          "y": -480.32,
+          "z": 0.705
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-15.255 y=-480.320 z=0.705（id 17818272。地図の換算で MAP1 の G-12、マス目 G-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9524,9 +10597,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 797.128,
+          "y": 472.778,
+          "z": 31.45
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=797.128 y=472.778 z=31.450（id 17818271。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dominion Sergeant",
       "same_name": true
@@ -9539,9 +10627,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 206.874,
+          "y": -653.004,
+          "z": 22.871
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=206.874 y=-653.004 z=22.871（id 17818227。地図の換算で MAP1 の H-13、マス目 H-13 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Eight of Hearts",
       "same_name": false
@@ -9554,9 +10657,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 207.154,
+          "y": -654.502,
+          "z": 22.839
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=207.154 y=-654.502 z=22.839（id 17818228。地図の換算で MAP1 の H-13、マス目 H-13 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kororo",
       "same_name": false
@@ -9569,9 +10687,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 72.948,
+          "y": 284.817,
+          "z": -47.737
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=72.948 y=284.817 z=-47.737（id 17818235。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kuoh Rhel",
       "same_name": false
@@ -9584,9 +10717,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 241.686,
+          "y": -517.517,
+          "z": 23.999
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=241.686 y=-517.517 z=23.999（id 17818242。地図の換算で MAP1 の I-12、マス目 I-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kurou-Morou",
       "same_name": false
@@ -9599,9 +10747,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -499.662,
+          "y": -756.559,
+          "z": 24.368
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-499.662 y=-756.559 z=24.368（id 17818274。地図の換算で MAP1 の D-14、マス目 D-14 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -9614,9 +10777,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 794.71,
+          "y": 478.277,
+          "z": 31.832
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=794.710 y=478.277 z=31.832（id 17818231。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ranpi-Monpi",
       "same_name": false
@@ -9629,9 +10807,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -232.769,
+          "y": -156.465,
+          "z": -47.84
+        },
         "zone_id": 254,
         "zone_name": "アビセア-グロウベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-232.769 y=-156.465 z=-47.840（id 17818237。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_grauberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rukususu",
       "same_name": false
@@ -9659,9 +10852,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -7.468,
+          "y": -654.84,
+          "z": 34.947
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-7.468 y=-654.840 z=34.947（id 16962091。地図の換算で MAP1 の H-12、マス目 H-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Apururu",
       "same_name": false
@@ -9674,9 +10882,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -13.446,
+          "y": 551.222,
+          "z": 37.072
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-13.446 y=551.222 z=37.072（id 16962110。地図の換算で MAP1 の H-4、マス目 H-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Baha Mannohl",
       "same_name": false
@@ -9689,9 +10912,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 202.523,
+          "y": -313.64,
+          "z": -8.634
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=202.523 y=-313.640 z=-8.634（id 16962115。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Bopa Greso",
       "same_name": false
@@ -9719,9 +10957,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -0.69,
+          "y": -660.803,
+          "z": 35.787
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-0.690 y=-660.803 z=35.787（id 16962146。地図の換算で MAP1 の H-12、マス目 H-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Machine Outfitter",
       "same_name": false
@@ -9730,13 +10983,29 @@
       "id": "npc.45.Ohbiru-Dohbiru",
       "kind": "npc",
       "location": {
-        "grid": "H-7",
+        "grid": "I-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 87.296,
+          "y": 118.728,
+          "z": 15.2
         },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=87.296 y=118.728 z=15.200（id 16962103。地図の換算で MAP1 の I-7、マス目 H-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ohbiru-Dohbiru",
       "same_name": false
@@ -9749,9 +11018,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -363.181,
+          "y": -230.821,
+          "z": -41.143
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-363.181 y=-230.821 z=-41.143（id 16962100。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Peshi Yohnts",
       "same_name": false
@@ -9764,9 +11048,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -358.77,
+          "y": -245.962,
+          "z": -40.48
+        },
         "zone_id": 45,
         "zone_name": "アビセア-タロンギ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-358.770 y=-245.962 z=-40.480（id 16962097。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/abyssea_tahrongi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Piketo-Puketo",
       "same_name": false
@@ -9794,9 +11093,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 368.98,
+          "y": -119.874,
+          "z": -0.443
+        },
         "zone_id": 103,
         "zone_name": "バルクルム砂丘"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=368.980 y=-119.874 z=-0.443（id 17199772。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/valkurm_dunes/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9809,9 +11123,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 246.318,
+          "y": 5.706,
+          "z": -0.709
+        },
         "zone_id": 104,
         "zone_name": "ジャグナー森林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=246.318 y=5.706 z=-0.709（id 17203935。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/jugner_forest/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9824,9 +11153,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -78.0,
+          "y": 600.0,
+          "z": -0.5
+        },
         "zone_id": 106,
         "zone_name": "北グスタベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-78.000 y=600.000 z=-0.500（id 17212109。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/north_gustaberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9839,9 +11183,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 340.0,
+          "y": -680.0,
+          "z": -0.5
+        },
         "zone_id": 107,
         "zone_name": "南グスタベルグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=340.000 y=-680.000 z=-0.500（id 17216200。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/south_gustaberg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9854,9 +11213,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 96.344,
+          "y": -580.008,
+          "z": -69.08
+        },
         "zone_id": 108,
         "zone_name": "コンシュタット高地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=96.344 y=-580.008 z=-69.080（id 17220154。地図の換算で MAP1 の I-12、マス目 I-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/konschtat_highlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9869,9 +11243,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 270.0,
+          "y": -70.0,
+          "z": -9.0
+        },
         "zone_id": 112,
         "zone_name": "ザルカバード"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=270.000 y=-70.000 z=-9.000（id 17236347。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/xarcabard/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9884,9 +11273,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -28.597,
+          "y": -685.754,
+          "z": 46.056
+        },
         "zone_id": 117,
         "zone_name": "タロンギ大峡谷"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-28.597 y=-685.754 z=46.056（id 17257077。地図の換算で MAP1 の H-12、マス目 H-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tahrongi_canyon/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false
@@ -9899,9 +11303,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -344.396,
+          "y": 52.581,
+          "z": -24.941
+        },
         "zone_id": 118,
         "zone_name": "ブブリム半島"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-344.396 y=52.581 z=-24.941（id 17261213。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/buburimu_peninsula/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cavernous Maw",
       "same_name": false

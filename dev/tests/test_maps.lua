@@ -10,7 +10,7 @@ local focus = require('src.ui.focus')
 local fs = posix_fs()
 local D = data_mod.load(fs, ROOT .. '/data/')
 eq(#D.errors, 0, 'data errors: ' .. json.encode(D.errors, true))
-eq(D.version, '2026.11.16-112', 'data version')
+eq(D.version, '2026.11.17-124', 'data version')
 eq(#D.map_floors, 525, '525 floors with map_n')
 eq(#D.map_unconfirmed, 15, '15 unconfirmed zones')
 
@@ -258,7 +258,8 @@ check(app.state.open.map, 'map opens from npc name')
 check(drawn('南サンドリア') or texted('南サンドリア'), 'zone name on map')
 check(not texted('SQUARE ENIX') and not texted('© SQUARE'), 'no Square Enix credit')
 check(not texted('同梱せず'), 'no credit note on map')
-check(texted('マス目の中央。正確な位置ではありません。'), 'grid pin note')
+-- 0.1.218〜：Parvipon は正確な座標があるので、マス目の中央の注は出ない（マス目だけの場所の注は test_exact_pos_218）
+check(not texted('マス目の中央。正確な位置ではありません。'), 'exact pin: no grid note')
 -- この時点では座標が無いので現在地の凡例は出ない（目的地は出る）
 check(not texted('現在地'), 'no player legend without coords')
 check(texted('目的地'), 'dest legend without player')

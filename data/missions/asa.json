@@ -623,9 +623,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 22.73,
+          "y": 18.513,
+          "z": -5.135
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=22.730 y=18.513 z=-5.135（id 17809526。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Andrause",
       "same_name": false
@@ -638,9 +653,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -223.03,
+          "y": -104.0,
+          "z": -7.8
+        },
         "zone_id": 122,
         "zone_name": "ロ・メーヴ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-223.030 y=-104.000 z=-7.800（id 17277210。地図の換算で MAP1 の B-10、マス目 B-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/romaeve/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ensorcelled Door",
       "same_name": false

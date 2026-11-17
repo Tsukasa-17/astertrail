@@ -333,6 +333,11 @@ function data:_check()
             if s.target and not self.targets[s.target] then
                 self.warnings[#self.warnings + 1] = s.id .. ': 対象 ' .. tostring(s.target) .. ' がありません'
             end
+            for _, x in ipairs(type(s.extra_targets) == 'table' and s.extra_targets or {}) do
+                if not self.targets[x] then
+                    self.warnings[#self.warnings + 1] = s.id .. ': 対象 ' .. tostring(x) .. ' がありません'
+                end
+            end
         end
     end
 end

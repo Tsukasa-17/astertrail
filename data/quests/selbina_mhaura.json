@@ -1161,9 +1161,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -52.121,
+          "y": -13.067,
+          "z": -11.338
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-52.121 y=-13.067 z=-11.338（id 17793039。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Abelard",
       "same_name": false
@@ -1176,9 +1191,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 39.858,
+          "y": 40.009,
+          "z": -14.558
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=39.858 y=40.009 z=-14.558（id 17793059。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Devean",
       "same_name": false
@@ -1191,9 +1221,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -36.818,
+          "y": -28.795,
+          "z": -0.962
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-36.818 y=-28.795 z=-0.962（id 17793121。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Diederik",
       "same_name": false
@@ -1206,9 +1251,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -58.083,
+          "y": -46.438,
+          "z": -0.894
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-58.083 y=-46.438 z=-0.894（id 17793058。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Isacio",
       "same_name": false
@@ -1221,9 +1281,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 25.606,
+          "y": 4.254,
+          "z": -6.558
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=25.606 y=4.254 z=-6.558（id 17793049。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Melyon",
       "same_name": false
@@ -1236,9 +1311,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 47.119,
+          "y": 7.989,
+          "z": -15.273
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=47.119 y=7.989 z=-15.273（id 17793043。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oswald",
       "same_name": false
@@ -1251,9 +1341,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -9.959,
+          "y": -6.208,
+          "z": -11.76
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-9.959 y=-6.208 z=-11.760（id 17793042。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Romeo",
       "same_name": false
@@ -1262,13 +1367,29 @@
       "id": "npc.248.Thunder_Hawk",
       "kind": "npc",
       "location": {
-        "grid": "G-9",
+        "grid": "F-9",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -60.431,
+          "y": 4.84,
+          "z": -10.558
         },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-60.431 y=4.840 z=-10.558（id 17793026。地図の換算で MAP1 の F-9、マス目 G-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Thunder Hawk",
       "same_name": false
@@ -1281,9 +1402,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 6.643,
+          "y": -12.754,
+          "z": -2.702
+        },
         "zone_id": 248,
         "zone_name": "セルビナ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=6.643 y=-12.754 z=-2.702（id 17793057。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/selbina/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vuntar",
       "same_name": false
@@ -1296,9 +1432,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -37.624,
+          "y": 75.681,
+          "z": -16.05
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-37.624 y=75.681 z=-16.050（id 17797132。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Celestina",
       "same_name": false
@@ -1311,9 +1462,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -39.273,
+          "y": 70.126,
+          "z": -16.0
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-39.273 y=70.126 z=-16.000（id 17797231。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fyi Chalmwoh",
       "same_name": false
@@ -1326,9 +1492,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -33.66,
+          "y": 15.13,
+          "z": -4.0
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-33.660 y=15.130 z=-4.000（id 17797157。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Katsunaga",
       "same_name": false
@@ -1341,9 +1522,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -15.727,
+          "y": 54.049,
+          "z": -8.032
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-15.727 y=54.049 z=-8.032（id 17797232。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Keshab-Menjab",
       "same_name": false
@@ -1356,9 +1552,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 31.712,
+          "y": 54.981,
+          "z": -15.554
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=31.712 y=54.981 z=-15.554（id 17797225。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lacia",
       "same_name": false
@@ -1371,9 +1582,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 34.555,
+          "y": 83.334,
+          "z": -16.071
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=34.555 y=83.334 z=-16.071（id 17797155。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nereus",
       "same_name": false
@@ -1386,9 +1612,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -37.268,
+          "y": 58.047,
+          "z": -8.0
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-37.268 y=58.047 z=-8.000（id 17797139。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Orlando",
       "same_name": false
@@ -1397,13 +1638,29 @@
       "id": "npc.249.Rycharde",
       "kind": "npc",
       "location": {
-        "grid": "H-8/I-8",
+        "grid": "H-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 17.451,
+          "y": 88.815,
+          "z": -16.0
         },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=17.451 y=88.815 z=-16.000（id 17797129。地図の換算で MAP1 の H-8、マス目 H-8/I-8 と同じ）",
+          "grid_from": "H-8/I-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rycharde",
       "same_name": false
@@ -1416,9 +1673,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 20.616,
+          "y": 69.757,
+          "z": -8.0
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=20.616 y=69.757 z=-8.000（id 17797128。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Take",
       "same_name": false
@@ -1431,9 +1703,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -53.022,
+          "y": 17.223,
+          "z": -3.913
+        },
         "zone_id": 249,
         "zone_name": "マウラ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-53.022 y=17.223 z=-3.913（id 17797156。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/mhaura/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vera",
       "same_name": false

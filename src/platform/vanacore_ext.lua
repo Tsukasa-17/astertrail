@@ -1105,16 +1105,40 @@ function ext.gradient_text(text, c1, c2)
     return table.concat(out)
 end
 
+-- 頭上の文字の背景（0.1.215〜）。初期 0.8 は今までの #000000CC
+local LABEL_BG_DEFAULT = 0.8
+local function bg_hex(alpha)
+    alpha = tonumber(alpha)
+    if alpha == nil then alpha = LABEL_BG_DEFAULT end
+    if alpha < 0 then alpha = 0 elseif alpha > 1 then alpha = 1 end
+    local a = math.floor(alpha * 255 + 0.5)
+    if a < 0 then a = 0 elseif a > 255 then a = 255 end
+    return string.format('#000000%02X', a)
+end
+ext._bg_hex = bg_hex
+
 -- 文字の箱に文と色を入れる。グラデーションは色の印が使える箱だけ（使えなければ始めの色だけ）
-local function label_props(slot, text, c1, c2)
+-- bg_alpha があれば背景の濃さも入れる（無いときは今までの箱の背景のまま）
+local function label_props(slot, text, c1, c2, bg_alpha)
     local props = { text = text, color = hex_of(c1) }
     if c2 and slot and slot.codes then
         props.text = ext.gradient_text(text, c1, c2)
         props.color = '#FFFFFFFF'
     end
+    if bg_alpha ~= nil then
+        props.background = bg_hex(bg_alpha)
+    end
     return props
 end
 ext._label_props = label_props
+
+local function apply_label_text(slot, text, c1, c2, bg_alpha)
+    if bg_alpha == nil then bg_alpha = LABEL_BG_DEFAULT end
+    if slot._lbl ~= text or not same_c(slot._c1, c1) or not same_c(slot._c2, c2) or slot._bg ~= bg_alpha then
+        box_set(slot.box, label_props(slot, text, c1, c2, bg_alpha))
+        slot._lbl, slot._c1, slot._c2, slot._bg = text, c1, c2, bg_alpha
+    end
+end
 
 -- 印は PNG（または色付きの箱）のまま。クエスト名と対象の名前は別の文字の箱。
 -- 公式に画像と文字を一つにする入れ物は無いので、箱は分け、位置で重ねないようにする。
@@ -1342,10 +1366,7 @@ function ext.set_name_marks(items)
                 end
                 if lslot then
                     -- 0.1.210〜：文字と色が前と同じなら設定し直さない（色の段階の文字を毎フレーム作らない）
-                    if lslot._lbl ~= it.label or not same_c(lslot._c1, it.label_color) or not same_c(lslot._c2, it.label_color2) then
-                        box_set(lslot.box, label_props(lslot, it.label, it.label_color, it.label_color2))
-                        lslot._lbl, lslot._c1, lslot._c2 = it.label, it.label_color, it.label_color2
-                    end
+                    apply_label_text(lslot, it.label, it.label_color, it.label_color2, it.label_bg_alpha)
                     lslot.keep = true
                     lslot.part = 'label'
                     lslot.layer = layer
@@ -1665,10 +1686,7 @@ function ext.set_world_marks(items)
                     end
                 end
                 if label_slot then
-                    if label_slot._lbl ~= it.label or not same_c(label_slot._c1, it.label_color) or not same_c(label_slot._c2, it.label_color2) then
-                        box_set(label_slot.box, label_props(label_slot, it.label, it.label_color, it.label_color2))
-                        label_slot._lbl, label_slot._c1, label_slot._c2 = it.label, it.label_color, it.label_color2
-                    end
+                    apply_label_text(label_slot, it.label, it.label_color, it.label_color2, it.label_bg_alpha)
                     label_h = estimate_text_height(label_slot.box)
                 end
             end
@@ -1682,10 +1700,7 @@ function ext.set_world_marks(items)
                     end
                 end
                 if under_slot then
-                    if under_slot._lbl ~= it.under or not same_c(under_slot._c1, it.under_color) or not same_c(under_slot._c2, it.under_color2) then
-                        box_set(under_slot.box, label_props(under_slot, it.under, it.under_color, it.under_color2))
-                        under_slot._lbl, under_slot._c1, under_slot._c2 = it.under, it.under_color, it.under_color2
-                    end
+                    apply_label_text(under_slot, it.under, it.under_color, it.under_color2, it.under_bg_alpha)
                     under_h = estimate_text_height(under_slot.box)
                     local us = tonumber(it.under_scale) or tonumber(it.scale) or 1
                     if us < 0.8 then us = 0.8 elseif us > 1.6 then us = 1.6 end

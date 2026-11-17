@@ -9265,9 +9265,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -112.0,
+          "y": -11.351,
+          "z": 3.85
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-112.000 y=-11.351 z=3.850（id 17825972。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Alienor",
       "same_name": false
@@ -9280,9 +9295,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 95.721,
+          "y": -28.68,
+          "z": -0.148
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=95.721 y=-28.680 z=-0.148（id 17826102。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Berghent",
       "same_name": false
@@ -9295,9 +9325,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 44.507,
+          "y": -159.321,
+          "z": 3.999
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=44.507 y=-159.321 z=3.999（id 17826073。地図の換算で MAP1 の I-12、マス目 I-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Clautaire",
       "same_name": false
@@ -9310,9 +9355,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -92.024,
+          "y": 2.532,
+          "z": 3.349
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-92.024 y=2.532 z=3.349（id 17825992。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Eamonn",
       "same_name": false
@@ -9325,9 +9385,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 89.25,
+          "y": -63.5,
+          "z": -0.65
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=89.250 y=-63.500 z=-0.650（id 17826113。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gaddiux",
       "same_name": false
@@ -9340,9 +9415,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 92.282,
+          "y": 152.17,
+          "z": 31.999
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=92.282 y=152.170 z=31.999（id 17826086。地図の換算で MAP1 の J-4、マス目 J-4 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jorin",
       "same_name": false
@@ -9355,9 +9445,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -87.204,
+          "y": 12.655,
+          "z": 3.349
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-87.204 y=12.655 z=3.349（id 17825937。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Levil",
       "same_name": false
@@ -9370,9 +9475,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 34.951,
+          "y": -131.771,
+          "z": -0.75
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=34.951 y=-131.771 z=-0.750（id 17826071。地図の換算で MAP1 の H-11、マス目 H-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Merleg",
       "same_name": false
@@ -9385,9 +9505,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 126.0,
+          "y": -31.5,
+          "z": 3.85
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=126.000 y=-31.500 z=3.850（id 17826111。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Octavernost",
       "same_name": false
@@ -9396,13 +9531,29 @@
       "id": "npc.256.Pagnelle",
       "kind": "npc",
       "location": {
-        "grid": "G-10",
+        "grid": "G-11",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -8.222,
+          "y": -100.176,
+          "z": -0.148
         },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-8.222 y=-100.176 z=-0.148（id 17825993。地図の換算で MAP1 の G-11、マス目 G-10 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-10",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pagnelle",
       "same_name": false
@@ -9430,9 +9581,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -154.5,
+          "y": -29.4,
+          "z": 3.999
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-154.500 y=-29.400 z=3.999（id 17826043。地図の換算で MAP1 の D-9、マス目 D-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rising Solstice",
       "same_name": false
@@ -9445,9 +9611,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 78.094,
+          "y": 135.725,
+          "z": 31.999
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=78.094 y=135.725 z=31.999（id 17825930。地図の換算で MAP1 の I-5、マス目 I-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Sylvie",
       "same_name": false
@@ -9460,9 +9641,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -27.4,
+          "y": 37.95,
+          "z": -0.676
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-27.400 y=37.950 z=-0.676（id 17825849。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Task Delegator",
       "same_name": true
@@ -9475,9 +9671,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 99.1,
+          "y": -85.6,
+          "z": -0.651
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=99.100 y=-85.600 z=-0.651（id 17825850。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Task Delegator",
       "same_name": true
@@ -9505,9 +9716,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -86.6,
+          "y": 16.45,
+          "z": 3.324
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-86.600 y=16.450 z=3.324（id 17825848。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Task Delegator",
       "same_name": true
@@ -9520,9 +9746,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 20.0,
+          "y": 86.0,
+          "z": 0.0
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=20.000 y=86.000 z=0.000（id 17826057。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vaulois",
       "same_name": false
@@ -9535,9 +9776,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 30.268,
+          "y": 33.988,
+          "z": -0.75
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=30.268 y=33.988 z=-0.750（id 17826103。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Wescolina",
       "same_name": false
@@ -9550,9 +9806,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -97.142,
+          "y": -46.111,
+          "z": -0.649
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-97.142 y=-46.111 z=-0.649（id 17830070。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Audibert",
       "same_name": false
@@ -9580,9 +9851,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 50.73,
+          "y": -44.428,
+          "z": -40.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=50.730 y=-44.428 z=-40.150（id 17830126。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chelidoine",
       "same_name": false
@@ -9595,9 +9881,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -118.922,
+          "y": -64.022,
+          "z": -0.148
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-118.922 y=-64.022 z=-0.148（id 17830151。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Estelle",
       "same_name": false
@@ -9625,9 +9926,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 24.06,
+          "y": 34.488,
+          "z": -22.0
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=24.060 y=34.488 z=-22.000（id 17830120。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nhili Uvolep",
       "same_name": false
@@ -9640,9 +9956,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 2.444,
+          "y": -16.595,
+          "z": -11.439
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=2.444 y=-16.595 z=-11.439（id 17830004。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Octavien",
       "same_name": false
@@ -9655,9 +9986,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -109.533,
+          "y": 56.939,
+          "z": -0.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-109.533 y=56.939 z=-0.150（id 17830013。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pudith",
       "same_name": false
@@ -9700,9 +10046,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -34.95,
+          "y": -25.14,
+          "z": -0.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-34.950 y=-25.140 z=-0.150（id 17830083。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Roskin",
       "same_name": false
@@ -9715,9 +10076,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -99.87,
+          "y": -9.866,
+          "z": -0.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-99.870 y=-9.866 z=-0.150（id 17830011。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Sharuru",
       "same_name": false
@@ -9730,9 +10106,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -113.55,
+          "y": 21.595,
+          "z": -0.691
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-113.550 y=21.595 z=-0.691（id 17829944。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Task Delegator",
       "same_name": true
@@ -9745,9 +10136,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -113.242,
+          "y": -46.434,
+          "z": -0.697
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-113.242 y=-46.434 z=-0.697（id 17829945。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Task Delegator",
       "same_name": true
@@ -9760,9 +10166,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -118.93,
+          "y": -8.813,
+          "z": -0.15
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-118.930 y=-8.813 z=-0.150（id 17830094。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vastran",
       "same_name": false
@@ -9775,9 +10196,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -62.721,
+          "y": 0.93,
+          "z": 0.0
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-62.721 y=0.930 z=0.000（id 17830014。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yocile",
       "same_name": false
@@ -9805,9 +10241,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -318.0,
+          "y": -318.0,
+          "z": -1.002
+        },
         "zone_id": 258,
         "zone_name": "ララ水道"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-318.000 y=-318.000 z=-1.002（id 17834304。地図の換算で MAP1 の F-11、マス目 F-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rala_waterways/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chalvava",
       "same_name": false
@@ -9835,9 +10286,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 79.5,
+          "y": 10.5,
+          "z": 0.0
+        },
         "zone_id": 260,
         "zone_name": "ヤッセの狩り場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=79.500 y=10.500 z=0.000（id 17842710。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yahse_hunting_grounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chya Mindorah",
       "same_name": false
@@ -9850,9 +10316,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -286.687,
+          "y": 45.678,
+          "z": -0.264
+        },
         "zone_id": 260,
         "zone_name": "ヤッセの狩り場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-286.687 y=45.678 z=-0.264（id 17842711。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yahse_hunting_grounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Leautiere",
       "same_name": false
@@ -9865,9 +10346,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 320.0,
+          "y": -197.8,
+          "z": 0.0
+        },
         "zone_id": 260,
         "zone_name": "ヤッセの狩り場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=320.000 y=-197.800 z=0.000（id 17842709。地図の換算で MAP1 の K-9、マス目 K-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yahse_hunting_grounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Oblor",
       "same_name": false
@@ -9880,9 +10376,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -160.5,
+          "y": -276.5,
+          "z": 0.0
+        },
         "zone_id": 260,
         "zone_name": "ヤッセの狩り場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-160.500 y=-276.500 z=0.000（id 17842724。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yahse_hunting_grounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rumin-Flumin",
       "same_name": false
@@ -9895,9 +10406,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -46.0,
+          "y": 158.0,
+          "z": 0.0
+        },
         "zone_id": 261,
         "zone_name": "ケイザック古戦場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-46.000 y=158.000 z=0.000（id 17846808。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ceizak_battlegrounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Bataron",
       "same_name": false
@@ -9910,9 +10436,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 355.703,
+          "y": 184.263,
+          "z": 0.539
+        },
         "zone_id": 261,
         "zone_name": "ケイザック古戦場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=355.703 y=184.263 z=0.539（id 17846812。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ceizak_battlegrounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Elmric",
       "same_name": false
@@ -9925,9 +10466,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 360.0,
+          "y": 178.0,
+          "z": 0.1
+        },
         "zone_id": 261,
         "zone_name": "ケイザック古戦場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=360.000 y=178.000 z=0.100（id 17846804。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ceizak_battlegrounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gurren-Murren",
       "same_name": false
@@ -9940,9 +10496,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -2.0,
+          "y": -118.0,
+          "z": 0.0
+        },
         "zone_id": 261,
         "zone_name": "ケイザック古戦場"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-2.000 y=-118.000 z=0.000（id 17846806。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ceizak_battlegrounds/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lucretia",
       "same_name": false
@@ -9955,9 +10526,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 380.818,
+          "y": 290.792,
+          "z": -2.105
+        },
         "zone_id": 262,
         "zone_name": "エヌティエル水林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=380.818 y=290.792 z=-2.105（id 17850926。地図の換算で MAP1 の J-6、マス目 J-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/foret_de_hennetiel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Choubollet",
       "same_name": false
@@ -9970,9 +10556,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 411.253,
+          "y": 269.447,
+          "z": -2.337
+        },
         "zone_id": 262,
         "zone_name": "エヌティエル水林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=411.253 y=269.447 z=-2.337（id 17850921。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/foret_de_hennetiel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fritha",
       "same_name": false
@@ -9985,9 +10586,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 502.0,
+          "y": -302.3,
+          "z": -2.25
+        },
         "zone_id": 262,
         "zone_name": "エヌティエル水林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=502.000 y=-302.300 z=-2.250（id 17850922。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/foret_de_hennetiel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Inmot-Pinmot",
       "same_name": false
@@ -10000,9 +10616,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 95.272,
+          "y": -130.687,
+          "z": -6.459
+        },
         "zone_id": 262,
         "zone_name": "エヌティエル水林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=95.272 y=-130.687 z=-6.459（id 17850927。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/foret_de_hennetiel/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nestroh",
       "same_name": false
@@ -10015,9 +10646,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 357.927,
+          "y": 154.587,
+          "z": 0.07
+        },
         "zone_id": 263,
         "zone_name": "ヨルシア森林"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=357.927 y=154.587 z=0.070（id 17855086。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/yorcia_weald/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mano-Amano",
       "same_name": false
@@ -10030,9 +10676,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 447.088,
+          "y": -320.441,
+          "z": -15.847
+        },
         "zone_id": 265,
         "zone_name": "モリマー台地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=447.088 y=-320.441 z=-15.847（id 17863417。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/morimar_basalt_fields/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Apolliane",
       "same_name": false
@@ -10045,9 +10706,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 170.5,
+          "y": -317.3,
+          "z": -15.919
+        },
         "zone_id": 265,
         "zone_name": "モリマー台地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=170.500 y=-317.300 z=-15.919（id 17863413。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/morimar_basalt_fields/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Fallion",
       "same_name": false
@@ -10060,9 +10736,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 454.0,
+          "y": -318.0,
+          "z": -15.9
+        },
         "zone_id": 265,
         "zone_name": "モリマー台地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=454.000 y=-318.000 z=-15.900（id 17863411。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/morimar_basalt_fields/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hegnor",
       "same_name": false
@@ -10075,9 +10766,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 442.529,
+          "y": -312.41,
+          "z": -16.0
+        },
         "zone_id": 265,
         "zone_name": "モリマー台地"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=442.529 y=-312.410 z=-16.000（id 17863433。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/morimar_basalt_fields/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Orsa-Porsa",
       "same_name": false
@@ -10090,9 +10796,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 329.889,
+          "y": -81.5,
+          "z": -20.121
+        },
         "zone_id": 266,
         "zone_name": "マリアミ渓谷"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=329.889 y=-81.500 z=-20.121（id 17867206。地図の換算で MAP1 の L-10、マス目 L-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/marjami_ravine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jhen Durheka",
       "same_name": false
@@ -10120,9 +10841,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 369.946,
+          "y": 139.689,
+          "z": -58.927
+        },
         "zone_id": 266,
         "zone_name": "マリアミ渓谷"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=369.946 y=139.689 z=-58.927（id 17867179。地図の換算で MAP1 の M-7、マス目 M-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/marjami_ravine/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Udip Ferawoh",
       "same_name": false
@@ -10150,9 +10886,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 431.541,
+          "y": -284.692,
+          "z": 65.0
+        },
         "zone_id": 267,
         "zone_name": "カミール山麓"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=431.541 y=-284.692 z=65.000（id 17871211。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kamihr_drifts/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Peppe-Aleppe",
       "same_name": false
@@ -10165,9 +10916,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 437.451,
+          "y": -290.512,
+          "z": 63.0
+        },
         "zone_id": 267,
         "zone_name": "カミール山麓"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=437.451 y=-290.512 z=63.000（id 17871210。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kamihr_drifts/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Traiffeaux",
       "same_name": false
@@ -10181,9 +10947,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -46.876,
+          "y": -28.602,
+          "z": -179.334
+        },
         "zone_id": 274,
         "zone_name": "ラ・カザナル宮外郭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-46.876 y=-28.602 z=-179.334（id 17900010。地図の換算で MAP1 の N-7、マス目 N-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/outer_rakaznar/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lerene",
       "same_name": false
@@ -10241,9 +11022,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 51.897,
+          "y": 11.089,
+          "z": -0.851
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=51.897 y=11.089 z=-0.851（id 17825987。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door: Svenja's Manor",
       "same_name": false
@@ -10256,9 +11052,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 93.47,
+          "y": -121.72,
+          "z": 2.434
+        },
         "zone_id": 256,
         "zone_name": "西アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=93.470 y=-121.720 z=2.434（id 17826009。地図の換算で MAP1 の J-11、マス目 J-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/western_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mischief Marker",
       "same_name": false
@@ -10271,9 +11082,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 40.432,
+          "y": 1.948,
+          "z": -28.567
+        },
         "zone_id": 257,
         "zone_name": "東アドゥリン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=40.432 y=1.948 z=-28.567（id 17830077。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_adoulin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Research Chamber",
       "same_name": false
@@ -10286,9 +11112,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -346.0,
+          "y": -301.6,
+          "z": -5.767
+        },
         "zone_id": 258,
         "zone_name": "ララ水道"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-346.000 y=-301.600 z=-5.767（id 17834325。地図の換算で MAP1 の E-10、マス目 E-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rala_waterways/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tomato Vantage Point",
       "same_name": false

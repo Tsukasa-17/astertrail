@@ -22,7 +22,7 @@ S.book.col_widths = { mission = { name = 120 } }
 S.layout_locked = true
 S.tracker.visible = false
 S.eminence.visible = true
-S.eminence.hide_completed = true
+S.eminence.book_show = { accepted = true, not_accepted = true, completed = false }
 S.eminence.columns = { 'name', 'state', 'progress', 'rewards', 'pin', 'fav', 'action' }
 S.eminence.pins = { ['12'] = true }
 S.eminence.favs = { ['13'] = true }
@@ -37,7 +37,8 @@ eq(snap.book.col_widths.mission.name, 120, 'col width captured')
 eq(snap.layout_locked, true, 'lock captured')
 eq(snap.tracker.visible, false, 'tracker visibility captured')
 eq(snap.eminence.visible, true, 'eminence visibility captured')
-eq(snap.eminence.hide_completed, true, 'hide_completed captured')
+eq(snap.eminence.hide_completed, nil, 'hide_completed not captured')
+eq(snap.eminence.book_show.completed, false, 'book_show captured')
 eq(snap.eminence.columns[1], 'name', 'eminence columns captured')
 eq(snap.eminence.pins, nil, 'pins excluded')
 eq(snap.eminence.favs, nil, 'favorites excluded')

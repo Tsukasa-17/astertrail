@@ -289,10 +289,17 @@ function settings_ui.body(ui)
                 M[which .. '_grad'] = false
                 ui.mark_settings_dirty()
             end
+            -- 頭上の文字の背景の濃さ（0.1.215〜）。クエスト名とオブジェクト名で別
+            local bg_key = which .. '_bg_alpha'
+            if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
+            stepper(ui, name, 'marks_' .. bg_key, t('settings.marks_' .. bg_key), M, bg_key,
+                0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX,
+                UNIT.pct, SEC, DM[bg_key])
         end
         color_block('label', t('settings.color_sample_label'))
         color_block('under', '???')
         W.muted(ui, t('settings.color_note'))
+        W.muted(ui, t('settings.marks_bg_alpha_note'))
         -- 足元の輪（0.1.171〜）：オンオフ・大きさ・種類ごとの色（初めの色は今のアイコンの色）
         do
             local M, DM = S.marks, DEF.marks
@@ -486,7 +493,7 @@ function settings_ui.body(ui)
         -- 窓の出す・隠すは本の上の行のボタンだけ（0.1.182〜、t293。ここのスイッチはなくした）
         toggle(ui, name, 'roe_fold', t('settings.roe_collapsed'), S.eminence, 'collapsed', SEC)
         -- 達成間近の目安は、窓の達成間近のタブをなくしたので出さない（0.1.177〜。値は残す）
-        toggle(ui, name, 'roe_hide', t('settings.roe_hide_completed'), S.eminence, 'hide_completed', SEC)
+        -- 0.1.226〜：「本で達成したものを隠す」はやめた（本の「表示：☑達成」に移した）
         W.muted(ui, t('settings.roe_note'))
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'about', title = t('about.title'), draw = function ()
@@ -512,7 +519,8 @@ function settings_ui.body(ui)
         -- タブの列（自前のボタン。マウスで押せる。キー・パッドのカーソルは乗らず、LB/RB で替える）
         -- ImGui のタブ（SetSelected）はこの環境では選び直しが効かなかったため使わない
         tabs_seen = true
-        W.muted(ui, t('settings.heading') .. '  ' .. t('settings.tabs_hint'))
+        -- 0.1.225〜（t499）：パッドの案内（LB／RB でタブを替える…）は出さない
+        W.muted(ui, t('settings.heading'))
         local avail = 0
         local okw, aw = pcall(imgui.GetContentRegionAvail)
         if okw then avail = (type(aw) == 'table' and (aw.x or aw[1])) or tonumber(aw) or 0 end

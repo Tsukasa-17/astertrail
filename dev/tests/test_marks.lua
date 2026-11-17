@@ -195,7 +195,7 @@ do
     eq(#rakoh, 1, 'rakoh present')
     local aq = wanted_named(w, 'Aquillina', 'talk')
     eq(#aq, 1, 'aquillina wanted when not accepted')
-    eq(aq[1].grid, 'K-9', 'aquillina grid')
+    eq(aq[1].grid, 'K-8', 'aquillina grid (0.1.220〜 正確な座標のマス。用語辞典は K-9)')
     local m = marks.match(marks.in_zone(w, 235), {
         { index = 1, name = 'Aquillina' },
         { index = 2, name = 'Someone Else' },
@@ -293,7 +293,7 @@ do
     end
     eq(#w, 1, '??? wanted')
     check(w[1].require_grid, '??? requires grid')
-    eq(w[1].grid, 'J-5', '??? grid J-5 (0.1.52: 用語辞典に合わせた)')
+    eq(w[1].grid, 'I-5', '??? grid I-5 (0.1.220〜 正確な座標 17559912 のマス。用語辞典は J-5)')
     -- 以下の照合の確かめは J-5 を基準にする
     w[1].grid = 'J-5'
     local ents = {

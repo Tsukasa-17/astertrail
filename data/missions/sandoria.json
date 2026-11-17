@@ -8,7 +8,7 @@
       "kind": "mission",
       "lock_reasons": [],
       "mission_no": "SM1-1",
-      "name_en": "Smash the Orcish Scout",
+      "name_en": "Smash the Orcish Scouts",
       "name_ja_ref": "オークの斥候を倒せ",
       "note_ja": "報酬は不明",
       "repeatable": "unknown",
@@ -616,7 +616,13 @@
       "mission_no": "SM9-2",
       "name_en": "The Heir to the Light",
       "name_ja_ref": "光の継承者",
-      "note_ja": "BFに入れるのはこのミッションを受けている人かクリア済みの人のみ（BF詳細と称号は記事のネタバレ項）。完了後、Door:Prince Royal's Rm(H-7)・Door:Prince Regent's Rm(H-8)・北サンドリア(M-7)Door:Papal Chambersのイベント後、南サンドリアに入るとエンディング風イベント",
+      "note_grid_from": {
+        "lock_reasons": [
+          "「厚き壁」終了後"
+        ],
+        "note_ja": "BFに入れるのはこのミッションを受けている人かクリア済みの人のみ（BF詳細と称号は記事のネタバレ項）。完了後、Door:Prince Royal's Rm(H-7)・Door:Prince Regent's Rm(H-8)・北サンドリア(M-7)Door:Papal Chambersのイベント後、南サンドリアに入るとエンディング風イベント"
+      },
+      "note_ja": "BFに入れるのはこのミッションを受けている人かクリア済みの人のみ（BF詳細と称号は記事のネタバレ項）。完了後、Door:Prince Royal's Rm(H-7)・Door:Prince Regent's Rm(H-8)・北サンドリア(M-6)Door:Papal Chambersのイベント後、南サンドリアに入るとエンディング風イベント",
       "repeatable": "unknown",
       "rewards": [
         {
@@ -687,6 +693,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 149.892,
+          "y": 141.873,
+          "z": -0.601
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
@@ -695,6 +706,14 @@
           "checked": "2026-11-16",
           "fact_ja": "用語辞典「子供の救助」：北サンドリアの大聖堂(M-6)のArnau",
           "name": "用語辞典"
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=149.892 y=141.873 z=-0.601（id 17723406。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -709,9 +728,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -165.357,
+          "y": 77.771,
+          "z": -11.672
+        },
         "zone_id": 140,
         "zone_name": "ゲルスバ野営陣"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-165.357 y=77.771 z=-11.672（id 17350951。地図の換算で MAP1 の F-10、マス目 F-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ghelsba_outpost/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hut Door",
       "same_name": false
@@ -724,9 +758,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -344.964,
+          "y": 265.018,
+          "z": 37.226
+        },
         "zone_id": 102,
         "zone_name": "ラテーヌ高原"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-344.964 y=265.018 z=37.226（id 17195616。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/la_theine_plateau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vicorpasse",
       "same_name": false
@@ -740,9 +789,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -69.85,
+          "y": 610.809,
+          "z": 1.388
+        },
         "zone_id": 193,
         "zone_name": "オルデール鍾乳洞"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-69.850 y=610.809 z=1.388（id 17568171。地図の換算で MAP1 の H-3、マス目 H-3 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/ordelles_caves/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ruillont",
       "same_name": false
@@ -770,9 +834,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 211.852,
+          "y": -9.23,
+          "z": -0.457
+        },
         "zone_id": 149,
         "zone_name": "ダボイ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=211.852 y=-9.230 z=-0.457（id 17388006。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/davoi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zantaviat",
       "same_name": false
@@ -781,13 +860,29 @@
       "id": "obj.231.Door_Papal_Chambers",
       "kind": "obj",
       "location": {
-        "grid": "M-7",
+        "grid": "M-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 130.327,
+          "y": 122.323,
+          "z": -13.002
         },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=130.327 y=122.323 z=-13.002（id 17723548。地図の換算で MAP1 の M-6、マス目 M-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "M-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Papal Chambers",
       "same_name": false
@@ -816,9 +911,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -50.646,
+          "y": -27.642,
+          "z": 0.499
+        },
         "zone_id": 241,
         "zone_name": "ウィンダス森の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-50.646 y=-27.642 z=0.499（id 17764389。地図の換算で MAP1 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_woods/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mourices",
       "same_name": false
@@ -851,13 +961,29 @@
       "id": "npc.149.Quemaricond",
       "kind": "npc",
       "location": {
-        "grid": "H-7",
+        "grid": "G-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -17.703,
+          "y": -18.248,
+          "z": -0.551
         },
         "zone_id": 149,
         "zone_name": "ダボイ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.703 y=-18.248 z=-0.551（id 17387991。地図の換算で MAP1 の G-7、マス目 H-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/davoi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Quemaricond",
       "same_name": false
@@ -885,6 +1011,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.0,
+          "y": 17.0,
+          "z": -3.151
+        },
         "zone_id": 233,
         "zone_name": "ドラギーユ城"
       },
@@ -893,6 +1024,14 @@
           "checked": "2026-11-16",
           "fact_ja": "用語辞典のサンドリアミッション：ドラギーユ城(I-9)のDoor:Great Hall",
           "name": "用語辞典"
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.000 y=17.000 z=-3.151（id 17731628。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/chateau_doraguille/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -907,9 +1046,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -35.644,
+          "y": -49.738,
+          "z": 8.999
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-35.644 y=-49.738 z=8.999（id 17772545。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nelcabrit",
       "same_name": false
@@ -950,11 +1104,30 @@
       "location": {
         "grid": "M-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 640.484,
+          "y": 19.961,
+          "z": 13.333
         },
         "zone_id": 184,
         "zone_name": "デルクフの塔下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=640.484 y=19.961 z=13.333（id 17531161。地図の換算で MAP1 の M-8、マス目 M-8 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_delkfutts_tower/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cermet Door",
       "same_name": false
@@ -1106,9 +1279,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": -39.0,
+          "y": 20.0,
+          "z": 4.823
+        },
         "zone_id": 190,
         "zone_name": "龍王ランペールの墓"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-39.000 y=20.000 z=4.823（id 17555990。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/king_ranperres_tomb/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Heavy Stone Door",
       "same_name": false

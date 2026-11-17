@@ -2,7 +2,7 @@
 """
 地図の対応表（CSV）から data/maps.json を作る。開発用。ゲームには不要。
 
-入力: 引数で CSV のパスを渡す（既定は環境変数 ASTERTRAIL_MAP_CSV）。対応表の CSV は同梱しない。
+入力の既定: /workspace/astertrail-maptable/correspondence/map_floor_correspondence_20261112.csv
 MAP 番号がある行だけを表示対象にする。FloorIndex 0（MAP 空欄）の行は出さない。
 未確定のゾーンは unconfirmed_zones にまとめる。機械固有のパスは書かない。
 """
@@ -10,7 +10,7 @@ import csv, json, io, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', 'data')
-DEFAULT_CSV = os.environ.get('ASTERTRAIL_MAP_CSV', 'map_floor_correspondence.csv')
+DEFAULT_CSV = '/workspace/astertrail-maptable/correspondence/map_floor_correspondence_20261112.csv'
 
 STATUS = {
     'ルール適用': 'rule_applied',

@@ -26,7 +26,25 @@ local book = {
     table_failed = nil, -- 表（BeginTable）で問題が起きたら、以後は並べたセルで描く
 }
 
-local STATE_FILTERS = { 'all', 'not_accepted', 'accepted', 'completed' }
+-- 0.1.225〜（t497/t498）：ミッション・クエストの「表示：」のチェック（状態の選択と地域の選択はなくした）
+book.SHOW_STATES = { 'accepted', 'not_accepted', 'completed' }
+
+-- 出す状態か（無い・壊れた保存は出す）
+function book.state_shown(f, st)
+    if st == 'unknown' or st == nil then st = 'not_accepted' end
+    local show = f and f.show
+    if type(show) ~= 'table' then return true end
+    return show[st] ~= false
+end
+
+local function show_sig(f)
+    local show = f and f.show
+    if type(show) ~= 'table' then return 'all' end
+    local out = {}
+    for _, k in ipairs(book.SHOW_STATES) do out[#out + 1] = (show[k] ~= false) and '1' or '0' end
+    return table.concat(out)
+end
+book._show_sig = show_sig
 
 local search_buf = { '' }
 local search_synced = false
@@ -39,7 +57,7 @@ function book.view_key(ui, extra)
     local f = S.book.filters or {}
     local PR = ui.progress
     return tostring(ui.data) .. '|' .. tostring(PR) .. '|' .. tostring(PR and PR.rev or 0) .. '|' .. tostring(S.book.tab)
-        .. '|' .. tostring(f.area) .. '|' .. tostring(f.state) .. '|' .. tostring(f.text) .. '|' .. tostring(S.language)
+        .. '|' .. show_sig(f) .. '|' .. tostring(f.text) .. '|' .. tostring(S.language)
         .. '|' .. tostring(extra)
 end
 function book.clear_view_cache()
@@ -69,12 +87,9 @@ function book.filtered_now(ui, opts)
     local out = {}
     for _, q in ipairs(ui.data:list(tab)) do
         local ok = true
-        if not opts.ignore_area then
-            if f.area ~= 'all' and q.category ~= f.area then ok = false end
-        end
-        if f.state == 'unknown' then f.state = 'all' end
+        -- 地域は左の見出しの木で選ぶ（0.1.225〜、地域の絞り込みはなくした）
         if not opts.ignore_state then
-            if ok and f.state ~= 'all' and ui.progress:state(q.id) ~= f.state then ok = false end
+            if ok and not book.state_shown(f, ui.progress:state(q.id)) then ok = false end
         end
         if ok and (not opts.ignore_text) and f.text and f.text ~= '' then
             local hay = ui.data:search_text(q)
@@ -239,10 +254,7 @@ function book.groups(ui, list)
     if only_quest and not has_mission then
         return book.region_groups(ui, list)
     end
-    local f = ui.settings.book.filters
-    if f.area ~= 'all' then
-        return { { id = f.area or 'one', items = list } }
-    end
+
     local by = {}
     for _, q in ipairs(list) do
         local c = q.category or '_'
@@ -1959,6 +1971,28 @@ function book.apply_scroll(ui, tab, force_top)
 end
 
 -- 覚えていた行が一覧（フィルタ後）にあればそのまま、無ければ先頭。先頭に戻すときは true
+-- パッド・キーで表の行（☆ のボタンも同じ行）へ移ったら、その行を選ぶ。移ったときだけ（マウスで選んだ行を上書きしない）
+function book.follow_focus_row(ui, name, shown)
+    local cur = focus.current(name)
+    if cur == book._follow_seen then return false end
+    book._follow_seen = cur
+    local s = tostring(cur or '')
+    local qid = s:match('^row_(.+)$') or s:match('^bpin_(.+)$')
+    if not qid then return false end
+    local S = ui.settings
+    for _, q in ipairs(shown or {}) do
+        if tostring(q.id) == qid then
+            if S.book.last_row ~= q.id then
+                S.book.last_row = q.id
+                if ui.mark_settings_dirty then ui.mark_settings_dirty() end
+                return true
+            end
+            return false
+        end
+    end
+    return false
+end
+
 function book.ensure_visible_row(S, list, dirty)
     list = list or {}
     local selected = S and S.book and S.book.last_row
@@ -2281,6 +2315,56 @@ local function nav_select(ui, node)
     end
 end
 
+-- 0.1.225〜（t502）：詳細の入り口（右の詳細の先頭。ボタンが無い詳細でも、ここで上下に送れる）
+book.DETAIL_ANCHOR = 'detail_pane'
+book.DETAIL_STEP = 60   -- 上下で送る量（px）
+
+-- 右の詳細の子窓の中、いちばん先に呼ぶ（BeginChild のすぐ後）
+function book.detail_anchor(ui, name)
+    local imgui = ui.imgui
+    local here = focus.item(name, book.DETAIL_ANCHOR, 'detail_top', 'd0')
+    if focus.take_scroll(name, book.DETAIL_ANCHOR) then pcall(imgui.SetScrollY, 0) end
+    local d = book._detail_scroll
+    if d then
+        book._detail_scroll = nil
+        local ok, y = pcall(imgui.GetScrollY)
+        if ok and tonumber(y) then pcall(imgui.SetScrollY, math.max(0, tonumber(y) + d)) end
+    end
+    if here and imgui.GetWindowPos and imgui.GetWindowSize and imgui.GetWindowDrawList then
+        pcall(function ()
+            local px, py = imgui.GetWindowPos()
+            if type(px) == 'table' then px, py = px.x or px[1], px.y or px[2] end
+            local sw, sh = imgui.GetWindowSize()
+            if type(sw) == 'table' then sw, sh = sw.x or sw[1], sw.y or sw[2] end
+            local dl = imgui.GetWindowDrawList()
+            if dl and px and sw then
+                dl:AddRect({ px + 2, py + 2 }, { px + sw - 2, py + sh - 2 }, theme.u32('ring', 0.95), 4, 0, 2)
+            end
+        end)
+    end
+    return here
+end
+
+local function section_of_current(name)
+    local cur = focus.current(name)
+    for _, it in ipairs((focus.windows[name] or {}).list or {}) do
+        if it.id == cur then return it.section end
+    end
+    return nil
+end
+
+-- いま選んでいる行（一覧へ戻るとき）
+local function selected_row_wid(ui)
+    local S = ui.settings
+    if S.book.tab == 'eminence' then
+        local em = require('src.ui.eminence')
+        local sid = em.selected and em.selected()
+        if not sid and S.eminence then sid = tonumber(S.eminence.last_id) end
+        return sid and ('roesel_' .. tostring(sid)) or nil
+    end
+    return S.book.last_row and ('row_' .. S.book.last_row) or nil
+end
+
 local function is_table_row_id(id)
     local s = tostring(id or '')
     return has_prefix(s, 'row_') or has_prefix(s, 'roesel_')
@@ -2297,6 +2381,24 @@ function book.nav_action(action)
     if not ui or not tree then return false end
     if ui.state and ui.state.open and ui.state.open.settings then return false end
     local cur = focus.current('book')
+    -- 0.1.225〜（t502）：詳細の中。キャンセルで一覧の選んでいる行へ、上下はボタンを移り、端では詳細を送る
+    if book.area_of(section_of_current('book')) == 'detail' then
+        if action == 'back' then
+            local wid = selected_row_wid(ui)
+            if wid then focus_nav(wid)
+            else focus_nav(book.tree_wid(book.split_tab(ui.settings), book.display_heading(ui))) end
+            if ui.state then ui.state.book_scroll_to_sel = true end
+            return true
+        end
+        if action == 'up' or action == 'down' then
+            if not focus.move('book', action) then
+                book._detail_scroll = (action == 'up') and -book.DETAIL_STEP or book.DETAIL_STEP
+            end
+            return true
+        end
+        if action == 'confirm' and cur == book.DETAIL_ANCHOR then return true end
+        return false
+    end
     if is_table_row_id(cur) then
         if action == 'back' then
             local tab = book.split_tab(ui.settings)
@@ -2304,7 +2406,29 @@ function book.nav_action(action)
             focus_nav(book.tree_wid(tab, hid))
             return true
         end
-        -- 上下左右・決定は表の通常の動き（行の中、行の移動）
+        -- 0.1.225〜（t502）：行（名前）で決定 → その行を選んで右の詳細へ（見出し → 一覧 → 詳細）
+        local s = tostring(cur or '')
+        local qid = s:match('^row_(.+)$')
+        local rid = s:match('^roesel_(.+)$')
+        if action == 'confirm' and (qid or rid) then
+            local S = ui.settings
+            if qid then
+                if S.book.last_row ~= qid then
+                    S.book.last_row = qid
+                    if ui.mark_settings_dirty then ui.mark_settings_dirty() end
+                end
+            else
+                local em = require('src.ui.eminence')
+                if em.select then em.select(tonumber(rid) or rid) end
+                if S.eminence and S.eminence.last_id ~= tonumber(rid) then
+                    S.eminence.last_id = tonumber(rid)
+                    if ui.mark_settings_dirty then ui.mark_settings_dirty() end
+                end
+            end
+            focus.set('book', book.DETAIL_ANCHOR, true)
+            return true
+        end
+        -- 上下左右・ほかのボタンの決定は表の通常の動き（行の中、行の移動）
         return false
     end
     local node, parent = book.nav_resolve(tree, cur)
@@ -2333,6 +2457,9 @@ function book.nav_action(action)
     if action == 'left' or action == 'right' then
         if node.collapse_id == nil then return true end  -- 「すべて」など：開閉しない
         local collapsed = book.is_collapsed(S, node.tab, node.collapse_id)
+        -- 0.1.224〜：エミネンスの、下の見出しの無い見出しは閉じない（閉じる印が無いのに閉じた扱いになり、表が空になっていた）
+        local leaf = (node.tab or tab) == 'eminence' and not (node.children and node.children[1])
+        if leaf and action == 'left' then collapsed = true end
         if action == 'left' then
             if not collapsed then
                 book.set_collapsed(S, node.tab, node.collapse_id, true)
@@ -2358,11 +2485,7 @@ function book.nav_action(action)
     end
 
     if action == 'confirm' then
-        -- 決定：中央の表の先頭の行へ（閉じていれば開いて中身を出す）
-        if node.collapse_id ~= nil and book.is_collapsed(S, node.tab, node.collapse_id) then
-            book.set_collapsed(S, node.tab, node.collapse_id, false)
-            if ui.mark_settings_dirty then ui.mark_settings_dirty() end
-        end
+        -- 決定：中央の表の先頭の行へ。0.1.225〜（t503）：閉じた見出しは開かない（表は閉じていても中身を出す。開け閉めは左右だけ）
         if node.heading_id then
             book.set_heading(S, tab, node.heading_id, function () ui.mark_settings_dirty() end)
         end
@@ -2398,7 +2521,7 @@ function book.list_focus_id(ui)
     return book.tree_wid(tab, hid)
 end
 
--- 地域（エミネンスは分類）・状態・検索。row はキー・パッドの行（タブと同じ行なら 'tabs'）。
+-- 検索（エミネンスも同じ。分類・状態の選択は 0.1.226 でなくした）。row はキー・パッドの行（タブと同じ行なら 'tabs'）。
 -- search_w(rest) → 検索の幅（-1 なら残りいっぱい）。inline はタブと同じ行に続けて描くとき
 function book.draw_filters(ui, name, emin, row, search_w, inline)
     local imgui, t, S = ui.imgui, ui.t, ui.settings
@@ -2407,33 +2530,7 @@ function book.draw_filters(ui, name, emin, row, search_w, inline)
         require('src.ui.eminence').book_filters(ui, name, row, cw1, cw2, search_w, inline)
         return
     end
-    local f = S.book.filters
-    -- 地域は、このタブ（ミッション／クエスト）に1件もないものは出さない（0.1.174〜、t262）。
-    -- 選んでいた地域がこのタブに無ければ「すべて」に戻す（そのままだと一覧が空になるため）
-    local counts = book.category_counts(ui.data, S.book.tab)
-    if f.area ~= 'all' and not counts[f.area] then f.area = 'all'; ui.mark_settings_dirty() end
-    local area_choices = { { value = 'all', label = t('filter.all') } }
-    for _, c in ipairs(ui.data.categories) do
-        if counts[c.id] then
-            area_choices[#area_choices + 1] = { value = c.id, label = ui.data:category_label(c.id, S.language) }
-        end
-    end
-    local area_changed, area_v = W.combo(ui, name, 'f_area', t('filter.area_label'), f.area, area_choices,
-        { section = 'top', row = row, width = cw1 })
-    if area_changed then f.area = area_v; ui.mark_settings_dirty() end
-    W.same(ui)
-    local state_choices = { { value = 'all', label = t('filter.all') } }
-    for _, stv in ipairs(STATE_FILTERS) do
-        if stv ~= 'all' then
-            state_choices[#state_choices + 1] = { value = stv, label = t('state.' .. stv) }
-        end
-    end
-    local st_changed, st_v = W.combo(ui, name, 'f_state', t('filter.state_label'), f.state, state_choices,
-        { section = 'top', row = row, width = cw2 })
-    if st_changed then f.state = st_v; ui.mark_settings_dirty() end
-
-    -- 検索（状態の右。残りが狭ければ次の行）
-    W.same(ui)
+    -- 0.1.225〜（t497/t498）：地域・状態の選択はなくした（地域は左の見出しの木、状態は2行目の「表示：」のチェック）
     local rest = avail_x(imgui)
     if not inline and rest and rest < 140 then imgui.NewLine() end
     if not search_synced then search_buf[1] = S.book.filters.text or ''; search_synced = true end
@@ -2575,12 +2672,7 @@ function book.draw(ui)
         end
         book._nav_ui = ui
         book._nav_tree = book.nav_tree(ui)
-        -- パッド・キー：いまの段（いちばん上の見出し／中の見出し／行）を一行で示す（0.1.204〜）
-        if ui.state.open.settings ~= true and ui.state.active == 'book' then
-            local cur = focus.current(name)
-            local node, parent = book.nav_resolve(book._nav_tree, cur)
-            W.muted(ui, t(book.nav_help_key(node, parent, cur)))
-        end
+        -- 0.1.225〜（t499）：パッドの案内の一行（「パッドで操作中：…」）は出さない（マウスのときに邪魔）
 
         -- 設定（0.1.175〜）：別の窓は作らず、一覧と詳細の場所に出す。そのあいだキー・パッドは設定の中だけ
         local settings_on = ui.state.open.settings == true
@@ -2588,8 +2680,8 @@ function book.draw(ui)
         focus.set_areas(name, book.area_of)
         local emin = S.book.tab == 'eminence'
 
-        -- いちばん上の行（0.1.175〜）：左にタブ（ミッション → クエスト → エミネンス）、続けて 地域・状態・検索、
-        -- 右端に コンパス・トラッカー・⚙️・閉じる。狭くて入らないときは、地域・状態・検索を次の行へ
+        -- いちばん上の行（0.1.175〜）：左にタブ（ミッション → クエスト → エミネンス）、続けて検索、
+        -- 右端に コンパス・トラッカー・⚙️・閉じる。狭くて入らないときは、検索を次の行へ
         local tabs = { 'mission', 'quest', 'eminence' }   -- ミッションが先。エミネンスはクエストの右（0.1.172〜）
         for i, tab in ipairs(tabs) do
             if i > 1 then W.same(ui) end
@@ -2643,17 +2735,13 @@ function book.draw(ui)
         local icon_w = math.floor(fh * 1.25 + 0.5)
         local need = #right * icon_w + button_w(imgui, t('common.close')) + #right * item_spacing(imgui)
 
-        -- 地域・状態・検索がタブと同じ行に入るか（検索は 120 以上）
+        -- 検索がタブと同じ行に入るか（検索は 120 以上。0.1.226〜：エミネンスの分類・状態の選択もなくした）
         local sp = item_spacing(imgui)
         local f = S.book.filters
         local E = S.eminence or {}
-        local before = emin and { E.book_root, E.book_state, E.book_text } or { f.area, f.state, f.text }
-        local min_filters
-        if emin then
-            min_filters = button_w(imgui, t('roe.root_label')) + 150 + button_w(imgui, t('filter.state_label')) + 130 + 120 + sp * 6
-        else
-            min_filters = button_w(imgui, t('filter.area_label')) + 150 + button_w(imgui, t('filter.state_label')) + 130 + 120 + sp * 6
-        end
+        local em = emin and require('src.ui.eminence') or nil
+        local before = emin and { em.show_sig(E), E.book_text, nil } or { show_sig(f), f.text, nil }
+        local min_filters = 120 + sp * 2
         imgui.SameLine()
         local rest0 = avail_x(imgui)
         local inline = rest0 ~= nil and (rest0 - need - sp) >= min_filters
@@ -2686,7 +2774,7 @@ function book.draw(ui)
             draw_icons()
             book.draw_filters(ui, name, emin, 'f', function () return -1 end, false)
         end
-        local after = emin and { E.book_root, E.book_state, E.book_text } or { f.area, f.state, f.text }
+        local after = emin and { em.show_sig(E), E.book_text, nil } or { show_sig(f), f.text, nil }
         if settings_on and (before[1] ~= after[1] or before[2] ~= after[2] or before[3] ~= after[3]) then
             -- 設定を出しているあいだに絞り込みを替えたら、一覧に戻す
             ui.close_window('settings')
@@ -2703,7 +2791,21 @@ function book.draw(ui)
         -- 2行目：列を出す・隠す（■ 出す　▢ 隠す）。並びは保存した列の並び。狭いときは折り返す
         do
             local with_no = show_no_col(ui)
-            -- 「列：」はチェックと同じ高さ（0.1.200〜。区切り線はエミネンスの表示／列だけ）
+            -- 0.1.225〜（t497/t498）：「表示：」受注中・未受注・完了のチェック（エミネンスと同じ形）。初めは全部出す
+            W.frame_label(ui, t('book.view_label'), true)
+            if type(f.show) ~= 'table' then f.show = { accepted = true, not_accepted = true, completed = true } end
+            for _, k in ipairs(book.SHOW_STATES) do
+                W.same(ui)
+                if W.check_chip(ui, name, 'show_' .. k, t('state.' .. k), f.show[k] ~= false,
+                    { section = 'top', row = 'cols', tooltip = t('book.show_tip') }) then
+                    f.show[k] = not (f.show[k] ~= false)
+                    ui.mark_settings_dirty()
+                end
+            end
+            W.same(ui)
+            W.frame_label(ui, '｜', true)
+            W.same(ui)
+            -- 「列：」はチェックと同じ高さ（0.1.200〜）
             W.frame_label(ui, t('book.cols_label'), true)
             for _, k in ipairs(book.toggle_keys(S, with_no)) do
                 local label = t('book.col.' .. k)
@@ -2724,6 +2826,8 @@ function book.draw(ui)
         local list = book.filtered(ui)
         local heading_id = book.prepare_heading(ui, list)
         local shown = book.entries_under_heading(ui, heading_id, list)
+        -- 0.1.225〜（t500）：パッド・キーで表の行を移ったら、右の詳細もその行に（エミネンスと同じ）
+        book.follow_focus_row(ui, name, shown)
         local selected, fallback = book.ensure_visible_row(S, shown, function() ui.mark_settings_dirty() end)
         local sel_q = selected and ui.data:quest(selected) or nil
         local avail_w, avail_h = imgui.GetContentRegionAvail()
@@ -2783,6 +2887,7 @@ function book.draw(ui)
         imgui.BeginChild('##astertrail_book_detail', { 0, body_h }, 1, 0)
         window.push(ui, 'child')
         window.set_font(ui, window.font_scale(ui, 'detail'))
+        book.detail_anchor(ui, name)   -- 0.1.225〜（t502）
         if sel_q then
             require('src.ui.detail').body(ui, name, sel_q, { embedded = true })
         else

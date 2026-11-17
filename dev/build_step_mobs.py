@@ -70,8 +70,26 @@ def key(n):
     return n.replace("'", '').replace('’', '').lower()
 
 
+LSB_TAIL = re.compile(r'^(?:[a-z]+[0-9]*|LM)$')   # 数字だけ（Khimaira 13 など）は名前の一部なので残す
+
+
+def display(n):
+    """LSB の名前 → ゲームで見える名前（0.1.214〜）。LSB は同じ名前を分けるために後ろに小文字の言葉や番号を付けている
+    （「Copper Quadav past」「Ka war」「Wendigo blm」「Fomor Bard LM」「Dark_Stalker」）。ゲームではどれも後ろの言葉が無い。"""
+    toks = n.replace('_', ' ').split()
+    while len(toks) > 1 and LSB_TAIL.match(toks[-1]):
+        toks.pop()
+    return ' '.join(toks)
+
+
 def load():
-    mobs = json.loads((ROOT / 'dev/sources/lsb/mobs_by_zone.json').read_text(encoding='utf-8'))
+    raw = json.loads((ROOT / 'dev/sources/lsb/mobs_by_zone.json').read_text(encoding='utf-8'))
+    mobs = {}
+    for z, names in raw.items():
+        per = {}
+        for n, sp in names.items():
+            per.setdefault(display(n), sp)
+        mobs[z] = per
     zones_of = collections.defaultdict(set)   # 名前の鍵 → ゾーン
     canon = {}
     for z, names in mobs.items():
@@ -201,6 +219,7 @@ def main():
         for q in d.get('quests') or d.get('missions') or []:
             docs[q['id']] = q
     guides = json.loads((DATA / 'guides/steps_v2.json').read_text(encoding='utf-8'))['guides']
+    all_steps = {s['id'] for g in guides for s in g['steps']}
     for g in guides:
         q = docs.get(g['quest'], {})
         qneg = set()
@@ -262,8 +281,54 @@ def main():
             if entry:
                 if neg: entry['exclude'] = sorted(neg)
                 steps_out[s['id']] = entry
-    # 種族ごと・ゾーンごとの名前（使う種族だけ）
+    # 文から拾えない分（0.1.214〜。dev/sources/step_mobs_extra.json）
     species_of = {fk: set(sp) for _, (fk, sp) in FAMILY.items()}
+    n_extra = 0
+    ex_path = ROOT / 'dev/sources/step_mobs_extra.json'
+    if ex_path.exists():
+        ex = json.loads(ex_path.read_text(encoding='utf-8'))
+        for fk, sp in (ex.get('families_extra') or {}).items():
+            assert fk not in species_of, 'family already defined: ' + fk
+            species_of[fk] = set(sp)
+        def fam_zones(fk):
+            return sorted(int(z) for z, names in MOBS.items() if any(v in species_of[fk] for v in names.values()))
+        for sid, e in ex.get('steps', {}).items():
+            assert sid in all_steps, 'unknown step: ' + sid
+            assert sid not in steps_out, 'step already has mobs from the text: ' + sid
+            entry = {}
+            nl = []
+            for n in e.get('names') or []:
+                assert real(n['name']), 'not an LSB name: ' + n['name']
+                lz = ZONES_OF[key(n['name'])]
+                zl = sorted(set(n['zones']) & lz) if n.get('zones') else sorted(lz)
+                assert zl, 'no LSB zone for %s in %s' % (n['name'], n.get('zones'))
+                nl.append({'name': CANON[key(n['name'])], 'zones': zl})
+            for f in e.get('family_names') or []:
+                for z in f['zones']:
+                    for nm, sp in sorted(MOBS[str(z)].items()):
+                        if sp in species_of[f['family']] and key(nm) not in {key(x['name']) for x in nl}:
+                            nl.append({'name': nm, 'zones': [z]})
+            if nl:
+                entry['names'] = nl
+            fl = []
+            for f in e.get('families') or []:
+                fk = f['family']
+                assert fk in species_of, 'unknown family: ' + fk
+                have = fam_zones(fk)
+                if f.get('not_zones'):
+                    zl = [z for z in have if z not in f['not_zones']]
+                elif f.get('zones'):
+                    zl = sorted(set(f['zones']) & set(have))
+                    assert zl == sorted(f['zones']), 'family %s not in zones %s' % (fk, f['zones'])
+                else:
+                    zl = []
+                fl.append({'family': fk, 'zones': zl})
+                fam_used.add(fk)
+            if fl:
+                entry['families'] = fl
+            assert entry, sid
+            steps_out[sid] = entry
+            n_extra += 1
     fam_tab = {}
     for fk in sorted(fam_used):
         per = {}
@@ -281,7 +346,7 @@ def main():
     OUT.write_text(json.dumps(doc, ensure_ascii=False, separators=(',', ':'), sort_keys=True) + '\n', encoding='utf-8')
     n_names = sum(1 for v in steps_out.values() if 'names' in v)
     n_fam = sum(1 for v in steps_out.values() if 'families' in v)
-    print('steps', len(steps_out), 'with names', n_names, 'with families', n_fam, dict(stats))
+    print('steps', len(steps_out), 'with names', n_names, 'with families', n_fam, 'extra', n_extra, dict(stats))
     if '-v' in sys.argv:
         print('== family_skip', len(report_skip))
         for x in report_skip: print('  ', x)

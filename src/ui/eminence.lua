@@ -160,18 +160,47 @@ local function matches(ui, id, words)
     return true
 end
 
+-- 0.1.226〜：本の「表示：」のチェック（受注中・未受注・達成）。
+-- 達成オン＝全部出す。オフ＝くり返しできない達成だけ隠す（くり返しできる達成は残す）
+eminence.SHOW_STATES = { 'accepted', 'not_accepted', 'completed' }
+
+function eminence.state_shown(E, st)
+    if st == 'unknown' or st == nil then st = 'not_accepted' end
+    -- 達成は book_visible で、くり返しできるかを見て決める
+    if st == 'completed' then return true end
+    local show = E and E.book_show
+    if type(show) ~= 'table' then return true end
+    return show[st] ~= false
+end
+
+function eminence.show_completed(E)
+    local show = E and E.book_show
+    return type(show) == 'table' and show.completed == true
+end
+
+function eminence.show_sig(E)
+    local show = E and E.book_show
+    if type(show) ~= 'table' then return 'all' end
+    local out = {}
+    for _, k in ipairs(eminence.SHOW_STATES) do out[#out + 1] = (show[k] ~= false) and '1' or '0' end
+    return table.concat(out)
+end
+
 -- 本で出すか（状態・達成を隠す・検索）
 function eminence.book_visible(ui, id, words, opts)
     opts = opts or {}
     local E = ui.settings.eminence
     local st = eminence.state_of(ui, id)
     if not opts.ignore_state then
-        if E.book_state ~= 'all' and st ~= E.book_state then return false end
-        if E.hide_completed and st == 'completed' then
-            -- くり返しできるものは、達成していても隠さない（0.1.194〜）
-            local db = db_of(ui)
-            local q = db and db.quests and db.quests[id]
-            if not (q and q.repeatable) then return false end
+        if st == 'completed' then
+            -- 達成オフ：くり返しできない達成だけ隠す。くり返しできる達成は残す（以前の「達成済みを非表示」と同じ）
+            if not eminence.show_completed(E) then
+                local db = db_of(ui)
+                local q = db and db.quests and db.quests[id]
+                if not (q and q.repeatable) then return false end
+            end
+        elseif not eminence.state_shown(E, st) then
+            return false
         end
     end
     return matches(ui, id, words)
@@ -212,15 +241,8 @@ function eminence.root_choices(ui)
     return out
 end
 
--- いま選んでいる分類。いちばん上の分類・分類なしでなければ（前の保存が下の分類など）「すべて」
+-- いまの分類の根。0.1.226〜：分類の選択はなくした（左の見出しの木で選ぶ）。保存の book_root は使わない
 function eminence.current_root(ui)
-    local db = db_of(ui)
-    local E = ui.settings.eminence
-    if not db then return nil end
-    if E.book_root == -1 and #db.loose > 0 then return -1 end
-    for _, cid in ipairs(db.roots) do
-        if cid == E.book_root then return cid end
-    end
     return eminence.ALL
 end
 
@@ -330,7 +352,8 @@ local function action_button(ui, name, id, section, row)
     end
     local op, can, why = action_of(ui, id)
     local label = action_caption(t, op)
-    local tip = can and t(op == 'start' and 'roe.accept_tip' or 'roe.remove_tip') or t('roe.msg.' .. tostring(why), { name = '' })
+    local tip = can and t(op == 'start' and 'roe.accept_tip' or 'roe.remove_tip')
+        or (ui.roe_why_text and ui.roe_why_text(why, id)) or t('roe.msg.' .. tostring(why), { name = '' })
     local key = (section == 'list') and ('roe_' .. op .. '_' .. id) or ('roed_' .. op .. '_' .. id)
     local bw, bh = action_btn_size(imgui, t)
     local focused, activated = false, false
@@ -454,7 +477,10 @@ local function draw_row(ui, name, id)
     action_button(ui, name, id, 'list', row)
     imgui.SameLine()
     local nm = (q and q.name ~= '' and q.name) or ('#' .. tostring(id))
-    local dim = (st == 'completed') or failed ~= nil
+    -- 今日・今週は受けられない目標（0.1.224〜）。受けている目標は灰色にしない
+    local rot, today = nil, nil
+    if st ~= 'accepted' and ui.roe_rotation then rot, today = ui.roe_rotation(id) end
+    local dim = (st == 'completed') or failed ~= nil or rot ~= nil
     local color = dim and 'muted' or (st == 'accepted' and 'ic_progress' or 'text')
     if sel_id == id then nm = '▶ ' .. nm end
     if W.link(ui, name, 'roesel_' .. id, nm, { section = 'list', row = row, color = color }) then
@@ -469,7 +495,8 @@ local function draw_row(ui, name, id)
     end
     if q and q.repeatable then tags[#tags + 1] = t('roe.tag_repeat') end
     if st == 'completed' then tags[#tags + 1] = t('roe.tag_done') end
-    if failed then tags[#tags + 1] = t('roe.tag_failed.' .. tostring(failed.why)) end
+    if rot then tags[#tags + 1] = t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' })
+    elseif failed then tags[#tags + 1] = t('roe.tag_failed.' .. tostring(failed.why)) end
     if #tags > 0 then
         imgui.SameLine()
         imgui.TextDisabled(table.concat(tags, ' '))
@@ -828,7 +855,10 @@ local function draw_rows_table(ui, name, rows, force_top)
             local stt = eminence.state_of(ui, id)
             local failed = ui.roe_failed and ui.roe_failed(id)
             local row = 'r' .. id
-            local ink = eminence.row_ink(stt, failed)
+            -- 今日・今週は受けられない目標（0.1.224〜）。受けている目標は灰色にしない
+            local rot, today = nil, nil
+            if stt ~= 'accepted' and ui.roe_rotation then rot, today = ui.roe_rotation(id) end
+            local ink = eminence.row_ink(stt, failed or rot)
             local accepted = stt == 'accepted'
             local dim = (not accepted) and (ink == 'muted')
             book.next_row(imgui)
@@ -841,7 +871,10 @@ local function draw_rows_table(ui, name, rows, force_top)
                     local color = accepted and 'ic_progress' or (dim and 'muted' or (sel_id == id and 'accent' or 'text'))
                     if W.link(ui, name, 'roesel_' .. id, nm, { section = 'list', row = row, color = color }) then sel_id = id end
                     -- 0.1.209〜：状態の列をなくしたので、受けられなかった印は名前の右に小さく
-                    if failed then
+                    if rot then
+                        pcall(imgui.SameLine, 0, 4)
+                        imgui.TextDisabled(t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }))
+                    elseif failed then
                         pcall(imgui.SameLine, 0, 4)
                         imgui.TextDisabled(t('roe.tag_failed.' .. tostring(failed.why)))
                     end
@@ -977,6 +1010,11 @@ function eminence.detail(ui, name, id)
     heart_button(ui, name, id, 'detail', 'd')
     imgui.SameLine()
     action_button(ui, name, id, 'detail', 'd')
+    -- 今日・今週は受けられないわけ（0.1.224〜。パッドでは説明の吹き出しが出ないので、ここに書く）
+    if st ~= 'accepted' and ui.roe_rotation then
+        local rot = ui.roe_rotation(id)
+        if rot and ui.roe_why_text then W.muted(ui, ui.roe_why_text(rot, id)) end
+    end
 end
 
 -- 検索の結果（分類によらず、番号の順。上限まで）
@@ -996,24 +1034,11 @@ function eminence.search(ui, words)
     return out
 end
 
-local STATES = { 'all', 'not_accepted', 'accepted', 'completed' }
-
--- 分類・状態・検索（0.1.175〜：本のタブと同じ行。入らなければ次の行。本の book.draw_filters から）
+-- 検索（0.1.226〜：分類・状態の選択はなくした。分類は左の見出しの木、状態は2行目の「表示：」のチェック。
+-- 本の book.draw_filters から。入らなければ次の行）
 function eminence.book_filters(ui, name, row, cw1, cw2, search_w, inline)
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local E = S.eminence
-    local roots = eminence.root_choices(ui)
-    local root = eminence.current_root(ui)
-    if #roots > 0 then
-        local ch, v = W.combo(ui, name, 'roe_root', t('roe.root_label'), root, roots, { section = 'top', row = row, width = cw1 })
-        if ch then E.book_root = v; ui.mark_settings_dirty() end
-        W.same(ui)
-    end
-    local sc = {}
-    for _, s in ipairs(STATES) do sc[#sc + 1] = { value = s, label = (s == 'all') and t('filter.all') or t('roe.state.' .. s) } end
-    local sch, sv = W.combo(ui, name, 'roe_state', t('filter.state_label'), E.book_state, sc, { section = 'top', row = row, width = cw2 })
-    if sch then E.book_state = sv; ui.mark_settings_dirty() end
-    W.same(ui)
     local rest = 0
     local okr, a = pcall(imgui.GetContentRegionAvail)
     if okr then rest = (type(a) == 'table' and (a.x or a[1])) or tonumber(a) or 0 end
@@ -1052,7 +1077,9 @@ local function book_list_rows(ui, E, db, root)
         for _, id in ipairs(list) do rows[#rows + 1] = { kind = 'rec', id = id, depth = 0 } end
         if #list >= eminence.SEARCH_MAX then extra = 'search_max' end
     else
-        rows = eminence.list_rows(ui, root, nil)
+        -- 0.1.224〜：左の木の開け閉めでは表のレコードを隠さない（木の (達成/総数) と表の行を合わせる。
+        -- 前は閉じた扱いの見出しのレコードが表から消え、「共通C (1/10)」なのに表が空になっていた）
+        rows = eminence.list_rows(ui, root, nil, true)
         if #rows == 0 then empty = 'book.empty' end
     end
     return rows, empty, extra
@@ -1063,19 +1090,25 @@ function eminence.book_body(ui, name)
     local E = S.eminence
     local db, why = db_of(ui), R(ui).db_why
     local root = eminence.current_root(ui)
-    -- 2行目：表示（お気に入りだけ・達成済みを非表示）と列（出す・隠す）。分類・状態・検索はタブの行
+    -- 2行目：表示（受注中・未受注・達成・お気に入りのみ）と列（出す・隠す）。検索はタブの行
     -- 「表示：」はチェックと同じ高さ（AlignTextToFramePadding）。表示と列のあいだに「｜」（0.1.200〜）
     W.frame_label(ui, t('book.view_label'), true)
+    -- 0.1.226〜：受注中・未受注・達成。「達成済みを非表示」はやめた（達成オン＝全部出す、オフ＝くり返しできない達成だけ隠す）
+    if type(E.book_show) ~= 'table' then E.book_show = { accepted = true, not_accepted = true, completed = false } end
+    for _, k in ipairs(eminence.SHOW_STATES) do
+        local label = (k == 'completed') and t('roe.state.completed') or t('state.' .. k)
+        local tip = (k == 'completed') and t('roe.show_completed_tip') or t('book.show_tip')
+        W.same(ui)
+        if W.check_chip(ui, name, 'roe_show_' .. k, label, E.book_show[k] ~= false,
+            { section = 'top', row = 'f2', tooltip = tip }) then
+            E.book_show[k] = not (E.book_show[k] ~= false)
+            ui.mark_settings_dirty()
+        end
+    end
     W.same(ui)
     if W.check_chip(ui, name, 'roe_favs_only', t('roe.favs_only'), E.book_favs_only == true,
         { section = 'top', row = 'f2', tooltip = t('roe.favs_only_tip') }) then
         E.book_favs_only = not E.book_favs_only
-        ui.mark_settings_dirty()
-    end
-    W.same(ui)
-    if W.check_chip(ui, name, 'roe_hide_done', t('roe.hide_completed'), E.hide_completed == true,
-        { section = 'top', row = 'f2', tooltip = t('roe.hide_completed_tip') }) then
-        E.hide_completed = not E.hide_completed
         ui.mark_settings_dirty()
     end
     W.same(ui)
@@ -1194,6 +1227,7 @@ function eminence.book_body(ui, name)
     imgui.BeginChild('##astertrail_roe_detail', { 0, body_h }, 1, 0)
     window.push(ui, 'child')
     window.set_font(ui, window.font_scale(ui, 'detail'))
+    book.detail_anchor(ui, name)   -- 0.1.225〜（t502）：見出し → 一覧 → 詳細
     if db and sel_id and db.quests[sel_id] then
         eminence.detail(ui, name, sel_id)
     else

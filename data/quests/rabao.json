@@ -545,9 +545,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -15.689,
+          "y": -11.904,
+          "z": 7.804
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-15.689 y=-11.904 z=7.804（id 17788976。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Agado-Pugado",
       "same_name": false
@@ -560,9 +575,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 21.809,
+          "y": 40.887,
+          "z": 8.929
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=21.809 y=40.887 z=8.929（id 17788938。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Alfesar",
       "same_name": false
@@ -575,9 +605,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -24.768,
+          "y": 70.722,
+          "z": 8.324
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-24.768 y=70.722 z=8.324（id 17788975。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Datta",
       "same_name": false
@@ -590,9 +635,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -36.721,
+          "y": -37.882,
+          "z": 0.0
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-36.721 y=-37.882 z=0.000（id 17788936。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Edigey",
       "same_name": false
@@ -605,9 +665,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 3.759,
+          "y": 31.891,
+          "z": 8.877
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.759 y=31.891 z=8.877（id 17789012。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gushing Spring",
       "same_name": false
@@ -620,9 +695,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 3.789,
+          "y": 56.206,
+          "z": 9.495
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=3.789 y=56.206 z=9.495（id 17788974。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Irmilant",
       "same_name": false
@@ -635,9 +725,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -27.1,
+          "y": 36.0,
+          "z": 8.44
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-27.100 y=36.000 z=8.440（id 17789022。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jourdenaux",
       "same_name": false
@@ -650,9 +755,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -14.624,
+          "y": -10.363,
+          "z": 7.868
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-14.624 y=-10.363 z=7.868（id 17788977。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rahi Fohlatti",
       "same_name": false
@@ -665,9 +785,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -44.453,
+          "y": 81.446,
+          "z": 7.999
+        },
         "zone_id": 247,
         "zone_name": "ラバオ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-44.453 y=81.446 z=7.999（id 17788995。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Zoriboh",
       "same_name": false

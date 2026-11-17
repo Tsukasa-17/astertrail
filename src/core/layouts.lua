@@ -25,8 +25,8 @@ layouts.KEYS = {
 
 -- エミネンス：ピン・お気に入り・受けられなかった記憶は入れない
 layouts.EMINENCE_KEYS = {
-    'visible', 'collapsed', 'filter', 'near_pct', 'hide_completed',
-    'book_root', 'book_state', 'book_text', 'book_favs_only', 'columns', 'hidden',
+    'visible', 'collapsed', 'filter', 'near_pct',
+    'book_root', 'book_state', 'book_show', 'book_text', 'book_favs_only', 'columns', 'hidden',
 }
 
 function layouts.clean_name(s)

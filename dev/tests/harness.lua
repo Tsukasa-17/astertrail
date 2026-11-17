@@ -1,8 +1,3 @@
--- テストは開発版（手で状態・手順を変えられる）の動きを見る。公開版の切り替えそのものは test_release_flags で見る
-if not os.getenv('ASTERTRAIL_TEST_PUBLIC') then
-    package.loaded['src.build_flags'] = { public = false }
-end
-
 -- テスト用の小道具
 T_PASSED = 0
 function check(cond, msg)

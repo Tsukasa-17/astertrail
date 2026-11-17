@@ -1063,9 +1063,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -12.252,
+          "y": -20.277,
+          "z": 1.097
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-12.252 y=-20.277 z=1.097（id 17809497。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Edal-Tahdal",
       "same_name": false
@@ -1078,9 +1093,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.097,
+          "y": 23.066,
+          "z": -4.868
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.097 y=23.066 z=-4.868（id 17809494。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Heiji",
       "same_name": false
@@ -1093,9 +1123,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -2.606,
+          "y": 22.777,
+          "z": -4.756
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-2.606 y=22.777 z=-4.756（id 17809495。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Heizo",
       "same_name": false
@@ -1108,9 +1153,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 90.348,
+          "y": -5.913,
+          "z": -7.086
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=90.348 y=-5.913 z=-7.086（id 17809424。地図の換算で MAP1 の K-8、マス目 K-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jaucribaix",
       "same_name": false
@@ -1134,13 +1194,29 @@
       "id": "npc.252.Kieran",
       "kind": "npc",
       "location": {
-        "grid": "H-8/I-8",
+        "grid": "I-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 0.975,
+          "y": 17.332,
+          "z": 0.0
         },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.975 y=17.332 z=0.000（id 17809529。地図の換算で MAP1 の I-8、マス目 H-8/I-8 と同じ）",
+          "grid_from": "H-8/I-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kieran",
       "same_name": false
@@ -1153,9 +1229,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -3.547,
+          "y": 21.651,
+          "z": 0.0
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-3.547 y=21.651 z=0.000（id 17809435。地図の換算で MAP1 の H-7、マス目 H-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Laisrean",
       "same_name": false
@@ -1168,9 +1259,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 13.041,
+          "y": 4.903,
+          "z": -0.076
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=13.041 y=4.903 z=-0.076（id 17809434。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Magephaud",
       "same_name": false
@@ -1183,9 +1289,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -57.871,
+          "y": 68.697,
+          "z": -9.414
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-57.871 y=68.697 z=-9.414（id 17809507。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mamaulabion",
       "same_name": false
@@ -1198,9 +1319,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 16.678,
+          "y": -14.6,
+          "z": -2.044
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=16.678 y=-14.600 z=-2.044（id 17809432。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Muzaffar",
       "same_name": false
@@ -1213,9 +1349,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -26.276,
+          "y": -8.323,
+          "z": 0.53
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-26.276 y=-8.323 z=0.530（id 17809466。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ryoma",
       "same_name": false
@@ -1228,9 +1379,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 70.12,
+          "y": -7.341,
+          "z": -6.281
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=70.120 y=-7.341 z=-6.281（id 17809437。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Shivivi",
       "same_name": false
@@ -1243,9 +1409,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -19.238,
+          "y": -22.977,
+          "z": 1.097
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-19.238 y=-22.977 z=1.097（id 17809515。地図の換算で MAP1 の H-9。同じ名前 2 件から選んだ：LSB の台本（An Undying Pledge）が使う 2 件のうち、ふだん居るのは 17809515 だけ（ほかはイベントの時だけ））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Stray Cloud",
       "same_name": false
@@ -1258,9 +1439,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -11.673,
+          "y": -21.415,
+          "z": 1.097
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-11.673 y=-21.415 z=1.097（id 17809498。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Verctissa",
       "same_name": false
@@ -1273,9 +1469,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 51.041,
+          "y": 15.546,
+          "z": -6.282
+        },
         "zone_id": 252,
         "zone_name": "ノーグ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=51.041 y=15.546 z=-6.282（id 17809431。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/norg/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Washu",
       "same_name": false

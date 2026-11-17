@@ -34,7 +34,9 @@ for _, r in ipairs(rows) do
 end
 local first = rows[1]
 check(first.npc and first.npc ~= '', 'giver name')
-check(first.approx == true, 'from the grid: approx')
+-- 0.1.218〜：正確な座標がある依頼者は「約」なし。マス目だけのときだけ「約」
+local first_loc = D:start_location(D:quest(first.qid))
+eq(first.approx, not (first_loc.pos and first_loc.pos.x), 'approx only from the grid')
 -- 受注中・くり返せない完了は出さない。くり返せる完了は出す
 do
     P:set_state(first.qid, 'accepted')

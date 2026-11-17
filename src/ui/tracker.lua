@@ -346,7 +346,7 @@ function tracker.draw(ui)
         local child = pcall(imgui.BeginChild, '##astertrail_tracker_body', { 0, body_h }, 0, 0)
         if child then window.push(ui, 'child') end
         font('step')
-        if operating then line('muted', t(level == 'inside' and 'tracker.operating_inside' or 'tracker.operating')) end
+        -- 0.1.226〜：パッドの案内の一行（「パッドで操作中：…」）は出さない（本と同じ。マウスのときに邪魔）
         if st.save_error then line('warn', t('save.failed_once')) end
 
         local next_missions = marks_core.next_missions(D, P)

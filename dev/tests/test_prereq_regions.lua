@@ -66,22 +66,16 @@ local cq, cm = book.category_counts(D, 'quest'), book.category_counts(D, 'missio
 check(cq.jeuno and not cm.jeuno, 'jeuno has quests but no missions')
 check(cm.promathia and not cq.promathia, 'promathia has missions but no quests')
 local function n_with(c) local n = 0; for _, x in ipairs(D.categories) do if c[x.id] then n = n + 1 end end; return n end
+-- 0.1.225〜（t497）：地域の選択はなくした（左の見出しの木で選ぶ）。古い保存の地域は使わない
 app.open_window('book'); frame(); frame()
 for _, tab in ipairs({ 'quest', 'mission' }) do
-    S.book.tab = tab; S.book.filters.area = 'all'; frame()
-    focus.set('book', 'f_area'); frame()
-    press(0x1C); frame()
-    local dd = focus.dropdown('book')
-    check(dd ~= nil, 'area dropdown open on ' .. tab)
-    eq(dd and dd.n, 1 + n_with(tab == 'quest' and cq or cm), 'area choices on ' .. tab)
-    check(dd and dd.n < 1 + #D.categories, 'some regions hidden on ' .. tab)
-    press(0x01); frame()
+    S.book.tab = tab; frame()
+    local has = false
+    for _, it in ipairs(focus.windows.book.list or {}) do if it.id == 'f_area' then has = true end end
+    check(not has, 'no area filter on ' .. tab)
 end
--- 選んでいた地域がこのタブに無ければ「すべて」に戻る
-S.book.tab = 'mission'; S.book.filters.area = 'promathia'; frame()
-eq(S.book.filters.area, 'promathia', 'kept where it has entries')
-S.book.tab = 'quest'; frame()
-eq(S.book.filters.area, 'all', 'reset to all on a tab without entries')
+S.book.tab = 'quest'; S.book.filters.area = 'promathia'; frame()
+S.book.filters.area = 'all'
 
 -- t265：依頼者の場所（用語辞典の依頼者の行・ゲームのゾーン一覧の名前から）
 local function start_loc(qid)

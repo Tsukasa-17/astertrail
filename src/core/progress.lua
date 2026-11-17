@@ -156,7 +156,15 @@ function progress:_migrate_guides(doc)
                 r.steps_draft = keep
                 r.steps = new_rec
                 if D:is_draft_step(r.current_step) then
-                    r.current_step = map_step(q, r, r.current_step)
+                    local was = r.current_step
+                    r.current_step = map_step(q, r, was)
+                    -- 0.1.217〜：まとめた手順（例：BM7-1 の g03 → g02）。まとめる前の手順にいて、それが済んでいなければ、
+                    -- まとめた手順も済みにしない（「探す」だけ済んで「調べる」がまだ、のとき）
+                    local mid = r.current_step
+                    if mid and not was:match('#s%d+$') and not (old_rec[was] and old_rec[was].done == true)
+                        and new_rec[mid] and new_rec[mid].done == true then
+                        new_rec[mid] = nil
+                    end
                 end
                 moved = moved + 1
             end

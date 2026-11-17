@@ -148,7 +148,7 @@ g03 examine - | 入ってすぐ正面の階段の上の???を調べ、武器の�
 g04 trade - | ???にガーンデーヴァかキルキナエをトレードして完了 | -
 
 @ quest.misc.014 https://wiki.ffo.jp/html/30062.html
-Q Kupofried's Hand-to-Hand Moogle Magic | クポフリートの秘術＜格闘＞ | no | T npc.182.Kupofried
+Q Kupofried's H2H Moogle Magic | クポフリートの秘術＜格闘＞ | no | T npc.182.Kupofried
 RW other:エンピリアンWS「ビクトリースマイト」を覚える。以後、ウルスラグナやデゥムズィを装備していなくても撃てる
 LK quest:過去世界クエスト「彼方よりの使者」が発生している
 LK condition:Lv90以上のウルスラグナか、Lv99のデゥムズィを持っている

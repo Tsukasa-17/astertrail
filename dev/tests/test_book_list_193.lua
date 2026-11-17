@@ -70,18 +70,21 @@ do
     eq(table.concat(smod.defaults().book.columns, ','), 'no,name,rewards,state', 'quest/mission columns unchanged')
 end
 
--- 0.1.203：達成済みを非表示は初期オン。前の初期値（オフ）はオンへ。改訂後のオフはそのまま
+-- 0.1.226：「達成済みを非表示」はやめた。達成の初期はオフ。古い非表示の保存は達成の逆へ
 do
-    eq(smod.defaults().eminence.hide_completed, true, 'default hide_completed on')
-    eq(smod.merge({}).eminence.hide_completed, true, 'merge empty is on')
+    eq(smod.defaults().eminence.hide_completed, nil, 'hide_completed dropped from defaults')
+    eq(smod.defaults().eminence.book_show.completed, false, 'default 達成 off')
+    eq(smod.merge({}).eminence.hide_completed, nil, 'merge empty drops hide_completed')
+    eq(smod.merge({}).eminence.book_show.completed, false, 'merge empty: 達成 off')
     local a = smod.merge({ defaults_rev = 4, eminence = { hide_completed = false } })
-    eq(a.eminence.hide_completed, true, 'old default off migrated to on')
+    eq(a.eminence.book_show.completed, false, 'rev4 old default off still treated as hide on → 達成 off')
+    eq(a.eminence.hide_completed, nil, 'hide_completed dropped')
     local b = smod.merge({ defaults_rev = 4, eminence = { hide_completed = true } })
-    eq(b.eminence.hide_completed, true, 'already on kept')
+    eq(b.eminence.book_show.completed, false, 'rev4 hide on → 達成 off')
     local c = smod.merge({ defaults_rev = 5, eminence = { hide_completed = false } })
-    eq(c.eminence.hide_completed, false, 'rev5 off kept as chosen')
+    eq(c.eminence.book_show.completed, true, 'rev5 hide off → 達成 on')
     local d = smod.merge({ defaults_rev = 5, eminence = { hide_completed = true } })
-    eq(d.eminence.hide_completed, true, 'rev5 on kept')
+    eq(d.eminence.book_show.completed, false, 'rev5 hide on → 達成 off')
 end
 
 -- 受けている行の文字は全部青
@@ -325,7 +328,7 @@ do
             if it.id == id then return true end
         end
     end
-    check(has('roe_favs_only') and has('roe_hide_done') and has('roe_col_name'), 'view and column chips together')
+    check(has('roe_favs_only') and has('roe_show_completed') and has('roe_col_name'), 'view and column chips together')
     local same_row = true
     local rows = {}
     for _, it in ipairs((focus.windows.book and focus.windows.book.list) or {}) do

@@ -576,7 +576,7 @@
           "type": "other"
         }
       ],
-      "name_en": "Kupofried's Hand-to-Hand Moogle Magic",
+      "name_en": "Kupofried's H2H Moogle Magic",
       "name_ja_ref": "クポフリートの秘術＜格闘＞",
       "repeatable": "no",
       "rewards": [
@@ -2468,9 +2468,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -491.817,
+          "y": -618.552,
+          "z": 24.988
+        },
         "zone_id": 109,
         "zone_name": "パシュハウ沼"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-491.817 y=-618.552 z=24.988（id 17224378。地図の換算で MAP1 の E-12、マス目 E-12 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/pashhow_marshlands/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Suspicious Hume",
       "same_name": false
@@ -2498,9 +2513,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -64.851,
+          "y": -117.521,
+          "z": 22.834
+        },
         "zone_id": 11,
         "zone_name": "ムバルポロス旧市街"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-64.851 y=-117.521 z=22.834（id 16822508。地図の換算で MAP1 の H-11、マス目 H-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/oldton_movalpolos/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Koblakiq",
       "same_name": false
@@ -2513,9 +2543,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -55.499,
+          "y": 224.154,
+          "z": 3.949
+        },
         "zone_id": 114,
         "zone_name": "東アルテパ砂漠"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-55.499 y=224.154 z=3.949（id 17244656。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/eastern_altepa_desert/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lokpix",
       "same_name": false
@@ -2602,11 +2647,30 @@
       "location": {
         "grid": "J-10",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 214.672,
+          "y": -527.561,
+          "z": -2.013
         },
         "zone_id": 2,
         "zone_name": "ギルド桟橋"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=214.672 y=-527.561 z=-2.013（id 16785772。地図の換算で MAP1 の J-10、マス目 J-10 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/carpenters_landing/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Anguenet",
       "same_name": false
@@ -2617,11 +2681,30 @@
       "location": {
         "grid": "H-6",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 2
+        },
+        "pos": {
+          "x": -17.929,
+          "y": 124.653,
+          "z": -26.057
         },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.929 y=124.653 z=-26.057（id 16883890。地図の換算で MAP2 の H-6、マス目 H-6 と同じ）。MAP2 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Owain",
       "same_name": false
@@ -2664,9 +2747,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -380.171,
+          "y": -180.797,
+          "z": -23.89
+        },
         "zone_id": 5,
         "zone_name": "ウルガラン山脈"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-380.171 y=-180.797 z=-23.890（id 16798126。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/uleguerand_range/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Buffalostalker Dodzbraz",
       "same_name": false
@@ -2679,9 +2777,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -179.693,
+          "y": 254.327,
+          "z": 8.845
+        },
         "zone_id": 102,
         "zone_name": "ラテーヌ高原"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-179.693 y=254.327 z=8.845（id 17195653。地図の換算で MAP1 の G-6。同じ名前 10 件から選んだ：LSB のクエスト・ミッションの台本（Waking the Beast）がこの相手（17195653 qm3）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/la_theine_plateau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -2690,13 +2803,29 @@
       "id": "obj.113.Cermet_Headstone",
       "kind": "obj",
       "location": {
-        "grid": "H-5",
+        "grid": "G-5",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -109.584,
+          "y": 453.989,
+          "z": -8.841
         },
         "zone_id": 113,
         "zone_name": "テリガン岬"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-109.584 y=453.989 z=-8.841（id 17240498。地図の換算で MAP1 の G-5、マス目 H-5 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-5",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/cape_teriggan/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cermet Headstone",
       "same_name": false
@@ -2709,9 +2838,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 232.307,
+          "y": 279.952,
+          "z": -1.098
+        },
         "zone_id": 121,
         "zone_name": "聖地ジ・タ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=232.307 y=279.952 z=-1.098（id 17273390。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/the_sanctuary_of_zitah/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cermet Headstone",
       "same_name": false
@@ -2737,11 +2881,30 @@
       "location": {
         "grid": "C-7",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 2
+        },
+        "pos": {
+          "x": -733.091,
+          "y": -300.686,
+          "z": -45.901
         },
         "zone_id": 30,
         "zone_name": "リヴェーヌ岩塊群サイトA01"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-733.091 y=-300.686 z=-45.901（id 16900375。地図の換算で MAP2 の C-7、マス目 C-7 と同じ）。MAP2 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/riverne_site_a01/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Stone Monument",
       "same_name": false

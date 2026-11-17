@@ -318,7 +318,7 @@ files['quests/windurst.json'] = (Q, T)
 T = []; Q = []
 q = 'mission.sandoria.001'
 fodder = mob(None, 'Orcish Fodder'); T.append(fodder)
-Q.append(quest(q, 'mission', 'sandoria', 'Smash the Orcish Scout', 'オークの斥候を倒せ',
+Q.append(quest(q, 'mission', 'sandoria', 'Smash the Orcish Scouts', 'オークの斥候を倒せ',
     'https://wiki.ffo.jp/html/8244.html', 'unknown', [], [], None, [
     step(q, 1, 'talk', 'サンドリアのガードでミッションを受ける', 'ガードの名前・座標は不明。', None, None,
          location_note='サンドリアのガード（場所の詳細は不明）'),

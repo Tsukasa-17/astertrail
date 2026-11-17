@@ -150,7 +150,7 @@ do
     local a = settings.merge({ defaults_rev = 2, book = { columns = { 'state', 'repeat', 'no', 'name', 'rewards' } } })
     eq(table.concat(a.book.columns, ','), 'no,name,rewards,state', 'old default order -> new default')
     eq(a.defaults_rev, 8, 'defaults_rev 8')
-    -- 自分で並べた保存（実機の保存と同じ）：リピートだけ外し、並びはそのまま
+    -- 自分で並べた保存（GAME-PC の Tsuyumi と同じ）：リピートだけ外し、並びはそのまま
     local b = settings.merge({ defaults_rev = 2, book = { columns = { 'no', 'name', 'rewards', 'state', 'repeat' }, hidden = { ['repeat'] = true } } })
     eq(table.concat(b.book.columns, ','), 'no,name,rewards,state', 'own order kept, repeat dropped')
     check(next(b.book.hidden) == nil, 'hidden repeat dropped')
@@ -200,7 +200,7 @@ for _, x in ipairs(FAKE.texts) do
     if x == '｜' then sep = true end
 end
 check(saw, 'columns label shown')
-check(not sep, 'no view/column separator on mission or quest')
+check(sep, 'view/column separator on mission and quest too (0.1.225: 表示 checks)')
 focus.set('book', 'col_rewards'); frame()
 press(0x1C); frame(); frame()
 eq(S.book.hidden.rewards, true, 'enter hides rewards')

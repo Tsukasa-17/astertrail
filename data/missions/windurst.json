@@ -667,9 +667,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -111.145,
+          "y": 102.058,
+          "z": -4.249
+        },
         "zone_id": 240,
         "zone_name": "ウィンダス港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-111.145 y=102.058 z=-4.249（id 17760273。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_windurst/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hakkuru-Rinkuru",
       "same_name": false
@@ -683,9 +698,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 420.0,
+          "y": -30.375,
+          "z": -1.66
+        },
         "zone_id": 192,
         "zone_name": "内ホルトト遺跡"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=420.000 y=-30.375 z=-1.660（id 17563876。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/inner_horutoto_ruins/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gate: Magical Gizmo",
       "same_name": false
@@ -714,9 +744,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 262.275,
+          "y": -459.613,
+          "z": -17.249
+        },
         "zone_id": 116,
         "zone_name": "東サルタバルタ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=262.275 y=-459.613 z=-17.249（id 17253039。地図の換算で MAP1 の J-11、マス目 J-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/east_sarutabaruta/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pore-Ohre",
       "same_name": false
@@ -760,9 +805,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 11.432,
+          "y": -197.475,
+          "z": -9.749
+        },
         "zone_id": 238,
         "zone_name": "ウィンダス水の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=11.432 y=-197.475 z=-9.749（id 17752112。地図の換算で MAP2 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Leepe-Hoppe",
       "same_name": false
@@ -906,9 +966,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 36.51,
+          "y": -36.781,
+          "z": 8.999
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=36.510 y=-36.781 z=8.999（id 17772549。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pakh Jatalfih",
       "same_name": false
@@ -919,11 +994,30 @@
       "location": {
         "grid": "M-7",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 640.484,
+          "y": 59.961,
+          "z": 13.333
         },
         "zone_id": 184,
         "zone_name": "デルクフの塔下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=640.484 y=59.961 z=13.333（id 17531165。地図の換算で MAP1 の M-7、マス目 M-7 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_delkfutts_tower/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cermet Door",
       "same_name": false
@@ -936,9 +1030,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 32.11,
+          "y": -20.944,
+          "z": 7.502
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=32.110 y=-20.944 z=7.502（id 17772689。地図の換算で MAP1 の I-9。同じ名前 3 件から選んだ：LSB のクエスト・ミッションの台本（A New Journey, Magicite）がこの相手（17772689 _6r8）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Windurstian Emb.",
       "same_name": false
@@ -988,11 +1097,30 @@
       "location": {
         "grid": "H-5",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 5
+        },
+        "pos": {
+          "x": -100.003,
+          "y": 85.805,
+          "z": -61.789
         },
         "zone_id": 151,
         "zone_name": "オズトロヤ城"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-100.003 y=85.805 z=-61.789（id 17396194。地図の換算で MAP5 の H-5、マス目 H-5 と同じ）。MAP5 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/castle_oztroja/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Brass Door",
       "same_name": false
@@ -1085,9 +1213,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 0.248,
+          "y": 67.751,
+          "z": -27.402
+        },
         "zone_id": 122,
         "zone_name": "ロ・メーヴ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.248 y=67.751 z=-27.402（id 17277204。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/romaeve/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Qu'Hau Spring",
       "same_name": false
@@ -1100,9 +1243,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 187.438,
+          "y": -117.257,
+          "z": -3.445
+        },
         "zone_id": 149,
         "zone_name": "ダボイ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=187.438 y=-117.257 z=-3.445（id 17387988。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/davoi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Sedal-Godjal",
       "same_name": false
@@ -1199,9 +1357,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 81.981,
+          "y": 139.556,
+          "z": 8.593
+        },
         "zone_id": 153,
         "zone_name": "ボヤーダ樹"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=81.981 y=139.556 z=8.593（id 17404384。地図の換算で MAP1 の F-4。同じ名前 3 件から選んだ：文に「F-4に2か所いるうち、1匹だけでいる方」とある。LSB では Mandragora_Warden_Left/Right の2匹が並び、Mandragora_Warden は1匹だけ離れている）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/the_boyahda_tree/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mandragora Warden",
       "same_name": false

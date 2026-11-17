@@ -3423,9 +3423,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -433.253,
+          "y": 342.29,
+          "z": -45.942
+        },
         "zone_id": 100,
         "zone_name": "西ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-433.253 y=342.290 z=-45.942（id 17187490。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/west_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Aaveleon",
       "same_name": false
@@ -3438,9 +3453,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -624.231,
+          "y": 278.369,
+          "z": -51.499
+        },
         "zone_id": 100,
         "zone_name": "西ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-624.231 y=278.369 z=-51.499（id 17187493。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/west_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Esca",
       "same_name": false
@@ -3453,9 +3483,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -58.451,
+          "y": -503.016,
+          "z": -1.988
+        },
         "zone_id": 100,
         "zone_name": "西ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-58.451 y=-503.016 z=-1.988（id 17187504。地図の換算で MAP1 の I-11、マス目 I-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/west_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Phairet",
       "same_name": false
@@ -3468,6 +3513,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -260.361,
+          "y": 423.42,
+          "z": -70.999
+        },
         "zone_id": 100,
         "zone_name": "西ロンフォール"
       },
@@ -3479,6 +3529,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Advanced_Teamwork",
             "https://ffxiclopedia.fandom.com/wiki/Advanced_Teamwork"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-260.361 y=423.420 z=-70.999（id 17187503。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/west_ronfaure/npcs.yaml"
           ]
         }
       ],
@@ -3494,9 +3552,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 664.231,
+          "y": -539.413,
+          "z": -11.849
+        },
         "zone_id": 101,
         "zone_name": "東ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=664.231 y=-539.413 z=-11.849（id 17191505。地図の換算で MAP1 の J-11、マス目 J-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/east_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Andelain",
       "same_name": false
@@ -3509,9 +3582,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 220.792,
+          "y": 427.406,
+          "z": -58.163
+        },
         "zone_id": 101,
         "zone_name": "東ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=220.792 y=427.406 z=-58.163（id 17191508。地図の換算で MAP1 の H-5、マス目 H-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/east_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cheval River",
       "same_name": false
@@ -3524,9 +3612,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 481.31,
+          "y": -89.908,
+          "z": 23.999
+        },
         "zone_id": 102,
         "zone_name": "ラテーヌ高原"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=481.310 y=-89.908 z=23.999（id 17195617。地図の換算で MAP1 の K-8、マス目 K-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/la_theine_plateau/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Faurbellant",
       "same_name": false
@@ -3569,6 +3672,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 99.912,
+          "y": 385.975,
+          "z": 5.396
+        },
         "zone_id": 104,
         "zone_name": "ジャグナー森林"
       },
@@ -3580,6 +3688,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/A_Purchase_of_Arms",
             "https://ffxiclopedia.fandom.com/wiki/A_Purchase_of_Arms"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=99.912 y=385.975 z=5.396（id 17203813。地図の換算で MAP1 の I-6、マス目 I-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/jugner_forest/npcs.yaml"
           ]
         }
       ],
@@ -3636,14 +3752,30 @@
       "id": "npc.167.Novalmauge",
       "kind": "npc",
       "location": {
-        "grid": "G-8",
+        "grid": "F-8",
         "map": {
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 30.431,
+          "y": 19.843,
+          "z": -24.019
+        },
         "zone_id": 167,
         "zone_name": "ボストーニュ監獄"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=30.431 y=19.843 z=-24.019（id 17461511。地図の換算で MAP1 の F-8、マス目 G-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bostaunieux_oubliette/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Novalmauge",
       "same_name": false
@@ -3683,13 +3815,33 @@
       "id": "npc.195.Survival_Guide",
       "kind": "npc",
       "location": {
-        "grid": "I-10",
+        "grid": "J-9",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 2
+        },
+        "pos": {
+          "x": 418.0,
+          "y": -99.5,
+          "z": -52.5
         },
         "zone_id": 195,
         "zone_name": "エルディーム古墳"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=418.000 y=-99.500 z=-52.500（id 17576449。地図の換算で MAP2 の J-9、マス目 I-10 のとなり。3×3 に同名はこれだけ）。MAP2 はゾーンの当たり判定の階から",
+          "grid_from": "I-10",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/the_eldieme_necropolis/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Survival Guide",
       "same_name": false
@@ -3747,9 +3899,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -84.367,
+          "y": 91.148,
+          "z": -6.949
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-84.367 y=91.148 z=-6.949（id 17719327。地図の換算で MAP1 の G-6、マス目 G-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Amaura",
       "same_name": false
@@ -3762,9 +3929,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 116.512,
+          "y": 84.679,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=116.512 y=84.679 z=0.000（id 17719569。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Amutiyaal",
       "same_name": false
@@ -3777,9 +3959,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 169.621,
+          "y": 44.974,
+          "z": -0.949
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=169.621 y=44.974 z=-0.949（id 17719308。地図の換算で MAP1 の M-7、マス目 M-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Andecia",
       "same_name": false
@@ -3792,9 +3989,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -138.332,
+          "y": 65.76,
+          "z": -10.8
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-138.332 y=65.760 z=-10.800（id 17719359。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Balasiel",
       "same_name": false
@@ -3837,9 +4049,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -98.698,
+          "y": 32.056,
+          "z": -2.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-98.698 y=32.056 z=-2.000（id 17719330。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Deraquien",
       "same_name": false
@@ -3852,6 +4079,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 70.594,
+          "y": 59.264,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
@@ -3863,6 +4095,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Father_and_Son",
             "https://ffxiclopedia.fandom.com/wiki/Exoroche"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=70.594 y=59.264 z=0.000（id 17719356。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -3878,9 +4118,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -17.154,
+          "y": 12.203,
+          "z": 2.101
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.154 y=12.203 z=2.101（id 17719491。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Femitte",
       "same_name": false
@@ -3893,9 +4148,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -124.945,
+          "y": 14.731,
+          "z": -2.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-124.945 y=14.731 z=-2.000（id 17719328。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Glenne",
       "same_name": false
@@ -3908,9 +4178,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 123.754,
+          "y": 92.125,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=123.754 y=92.125 z=0.000（id 17719985。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gondebaud",
       "same_name": false
@@ -3919,13 +4204,29 @@
       "id": "npc.230.Hanaa_Punaa",
       "kind": "npc",
       "location": {
-        "grid": "D-8",
+        "grid": "E-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -179.726,
+          "y": 27.574,
+          "z": -8.8
         },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-179.726 y=27.574 z=-8.800（id 17719385。地図の換算で MAP1 の E-8、マス目 D-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "D-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hanaa Punaa",
       "same_name": false
@@ -3938,9 +4239,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 66.984,
+          "y": 65.579,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=66.984 y=65.579 z=0.000（id 17719353。地図の換算で MAP1 の K-7、マス目 K-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Helbort",
       "same_name": false
@@ -3953,9 +4269,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": 81.603,
+          "y": 114.914,
+          "z": 1.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=81.603 y=114.914 z=1.000（id 17719496。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Legata",
       "same_name": false
@@ -3968,9 +4299,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 105.147,
+          "y": -16.735,
+          "z": 1.999
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=105.147 y=-16.735 z=1.999（id 17719489。地図の換算で MAP1 の L-9、マス目 L-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Maugie",
       "same_name": false
@@ -3983,9 +4329,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -114.575,
+          "y": 105.181,
+          "z": -6.949
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-114.575 y=105.181 z=-6.949（id 17719324。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nenne",
       "same_name": false
@@ -3998,9 +4359,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 83.924,
+          "y": 110.54,
+          "z": 1.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=83.924 y=110.540 z=1.000（id 17719532。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Norejaie",
       "same_name": false
@@ -4013,9 +4389,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 157.125,
+          "y": 18.888,
+          "z": -6.75
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=157.125 y=18.888 z=-6.750（id 17719497。地図の換算で MAP1 の M-8、マス目 M-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Paouala",
       "same_name": false
@@ -4028,9 +4419,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -171.61,
+          "y": 12.187,
+          "z": -1.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-171.610 y=12.187 z=-1.000（id 17719495。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Parvipon",
       "same_name": false
@@ -4039,9 +4445,14 @@
       "id": "npc.230.Raimbroy",
       "kind": "npc",
       "location": {
-        "grid": "F-8",
+        "grid": "E-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -140.928,
+          "y": 34.684,
+          "z": -2.999
         },
         "zone_id": 230,
         "zone_name": "南サンドリア"
@@ -4055,6 +4466,15 @@
             "https://www.bg-wiki.com/ffxi/The_Sweetest_Things",
             "https://ffxiclopedia.fandom.com/wiki/The_Sweetest_Things"
           ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-140.928 y=34.684 z=-2.999（id 17719314。地図の換算で MAP1 の E-8、マス目 F-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -4065,13 +4485,29 @@
       "id": "npc.230.Rosel",
       "kind": "npc",
       "location": {
-        "grid": "K-8",
+        "grid": "K-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 69.895,
+          "y": 41.073,
+          "z": 0.0
         },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=69.895 y=41.073 z=0.000（id 17719386。地図の換算で MAP1 の K-7、マス目 K-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "K-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rosel",
       "same_name": false
@@ -4084,9 +4520,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -16.194,
+          "y": 11.805,
+          "z": 2.101
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-16.194 y=11.805 z=2.101（id 17719492。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rouva",
       "same_name": false
@@ -4099,9 +4550,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 95.381,
+          "y": 113.601,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=95.381 y=113.601 z=0.000（id 17719500。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Sharzalion",
       "same_name": false
@@ -4110,9 +4576,14 @@
       "id": "npc.230.Taumila",
       "kind": "npc",
       "location": {
-        "grid": "E-9",
+        "grid": "F-9",
         "map": {
           "kind": "unknown"
+        },
+        "pos": {
+          "x": -139.807,
+          "y": -9.668,
+          "z": -6.0
         },
         "zone_id": 230,
         "zone_name": "南サンドリア"
@@ -4125,6 +4596,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Tiger's_Teeth",
             "https://ffxiclopedia.fandom.com/wiki/Tiger's_Teeth"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-139.807 y=-9.668 z=-6.000（id 17719349。地図の換算で MAP1 の F-9、マス目 E-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "E-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4140,9 +4620,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 116.484,
+          "y": 91.554,
+          "z": 0.0
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=116.484 y=91.554 z=0.000（id 17719392。地図の換算で MAP1 の L-6、マス目 L-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Varchet",
       "same_name": false
@@ -4170,9 +4665,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -138.42,
+          "y": 55.188,
+          "z": -2.198
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-138.420 y=55.188 z=-2.198（id 17723464。地図の換算で MAP1 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Abeaule",
       "same_name": false
@@ -4185,9 +4695,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 128.771,
+          "y": 118.538,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=128.771 y=118.538 z=0.000（id 17723409。地図の換算で MAP1 の M-7、マス目 M-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Abioleget",
       "same_name": false
@@ -4200,9 +4725,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 5.346,
+          "y": 26.899,
+          "z": 0.499
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=5.346 y=26.899 z=0.499（id 17723401。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ailbeche",
       "same_name": false
@@ -4230,9 +4770,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -156.253,
+          "y": 253.691,
+          "z": 11.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-156.253 y=253.691 z=11.999（id 17723433。地図の換算で MAP1 の F-3、マス目 F-3 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Aurege",
       "same_name": false
@@ -4245,9 +4800,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -98.226,
+          "y": 69.301,
+          "z": -0.199
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-98.226 y=69.301 z=-0.199（id 17723496。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Belgidiveau",
       "same_name": false
@@ -4260,9 +4830,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 131.915,
+          "y": 129.446,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=131.915 y=129.446 z=0.000（id 17723524。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Calovour",
       "same_name": false
@@ -4275,9 +4860,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -188.658,
+          "y": 109.275,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-188.658 y=109.275 z=0.000（id 17723593。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Castilchat",
       "same_name": false
@@ -4305,9 +4905,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -19.95,
+          "y": -26.68,
+          "z": -0.199
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-19.950 y=-26.680 z=-0.199（id 17723525。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dauperiat",
       "same_name": false
@@ -4320,9 +4935,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -229.344,
+          "y": 22.976,
+          "z": 7.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-229.344 y=22.976 z=7.999（id 17723601。地図の換算で MAP1 の D-9、マス目 D-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Excenmille",
       "same_name": false
@@ -4335,9 +4965,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -187.533,
+          "y": 110.105,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-187.533 y=110.105 z=0.000（id 17723592。地図の換算で MAP1 の E-7、マス目 E-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gulmama",
       "same_name": false
@@ -4346,13 +4991,29 @@
       "id": "npc.231.Kuu_Mohzolhi",
       "kind": "npc",
       "location": {
-        "grid": "F-8",
+        "grid": "F-7",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -123.137,
+          "y": 80.462,
+          "z": -0.199
         },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-123.137 y=80.462 z=-0.199（id 17723503。地図の換算で MAP1 の F-7、マス目 F-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Kuu Mohzolhi",
       "same_name": false
@@ -4365,9 +5026,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 35.118,
+          "y": 60.354,
+          "z": -0.199
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=35.118 y=60.354 z=-0.199（id 17723551。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Maloquedil",
       "same_name": false
@@ -4380,9 +5056,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 114.07,
+          "y": 109.215,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=114.070 y=109.215 z=0.000（id 17723404。地図の換算で MAP1 の L-7、マス目 L-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Miageau",
       "same_name": false
@@ -4395,9 +5086,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 98.609,
+          "y": 114.141,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=98.609 y=114.141 z=0.000（id 17723419。地図の換算で MAP1 の L-7、マス目 L-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Morjean",
       "same_name": false
@@ -4410,9 +5116,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -102.505,
+          "y": 41.439,
+          "z": -2.261
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-102.505 y=41.439 z=-2.261（id 17723523。地図の換算で MAP1 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Morunaude",
       "same_name": false
@@ -4440,9 +5161,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 128.838,
+          "y": 128.338,
+          "z": -10.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=128.838 y=128.338 z=-10.999（id 17723585。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Narcheral",
       "same_name": false
@@ -4455,9 +5191,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 93.031,
+          "y": 118.495,
+          "z": 0.0
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=93.031 y=118.495 z=0.000（id 17723418。地図の換算で MAP1 の L-7、マス目 L-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Olbergieut",
       "same_name": false
@@ -4470,9 +5221,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 138.641,
+          "y": 131.738,
+          "z": 6.499
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=138.641 y=131.738 z=6.499（id 17723424。地図の換算で MAP1 の M-6、マス目 M-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Pagisalis",
       "same_name": false
@@ -4485,6 +5251,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -183.75,
+          "y": 255.77,
+          "z": 11.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
@@ -4496,6 +5267,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Forest_for_the_Trees",
             "https://ffxiclopedia.fandom.com/wiki/Forest_for_the_Trees"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-183.750 y=255.770 z=11.999（id 17723430。地図の換算で MAP1 の E-3。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4511,6 +5290,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -154.415,
+          "y": 153.744,
+          "z": 11.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
@@ -4523,6 +5307,14 @@
             "https://www.bg-wiki.com/ffxi/Escort_for_Hire_(San_d'Oria)",
             "https://ffxiclopedia.fandom.com/wiki/Escort_for_Hire_(San_d'Oria)"
           ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-154.415 y=153.744 z=11.999（id 17723626。地図の換算で MAP1 の F-6、マス目 F-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -4533,13 +5325,29 @@
       "id": "npc.231.Secodiand",
       "kind": "npc",
       "location": {
-        "grid": "F-6",
+        "grid": "E-6",
         "map": {
           "kind": "unknown"
+        },
+        "pos": {
+          "x": -161.097,
+          "y": 137.14,
+          "z": 0.0
         },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-161.097 y=137.140 z=0.000（id 17723552。地図の換算で MAP1 の E-6、マス目 F-6 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "F-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Secodiand",
       "same_name": false
@@ -4552,9 +5360,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -137.07,
+          "y": 161.855,
+          "z": 11.999
+        },
         "zone_id": 231,
         "zone_name": "北サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-137.070 y=161.855 z=11.999（id 17723526。地図の換算で MAP1 の F-5、マス目 F-5 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/northern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Vamorcote",
       "same_name": false
@@ -4582,9 +5405,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 21.263,
+          "y": -65.776,
+          "z": -3.999
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=21.263 y=-65.776 z=-3.999（id 17727496。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Altiret",
       "same_name": false
@@ -4608,13 +5446,29 @@
       "id": "npc.232.Antreneau",
       "kind": "npc",
       "location": {
-        "grid": "G-7",
+        "grid": "G-8",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -71.465,
+          "y": -41.081,
+          "z": -5.497
         },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-71.465 y=-41.081 z=-5.497（id 17727501。地図の換算で MAP1 の G-8、マス目 G-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Antreneau",
       "same_name": false
@@ -4642,6 +5496,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -5.209,
+          "y": 39.833,
+          "z": -7.999
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
@@ -4654,6 +5513,14 @@
             "https://www.bg-wiki.com/ffxi/A_Discerning_Eye_(San_d'Oria)",
             "https://ffxiclopedia.fandom.com/wiki/A_Discerning_Eye"
           ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-5.209 y=39.833 z=-7.999（id 17727617。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -4664,9 +5531,14 @@
       "id": "npc.232.Fontoumant",
       "kind": "npc",
       "location": {
-        "grid": "H-9",
+        "grid": "H-10",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -10.633,
+          "y": -122.199,
+          "z": -8.0
         },
         "zone_id": 232,
         "zone_name": "サンドリア港"
@@ -4679,6 +5551,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/The_Brugaire_Consortium",
             "https://ffxiclopedia.fandom.com/wiki/The_Brugaire_Consortium"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-10.633 y=-122.199 z=-8.000（id 17727504。地図の換算で MAP1 の H-10、マス目 H-9 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-9",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4694,9 +5575,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -14.7,
+          "y": -43.755,
+          "z": -2.0
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-14.700 y=-43.755 z=-2.000（id 17727611。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gallijaux",
       "same_name": false
@@ -4709,9 +5605,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -67.851,
+          "y": -39.084,
+          "z": -5.496
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-67.851 y=-39.084 z=-5.496（id 17727499。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gulemont",
       "same_name": false
@@ -4724,9 +5635,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -17.217,
+          "y": -43.797,
+          "z": -2.0
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.217 y=-43.797 z=-2.000（id 17727612。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Joulet",
       "same_name": false
@@ -4735,9 +5661,14 @@
       "id": "npc.232.Miene",
       "kind": "npc",
       "location": {
-        "grid": "I-8",
+        "grid": "I-9",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 0.75,
+          "y": -81.438,
+          "z": -4.0
         },
         "zone_id": 232,
         "zone_name": "サンドリア港"
@@ -4750,6 +5681,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/The_Pickpocket",
             "https://ffxiclopedia.fandom.com/wiki/The_Pickpocket"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=0.750 y=-81.438 z=-4.000（id 17727495。地図の換算で MAP1 の I-9、マス目 I-8 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "I-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4765,9 +5705,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -70.517,
+          "y": -32.821,
+          "z": -5.497
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-70.517 y=-32.821 z=-5.497（id 17727502。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nogelle",
       "same_name": false
@@ -4795,6 +5750,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -21.999,
+          "y": -106.877,
+          "z": -4.0
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
@@ -4806,6 +5766,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/A_Job_for_the_Consortium",
             "https://ffxiclopedia.fandom.com/wiki/A_Job_for_the_Consortium"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-21.999 y=-106.877 z=-4.000（id 17727505。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4821,9 +5789,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -67.449,
+          "y": -28.792,
+          "z": -5.496
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-67.449 y=-28.792 z=-5.496（id 17727498。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Thierride",
       "same_name": false
@@ -4832,9 +5815,14 @@
       "id": "npc.232.Vounebariont",
       "kind": "npc",
       "location": {
-        "grid": "I-10",
+        "grid": "H-10",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -1.606,
+          "y": -148.93,
+          "z": -13.0
         },
         "zone_id": 232,
         "zone_name": "サンドリア港"
@@ -4847,6 +5835,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Thick_Shells",
             "https://ffxiclopedia.fandom.com/wiki/Thick_Shells"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-1.606 y=-148.930 z=-13.000（id 17727552。地図の換算で MAP1 の H-10、マス目 I-10 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "I-10",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -4862,9 +5859,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -105.998,
+          "y": 72.233,
+          "z": 0.398
+        },
         "zone_id": 233,
         "zone_name": "ドラギーユ城"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-105.998 y=72.233 z=0.398（id 17731598。地図の換算で MAP1 の F-7、マス目 F-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/chateau_doraguille/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Chalvatot",
       "same_name": false
@@ -4877,9 +5889,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 29.151,
+          "y": -0.908,
+          "z": 0.0
+        },
         "zone_id": 233,
         "zone_name": "ドラギーユ城"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=29.151 y=-0.908 z=0.000（id 17731596。地図の換算で MAP1 の I-9。同じ名前 2 件から選んだ：LSB の台本（Peace for the Spirit, The General's Secret, Enveloped in Darkness, Lure of the Wildcat（San d'Oria）, Old Wounds）が使う 2 件のうち、ふだん居るのは 17731596 だけ（ほかはイベントの時だけ））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/chateau_doraguille/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Curilla",
       "same_name": false
@@ -4907,9 +5934,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 2.42,
+          "y": 1.966,
+          "z": 0.0
+        },
         "zone_id": 233,
         "zone_name": "ドラギーユ城"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=2.420 y=1.966 z=0.000（id 17731591。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/chateau_doraguille/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Halver",
       "same_name": false
@@ -4952,9 +5994,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 35.263,
+          "y": -46.082,
+          "z": 4.118
+        },
         "zone_id": 245,
         "zone_name": "ジュノ下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=35.263 y=-46.082 z=4.118（id 17780748。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yin Pocanakhu",
       "same_name": false
@@ -5045,6 +6102,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 68.301,
+          "y": -73.724,
+          "z": -8.102
+        },
         "zone_id": 232,
         "zone_name": "サンドリア港"
       },
@@ -5055,6 +6117,14 @@
           "name": "用語辞典",
           "urls": [
             "https://wiki.ffo.jp/html/3300.html"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=68.301 y=-73.724 z=-8.102（id 17727507。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/port_san_doria/npcs.yaml"
           ]
         }
       ],
@@ -5104,9 +6174,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 257.64,
+          "y": 213.706,
+          "z": -45.518
+        },
         "zone_id": 101,
         "zone_name": "東ロンフォール"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=257.640 y=213.706 z=-45.518（id 17191510。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/east_ronfaure/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Signpost",
       "same_name": false
@@ -5149,9 +6234,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -115.83,
+          "y": -184.289,
+          "z": -0.427
+        },
         "zone_id": 149,
         "zone_name": "ダボイ"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-115.830 y=-184.289 z=-0.427（id 17388012。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/davoi/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5162,11 +6262,30 @@
       "location": {
         "grid": "I-10",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 1.0,
+          "y": -103.608,
+          "z": -1.419
         },
         "zone_id": 190,
         "zone_name": "龍王ランペールの墓"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=1.000 y=-103.608 z=-1.419（id 17555989。地図の換算で MAP1 の I-10、マス目 I-10 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/king_ranperres_tomb/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tombstone",
       "same_name": false
@@ -5180,9 +6299,24 @@
           "kind": "number",
           "n": 5
         },
+        "pos": {
+          "x": -167.857,
+          "y": 312.76,
+          "z": 0.955
+        },
         "zone_id": 196,
         "zone_name": "グスゲン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-167.857 y=312.760 z=0.955（id 17580405。地図の換算で MAP5 の G-8、マス目 G-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/gusgen_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5196,9 +6330,24 @@
           "kind": "number",
           "n": 3
         },
+        "pos": {
+          "x": 58.865,
+          "y": 67.044,
+          "z": 0.383
+        },
         "zone_id": 197,
         "zone_name": "クロウラーの巣"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=58.865 y=67.044 z=0.383（id 17584465。地図の換算で MAP3 の I-10、マス目 I-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/crawlers_nest/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "???",
       "same_name": false
@@ -5224,11 +6373,30 @@
       "location": {
         "grid": "H-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": -17.453,
+          "y": 66.987,
+          "z": -16.525
         },
         "zone_id": 204,
         "zone_name": "フェ・イン"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-17.453 y=66.987 z=-16.525（id 17613244。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/feiyin/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dry Fountain",
       "same_name": false
@@ -5256,9 +6424,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -73.342,
+          "y": 65.732,
+          "z": -12.8
+        },
         "zone_id": 230,
         "zone_name": "南サンドリア"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-73.342 y=65.732 z=-12.800（id 17719430。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Diary",
       "same_name": false
@@ -5271,9 +6454,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -37.997,
+          "y": 28.544,
+          "z": -4.949
+        },
         "zone_id": 233,
         "zone_name": "ドラギーユ城"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-37.997 y=28.544 z=-4.949（id 17731625。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/chateau_doraguille/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Prince Regent's Rm",
       "same_name": false

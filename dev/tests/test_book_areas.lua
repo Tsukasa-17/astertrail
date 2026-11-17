@@ -26,35 +26,39 @@ local avail0 = imgui.GetContentRegionAvail
 imgui.GetContentRegionAvail = function () return 2000, 600 end
 app.open_window('book'); frame(); frame()
 eq(item('tab_mission').row, 'tabs', 'tabs row')
-eq(item('f_area').row, 'tabs', 'area on the tab row')
-eq(item('f_state').row, 'tabs', 'state on the tab row')
+eq(item('f_area'), nil, 'no area filter (0.1.225)')
+eq(item('f_state'), nil, 'no state filter (0.1.225)')
 eq(item('search').row, 'tabs', 'search on the tab row')
 eq(item('open_settings').row, 'tabs', 'icons on the tab row')
 eq(item('col_name').row, 'cols', 'column chips on the next row')
+eq(item('show_accepted').row, 'cols', 'show checks on the same row as the columns (0.1.225)')
 eq(book_ui.area_of(item('tab_mission').section), 'top', 'tabs are in the top area')
-eq(book_ui.area_of(item('f_area').section), 'top', 'filters stay in the top area')
--- 左右：タブ → … → 地域 → 状態 → 検索 → 右端のボタン（並びは描いた順）
+eq(book_ui.area_of(item('search').section), 'top', 'search stays in the top area')
+-- 左右：タブ → … → 検索 → 右端のボタン（並びは描いた順）
 focus.set('book', 'tab_eminence'); key('right')
-eq(focus.current('book'), 'f_area', 'right from the last tab goes to the area')
-key('right'); key('right')
-eq(focus.current('book'), 'search', 'then state, then search')
+eq(focus.current('book'), 'search', 'right from the last tab goes to the search')
 key('right')
 eq(focus.current('book'), 'compass_toggle', 'then the icons on the right')
 -- 下で列の行
-focus.set('book', 'f_area'); key('down')
-check(tostring(focus.current('book')):find('^col_') ~= nil, 'down from the tab row goes to the column chips')
--- エミネンス：分類（あれば）・状態・検索もタブの行、達成を隠す・窓は次の行
+focus.set('book', 'search'); key('down')
+local dn = tostring(focus.current('book'))
+check(dn:find('^col_') ~= nil or dn:find('^show_') ~= nil, 'down from the tab row goes to the show/column chips: ' .. dn)
+-- エミネンス：検索はタブの行、表示のチェック・達成を隠す・列は次の行（0.1.226〜：分類・状態の選択はなし）
 S.book.tab = 'eminence'; frame(); frame()
-eq(item('roe_state').row, 'tabs', 'eminence state on the tab row')
+eq(item('roe_root'), nil, 'no eminence category filter')
+eq(item('roe_state'), nil, 'no eminence state filter')
 eq(item('roe_search').row, 'tabs', 'eminence search on the tab row')
-eq(item('roe_hide_done').row, 'f2', 'hide-completed on the next row')
-eq(book_ui.area_of(item('roe_hide_done').section), 'top', 'and still in the top area')
+eq(item('roe_show_accepted').row, 'f2', 'eminence show checks on the next row')
+eq(item('roe_show_completed').row, 'f2', '達成 on the next row')
+eq(item('roe_hide_done'), nil, 'no 達成済みを非表示 checkbox')
+eq(book_ui.area_of(item('roe_show_completed').section), 'top', 'and still in the top area')
 S.book.tab = 'mission'; frame(); frame()
 -- 狭い窓：地域・状態・検索は次の行
 imgui.GetContentRegionAvail = avail0
 frame(); frame()
 eq(item('tab_mission').row, 'tabs', 'narrow: tabs row')
-eq(item('f_area').row, 'f', 'narrow: filters on their own row')
+-- 0.1.225〜：地域・状態が無くなったので、ふつうの幅なら検索もタブの行に入る
+check(item('search').row == 'f' or item('search').row == 'tabs', 'narrow: search on the tab row or its own row')
 eq(item('close').row, 'tabs', 'narrow: close stays on the tab row')
 app.close_window('book'); frame()
 

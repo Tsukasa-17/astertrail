@@ -728,9 +728,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 82.63,
+          "y": -3.298,
+          "z": -24.999
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=82.630 y=-3.298 z=-24.999（id 16883777。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Anteurephiaux",
       "same_name": false
@@ -744,9 +759,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 111.209,
+          "y": -85.481,
+          "z": -40.015
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=111.209 y=-85.481 z=-40.015（id 16883721。地図の換算で MAP1 の K-10、マス目 K-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Despachiaire",
       "same_name": false
@@ -760,9 +790,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -50.482,
+          "y": -41.695,
+          "z": -22.199
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-50.482 y=-41.695 z=-22.199（id 16883780。地図の換算で MAP2 の G-10、マス目 G-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Elysia",
       "same_name": false
@@ -776,9 +821,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 95.962,
+          "y": 51.613,
+          "z": -41.003
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=95.962 y=51.613 z=-41.003（id 16883839。地図の換算で MAP1 の J-7。同じ名前 2 件から選んだ：LSB の台本（Knocking on Forbidden Doors, Behind the Smile）が使う 2 件のうち、ふだん居るのは 16883839 だけ（ほかはイベントの時だけ））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Enaremand",
       "same_name": false
@@ -792,9 +852,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -102.219,
+          "y": 58.77,
+          "z": -27.25
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-102.219 y=58.770 z=-27.250（id 16883782。地図の換算で MAP2 の F-8、マス目 F-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Epinolle",
       "same_name": false
@@ -808,9 +883,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -69.113,
+          "y": -5.701,
+          "z": -11.281
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-69.113 y=-5.701 z=-11.281（id 16883784。地図の換算で MAP2 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ferchinne",
       "same_name": false
@@ -824,9 +914,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 17.953,
+          "y": 11.792,
+          "z": -36.0
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=17.953 y=11.792 z=-36.000（id 16883771。地図の換算で MAP1 の H-8。同じ名前 2 件から選んだ：候補 2 件がすべて 1.8 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Frescheque",
       "same_name": false
@@ -840,9 +945,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -69.956,
+          "y": 9.193,
+          "z": -11.252
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-69.956 y=9.193 z=-11.252（id 16883827。地図の換算で MAP2 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jonette",
       "same_name": false
@@ -856,9 +976,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 78.676,
+          "y": 70.51,
+          "z": -34.0
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=78.676 y=70.510 z=-34.000（id 16883722。地図の換算で MAP1 の J-6、マス目 J-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Justinius",
       "same_name": false
@@ -872,9 +1007,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 15.89,
+          "y": 13.322,
+          "z": -21.999
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=15.890 y=13.322 z=-21.999（id 16883781。地図の換算で MAP2 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Nivorajean",
       "same_name": false
@@ -888,9 +1038,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": 6.775,
+          "y": 65.399,
+          "z": -24.955
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=6.775 y=65.399 z=-24.955（id 16883727。地図の換算で MAP2 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ondieulix",
       "same_name": false
@@ -904,9 +1069,24 @@
           "kind": "number",
           "n": 2
         },
+        "pos": {
+          "x": -89.068,
+          "y": -0.03,
+          "z": -13.367
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-89.068 y=-0.030 z=-13.367（id 16883770。地図の換算で MAP2 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Travonce",
       "same_name": false
@@ -920,9 +1100,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 83.697,
+          "y": 3.25,
+          "z": -25.0
+        },
         "zone_id": 26,
         "zone_name": "タブナジア地下壕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=83.697 y=3.250 z=-25.000（id 16883836。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/tavnazian_safehold/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Yurim",
       "same_name": false

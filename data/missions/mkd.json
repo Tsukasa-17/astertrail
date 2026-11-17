@@ -566,11 +566,30 @@
       "location": {
         "grid": "J-11",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 4
+        },
+        "pos": {
+          "x": -737.0,
+          "y": -550.0,
+          "z": -10.125
         },
         "zone_id": 208,
         "zone_name": "流砂洞"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-737.000 y=-550.000 z=-10.125（id 17629752。地図の換算で MAP4 の J-11、マス目 J-11 と同じ）。MAP4 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/quicksand_caves/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Goblin Geologist",
       "same_name": false
@@ -583,9 +602,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 122.64,
+          "y": 113.606,
+          "z": -3.0
+        },
         "zone_id": 239,
         "zone_name": "ウィンダス石の区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=122.640 y=113.606 z=-3.000（id 17756186。地図の換算で MAP1 の K-7。同じ名前 2 件から選んだ：候補 2 件がすべて 0.0 ヤルム以内（同じ場所））",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_walls/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Shantotto",
       "same_name": false
@@ -598,9 +632,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -161.824,
+          "y": 177.869,
+          "z": -80.075
+        },
         "zone_id": 111,
         "zone_name": "ボスディン氷河"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-161.824 y=177.869 z=-80.075（id 17232303。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/beaucedine_glacier/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lonely Evergreen",
       "same_name": false
@@ -611,11 +660,30 @@
       "location": {
         "grid": "C-5",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": -179.563,
+          "y": 274.055,
+          "z": 24.093
         },
         "zone_id": 176,
         "zone_name": "海蛇の岩窟"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-179.563 y=274.055 z=24.093（id 17498656。地図の換算で MAP1 の C-5、マス目 C-5 と同じ）。MAP1 はゾーンの当たり判定の階から",
+          "map_from": {
+            "kind": "unknown"
+          },
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/sea_serpent_grotto/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Shady Sconce",
       "same_name": false
@@ -628,9 +696,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -15.36,
+          "y": 68.85,
+          "z": 0.003
+        },
         "zone_id": 244,
         "zone_name": "ジュノ上層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-15.360 y=68.850 z=0.003（id 17776877。地図の換算で MAP1 の H-8、マス目 H-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/upper_jeuno/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Inconspicuous Door",
       "same_name": false

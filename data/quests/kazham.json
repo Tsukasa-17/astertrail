@@ -592,9 +592,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 102.647,
+          "y": -97.664,
+          "z": -13.999
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=102.647 y=-97.664 z=-13.999（id 17801323。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Dodmos",
       "same_name": false
@@ -607,9 +622,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 93.981,
+          "y": -110.818,
+          "z": -14.5
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=93.981 y=-110.818 z=-14.500（id 17801225。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Etteh Sulaej",
       "same_name": false
@@ -622,9 +652,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 58.249,
+          "y": -49.084,
+          "z": -12.086
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=58.249 y=-49.084 z=-12.086（id 17801280。地図の換算で MAP1 の I-8、マス目 I-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Gatih Mijurabi",
       "same_name": false
@@ -637,9 +682,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 55.973,
+          "y": -176.719,
+          "z": -12.0
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=55.973 y=-176.719 z=-12.000（id 17801274。地図の換算で MAP1 の I-11、マス目 I-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hari Pakhroib",
       "same_name": false
@@ -652,9 +712,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -64.973,
+          "y": -82.615,
+          "z": -9.999
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-64.973 y=-82.615 z=-9.999（id 17801352。地図の換算で MAP1 の F-9、マス目 F-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hildegard",
       "same_name": false
@@ -667,9 +742,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 101.702,
+          "y": -115.841,
+          "z": -15.023
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=101.702 y=-115.841 z=-15.023（id 17801224。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Jakoh Wahcondalo",
       "same_name": false
@@ -682,9 +772,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -26.567,
+          "y": -3.544,
+          "z": -2.5
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-26.567 y=-3.544 z=-2.500（id 17801288。地図の換算で MAP1 の G-7、マス目 G-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Lulupp",
       "same_name": false
@@ -697,9 +802,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 60.6,
+          "y": -33.913,
+          "z": -12.0
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=60.600 y=-33.913 z=-12.000（id 17801262。地図の換算で MAP1 の I-7、マス目 I-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Magriffon",
       "same_name": false
@@ -708,13 +828,29 @@
       "id": "npc.250.Mhebi_Juhbily",
       "kind": "npc",
       "location": {
-        "grid": "I-10",
+        "grid": "I-11",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 40.063,
+          "y": -161.234,
+          "z": -11.0
         },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=40.063 y=-161.234 z=-11.000（id 17801282。地図の換算で MAP1 の I-11、マス目 I-10 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "I-10",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Mhebi Juhbily",
       "same_name": false
@@ -727,9 +863,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -39.895,
+          "y": -89.693,
+          "z": -9.999
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-39.895 y=-89.693 z=-9.999（id 17801241。地図の換算で MAP1 の G-9、マス目 G-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rauteinot",
       "same_name": false
@@ -742,9 +893,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 100.37,
+          "y": -97.676,
+          "z": -13.999
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=100.370 y=-97.676 z=-13.999（id 17801322。地図の換算で MAP1 の J-9、マス目 J-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Ronta-Onta",
       "same_name": false
@@ -757,9 +923,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 32.759,
+          "y": -99.515,
+          "z": -8.5
+        },
         "zone_id": 250,
         "zone_name": "カザム"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=32.759 y=-99.515 z=-8.500（id 17801258。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/kazham/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Soun Abralah",
       "same_name": false

@@ -92,11 +92,14 @@ eq(focus.current('popup'), 'pin_no', 'dpad right to pin no')
 tap('left')
 eq(focus.current('popup'), 'pin_yes', 'dpad left to pin yes')
 
--- 左スティックでも同じ
+-- 0.1.226〜：左スティックでは動かない（十字キーだけ）
+eq(focus.current('popup'), 'pin_yes', 'still on pin yes before stick')
 stick(25000, 0)
-eq(focus.current('popup'), 'pin_no', 'stick right to pin no')
+eq(focus.current('popup'), 'pin_yes', 'stick right does not move')
 stick(-25000, 0)
-eq(focus.current('popup'), 'pin_yes', 'stick left to pin yes')
+eq(focus.current('popup'), 'pin_yes', 'stick left does not move')
+stick(0, -25000)
+eq(focus.current('popup'), 'pin_yes', 'stick down does not move')
 stick(0, 0)
 
 -- 決定で「ピン留めする」

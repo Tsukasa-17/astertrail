@@ -400,7 +400,7 @@ g04 talk - | ジュノ上層のLuto Mewrilahに話す | - | @ジュノ上層 G-8
 g05 examine - | 龍王ランペールの墓から入るジャグナー森林(G-5)の???を調べて完了 | 親密度の上限が70になる。 | @ジャグナー森林 G-5 | T obj.104.???_G-5 = obj:???@ジャグナー森林 G-5
 
 @ quest.jeuno.032 https://wiki.ffo.jp/html/5847.html
-Q Past Reflection | 双対の力 | no | T npc.244.Luto_Mewrilah
+Q Past Reflections | 双対の力 | no | T npc.244.Luto_Mewrilah
 LK quest:クエスト「導かれるもの」をコンプリート
 LK condition:フェローとの親密度30以上
 g01 talk - | ジュノ上層(G-8)のLuto Mewrilahに話して受ける | - | @ジュノ上層 G-8 | T npc.244.Luto_Mewrilah
@@ -487,7 +487,7 @@ g05 talk - | ジュノ港の5人に話す：Red Ghost(G-8)・Karl(H-8)・Shami(H
 g06 talk - | Ajithaamに話して完了 | バッジを返し、だいじなもの「白色の招待券」をもらう。アトルガンで傭兵になるときの報酬が増える。 | @ジュノ上層 F-5 | T npc.244.Ajithaam
 
 @ quest.jeuno.039 https://wiki.ffo.jp/html/13223.html
-Q Mixed Signal | 心のシグナル | no | T npc.244.Ratoto = npc:Ratoto@ジュノ上層 I-10
+Q Mixed Signals | 心のシグナル | no | T npc.244.Ratoto = npc:Ratoto@ジュノ上層 I-10
 RW other:フェローのレベル上限が65になる
 RW title:助け合う者
 LK quest:クエスト「ふたりの想い」をコンプリート
@@ -635,7 +635,7 @@ g03 gather - | 頭装備「角の髪飾り」を1個用意する | 合成でし�
 g04 trade - | Kurou-Morouに「角の髪飾り」をトレードして完了 | 1200ギルとガーネットリング。 | @ジュノ下層 I-7 | T npc.245.Kurou-Morou | N 角の髪飾り*1
 
 @ quest.jeuno.052 https://wiki.ffo.jp/html/6100.html
-Q Wonder Magic Set | ひみつ魔術セット | no | T npc.245.Panta-Putta
+Q The Wonder Magic Set | ひみつ魔術セット | no | T npc.245.Panta-Putta
 RW item:ミスリルピアス
 LK fame:名声ランク4以上
 g01 talk - | ジュノ下層(H-10)の商家のPanta-Puttaに話して受ける | 家族には内緒にしてほしいらしい。 | @ジュノ下層 H-10 | T npc.245.Panta-Putta
@@ -1206,7 +1206,7 @@ g03 fight - | エルディーム古墳でシャドウ族を10体倒す | 経験�
 g04 talk - | Nantotoに話して完了 | 互助会引換券・銅5枚。 | @ジュノ下層 H-8 | T npc.245.Nantoto
 
 @ quest.jeuno.106 https://wiki.ffo.jp/html/15355.html
-Q "Data Analyzer and Logger EX" | 魔法人形「みとどけくん」 | no | T npc.245.Rakuru-Rakoru = npc:Rakuru-Rakoru@ジュノ下層
+Q The Miraculous Dale | 魔法人形「みとどけくん」 | no | T npc.245.Rakuru-Rakoru = npc:Rakuru-Rakoru@ジュノ下層
 RW gil:59630ギル
 LK condition:Lv75以上のジョブで話す
 g01 talk - | ジュノ下層の競売前の噴水（聖オーエン広場）のRakuru-Rakoruに話して受け、だいじなもの「魔法人形「みとどけくん」」をもらう | 以後話すと討伐の残りを見せてくれる。ナイズル島のNMは数えない。 | @ジュノ下層 | T npc.245.Rakuru-Rakoru

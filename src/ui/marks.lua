@@ -27,6 +27,10 @@ function marks.remember_positions(ui, zone_id, matched)
         st.live_pos = lp
     end
     if not zone_id then return end
+    -- 0.1.213〜：場所が変わる相手（番号で見分ける相手・動く相手・???）は、いま見えていなければ忘れる。
+    -- 消えた・別の場所に移った ??? の古い場所に、地図のピンが残らないように。
+    lp.volatile = lp.volatile or {}
+    local seen = {}
     for _, row in ipairs(matched or {}) do
         local ent = row.entity
         local x, y = ent and tonumber(ent.x), ent and tonumber(ent.y)
@@ -34,8 +38,16 @@ function marks.remember_positions(ui, zone_id, matched)
             for _, w in ipairs(row.wanted or {}) do
                 if w.target_id then
                     lp.by_target[w.target_id] = { x = x, y = y, z = ent and tonumber(ent.z) or nil }
+                    seen[w.target_id] = true
+                    if w.server_id or w.moves or w.name == '???' then lp.volatile[w.target_id] = true end
                 end
             end
+        end
+    end
+    for tid in pairs(lp.volatile) do
+        if not seen[tid] then
+            lp.by_target[tid] = nil
+            lp.volatile[tid] = nil
         end
     end
 end
@@ -46,6 +58,88 @@ function marks.live_position(ui, zone_id, target_id)
     if not lp or not target_id or lp.zone_id == nil then return nil end
     if tonumber(zone_id) ~= lp.zone_id then return nil end
     return lp.by_target[target_id]
+end
+
+-- 見えている相手（0.1.217〜）：1フレームに1回だけ読む。頭上の印と地図で同じものを使う。
+-- ui.state.now が同じあいだは前に読んだものを返す（now が無ければ毎回読む）。
+function marks.frame_entities(ui)
+    local plat = ui and ui.platform
+    if not plat or not plat.visible_entities then return {} end
+    local st = ui.state
+    local now = st and st.now
+    local c = st and st.frame_ents
+    if c and now ~= nil and c.at == now and c.plat == plat then return c.rows end
+    local rows = plat.visible_entities()
+    if type(rows) ~= 'table' then rows = {} end
+    if st and now ~= nil then st.frame_ents = { at = now, rows = rows, plat = plat } end
+    return rows
+end
+
+local function grid_fn(ui, plat, zone_id)
+    return function (ent, w)
+        if ent.grid then return ent.grid end
+        if plat and plat.entity_grid then
+            local ok, g = pcall(plat.entity_grid, ent, w)
+            if ok and g then return g end
+        end
+        return marks_core.grid_of(ui.data, zone_id, ent.x, ent.y, w and w.map_n)
+    end
+end
+
+-- render の 0x200（出ている）。だれにも印が無いときは読めていないとみなして見ない（platform と同じ）
+local function shown_filter(ents)
+    local any = false
+    for _, e in ipairs(ents) do
+        local r = tonumber(e.render_flags)
+        if r and math.floor(r / 0x200) % 2 == 1 then any = true; break end
+    end
+    if not any then return ents end
+    local out = {}
+    for _, e in ipairs(ents) do
+        local r = tonumber(e.render_flags)
+        if r == nil or math.floor(r / 0x200) % 2 == 1 then out[#out + 1] = e end
+    end
+    return out
+end
+
+-- 地図で見ている手順の相手の本当の座標（0.1.217〜）。
+-- 「今」の手順なら頭上の印で覚えた座標。そうでなくても、自分がそのゾーンにいれば、
+-- いま見えている相手から同じ見分け方で探す（印は付けない）。見えなくなったらそのフレームから nil。
+function marks.step_live_position(ui, zone_id, step)
+    if not step or not step.target then return nil end
+    local p = marks.live_position(ui, zone_id, step.target)
+    if p then return p end
+    local pl = ui and ui.player
+    if not pl or tonumber(pl.zone_id) == nil or tonumber(pl.zone_id) ~= tonumber(zone_id) then return nil end
+    local plat = ui.platform
+    if not plat or not plat.visible_entities then return nil end
+    local w = marks_core.wanted_for_step(ui.data, step)
+    if not w then return nil end
+    if w.zone_id ~= nil and tonumber(w.zone_id) ~= tonumber(zone_id) then return nil end
+    local st = ui.state
+    local now = st and st.now
+    local key = tostring(zone_id) .. '|' .. tostring(step.id) .. '|' .. tostring(step.target)
+    local c = st and st.step_live
+    if c and now ~= nil and c.at == now and c.key == key then return c.pos end
+    local ok, ents = pcall(marks.frame_entities, ui)
+    ents = shown_filter(ok and ents or {})
+    local matched = marks_core.match({ w }, ents, { zone_id = zone_id, grid_of = grid_fn(ui, plat, zone_id) })
+    local pos = nil
+    local best = nil
+    for _, row in ipairs(matched or {}) do
+        local ent = row.entity
+        local x, y = ent and tonumber(ent.x), ent and tonumber(ent.y)
+        if x and y then
+            local d = 0
+            if tonumber(pl.x) and tonumber(pl.y) then d = (x - pl.x) ^ 2 + (y - pl.y) ^ 2 end
+            if not best or d < best then
+                best = d
+                pos = { x = x, y = y, z = tonumber(ent.z) }
+            end
+        end
+    end
+    if st and now ~= nil then st.step_live = { at = now, key = key, pos = pos } end
+    return pos
 end
 
 -- アイコンの大きさ（px）。16〜64、初期 28。
@@ -670,6 +764,9 @@ function marks.draw(ui)
     -- 文字の色（クエスト名はどのアイコンも同じ。オブジェクト名は ??? などの名前）
     local lc1, lc2 = settings_mod.text_colors(SM, 'label')
     local uc1, uc2 = settings_mod.text_colors(SM, 'under')
+    -- 頭上の文字の背景の濃さ（0.1.215〜）。クエスト名とオブジェクト名で別
+    local label_bg = settings_mod.label_bg_alpha(SM, 'label')
+    local under_bg = settings_mod.label_bg_alpha(SM, 'under')
     -- ズームに合わせて位置を調整する（試し）。オフならこれまでどおり
     local zoom_follow = SM.zoom_follow ~= false
     -- 近くのオブジェクトの名前（0.1.58〜、初期はオフ）。クエストに関係ないものにも名前だけ
@@ -682,15 +779,8 @@ function marks.draw(ui)
         clear_rings()
         return { wanted = 0, entities = 0, matched = 0, drawn = 0 }
     end
-    local ents = plat.visible_entities() or {}
-    local function grid_of(ent, w)
-        if ent.grid then return ent.grid end
-        if plat.entity_grid then
-            local ok, g = pcall(plat.entity_grid, ent, w)
-            if ok and g then return g end
-        end
-        return marks_core.grid_of(ui.data, zone_id, ent.x, ent.y, w and w.map_n)
-    end
+    local ents = marks.frame_entities(ui)
+    local grid_of = grid_fn(ui, plat, zone_id)
     local matched = marks_core.match(wanted, ents, { zone_id = zone_id, grid_of = grid_of })
     marks.remember_positions(ui, zone_id, matched)
     local on_name, on_body = marks_core.split_for_draw(matched)
@@ -779,6 +869,7 @@ function marks.draw(ui)
                             mark_dx = offs.mark_dx, mark_dy = offs.mark_dy, zoom_follow = zoom_follow,
                             label_dx = offs.label_dx, label_dy = offs.label_dy,
                             label_color = lc1, label_color2 = lc2,
+                            label_bg_alpha = label_bg,
                         }
                     end
                 end)
@@ -878,6 +969,7 @@ function marks.draw(ui)
                                 label_dx = offs.label_dx, label_dy = offs.label_dy,
                                 label_color = lc1, label_color2 = lc2,
                                 under_color = uc1, under_color2 = uc2,
+                                label_bg_alpha = label_bg, under_bg_alpha = under_bg,
                                 icon = icon_size,
                                 key = (ent.index ~= nil) and (tostring(ent.index) .. ':' .. tostring(layer)) or nil,
                                 index = ent.index,
@@ -910,6 +1002,7 @@ function marks.draw(ui)
                     mark_dx = offs_obj.mark_dx, mark_dy = offs_obj.mark_dy, zoom_follow = zoom_follow,
                     name_dx = offs_near.name_dx, name_dy = offs_near.name_dy,
                     under_color = uc1, under_color2 = uc2,
+                    under_bg_alpha = under_bg,
                     icon = icon_size,
                     key = 'near:' .. tostring(ent.index),
                     index = ent.index,

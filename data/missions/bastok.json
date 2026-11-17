@@ -613,9 +613,24 @@
         "map": {
           "kind": "unknown"
         },
+        "pos": {
+          "x": -60.925,
+          "y": -333.294,
+          "z": 8.471
+        },
         "zone_id": 172,
         "zone_name": "ツェールン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-60.925 y=-333.294 z=8.471（id 17481828。地図の換算で MAP1 の H-11、マス目 H-11 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/zeruhn_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Makarim",
       "same_name": false
@@ -628,9 +643,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 66.865,
+          "y": -4.562,
+          "z": -13.999
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=66.865 y=-4.562 z=-13.999（id 17748013。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Naji",
       "same_name": true
@@ -658,6 +688,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 97.738,
+          "y": 14.64,
+          "z": -20.17
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
@@ -675,6 +710,14 @@
           "checked": "2026-11-16",
           "fact_ja": "用語辞典のバストゥークミッション：大工房(J-8)大統領府のAlois",
           "name": "用語辞典"
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=97.738 y=14.640 z=-20.170（id 17747997。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
+          ]
         }
       ],
       "moves": false,
@@ -730,6 +773,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 92.936,
+          "y": 1.814,
+          "z": -19.532
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
@@ -741,6 +789,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Bastok_Mission_9-2",
             "https://ffxiclopedia.fandom.com/wiki/Iron_Eater"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=92.936 y=1.814 z=-19.532（id 17748016。地図の換算で MAP1 の J-8、マス目 J-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
           ]
         }
       ],
@@ -771,9 +827,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 83.023,
+          "y": 33.444,
+          "z": -0.087
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=83.023 y=33.444 z=-0.087（id 17735720。地図の換算で MAP1 の K-6、マス目 K-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Davyad",
       "same_name": false
@@ -786,6 +857,11 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 59.959,
+          "y": -42.321,
+          "z": -16.39
+        },
         "zone_id": 237,
         "zone_name": "大工房"
       },
@@ -797,6 +873,14 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Bastok_Mission_3-3",
             "https://ffxiclopedia.fandom.com/wiki/Jeuno_(Mission)"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=59.959 y=-42.321 z=-16.390（id 17747992。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/metalworks/npcs.yaml"
           ]
         }
       ],
@@ -812,9 +896,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 2.968,
+          "y": -79.61,
+          "z": 8.999
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=2.968 y=-79.610 z=8.999（id 17772547。地図の換算で MAP1 の H-10、マス目 H-10 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Goggehn",
       "same_name": false
@@ -828,9 +927,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 600.484,
+          "y": -20.038,
+          "z": 13.333
+        },
         "zone_id": 184,
         "zone_name": "デルクフの塔下層"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=600.484 y=-20.038 z=13.333（id 17531163。地図の換算で MAP1 の L-9、マス目 L-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/lower_delkfutts_tower/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Cermet Door",
       "same_name": false
@@ -843,9 +957,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 19.046,
+          "y": -75.11,
+          "z": 7.5
+        },
         "zone_id": 243,
         "zone_name": "ル・ルデの庭"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=19.046 y=-75.110 z=7.500（id 17772683。地図の換算で MAP1 の H-10。同じ名前 3 件から選んだ：LSB のクエスト・ミッションの台本（Jeuno, Magicite）がこの相手（17772683 _6r2）だけを使う）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rulude_gardens/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Door:Bastokan Emb.",
       "same_name": false
@@ -884,13 +1013,29 @@
       "id": "npc.234.Medicine_Eagle",
       "kind": "npc",
       "location": {
-        "grid": "H-6",
+        "grid": "H-5",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": -38.896,
+          "y": 40.865,
+          "z": 0.0
         },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-38.896 y=40.865 z=0.000（id 17735695。地図の換算で MAP1 の H-5、マス目 H-6 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "H-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Medicine Eagle",
       "same_name": false
@@ -903,9 +1048,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -77.049,
+          "y": 59.073,
+          "z": 0.007
+        },
         "zone_id": 172,
         "zone_name": "ツェールン鉱山"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-77.049 y=59.073 z=0.007（id 17481823。地図の換算で MAP1 の H-6、マス目 H-6 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/zeruhn_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Drake Fang",
       "same_name": false
@@ -933,9 +1093,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": 71.779,
+          "y": -11.236,
+          "z": 6.999
+        },
         "zone_id": 234,
         "zone_name": "バストゥーク鉱山区"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=71.779 y=-11.236 z=6.999（id 17735721。地図の換算で MAP1 の J-7、マス目 J-7 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_mines/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Tall Mountain",
       "same_name": false
@@ -999,9 +1174,14 @@
       "id": "npc.247.Dancing_Wolf",
       "kind": "npc",
       "location": {
-        "grid": "G-7",
+        "grid": "G-6",
         "map": {
           "kind": "single"
+        },
+        "pos": {
+          "x": 7.619,
+          "y": 81.209,
+          "z": 8.0
         },
         "zone_id": 247,
         "zone_name": "ラバオ"
@@ -1014,6 +1194,15 @@
           "urls": [
             "https://www.bg-wiki.com/ffxi/Bastok_Mission_9-1",
             "https://ffxiclopedia.fandom.com/wiki/The_Salt_of_the_Earth"
+          ]
+        },
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=7.619 y=81.209 z=8.000（id 17788989。地図の換算で MAP1 の G-6、マス目 G-7 のとなり。3×3 に同名はこれだけ）",
+          "grid_from": "G-7",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/rabao/npcs.yaml"
           ]
         }
       ],

@@ -123,7 +123,7 @@
     }
   ],
   "data_schema": 1,
-  "data_version": "2026.11.16-112",
+  "data_version": "2026.11.17-124",
   "files": [
     "zones.json",
     "guards.json",

@@ -169,6 +169,7 @@ xs(0); frame()
 -- 選択枠（上下で動く）
 check(require('src.ui.focus').shows_frame('tracker'), 'focus frame while operating')
 check(require('src.ui.focus').current('tracker') ~= nil, 'something focused')
+check(not texted('パッドで操作中') and not texted('with the pad'), 'no tracker pad help line (0.1.226)')
 tap(SHARE + OPTIONS)
 check(app.state.active ~= 'tracker', 'pressing again returns to the game')
 check(not require('src.ui.focus').shows_frame('tracker'), 'no frame when not operating')

@@ -3929,9 +3929,24 @@
           "kind": "number",
           "n": 1
         },
+        "pos": {
+          "x": 10.577,
+          "y": 32.68,
+          "z": -1.478
+        },
         "zone_id": 94,
         "zone_name": "ウィンダス水の区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=10.577 y=32.680 z=-1.478（id 17162835。地図の換算で MAP1 の H-9、マス目 H-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/windurst_waters_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Emhi Tchaoryo",
       "same_name": false
@@ -3944,9 +3959,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -325.702,
+          "y": -51.15,
+          "z": -12.601
+        },
         "zone_id": 87,
         "zone_name": "バストゥーク商業区〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-325.702 y=-51.150 z=-12.601（id 17134087。地図の換算で MAP1 の E-8、マス目 E-8 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/bastok_markets_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Hieronymus",
       "same_name": false
@@ -3959,9 +3989,24 @@
         "map": {
           "kind": "single"
         },
+        "pos": {
+          "x": -8.029,
+          "y": -34.919,
+          "z": 1.2
+        },
         "zone_id": 80,
         "zone_name": "南サンドリア〔Ｓ〕"
       },
+      "location_sources": [
+        {
+          "checked": "2026-11-17",
+          "fact_ja": "座標 x=-8.029 y=-34.919 z=1.200（id 17105364。地図の換算で MAP1 の I-9、マス目 I-9 と同じ）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/southern_san_doria_s/npcs.yaml"
+          ]
+        }
+      ],
       "moves": false,
       "name_en": "Rasdinice",
       "same_name": false

@@ -17,7 +17,7 @@ cmd('/astertrail'); frame(); frame(); frame()
 eq(S.book.tab, 'mission', 'first open is missions')
 local h0 = focus.current('book')
 check(h0 and tostring(h0):find('^sec_'), 'starts on a top heading: ' .. tostring(h0))
-check(texted('見出しを選び') or texted('picks a heading') or texted('いちばん上の見出し') or texted('picks a top heading'), 'heading-level help')
+check(not texted('パッドで操作中') and not texted('with the pad'), 'no pad help line (0.1.225, t499)')
 -- 上下は同じ段の見出し。決定で中の行へ
 press(0xD0); frame(); frame()
 local h1 = focus.current('book')
@@ -28,7 +28,7 @@ eq(focus.current('book'), h0, 'up back to the first heading')
 press(0x1C); frame(); frame(); frame()
 local id0 = focus.current('book')
 check(id0 and tostring(id0):find('^row_'), 'confirm enters the mission list: ' .. tostring(id0))
-check(texted('行を選び') or texted('picks a row') or texted('同じ見出しの行') or texted('picks a row in this heading'), 'row-level help')
+check(not texted('パッドで操作中') and not texted('with the pad'), 'no pad help line on rows (0.1.225, t499)')
 -- Tab（肩ボタン）は 上の行 → 見出しの木 → 一覧 → 詳細 の4つを回る
 local seen = {}
 for i = 1, 4 do press(0x0F); frame(); seen[#seen + 1] = area() end
@@ -45,7 +45,10 @@ check(not app.state.open.detail, 'enter does not open a separate detail')
 eq(app.state.active, 'book', 'book still operating')
 eq('row_' .. tostring(S.book.last_row), row, 'enter selects the focused row')
 check(labeled('##pin') or labeled('##chk_'), 'detail pane drawn in the book')
-eq(focus.current('book'), row, 'focus stays on the row')
+-- 0.1.225〜（t502）：行で決定すると右の詳細へ。キャンセルで同じ行へ戻る
+eq(focus.current('book'), 'detail_pane', 'enter moves into the detail')
+press(0x01); frame(); frame()
+eq(focus.current('book'), row, 'cancel from the detail returns to the row')
 -- キャンセルは見出しへ戻る（本は開いたまま）
 press(0x01); frame(); frame()
 eq(app.state.open.book, true, 'cancel from a row keeps the book open')
