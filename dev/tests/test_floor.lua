@@ -391,7 +391,7 @@ do
     check(texted('28 px'), 'icon px shown')
     check(texted('0 px'), 'offset px shown')
     require('src.ui.settings_ui').select_tab('look'); frame(); frame()
-    check(not labeled('##font_book_p') and not labeled('##font_book_m'), 'no +/- buttons')
+    check(labeled('##font_book_plus') and labeled('##font_book_minus'), 'plus/minus step buttons')
     check(labeled('##font_book_reset'), 'reset button')
     -- 初期値のときの ↺ は効かない
     FAKE.clicks['##font_book_reset'] = true; frame()

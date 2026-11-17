@@ -15,6 +15,7 @@
   0.1.68〜：パッドの十字キー・×・○ は platform が xinput_state（書き換える前の値）から読む（操作中は状態を 0 にするため、
   xinput_button が届かないことがある）。地図の名前を決定すると、その名前の相手の場所で地図を開く。
   文字の大きさは SetWindowFontScale だけで変える（窓の大きさは変えない）。
+  0.1.234〜：タブ表示のタブの名前は、設定の「タブの文字の大きさ」で別に変えられる（未設定はトラッカーと同じ）。
   0.1.170〜：上の行（× とタブ）はいつも見せ、中身だけが動く。× は設定で隠せる（show_close）。
   パッドは2段：件を選ぶ（上下）→ 決定でその件の中（名前・地図の名前・◀▶▲▼・ピン外し）→ キャンセルで件へ → もう一度でゲームへ。
   タブ表示（view = 'tabs'）：上の行に固定幅のタブ（長い名前は「…」、乗せると全体）。選んだ1件だけ出す。LB/RB・‹ › で切り替え。
@@ -28,6 +29,7 @@ local util = require('src.lib.util')
 local CT = require('src.ui.colored_text')
 local focus = require('src.ui.focus')
 local theme = require('src.ui.theme')
+local settings_mod = require('src.core.settings')
 local marks_core = require('src.core.marks')
 local ui_marks = require('src.ui.marks')
 
@@ -139,6 +141,43 @@ function tracker.map_target(D, q, name, sid)
     return sid, nil
 end
 
+-- 文の「5人」「20人分」など（0.1.229〜）。UTF-8 なので「人分」を先に取る。
+function tracker.people_counts(text)
+    local out, seen = {}, {}
+    if type(text) ~= 'string' or text == '' then return out end
+    local i = 1
+    while i <= #text do
+        local a, b, n = text:find('(%d+)人分', i)
+        local suf = '人分'
+        if not a then
+            a, b, n = text:find('(%d+)人', i)
+            suf = '人'
+        end
+        if not a then break end
+        local s = n .. suf
+        if not seen[s] then
+            seen[s] = true
+            out[#out + 1] = s
+        end
+        i = b + 1
+    end
+    return out
+end
+
+-- 今の手順に、地図へ出す相手・候補が複数あるか（話し相手の一覧、または候補の座標）
+function tracker.has_multi_map_targets(D, step)
+    if not step then return false end
+    local loc = step.location
+    if loc and type(loc.candidates) == 'table' and #loc.candidates >= 2 then return true end
+    if D and D.listed_talk_targets then
+        if #D:listed_talk_targets(step) >= 2 then return true end
+    end
+    local n = 0
+    if step.target then n = n + 1 end
+    n = n + #(type(step.extra_targets) == 'table' and step.extra_targets or {})
+    return n >= 2
+end
+
 -- パッドの2段の操作（0.1.170〜）：項目の id がどの件のものか。戻り値: qid, 件そのもの（e_）か
 -- 件の中の項目：q_（名前）、qn_<qid>_（地図の名前）、br_<qid>#（分岐）、prev_/next_/up_/down_/unpin_<qid>
 function tracker.owner_of(id, pins)
@@ -184,6 +223,11 @@ function tracker.tab_chars(S)
     local n = math.floor(tonumber(S and S.tracker and S.tracker.tab_chars) or tracker.TAB_CHARS_DEFAULT)
     if n < tracker.TAB_CHARS_MIN then n = tracker.TAB_CHARS_MIN elseif n > tracker.TAB_CHARS_MAX then n = tracker.TAB_CHARS_MAX end
     return n
+end
+
+-- タブの名前の文字サイズ（0.1.234〜）。未設定ならトラッカーの文字サイズに追従
+function tracker.tab_font_scale(ui)
+    return settings_mod.font_for(ui and ui.settings, 'tracker_tabs')
 end
 local function tab_width(imgui, n)
     local w = CT.text_w(imgui, string.rep('あ', n or 6))
@@ -272,6 +316,8 @@ function tracker.draw(ui)
         local close_w = show_close and button_w(imgui, '×') or 0
         local top_drawn = false
         if tabs then
+            -- タブの名前だけ、タブの文字サイズ（未設定ならトラッカーと同じ）。窓の大きさは変えない
+            window.set_font(ui, tracker.tab_font_scale(ui) * (tracker.SCALE.ops or 1.0))
             local sp = style_x(imgui, 'ItemSpacing', 8)
             local tw = tab_width(imgui, tracker.tab_chars(S))
             local room = (avail_x(imgui) or 300) - (show_close and ((close_w or 0) + sp) or 0)
@@ -330,6 +376,7 @@ function tracker.draw(ui)
             end
             if scroll then st.tracker_tab_first = math.max(1, math.min(first + scroll, last_first)) end
             top_drawn = true
+            font('ops')   -- × とこれ以降はトラッカーの文字サイズ
         end
         if show_close then
             if top_drawn then W.same(ui) end
@@ -369,8 +416,9 @@ function tracker.draw(ui)
             local iw = icon and ui_marks.inline_icon_w(ui, icon) or 0
             push_w(hw and (hw + 1 + iw) or nil)   -- 太めにした分の 1px
             if icon then ui_marks.inline_icon(ui, icon) end
+            local dim = require('src.ui.book').is_marked_unimplemented(S, qid)
             if W.link(ui, name, 'q_' .. qid, head, {
-                color = 'accent', section = 'list', row = qid .. '_name', bold = true, no_focus = nf,
+                color = dim and 'muted' or 'accent', section = 'list', row = qid .. '_name', bold = true, no_focus = nf,
             }) then
                 ui.open_detail_solo(qid, 'tracker')
             end
@@ -379,25 +427,31 @@ function tracker.draw(ui)
                 local step = P:current_step(qid)
                 local nav = P:step_nav(qid)
                 local terms = CT.quest_terms(D, q)
-                local function term_line(text, key, sid, line_opts)
+                local function term_line(text, key, sid, line_opts, terms_use)
                     line_opts = line_opts or {}
-                    local hit = W.term_line(ui, name, 'qn_' .. qid .. key, text, terms, {
+                    local hit = W.term_line(ui, name, 'qn_' .. qid .. key, text, terms_use or terms, {
                         muted = line_opts.muted, color = line_opts.color, align = align,
                         section = 'list', row = qid .. key,
                         focus_acts = nf and {} or { map = true },   -- 地図の名前だけパッドで選べる（コピーはマウス）
-                        tip = function (act, _)
+                        tip = function (act, piece)
+                            if act == 'map' and piece and piece.kind == 'group' then return t('tracker.map_all') end
                             if act == 'map' then return t('map.view') end
                             if act == 'copy' then return t('tracker.copy_item') end
                         end,
                     })
                     if not hit then return end
                     if hit.act == 'map' then
-                        -- 押した名前の相手の場所で地図を開く（0.1.68〜。前はいつもその行の手順の場所）
-                        local msid, mloc, mtg = tracker.map_target(D, q, hit.text, sid)
-                        if mtg and mtg.kind == 'mob' then
-                            ui.open_map(qid, msid, mloc, { mob = mtg.id })
+                        -- 人数（5人など）は、その手順の相手を全員地図に出す（0.1.229〜）
+                        if hit.kind == 'group' then
+                            ui.open_map(qid, sid)
                         else
-                            ui.open_map(qid, msid, mloc)
+                            -- 押した名前の相手の場所で地図を開く（0.1.68〜。前はいつもその行の手順の場所）
+                            local msid, mloc, mtg = tracker.map_target(D, q, hit.text, sid)
+                            if mtg and mtg.kind == 'mob' then
+                                ui.open_map(qid, msid, mloc, { mob = mtg.id })
+                            else
+                                ui.open_map(qid, msid, mloc)
+                            end
                         end
                     elseif hit.act == 'copy' and ui.copy_to_clipboard then
                         ui.copy_to_clipboard(hit.text)
@@ -405,7 +459,28 @@ function tracker.draw(ui)
                 end
                 if step then
                     -- 2) 今の手順（ふつうの大きさ・ふつうの色）
-                    term_line(step.next_line_ja or t('detail.step_no_text'), '_cur', step.id)
+                    local cur_text = step.next_line_ja or t('detail.step_no_text')
+                    local cur_terms, counts = terms, {}
+                    local has_multi = tracker.has_multi_map_targets(D, step)
+                    if has_multi then
+                        counts = tracker.people_counts(cur_text)
+                        if #counts > 0 then
+                            cur_terms = {}
+                            for _, x in ipairs(terms) do cur_terms[#cur_terms + 1] = x end
+                            for _, s in ipairs(counts) do CT.add(cur_terms, s, 'group') end
+                        end
+                    end
+                    term_line(cur_text, '_cur', step.id, nil, cur_terms)
+                    -- 人数の表記が無い手順でも、複数の相手がいれば「地図」を出す
+                    if has_multi and #counts == 0 then
+                        W.same(ui)
+                        if W.link(ui, name, 'qn_' .. qid .. '_cur_group_map', t('map.view_short'), {
+                            color = 'accent', section = 'list', row = qid .. '_cur',
+                            no_focus = nf, tooltip = t('tracker.map_all'),
+                        }) then
+                            ui.open_map(qid, step.id)
+                        end
+                    end
                     -- 所持（0.1.184〜）：必要な品ごとに 1 行。読めないときは出さない
                     if S.items and S.items.show_possession and step.needs and #step.needs > 0 then
                         font('time')

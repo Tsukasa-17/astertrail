@@ -29,7 +29,9 @@ function detail.body(ui, win, q, opts)
     local P, D = ui.progress, ui.data
     local name = win
 
-    imgui.TextColored(require('src.ui.theme').col('accent'), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
+    local marked = require('src.ui.book').is_marked_unimplemented(ui.settings, q.id)
+    imgui.TextColored(require('src.ui.theme').col(marked and 'muted' or 'accent'), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
+    if marked then W.muted(ui, ui.t('roe.tag_failed.not_impl')) end
     W.muted(ui, t('detail.category', {
         kind = t('kind.' .. q.kind), area = D:category_label(q.category, ui.settings.language) }))
 
@@ -80,8 +82,24 @@ function detail.body(ui, win, q, opts)
         W.same(ui)
     end
     local pinned = P:is_pinned(q.id)
-    if W.button(ui, name, 'pin', pinned and t('detail.unpin') or t('detail.pin'), { section = 'state', row = 'state' }) then
+    local can_pin = pinned or not marked
+    if W.button(ui, name, 'pin', pinned and t('detail.unpin') or t('detail.pin'), {
+        section = 'state', row = 'state',
+        disabled = not can_pin,
+        tooltip = (not can_pin) and t('book.pin_unimplemented') or nil,
+    }) then
         ui.request(pinned and 'unpin' or 'pin', q.id)
+    end
+    W.same(ui)
+    do
+        local book = require('src.ui.book')
+        local label = marked and t('detail.clear_unimplemented') or t('detail.mark_unimplemented')
+        local tip = marked and t('detail.clear_unimplemented_tip') or t('detail.mark_unimplemented_tip')
+        if W.button(ui, name, 'unimplemented', label, { section = 'state', row = 'state', tooltip = tip }) then
+            if book.toggle_unimplemented(ui.settings, q.id) and ui.mark_settings_dirty then
+                ui.mark_settings_dirty()
+            end
+        end
     end
 
     if q.repeatable == 'yes' then W.muted(ui, t('detail.repeatable_yes'))

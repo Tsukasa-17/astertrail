@@ -24,7 +24,7 @@ end
 local function after_item(ui, win, id, focused, defer)
     local imgui = ui.imgui
     if imgui.IsItemHovered() and mouse.moved then
-        focus.set(win, id, false)
+        focus.set(win, id, false, 'hover')
         focused = true
     end
     if focused then
@@ -312,9 +312,12 @@ end
 
 
 ---------------------------------------------------------------------------
--- 数値の設定の1行：名前 ／ 初期値に戻す（↺）／ スライダー ／ 値と単位
+-- 数値の設定の1行：名前 ／ 初期値に戻す（↺）／ スライダー ／ － ／ ＋ ／ 値と単位
 -- 値は step 刻みに丸め、lo〜hi に収める。初期値と同じときは ↺ を薄くして押せなくする。
 -- キー・パッド：スライダーを選んで左右で1刻み、↺ を選んで決定で初期値。
+-- マウスの －／＋ でも1刻み（細かい調整用）。
+-- 0.1.234〜：ドラッグ中は値をまだ設定に書かない（離したとき確定）。
+--   文字サイズを動かすと設定のレイアウトが変わり、つまみがマウスの下からずれて値が暴れるのを防ぐ。
 ---------------------------------------------------------------------------
 
 function W.snap(v, step, lo, hi)
@@ -594,12 +597,16 @@ end
 
 -- opts: { step, lo, hi, default, text = function(v) → 表示, section, label_w, slider_w, tooltip_reset }
 -- 戻り値: changed
+-- ドラッグ中の仮の値（窓と項目ごと）。離すまで tbl には書かない
+local slider_drag = {}
+
 function W.slider(ui, win, id, label, tbl, key, opts)
     local imgui = ui.imgui
     local step, lo, hi = opts.step or 1, opts.lo or 0, opts.hi or 1
     local def = opts.default
     local v = W.snap(tbl[key], step, lo, hi)
     if v ~= tbl[key] then tbl[key] = v end
+    local committed = v
     local changed = false
 
     -- 名前（左の列をそろえる）
@@ -630,14 +637,17 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     end
     if hovered and opts.tooltip_reset then imgui.SetTooltip(opts.tooltip_reset) end
     after_item(ui, win, rid, rfocused)
+    local drag_key = tostring(win) .. '/' .. tostring(id)
     if (pressed or ractivated) and not at_default then
         v = def
         changed = true
+        slider_drag[drag_key] = nil
     end
     imgui.SameLine()
 
     -- スライダー（中の文字は出さず、右に値を出す）
     local sfocused = focus.item(win, id, opts.section, opts.row or id, true)
+    if slider_drag[drag_key] ~= nil then v = slider_drag[drag_key] end
     local buf = { v }
     local w = opts.slider_w or 160
     if not pcall(imgui.SetNextItemWidth, w) then pcall(imgui.PushItemWidth, w); pcall(imgui.PopItemWidth) end
@@ -648,19 +658,66 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     if hidden > 0 then pcall(imgui.PopStyleColor, hidden) end
     local srect = yuna and W.item_rect(imgui) or nil
     local s_hov = yuna and imgui.IsItemHovered() or false
-    local s_act = yuna and imgui.IsItemActive() or false
+    -- いまつまみをドラッグしているか（設定の文字サイズをその場で変えないための判定）
+    local active = false
+    do
+        local oka, a = pcall(function ()
+            return imgui.IsItemActive and imgui.IsItemActive()
+        end)
+        active = oka and a and true or false
+    end
+    local s_act = yuna and active or false
     if sok and moved and tonumber(buf[1]) then
         local nv = W.snap(buf[1], step, lo, hi)
-        if nv ~= v then v = nv; changed = true end
+        if active then
+            -- ドラッグ中は見た目だけ動かし、設定（設定の文字サイズを含む）にはまだ書かない
+            slider_drag[drag_key] = nv
+            v = nv
+        else
+            -- クリックやテスト、または離したフレーム：ここで確定
+            slider_drag[drag_key] = nil
+            if nv ~= committed then v = nv; changed = true end
+        end
+    elseif active then
+        if slider_drag[drag_key] ~= nil then v = slider_drag[drag_key] end
+    elseif slider_drag[drag_key] ~= nil then
+        local nv = W.snap(slider_drag[drag_key], step, lo, hi)
+        slider_drag[drag_key] = nil
+        if nv ~= committed then v = nv; changed = true end
     end
     after_item(ui, win, id, sfocused)
     local dir = focus.take_adjust(win, id)
     if dir then
+        slider_drag[drag_key] = nil
         local nv = W.snap(v + dir * step, step, lo, hi)
         if nv ~= v then v = nv; changed = true end
     end
     if srect then
         pcall(W.draw_slider, imgui, srect, (v - lo) / math.max(1e-9, hi - lo), s_hov or s_act or sfocused)
+    end
+    -- －／＋（マウスの細かい調整。パッドはスライダー上の左右で同じ刻み）
+    imgui.SameLine()
+    local tip_minus, tip_plus
+    if ui.t then
+        tip_minus = ui.t('settings.step_minus')
+        tip_plus = ui.t('settings.step_plus')
+        if tip_minus == 'settings.step_minus' then tip_minus = nil end
+        if tip_plus == 'settings.step_plus' then tip_plus = nil end
+    end
+    if W.button(ui, win, id .. '_minus', '－', {
+        small = true, no_focus = true, disabled = (v <= lo + 1e-9), tooltip = tip_minus,
+    }) then
+        slider_drag[drag_key] = nil
+        local nv = W.snap(v - step, step, lo, hi)
+        if nv ~= v then v = nv; changed = true end
+    end
+    imgui.SameLine()
+    if W.button(ui, win, id .. '_plus', '＋', {
+        small = true, no_focus = true, disabled = (v >= hi - 1e-9), tooltip = tip_plus,
+    }) then
+        slider_drag[drag_key] = nil
+        local nv = W.snap(v + step, step, lo, hi)
+        if nv ~= v then v = nv; changed = true end
     end
     imgui.SameLine()
     if yuna then

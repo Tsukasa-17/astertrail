@@ -35,7 +35,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.226',
+    VERSION = '1.1.234',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -90,6 +90,9 @@ local state = {
     missionm_closed_at = nil,
     pending_book = nil,       -- 次の tick で本を開く（'mission' / 'toggle'）
     menu_captured = false,    -- ゲームのメニューへの入力を止めている
+    book_hidden_for_menu = false, -- ゲームのメニューが開いている間、本を一時的に隠している（0.1.231〜）
+    book_keep_over_menu = false, -- メニューがすでに開いているときに本／設定を出した（0.1.233〜）。隠さない・入力を取る
+    menu_resume_active = nil, -- メニューが閉じたら戻す操作先（本・設定・トラッカーなど）
     chat_open = false,
     gameui_note = nil,        -- コンフィグのボタンの様子（設定画面に出す）
     last_zone = nil,
@@ -424,6 +427,7 @@ end
 local CODE_MSG = {
     read_only = 'msg.read_only', no_character = 'status.waiting', unknown_quest = 'msg.unknown_quest',
     unknown_step = 'msg.unknown_step', locked = 'msg.locked', pin_limit = 'msg.pin_limit',
+    unimplemented = 'msg.unimplemented',
     no_completion = 'msg.no_completion', not_pinned = 'msg.not_pinned', bad_state = 'msg.unknown_quest',
     not_accepted = 'msg.step_not_accepted',   -- 0.1.180〜：未受注のクエストの手順はチェックできない
 }
@@ -462,7 +466,12 @@ function app.request(action, qid, arg, confirmed)
         r = PR:decide_step(qid, arg)
         if r.ok and r.code == 'not_reachable' then r.code = 'ok' end
     elseif action == 'set_route' then r = PR:set_route(qid, arg)
-    elseif action == 'pin' then r = PR:pin(qid)
+    elseif action == 'pin' then
+        if require('src.ui.book').is_marked_unimplemented(S, qid) then
+            r = { ok = false, code = 'unimplemented' }
+        else
+            r = PR:pin(qid)
+        end
     elseif action == 'unpin' then r = PR:unpin(qid)
     elseif action == 'move_pin' then r = PR:move_pin(qid, arg)
     elseif action == 'lock' then r = PR:lock(qid, true)
@@ -565,6 +574,17 @@ function app.open_window(name, from)
         end
         -- 本には右側に詳細があるので、詳細だけの窓は閉じる（二つ並べない）
         if state.open.detail then state.open.detail = false; state.confirm = nil end
+        -- ゲームのメニューがすでに開いているときに出した本は隠さない（メインメニューの項目など。0.1.233〜）。
+        -- 先に本が出ていて、そのあとメニューを開いたときだけ隠す（0.1.231）。
+        if state.game_menu_open == true then
+            local was_hidden = state.book_hidden_for_menu == true
+            state.book_hidden_for_menu = false
+            state.book_keep_over_menu = true
+            if was_hidden then
+                window.reapply('book')
+                state.book_restore_scroll = true
+            end
+        end
     end
     app.activate(name)
 end
@@ -572,6 +592,14 @@ end
 function app.close_window(name)
     -- 本を閉じるときは、中に出していた設定も閉じる
     if name == 'book' and state.open.settings then app.close_window('settings') end
+    if name == 'book' then
+        -- メニューが開いているあいだに本を閉じたら、メニューを閉じても出さない（0.1.231〜）
+        state.book_hidden_for_menu = false
+        state.book_keep_over_menu = false
+        if state.menu_resume_active == 'book' or state.menu_resume_active == 'settings' then
+            state.menu_resume_active = nil
+        end
+    end
     -- 本から開いた詳細だけを閉じるときは、本に戻る（トラッカーから開いたときは戻さない）
     local reopen_qid = nil
     if name == 'detail' and state.detail_return_book and state.detail_quest then
@@ -626,6 +654,12 @@ function app.close_all()
     state.resume = nil
     state.map, state.map_from = nil, nil
     state.stack = {}
+    -- メニューが開いているあいだに自分で閉じたら、メニューを閉じても本は出さない（0.1.231〜）
+    state.book_hidden_for_menu = false
+    state.book_keep_over_menu = false
+    if state.menu_resume_active == 'book' or state.menu_resume_active == 'settings' then
+        state.menu_resume_active = nil
+    end
     app.release()
 end
 
@@ -793,6 +827,15 @@ function app.activate(name)
     -- 設定は本の中に出す（0.1.175〜）。設定を出している本を押したら、操作は設定のまま
     if name == 'book' and state.open.settings and state.open.book then name = 'settings' end
     if OPERABLE[name] then
+        -- ゲームのメニューが開いているあいだは操作を始めない（入力をゲームに渡す。0.1.231〜）。
+        -- メニューの上に本を出しているときは操作する（0.1.233〜）。
+        if state.game_menu_open == true and state.book_keep_over_menu ~= true then
+            state.menu_resume_active = name
+            state.active = nil
+            state.held = nil
+            app.sync_capture()
+            return
+        end
         state.active = name
         if STACKABLE[name] then
             stack_remove(name)
@@ -818,8 +861,19 @@ function app.operating()
     return state.open[a] == true
 end
 
+-- 本を画面に出すか（開いていて、ゲームのメニューのせいで隠していない。0.1.231〜）
+function app.book_visible()
+    return state.open.book == true and state.book_hidden_for_menu ~= true
+end
+
+-- ゲームのメニューに入力を渡すか（本をメニューの上に出しているときは渡さない。0.1.233〜）
+function app.menu_takes_input()
+    return state.game_menu_open == true and state.book_keep_over_menu ~= true
+end
+
 -- platform から：キーを受け取りたいか（操作中で、文字入力中でない）
 function app.want_keys()
+    if app.menu_takes_input() then return false end
     return app.operating() and not state.text_active and not state.chat_open
 end
 
@@ -834,6 +888,9 @@ end
 -- お知らせが出ている間は、遊んでいるときでも十字キー・スティックと決定・キャンセルで選べる（0.1.197〜）
 function app.want_pad()
     if not (S and S.input and S.input.gamepad == true) or state.text_active or state.chat_open then return false end
+    -- ゲームのメニューが開いているあいだは、パッドをゲームに渡す（0.1.231〜）。
+    -- メニューの上に本を出しているときは本へ（0.1.233〜）。
+    if app.menu_takes_input() then return false end
     return app.operating() or app.popup_visible()
 end
 
@@ -1731,8 +1788,16 @@ app.roe_name = roe_name
 function app.roe_mark_failed(id, why)
     id = tonumber(id)
     if not id or id < 1 or id > 4095 or not S or not S.eminence then return end
-    S.eminence.failed[tostring(id)] = { why = why, at = util.iso_time() }
-    app.mark_settings_dirty()
+    S.eminence.failed = S.eminence.failed or {}
+    local key = tostring(id)
+    local cur = S.eminence.failed[key]
+    -- 未実装のほうが具体的。742 が後から来ても not_impl をunableで上書きしない（742 のお知らせ自体は残す）
+    if cur and cur.why == 'not_impl' and why == 'unable' then
+        -- answered_at だけ下で付ける
+    else
+        S.eminence.failed[key] = { why = why, at = util.iso_time() }
+        app.mark_settings_dirty()
+    end
     -- 断られたのも答え：少し後に押せるようにする（すぐ消すと連打でまた送る。0.1.178〜）
     local s = state.roe.sent[id]
     if s and not s.answered_at then s.answered_at = state.now end
@@ -1740,8 +1805,18 @@ function app.roe_mark_failed(id, why)
 end
 
 function app.roe_failed(id)
-    local f = S and S.eminence and S.eminence.failed
-    return f and f[tostring(id)] or nil
+    id = tonumber(id)
+    if not id then return nil end
+    local key = tostring(id)
+    local E = S and S.eminence
+    local f = E and E.failed
+    if f and f[key] then return f[key] end
+    -- サーバーが受け付けたことがあれば、既知の未実装リストは使わない
+    if E and E.impl_ok and E.impl_ok[key] then return nil end
+    if roe_mod.is_known_unimplemented and roe_mod.is_known_unimplemented(id) then
+        return { why = 'not_impl' }
+    end
+    return nil
 end
 
 -- いまの時刻（秒）。日・週で替わる目標の組を進めるのに使う（テストで差し替える）
@@ -1825,8 +1900,11 @@ function app.on_roe_packet(id, data)
         if kind == 'unable' then
             local s = r.sent[rid]
             -- 日・週で替わる目標は「受けられなかった」を覚えない（次の日・週には受けられる）。わけを名前つきで出す（0.1.224〜）
+            -- 未実装（既知、またはチャットで覚えた）も unable では上書きしない。742 のお知らせは出す。
             if roe_mod.is_rotating(rid) then
                 diag.log('roe', 'unable (rotating) ' .. tostring(rid))
+            elseif app.roe_failed(rid) and app.roe_failed(rid).why == 'not_impl' then
+                diag.log('roe', 'unable (not_impl) ' .. tostring(rid))
             else
                 app.roe_mark_failed(rid, 'unable')
             end
@@ -1836,8 +1914,15 @@ function app.on_roe_packet(id, data)
                     { name = roe_name(rid) }))
             end
         elseif kind == 'start' then
-            local f = S and S.eminence and S.eminence.failed
-            if f and f[tostring(rid)] then f[tostring(rid)] = nil; app.mark_settings_dirty() end
+            local E = S and S.eminence
+            local f = E and E.failed
+            local changed = false
+            if f and f[tostring(rid)] then f[tostring(rid)] = nil; changed = true end
+            if E then
+                E.impl_ok = E.impl_ok or {}
+                if not E.impl_ok[tostring(rid)] then E.impl_ok[tostring(rid)] = true; changed = true end
+            end
+            if changed then app.mark_settings_dirty() end
         end
     end
 end
@@ -1888,6 +1973,9 @@ function app.roe_can(op, id)
     local e = app.roe_active_entry(id)
     if op == 'start' then
         if e then return false, 'already' end
+        -- 未実装（0.1.228〜：3055〜3060 と、チャットで覚えた番号）
+        local failed = app.roe_failed(id)
+        if failed and failed.why == 'not_impl' then return false, 'not_impl' end
         -- 日・週で替わる目標・期間限定（0.1.224〜、t496）
         local rot = app.roe_rotation(id)
         if rot then return false, rot end
@@ -2233,6 +2321,7 @@ end
 function app.sync_capture()
     if not P or not P.menu_capture or not S then return end
     local want = S.gameui.capture == true and app.operating() and not state.text_active and not state.chat_open
+        and not app.menu_takes_input()
     if want ~= state.menu_captured then
         pcall(P.menu_capture, want)
         state.menu_captured = want
@@ -2248,18 +2337,78 @@ app.GAME_MENU_EVERY = 0.1
 function app.tick_game_menus()
     if not (P and P.game_menu_state and S) then return end
     local now = state.now or 0
-    if state.gm_due and now < state.gm_due then return end
-    state.gm_due = now + app.GAME_MENU_EVERY
-    local open, info = P.game_menu_state()
-    state.game_menu_open, state.game_menu_info = open, info
-    local want = S.gameui.menus_on_top ~= false and open == true
-    -- 0.1.189〜（t315）：メニューの窓と重なるこちらの窓は、その間だけ引っ込める（透明・マウスを通す）。
-    -- game_on_top は貼り直す窓が 8 つまでで、チャット欄・ヘルプの行などで埋まると、メニューが後ろに残るため
-    state.game_menu_rects = (want and type(info) == 'table' and type(info.rects) == 'table' and #info.rects > 0) and info.rects or nil
-    if want ~= (state.game_on_top == true) then
-        local ok = P.set_game_on_top and P.set_game_on_top(want)
-        state.game_on_top = want and ok and true or false
-        if not want then state.game_on_top = false end
+    -- 窓の一覧を読むのは 0.1 秒に 1 回。隠す・入力を返す判断は毎フレーム
+    -- （先に出ていた本はすぐ隠す。メニューの上から出した本は隠さない。0.1.233〜）
+    if not (state.gm_due and now < state.gm_due) then
+        state.gm_due = now + app.GAME_MENU_EVERY
+        local open, info = P.game_menu_state()
+        state.game_menu_open, state.game_menu_info = open, info
+        local want = S.gameui.menus_on_top ~= false and open == true
+        -- 0.1.189〜（t315）：メニューの窓と重なるこちらの窓は、その間だけ引っ込める（透明・マウスを通す）。
+        -- game_on_top は貼り直す窓が 8 つまでで、チャット欄・ヘルプの行などで埋まると、メニューが後ろに残るため
+        state.game_menu_rects = (want and type(info) == 'table' and type(info.rects) == 'table' and #info.rects > 0) and info.rects or nil
+        if want ~= (state.game_on_top == true) then
+            local ok = P.set_game_on_top and P.set_game_on_top(want)
+            state.game_on_top = want and ok and true or false
+            if not want then state.game_on_top = false end
+        end
+    end
+    app.sync_menu_suspend()
+end
+
+--[[ ゲームのメニューが開いているあいだ、本を隠して入力をゲームに渡す（0.1.231〜）。
+  本は閉じない（開いている印はそのまま）。タブ・見出し・選んでいる行・一覧の位置・窓の大きさは残る。
+  メニューを閉じたら本を出し、隠す前に操作していた窓（本・設定・トラッカーなど）の操作に戻す。
+  メニューが開いているあいだに本を自分で閉じたら、メニューを閉じても出さない。
+  トラッカーは出しておく（重なっていれば 0.1.189 どおり透明）。操作中なら入力だけゲームに渡す。
+  0.1.233〜：メニューがすでに開いているときに本や設定を出したときは隠さず、操作も渡す
+  （メインメニューの「ミッション」や設定の項目から出したとき）。 ]]
+function app.sync_menu_suspend()
+    local menu = state.game_menu_open == true
+    if menu then
+        if state.book_keep_over_menu then
+            return
+        end
+        if state.open.book and not state.book_hidden_for_menu then
+            state.book_hidden_for_menu = true
+        end
+        if app.operating() then
+            if state.active and state.menu_resume_active == nil then
+                state.menu_resume_active = state.active
+            end
+            app.release()
+        end
+        return
+    end
+    local resume = state.menu_resume_active
+    state.menu_resume_active = nil
+    state.book_keep_over_menu = false
+    if state.book_hidden_for_menu then
+        state.book_hidden_for_menu = false
+        if state.open.book then
+            -- 描いていなかった間に ImGui が窓を忘れるので、保存してある位置・大きさで出し直す（大きさを変えたりはしない）
+            window.reapply('book')
+            state.book_restore_scroll = true
+        end
+    end
+    if resume then app.resume_after_menu(resume) end
+end
+
+function app.resume_after_menu(name)
+    if name == 'book' or name == 'settings' then
+        if state.open.book then app.activate(name) end
+    elseif name == 'tracker' then
+        if app.tracker_on() then app.activate('tracker') end
+    elseif name == 'popup' then
+        if app.popup_visible() then app.activate('popup') end
+    elseif name == 'compass' then
+        if S and S.compass and S.compass.visible then app.activate('compass') end
+    elseif name == 'map' then
+        if state.open.map then app.activate('map') end
+    elseif name == 'detail' then
+        if state.open.detail then app.activate('detail') end
+    elseif name == 'resume' then
+        if state.resume then app.activate('resume') end
     end
 end
 
@@ -2268,6 +2417,9 @@ function app.release_gameui()
     state.game_on_top = false
     state.game_menu_rects = nil
     state.pending_book = nil
+    state.book_hidden_for_menu = false
+    state.book_keep_over_menu = false
+    state.menu_resume_active = nil
     if P and P.release_gameui then pcall(P.release_gameui) end
 end
 
@@ -2478,7 +2630,7 @@ local function make_ui(imgui)
             W.colored(ui, 'warn', T('status.read_only.' .. state.read_only))
         end
         if state.recovered then W.colored(ui, 'warn', T('status.recovered', { src = state.recovered })) end
-        if state.flash then W.colored(ui, 'good', state.flash.text) end
+        -- 緑色の短い案内は窓の見出しの帯へ移した（0.1.233〜）。ここでは出さない（中身がずれないように）。
     end
     return ui
 end
@@ -2546,7 +2698,7 @@ function app.present()
 
     if S.entry_icon.visible and not state.open.book then guarded(screens.entry.draw, ui) end
     if screens.tracker.visible(ui) then guarded(screens.tracker.draw, ui) end
-    if state.open.book then guarded(screens.book.draw, ui) end
+    if app.book_visible() then guarded(screens.book.draw, ui) end
     if state.open.detail then guarded(screens.detail.draw, ui) end
     if state.open.map then guarded(screens.map_view.draw, ui) end
     if state.ready and S.eminence.visible then guarded(screens.eminence.draw, ui) end

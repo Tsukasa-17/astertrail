@@ -7,7 +7,7 @@ local maps = require('src.core.maps')
 local marks = require('src.core.marks')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
-eq(app.VERSION, '1.1.226', 'version 1.1.226')
+eq(app.VERSION, '1.1.234', 'version 1.1.234')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 local D = app._data()
 eq(D.version, '2026.11.17-124', 'data version')
@@ -142,7 +142,7 @@ for _, qq in ipairs(D.quests) do
         if st2.location and st2.location.pos and has(st2.next_line_ja, 'テンキー') then left = left + 1 end
     end
 end
-eq(left, 1, 'only the other-place numpad (Batallia entrance) is left in a line')
+eq(left, 0, 'Eldieme step no longer has a single pos (0.1.230 candidates); Batallia numpad text is still kept')
 check(has(D:step('quest.windurst.030#g02').next_line_ja, 'バタリア丘陵(H-7)テンキー2の入口'), 'other place kept')
 -- そのまま：動く相手の説明・ロランベリー耕地の ???
 check(has(D:step('mission.tvr.010#g03').text_ja, 'G-7とH-7のあいだの道'), 'moving NPC note kept')

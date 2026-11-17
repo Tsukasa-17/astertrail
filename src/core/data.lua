@@ -65,6 +65,7 @@ function data.load(fs, base)
         end
     end
     self:_apply_guides()
+    self:_fill_listed_talk_targets()
     self:_load_game_refs(fs, base)
     self:_load_item_refs(fs, base)
     self:_load_exits(fs, base)
@@ -463,5 +464,258 @@ function data:has_needs(q)
     end
     return false
 end
+
+---------------------------------------------------------------------------
+-- 手順の文に並んだ複数の話し相手（0.1.228〜）
+-- 例：山猫の誘惑 手順2「Kaede(J-5)・Paujean(F-6)・…」
+-- 既存の NPC データと、LSB 由来の正確な座標があるものだけ使う。分からないものは出さない。
+---------------------------------------------------------------------------
+
+local function target_has_pos(t)
+    local loc = t and t.location
+    local pos = loc and loc.pos
+    return loc and loc.zone_id and pos and pos.x ~= nil and pos.y ~= nil
+end
+
+local function target_en_name(t)
+    if not t then return nil end
+    if type(t.name_en) == 'string' and t.name_en ~= '' then return t.name_en end
+    local id = tostring(t.id or '')
+    local last = id:match('%.([^%.]+)$') or id
+    if last == '' then return nil end
+    return (last:gsub('_', ' '))
+end
+
+-- マスの直前にある英語名（Kaede、Patient Wheel、Three of Clubs）。Lua のパターンに非キャプチャは使えない。
+local function trailing_english_name(pre)
+    if type(pre) ~= 'string' then return nil end
+    local s = pre:gsub('%s+$', '')
+    local words = {}
+    while s ~= '' do
+        local rest, word = s:match("^(.-)%s+([A-Za-z'%.%-]+)$")
+        if not word then
+            word = s:match("([A-Za-z'%.%-]+)$")
+            rest = word and s:sub(1, #s - #word) or nil
+            if rest then rest = rest:gsub('%s+$', '') end
+        end
+        if not word then break end
+        table.insert(words, 1, word)
+        s = rest or ''
+        if s == '' or not s:match("[A-Za-z'%.%-]$") then break end
+    end
+    while #words > 0 and not words[1]:match('^[A-Z]') do
+        table.remove(words, 1)
+    end
+    if #words == 0 then return nil end
+    return table.concat(words, ' ')
+end
+
+-- 文から Name(マス) を拾う（英語名のみ。推測しない）。
+-- Three of Clubs のような短い小文字のつなぎや、(E-7 民家裏) のようなマスのあとの注記も拾う。
+function data.parse_listed_names(text)
+    local out, seen = {}, {}
+    if type(text) ~= 'string' or text == '' then return out end
+    local i = 1
+    while i <= #text do
+        local a, b, col, row = text:find('%(([A-P])%s*%-%s*(%d%d?)[^%)]*%)', i)
+        if not a then
+            a, b, col, row = text:find('（([A-P])%s*%-%s*(%d%d?)[^）]*）', i)
+        end
+        if not a then break end
+        local pre = text:sub(1, a - 1)
+        local name = trailing_english_name(pre)
+        if name and not seen[name] then
+            seen[name] = true
+            out[#out + 1] = { name = name, grid = col .. '-' .. tonumber(row) }
+        end
+        i = b + 1
+    end
+    return out
+end
+
+function data:_talk_index()
+    -- 頭上の印・足元の輪用。座標が無くても、名前が一つに決まる相手は載せる（地図のピンは座標があるものだけ）。
+    if self._talk_by_name then return self._talk_by_name end
+    local idx = {}
+    for _, t in pairs(self.targets or {}) do
+        local n = target_en_name(t)
+        if n then
+            local k = util.lower(n)
+            local list = idx[k]
+            if not list then list = {}; idx[k] = list end
+            list[#list + 1] = t
+        end
+    end
+    self._talk_by_name = idx
+    return idx
+end
+
+local function is_zoned_id(id)
+    -- npc.236.Kaede / obj.236.Patient_Wheel
+    local mid = tostring(id or ''):match('^[^%.]+%.([^%.]+)%.')
+    return mid ~= nil and tonumber(mid) ~= nil
+end
+
+local function loc_zone(t)
+    return t and t.location and tonumber(t.location.zone_id) or nil
+end
+
+local function loc_grid(t)
+    return t and t.location and t.location.grid or nil
+end
+
+-- 名前＋マス＋手順のゾーンで、既存データのうち一つに決まるものだけ返す（推測しない）。
+-- ほかのゾーンの同名は使わない。座標が無くても、印のためには返す（ピンは呼び出し側で座標を見る）。
+function data:resolve_talk_name(name, grid, zone_id)
+    if type(name) ~= 'string' or name == '' then return nil end
+    local list = self:_talk_index()[util.lower(name)]
+    if not list or #list == 0 then return nil end
+    local cands = list
+    zone_id = tonumber(zone_id)
+    if zone_id then
+        local z, unzoned = {}, {}
+        for _, t in ipairs(cands) do
+            local zid = loc_zone(t)
+            if zid == zone_id then
+                z[#z + 1] = t
+            elseif not zid then
+                unzoned[#unzoned + 1] = t
+            end
+        end
+        if #z > 0 then cands = z else cands = unzoned end
+    end
+    if type(grid) == 'string' and grid ~= '' then
+        local g = {}
+        for _, t in ipairs(cands) do
+            if loc_grid(t) == grid then g[#g + 1] = t end
+        end
+        if #g > 0 then cands = g end
+    end
+    local zoned = {}
+    for _, t in ipairs(cands) do
+        if is_zoned_id(t.id) then zoned[#zoned + 1] = t end
+    end
+    if #zoned > 0 then cands = zoned end
+    -- 同じゾーンに座標ありとなしがあるときは、座標があるほうを優先（ピンと印を揃える）
+    local with_pos = {}
+    for _, t in ipairs(cands) do
+        if target_has_pos(t) then with_pos[#with_pos + 1] = t end
+    end
+    if #with_pos > 0 then cands = with_pos end
+    local uniq, n = {}, 0
+    for _, t in ipairs(cands) do
+        if not uniq[t.id] then uniq[t.id] = t; n = n + 1 end
+    end
+    if n ~= 1 then return nil end
+    for _, t in pairs(uniq) do return t end
+end
+
+-- 手順に書かれた話し相手（主対象＋ extra_targets ＋文から解決できたもの）。座標がある id だけ。
+function data:listed_talk_targets(step)
+    if not step then return {} end
+    local out, seen = {}, {}
+    local function add(id)
+        if not id or seen[id] then return end
+        local t = self:target(id)
+        if t and target_has_pos(t) then
+            seen[id] = true
+            out[#out + 1] = id
+        end
+    end
+    add(step.target)
+    for _, id in ipairs(type(step.extra_targets) == 'table' and step.extra_targets or {}) do
+        add(id)
+    end
+    local zone = step.location and step.location.zone_id
+    local names = {}
+    for _, text in ipairs({ step.text_ja or '', step.next_line_ja or '' }) do
+        for _, e in ipairs(data.parse_listed_names(text)) do
+            names[#names + 1] = e
+        end
+    end
+    if #names >= 2 or (#names >= 1 and (step.extra_targets and #step.extra_targets > 0 or step.target)) then
+        for _, e in ipairs(names) do
+            local t = self:resolve_talk_name(e.name, e.grid, zone)
+            if t then add(t.id) end
+        end
+    end
+    return out
+end
+
+function data:_fill_listed_talk_targets()
+    -- resolved: 印用（座標なしでも一意に決まった相手）。resolved_pos: 地図のピン用（正確な LSB 座標あり）。
+    self._talk_fill = { steps = 0, listed = 0, resolved = 0, resolved_pos = 0, added = 0,
+        steps_multi_marks = 0, steps_multi_pins = 0, by_quest = {} }
+    for _, q in ipairs(self.quests or {}) do
+        for _, s in ipairs(q.steps or {}) do
+            local typ = s.type
+            local names = {}
+            local seen = {}
+            for _, text in ipairs({ s.text_ja or '', s.next_line_ja or '' }) do
+                for _, e in ipairs(data.parse_listed_names(text)) do
+                    if not seen[e.name] then seen[e.name] = true; names[#names + 1] = e end
+                end
+            end
+            local talkish = typ == 'talk' or typ == 'trade' or typ == 'examine'
+            if talkish and #names >= 2 then
+                self._talk_fill.steps = self._talk_fill.steps + 1
+                self._talk_fill.listed = self._talk_fill.listed + #names
+                local zone = s.location and s.location.zone_id
+                local extra = type(s.extra_targets) == 'table' and s.extra_targets or {}
+                local have = { [s.target or ''] = true }
+                local have_names = {}
+                local function remember(id)
+                    if not id then return end
+                    have[id] = true
+                    local tg = self:target(id)
+                    local n = target_en_name(tg)
+                    if n then have_names[util.lower(n)] = true end
+                end
+                remember(s.target)
+                for _, id in ipairs(extra) do remember(id) end
+                for _, e in ipairs(names) do
+                    local t = self:resolve_talk_name(e.name, e.grid, zone)
+                    if t then
+                        self._talk_fill.resolved = self._talk_fill.resolved + 1
+                        if target_has_pos(t) then self._talk_fill.resolved_pos = self._talk_fill.resolved_pos + 1 end
+                        local nk = util.lower(target_en_name(t) or '')
+                        -- 同じ英語名が既にあるときは足さない（主対象の短い id とゾーン付き id の二重登録を防ぐ）
+                        if not have[t.id] and (nk == '' or not have_names[nk]) then
+                            extra[#extra + 1] = t.id
+                            remember(t.id)
+                            self._talk_fill.added = self._talk_fill.added + 1
+                        end
+                    end
+                end
+                if #extra > 0 then s.extra_targets = extra end
+                -- 印の対象（主対象＋ extra。座標なしでも名前が分かれば印と輪に使う）
+                local mark_ids, pin_ids, seen_m = {}, {}, {}
+                local function add_mark(id)
+                    if not id or seen_m[id] then return end
+                    local tg = self:target(id)
+                    if not tg then return end
+                    seen_m[id] = true
+                    mark_ids[#mark_ids + 1] = id
+                    if target_has_pos(tg) then pin_ids[#pin_ids + 1] = id end
+                end
+                add_mark(s.target)
+                for _, id in ipairs(s.extra_targets or {}) do add_mark(id) end
+                if #mark_ids >= 2 then
+                    self._talk_fill.steps_multi_marks = self._talk_fill.steps_multi_marks + 1
+                end
+                if #pin_ids >= 2 then
+                    self._talk_fill.steps_multi_pins = self._talk_fill.steps_multi_pins + 1
+                end
+                local rec = {
+                    quest = q.id, step = s.id, category = q.category,
+                    name_ja = q.name_ja_ref or q.name_ja, name_en = q.name_en,
+                    listed = #names, marks = #mark_ids, pins = #pin_ids,
+                }
+                self._talk_fill.by_quest[#self._talk_fill.by_quest + 1] = rec
+            end
+        end
+    end
+end
+
 
 return data

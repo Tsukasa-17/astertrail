@@ -871,4 +871,66 @@ do
     check(labeled('##roesel_12') and labeled('##roesel_215'), 'すべて shows both')
     app.close_window('book'); frame()
 end
+
+-- 0.1.228〜：3055〜3060 は最初から未実装。チャットで覚えた番号も同じ。742 はお知らせだけ残す。
+do
+    eq(roe.is_known_unimplemented(3055) and roe.is_known_unimplemented(3060), true, 'face A-F known unimplemented')
+    check(not roe.is_known_unimplemented(3054) and not roe.is_known_unimplemented(3061), 'gap and after are not known')
+    -- 保存が空でも未実装
+    S.eminence.failed['3055'] = nil
+    S.eminence.impl_ok = {}
+    eq(app.roe_failed(3055).why, 'not_impl', '3055 grey without a saved mark')
+    eq(select(2, app.roe_can('start', 3055)), 'not_impl', 'accept disabled for 3055')
+    eq(select(2, app.roe_can('start', 3058)), 'not_impl', 'accept disabled for face D')
+    -- チャットで別の番号を覚える
+    FAKE.events.text_in({ message = 'The record #3099 is not implemented at this time.', mode = 9 })
+    eq(app.roe_failed(3099).why, 'not_impl', 'chat remembers a new id')
+    eq(select(2, app.roe_can('start', 3099)), 'not_impl', 'remembered id is also disabled')
+    -- 742 が来ても not_impl を消さない（お知らせは出す）
+    st.roe.last_send = { op = 'start', id = 3055, at = st.now }
+    FAKE.events.packet_in({ id = 0x029, data = msg_packet(742, 3055) })
+    eq(app.roe_failed(3055).why, 'not_impl', '742 does not overwrite not_impl')
+    check(st.flash and st.flash.text and st.flash.text ~= '', '742 flash is kept')
+    -- 本に［未実装］と押せない受ける
+    app.open_window('book')
+    S.book.tab = 'eminence'
+    S.eminence.book_show = { accepted = true, not_accepted = true, completed = true }
+    S.eminence.book_text = ''; require('src.ui.eminence').reset_search()
+    S.book.last_heading = S.book.last_heading or {}
+    S.book.last_heading.eminence = 'all'
+    local n0 = #INJ
+    FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    check(texted('［未実装］') or texted('[Not on this server]'), '未実装 tag on the list')
+    check(labeled('##roe_start_3055'), 'accept button still drawn (disabled)')
+    FAKE.clicks['##roe_start_3055'] = true; frame()
+    eq(#INJ, n0, 'disabled accept sends nothing')
+    -- 受けられたら既知の未実装は外す
+    FAKE.events.packet_in({ id = 0x029, data = msg_packet(704, 3055) })
+    eq(app.roe_failed(3055), nil, 'successful start clears known unimplemented')
+    eq(S.eminence.impl_ok['3055'], true, 'impl_ok remembered')
+    -- マウスはクリックしたときだけ詳細を動かす。キー・パッドは移ったときに動かす。
+    local em = require('src.ui.eminence')
+    local focus = require('src.ui.focus')
+    em.select(12); FAKE.labels, FAKE.texts = {}, {}; frame(); frame()
+    eq(em.selected(), 12, 'detail starts at #12')
+    focus.set('book', 'roesel_215', false, 'hover')
+    frame(); frame()
+    eq(em.selected(), 12, 'hover does not change eminence detail')
+    focus.set('book', 'roesel_215', false, 'nav')
+    frame(); frame()
+    eq(em.selected(), 215, 'nav changes eminence detail')
+    em.select(12); frame()
+    FAKE.clicks['##roesel_215'] = true; frame(); frame()
+    eq(em.selected(), 215, 'click changes eminence detail')
+    -- 見出しにフォーカスしても詳細は行のまま
+    local kept = em.selected()
+    focus.set('book', 'sec_0xF210', false, 'nav')
+    frame(); frame()
+    eq(em.selected(), kept, 'heading does not change eminence detail')
+    app.close_window('book'); frame()
+    -- あとのテストのために戻す
+    S.eminence.impl_ok['3055'] = nil
+    S.eminence.failed['3055'] = { why = 'not_impl' }
+end
+
 print('test_eminence ok')

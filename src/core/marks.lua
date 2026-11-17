@@ -653,9 +653,13 @@ function marks.add_extra_targets(data, q, step, icon, add, with_icon)
     for _, tid in ipairs(step.extra_targets) do
         local tg = data:target(tid)
         local role = tg and role_of(step, tg)
+        -- 手順の場所は、相手にゾーンが無いときだけ使う（各地の Stone Monument などゾーンが違う相手は自分の場所のまま）
         local w = role and wanted_from_target(tg, role, q, nil)
         if w then
             w.step_id = step.id
+            if not w.zone_id and step.location and step.location.zone_id then
+                w.zone_id = step.location.zone_id
+            end
             add(with_icon and with_icon(w, icon) or w)
         end
     end

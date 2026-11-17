@@ -91,6 +91,89 @@ end
 function window._last_rect(name) return last_rect[name] end   -- 開発用
 function window._reset_yield() last_rect = {}; yielded = {} end   -- 開発用
 
+local ELLIPSIS = '…'
+
+local function parse_xy(a, b)
+    if type(a) == 'table' then
+        return tonumber(a.x or a[1]), tonumber(a.y or a[2])
+    end
+    return tonumber(a), tonumber(b)
+end
+
+local function text_size(imgui, text)
+    if not imgui or type(imgui.CalcTextSize) ~= 'function' then return nil, nil end
+    local ok, a, b = pcall(imgui.CalcTextSize, text)
+    if not ok then return nil, nil end
+    return parse_xy(a, b)
+end
+
+-- 1 行に収める。入りきらなければ末尾を「…」にする（折り返さない）
+function window.clip_line(imgui, text, max_w)
+    text = tostring(text or '')
+    max_w = tonumber(max_w) or 0
+    if text == '' or max_w <= 0 then return '', text ~= '' end
+    local w = text_size(imgui, text)
+    if not w or w <= max_w then return text, false end
+    local ew = text_size(imgui, ELLIPSIS) or 8
+    if ew >= max_w then return ELLIPSIS, true end
+    local budget = max_w - ew
+    local acc, aw = '', 0
+    for ch in text:gmatch('[%z\1-\127\194-\244][\128-\191]*') do
+        local cw = text_size(imgui, ch) or 0
+        if aw + cw > budget then break end
+        acc, aw = acc .. ch, aw + cw
+    end
+    if acc == '' then return ELLIPSIS, true end
+    return acc .. ELLIPSIS, true
+end
+
+-- 窓の見出しの帯に、緑色の短い案内をタイトルの右隣へ描く（0.1.233〜）。中身の行は動かない。
+function window.draw_title_flash(ui, title, px, py, sw, sh)
+    local flash = ui and ui.state and ui.state.flash
+    local text = flash and flash.text
+    if type(text) ~= 'string' or text == '' then return end
+    local imgui = ui.imgui
+    if not imgui then return end
+    px, py = parse_xy(px, py)
+    sw, sh = parse_xy(sw, sh)
+    if not (px and py and sw) then
+        local okp, a, b = pcall(function () return imgui.GetWindowPos() end)
+        if okp then px, py = parse_xy(a, b) end
+        local oks, c, d = pcall(function () return imgui.GetWindowSize() end)
+        if oks then sw, sh = parse_xy(c, d) end
+    end
+    if not (px and py and sw) then return end
+    local bar_h = 19
+    if imgui.GetFrameHeight then
+        local ok, v = pcall(imgui.GetFrameHeight)
+        v = ok and tonumber(v) or nil
+        if v and v > 0 then bar_h = v end
+    elseif imgui.GetFontSize then
+        local ok, v = pcall(imgui.GetFontSize)
+        v = ok and tonumber(v) or nil
+        if v and v > 0 then bar_h = v + 8 end
+    end
+    local pad = 8
+    local title_w = text_size(imgui, tostring(title or '')) or 0
+    local x = px + pad + title_w + 10
+    local right = px + sw - bar_h - pad
+    local max_w = right - x
+    if max_w < 8 then return end
+    local shown = window.clip_line(imgui, text, max_w)
+    if shown == '' then return end
+    local tw, th = text_size(imgui, shown)
+    th = th or 16
+    local y = py + math.max(0, (bar_h - th) / 2)
+    local okd, dl = pcall(imgui.GetWindowDrawList)
+    if not okd or not dl or not dl.AddText then return end
+    local col = theme.u32('good', 1)
+    pcall(function ()
+        if dl.PushClipRect then dl:PushClipRect({ x, py }, { right, py + bar_h }, true) end
+        dl:AddText({ x, y }, col, shown)
+        if dl.PopClipRect then dl:PopClipRect() end
+    end)
+end
+
 function window.begin(ui, name, opts)
     local imgui = ui.imgui
     local C = theme.C
@@ -226,6 +309,10 @@ function window.begin(ui, name, opts)
     local px, py = imgui.GetWindowPos()
     local sw, sh = imgui.GetWindowSize()
     if px and py and sw and sh then last_rect[name] = { x = px, y = py, w = sw, h = sh } end
+    -- 緑色の短い案内は見出しの帯へ（0.1.233〜）。本・設定・詳細・地図。タイトルの無い窓には出さない。
+    if drawing and not opts.no_title and not yield and (name == 'book' or name == 'settings' or name == 'detail' or name == 'map') then
+        window.draw_title_flash(ui, opts.title, px, py, sw, sh)
+    end
     -- ふわっと出る間は、ずらした位置を記憶しない（ずれたまま固まらないように）
     if anim and anim.lock_pos then
         -- 通すだけ

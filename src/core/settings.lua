@@ -68,7 +68,9 @@ function settings.defaults()
             -- 見出しの木の縦位置（0.1.208〜）
             tree_scroll = { mission = 0, quest = 0, eminence = 0 },
             -- 0.1.225〜：area・state は使わない（古い保存との互換で 'all' のまま残す）。show は「表示：」のチェック
-            filters = { area = 'all', state = 'all', text = '', show = { accepted = true, not_accepted = true, completed = true } },
+            filters = { area = 'all', state = 'all', text = '', show = { accepted = true, not_accepted = true, completed = true, unimplemented = true } },
+            -- 0.1.232〜：このサーバーでは未実装と手で付けた印（クエスト／ミッションの id → true）。キャラごとの設定に保存
+            unimplemented = json.object({}),
         },
         tracker = {
             visible = true,
@@ -93,9 +95,10 @@ function settings.defaults()
             near_pct = 80,          -- 達成間近の目安（目標の数の %）。50〜95
             pins = json.object({}), -- ピン { ["12"] = true }
             failed = json.object({}), -- 受けられない・まだ無いと言われた番号 { ["3055"] = { why = 'not_impl', at = ... } }
+            impl_ok = json.object({}), -- 未実装と分かっていた番号が、あとから受けられた { ["3055"] = true }
             book_root = -2,         -- 0.1.226〜：分類の選択はなくした（左の見出しの木で選ぶ）。古い保存との互換で -2 のまま残す
             book_state = 'all',     -- 0.1.226〜：状態の選択はなくした（古い保存との互換で 'all' のまま残す）
-            book_show = { accepted = true, not_accepted = true, completed = false },  -- 表示：受注中・未受注・達成。達成の初期はオフ（古い「達成済みを非表示」の初期オンに合わせる）
+            book_show = { accepted = true, not_accepted = true, completed = false, unimplemented = true },  -- 表示：受注中・未受注・達成・未実装。達成の初期はオフ。未実装の初期はオン（0.1.232〜）
             book_text = '',
             favs = json.object({}), -- お気に入り（0.1.182〜、本だけ。★ のピンとは別）{ ["12"] = true }
             book_favs_only = false, -- 本でお気に入りだけ出す（0.1.182〜。前の「★だけ」はなくした）
@@ -203,6 +206,16 @@ function settings.merge(loaded)
         if v == nil and area == 'list' then v = tonumber(loaded_fonts.book) end
         v = v or merged.font_scale
         merged.fonts[area] = util.clamp(math.floor(v * 100 + 0.5) / 100, lo, hi)
+    end
+    -- 0.1.234〜：トラッカーのタブの文字サイズ。まだ無い保存はトラッカーに追従（値は書かない）
+    do
+        local lo, hi = settings.font_range('tracker')
+        local v = tonumber(loaded_fonts.tracker_tabs)
+        if v ~= nil then
+            merged.fonts.tracker_tabs = util.clamp(math.floor(v * 100 + 0.5) / 100, lo, hi)
+        else
+            merged.fonts.tracker_tabs = nil
+        end
     end
     -- 0.1.192〜：一覧と詳細の境目をタブごと（ミッション・クエスト・エミネンス）に覚える。
     -- 前の共通の book.split は、3つ全部の初期値にする。無いタブだけそれを使う。窓の大きさは変えない。
@@ -345,18 +358,21 @@ function settings.merge(loaded)
                     hide = false
                 end
             end
-            local show = { accepted = true, not_accepted = true, completed = not hide }
+            local show = { accepted = true, not_accepted = true, completed = not hide, unimplemented = true }
             if raw and type(raw.book_show) == 'table' then
-                show = { accepted = true, not_accepted = true, completed = not hide }
+                show = { accepted = true, not_accepted = true, completed = not hide, unimplemented = true }
                 for k in pairs(show) do if raw.book_show[k] == false then show[k] = false end end
                 if raw.book_show.completed == true then show.completed = true end
                 if raw.book_show.completed == false then show.completed = false end
+                -- 未実装は新しい印。古い保存に無ければオン（今までの見え方のまま）
+                if raw.book_show.unimplemented == false then show.unimplemented = false end
+                if raw.book_show.unimplemented == true then show.unimplemented = true end
             elseif raw and raw.book_state == 'accepted' then
-                show = { accepted = true, not_accepted = false, completed = false }
+                show = { accepted = true, not_accepted = false, completed = false, unimplemented = true }
             elseif raw and raw.book_state == 'not_accepted' then
-                show = { accepted = false, not_accepted = true, completed = false }
+                show = { accepted = false, not_accepted = true, completed = false, unimplemented = true }
             elseif raw and raw.book_state == 'completed' then
-                show = { accepted = false, not_accepted = false, completed = true }
+                show = { accepted = false, not_accepted = false, completed = true, unimplemented = true }
             end
             E.book_show = show
             E.book_state = 'all'
@@ -399,6 +415,7 @@ function settings.merge(loaded)
             if not why then return nil end
             return { why = why, at = type(v.at) == 'string' and v.at or nil }
         end)
+        E.impl_ok = ids(E.impl_ok, function (v) return v and true or nil end)
     end
     if merged.tracker.view ~= 'list' and merged.tracker.view ~= 'tabs' then merged.tracker.view = 'list' end
     merged.tracker.show_close = merged.tracker.show_close ~= false
@@ -424,15 +441,31 @@ function settings.merge(loaded)
         local f = merged.book.filters
         local raw = type(loaded) == 'table' and type(loaded.book) == 'table' and type(loaded.book.filters) == 'table'
             and loaded.book.filters or nil
-        local show = { accepted = true, not_accepted = true, completed = true }
+        local show = { accepted = true, not_accepted = true, completed = true, unimplemented = true }
         if raw and type(raw.show) == 'table' then
             for k in pairs(show) do if raw.show[k] == false then show[k] = false end end
+            if raw.show.unimplemented == false then show.unimplemented = false end
+            if raw.show.unimplemented == true then show.unimplemented = true end
         elseif raw and (raw.state == 'accepted' or raw.state == 'not_accepted' or raw.state == 'completed') then
-            for k in pairs(show) do show[k] = (k == raw.state) end
+            for k in pairs(show) do
+                if k ~= 'unimplemented' then show[k] = (k == raw.state) end
+            end
+            show.unimplemented = true
         end
         f.show = show
         f.state = 'all'
         f.area = 'all'
+        -- 0.1.232〜：手で付けた未実装の印
+        local raw_u = type(loaded) == 'table' and type(loaded.book) == 'table' and loaded.book.unimplemented or nil
+        local u = json.object({})
+        if type(raw_u) == 'table' then
+            for k, v in pairs(raw_u) do
+                if v and type(k) == 'string' and (k:find('^quest%.', 1, false) or k:find('^mission%.', 1, false)) then
+                    u[k] = true
+                end
+            end
+        end
+        merged.book.unimplemented = u
     end
     if getmetatable(merged.notify.muted_zones) == nil then json.array(merged.notify.muted_zones) end
     -- 以前は予約で enabled=false のまま画面に出していなかった。
@@ -810,6 +843,16 @@ function settings.font_for(S, area)
     if area == 'list' then
         f = tonumber(fonts.book)
         if f then return math.max(settings.FONT_MIN, math.min(settings.LIST_FONT_MAX, f)) end
+    end
+    -- 0.1.234〜：タブの文字サイズ。未設定ならトラッカーの文字サイズに追従
+    if area == 'tracker_tabs' then
+        f = tonumber(fonts.tracker_tabs)
+        if f then
+            local lo, hi = settings.font_range('tracker')
+            if f < lo then f = lo elseif f > hi then f = hi end
+            return f
+        end
+        return settings.font_for(S, 'tracker')
     end
     return tonumber(S.font_scale) or 1.0
 end

@@ -3722,16 +3722,159 @@
       "id": "npc.149.Storage_Hole",
       "kind": "npc",
       "location": {
-        "grid": null,
-        "map": {
-          "kind": "single"
+          "candidates": [
+            {
+              "grid": "E-10",
+              "pos": {
+                "x": -177.925,
+                "y": -255.699,
+                "z": 4.0
+              }
+            },
+            {
+              "grid": "F-6",
+              "pos": {
+                "x": -127.703,
+                "y": 23.732,
+                "z": 4.25
+              }
+            },
+            {
+              "grid": "F-7",
+              "pos": {
+                "x": -127.822,
+                "y": -16.964,
+                "z": 4.25
+              }
+            },
+            {
+              "grid": "F-9",
+              "pos": {
+                "x": -123.369,
+                "y": -231.972,
+                "z": 4.0
+              }
+            },
+            {
+              "grid": "G-9",
+              "pos": {
+                "x": -51.57,
+                "y": -216.462,
+                "z": 4.127
+              }
+            },
+            {
+              "grid": "G-10",
+              "pos": {
+                "x": -55.96,
+                "y": -300.014,
+                "z": 2.958
+              }
+            },
+            {
+              "grid": "I-7",
+              "pos": {
+                "x": 152.311,
+                "y": -74.176,
+                "z": 4.0
+              }
+            },
+            {
+              "grid": "I-8",
+              "pos": {
+                "x": 153.514,
+                "y": -112.616,
+                "z": 4.25
+              }
+            },
+            {
+              "grid": "J-8",
+              "pos": {
+                "x": 188.988,
+                "y": -80.058,
+                "z": 4.0
+              }
+            },
+            {
+              "grid": "K-7",
+              "pos": {
+                "x": 318.694,
+                "y": -58.646,
+                "z": 0.001
+              }
+            },
+            {
+              "grid": "K-9",
+              "pos": {
+                "x": 299.717,
+                "y": -160.91,
+                "z": 0.001
+              }
+            },
+            {
+              "grid": "K-9",
+              "pos": {
+                "x": 274.849,
+                "y": -213.599,
+                "z": 4.162
+              }
+            },
+            {
+              "grid": "K-10",
+              "pos": {
+                "x": 250.809,
+                "y": -240.509,
+                "z": 4.0
+              }
+            },
+            {
+              "grid": "J-8",
+              "pos": {
+                "x": 219.474,
+                "y": -128.17,
+                "z": 3.75
+              }
+            },
+            {
+              "grid": "I-9",
+              "pos": {
+                "x": 86.749,
+                "y": -166.414,
+                "z": -5.166
+              }
+            }
+          ],
+          "grid": null,
+          "map": {
+            "kind": "single"
+          },
+          "zone_id": 149,
+          "zone_name": "ダボイ"
         },
-        "zone_id": 149,
-        "zone_name": "ダボイ"
-      },
-      "moves": false,
+      "location_sources": [
+          {
+            "checked": "2026-11-18",
+            "fact_ja": "ダボイの Storage Hole（id 17388026）はゲーム日が変わるたびに LSB の 15 か所へ移る。手順に一つの座標を書けなかったのは、決まった場所が無いため。候補は Zone.lua の座標（地図の換算でマス目を付けた）だけ。yaml の初期 at は日替わりの表に無いので候補に入れていません。",
+            "name": "LSB",
+            "urls": [
+              "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/scripts/zones/Davoi/Zone.lua",
+              "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/davoi/npcs.yaml"
+            ]
+          },
+          {
+            "checked": "2026-11-18",
+            "fact_ja": "Storage Hole にトレードするのは通常アイテム「ダボイ貯蔵庫のカギ」（DAT 番号 1103）。入手するのはだいじなもの「オーキシュ・ドライフード」（DAT 番号 196）。",
+            "name": "用語辞典",
+            "urls": [
+              "https://wiki.ffo.jp/html/8576.html",
+              "https://wiki.ffo.jp/html/3804.html"
+            ]
+          }
+        ],
+      "moves": true,
       "name_en": "Storage Hole",
-      "same_name": false
+      "same_name": false,
+      "server_id": 17388026
     },
     {
       "id": "npc.162.Yagudo_Abbot",

@@ -188,7 +188,15 @@ local function draw_overlay(dl, to_screen, box, pin, me, ov, mouse)
             add_exit_mark(dl, sx, sy, near)
         end
     end
-    if pin and not pin.off and pin.base_x ~= nil then
+    local qpins = ov.quest_pins
+    if qpins and #qpins > 0 then
+        for _, qp in ipairs(qpins) do
+            if qp and not qp.off and qp.base_x ~= nil then
+                local sx, sy = to_screen(qp.base_x, qp.base_y)
+                if sx then add_quest_mark(dl, sx, sy) end
+            end
+        end
+    elseif pin and not pin.off and pin.base_x ~= nil then
         local sx, sy = to_screen(pin.base_x, pin.base_y)
         if sx then add_quest_mark(dl, sx, sy) end
     end
@@ -562,6 +570,41 @@ function map_view.step_pin(ui, D, floor, loc, step, fixed_loc)
     return pin, cands
 end
 
+-- 手順に並んだ複数の話し相手のピン（0.1.228〜）。座標がある相手だけ。同じゾーンのもの。
+-- 見えていれば本当の座標、なければ資料の LSB 座標。
+function map_view.talk_pins(ui, D, floor, loc, step, fixed_loc)
+    local out = {}
+    if not floor or not loc or not step or fixed_loc then return out end
+    if not D or not D.listed_talk_targets then return out end
+    local ids = D:listed_talk_targets(step)
+    if #ids == 0 then return out end
+    for _, id in ipairs(ids) do
+        local tg = D:target(id)
+        local tloc = tg and tg.location
+        if tloc and tonumber(tloc.zone_id) == tonumber(loc.zone_id) then
+            local live = marks_ui.live_position and marks_ui.live_position(ui, loc.zone_id, id)
+            local x, y
+            if live and tonumber(live.x) and tonumber(live.y) then
+                x, y = tonumber(live.x), tonumber(live.y)
+            elseif tloc.pos and tloc.pos.x ~= nil and tloc.pos.y ~= nil then
+                x, y = tonumber(tloc.pos.x), tonumber(tloc.pos.y)
+            end
+            if x and y then
+                local bx, by = maps.world_px(floor, x, y)
+                if bx and bx >= 0 and by >= 0 and bx <= maps.BASE and by <= maps.BASE then
+                    out[#out + 1] = {
+                        x = bx, y = by, base_x = bx, base_y = by,
+                        kind = live and 'live' or 'data',
+                        grid = maps.grid_name(bx, by),
+                        target = id,
+                    }
+                end
+            end
+        end
+    end
+    return out
+end
+
 -- 近くにいる討伐の相手（0.1.171〜）。いまいるゾーンで、読み込まれている相手だけ。
 -- 名前が同じ・生きている・ターゲットできる（読めるときだけ見る）。0.5 秒ごとに探し直す。
 -- 戻り値: list（近い順。{ x, y, dist }）または nil, 理由（'other_zone' | 'no_platform'）
@@ -727,9 +770,15 @@ function map_view.draw(ui)
         end
 
         local pin, cands = map_view.step_pin(ui, D, floor, loc, step, info.loc)
+        local talk_pins = map_view.talk_pins(ui, D, floor, loc, step, info.loc)
         local on_dest = maps.dest_on_floor(floor, loc, #list)
         if pin and not on_dest then pin = nil end
         if cands and not on_dest then cands = nil end
+        if not on_dest then talk_pins = {} end
+        if #talk_pins > 0 then
+            pin = talk_pins[1]
+            cands = nil
+        end
         local me = maps.player_pin(floor, ui.player, loc)
         -- いまいる MAP が分かっていれば、ほかの MAP には菱形を出さない（分からなければこれまでどおり）
         local here_other = nil
@@ -745,7 +794,8 @@ function map_view.draw(ui)
 
         -- 地図の上の印（0.1.171〜）：自分の矢印と輪・出口・来たときに立つ位置・近くの討伐の相手
         local ov = { t = (ui.state and ui.state.now) or os.clock(), reduce = ui.reduce_motion,
-                     heading = ui.player and tonumber(ui.player.heading) or nil, exits = {}, cands = cands }
+                     heading = ui.player and tonumber(ui.player.heading) or nil, exits = {}, cands = cands,
+                     quest_pins = (#talk_pins > 0) and talk_pins or nil }
         local learned = learned_of(ui)
         local dat = dat_of(ui)
         local unplaced = 0

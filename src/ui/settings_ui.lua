@@ -151,6 +151,23 @@ function settings_ui.body(ui)
             if S.fonts[area] == nil then S.fonts[area] = settings_mod.font_for(S, area) end
             local lo, hi = settings_mod.font_range(area)
             stepper(ui, name, 'font_' .. area, t('settings.font_' .. area), S.fonts, area, 0.1, lo, hi, UNIT.pct, SEC, DEF.fonts[area])
+            -- 0.1.234〜：タブの文字の大きさ（トラッカーの文字サイズのすぐ下）。未設定はトラッカーに追従
+            if area == 'tracker' then
+                local lo_t, hi_t = settings_mod.font_range('tracker')
+                local follow = settings_mod.font_for(S, 'tracker')
+                local proxy = { v = S.fonts.tracker_tabs }
+                if proxy.v == nil then proxy.v = follow end
+                if stepper(ui, name, 'font_tracker_tabs', t('settings.font_tracker_tabs'), proxy, 'v',
+                    0.1, lo_t, hi_t, UNIT.pct, SEC, follow) then
+                    local nv = tonumber(proxy.v)
+                    if nv and math.abs(nv - follow) < 1e-6 then
+                        S.fonts.tracker_tabs = nil
+                    else
+                        S.fonts.tracker_tabs = nv
+                    end
+                    ui.mark_settings_dirty()
+                end
+            end
         end
         stepper(ui, name, 'font', t('settings.font_other'), S, 'font_scale', 0.1, settings_mod.FONT_MIN, settings_mod.FONT_MAX, UNIT.pct, SEC, DEF.font_scale)
         W.muted(ui, t('settings.font_note'))

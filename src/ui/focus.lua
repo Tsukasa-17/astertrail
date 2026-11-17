@@ -13,7 +13,7 @@ local focus = { windows = {} }
 local function W(win)
     local w = focus.windows[win]
     if not w then
-        w = { list = {}, building = nil, current = nil, scroll_to = nil, activate = nil }
+        w = { list = {}, building = nil, current = nil, scroll_to = nil, activate = nil, set_why = nil }
         focus.windows[win] = w
     end
     return w
@@ -44,9 +44,66 @@ function focus.item(win, id, section, row, adjust)
     return w.current == id, activated
 end
 
+-- 受ける↔解除のように、同じ行のボタンの id が入れ替わったとき用
+local function counterpart_id(id)
+    id = tostring(id or '')
+    if id:find('_start_', 1, true) then return (id:gsub('_start_', '_remove_', 1)) end
+    if id:find('_remove_', 1, true) then return (id:gsub('_remove_', '_start_', 1)) end
+    return nil
+end
+
+local function first_of_row(list, section, row)
+    for _, it in ipairs(list or {}) do
+        if it.section == section and it.row == row then return it.id end
+    end
+    return nil
+end
+
+local function pick_same_row(list, old_id, section, row)
+    local alt = counterpart_id(old_id)
+    if alt then
+        for _, it in ipairs(list or {}) do
+            if it.id == alt then return alt end
+        end
+    end
+    return first_of_row(list, section, row)
+end
+
+-- 同じ区画で、消えた行のいちばん近い行（前の並びで後ろを優先、無ければ前）
+local function nearest_in_section(old_list, new_list, section, old_row)
+    local function rows_of(list)
+        local rows, seen = {}, {}
+        for _, it in ipairs(list or {}) do
+            if it.section == section and it.row ~= nil and not seen[it.row] then
+                seen[it.row] = true
+                rows[#rows + 1] = it.row
+            end
+        end
+        return rows
+    end
+    local old_rows, new_rows = rows_of(old_list), rows_of(new_list)
+    if #new_rows == 0 then return nil end
+    local idx
+    for i, r in ipairs(old_rows) do
+        if r == old_row then idx = i; break end
+    end
+    if not idx then return first_of_row(new_list, section, new_rows[1]) end
+    local have = {}
+    for _, r in ipairs(new_rows) do have[r] = true end
+    for i = idx, #old_rows do
+        if have[old_rows[i]] then return first_of_row(new_list, section, old_rows[i]) end
+    end
+    for i = idx - 1, 1, -1 do
+        if have[old_rows[i]] then return first_of_row(new_list, section, old_rows[i]) end
+    end
+    if idx > #new_rows then idx = #new_rows end
+    return first_of_row(new_list, section, new_rows[idx])
+end
+
 function focus.finish(win, preferred)
     local w = W(win)
     if not w.building then return end
+    local old_list, old_cur = w.list, w.current
     w.list = w.building
     w.building = nil
     if w.activate then w.activate = nil end
@@ -59,8 +116,20 @@ function focus.finish(win, preferred)
         if not alive then w.picker = nil end
     end
     if not exists then
+        -- 0.1.233〜：一覧の行のボタン（受ける→解除など）が消えても、同じ行か一番近い行に残す。
+        -- 見出しへは、同じ区画に行が無いときだけ（preferred）落ちる。
         local pick
-        if preferred then
+        local old_it
+        for _, it in ipairs(old_list or {}) do
+            if it.id == old_cur then old_it = it; break end
+        end
+        if old_it then
+            pick = pick_same_row(w.list, old_cur, old_it.section, old_it.row)
+            if not pick then
+                pick = nearest_in_section(old_list, w.list, old_it.section, old_it.row)
+            end
+        end
+        if not pick and preferred then
             for _, it in ipairs(w.list) do if it.id == preferred then pick = it.id break end end
         end
         w.current = pick or (w.list[1] and w.list[1].id or nil)
@@ -69,10 +138,16 @@ end
 
 function focus.current(win) return W(win).current end
 
-function focus.set(win, id, scroll)
+function focus.set(win, id, scroll, why)
     local w = W(win)
     w.current = id
+    w.set_why = why or 'set'
     if scroll then w.scroll_to = id end
+end
+
+-- 最後に選択が動いた理由：'nav'（キー・パッド）、'hover'（マウスを乗せた）、ほか
+function focus.why(win)
+    return W(win).set_why
 end
 
 function focus.reset(win)
@@ -138,7 +213,7 @@ function focus.move(win, action)
     local cur
     for _, it in ipairs(list) do if it.id == w.current then cur = it break end end
     if not cur then
-        w.current = list[1].id
+        w.set_why = 'nav'; w.current = list[1].id
         w.scroll_to = w.current
         return true
     end
@@ -163,7 +238,7 @@ function focus.move(win, action)
             end
         end
         if pick and pick.id ~= cur.id then
-            w.current = pick.id
+            w.set_why = 'nav'; w.current = pick.id
             w.scroll_to = w.current
             return true
         end
@@ -177,7 +252,7 @@ function focus.move(win, action)
         if nj < 1 then nj = #secs elseif nj > #secs then nj = 1 end
         local rows = rows_of_section(list, secs[nj])
         if rows[1] and rows[1][1] then
-            w.current = rows[1][1].id
+            w.set_why = 'nav'; w.current = rows[1][1].id
             w.scroll_to = w.current
             return true
         end
@@ -218,7 +293,7 @@ function focus.move(win, action)
         target = rows[ri][ci + (action == 'left' and -1 or 1)]
     end
     if target then
-        w.current = target.id
+        w.set_why = 'nav'; w.current = target.id
         w.scroll_to = target.id
         return true
     end

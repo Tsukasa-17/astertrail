@@ -122,7 +122,7 @@ eq(cur(), zh, 'cancel from a row returns to the area heading')
 key('back')
 eq(app.state.open.book, false, 'cancel in the tree (area) closes the book')
 
--- 前回の行：親の見出しを開いてその行を出す。カーソルは見出し（通常の開き直し）
+-- 前回の行：選んだ行は覚えるが、たたんだ見出しは開かない（0.1.233〜）。カーソルは見出し
 S.book.tab = 'quest'
 S.book.last_row = 'quest.sandoria.006'
 S.book.last_heading = S.book.last_heading or {}
@@ -130,8 +130,8 @@ S.book.last_heading.quest = nil
 S.book.collapsed = S.book.collapsed or {}
 S.book.collapsed.quest = { sandoria = true, ['sandoria/zone_100'] = true, ['zone_100'] = true }
 app.open_window('book'); frame(); frame(); frame()
-eq(book.is_collapsed(S, 'quest', 'sandoria'), false, 'restored path expands the region')
-eq(book.is_collapsed(S, 'quest', 'sandoria/zone_100'), false, 'restored path expands the area')
+eq(book.is_collapsed(S, 'quest', 'sandoria'), true, 'reopen keeps the region collapsed')
+eq(book.is_collapsed(S, 'quest', 'sandoria/zone_100'), true, 'reopen keeps the area collapsed')
 eq(S.book.last_row, 'quest.sandoria.006', 'last row is still selected')
 local rc = cur()
 check(rc:find('^sec_quest_'), 'normal reopen focuses the heading, not the row: ' .. rc)

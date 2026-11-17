@@ -37,11 +37,50 @@ function book.state_shown(f, st)
     return show[st] ~= false
 end
 
+-- 0.1.232〜：表示の「未実装」チェック（無い・壊れた保存は出す）
+function book.show_unimplemented(S)
+    local f = S and S.book and S.book.filters
+    local show = f and f.show
+    return type(show) ~= 'table' or show.unimplemented ~= false
+end
+
+function book.is_marked_unimplemented(S, qid)
+    if not qid then return false end
+    local marks = S and S.book and S.book.unimplemented
+    return type(marks) == 'table' and marks[qid] == true
+end
+
+function book.set_unimplemented(S, qid, on)
+    if not S or not S.book or not qid then return false end
+    local marks = S.book.unimplemented
+    if type(marks) ~= 'table' then marks = {}; S.book.unimplemented = marks end
+    local cur = marks[qid] == true
+    if on and not cur then marks[qid] = true
+    elseif (not on) and cur then marks[qid] = nil
+    else return false end
+    book.clear_view_cache()
+    return true
+end
+
+function book.toggle_unimplemented(S, qid)
+    return book.set_unimplemented(S, qid, not book.is_marked_unimplemented(S, qid))
+end
+
+-- 表示の☑未実装がオフのとき隠すか（受注中のものは残す）
+function book.hidden_unimplemented(ui, q)
+    if not q or not book.is_marked_unimplemented(ui.settings, q.id) then return false end
+    if book.show_unimplemented(ui.settings) then return false end
+    local st = ui.progress and ui.progress:state(q.id)
+    if st == 'accepted' then return false end
+    return true
+end
+
 local function show_sig(f)
     local show = f and f.show
     if type(show) ~= 'table' then return 'all' end
     local out = {}
     for _, k in ipairs(book.SHOW_STATES) do out[#out + 1] = (show[k] ~= false) and '1' or '0' end
+    out[#out + 1] = (show.unimplemented ~= false) and '1' or '0'
     return table.concat(out)
 end
 book._show_sig = show_sig
@@ -56,9 +95,17 @@ function book.view_key(ui, extra)
     local S = ui.settings
     local f = S.book.filters or {}
     local PR = ui.progress
+    local um = S.book.unimplemented
+    local usig = ''
+    if type(um) == 'table' then
+        local keys = {}
+        for k, v in pairs(um) do if v then keys[#keys + 1] = k end end
+        table.sort(keys)
+        usig = table.concat(keys, ',')
+    end
     return tostring(ui.data) .. '|' .. tostring(PR) .. '|' .. tostring(PR and PR.rev or 0) .. '|' .. tostring(S.book.tab)
         .. '|' .. show_sig(f) .. '|' .. tostring(f.text) .. '|' .. tostring(S.language)
-        .. '|' .. tostring(extra)
+        .. '|' .. usig .. '|' .. tostring(extra)
 end
 function book.clear_view_cache()
     for k in pairs(view_memo) do view_memo[k] = nil end
@@ -91,6 +138,8 @@ function book.filtered_now(ui, opts)
         if not opts.ignore_state then
             if ok and not book.state_shown(f, ui.progress:state(q.id)) then ok = false end
         end
+        -- 未実装のチェックは件数にも効く（ignore_state でも隠す。受注中は残す）
+        if ok and book.hidden_unimplemented(ui, q) then ok = false end
         if ok and (not opts.ignore_text) and f.text and f.text ~= '' then
             local hay = ui.data:search_text(q)
             for _, word in ipairs(util.split_words(f.text)) do
@@ -149,10 +198,13 @@ function book.row_cells(ui, q)
     end
     local rewards = book.reward_text(q)
     local rpt = book.repeat_cell(ui, q)
+    local unimplemented = book.is_marked_unimplemented(ui.settings, q.id)
+    if unimplemented then marks[#marks + 1] = t('roe.tag_failed.not_impl') end
     return {
         pinned = P:is_pinned(q.id),
+        unimplemented = unimplemented or nil,
         state = labels.state(t, st) .. (#marks > 0 and (' ' .. table.concat(marks, '')) or ''),
-        state_color = labels.state_color(st),
+        state_color = unimplemented and 'muted' or labels.state_color(st),
         repeat_text = rpt,
         repeat_kind = book.repeat_kind(ui, q),
         repeat_color = (rpt == t('badge.repeat')) and 'accent' or 'muted',
@@ -517,10 +569,12 @@ end
 -- 列ごとの文字（高さを測る・描く）
 local function col_cell(ui, c, key, selected_mark)
     local t = ui.t
-    if key == 'state' then return '  ' .. (c.state or ''), c.state_color, false end
-    if key == 'no' then return c.no, 'text', false end
+    if key == 'state' then return '  ' .. (c.state or ''), c.state_color, c.unimplemented and true or false end
+    if key == 'no' then return c.no, 'text', c.unimplemented and true or false end
     if key == 'name' then
-        return (selected_mark and '▶ ' or '') .. (c.name or ''), selected_mark and 'accent' or 'text', false
+        local dim = c.unimplemented and true or false
+        local color = dim and 'muted' or (selected_mark and 'accent' or 'text')
+        return (selected_mark and '▶ ' or '') .. (c.name or ''), color, dim
     end
     return c.rewards, 'text', true
 end
@@ -959,9 +1013,13 @@ local function draw_quest_row(ui, name, q, selected, keys, sel_flags, deferred_f
     local c = book.row_cells(ui, q)
     local rh = row_min_height(imgui, c, keys, selected == q.id, ui)
     book.next_row(imgui, rh)
-    if W.button(ui, name, 'bpin_' .. q.id, c.pinned and '★' or '☆',
-        { section = 'list', row = q.id, small = true, tooltip = c.pinned and t('book.unpin') or t('book.pin') }) then
-        ui.request(c.pinned and 'unpin' or 'pin', q.id)
+    do
+        local can_pin = c.pinned or not c.unimplemented
+        local tip = c.pinned and t('book.unpin') or (c.unimplemented and t('book.pin_unimplemented') or t('book.pin'))
+        if W.button(ui, name, 'bpin_' .. q.id, c.pinned and '★' or '☆',
+            { section = 'list', row = q.id, small = true, disabled = not can_pin, tooltip = tip }) then
+            ui.request(c.pinned and 'unpin' or 'pin', q.id)
+        end
     end
     imgui.TableSetColumnIndex(1)
     local rid = 'row_' .. q.id
@@ -1140,9 +1198,13 @@ local function draw_columns(ui, name, list, selected, with_no)
         local c = book.row_cells(ui, q)
         local rid = 'row_' .. q.id
         local y0 = select(2, cursor_xy(imgui))
-        if W.button(ui, name, 'bpin_' .. q.id, c.pinned and '★' or '☆',
-            { section = 'list', row = q.id, small = true, tooltip = c.pinned and t('book.unpin') or t('book.pin') }) then
-            ui.request(c.pinned and 'unpin' or 'pin', q.id)
+        do
+            local can_pin = c.pinned or not c.unimplemented
+            local tip = c.pinned and t('book.unpin') or (c.unimplemented and t('book.pin_unimplemented') or t('book.pin'))
+            if W.button(ui, name, 'bpin_' .. q.id, c.pinned and '★' or '☆',
+                { section = 'list', row = q.id, small = true, disabled = not can_pin, tooltip = tip }) then
+                ui.request(c.pinned and 'unpin' or 'pin', q.id)
+            end
         end
         local focused, activated = focus.item(name, rid, 'list', q.id)
         imgui.BeginGroup()
@@ -1553,6 +1615,22 @@ function book.display_heading(ui)
         if f and f.text and f.text ~= '' then return book.ALL_ID end
     end
     return book.current_heading(S, tab) or book.ALL_ID
+end
+
+-- 木に出ている見出し（たたんだ見出しの子は出ない）。カーソルを乗せるとき用（0.1.233〜）
+function book.visible_heading(ui, hid)
+    local S = ui and ui.settings
+    local tab = book.split_tab(S)
+    hid = hid or book.display_heading(ui)
+    if not hid or hid == book.ALL_ID then return book.ALL_ID end
+    local vis = book.ALL_ID
+    for _, id in ipairs(book.heading_path_ids(ui, hid)) do
+        if id ~= book.ALL_ID then
+            vis = id
+            if book.is_collapsed(S, tab, id) then break end
+        end
+    end
+    return vis
 end
 
 function book.heading_path_ids(ui, heading_id)
@@ -1976,6 +2054,8 @@ function book.follow_focus_row(ui, name, shown)
     local cur = focus.current(name)
     if cur == book._follow_seen then return false end
     book._follow_seen = cur
+    -- 0.1.228〜：マウスを乗せただけでは詳細を動かさない。クリックと、キー・パッドで移ったときだけ。
+    if focus.why and focus.why(name) == 'hover' then return false end
     local s = tostring(cur or '')
     local qid = s:match('^row_(.+)$') or s:match('^bpin_(.+)$')
     if not qid then return false end
@@ -1993,15 +2073,95 @@ function book.follow_focus_row(ui, name, shown)
     return false
 end
 
-function book.ensure_visible_row(S, list, dirty)
+-- カーソルが一覧（または詳細の行のボタン）にあるか（0.1.233〜）
+function book.focus_is_list(name)
+    name = name or 'book'
+    local cur = focus.current(name)
+    if not cur then return false end
+    local t = tostring(cur)
+    if t:find('^row_') or t:find('^bpin_') or t:find('^roesel_')
+        or t:find('^roe_start_') or t:find('^roe_remove_')
+        or t:find('^roe_fav_') or t:find('^roe_heart_')
+        or t:find('^roed_') then
+        return true
+    end
+    local w = focus.windows and focus.windows[name]
+    local list = w and (w.list or w.building)
+    if list then
+        for _, it in ipairs(list) do
+            if it.id == cur then
+                return it.section == 'list' or it.section == 'detail' or it.section == 'state'
+            end
+        end
+    end
+    return false
+end
+
+-- 消えた id のいちばん近い行（前の並びで後ろを優先、無ければ前）
+function book.nearest_entry(list, lost_id, prev_ids)
     list = list or {}
+    if #list == 0 then return nil end
+    if lost_id ~= nil then
+        for _, q in ipairs(list) do
+            if q.id == lost_id then return q end
+        end
+    end
+    local have = {}
+    for _, q in ipairs(list) do have[q.id] = q end
+    local idx
+    if prev_ids then
+        for i, id in ipairs(prev_ids) do
+            if id == lost_id then idx = i; break end
+        end
+        if idx then
+            for i = idx, #prev_ids do
+                if have[prev_ids[i]] then return have[prev_ids[i]] end
+            end
+            for i = idx - 1, 1, -1 do
+                if have[prev_ids[i]] then return have[prev_ids[i]] end
+            end
+        end
+    end
+    if idx then
+        if idx > #list then return list[#list] end
+        return list[idx]
+    end
+    return list[1]
+end
+
+function book.remember_shown(tab, list)
+    book._shown_ids = book._shown_ids or {}
+    local ids = {}
+    for _, q in ipairs(list or {}) do ids[#ids + 1] = q.id end
+    book._shown_ids[tab] = ids
+    return ids
+end
+
+function book.ensure_visible_row(S, list, dirty, opts)
+    list = list or {}
+    opts = opts or {}
     local selected = S and S.book and S.book.last_row
     -- まだ選んでいなければ、詳細は案内のまま（先頭を自動では選ばない）
     if not selected then return nil, false end
     for _, q in ipairs(list) do
         if q.id == selected then return selected, false end
     end
-    -- 覚えていた行が無い、またはフィルタで隠れている → 行は外し、タブのいちばん上の見出しへ（0.1.204〜）
+    -- 一覧にカーソルがあるときにフィルタで行が消えたら、一番近い行へ（0.1.233〜）。
+    -- 見出しにいる・本を開き直したときは、これまでどおり行を外して見出しへ（0.1.204〜）。
+    local keep = opts.keep_in_list
+    if keep == nil then keep = book.focus_is_list(opts.name or 'book') end
+    if keep then
+        local tab = book.split_tab(S)
+        local prev = opts.prev_ids or (book._shown_ids and book._shown_ids[tab])
+        local nxt = book.nearest_entry(list, selected, prev)
+        if nxt then
+            if S.book.last_row ~= nxt.id then
+                S.book.last_row = nxt.id
+                if dirty then dirty() end
+            end
+            return nxt.id, false
+        end
+    end
     if S.book.last_row ~= nil then
         S.book.last_row = nil
         if dirty then dirty() end
@@ -2242,39 +2402,10 @@ local function has_prefix(s, p)
     return p ~= '' and s:sub(1, #p) == p
 end
 
+-- 0.1.233〜：たたんだ見出しは十字キー左右と、見出しのクリック以外では開かない。
+-- 選んだ行を見せるために親を自動で開く処理はしない（行は隠したまま、選択は残す）。
 function book.nav_expand_path(ui, node_id)
-    if not ui or not node_id then return false end
-    local S = ui.settings
-    local tab = book.split_tab(S)
-    local hid
-    local s = tostring(node_id)
-    if has_prefix(s, 'row_') then
-        hid = book.heading_of_quest(ui, s:sub(5))
-    elseif has_prefix(s, 'roesel_') then
-        local em = require('src.ui.eminence')
-        hid = em.heading_of_record and em.heading_of_record(ui, tonumber(s:sub(8)) or s:sub(8))
-    elseif has_prefix(s, 'sec_') or has_prefix(s, 'cat_') then
-        local n, _, path = book.nav_resolve(book.nav_tree(ui), s)
-        if n and n.heading_id then hid = n.heading_id end
-        -- 祖先も開く
-        for _, anc in ipairs(path or {}) do
-            if anc.kind == 'head' and anc.collapse_id ~= nil then
-                book.set_collapsed(S, anc.tab, anc.collapse_id, false)
-            end
-        end
-    else
-        hid = book.heading_of_quest(ui, node_id)
-    end
-    if not hid or hid == book.ALL_ID then return false end
-    local dirty = false
-    for _, id in ipairs(book.heading_path_ids(ui, hid)) do
-        if id ~= book.ALL_ID and book.is_collapsed(S, tab, id) then
-            book.set_collapsed(S, tab, id, false)
-            dirty = true
-        end
-    end
-    if dirty and ui.mark_settings_dirty then ui.mark_settings_dirty() end
-    return dirty
+    return false
 end
 
 function book.nav_help_key(node, parent, cur)
@@ -2646,27 +2777,11 @@ function book.draw(ui)
     local name = 'book'
     local drawing = window.begin(ui, name, { title = t('book.title'), open = open, operable = true, fixed_top = true })
     if drawing then
-        -- 状態の一行（確認待ち・読み取り専用・保存失敗など）
+        -- 状態の一行（確認待ち・読み取り専用・保存失敗など）。緑色の短い案内は見出しの帯（0.1.233〜）
         ui.status_line()
-        -- 覚えていた行・これから入る行が見えるよう、親の見出しを開く（0.1.204〜）
+        -- 0.1.233〜：たたんだ見出しは自動で開かない。選んだ行は覚えるが、親は開かない。
+        -- 一覧の縦位置だけ戻す（本を開き直したとき・描き直したとき）。
         do
-            local target = ui.state.book_nav_pending
-            if not target then
-                if S.book.tab == 'eminence' then
-                    local em = require('src.ui.eminence')
-                    local sid = em.selected and em.selected()
-                    if not sid and S.eminence then sid = tonumber(S.eminence.last_id) end
-                    if sid then target = 'roesel_' .. tostring(sid) end
-                elseif S.book.last_row then
-                    target = 'row_' .. S.book.last_row
-                else
-                    local hid = book.current_heading(S)
-                    if hid then target = book.tree_wid(book.split_tab(S), hid) end
-                end
-            end
-            -- 開いたとき・指定の行へ飛ばすとき・見出しに入るときだけ親を開く（毎フレームだと、利用者が閉じた見出しがすぐ開いてしまう）
-            local force = ui.state.book_nav_pending or ui.state.book_expand_path or ui.state.book_restore_scroll
-            if target and force then book.nav_expand_path(ui, target) end
             if ui.state.book_restore_scroll then ui.state.book_restore_tree_scroll = true end
             if ui.state.book_expand_path then ui.state.book_expand_path = nil end
         end
@@ -2793,7 +2908,8 @@ function book.draw(ui)
             local with_no = show_no_col(ui)
             -- 0.1.225〜（t497/t498）：「表示：」受注中・未受注・完了のチェック（エミネンスと同じ形）。初めは全部出す
             W.frame_label(ui, t('book.view_label'), true)
-            if type(f.show) ~= 'table' then f.show = { accepted = true, not_accepted = true, completed = true } end
+            if type(f.show) ~= 'table' then f.show = { accepted = true, not_accepted = true, completed = true, unimplemented = true } end
+            if f.show.unimplemented == nil then f.show.unimplemented = true end
             for _, k in ipairs(book.SHOW_STATES) do
                 W.same(ui)
                 if W.check_chip(ui, name, 'show_' .. k, t('state.' .. k), f.show[k] ~= false,
@@ -2801,6 +2917,12 @@ function book.draw(ui)
                     f.show[k] = not (f.show[k] ~= false)
                     ui.mark_settings_dirty()
                 end
+            end
+            W.same(ui)
+            if W.check_chip(ui, name, 'show_unimplemented', t('state.unimplemented'), f.show.unimplemented ~= false,
+                { section = 'top', row = 'cols', tooltip = t('book.show_unimplemented_tip') }) then
+                f.show.unimplemented = not (f.show.unimplemented ~= false)
+                ui.mark_settings_dirty()
             end
             W.same(ui)
             W.frame_label(ui, '｜', true)
@@ -2829,6 +2951,7 @@ function book.draw(ui)
         -- 0.1.225〜（t500）：パッド・キーで表の行を移ったら、右の詳細もその行に（エミネンスと同じ）
         book.follow_focus_row(ui, name, shown)
         local selected, fallback = book.ensure_visible_row(S, shown, function() ui.mark_settings_dirty() end)
+        book.remember_shown(S.book.tab, shown)
         local sel_q = selected and ui.data:quest(selected) or nil
         local avail_w, avail_h = imgui.GetContentRegionAvail()
         avail_w = avail_w or 800
@@ -2920,7 +3043,7 @@ function book.draw(ui)
             force_pref = pref ~= nil
         end
         if not pref then
-            local hid = book.display_heading(ui)
+            local hid = book.visible_heading(ui, book.display_heading(ui))
             pref = book.tree_wid(book.split_tab(S), hid)
         end
     end

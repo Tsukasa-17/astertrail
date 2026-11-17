@@ -420,6 +420,11 @@ end
 ---------------------------------------------------------------------------
 -- 日・週で替わる目標（0.1.224〜、t496）。LSB の roe.cpp・0x10c_roe_start.cpp・0x110_unity.cpp・0x061_clistatus.h を読んで確かめた
 -- - ユニティ共通 3000〜3053：9 件ずつ 6 日の組（A〜F）。今日の組だけ受けられる（0x110 の RoEUnityShared が今日の組 0〜5）。
+--   クライアント DAT には、あとから足された「ユニティリーダーフェイスと討伐A〜F」3055〜3060 もある
+--   （分類の子の印 kind 6、値 0〜5。A=3055 … F=3060。2017-04-04 追加）。
+--   ただし LSB の IsUnitySharedRecordAvailable（roe.cpp）は 3000〜3053 の外を制限しない（毎日受けられる）。
+--   0x10C の validate も日替わりは見ない。scripts の roe_records.lua に 3055〜3060 は無い。
+--   サーバーに合わせて、3055〜3060 は日替わりでは止めない（0.1.227）。
 -- - ユニティリーダー 3488〜3707：リーダー 11 人 × 20 件、その中が 4 週 × 5 件。自分のリーダー（0x061 の unity_info の下 5 ビット）
 --   で、今週（0x110 の RoEUnityLeader 0〜3）の分だけ受けられる。
 -- - 期間限定 4008〜4021：ゲームが 4 時間ごとに入れる。0x10C では受けられない（サーバーが受け付けない）。
@@ -429,6 +434,13 @@ end
 roe.PKT_UNITY = 0x110
 roe.PKT_STATUS = 0x061
 roe.SHARED_FIRST, roe.SHARED_LAST = 3000, 3053
+-- クライアント DAT の「フェイスと討伐A〜F」。LSB は日替わりに含めないので、is_rotating にも入れない（0.1.227）。
+-- 0.1.228〜：LSB の roe_records.lua に無く、受けると「not implemented」と返るので、未実装として灰色にする。
+roe.SHARED_FACE_FIRST, roe.SHARED_FACE_LAST = 3055, 3060
+function roe.is_known_unimplemented(id)
+    id = tonumber(id)
+    return id ~= nil and id >= roe.SHARED_FACE_FIRST and id <= roe.SHARED_FACE_LAST
+end
 roe.LEADER_FIRST, roe.LEADER_LAST = 3488, 3707
 roe.TIMED_FIRST, roe.TIMED_LAST = 4008, 4021
 roe.EPOCH = 1009810800      -- 2002-01-01 00:00 JST（LSB の vanadiel_epoch）

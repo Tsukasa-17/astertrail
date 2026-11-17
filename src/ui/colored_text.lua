@@ -12,12 +12,12 @@ local theme = require('src.ui.theme')
 local CT = {}
 
 -- 色分けの種類 → theme.palette の名前
-CT.KIND_COLOR = { item = 'item', key_item = 'item', zone = 'zone', npc = 'npc', mob = 'mob', object = 'obj', obj = 'obj' }
+CT.KIND_COLOR = { item = 'item', key_item = 'item', zone = 'zone', npc = 'npc', mob = 'mob', object = 'obj', obj = 'obj', group = 'accent' }
 
 -- トラッカーなどで名前を押したときの動作。
 -- 話すNPCと調べる対象（???を含む）は地図。アイテムはコピー。
 -- ゾーンは対象外。モンスター（0.1.171〜）は地図を開き、近くにいれば出す。
-CT.CLICK = { npc = 'map', obj = 'map', object = 'map', mob = 'map', item = 'copy', key_item = 'copy' }
+CT.CLICK = { npc = 'map', obj = 'map', object = 'map', mob = 'map', item = 'copy', key_item = 'copy', group = 'map' }
 
 function CT.click_action(kind)
     return kind and CT.CLICK[kind] or nil

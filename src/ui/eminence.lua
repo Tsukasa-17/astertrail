@@ -183,13 +183,28 @@ function eminence.show_sig(E)
     if type(show) ~= 'table' then return 'all' end
     local out = {}
     for _, k in ipairs(eminence.SHOW_STATES) do out[#out + 1] = (show[k] ~= false) and '1' or '0' end
+    out[#out + 1] = (show.unimplemented ~= false) and '1' or '0'
     return table.concat(out)
+end
+
+-- 0.1.232〜：未実装（roe_failed why=not_impl。受注中は隠さない）
+function eminence.hidden_unimplemented(ui, id)
+    local E = ui and ui.settings and ui.settings.eminence
+    local show = E and E.book_show
+    if type(show) == 'table' and show.unimplemented == false then
+        if eminence.state_of(ui, id) == 'accepted' then return false end
+        local failed = ui.roe_failed and ui.roe_failed(id)
+        if failed and failed.why == 'not_impl' then return true end
+    end
+    return false
 end
 
 -- 本で出すか（状態・達成を隠す・検索）
 function eminence.book_visible(ui, id, words, opts)
     opts = opts or {}
     local E = ui.settings.eminence
+    -- 未実装のチェックは件数にも効く（ignore_state でも隠す。受注中は残す）
+    if eminence.hidden_unimplemented(ui, id) then return false end
     local st = eminence.state_of(ui, id)
     if not opts.ignore_state then
         if st == 'completed' then
@@ -501,9 +516,9 @@ local function draw_row(ui, name, id)
         imgui.SameLine()
         imgui.TextDisabled(table.concat(tags, ' '))
     end
-    -- キー・パッドでこの行に来たら詳細もこの行に
+    -- キー・パッドでこの行に来たら詳細もこの行に（0.1.228〜：マウスを乗せただけでは動かさない）
     local cur = focus.current(name)
-    if cur and sel_id ~= id then
+    if cur and sel_id ~= id and focus.why and focus.why(name) == 'nav' then
         local k = tostring(id)
         if cur == 'roesel_' .. k or cur == 'roe_fav_' .. k or cur == 'roe_heart_' .. k or cur == 'roe_start_' .. k or cur == 'roe_remove_' .. k then
             sel_id = id
@@ -900,7 +915,8 @@ local function draw_rows_table(ui, name, rows, force_top)
             local kk = tostring(id)
             local here = cur2 == 'roesel_' .. kk or cur2 == 'roe_fav_' .. kk or cur2 == 'roe_heart_' .. kk
                 or cur2 == 'roe_start_' .. kk or cur2 == 'roe_remove_' .. kk
-            if here and sel_id ~= id then sel_id = id end
+            -- 0.1.228〜：キー・パッドで移ったときだけ詳細を動かす。マウスは行のクリック（下）や名前のリンク。
+            if here and sel_id ~= id and focus.why and focus.why(name) == 'nav' then sel_id = id end
             if sel_id == id or here then
                 pcall(imgui.TableSetBgColor, C('ImGuiTableBgTarget_RowBg0'), theme.u32('accent', sel_id == id and 0.22 or 0.12))
             end
@@ -1094,7 +1110,8 @@ function eminence.book_body(ui, name)
     -- 「表示：」はチェックと同じ高さ（AlignTextToFramePadding）。表示と列のあいだに「｜」（0.1.200〜）
     W.frame_label(ui, t('book.view_label'), true)
     -- 0.1.226〜：受注中・未受注・達成。「達成済みを非表示」はやめた（達成オン＝全部出す、オフ＝くり返しできない達成だけ隠す）
-    if type(E.book_show) ~= 'table' then E.book_show = { accepted = true, not_accepted = true, completed = false } end
+    if type(E.book_show) ~= 'table' then E.book_show = { accepted = true, not_accepted = true, completed = false, unimplemented = true } end
+    if E.book_show.unimplemented == nil then E.book_show.unimplemented = true end
     for _, k in ipairs(eminence.SHOW_STATES) do
         local label = (k == 'completed') and t('roe.state.completed') or t('state.' .. k)
         local tip = (k == 'completed') and t('roe.show_completed_tip') or t('book.show_tip')
@@ -1104,6 +1121,12 @@ function eminence.book_body(ui, name)
             E.book_show[k] = not (E.book_show[k] ~= false)
             ui.mark_settings_dirty()
         end
+    end
+    W.same(ui)
+    if W.check_chip(ui, name, 'roe_show_unimplemented', t('state.unimplemented'), E.book_show.unimplemented ~= false,
+        { section = 'top', row = 'f2', tooltip = t('roe.show_unimplemented_tip') }) then
+        E.book_show.unimplemented = not (E.book_show.unimplemented ~= false)
+        ui.mark_settings_dirty()
     end
     W.same(ui)
     if W.check_chip(ui, name, 'roe_favs_only', t('roe.favs_only'), E.book_favs_only == true,
@@ -1165,9 +1188,20 @@ function eminence.book_body(ui, name)
     if sel_id then
         local ok = false
         for _, id in ipairs(visible) do if id == sel_id then ok = true; break end end
-        if not ok then sel_id = nil; fallback = true end
+        if not ok then
+            -- 0.1.233〜：一覧にカーソルがあるときは見出しへ戻さず、一番近い行へ
+            if book.focus_is_list(name) then
+                local prev = book._shown_ids and book._shown_ids.eminence
+                local nxt = book.nearest_entry(shown, sel_id, prev)
+                if nxt then sel_id = nxt.id
+                else sel_id = nil; fallback = true end
+            else
+                sel_id = nil; fallback = true
+            end
+        end
     end
     if E.last_id ~= sel_id then E.last_id = sel_id; ui.mark_settings_dirty() end
+    book.remember_shown('eminence', shown)
 
     local avail_w, avail_h = imgui.GetContentRegionAvail()
     avail_w = tonumber(avail_w) or 800
@@ -1216,7 +1250,8 @@ function eminence.book_body(ui, name)
             ui.mark_settings_dirty()
         end
     end
-    if fallback then
+    -- 0.1.233〜：一覧にカーソルがあるときは見出しへ戻さない（行が無くなったときだけ）
+    if fallback and (not book.focus_is_list(name) or #shown == 0) then
         focus.set(name, book.tree_wid('eminence', heading_id or 'all'), true)
     end
     window.pop(ui, 'child')
