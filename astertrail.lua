@@ -1,5 +1,5 @@
 --[[
-  Astertrail（作業名） - FFXI のクエスト・ミッションを日本語で記録する非公式アドオン
+  Astertrail（アスタートレイル） - FFXI のクエスト・ミッション・エミネンスを日本語の画面で管理しながら攻略する非公式アドオン
   形式: Ashita v4 アドオン（VanaCore の Ashita 互換層で動かす）
   置き場所: Vanacore\addons\vanacore\astertrail\
 
