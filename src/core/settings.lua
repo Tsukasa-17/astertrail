@@ -23,6 +23,16 @@ function settings.defaults()
         -- 場所ごとの文字の大きさ。窓の大きさは変えない（SetWindowFontScale だけ）。
         -- list（0.1.209〜）：本の一覧（見出しの木と表）だけ。まだ無い保存は「本」の値
         fonts = { book = 1.0, list = 1.0, detail = 1.0, tracker = 1.0, eminence = 1.0, map = 1.0, overhead_quest = 1.0, overhead_name = 1.0 },
+        -- 通常メニューの縁取り・影（0.1.236〜）。初期は今までの見た目（縁取り 1px、影あり）
+        -- 斜体は使わない（0.1.235 の斜体フォントで日本語が「?」になったため。保存に残っていても無視する）
+        font_italic = false,
+        font_outline = 1,
+        font_outline_alpha = 1,
+        font_shadow = true,
+        font_shadow_color = 'black',
+        font_shadow_distance = 2,
+        font_shadow_alpha = 1,
+        font_body_fx = false,   -- 0.1.245：本文の縁取りと影は使わない。古い保存があっても無視する
         layout_locked = false,
         theme = 'dark_calm',
         background_alpha = 0.85,
@@ -44,6 +54,8 @@ function settings.defaults()
         entry_icon = { visible = true },
         -- 本と設定を開いたとき、前回の選択・タブ・一覧の位置から始める（初めはオフ＝いちばん上から）
         remember_position = false,
+        -- 設定の折りたたみ見出し（0.1.239〜）。キーが true ならたたんだ状態。無いものは開いている
+        settings_folds = json.object({}),
         -- 見た目：'yunaui'（YunaUI 風）／ 'classic'（クラシック）。保存のキーは classic のまま
         -- 0.1.204〜：初期はクラシック（0.1.194 で「これまで」から改名した見た目）
         look = 'classic',
@@ -151,8 +163,18 @@ function settings.defaults()
             -- 頭上の文字の背景の濃さ（0.1.215〜）。0〜1。初期 0.8 は今までの #000000CC
             label_bg_alpha = 0.8,   -- クエスト名
             under_bg_alpha = 0.8,   -- オブジェクト名（近くのオブジェクト名も同じ）
+            -- 背景色・背景グラデ・斜体・縁取り（0.1.235〜）。初期は今までの見た目（黒・グラデなし・斜体なし・縁取り 1）
+            label_bg_color = { 0, 0, 0 }, label_bg_grad = false, label_bg_color2 = { 0, 0, 0 },
+            under_bg_color = { 0, 0, 0 }, under_bg_grad = false, under_bg_color2 = { 0, 0, 0 },
+            label_italic = false, under_italic = false,
+            label_stroke_alpha = 1, under_stroke_alpha = 1,
+            label_stroke = 1, under_stroke = 1,
+            -- 近づいても大きくしない（0.1.235〜）。初期オフ＝今どおり近いと拡大
+            no_enlarge_near = false,
             -- 足元の輪（0.1.171〜）。公式 vana.world.marks で、印を付けた相手の足元に、アイコンと同じ色の光の輪
             show_rings = true, ring_size = 1.0,
+            -- 輪の濃さ（公式 strength 0〜4、初期 1＝今まで）と、イベント中は輪を消す（0.1.237〜：初期オン）
+            ring_strength = 1.0, hide_rings_in_event = true,
             -- 輪の色（種類ごと、{r, g, b} 0〜255）。初期値は今のアイコンの色（theme.palette の ic_* ・mob・gold）
             ring_sub = { 255, 219, 92 }, ring_progress = { 107, 189, 255 }, ring_blocked = { 230, 71, 66 },
             ring_complete = { 92, 214, 117 }, ring_repeat = { 148, 209, 163 }, ring_unavailable = { 230, 71, 66 },
@@ -190,6 +212,16 @@ function settings.merge(loaded)
     merged.settings_schema = SETTINGS_SCHEMA
     -- 範囲の確認（壊れた値で画面が崩れないように）
     merged.font_scale = util.clamp(tonumber(merged.font_scale) or 1.0, settings.FONT_MIN, settings.FONT_MAX)
+    -- 斜体は使わない。保存にオンが残っていても無視して、ふつうのフォントに戻す
+    merged.font_italic = false
+    merged.font_outline = settings.clamp_font_outline(merged.font_outline)
+    merged.font_outline_alpha = settings.clamp_unit_alpha(merged.font_outline_alpha)
+    merged.font_shadow = merged.font_shadow ~= false
+    merged.font_shadow_color = settings.clamp_shadow_color(merged.font_shadow_color)
+    merged.font_shadow_distance = settings.clamp_shadow_distance(merged.font_shadow_distance)
+    merged.font_shadow_alpha = settings.clamp_unit_alpha(merged.font_shadow_alpha)
+    merged.font_body_fx = merged.font_body_fx == true
+    merged.settings_folds = settings.normalize_settings_folds(type(loaded) == 'table' and loaded.settings_folds or nil)
     -- 場所ごとの文字の大きさ。まだ無い古い保存は、これまでの共通の文字サイズを引き継ぐ。
     local loaded_fonts = type(loaded.fonts) == 'table' and loaded.fonts or {}
     merged.fonts = {}
@@ -507,9 +539,19 @@ function settings.merge(loaded)
         for _, k in ipairs(settings.COLOR_KEYS) do
             merged.marks[k] = settings.normalize_rgb(type(loaded_marks) == 'table' and loaded_marks[k] or nil, dm[k])
         end
-        for _, k in ipairs({ 'label_grad', 'under_grad' }) do
+        for _, k in ipairs({ 'label_grad', 'under_grad', 'label_bg_grad', 'under_bg_grad',
+            'no_enlarge_near' }) do
             merged.marks[k] = type(loaded_marks) == 'table' and loaded_marks[k] == true or false
         end
+        -- イベント中は輪を消す：保存にキーが無ければオン（0.1.237〜）。明示のオフは残す
+        if type(loaded_marks) == 'table' and loaded_marks.hide_rings_in_event ~= nil then
+            merged.marks.hide_rings_in_event = loaded_marks.hide_rings_in_event == true
+        else
+            merged.marks.hide_rings_in_event = true
+        end
+        -- 斜体は使わない（保存に残っていてもオフ）
+        merged.marks.label_italic = false
+        merged.marks.under_italic = false
         -- 頭上の文字の背景の濃さ（0.1.215〜）。無い保存は今までの見た目（80%）
         for _, k in ipairs({ 'label_bg_alpha', 'under_bg_alpha' }) do
             merged.marks[k] = settings.clamp_label_bg_alpha(type(loaded_marks) == 'table' and loaded_marks[k] or nil)
@@ -521,6 +563,18 @@ function settings.merge(loaded)
             v = math.floor(v * 10 + 0.5) / 10
             if v < settings.RING_SIZE_MIN then v = settings.RING_SIZE_MIN elseif v > settings.RING_SIZE_MAX then v = settings.RING_SIZE_MAX end
             merged.marks.ring_size = v
+        end
+        do
+            local raw = type(loaded_marks) == 'table' and loaded_marks.ring_strength or nil
+            merged.marks.ring_strength = settings.clamp_ring_strength(raw)
+        end
+        for _, k in ipairs({ 'label_stroke', 'under_stroke' }) do
+            local raw = type(loaded_marks) == 'table' and loaded_marks[k] or nil
+            merged.marks[k] = settings.clamp_stroke(raw)
+        end
+        for _, k in ipairs({ 'label_stroke_alpha', 'under_stroke_alpha' }) do
+            local raw = type(loaded_marks) == 'table' and loaded_marks[k] or nil
+            merged.marks[k] = settings.clamp_unit_alpha(raw)
         end
         -- 0.1.45 までの「名前の位置」は使わない（名前はアイコンといっしょに動く）
         merged.marks.obj_name_dx, merged.marks.obj_name_dy = nil, nil
@@ -668,6 +722,17 @@ function settings.normalize_eminence_hidden(h)
 end
 
 -- たたんだ見出し（タブごと）。true だけ残す
+function settings.normalize_settings_folds(src)
+    local out = json.object({})
+    if type(src) ~= 'table' then return out end
+    for k, v in pairs(src) do
+        if type(k) == 'string' and k ~= '' and v == true then
+            out[k] = true
+        end
+    end
+    return out
+end
+
 function settings.normalize_collapsed(src)
     local out = json.object({})
     for _, tab in ipairs({ 'mission', 'quest', 'eminence' }) do
@@ -749,7 +814,10 @@ function settings.offsets_for(marks, role)
 end
 settings.OFFSET_MIN, settings.OFFSET_MAX, settings.OFFSET_STEP = -256, 256, 2
 -- 文字の色
-settings.COLOR_KEYS = { 'label_color', 'label_color2', 'under_color', 'under_color2' }
+settings.COLOR_KEYS = {
+    'label_color', 'label_color2', 'under_color', 'under_color2',
+    'label_bg_color', 'label_bg_color2', 'under_bg_color', 'under_bg_color2',
+}
 
 -- 頭上の文字の背景の濃さ（0.1.215〜）。初期 0.8 は今までの #000000CC。0 で背景なし
 settings.LABEL_BG_ALPHA_DEFAULT = 0.8
@@ -767,6 +835,77 @@ end
 function settings.label_bg_alpha(marks, which)
     local key = (which == 'under') and 'under_bg_alpha' or 'label_bg_alpha'
     return settings.clamp_label_bg_alpha(type(marks) == 'table' and marks[key] or nil)
+end
+-- 縁取りの太さ（頭上ラベルは公式 stroke 0〜8 の整数、1 が今までの 1px）
+settings.STROKE_MIN, settings.STROKE_MAX, settings.STROKE_DEFAULT = 0, 8, 1
+-- 本文に重ねる縁取りの太さ・影の距離の上限（見出しのスライダーは 0〜8 のまま）
+settings.BODY_FX_MAX = 3
+function settings.clamp_stroke(v)
+    v = tonumber(v)
+    if v == nil then v = settings.STROKE_DEFAULT end
+    v = math.floor(v + 0.5)
+    if v < settings.STROKE_MIN then v = settings.STROKE_MIN
+    elseif v > settings.STROKE_MAX then v = settings.STROKE_MAX end
+    return v
+end
+-- 通常メニューの縁取りの太さ（px、0.25 刻み。1 が今まで）
+function settings.clamp_font_outline(v)
+    v = tonumber(v)
+    if v == nil then v = settings.STROKE_DEFAULT end
+    v = math.floor(v * 4 + 0.5) / 4
+    if v < settings.STROKE_MIN then v = settings.STROKE_MIN
+    elseif v > settings.STROKE_MAX then v = settings.STROKE_MAX end
+    return v
+end
+-- 0〜1（濃さ。無い保存は 1＝今まで）
+function settings.clamp_unit_alpha(v)
+    v = tonumber(v)
+    if v == nil then v = 1 end
+    v = math.floor(v * 20 + 0.5) / 20
+    if v < 0 then v = 0 elseif v > 1 then v = 1 end
+    return v
+end
+settings.SHADOW_COLORS = { 'black', 'dark', 'white' }
+function settings.clamp_shadow_color(v)
+    if v == 'dark' or v == 'white' or v == 'black' then return v end
+    return 'black'
+end
+-- 影の距離（px、0.25 刻み。2 が今までのおおまかな距離）
+function settings.clamp_shadow_distance(v)
+    v = tonumber(v)
+    if v == nil then v = 2 end
+    v = math.floor(v * 4 + 0.5) / 4
+    if v < 0 then v = 0 elseif v > 8 then v = 8 end
+    return v
+end
+-- 頭上ラベルの背景・縁取り（which は 'label' または 'under'）。斜体は使わない
+function settings.label_style(marks, which)
+    marks = marks or {}
+    local d = settings.marks_defaults()
+    local prefix = (which == 'under') and 'under' or 'label'
+    local grad = marks[prefix .. '_bg_grad'] == true
+    return {
+        alpha = settings.label_bg_alpha(marks, prefix),
+        color = settings.normalize_rgb(marks[prefix .. '_bg_color'], d[prefix .. '_bg_color'] or { 0, 0, 0 }),
+        grad = grad,
+        color2 = grad and settings.normalize_rgb(marks[prefix .. '_bg_color2'], d[prefix .. '_bg_color2'] or { 0, 0, 0 }) or nil,
+        italic = false,
+        stroke = settings.clamp_stroke(marks[prefix .. '_stroke']),
+        stroke_alpha = settings.clamp_unit_alpha(marks[prefix .. '_stroke_alpha']),
+    }
+end
+-- 足元の輪の濃さ（公式 strength 0〜4、初期 1、0.1 刻み）
+settings.RING_STRENGTH_MIN, settings.RING_STRENGTH_MAX, settings.RING_STRENGTH_DEFAULT = 0, 4, 1
+function settings.clamp_ring_strength(v)
+    v = tonumber(v)
+    if v == nil then v = settings.RING_STRENGTH_DEFAULT end
+    v = math.floor(v * 10 + 0.5) / 10
+    if v < settings.RING_STRENGTH_MIN then v = settings.RING_STRENGTH_MIN
+    elseif v > settings.RING_STRENGTH_MAX then v = settings.RING_STRENGTH_MAX end
+    return v
+end
+function settings.ring_strength(marks)
+    return settings.clamp_ring_strength(type(marks) == 'table' and marks.ring_strength or nil)
 end
 -- 足元の輪の種類（0.1.171〜）。設定の並び：未受注・進行中・進行できない・目標達成・くり返し・受注できない・討伐・ミッション・ゲートガード・名声
 settings.RING_KINDS = { 'sub', 'progress', 'blocked', 'complete', 'repeat', 'unavailable', 'hunt', 'main', 'guard', 'fame' }

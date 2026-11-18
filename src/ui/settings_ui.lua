@@ -62,6 +62,14 @@ end
 local UNIT = {
     pct = function (v) return string.format('%d%%', math.floor(v * 100 + 0.5)) end,
     px  = function (v) return string.format('%d px', math.floor(v + 0.5)) end,
+    fpx = function (v)
+        v = tonumber(v) or 0
+        local n = math.floor(v * 4 + 0.5) / 4
+        if math.abs(n - math.floor(n + 0.5)) < 1e-6 then
+            return string.format('%d px', math.floor(n + 0.5))
+        end
+        return string.format('%.2f px', n)
+    end,
     spx = function (v)
         local n = math.floor(v + 0.5)
         if n == 0 then return '0 px' end
@@ -129,12 +137,143 @@ end
 function settings_ui.select_tab(key)
     current_tab = key
 end
+
 function settings_ui._reset_tabs() current_tab, focus_first, tab_keys, tabs_seen = nil, false, {}, false end
+
+-- 折りたたみ見出し（0.1.239〜）。初期はすべて開く。settings_folds[id] == true がたたんだ状態。
+-- 決定では開閉しない。開け閉めは左右（マウスはクリック）。決定で中の先頭へ、キャンセルで見出しへ（本と同じ）。
+local FOLD_PREFIX = 'fold_'
+local fold_items = {}
+
+local function folds_tbl(S)
+    if not S then return {} end
+    if type(S.settings_folds) ~= 'table' then S.settings_folds = {} end
+    return S.settings_folds
+end
+
+function settings_ui.is_folded(S, id)
+    return S and type(S.settings_folds) == 'table' and S.settings_folds[id] == true
+end
+
+function settings_ui.set_folded(S, id, folded, ui)
+    if not S or type(id) ~= 'string' or id == '' then return false end
+    local t = folds_tbl(S)
+    folded = folded and true or false
+    if (t[id] == true) == folded then return false end
+    if folded then t[id] = true else t[id] = nil end
+    if ui and ui.mark_settings_dirty then ui.mark_settings_dirty() end
+    return true
+end
+
+-- 見出しの前の余白と、境目の区切り線。ImGui の Dummy / Separator だけ（描画中に公式の文字箱は作らない）。
+local function fold_gap(ui)
+    if #fold_items == 0 then return end
+    local imgui = ui.imgui
+    if imgui and imgui.Dummy then pcall(imgui.Dummy, { 1, 8 }) end
+end
+
+local function fold_rule(ui)
+    local imgui = ui.imgui
+    if imgui and imgui.Separator then pcall(imgui.Separator) end
+end
+
+local function fold_heading(ui, id, label)
+    local name = 'settings'
+    local S = ui.settings
+    local wid = FOLD_PREFIX .. id
+    fold_gap(ui)
+    local open = not settings_ui.is_folded(S, id)
+    local mark = open and '▾ ' or '▸ '
+    local focused = focus.current(name) == wid
+    local color = focused and 'accent' or 'heading'
+    local before = focus.mark(name)
+    if W.button(ui, name, wid, mark .. tostring(label or ''), { section = SEC, row = wid, color = color }) then
+        -- マウスのクリックだけ開閉（決定は nav_action が見出しの中へ入る）
+        settings_ui.set_folded(S, id, open, ui)
+        open = not settings_ui.is_folded(S, id)
+        focus.set(name, wid)
+    end
+    fold_rule(ui)
+    local rec = { id = id, wid = wid, open = open, index = before + 1, children = {} }
+    fold_items[#fold_items + 1] = rec
+    return open, rec
+end
+
+local function fold_end(ui, rec)
+    if not rec then return end
+    local name = 'settings'
+    local last = focus.mark(name)
+    rec.children = {}
+    if rec.open then
+        for i = rec.index + 1, last do
+            local id = focus.id_at(name, i)
+            if id then rec.children[#rec.children + 1] = id end
+        end
+    end
+    rec.first = rec.children[1]
+    for _, id in ipairs(rec.children) do
+        -- 行の先頭が ↺ のときは、本体の項目へ入る
+        if not tostring(id):find('_reset$') then rec.first = id; break end
+    end
+end
+
+-- 入力：見出しの上では左右で開閉、決定で中へ（閉じたままでは開かない）。中ではキャンセルで見出しへ。
+function settings_ui.nav_action(action)
+    local cur = focus.current('settings')
+    if not cur then return false end
+    local rec, inside
+    for _, r in ipairs(fold_items) do
+        if r.wid == cur then rec = r; break end
+        for _, id in ipairs(r.children or {}) do
+            if id == cur then inside = r; break end
+        end
+        if inside then break end
+    end
+    if rec then
+        local S
+        -- ui は描画時の settings と同じ表を app が持っている。fold_items の開閉は設定を直接触る
+        -- 呼び出し側が S を渡さなくてよいよう、見出しの id から設定を探すのは app 経由ではなく
+        -- 直近の描画で使った表を覚える
+        S = settings_ui._fold_settings
+        if action == 'left' then
+            if rec.open and S then
+                settings_ui.set_folded(S, rec.id, true, settings_ui._fold_ui)
+                rec.open = false
+                rec.children, rec.first = {}, nil
+            end
+            focus.set('settings', rec.wid)
+            return true
+        elseif action == 'right' then
+            if (not rec.open) and S then
+                settings_ui.set_folded(S, rec.id, false, settings_ui._fold_ui)
+                rec.open = true
+            end
+            focus.set('settings', rec.wid)
+            return true
+        elseif action == 'confirm' then
+            if rec.open and rec.first then
+                focus.set('settings', rec.first, true)
+            end
+            -- 閉じていれば開かない（決定では開かない）
+            return true
+        end
+        return false
+    end
+    if inside and action == 'back' then
+        focus.set('settings', inside.wid, true)
+        return true
+    end
+    return false
+end
+
 
 -- 本の中（一覧と詳細の場所）に設定を描く（0.1.175〜。本の book.draw から呼ぶ）
 function settings_ui.body(ui)
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local name = 'settings'
+    fold_items = {}
+    settings_ui._fold_settings = S
+    settings_ui._fold_ui = ui
     -- 見出しごとの中身（タブ1枚ずつ。タブが使えないときは1ページに並べる）
     local caps = ui.capabilities and ui.capabilities() or {}
     local SECTIONS = {}
@@ -146,6 +285,9 @@ function settings_ui.body(ui)
             ui.mark_settings_dirty()
         end
         -- 文字サイズは場所ごと（窓の大きさと頭上のアイコンの大きさは変えない）
+        local fold, frec
+        fold, frec = fold_heading(ui, 'look_fonts', t('settings.fold_fonts'))
+        if fold then
         S.fonts = S.fonts or {}
         for _, area in ipairs(settings_mod.FONT_AREAS) do
             if S.fonts[area] == nil then S.fonts[area] = settings_mod.font_for(S, area) end
@@ -171,7 +313,11 @@ function settings_ui.body(ui)
         end
         stepper(ui, name, 'font', t('settings.font_other'), S, 'font_scale', 0.1, settings_mod.FONT_MIN, settings_mod.FONT_MAX, UNIT.pct, SEC, DEF.font_scale)
         W.muted(ui, t('settings.font_note'))
+        end
+        fold_end(ui, frec)
         -- 背景の濃さも窓ごと（文字サイズと同じ並び）
+        fold, frec = fold_heading(ui, 'look_alpha', t('settings.fold_alpha'))
+        if fold then
         S.alphas = S.alphas or {}
         for _, area in ipairs(settings_mod.ALPHA_AREAS) do
           -- 設定は本の中に出すので（0.1.175〜）、設定だけの背景の濃さは出さない（値は残す）
@@ -187,6 +333,8 @@ function settings_ui.body(ui)
             ui.mark_settings_dirty()
         end
         toggle(ui, name, 'motion', t('settings.reduce_motion'), S, 'reduce_motion', SEC)
+        end
+        fold_end(ui, frec)
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'layout', title = t('settings.layout'), draw = function ()
         toggle(ui, name, 'lock', t('settings.layout_locked'), S, 'layout_locked', SEC)
@@ -207,15 +355,13 @@ function settings_ui.body(ui)
         W.muted(ui, t('settings.remember_position_note'))
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'tracker', title = t('settings.tracker'), draw = function ()
+        local fold, frec
+        fold, frec = fold_heading(ui, 'tracker_main', t('settings.fold_tracker'))
+        if fold then
         if toggle(ui, name, 'tr_vis', t('settings.tracker_visible'), S.tracker, 'visible', SEC) then
             if not S.tracker.visible and ui.release then ui.release() end
         end
         W.muted(ui, t('settings.tracker_visible_note'))
-        -- コンパス（0.1.173〜）：いまいるエリアで受けられるクエストを近い順に
-        if toggle(ui, name, 'compass_vis', t('settings.compass_visible'), S.compass, 'visible', SEC) and S.compass.visible
-            and ui.set_compass_visible then ui.set_compass_visible(true) end
-        stepper(ui, name, 'compass_range', t('settings.compass_range'), S.compass, 'max_dist', 5, 5, 100,
-            unit(t('settings.unit_yalms')), SEC, DEF.compass.max_dist)
         stepper(ui, name, 'pins', t('settings.max_pins'), S.tracker, 'max_pins', 1, 1, 30, unit(t('settings.unit_count')), SEC, DEF.tracker.max_pins)
         -- たたむ（0.1.62〜。トラッカーでは空いている所をダブルクリック）
         if toggle(ui, name, 'tr_fold', t('settings.tracker_collapsed'), S.tracker, 'collapsed', SEC) and S.tracker.collapsed then
@@ -245,13 +391,27 @@ function settings_ui.body(ui)
         toggle(ui, name, 'tr_tw', t('settings.show_time_weather'), S.tracker, 'show_time_weather', SEC)
         toggle(ui, name, 'tr_items', t('settings.show_items'), S.tracker, 'show_items', SEC)
         toggle(ui, name, 'poss', t('settings.show_possession'), S.items, 'show_possession', SEC)
+        end
+        fold_end(ui, frec)
+        -- コンパス（0.1.173〜）：いまいるエリアで受けられるクエストを近い順に
+        fold, frec = fold_heading(ui, 'tracker_compass', t('settings.fold_compass'))
+        if fold then
+        if toggle(ui, name, 'compass_vis', t('settings.compass_visible'), S.compass, 'visible', SEC) and S.compass.visible
+            and ui.set_compass_visible then ui.set_compass_visible(true) end
+        stepper(ui, name, 'compass_range', t('settings.compass_range'), S.compass, 'max_dist', 5, 5, 100,
+            unit(t('settings.unit_yalms')), SEC, DEF.compass.max_dist)
+        end
+        fold_end(ui, frec)
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'map', title = t('settings.map'), draw = function ()
         toggle(ui, name, 'map_on', t('map.enabled'), S.map, 'enabled', SEC)
         W.muted(ui, t('map.credit_note'))
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'marks', title = t('settings.marks'), draw = function ()
+        local fold, frec
         -- 表示のオン・オフは4つだけ（0.1.59〜）。それぞれ名前のとおりのものだけを動かす
+        fold, frec = fold_heading(ui, 'marks_show', t('settings.fold_show'))
+        if fold then
         toggle(ui, name, 'marks_icons', t('settings.marks_show_icons'), S.marks, 'show_icons', SEC)
         toggle(ui, name, 'marks_quest', t('settings.marks_show_quest_name'), S.marks, 'show_quest_name', SEC)
         toggle(ui, name, 'marks_objects', t('settings.marks_show_object_names'), S.marks, 'show_object_names', SEC)
@@ -260,7 +420,11 @@ function settings_ui.body(ui)
         toggle(ui, name, 'marks_fame', t('settings.marks_show_fame'), S.marks, 'show_fame_npcs', SEC)
         W.muted(ui, t('settings.marks_switches_note'))
         stepper(ui, name, 'marks_icon', t('settings.marks_icon_size'), S.marks, 'icon_size', 4, 16, 64, UNIT.px, SEC, DEF.marks.icon_size)
+        end
+        fold_end(ui, frec)
         -- 位置の調整（px、＋で右・下）
+        fold, frec = fold_heading(ui, 'marks_pos', t('settings.fold_pos'))
+        if fold then
         -- 調べるオブジェクト（??? など）と、そのほか（話す相手・討伐対象・ゲートガード）で別々
         local lo, hi, st = settings_mod.OFFSET_MIN, settings_mod.OFFSET_MAX, settings_mod.OFFSET_STEP
         local function offsets(keys, base)
@@ -277,6 +441,17 @@ function settings_ui.body(ui)
         W.heading(ui, t('settings.marks_pos_other'))
         offsets(settings_mod.OFFSET_KEYS, { 'mark_dx', 'mark_dy', 'label_dx', 'label_dy' })
         toggle(ui, name, 'marks_zoom', t('settings.marks_zoom_follow'), S.marks, 'zoom_follow', SEC)
+        toggle(ui, name, 'marks_no_enlarge', t('settings.marks_no_enlarge_near'), S.marks, 'no_enlarge_near', SEC)
+        W.muted(ui, t('settings.marks_no_enlarge_near_note'))
+        if W.button(ui, name, 'marks_pos_reset', t('settings.marks_pos_reset'), { section = SEC, row = 'marks_pos_reset', small = true }) then
+            for _, k in ipairs(settings_mod.OFFSET_KEYS) do S.marks[k] = 0 end
+            for _, k in ipairs(settings_mod.OBJ_OFFSET_KEYS) do S.marks[k] = 0 end
+            for _, k in ipairs(settings_mod.NEAR_OFFSET_KEYS) do S.marks[k] = 0 end
+            ui.mark_settings_dirty()
+        end
+        W.muted(ui, t('settings.marks_pos_note'))
+        end
+        fold_end(ui, frec)
         -- 文字の色（クエスト名・オブジェクト名。RGB それぞれ 0〜255、↺ で初めの色。グラデーションは左から右へ）
         local function color_block(which, sample)
             local M = S.marks
@@ -300,10 +475,13 @@ function settings_ui.body(ui)
             end
             if W.button(ui, name, 'marks_' .. which .. '_all_reset', t('settings.color_reset'),
                 { section = SEC, row = 'marks_' .. which .. '_all_reset', small = true }) then
-                for _, k in ipairs({ which .. '_color', which .. '_color2' }) do
-                    M[k] = { DM[k][1], DM[k][2], DM[k][3] }
+                for _, k in ipairs({ which .. '_color', which .. '_color2', which .. '_bg_color', which .. '_bg_color2' }) do
+                    if DM[k] then M[k] = { DM[k][1], DM[k][2], DM[k][3] } end
                 end
                 M[which .. '_grad'] = false
+                M[which .. '_bg_grad'] = false
+                M[which .. '_stroke'] = DM[which .. '_stroke'] or 1
+                M[which .. '_stroke_alpha'] = DM[which .. '_stroke_alpha'] or 1
                 ui.mark_settings_dirty()
             end
             -- 頭上の文字の背景の濃さ（0.1.215〜）。クエスト名とオブジェクト名で別
@@ -312,18 +490,51 @@ function settings_ui.body(ui)
             stepper(ui, name, 'marks_' .. bg_key, t('settings.marks_' .. bg_key), M, bg_key,
                 0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX,
                 UNIT.pct, SEC, DM[bg_key])
+            pick(which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'))
+            toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'),
+                M, which .. '_bg_grad', SEC)
+            if M[which .. '_bg_grad'] then
+                pick(which .. '_bg_color2', t('settings.marks_' .. which .. '_bg_color2'))
+            end
+            local sk = which .. '_stroke'
+            if type(M[sk]) ~= 'number' then M[sk] = settings_mod.STROKE_DEFAULT or 1 end
+            stepper(ui, name, 'marks_' .. sk, t('settings.marks_' .. sk), M, sk, 1,
+                settings_mod.STROKE_MIN, settings_mod.STROKE_MAX, UNIT.px, SEC, DM[sk])
+            local sak = which .. '_stroke_alpha'
+            if type(M[sak]) ~= 'number' then M[sak] = 1 end
+            stepper(ui, name, 'marks_' .. sak, t('settings.marks_' .. sak), M, sak, 0.05,
+                0, 1, UNIT.pct, SEC, DM[sak] or 1)
         end
+        fold, frec = fold_heading(ui, 'marks_quest', t('settings.fold_quest_name'))
+        if fold then
         color_block('label', t('settings.color_sample_label'))
+        W.muted(ui, t('settings.color_note'))
+        W.muted(ui, t('settings.marks_bg_alpha_note'))
+        W.muted(ui, t('settings.marks_bg_color_note'))
+        end
+        fold_end(ui, frec)
+        fold, frec = fold_heading(ui, 'marks_object', t('settings.fold_object_name'))
+        if fold then
         color_block('under', '???')
         W.muted(ui, t('settings.color_note'))
         W.muted(ui, t('settings.marks_bg_alpha_note'))
+        W.muted(ui, t('settings.marks_bg_color_note'))
+        end
+        fold_end(ui, frec)
         -- 足元の輪（0.1.171〜）：オンオフ・大きさ・種類ごとの色（初めの色は今のアイコンの色）
+        fold, frec = fold_heading(ui, 'marks_rings', t('settings.fold_rings'))
+        if fold then
         do
             local M, DM = S.marks, DEF.marks
-            W.heading(ui, t('settings.rings'))
             toggle(ui, name, 'marks_rings', t('settings.rings_show'), M, 'show_rings', SEC)
             stepper(ui, name, 'marks_ring_size', t('settings.rings_size'), M, 'ring_size', 0.1,
                 settings_mod.RING_SIZE_MIN, settings_mod.RING_SIZE_MAX, UNIT.pct, SEC, DM.ring_size)
+            if type(M.ring_strength) ~= 'number' then M.ring_strength = settings_mod.RING_STRENGTH_DEFAULT or 1 end
+            stepper(ui, name, 'marks_ring_strength', t('settings.rings_strength'), M, 'ring_strength', 0.1,
+                settings_mod.RING_STRENGTH_MIN, settings_mod.RING_STRENGTH_MAX, nil, SEC, DM.ring_strength)
+            toggle(ui, name, 'marks_rings_event', t('settings.rings_hide_in_event'), M, 'hide_rings_in_event', SEC)
+            W.muted(ui, t('settings.rings_hide_in_event_note'))
+            W.muted(ui, t('settings.rings_strength_note'))
             for _, k in ipairs(settings_mod.RING_KINDS) do
                 local key = 'ring_' .. k
                 local label = t('settings.rings_' .. k)
@@ -345,13 +556,8 @@ function settings_ui.body(ui)
             end
             W.muted(ui, t('settings.rings_note'))
         end
-        if W.button(ui, name, 'marks_pos_reset', t('settings.marks_pos_reset'), { section = SEC, row = 'marks_pos_reset', small = true }) then
-            for _, k in ipairs(settings_mod.OFFSET_KEYS) do S.marks[k] = 0 end
-            for _, k in ipairs(settings_mod.OBJ_OFFSET_KEYS) do S.marks[k] = 0 end
-            for _, k in ipairs(settings_mod.NEAR_OFFSET_KEYS) do S.marks[k] = 0 end
-            ui.mark_settings_dirty()
         end
-        W.muted(ui, t('settings.marks_pos_note'))
+        fold_end(ui, frec)
         W.muted(ui, t('settings.marks_note'))
         if caps.marks_project == false then
             W.muted(ui, t('settings.marks_no_project'))
@@ -359,10 +565,16 @@ function settings_ui.body(ui)
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'notify', title = t('settings.notify'), draw = function ()
         local N = S.notify
+        local fold, frec
+        fold, frec = fold_heading(ui, 'notify_login', t('settings.fold_login'))
+        if fold then
         toggle(ui, name, 'n_login', t('settings.login_resume'), N, 'login_resume', SEC)
         stepper(ui, name, 'n_login_s', t('settings.login_resume_seconds'), N, 'login_resume_seconds', 1, 3, 60, unit(t('settings.unit_sec')), SEC, DEF.notify.login_resume_seconds)
+        end
+        fold_end(ui, frec)
         -- 受注・完了のお知らせと効果音（0.1.183〜、t295）
-        W.sep(ui)
+        fold, frec = fold_heading(ui, 'notify_popup', t('settings.fold_popup'))
+        if fold then
         toggle(ui, name, 'n_popup', t('settings.popup'), N, 'popup', SEC)
         stepper(ui, name, 'n_popup_s', t('settings.popup_seconds'), N, 'popup_seconds', 1, 3, 30, unit(t('settings.unit_sec')), SEC, DEF.notify.popup_seconds)
         toggle(ui, name, 'n_sound', t('settings.sound'), N, 'sound', SEC)
@@ -377,15 +589,23 @@ function settings_ui.body(ui)
         if ui.can_play_sound and not ui.can_play_sound() then W.muted(ui, t('settings.sound_unavailable')) end
         W.muted(ui, t('settings.popup_try_note'))
         W.muted(ui, t('settings.popup_note'))
+        end
+        fold_end(ui, frec)
         -- エリア入場の「いまここで進めること」とミュートは 0.1.173 でなくした（t251）
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'input', title = t('settings.input'), draw = function ()
+        local fold, frec
+        fold, frec = fold_heading(ui, 'input_pad', t('settings.fold_pad'))
+        if fold then
         toggle(ui, name, 'pad', t('settings.gamepad'), S.input, 'gamepad', SEC)
         stepper(ui, name, 'repeat', t('settings.repeat_ms'), S.input, 'repeat_ms', 20, 60, 1000, unit('ms'), SEC, DEF.input.repeat_ms)
         W.muted(ui, t('settings.input_note'))
         W.muted(ui, t('settings.pad_state', { v = caps.gamepad_note or '?' }))
+        end
+        fold_end(ui, frec)
         -- パッドのショートカット（0.1.57〜。0.1.61〜は「操作」の中。0.1.194〜はエミネンス・コンパスも）。押すとボタン待ち、全部離すと決まる
-        W.sep(ui)
+        fold, frec = fold_heading(ui, 'input_shortcut', t('settings.fold_shortcut'))
+        if fold then
         W.colored(ui, 'accent', t('settings.shortcut'))
         S.shortcut = S.shortcut or { open_book = {}, pass_to_game = true }
         local info = ui.shortcut_info and ui.shortcut_info() or {}
@@ -431,8 +651,11 @@ function settings_ui.body(ui)
         local src = caps.pad_source
         local sv = t('settings.shortcut_src_' .. ((src == 'state' or src == 'button' or src == 'dinput') and src or 'none'))
         W.muted(ui, t('settings.shortcut_state', { v = sv }))
+        end
+        fold_end(ui, frec)
         -- ゲームのメニュー（0.1.67〜は「操作」の中。前は別のタブ）
-        W.sep(ui)
+        fold, frec = fold_heading(ui, 'input_gameui', t('settings.fold_gameui'))
+        if fold then
         W.colored(ui, 'accent', t('settings.gameui'))
         toggle(ui, name, 'g_mission', t('settings.gameui_mission_book'), S.gameui, 'mission_book', SEC)
         toggle(ui, name, 'g_config', t('settings.gameui_config_button'), S.gameui, 'config_button', SEC)
@@ -440,8 +663,13 @@ function settings_ui.body(ui)
         toggle(ui, name, 'g_ontop', t('settings.gameui_menus_on_top'), S.gameui, 'menus_on_top', SEC)
         if ui.state.gameui_note then W.muted(ui, ui.state.gameui_note) end
         W.muted(ui, t('settings.gameui_note'))
+        end
+        fold_end(ui, frec)
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'save', title = t('settings.save'), draw = function ()
+        local fold, frec
+        fold, frec = fold_heading(ui, 'save_backup', t('settings.fold_backup'))
+        if fold then
         stepper(ui, name, 'keep', t('settings.backup_keep'), S.backup, 'keep', 1, 1, 100, unit(t('settings.unit_count')), SEC, DEF.backup.keep)
         W.muted(ui, t('settings.char_folder', { v = ui.state.char_folder or t('status.waiting') }))
         W.muted(ui, t('settings.data_version', { v = ui.data.version or '?' }))
@@ -452,8 +680,11 @@ function settings_ui.body(ui)
         if W.button(ui, name, 'save_now', t('settings.save_now'), { section = SEC, row = 'save_now' }) then
             ui.save_now()
         end
+        end
+        fold_end(ui, frec)
         -- マイレイアウト（0.1.194〜）：5つ。各窓の位置・大きさと設定を覚える（進行・ピンなどは入れない）
-        W.sep(ui)
+        fold, frec = fold_heading(ui, 'save_layout', t('settings.fold_layouts'))
+        if fold then
         W.colored(ui, 'accent', t('settings.layouts'))
         W.same(ui)
         if W.button(ui, name, 'lay_info', 'ⓘ', { section = SEC, row = 'lay_info', small = true, tooltip = t('settings.layouts_tip') }) then
@@ -496,13 +727,18 @@ function settings_ui.body(ui)
                 if ui.load_layout then ui.load_layout(i) end
             end
         end
+        end
+        fold_end(ui, frec)
         -- デバッグ（0.1.187〜、t308）。公開版には出さない
         if ui.manual_checks == nil or ui.manual_checks() then
-            W.sep(ui)
+            fold, frec = fold_heading(ui, 'save_debug', t('settings.fold_debug'))
+            if fold then
             W.colored(ui, 'accent', t('settings.debug'))
             S.debug = S.debug or { state_buttons = false }
             toggle(ui, name, 'dbg_state', t('settings.debug_state_buttons'), S.debug, 'state_buttons', SEC)
             W.muted(ui, t('settings.debug_note'))
+            end
+            fold_end(ui, frec)
         end
     end }
     -- エミネンス（0.1.172〜）
@@ -538,6 +774,7 @@ function settings_ui.body(ui)
         tabs_seen = true
         -- 0.1.225〜（t499）：パッドの案内（LB／RB でタブを替える…）は出さない
         W.muted(ui, t('settings.heading'))
+        W.muted(ui, t('settings.fold_note'))
         local avail = 0
         local okw, aw = pcall(imgui.GetContentRegionAvail)
         if okw then avail = (type(aw) == 'table' and (aw.x or aw[1])) or tonumber(aw) or 0 end

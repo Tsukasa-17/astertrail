@@ -530,7 +530,7 @@ function tracker.draw(ui)
                 local ci, ct = P:step_count(qid)
                 local count = ci and (tostring(ci) .. '/' .. tostring(ct)) or nil
                 local function count_text()
-                    imgui.TextDisabled(count)
+                    theme.TextDisabled(imgui, count)
                     if imgui.IsItemHovered and imgui.IsItemHovered() and imgui.SetTooltip then
                         imgui.SetTooltip(t('tracker.step_count', { cur = ci, total = ct }))
                     end

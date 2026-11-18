@@ -238,11 +238,11 @@ CT._layout = layout
 local function draw_piece(imgui, piece, opts)
     local name = piece.color or opts.base
     if name then
-        imgui.TextColored(theme.col(name), piece.text)
+        theme.TextColored(imgui, theme.col(name), piece.text)
     elseif opts.muted then
-        imgui.TextDisabled(piece.text)
+        theme.TextDisabled(imgui, piece.text)
     else
-        imgui.TextColored(theme.col('text'), piece.text)
+        theme.TextColored(imgui, theme.col('text'), piece.text)
     end
 end
 
@@ -253,14 +253,14 @@ end
 function CT.draw_spans(ui, spans, opts)
     opts = opts or {}
     local imgui = ui.imgui
-    if #spans == 0 then imgui.TextColored(theme.col('text'), ' '); return end
+    if #spans == 0 then theme.TextColored(imgui, theme.col('text'), ' '); return end
     local has_link = opts.link ~= nil
     local right = opts.align == 'right'
     if #spans == 1 and not spans[1].color and not (has_link and CT.click_action(spans[1].kind)) and not right then
         local s = spans[1].text
-        if opts.base then imgui.TextColored(theme.col(opts.base), s)
-        elseif opts.muted then imgui.TextDisabled(s)
-        else imgui.TextWrapped(s) end
+        if opts.base then theme.TextColored(imgui, theme.col(opts.base), s)
+        elseif opts.muted then theme.TextDisabled(imgui, s)
+        else theme.TextWrapped(imgui, s) end
         return
     end
     local lines
@@ -273,9 +273,9 @@ function CT.draw_spans(ui, spans, opts)
         -- 測れない：右そろえはやめて、今までどおり描く
         if right and #spans == 1 and not spans[1].color and not (has_link and CT.click_action(spans[1].kind)) then
             local s = spans[1].text
-            if opts.base then imgui.TextColored(theme.col(opts.base), s)
-            elseif opts.muted then imgui.TextDisabled(s)
-            else imgui.TextWrapped(s) end
+            if opts.base then theme.TextColored(imgui, theme.col(opts.base), s)
+            elseif opts.muted then theme.TextDisabled(imgui, s)
+            else theme.TextWrapped(imgui, s) end
             return
         end
         lines = { spans }
@@ -301,7 +301,7 @@ function CT.draw_spans(ui, spans, opts)
                 draw_piece(imgui, piece, opts)
             end
         end
-        if #line == 0 then imgui.TextColored(theme.col('text'), ' ') end
+        if #line == 0 then theme.TextColored(imgui, theme.col('text'), ' ') end
     end
 end
 
@@ -311,9 +311,9 @@ function CT.wrapped(ui, text, mode, align)
     local imgui = ui.imgui
     text = tostring(text or '')
     local function one(s)
-        if mode == 'muted' then imgui.TextDisabled(s)
-        elseif mode == 'text' or mode == nil then imgui.TextColored(theme.col('text'), s)
-        else imgui.TextColored(theme.col(mode), s) end
+        if mode == 'muted' then theme.TextDisabled(imgui, s)
+        elseif mode == 'text' or mode == nil then theme.TextColored(imgui, theme.col('text'), s)
+        else theme.TextColored(imgui, theme.col(mode), s) end
     end
     local avail = imgui.GetContentRegionAvail and imgui.GetContentRegionAvail() or nil
     if type(avail) == 'table' then avail = avail.x or avail[1] end

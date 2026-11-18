@@ -17,7 +17,9 @@ local layouts = {
 
 -- スナップショットに入れる設定（これ以外は今の値のまま）
 layouts.KEYS = {
-    'language', 'font_scale', 'fonts', 'layout_locked', 'theme', 'background_alpha', 'alphas',
+    'language', 'font_scale', 'font_outline', 'font_outline_alpha',
+    'font_shadow', 'font_shadow_color', 'font_shadow_distance', 'font_shadow_alpha', 'font_body_fx',
+    'fonts', 'layout_locked', 'theme', 'background_alpha', 'alphas',
     'reduce_motion', 'windows', 'entry_icon', 'remember_position', 'look', 'book',
     'tracker', 'items', 'compass', 'notify', 'backup', 'diagnostics', 'auto_detect',
     'map', 'marks', 'input', 'update_notice', 'shortcut', 'gameui',

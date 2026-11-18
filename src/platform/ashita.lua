@@ -229,6 +229,27 @@ end
 -- 使える機能
 ---------------------------------------------------------------------------
 
+
+-- プレイヤーのエンティティ状態（0 待機、1 戦闘、4 イベント）。読めなければ nil
+function platform.self_status()
+    if ext and ext.self_status then
+        local ok, s = pcall(ext.self_status)
+        if ok and type(s) == 'number' then return s end
+    end
+    local st
+    local ok = pcall(function ()
+        local mm = AshitaCore:GetMemoryManager()
+        local party = mm:GetParty()
+        local idx = party:GetMemberTargetIndex(0)
+        local ent = mm:GetEntity()
+        if idx and idx > 0 and ent then
+            st = tonumber(ent:GetStatus(idx))
+        end
+    end)
+    if ok then return st end
+    return nil
+end
+
 function platform.capabilities()
     local pad_note = 'XInput（xinput_state・xinput_button）と DirectInput（dinput_button）。実機で要検証'
     if ext and ext.gamepad_note then

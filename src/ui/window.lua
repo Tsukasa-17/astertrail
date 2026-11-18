@@ -294,6 +294,9 @@ function window.begin(ui, name, opts)
         if fsz and fsz > 0 then ui._font_base = fsz end
     end
     imgui.SetWindowFontScale(window.font_scale(ui, name))
+    -- 通常メニューの縁取り・影（0.1.236〜）。斜体フォントは読まない
+    theme.set_text_fx(ui.settings)
+    if theme.set_body_area then theme.set_body_area(FONT_AREA[name] or name) end
     if capsule and drawing then
         pcall(theme.draw_capsule, imgui, name, cap_s, ui.settings.reduce_motion)
     end
@@ -402,7 +405,8 @@ function window.pop(ui, kind)
     local e = st[#st]
     if not e then return end
     st[#st] = nil
-    CLOSERS[e.kind](ui.imgui, e)
+    -- 閉じる処理が失敗しても、残りの組を閉じられるようにする
+    pcall(CLOSERS[e.kind], ui.imgui, e)
 end
 
 function window.depth(ui) return #(ui._stack or {}) end

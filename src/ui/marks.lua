@@ -510,7 +510,8 @@ function marks.ground_rings(ui, matched, player)
                 if r < 0.6 then r = 0.6 elseif r > 6 then r = 6 end
                 r = r * size
                 local d = (px and py) and ((x - px) ^ 2 + (y - py) ^ 2) or 0
-                out[#out + 1] = { x = x, y = y, z = z or 0, radius = r, color = hex(c), kind = look, _d = d, _c = c }
+                local strength = settings_mod.ring_strength(SM)
+                out[#out + 1] = { x = x, y = y, z = z or 0, radius = r, color = hex(c), strength = strength, kind = look, _d = d, _c = c }
             end
         end
     end
@@ -520,14 +521,42 @@ function marks.ground_rings(ui, matched, player)
 end
 
 -- 公式に渡す（使えなければ ImGui で描く）。戻り値: 'native' | 'imgui' | 'off' | 'none'
+-- 設定がオンのとき、今は輪を出さないか（イベント status==4、または会話などのゲームメニュー）
+function marks.hide_rings_now(ui)
+    local SM = ui and ui.settings and ui.settings.marks or {}
+    if SM.hide_rings_in_event ~= true then return false end
+    local plat = ui and ui.platform
+    if plat and plat.self_status then
+        local ok, st = pcall(plat.self_status)
+        if ok and tonumber(st) == 4 then return true end
+    end
+    -- 同じフレームで app が調べ済みならそれを使う（メニュー一覧を二重に読まない）
+    if ui.state and ui.state.game_menu_open ~= nil then
+        return ui.state.game_menu_open == true
+    end
+    if plat and plat.game_menu_state then
+        local ok, open = pcall(plat.game_menu_state)
+        if ok and open == true then return true end
+    end
+    return false
+end
+
 function marks.apply_rings(ui, rings)
     local plat = ui and ui.platform
     if not plat then return 'none' end
+    rings = rings or {}
+    local SM = ui.settings and ui.settings.marks or {}
+    -- イベント中・会話中は輪を消す（初期オン）。
+    -- status==4 はカットシーンなどのイベント。普通の会話は番号が 4 にならないことが多いので、
+    -- 本を隠すときと同じ「ゲームのメニューが開いているか」も見る。
+    if marks.hide_rings_now(ui) then
+        rings = {}
+    end
     local native = plat.rings_native and plat.rings_native()
     if plat.set_ground_rings and plat.rings_available and plat.rings_available() and native ~= false then
         local list = {}
         for i, r in ipairs(rings) do
-            list[i] = { x = r.x, y = r.y, z = r.z, radius = r.radius, color = r.color }
+            list[i] = { x = r.x, y = r.y, z = r.z, radius = r.radius, color = r.color, strength = r.strength }
         end
         local ok = plat.set_ground_rings(list)
         if ok then return (#list > 0) and 'native' or 'off' end
@@ -553,8 +582,13 @@ function marks.apply_rings(ui, rings)
                 local okc, v = pcall(imgui.GetColorU32, { c[1] / 255, c[2] / 255, c[3] / 255, al })
                 return okc and v or theme.u32('accent', al)
             end
-            pcall(dl.AddPolyline, dl, pts, theme.u32('ink', 0.6), true, 4)
-            pcall(dl.AddPolyline, dl, pts, u(0.95), true, 2.2)
+            local st = tonumber(r.strength) or 1
+            if st < 0 then st = 0 end
+            local al = 0.95 * (st <= 1 and st or 1)
+            local ink_al = 0.6 * (st <= 1 and st or 1)
+            local thick = 2.2 * (st <= 1 and 1 or math.min(st, 2))
+            pcall(dl.AddPolyline, dl, pts, theme.u32('ink', ink_al), true, 4 * (st <= 1 and 1 or math.min(st, 1.5)))
+            pcall(dl.AddPolyline, dl, pts, u(al), true, thick)
         end
     end
     return 'imgui'
@@ -767,8 +801,18 @@ function marks.draw(ui)
     -- 頭上の文字の背景の濃さ（0.1.215〜）。クエスト名とオブジェクト名で別
     local label_bg = settings_mod.label_bg_alpha(SM, 'label')
     local under_bg = settings_mod.label_bg_alpha(SM, 'under')
+    local label_style = settings_mod.label_style(SM, 'label')
+    local under_style = settings_mod.label_style(SM, 'under')
+    local function with_shadow(it)
+        -- 0.1.238：頭上の影箱（同じ文をもう一つ spawn してずらす）は、
+        -- 0.1.237 で公式の spawn が書き込みアクセス違反を起こしたため作らない。
+        -- メニューの影設定は、頭上には載せない。
+        return it
+    end
     -- ズームに合わせて位置を調整する（試し）。オフならこれまでどおり
     local zoom_follow = SM.zoom_follow ~= false
+    -- 近づいても大きくしない（0.1.235〜）。初期オフ
+    local no_enlarge_near = SM.no_enlarge_near == true
     -- 近くのオブジェクトの名前（0.1.58〜、初期はオフ）。クエストに関係ないものにも名前だけ
     -- 表示の4つ（0.1.59〜）。それぞれ名前のとおりのものだけを動かす
     local show_icons = SM.show_icons ~= false           -- アイコン（NPC・モンスター・調べるオブジェクト）
@@ -857,7 +901,7 @@ function marks.draw(ui)
                     local offs = offs_of(role)
                     local lab = quest_label(w)
                     if with_icon or lab then
-                        items[#items + 1] = {
+                        items[#items + 1] = with_shadow({
                             no_icon = not with_icon,
                             index = ent.index,
                             role = role,
@@ -869,8 +913,9 @@ function marks.draw(ui)
                             mark_dx = offs.mark_dx, mark_dy = offs.mark_dy, zoom_follow = zoom_follow,
                             label_dx = offs.label_dx, label_dy = offs.label_dy,
                             label_color = lc1, label_color2 = lc2,
-                            label_bg_alpha = label_bg,
-                        }
+                            label_bg_alpha = label_bg, label_style = label_style,
+                            no_enlarge_near = no_enlarge_near,
+                        })
                     end
                 end)
             end
@@ -954,7 +999,7 @@ function marks.draw(ui)
                             if not show_obj_names then ndx, ndy = offs_near.name_dx, offs_near.name_dy end
                         end
                         if with_icon or lab or uname then
-                            items[#items + 1] = {
+                            items[#items + 1] = with_shadow({
                                 no_icon = not with_icon,
                                 x = x,
                                 y = y,
@@ -970,13 +1015,15 @@ function marks.draw(ui)
                                 label_color = lc1, label_color2 = lc2,
                                 under_color = uc1, under_color2 = uc2,
                                 label_bg_alpha = label_bg, under_bg_alpha = under_bg,
+                                label_style = label_style, under_style = under_style,
+                                no_enlarge_near = no_enlarge_near,
                                 icon = icon_size,
                                 key = (ent.index ~= nil) and (tostring(ent.index) .. ':' .. tostring(layer)) or nil,
                                 index = ent.index,
                                 label = lab,
                                 under = uname,
                                 layer = layer,
-                            }
+                            })
                         end
                     end)
                 end
@@ -995,20 +1042,21 @@ function marks.draw(ui)
             end
             for _, n in ipairs(near) do
                 local ent = n.entity
-                items[#items + 1] = {
+                items[#items + 1] = with_shadow({
                     x = ent.x, y = ent.y, z = ent.z or 0, up = ent.model_size,
                     role = 'examine', name_only = true,
                     scale = scale, under_scale = under_scale,
                     mark_dx = offs_obj.mark_dx, mark_dy = offs_obj.mark_dy, zoom_follow = zoom_follow,
                     name_dx = offs_near.name_dx, name_dy = offs_near.name_dy,
                     under_color = uc1, under_color2 = uc2,
-                    under_bg_alpha = under_bg,
+                    under_bg_alpha = under_bg, under_style = under_style,
+                    no_enlarge_near = no_enlarge_near,
                     icon = icon_size,
                     key = 'near:' .. tostring(ent.index),
                     index = ent.index,
                     under = n.name,
                     layer = 0,
-                }
+                })
                 nearby_drawn = nearby_drawn + 1
             end
         end

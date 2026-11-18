@@ -43,7 +43,7 @@ function compass.draw(ui)
                 -- 受けられない理由：※ に乗せたときだけ（0.1.177〜）
                 if #r.reasons > 0 then
                     imgui.SameLine(0, 2)
-                    imgui.TextColored(theme.col('warn'), t('book.cond_mark'))
+                    theme.TextColored(imgui, theme.col('warn'), t('book.cond_mark'))
                     if imgui.IsItemHovered() then
                         local tip = {}
                         for _, x in ipairs(r.reasons) do tip[#tip + 1] = t('book.lock_reason', { text = x.text_ja or '' }) end
@@ -63,10 +63,10 @@ function compass.draw(ui)
                         ui.open_map(r.qid, nil, sl)
                     end
                 else
-                    imgui.TextColored(theme.col('npc'), r.npc or t('compass.npc_unknown'))
+                    theme.TextColored(imgui, theme.col('npc'), r.npc or t('compass.npc_unknown'))
                 end
                 imgui.SameLine()
-                imgui.TextColored(theme.col(r.dist and 'text' or 'muted'), compass_core.dist_text(t, r))
+                theme.TextColored(imgui, theme.col(r.dist and 'text' or 'muted'), compass_core.dist_text(t, r))
                 imgui.Unindent()
             end
         end

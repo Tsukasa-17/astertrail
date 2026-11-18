@@ -30,7 +30,7 @@ end
 
 local function draw_one(ui, g)
     local imgui = ui.imgui
-    if g.color then imgui.TextColored(theme.col(g.color), g.text) else imgui.TextDisabled(g.text) end
+    if g.color then theme.TextColored(imgui, theme.col(g.color), g.text) else theme.TextDisabled(imgui, g.text) end
     if g.tip and imgui.IsItemHovered and imgui.IsItemHovered() and imgui.SetTooltip then imgui.SetTooltip(g.tip) end
 end
 
@@ -40,15 +40,15 @@ function M.draw_inline(ui, needs)
     local segs = M.segments(ui, needs)
     if #segs == 0 then return end
     local imgui = ui.imgui
-    if M.all_unknown(segs) then imgui.TextDisabled(t('need.possession_unknown')); return end
-    imgui.TextDisabled(t('poss.label'))
+    if M.all_unknown(segs) then theme.TextDisabled(imgui, t('need.possession_unknown')); return end
+    theme.TextDisabled(imgui, t('poss.label'))
     local okw, av = pcall(imgui.GetContentRegionAvail)
     local avail = okw and (type(av) == 'table' and tonumber(av.x or av[1]) or tonumber(av)) or nil
     local used = CT.text_w(imgui, t('poss.label')) or 0
     for i, g in ipairs(segs) do
         local w = CT.text_w(imgui, g.text) or 0
         if i > 1 then
-            imgui.SameLine(); imgui.TextDisabled(t('poss.sep_between'))
+            imgui.SameLine(); theme.TextDisabled(imgui, t('poss.sep_between'))
             used = used + (CT.text_w(imgui, t('poss.sep_between')) or 0) + 8
         end
         if avail and used + w + 8 > avail and i > 1 then used = 0 else imgui.SameLine() end

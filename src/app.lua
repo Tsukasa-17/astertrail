@@ -35,7 +35,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.234',
+    VERSION = '1.1.245',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -956,10 +956,17 @@ local function do_action(action, win)
         if action ~= 'up' and action ~= 'down' then state.held = nil end
         return
     end
+    if action == 'back' and win and focus.back_from_adjust(win) then
+        -- スライダーの上では、まず同じ行の ↺ へ戻る（折りたたみのキャンセルより先）
+        return
+    end
     if win == 'settings' and (action == 'section_next' or action == 'section_prev')
         and settings_ui_mod.cycle_tab(action == 'section_next' and 1 or -1) then
         -- 設定の LB/RB（Tab/Shift+Tab）はタブを替える
         state.held = nil
+    elseif win == 'settings' and settings_ui_mod.nav_action and settings_ui_mod.nav_action(action) then
+        -- 設定の折りたたみ見出し（0.1.239〜）：左右で開閉、決定で中へ、キャンセルで見出しへ
+        if action == 'confirm' or action == 'back' then state.held = nil end
     elseif win == 'tracker' and app.tracker_action(action) then
         -- トラッカーの2段の操作・タブの切り替え（0.1.170〜）
     elseif win == 'book' and app.book_action(action) then
@@ -2529,6 +2536,10 @@ function app.load_map_image(file_id)
 end
 
 local function make_ui(imgui)
+    -- 0.1.245：見た目の縁取り・影は使わない。set_text_fx は保存値で落ちないようにするだけ。
+    -- wrap_imgui は使わない。描画中に公式の文字箱（spawn）は作らない。
+    local theme = require('src.ui.theme')
+    theme.set_text_fx(S)
     local ui = {
         imgui = imgui, t = T, data = D, progress = PR, settings = S, state = state,
         reduce_motion = S.reduce_motion, addon_version = app.VERSION,
@@ -2663,6 +2674,8 @@ function app.present()
         perf_names[screens.notices.draw_popup] = 'popup'
     end
     local ui = make_ui(imgui)
+    local theme = require('src.ui.theme')
+    if theme.body_fx_stats_reset then theme.body_fx_stats_reset() end
     W.frame_start(imgui)
 
     local function guarded(fn, ...)
@@ -2707,6 +2720,14 @@ function app.present()
     if S.notify.popup then guarded(screens.notices.draw_popup, ui, now) end
 
     state.text_active = ui.text_active
+    -- デバッグがオンのときだけ、本文の重ね描き回数を VanaCore のログへ 1 回出す
+    if not state.body_fx_logged and theme.body_fx_stats and S and S.debug and S.debug.state_buttons == true then
+        local st = theme.body_fx_stats()
+        state.body_fx_logged = true
+        P.print(string.format('body fx: on=%s calls=%s adds=%s area=%s outline=%s shadow=%s',
+            tostring(st.on), tostring(st.calls), tostring(st.adds), tostring(st.area or '-'),
+            tostring(S.font_outline), tostring(S.font_shadow_color)))
+    end
     perf.stop('frame', t_frame)
     -- 自分の窓の外（ゲーム画面）をクリックしたら操作を終え、入力をゲームへ返す
     if state.active and imgui.IsMouseClicked(0) and not ui.hovered_any then

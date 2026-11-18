@@ -358,8 +358,8 @@ local function cell_text(imgui, text, color, muted)
         end
         imgui.PushTextWrapPos(cx + w)
     end
-    if muted then imgui.TextDisabled(text)
-    else imgui.TextColored(theme.col(color or 'text'), text) end
+    if muted then theme.TextDisabled(imgui, text)
+    else theme.TextColored(imgui, theme.col(color or 'text'), text) end
     if wrap then imgui.PopTextWrapPos() end
 end
 
@@ -540,7 +540,7 @@ function book.repeat_icon(ui, kind)
     if not imgui or not kind then return end
     if imgui.SameLine then pcall(imgui.SameLine, 0, 4) end
     local a = (kind == 'again') and 1 or 0.85
-    pcall(imgui.TextColored, theme.col('repeat_mark', a), ui.t('book.repeat_mark'))
+    pcall(theme.TextColored, imgui, theme.col('repeat_mark', a), ui.t('book.repeat_mark'))
     if imgui.IsItemHovered then
         local ok, hov = pcall(imgui.IsItemHovered)
         if ok and hov and imgui.SetTooltip then
@@ -557,7 +557,7 @@ function book.cond_icon(ui, c)
     if not c or not c.cond then return false end
     local tip = c.tip and #c.tip > 0 and table.concat(c.tip, '\n') or nil
     pcall(imgui.SameLine, 0, 2)
-    pcall(imgui.TextColored, theme.col('warn'), ui.t('book.cond_mark'))
+    pcall(theme.TextColored, imgui, theme.col('warn'), ui.t('book.cond_mark'))
     local ok, hov = pcall(imgui.IsItemHovered)
     if ok and hov and tip then
         pcall(imgui.SetTooltip, tip)
@@ -993,10 +993,10 @@ function book.draw_heading_row(ui, name, opts)
         pcall(imgui.PushClipRect, r[1], r[2], right, r[4], false)
         local tx = r[1] + 4 + indent
         pcall(imgui.SetCursorScreenPos, { tx, r[2] + 1 })
-        imgui.TextColored(theme.col(color), text)
+        theme.TextColored(imgui, theme.col(color), text)
         pcall(imgui.PopClipRect)
     else
-        imgui.TextColored(theme.col(color), text)
+        theme.TextColored(imgui, theme.col(color), text)
     end
     W.after_item(ui, name, wid, focused)
     -- マウスだけ開閉。キー／パッドの決定は nav_action が見出しの中へ入る（ここではたたまない）
@@ -1169,8 +1169,8 @@ local function draw_columns(ui, name, list, selected, with_no)
         if type(imgui.PushTextWrapPos) == 'function' then
             imgui.PushTextWrapPos(x2 - 6)
         end
-        if muted then imgui.TextDisabled(text)
-        else imgui.TextColored(theme.col(color or 'text'), text) end
+        if muted then theme.TextDisabled(imgui, text)
+        else theme.TextColored(imgui, theme.col(color or 'text'), text) end
         if type(imgui.PopTextWrapPos) == 'function' then imgui.PopTextWrapPos() end
     end
     local dl = imgui.GetWindowDrawList()
@@ -1189,7 +1189,7 @@ local function draw_columns(ui, name, list, selected, with_no)
     window.push(ui, 'group')
     for i, h in ipairs(heads) do
         if i > 1 then imgui.SameLine(xs[i]) end
-        imgui.TextColored(theme.col('accent'), h)
+        theme.TextColored(imgui, theme.col('accent'), h)
     end
     window.pop(ui, 'group')
     do local _, y1 = imgui.GetItemRectMin(); local _, y2 = imgui.GetItemRectMax(); if y1 and y2 then rules(y1, y2) end end

@@ -5,6 +5,40 @@
 
 local theme = {}
 
+-- 通常メニューの縁取り・影（0.1.236〜）。初期は今までの見た目
+local outline_mul = 1
+local outline_alpha = 1
+local shadow_on = true
+local shadow_color = 'black'
+local shadow_distance = 2
+local shadow_alpha = 1
+local body_fx = false
+function theme.set_outline_mul(m)
+    m = tonumber(m)
+    if m == nil then m = 1 end
+    if m < 0 then m = 0 elseif m > 8 then m = 8 end
+    outline_mul = m
+end
+function theme.outline_mul()
+    return outline_mul
+end
+local SHADOW_COL = {
+    black = 'ink',
+    dark = { 0.28, 0.28, 0.30 },
+    white = { 0.96, 0.96, 0.96 },
+}
+function theme.set_text_fx(S)
+    -- 0.1.245：見た目タブの縁取りと影は使わない。保存値は読んでも描画には出さない（落ちないようにするだけ）。
+    S = S or {}
+    theme.set_outline_mul(0)
+    outline_alpha = 0
+    shadow_on = false
+    shadow_color = 'black'
+    shadow_distance = 2
+    shadow_alpha = 1
+    body_fx = false
+end
+
 local FALLBACK = {
     ImGuiCol_Text = 0, ImGuiCol_TextDisabled = 1, ImGuiCol_WindowBg = 2, ImGuiCol_ChildBg = 3,
     ImGuiCol_PopupBg = 4, ImGuiCol_Border = 5, ImGuiCol_FrameBg = 7, ImGuiCol_FrameBgHovered = 8,
@@ -50,7 +84,17 @@ end
 
 -- ImU32（ABGR）
 function theme.rgba(r, g, b, a)
-    a = math.floor((a or 1) * 255 + 0.5)
+    r = tonumber(r) or 0
+    g = tonumber(g) or 0
+    b = tonumber(b) or 0
+    if r < 0 then r = 0 elseif r > 255 then r = 255 end
+    if g < 0 then g = 0 elseif g > 255 then g = 255 end
+    if b < 0 then b = 0 elseif b > 255 then b = 255 end
+    a = tonumber(a)
+    if a == nil then a = 1 end
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    a = math.floor(a * 255 + 0.5)
+    if a < 0 then a = 0 elseif a > 255 then a = 255 end
     return ((a * 256 + b) * 256 + g) * 256 + r
 end
 
@@ -152,14 +196,40 @@ function theme.set_look(name)
     end
 end
 
+-- 色名、{r,g,b}、壊れた値のどれでも、RGB 0〜1 を返す。不明なら黒（ink）。
+local function color_rgb(c)
+    if type(c) == 'string' then
+        c = theme.palette and theme.palette[c]
+    end
+    if type(c) == 'table' then
+        local r = tonumber(c[1] or c.r or c.x)
+        local g = tonumber(c[2] or c.g or c.y)
+        local b = tonumber(c[3] or c.b or c.z)
+        if r and g and b then
+            if r > 1 or g > 1 or b > 1 then
+                r, g, b = r / 255, g / 255, b / 255
+            end
+            return r, g, b
+        end
+    end
+    local d = (theme.palette and theme.palette.ink) or { 0.05, 0.05, 0.07 }
+    return tonumber(d[1]) or 0.05, tonumber(d[2]) or 0.05, tonumber(d[3]) or 0.07
+end
+
 function theme.col(name, alpha)
-    local c = theme.palette[name]
-    return { c[1], c[2], c[3], alpha or 1.0 }
+    local r, g, b = color_rgb(name)
+    local a = tonumber(alpha)
+    if a == nil then a = 1.0 end
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    return { r, g, b, a }
 end
 
 function theme.u32(name, alpha)
-    local c = theme.palette[name]
-    return rgba(math.floor(c[1] * 255), math.floor(c[2] * 255), math.floor(c[3] * 255), alpha or 1.0)
+    local r, g, b = color_rgb(name)
+    local a = tonumber(alpha)
+    if a == nil then a = 1.0 end
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    return rgba(math.floor(r * 255), math.floor(g * 255), math.floor(b * 255), a)
 end
 
 -- 窓を描く前に積む。戻り値は pop 用の数
@@ -591,18 +661,40 @@ function theme.measure_text(imgui, text, wrap_w)
     return w, h
 end
 
+-- 2 数、表 {x,y}/{[1],[2]}、ImVec2 の userdata のどれでも読む。
+function theme.xy(a, b)
+    if type(a) == 'number' and type(b) == 'number' then return a, b end
+    if a ~= nil then
+        local okx, x = pcall(function ()
+            local v = a.x
+            if v == nil and type(a) == 'table' then v = a[1] end
+            return tonumber(v)
+        end)
+        local oky, y = pcall(function ()
+            local v = a.y
+            if v == nil and type(a) == 'table' then v = a[2] end
+            return tonumber(v)
+        end)
+        if okx and oky and x and y then return x, y end
+    end
+    local x, y = tonumber(a), tonumber(b)
+    if x and y then return x, y end
+    return nil
+end
+
 local function cursor_xy(imgui)
     local ok, a, b = pcall(imgui.GetCursorScreenPos)
-    if ok and type(a) == 'table' then return tonumber(a.x or a[1]) or 0, tonumber(a.y or a[2]) or 0 end
-    if ok then return tonumber(a) or 0, tonumber(b) or 0 end
-    return 0, 0
+    if not ok then return 0, 0 end
+    local x, y = theme.xy(a, b)
+    return x or 0, y or 0
 end
 
 local function avail_w(imgui)
     local ok, a, b = pcall(imgui.GetContentRegionAvail)
-    if ok and type(a) == 'table' then return tonumber(a.x or a[1]) end
-    if ok then return tonumber(a) end
-    return nil
+    if not ok then return nil end
+    local x = theme.xy(a, b)
+    if x then return x end
+    return tonumber(a)
 end
 
 -- 影・輪郭・太字（太字フォントが無くても、ずらして重ねて太く見せる）
@@ -623,6 +715,344 @@ function theme.popup_text(ui, text, opts)
     return w, h
 end
 
+-- 縁取りと影だけを、画面上の位置へ描く（本文は呼び出し側）。wrap_w があれば折り返しを試みる
+function theme.paint_fx(dl, x, y, text, opts)
+    opts = opts or {}
+    if not dl or not dl.AddText or not text or text == '' then return end
+    local a = tonumber(opts.alpha) or 1
+    -- 4 引数だけ（位置・色・文）。折り返し用に nil と幅を足すと、
+    -- VanaCore の AddText がフォント指定の形に取り違えて落ちることがある。
+    local function add(px, py, col, aa)
+        pcall(function ()
+            local u = theme.u32(col, (aa or 1) * a)
+            dl.AddText(dl, { px, py }, u, text)
+        end)
+    end
+    local do_shadow = (opts.shadow ~= false) and shadow_on and shadow_alpha > 0
+    if do_shadow then
+        local d = shadow_distance
+        local scol = SHADOW_COL[shadow_color] or 'ink'
+        add(x + d, y + d + 1, scol, 0.72 * shadow_alpha)
+        add(x + d + 1, y + d + 2, scol, 0.35 * shadow_alpha)
+    end
+    if opts.outline ~= false and outline_mul > 0 and outline_alpha > 0 then
+        local o = outline_mul
+        if o > 0 then
+            for _, d in ipairs({ { -o, 0 }, { o, 0 }, { 0, -o }, { 0, o }, { -o, -o }, { o, -o }, { -o, o }, { o, o } }) do
+                add(x + d[1], y + d[2], 'ink', 0.88 * outline_alpha)
+            end
+        end
+    end
+end
+
+function theme.fx_active(opts)
+    opts = opts or {}
+    if opts.shadow ~= false and shadow_on and shadow_alpha > 0 then return true end
+    if opts.outline ~= false and outline_mul > 0 and outline_alpha > 0 then return true end
+    return false
+end
+
+-- ふつうの ImGui 文字（Text / TextColored など）に、縁取りと影を重ねる。
+-- 本物の imgui は触らず、呼び出しだけを包む。ボタンやスライダーの中の文字には効かない。
+function theme.wrap_imgui(imgui)
+    if type(imgui) ~= 'table' then return imgui end
+    if imgui._at_fx then return imgui end
+    local raw = imgui
+    local proxy = { _at_fx = true }
+    setmetatable(proxy, {
+        __index = raw,
+        __newindex = function (_, k, v) raw[k] = v end,
+    })
+    local function cursor()
+        if not raw.GetCursorScreenPos then return nil end
+        local ok, a, b = pcall(raw.GetCursorScreenPos)
+        if not ok then return nil end
+        return theme.xy(a, b)
+    end
+    local function wrap_w()
+        if raw.GetContentRegionAvail then
+            local ok, a, b = pcall(raw.GetContentRegionAvail)
+            if ok then
+                local x = theme.xy(a, b)
+                if x then return x end
+                return tonumber(a)
+            end
+        end
+        return nil
+    end
+    local function fx(text, wrapped)
+        if theme._fx_lock or not theme.fx_active() then return end
+        text = tostring(text or '')
+        if text == '' then return end
+        local x, y = cursor()
+        if not x or not y then return end
+        local dl
+        if raw.GetWindowDrawList then
+            local ok, v = pcall(raw.GetWindowDrawList)
+            if ok then dl = v end
+        end
+        if not dl then return end
+        theme.paint_fx(dl, x, y, text, { wrap = wrapped and wrap_w() or nil })
+    end
+    local function hook(name, text_i, wrapped)
+        local fn = raw[name]
+        if type(fn) ~= 'function' then return end
+        proxy[name] = function (...)
+            local n = select('#', ...)
+            local args = { ... }
+            local text = args[text_i]
+            if n >= text_i then fx(text, wrapped) end
+            return fn(...)
+        end
+    end
+    hook('Text', 1, false)
+    hook('TextUnformatted', 1, false)
+    hook('TextDisabled', 1, false)
+    hook('TextWrapped', 1, true)
+    hook('TextColored', 2, false)
+    return proxy
+end
+
+
+-- 本文の縁取りと影（0.1.241〜）。共有の ImGui.Text は包まない。
+-- 今の窓の描画リストへ、4 引数の AddText（位置・色・文）をずらして重ねるだけ。
+-- 位置の表は使い回す。縁取りは最大 8 方向、影は 1 回。画面外は描かない。
+-- 公式の文字箱（spawn）は作らない。
+-- 0.1.242〜：ImVec2 の userdata も読む。本文の太さ・影の距離は 3px まで（見出しのスライダーは 0〜8）。
+-- IsRectVisible は束縛ごとに引数が違うので使わない（誤って全部飛ばすのを避ける）。
+local BODY_POS = { 0, 0 }
+local BODY_OUT = {
+    { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 },
+    { -1, -1 }, { 1, -1 }, { -1, 1 }, { 1, 1 },
+}
+local BODY_FX_MAX = 3
+
+local function body_cap(v, hi)
+    v = tonumber(v) or 0
+    hi = tonumber(hi) or BODY_FX_MAX
+    if hi < 0 then hi = 0 elseif hi > BODY_FX_MAX then hi = BODY_FX_MAX end
+    if v < 0 then return 0 end
+    if v > hi then return hi end
+    return v
+end
+
+-- トラッカー・コンパスなど小さい文字の窓。未設定のときは文字の高さでも判断する。
+local body_area = nil
+local SMALL_BODY = { tracker = true, compass = true }
+local body_stat_calls, body_stat_adds = 0, 0
+
+function theme.set_body_area(area)
+    if type(area) == 'string' and area ~= '' then body_area = area else body_area = nil end
+end
+
+local function body_small(imgui)
+    -- トラッカーとコンパスだけ太さを抑える（設定の説明や本は、指定の太さを 3px まで使う）
+    return body_area and SMALL_BODY[body_area] and true or false
+end
+
+local function body_max(imgui)
+    if body_small(imgui) then return 1 end
+    return BODY_FX_MAX
+end
+
+function theme.body_fx_on()
+    return body_fx == true and theme.fx_active()
+end
+
+function theme.body_fx_extra_draws(imgui)
+    if not theme.body_fx_on() then return 0 end
+    local n = 0
+    local hi = body_max(imgui)
+    if shadow_on and shadow_alpha > 0 then n = n + 1 end
+    local o = body_cap(outline_mul, hi)
+    if o > 0 and outline_alpha > 0 then n = n + 8 * math.ceil(o) end
+    return n
+end
+
+function theme.body_fx_stats()
+    return { calls = body_stat_calls, adds = body_stat_adds, area = body_area, on = theme.body_fx_on() }
+end
+
+function theme.body_fx_stats_reset()
+    body_stat_calls, body_stat_adds = 0, 0
+end
+
+local function body_cursor(imgui)
+    if not imgui or not imgui.GetCursorScreenPos then return nil end
+    local ok, a, b = pcall(imgui.GetCursorScreenPos)
+    if not ok then return nil end
+    return theme.xy(a, b)
+end
+
+local function body_visible(imgui, x, y)
+    if not x or not y then return false end
+    local fs = 16
+    if imgui.GetFontSize then
+        local ok, v = pcall(imgui.GetFontSize)
+        if ok and tonumber(v) and tonumber(v) > 0 then fs = tonumber(v) end
+    end
+    local wx, wy, ww, wh
+    if imgui.GetWindowPos then
+        local ok, a, b = pcall(imgui.GetWindowPos)
+        if ok then wx, wy = theme.xy(a, b) end
+    end
+    if imgui.GetWindowSize then
+        local ok, a, b = pcall(imgui.GetWindowSize)
+        if ok then ww, wh = theme.xy(a, b) end
+    end
+    -- 窓の境が読めたときだけ、明らかに外なら飛ばす（余白を多めに取り、端の行を落とさない）
+    if wx and wy and ww and wh and ww > 1 and wh > 1 then
+        local m = fs + 8
+        if y + fs < wy - m or y > wy + wh + m then return false end
+        if x > wx + ww + m or x + 1 < wx - m then return false end
+    end
+    return true
+end
+
+-- 指定した画面位置へ、縁取りと影だけを重ねる（本体の文字は呼び出し側）。
+function theme.paint_body_fx_at(imgui, x, y, text)
+    if not theme.body_fx_on() then return 0 end
+    text = tostring(text or '')
+    if text == '' or text == ' ' then return 0 end
+    if not body_visible(imgui, x, y) then return 0 end
+    local dl = imgui and imgui.GetWindowDrawList and imgui.GetWindowDrawList()
+    if not dl or not dl.AddText then return 0 end
+    body_stat_calls = body_stat_calls + 1
+    local function line_h()
+        local fs = 16
+        if imgui.GetFontSize then
+            local ok, v = pcall(imgui.GetFontSize)
+            if ok and tonumber(v) and tonumber(v) > 0 then fs = tonumber(v) end
+        end
+        return fs
+    end
+    local function measure_w(s)
+        if imgui.CalcTextSize then
+            local ok, a, b = pcall(imgui.CalcTextSize, s)
+            if ok then
+                local w = theme.xy(a, b)
+                if w then return w end
+                w = tonumber(a)
+                if w then return w end
+            end
+        end
+        return nil
+    end
+    -- 折り返しや改行があるときは、1 行ずつ重ねる（全文を 1 行で描くと本文とずれる）
+    local lines = {}
+    if text:find('\n', 1, true) then
+        for para in (text .. '\n'):gmatch('(.-)\n') do lines[#lines + 1] = para end
+        if #lines == 0 then lines[1] = text end
+    else
+        lines[1] = text
+    end
+    local wrap_w = nil
+    if imgui.GetContentRegionAvail then
+        local ok, a, b = pcall(imgui.GetContentRegionAvail)
+        if ok then
+            local w = theme.xy(a, b)
+            if not w then w = tonumber(a) end
+            if w and w > 8 then wrap_w = w end
+        end
+    end
+    if wrap_w then
+        local split = {}
+        for _, para in ipairs(lines) do
+            if para == '' then
+                split[#split + 1] = ''
+            else
+                local tw = measure_w(para)
+                if tw and tw > wrap_w then
+                    local acc, aw = '', 0
+                    for ch in para:gmatch('[%z\1-\127\194-\244][\128-\191]*') do
+                        local cw = measure_w(ch) or 0
+                        if acc ~= '' and aw + cw > wrap_w then
+                            split[#split + 1] = acc
+                            acc, aw = ch, cw
+                        else
+                            acc, aw = acc .. ch, aw + cw
+                        end
+                    end
+                    if acc ~= '' then split[#split + 1] = acc end
+                else
+                    split[#split + 1] = para
+                end
+            end
+        end
+        lines = split
+    end
+    local hi = body_max(imgui)
+    local small = body_small(imgui)
+    local n = 0
+    local lh = line_h()
+    for li, line in ipairs(lines) do
+        if line ~= '' and line ~= ' ' then
+            local ly = y + (li - 1) * lh
+            -- 飾りつき見出しと同じ呼び方：4 引数 AddText（位置の表・色・文）
+            local function add(px, py, col, aa)
+                pcall(dl.AddText, dl, { px, py }, theme.u32(col, aa), line)
+                n = n + 1
+                body_stat_adds = body_stat_adds + 1
+            end
+            if shadow_on and shadow_alpha > 0 then
+                local d = body_cap(shadow_distance, hi)
+                local scol = SHADOW_COL[shadow_color] or 'ink'
+                local sa = 0.72 * shadow_alpha
+                -- 小さい文字に白い影を強くすると、にじんで潰れる
+                if small and shadow_color == 'white' then sa = 0.28 * shadow_alpha end
+                add(x + d, ly + d, scol, sa)
+            end
+            local o = body_cap(outline_mul, hi)
+            -- 太さ 2px を外側の 1 周だけずらすと、文字の隣が空いて見えにくい。1px から太さまで重ねる。
+            local rings = (o > 0) and math.ceil(o) or 0
+            if o > 0 and outline_alpha > 0 and rings > 0 then
+                local oa = 0.88 * outline_alpha
+                if small then oa = 0.75 * outline_alpha end
+                for r = 1, rings do
+                    for i = 1, 8 do
+                        local d = BODY_OUT[i]
+                        add(x + d[1] * r, ly + d[2] * r, 'ink', oa)
+                    end
+                end
+            end
+        end
+    end
+    return n
+end
+
+function theme.paint_body_fx(imgui, text)
+    if not theme.body_fx_on() then return 0 end
+    text = tostring(text or '')
+    if text == '' or text == ' ' then return 0 end
+    local x, y = body_cursor(imgui)
+    return theme.paint_body_fx_at(imgui, x, y, text)
+end
+
+local function emit_body(imgui, text, fn, ...)
+    theme.paint_body_fx(imgui, text)
+    if type(fn) == 'function' then return fn(...) end
+end
+
+function theme.Text(imgui, text, ...)
+    return emit_body(imgui, text, imgui and imgui.Text, text, ...)
+end
+
+function theme.TextColored(imgui, col, text, ...)
+    return emit_body(imgui, text, imgui and imgui.TextColored, col, text, ...)
+end
+
+function theme.TextDisabled(imgui, text, ...)
+    return emit_body(imgui, text, imgui and imgui.TextDisabled, text, ...)
+end
+
+function theme.TextWrapped(imgui, text, ...)
+    return emit_body(imgui, text, imgui and imgui.TextWrapped, text, ...)
+end
+
+function theme.TextUnformatted(imgui, text, ...)
+    return emit_body(imgui, text, imgui and imgui.TextUnformatted, text, ...)
+end
+
 function theme.paint_text(imgui, x, y, text, opts)
     opts = opts or {}
     local dl = imgui.GetWindowDrawList and imgui.GetWindowDrawList()
@@ -640,16 +1070,7 @@ function theme.paint_text(imgui, x, y, text, opts)
     local function add(px, py, col, aa)
         pcall(dl.AddText, dl, { px, py }, theme.u32(col, (aa or 1) * a), text)
     end
-    if opts.shadow ~= false then
-        add(x + 2, y + 3, 'ink', 0.72)
-        add(x + 3, y + 4, 'ink', 0.35)
-    end
-    if opts.outline ~= false then
-        local o = tonumber(opts.outline_px) or 1
-        for _, d in ipairs({ { -o, 0 }, { o, 0 }, { 0, -o }, { 0, o }, { -o, -o }, { o, -o }, { -o, o }, { o, o } }) do
-            add(x + d[1], y + d[2], 'ink', 0.88)
-        end
-    end
+    theme.paint_fx(dl, x, y, text, opts)
     if opts.glow then
         local gcol = opts.glow_col or 'gold'
         for _, d in ipairs({ { -3, 0 }, { 3, 0 }, { 0, -2 }, { 0, 2 }, { -2, -2 }, { 2, 2 } }) do

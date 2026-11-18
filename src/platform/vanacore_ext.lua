@@ -179,6 +179,16 @@ function ext.player_status()
     }
 end
 
+-- プレイヤーのエンティティ状態（公式 vana.game.self の status）。
+-- 0 待機、1 戦闘、2 死亡、4 イベント（カットシーン・会話など）。読めなければ nil
+function ext.self_status()
+    local v = V()
+    if not v or type(v.game) ~= 'table' or type(v.game.self) ~= 'function' then return nil end
+    local ok, id, zone, job, level, subjob, sublevel, status = pcall(v.game.self)
+    if not ok then return nil end
+    return tonumber(status)
+end
+
 -- 今のミッション（0.1.169〜、公式 vana.game.missions。説明書 04-game-data）。サーバーから届く前は nil。
 -- 値はサーバーの数え方のまま（adoulin・rhapsodies は 0x056 と同じ生の値）。
 function ext.missions()
@@ -313,7 +323,11 @@ local last_place_kind = nil
 local last_place_err = nil
 local slots = {} -- { box, index, role, attached, keep }  名前に付ける
 local world_slots = {} -- { box, key, role, placed, keep }  本体の位置に置く
-local BOX_W, BOX_H = 28, 28 -- 設定のアイコンの大きさ（px）で変わる
+local BOX_W, BOX_H = 28, 28 -- 設定のアイコンの表示の大きさ（px）で変わる
+-- アイコンの絵は 64px のまま置き、表示だけ BOX_W に縮める（近いときのぼやけを抑える）
+ext.ICON_NATIVE = 64
+-- 頭上の文字は大きめに焼いて、scale で今までの見かけ（size 16）に合わせる
+ext.LABEL_REF, ext.LABEL_BAKE, ext.LABEL_BAKE_MAX = 16, 64, 128
 
 local ROLE_FILE = {
     talk = 'talk.png',
@@ -521,8 +535,8 @@ local function make_image_box(role)
             seen[file] = true
             local ok, box = pcall(v.ui.image, {
                 file = file,
-                width = BOX_W,
-                height = BOX_H,
+                width = ext.ICON_NATIVE,
+                height = ext.ICON_NATIVE,
                 visible = true,
             })
             if ok and box ~= nil then
@@ -1019,6 +1033,30 @@ function ext.menu_font_names()
     return names
 end
 
+function ext._visual_scale(user_scale, bake)
+    user_scale = tonumber(user_scale) or 1
+    bake = tonumber(bake) or ext.LABEL_BAKE or 64
+    if bake <= 0 then bake = ext.LABEL_REF end
+    return user_scale * ((ext.LABEL_REF or 16) / bake)
+end
+
+function ext._icon_place_scale()
+    local n = tonumber(BOX_W) or 28
+    local native = ext.ICON_NATIVE or 64
+    if native <= 0 then return 1 end
+    return n / native
+end
+
+-- cap が真なら、16 ヤルムより近いときは distance を今の距離にして拡大しない
+function ext._place_distance(x, y, z, cap)
+    local ref = ext.PLACE_REF_DISTANCE or 16
+    if not cap then return ref end
+    local _, d = ext.place_zoom(x, y, z)
+    d = tonumber(d)
+    if d and d > 0 and d < ref then return d end
+    return ref
+end
+
 local function make_label_box(text)
     local v = V()
     if not v or type(v.ui) ~= 'table' or type(v.ui.text) ~= 'function' then
@@ -1030,10 +1068,16 @@ local function make_label_box(text)
         if ok and box ~= nil then return box end
         return nil
     end
+    local bake = ext.LABEL_BAKE or 64
+    if bake > (ext.LABEL_BAKE_MAX or 128) then bake = ext.LABEL_BAKE_MAX end
+    if bake < (ext.LABEL_REF or 16) then bake = ext.LABEL_REF end
     local bases = {
-        { text = text, size = 16, color = '#F8F4E8FF', background = '#000000CC', outline = true, color_codes = true, visible = true },
-        { text = text, size = 16, color = '#F8F4E8FF', background = '#000000CC', visible = true },
-        { text = text, size = 16, color = '#F8F4E8FF', visible = true },
+        { text = text, size = bake, color = '#F8F4E8FF', background = '#000000CC', outline = true, stroke = 1, color_codes = true, visible = true },
+        { text = text, size = bake, color = '#F8F4E8FF', background = '#000000CC', outline = true, color_codes = true, visible = true },
+        { text = text, size = bake, color = '#F8F4E8FF', background = '#000000CC', visible = true },
+        { text = text, size = ext.LABEL_REF, color = '#F8F4E8FF', background = '#000000CC', outline = true, color_codes = true, visible = true },
+        { text = text, size = ext.LABEL_REF, color = '#F8F4E8FF', background = '#000000CC', visible = true },
+        { text = text, size = ext.LABEL_REF, color = '#F8F4E8FF', visible = true },
     }
     local fonts = {}
     local seen = {}
@@ -1052,12 +1096,18 @@ local function make_label_box(text)
             for k, val in pairs(b) do props[k] = val end
             props.font = font
             local box = try(props)
-            if box then return box, b.color_codes == true end
+            if box then
+                local used = tonumber(b.size) or bake
+                return box, b.color_codes == true, used
+            end
         end
     end
     for _, b in ipairs(bases) do
         local box = try(b)
-        if box then return box, b.color_codes == true end
+        if box then
+            local used = tonumber(b.size) or (ext.LABEL_REF or 16)
+            return box, b.color_codes == true, used
+        end
     end
     return nil
 end
@@ -1107,36 +1157,231 @@ end
 
 -- 頭上の文字の背景（0.1.215〜）。初期 0.8 は今までの #000000CC
 local LABEL_BG_DEFAULT = 0.8
-local function bg_hex(alpha)
+local function bg_hex(alpha, rgb)
     alpha = tonumber(alpha)
     if alpha == nil then alpha = LABEL_BG_DEFAULT end
     if alpha < 0 then alpha = 0 elseif alpha > 1 then alpha = 1 end
     local a = math.floor(alpha * 255 + 0.5)
     if a < 0 then a = 0 elseif a > 255 then a = 255 end
-    return string.format('#000000%02X', a)
+    rgb = rgb_of(rgb) or { 0, 0, 0 }
+    return string.format('#%02X%02X%02X%02X', rgb[1], rgb[2], rgb[3], a)
 end
 ext._bg_hex = bg_hex
 
 -- 文字の箱に文と色を入れる。グラデーションは色の印が使える箱だけ（使えなければ始めの色だけ）
 -- bg_alpha があれば背景の濃さも入れる（無いときは今までの箱の背景のまま）
-local function label_props(slot, text, c1, c2, bg_alpha)
+local function label_props(slot, text, c1, c2, bg_alpha, style)
     local props = { text = text, color = hex_of(c1) }
     if c2 and slot and slot.codes then
         props.text = ext.gradient_text(text, c1, c2)
         props.color = '#FFFFFFFF'
     end
+    style = style or {}
+    -- 斜体は使わない（保存や古い箱に残っていてもオフ）
+    props.italic = false
+    local stroke = tonumber(style.stroke)
+    if stroke == nil then stroke = 1 end
+    if stroke <= 0 then
+        props.outline = false
+        props.stroke = 0
+    else
+        props.outline = true
+        props.stroke = stroke
+        -- 縁取りの濃さ。100% のときは色を渡さず、今までの既定色のまま
+        local sa = tonumber(style.stroke_alpha)
+        if sa ~= nil and sa < 0.999 then
+            if sa < 0 then sa = 0 elseif sa > 1 then sa = 1 end
+            local a = math.floor(sa * 255 + 0.5)
+            if a < 0 then a = 0 elseif a > 255 then a = 255 end
+            props.stroke_color = string.format('#000000%02X', a)
+        end
+    end
     if bg_alpha ~= nil then
-        props.background = bg_hex(bg_alpha)
+        if style.grad then
+            -- 背景グラデは後ろの板に描くので、文字の箱の地は透明
+            props.background = '#00000000'
+        else
+            props.background = bg_hex(bg_alpha, style.color)
+        end
     end
     return props
 end
 ext._label_props = label_props
 
-local function apply_label_text(slot, text, c1, c2, bg_alpha)
+local function style_sig(style)
+    style = style or {}
+    local c, c2 = style.color, style.color2
+    return string.format('%s/%s/%s/%s/%s',
+        tostring(tonumber(style.stroke) or 1),
+        tostring(tonumber(style.stroke_alpha) or 1),
+        style.grad and '1' or '0',
+        c and string.format('%s,%s,%s', c[1], c[2], c[3]) or '',
+        c2 and string.format('%s,%s,%s', c2[1], c2[2], c2[3]) or '')
+end
+
+local function apply_label_text(slot, text, c1, c2, bg_alpha, style)
     if bg_alpha == nil then bg_alpha = LABEL_BG_DEFAULT end
-    if slot._lbl ~= text or not same_c(slot._c1, c1) or not same_c(slot._c2, c2) or slot._bg ~= bg_alpha then
-        box_set(slot.box, label_props(slot, text, c1, c2, bg_alpha))
-        slot._lbl, slot._c1, slot._c2, slot._bg = text, c1, c2, bg_alpha
+    style = style or {}
+    local sig = style_sig(style)
+    if slot._lbl ~= text or not same_c(slot._c1, c1) or not same_c(slot._c2, c2)
+        or slot._bg ~= bg_alpha or slot._st ~= sig then
+        box_set(slot.box, label_props(slot, text, c1, c2, bg_alpha, style))
+        slot._lbl, slot._c1, slot._c2, slot._bg, slot._st = text, c1, c2, bg_alpha, sig
+        slot._style = style
+    end
+end
+
+-- 頭上の影：公式の文字箱に影は無いので、同じ文をもう一つ、影色で少しずらして後ろに置く
+local SHADOW_RGB = {
+    black = { 13, 13, 18 },
+    dark = { 71, 71, 76 },
+    white = { 245, 245, 245 },
+}
+-- 0.1.238：頭上の影箱の spawn を止める（本番はオフ。試験だけ true にできる）
+ext.ALLOW_LABEL_SHADOW = false
+local function want_label_shadow(it)
+    if ext.ALLOW_LABEL_SHADOW ~= true then return false end
+    return it and it.shadow == true and (tonumber(it.shadow_alpha) or 1) > 0
+end
+local function shadow_hex(it)
+    local rgb = SHADOW_RGB[it and it.shadow_color] or SHADOW_RGB.black
+    local a = tonumber(it and it.shadow_alpha) or 1
+    if a < 0 then a = 0 elseif a > 1 then a = 1 end
+    a = math.floor(a * 0.72 * 255 + 0.5)
+    if a < 0 then a = 0 elseif a > 255 then a = 255 end
+    return string.format('#%02X%02X%02X%02X', rgb[1], rgb[2], rgb[3], a)
+end
+ext._shadow_hex = shadow_hex
+
+local function apply_shadow_text(slot, text, it)
+    if not slot or not slot.box then return end
+    local hex = shadow_hex(it)
+    if slot._sh == text and slot._shc == hex then return end
+    box_set(slot.box, {
+        text = text or '',
+        color = hex,
+        background = '#00000000',
+        outline = false,
+        stroke = 0,
+        italic = false,
+        visible = true,
+        layer = -1,
+    })
+    slot._sh, slot._shc = text, hex
+end
+
+-- 背景グラデ用の横グラデーション BMP（24bit）。公式の文字背景は単色なので、後ろに画像の箱を重ねる。
+local function u16(n)
+    n = math.floor(n or 0) % 65536
+    return string.char(n % 256, math.floor(n / 256))
+end
+local function u32(n)
+    n = math.floor(n or 0) % 4294967296
+    local b = {}
+    for _ = 1, 4 do
+        b[#b + 1] = string.char(n % 256)
+        n = math.floor(n / 256)
+    end
+    return table.concat(b)
+end
+local function lerp_ch(a, b, tt)
+    return math.floor((a or 0) + ((b or 0) - (a or 0)) * tt + 0.5)
+end
+function ext._write_gradient_bmp(path, width, height, c1, c2)
+    width = math.floor(tonumber(width) or 0)
+    height = math.floor(tonumber(height) or 0)
+    if type(path) ~= 'string' or path == '' or width < 2 or height < 1 then return false end
+    if width > 1024 then width = 1024 end
+    if height > 256 then height = 256 end
+    c1 = rgb_of(c1) or { 0, 0, 0 }
+    c2 = rgb_of(c2) or c1
+    local row_raw = width * 3
+    local pad = (4 - (row_raw % 4)) % 4
+    local row = row_raw + pad
+    local pix = row * height
+    local off = 54
+    local data = { 'BM', u32(off + pix), u32(0), u32(off), u32(40), u32(width), u32(height), u16(1), u16(24), u32(0), u32(pix), u32(0), u32(0), u32(0), u32(0) }
+    local pad_s = string.rep('\0', pad)
+    for y = 1, height do
+        local cols = {}
+        for x = 0, width - 1 do
+            local tt = (width == 1) and 0 or (x / (width - 1))
+            local r = lerp_ch(c1[1], c2[1], tt)
+            local g = lerp_ch(c1[2], c2[2], tt)
+            local b = lerp_ch(c1[3], c2[3], tt)
+            if r < 0 then r = 0 elseif r > 255 then r = 255 end
+            if g < 0 then g = 0 elseif g > 255 then g = 255 end
+            if b < 0 then b = 0 elseif b > 255 then b = 255 end
+            cols[#cols + 1] = string.char(b, g, r)
+        end
+        data[#data + 1] = table.concat(cols)
+        if pad > 0 then data[#data + 1] = pad_s end
+    end
+    local ok = pcall(function ()
+        local f = assert(io.open(path, 'wb'))
+        f:write(table.concat(data))
+        f:close()
+    end)
+    return ok and true or false
+end
+local function cache_dir()
+    local dir = addon_dir
+    if type(dir) ~= 'string' or dir == '' then return nil end
+    if dir:sub(-1) ~= '\\' and dir:sub(-1) ~= '/' then dir = dir .. '/' end
+    dir = dir .. 'cache'
+    pcall(function ()
+        if package.config:sub(1, 1) == '\\' then
+            os.execute('mkdir "' .. dir:gsub('/', '\\') .. '" >nul 2>nul')
+        else
+            os.execute('mkdir -p "' .. dir .. '" >/dev/null 2>&1')
+        end
+    end)
+    return dir
+end
+function ext._gradient_file(c1, c2, width, height)
+    c1 = rgb_of(c1) or { 0, 0, 0 }
+    c2 = rgb_of(c2) or c1
+    width = math.floor(tonumber(width) or 64)
+    height = math.floor(tonumber(height) or 24)
+    if width < 2 then width = 2 end
+    if height < 1 then height = 1 end
+    local dir = cache_dir()
+    if not dir then return nil end
+    local name = string.format('bg_%02x%02x%02x_%02x%02x%02x_%dx%d.bmp',
+        c1[1], c1[2], c1[3], c2[1], c2[2], c2[3], width, height)
+    local path = dir .. '/' .. name
+    local f = io.open(path, 'rb')
+    if f then f:close() else
+        if not ext._write_gradient_bmp(path, width, height, c1, c2) then return nil end
+    end
+    return path, width, height
+end
+
+local function make_plate_box(path, w, h, alpha)
+    local v = V()
+    if not v or type(v.ui) ~= 'table' or type(v.ui.image) ~= 'function' then return nil end
+    alpha = tonumber(alpha)
+    if alpha == nil then alpha = LABEL_BG_DEFAULT end
+    if alpha < 0 then alpha = 0 elseif alpha > 1 then alpha = 1 end
+    local ok, box = pcall(v.ui.image, {
+        file = path,
+        width = w,
+        height = h,
+        visible = true,
+        opacity = alpha,
+        layer = -1,
+    })
+    if ok and box ~= nil then return box end
+    return nil
+end
+
+local function apply_plate(slot, path, w, h, alpha)
+    if not slot or not slot.box then return end
+    alpha = tonumber(alpha)
+    if alpha == nil then alpha = LABEL_BG_DEFAULT end
+    if slot._pf ~= path or slot._pw ~= w or slot._ph ~= h or slot._pa ~= alpha then
+        box_set(slot.box, { file = path, width = w, height = h, opacity = alpha, layer = -1 })
+        slot._pf, slot._pw, slot._ph, slot._pa = path, w, h, alpha
     end
 end
 
@@ -1236,21 +1481,51 @@ end
 
 -- 話す相手：印は名前の横、クエスト名は名前の上。複数クエストはその上に重ねる。
 -- 印は設定の px のまま（文字の大きさでは変えない）。クエスト名は文字の大きさに合わせる。
-local function attach_opts(it, part, f)
+local function attach_opts(it, part, f, bake)
     f = tonumber(f) or 1
-    local scale = tonumber(it and it.scale) or 1
-    if scale < 0.8 then scale = 0.8 elseif scale > 3.2 then scale = 3.2 end   -- 0.1.210〜：上限 320%
+    local user = tonumber(it and it.scale) or 1
+    if user < 0.8 then user = 0.8 elseif user > 3.2 then user = 3.2 end   -- 0.1.210〜：上限 320%
+    local cap = it and it.no_enlarge_near == true
+    local scale
+    local distance = true
+    if part == 'mark' or part == 'label_bg' or part == 'under_bg' then
+        -- ラベルの板は文字と同じ倍率。印は 64px の絵を表示サイズへ
+        if part == 'mark' then
+            scale = ext._icon_place_scale()
+        else
+            scale = ext._visual_scale(user, bake or (it and it.bake) or ext.LABEL_BAKE)
+        end
+        if cap then
+            distance = false
+            scale = scale * f
+        end
+    else
+        scale = ext._visual_scale(user, bake or (it and it.bake) or ext.LABEL_BAKE)
+        if cap then
+            distance = false
+            scale = scale * f
+        end
+    end
     local layer = layer_of(it)
-    local row_h = math.max(BOX_H, 28 * scale) + 4 * scale
+    -- 段の高さは今までの見かけ（size 16 × user）で測る
+    local row_h = math.max(BOX_H, 28 * user) + 4 * user
     local y_stack = -layer * row_h
-    if part == 'label' then
+    if part == 'label' or part == 'label_bg' or part == 'label_shadow' then
+        local x = (tonumber(it and it.label_dx) or 0) * f
+        local y = (-2 + y_stack + (tonumber(it and it.label_dy) or 0)) * f
+        if part == 'label_shadow' then
+            local d = tonumber(it and it.shadow_distance) or 2
+            if d < 0 then d = 0 elseif d > 8 then d = 8 end
+            x = x + d * f
+            y = y + (d + 1) * f
+        end
         return {
             side = 'above',
             -- 設定の「クエスト名の位置」（px）
-            x = (tonumber(it and it.label_dx) or 0) * f,
-            y = (-2 + y_stack + (tonumber(it and it.label_dy) or 0)) * f,
+            x = x,
+            y = y,
             scale = scale,
-            distance = true,
+            distance = distance,
             walls = true,
         }
     end
@@ -1259,8 +1534,8 @@ local function attach_opts(it, part, f)
         side = 'left',
         x = (-4 + (tonumber(it and it.mark_dx) or 0)) * f,
         y = (y_stack + (tonumber(it and it.mark_dy) or 0)) * f,
-        scale = 1,
-        distance = true,
+        scale = scale,
+        distance = distance,
         walls = true,
     }
 end
@@ -1312,6 +1587,23 @@ local function place_box(slot, index, opts)
     return ok
 end
 
+local function ensure_attach_shadow(it, index, f, layer, role, text)
+    if not want_label_shadow(it) or not text or text == '' then return end
+    local sslot = find_slot(index, 'label_shadow', layer)
+    if not sslot then
+        local box, _, bake = make_label_box(text)
+        if not box then return end
+        sslot = { box = box, kind = 'text', part = 'label_shadow', layer = layer, attached = false, role = role, codes = false, bake = bake }
+        slots[#slots + 1] = sslot
+    end
+    apply_shadow_text(sslot, text, it)
+    sslot.keep = true
+    sslot.part = 'label_shadow'
+    sslot.layer = layer
+    sslot.role = role
+    place_box(sslot, index, attach_opts(it, 'label_shadow', f, sslot.bake))
+end
+
 function ext.set_name_marks(items)
     if not ext.attach_available() then return false end
     items = items or {}
@@ -1358,21 +1650,47 @@ function ext.set_name_marks(items)
             if has_label_text(it) then
                 local lslot = find_slot(index, 'label', layer)
                 if not lslot then
-                    local box, codes = make_label_box(it.label)
+                    local box, codes, bake = make_label_box(it.label)
                     if box then
-                        lslot = { box = box, kind = 'text', part = 'label', layer = layer, attached = false, role = role, codes = codes }
+                        lslot = { box = box, kind = 'text', part = 'label', layer = layer, attached = false, role = role, codes = codes, bake = bake }
                         slots[#slots + 1] = lslot
                     end
                 end
                 if lslot then
                     -- 0.1.210〜：文字と色が前と同じなら設定し直さない（色の段階の文字を毎フレーム作らない）
-                    apply_label_text(lslot, it.label, it.label_color, it.label_color2, it.label_bg_alpha)
+                    apply_label_text(lslot, it.label, it.label_color, it.label_color2, it.label_bg_alpha, it.label_style)
                     lslot.keep = true
                     lslot.part = 'label'
                     lslot.layer = layer
                     lslot.role = role
                     lslot.label = it.label
-                    place_box(lslot, index, attach_opts(it, 'label', f))
+                    place_box(lslot, index, attach_opts(it, 'label', f, lslot.bake))
+                    ensure_attach_shadow(it, index, f, layer, role, it.label)
+                    -- 背景グラデの板（文字の後ろ）
+                    local st = it.label_style
+                    if st and st.grad and lslot.box then
+                        local tw = tonumber(lslot.box.width) or 0
+                        local th = tonumber(lslot.box.height) or 0
+                        local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th) or nil
+                        if path then
+                            local pslot = find_slot(index, 'label_bg', layer)
+                            if not pslot then
+                                local box = make_plate_box(path, tw, th, st.alpha)
+                                if box then
+                                    pslot = { box = box, kind = 'image', part = 'label_bg', layer = layer, attached = false, role = role }
+                                    slots[#slots + 1] = pslot
+                                end
+                            end
+                            if pslot then
+                                apply_plate(pslot, path, tw, th, st.alpha)
+                                pslot.keep = true
+                                pslot.part = 'label_bg'
+                                pslot.layer = layer
+                                box_set(lslot.box, { layer = 0 })
+                                place_box(pslot, index, attach_opts(it, 'label_bg', f, lslot.bake))
+                            end
+                        end
+                    end
                 end
             end
         end
@@ -1488,7 +1806,7 @@ end
 -- 調べる対象：対象の名前の左横に印（同じ行）、その上にクエスト名。y は下向き（負で上へ）。
 -- pivot=bottom なので、各箱の下端がこの y（横は真ん中）。複数クエストは上に重ねる（??? は一番下の1つだけ）。
 -- under_width は対象の名前の箱の幅（px、文字の倍率込み）。
-local function world_place_opts(it, up, part, label_height, under_height, f, under_width)
+local function world_place_opts(it, up, part, label_height, under_height, f, under_width, bake)
     f = tonumber(f) or 1
     local scale = tonumber(it and it.scale) or 1
     if scale < 0.8 then scale = 0.8 elseif scale > 3.2 then scale = 3.2 end   -- 0.1.210〜：上限 320%
@@ -1515,7 +1833,7 @@ local function world_place_opts(it, up, part, label_height, under_height, f, und
         if part == 'mark' then
             x = -total / 2 + BOX_W / 2
             y = -(row_h - BOX_H) / 2
-        elseif part == 'under' then
+        elseif part == 'under' or part == 'under_bg' or part == 'under_shadow' then
             x = total / 2 - uw / 2
             y = -(row_h - under_h) / 2
         else
@@ -1547,11 +1865,11 @@ local function world_place_opts(it, up, part, label_height, under_height, f, und
     if part == 'mark' then
         dx = dx + (tonumber(it and it.mark_dx) or 0)
         y = y + (tonumber(it and it.mark_dy) or 0)
-    elseif part == 'label' then
+    elseif part == 'label' or part == 'label_bg' or part == 'label_shadow' then
         -- クエスト名（調べるオブジェクトの設定。アイコンの分も含めて渡される）
         dx = dx + (tonumber(it and it.label_dx) or 0)
         y = y + (tonumber(it and it.label_dy) or 0)
-    elseif part == 'under' then
+    elseif part == 'under' or part == 'under_bg' or part == 'under_shadow' then
         dx = dx + (tonumber(it and it.name_dx) or 0)
         y = y + (tonumber(it and it.name_dy) or 0)
         local us = tonumber(it and it.under_scale)
@@ -1560,16 +1878,31 @@ local function world_place_opts(it, up, part, label_height, under_height, f, und
             scale = us
         end
     end
+    if part == 'label_shadow' or part == 'under_shadow' then
+        local d = tonumber(it and it.shadow_distance) or 2
+        if d < 0 then d = 0 elseif d > 8 then d = 8 end
+        dx = dx + d
+        y = y + d + 1
+    end
+    bake = tonumber(bake) or tonumber(it and it.bake) or ext.LABEL_BAKE
+    local vis
+    if part == 'mark' then
+        vis = ext._icon_place_scale()
+    else
+        vis = ext._visual_scale(scale, bake)
+    end
     return {
         up = up,
         pivot = 'bottom',
         facing = 'camera',
         walls = false,
-        scale = (part == 'mark') and 1 or scale,
+        scale = vis,
         over_ui = false,
-        distance = 16,
+        -- 近づいても大きくしないときは、呼び出し側で distance を今の距離に差し替える
+        distance = ext.PLACE_REF_DISTANCE or 16,
         x = dx * f,
         y = y * f,
+        _cap = (it and it.no_enlarge_near == true) or nil,
     }
 end
 
@@ -1595,9 +1928,23 @@ end
 
 local function world_put(w, slot, x, y, z, opts)
     local ok = false
+    opts = opts or {}
+    local cap = opts._cap
+    -- 公式に渡さない印は除く
+    if opts._cap ~= nil or cap then
+        local clean = {}
+        for k, val in pairs(opts) do
+            if k ~= '_cap' then clean[k] = val end
+        end
+        opts = clean
+    end
+    if cap then
+        opts.distance = ext._place_distance(x, y, (z or 0) - (tonumber(opts.up) or 0), true)
+    end
     local p = slot._put
     if slot.placed and p and p.x == x and p.y == y and p.z == z and p.up == opts.up and p.scale == opts.scale
-        and p.ox == opts.x and p.oy == opts.y and p.pivot == opts.pivot then
+        and p.ox == opts.x and p.oy == opts.y and p.pivot == opts.pivot
+        and p.distance == opts.distance then
         return true   -- 0.1.210〜：前と同じ所なら置き直さない
     end
     if slot.placed and w and type(w.update) == 'function' then
@@ -1619,7 +1966,7 @@ local function world_put(w, slot, x, y, z, opts)
         if ok then slot.placed = true end
     end
     if ok then
-        slot._put = { x = x, y = y, z = z, up = opts.up, scale = opts.scale, ox = opts.x, oy = opts.y, pivot = opts.pivot }
+        slot._put = { x = x, y = y, z = z, up = opts.up, scale = opts.scale, ox = opts.x, oy = opts.y, pivot = opts.pivot, distance = opts.distance }
         box_show(slot.box, true)
     else
         last_place_err = 'place_failed'
@@ -1627,6 +1974,23 @@ local function world_put(w, slot, x, y, z, opts)
         slot._put = nil
     end
     return ok
+end
+
+local function ensure_world_shadow(w, it, key, role, text, part, x, y, z, up, label_h, under_h, pf, under_w, src)
+    if not want_label_shadow(it) or not text or text == '' then return false end
+    local sslot = find_world_slot(key, part)
+    if not sslot then
+        local box, _, bake = make_label_box(text)
+        if not box then return false end
+        sslot = { box = box, kind = 'text', part = part, placed = false, role = role, key = key, codes = false, bake = bake }
+        world_slots[#world_slots + 1] = sslot
+    end
+    apply_shadow_text(sslot, text, it)
+    sslot.keep = true
+    sslot.part = part
+    sslot.key = key
+    sslot.role = role
+    return world_put(w, sslot, x, y, z, world_place_opts(it, up, part, label_h, under_h, pf, under_w, sslot.bake or (src and src.bake)))
 end
 
 function ext.set_world_marks(items)
@@ -1679,32 +2043,34 @@ function ext.set_world_marks(items)
             if has_label_text(it) then
                 label_slot = find_world_slot(key, 'label')
                 if not label_slot then
-                    local box, codes = make_label_box(it.label)
+                    local box, codes, bake = make_label_box(it.label)
                     if box then
-                        label_slot = { box = box, kind = 'text', part = 'label', placed = false, role = role, key = key, codes = codes }
+                        label_slot = { box = box, kind = 'text', part = 'label', placed = false, role = role, key = key, codes = codes, bake = bake }
                         world_slots[#world_slots + 1] = label_slot
                     end
                 end
                 if label_slot then
-                    apply_label_text(label_slot, it.label, it.label_color, it.label_color2, it.label_bg_alpha)
-                    label_h = estimate_text_height(label_slot.box)
+                    apply_label_text(label_slot, it.label, it.label_color, it.label_color2, it.label_bg_alpha, it.label_style)
+                    local k = (ext.LABEL_REF or 16) / (tonumber(label_slot.bake) or ext.LABEL_BAKE or 64)
+                    label_h = estimate_text_height(label_slot.box) * k
                 end
             end
             if show_under then
                 under_slot = find_world_slot(key, 'under')
                 if not under_slot then
-                    local box, codes = make_label_box(it.under)
+                    local box, codes, bake = make_label_box(it.under)
                     if box then
-                        under_slot = { box = box, kind = 'text', part = 'under', placed = false, role = role, key = key, codes = codes }
+                        under_slot = { box = box, kind = 'text', part = 'under', placed = false, role = role, key = key, codes = codes, bake = bake }
                         world_slots[#world_slots + 1] = under_slot
                     end
                 end
                 if under_slot then
-                    apply_label_text(under_slot, it.under, it.under_color, it.under_color2, it.under_bg_alpha)
-                    under_h = estimate_text_height(under_slot.box)
+                    apply_label_text(under_slot, it.under, it.under_color, it.under_color2, it.under_bg_alpha, it.under_style)
+                    local k = (ext.LABEL_REF or 16) / (tonumber(under_slot.bake) or ext.LABEL_BAKE or 64)
+                    under_h = estimate_text_height(under_slot.box) * k
                     local us = tonumber(it.under_scale) or tonumber(it.scale) or 1
                     if us < 0.8 then us = 0.8 elseif us > 1.6 then us = 1.6 end
-                    under_w = estimate_text_width(under_slot.box, it.under) * us
+                    under_w = estimate_text_width(under_slot.box, it.under) * k * us
                 end
             end
 
@@ -1732,8 +2098,37 @@ function ext.set_world_marks(items)
                 label_slot.part = 'label'
                 label_slot.role = role
                 label_slot.label = it.label
-                if world_put(w, label_slot, x, y, z, world_place_opts(it_under, up, 'label', label_h, under_h, pf, under_w)) then
+                if world_put(w, label_slot, x, y, z, world_place_opts(it_under, up, 'label', label_h, under_h, pf, under_w, label_slot.bake)) then
                     any = true
+                end
+                if ensure_world_shadow(w, it_under, key, role, it.label, 'label_shadow', x, y, z, up, label_h, under_h, pf, under_w, label_slot) then
+                    any = true
+                end
+                local st = it.label_style
+                if st and st.grad and label_slot.box then
+                    local tw = tonumber(label_slot.box.width) or 0
+                    local th = tonumber(label_slot.box.height) or 0
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th) or nil
+                    if path then
+                        local pslot = find_world_slot(key, 'label_bg')
+                        if not pslot then
+                            local box = make_plate_box(path, tw, th, st.alpha)
+                            if box then
+                                pslot = { box = box, kind = 'image', part = 'label_bg', placed = false, role = role, key = key }
+                                world_slots[#world_slots + 1] = pslot
+                            end
+                        end
+                        if pslot then
+                            apply_plate(pslot, path, tw, th, st.alpha)
+                            pslot.keep = true
+                            pslot.part = 'label_bg'
+                            pslot.key = key
+                            box_set(label_slot.box, { layer = 0 })
+                            if world_put(w, pslot, x, y, z, world_place_opts(it_under, up, 'label_bg', label_h, under_h, pf, under_w, label_slot.bake)) then
+                                any = true
+                            end
+                        end
+                    end
                 end
             end
             if under_slot then
@@ -1742,8 +2137,37 @@ function ext.set_world_marks(items)
                 under_slot.part = 'under'
                 under_slot.role = role
                 under_slot.under = it.under
-                if world_put(w, under_slot, x, y, z, world_place_opts(it_under, up, 'under', label_h, under_h, pf, under_w)) then
+                if world_put(w, under_slot, x, y, z, world_place_opts(it_under, up, 'under', label_h, under_h, pf, under_w, under_slot.bake)) then
                     any = true
+                end
+                if ensure_world_shadow(w, it_under, key, role, it.under, 'under_shadow', x, y, z, up, label_h, under_h, pf, under_w, under_slot) then
+                    any = true
+                end
+                local ust = it.under_style
+                if ust and ust.grad and under_slot.box then
+                    local tw = tonumber(under_slot.box.width) or 0
+                    local th = tonumber(under_slot.box.height) or 0
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(ust.color, ust.color2 or ust.color, tw, th) or nil
+                    if path then
+                        local pslot = find_world_slot(key, 'under_bg')
+                        if not pslot then
+                            local box = make_plate_box(path, tw, th, ust.alpha)
+                            if box then
+                                pslot = { box = box, kind = 'image', part = 'under_bg', placed = false, role = role, key = key }
+                                world_slots[#world_slots + 1] = pslot
+                            end
+                        end
+                        if pslot then
+                            apply_plate(pslot, path, tw, th, ust.alpha)
+                            pslot.keep = true
+                            pslot.part = 'under_bg'
+                            pslot.key = key
+                            box_set(under_slot.box, { layer = 0 })
+                            if world_put(w, pslot, x, y, z, world_place_opts(it_under, up, 'under_bg', label_h, under_h, pf, under_w, under_slot.bake)) then
+                                any = true
+                            end
+                        end
+                    end
                 end
             end
             if any then

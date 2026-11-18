@@ -186,10 +186,21 @@ function W.link(ui, win, id, label, opts)
     if okv then pcall(function () imgui.PopStyleVar(1) end) end
     if n > 0 then pcall(function () imgui.PopStyleColor(n) end) end
     if opts.tooltip and imgui.IsItemHovered() then imgui.SetTooltip(opts.tooltip) end
+    -- 本文の縁取り・影：SmallButton の本体は ImGui のまま、位置を取って AddText だけ重ねる（全体は包まない）
+    if theme.body_fx_on() and label and label ~= '' and theme.paint_body_fx_at then
+        pcall(function ()
+            local a, b
+            if imgui.GetItemRectMin then a, b = imgui.GetItemRectMin() end
+            local x1, y1 = theme.xy(a, b)
+            if x1 then theme.paint_body_fx_at(imgui, x1, y1, label) end
+        end)
+    end
     if opts.bold then
         -- 太字の代わり：同じ文字を 1px 右にもう一度描く（ImGui に太字のフォントが無いため）
         pcall(function ()
-            local x1, y1 = imgui.GetItemRectMin()
+            local a, b = imgui.GetItemRectMin()
+            local x1, y1 = theme.xy(a, b)
+            if not x1 then return end
             local dl = imgui.GetWindowDrawList()
             dl:AddText({ x1 + 1, y1 }, theme.u32(opts.color or 'npc', 1.0), label)
         end)
@@ -208,7 +219,7 @@ function W.named(ui, win, id, template, name, opts)
     if not pre then pre, post = '', '' end
     if pre ~= '' then
         if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
-        if opts.muted ~= false then imgui.TextDisabled(pre) else imgui.Text(pre) end
+        if opts.muted ~= false then theme.TextDisabled(imgui, pre) else theme.Text(imgui, pre) end
         imgui.SameLine(0, 0)
     end
     local clicked = false
@@ -218,11 +229,11 @@ function W.named(ui, win, id, template, name, opts)
             tooltip = opts.tooltip,
         })
     else
-        imgui.TextColored(theme.col(opts.color or 'npc'), name)
+        theme.TextColored(imgui, theme.col(opts.color or 'npc'), name)
     end
     if post and post ~= '' then
         imgui.SameLine(0, 0)
-        if opts.muted ~= false then imgui.TextDisabled(post) else imgui.Text(post) end
+        if opts.muted ~= false then theme.TextDisabled(imgui, post) else theme.Text(imgui, post) end
     end
     return clicked
 end
@@ -245,11 +256,11 @@ function W.row(ui, win, id, lines, opts)
         if l.spans or l.terms then
             CT.draw_spans(ui, l.spans or CT.spans(l.text, l.terms), { base = l.color, muted = l.muted })
         elseif l.color then
-            imgui.TextColored(theme.col(l.color), tostring(l.text or ''))
+            theme.TextColored(imgui, theme.col(l.color), tostring(l.text or ''))
         elseif l.muted then
-            imgui.TextDisabled(tostring(l.text or ''))
+            theme.TextDisabled(imgui, tostring(l.text or ''))
         else
-            imgui.TextWrapped(tostring(l.text or ''))
+            theme.TextWrapped(imgui, tostring(l.text or ''))
         end
     end
     window.pop(ui, 'wrap')
@@ -301,7 +312,7 @@ function W.same(ui) ui.imgui.SameLine() end
 function W.frame_label(ui, text, disabled)
     local imgui = ui.imgui
     if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
-    if disabled then imgui.TextDisabled(text) else imgui.Text(text) end
+    if disabled then theme.TextDisabled(imgui, text) else theme.Text(imgui, text) end
 end
 
 function W.heading(ui, s)

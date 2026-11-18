@@ -121,14 +121,14 @@ function eminence.draw(ui)
             if e.timed then nm = t('roe.timed_mark') .. nm end
             local tgt = target_of(ui, e.id)
             local done = tgt and (tonumber(e.progress) or 0) >= tgt
-            imgui.TextColored(theme.col(done and 'ic_done' or 'text'), nm)
+            theme.TextColored(imgui, theme.col(done and 'ic_done' or 'text'), nm)
             if imgui.IsItemHovered() then
                 local db = db_of(ui)
                 local q = db and db.quests[e.id]
                 if q and q.desc then imgui.SetTooltip(q.desc) end
             end
             imgui.SameLine()
-            imgui.TextColored(theme.col(done and 'ic_done' or 'ic_progress'), eminence.progress_text(ui, e))
+            theme.TextColored(imgui, theme.col(done and 'ic_done' or 'ic_progress'), eminence.progress_text(ui, e))
         end
         window.pop(ui, 'child')
     end
@@ -514,7 +514,7 @@ local function draw_row(ui, name, id)
     elseif failed then tags[#tags + 1] = t('roe.tag_failed.' .. tostring(failed.why)) end
     if #tags > 0 then
         imgui.SameLine()
-        imgui.TextDisabled(table.concat(tags, ' '))
+        theme.TextDisabled(imgui, table.concat(tags, ' '))
     end
     -- キー・パッドでこの行に来たら詳細もこの行に（0.1.228〜：マウスを乗せただけでは動かさない）
     local cur = focus.current(name)
@@ -888,19 +888,19 @@ local function draw_rows_table(ui, name, rows, force_top)
                     -- 0.1.209〜：状態の列をなくしたので、受けられなかった印は名前の右に小さく
                     if rot then
                         pcall(imgui.SameLine, 0, 4)
-                        imgui.TextDisabled(t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }))
+                        theme.TextDisabled(imgui, t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }))
                     elseif failed then
                         pcall(imgui.SameLine, 0, 4)
-                        imgui.TextDisabled(t('roe.tag_failed.' .. tostring(failed.why)))
+                        theme.TextDisabled(imgui, t('roe.tag_failed.' .. tostring(failed.why)))
                     end
                 elseif k == 'progress' then
                     local ptext = eminence.count_text(ui, id)
-                    if dim then imgui.TextDisabled(ptext)
-                    else imgui.TextColored(theme.col(accepted and 'ic_progress' or 'text'), ptext) end
+                    if dim then theme.TextDisabled(imgui, ptext)
+                    else theme.TextColored(imgui, theme.col(accepted and 'ic_progress' or 'text'), ptext) end
                 elseif k == 'rewards' then
                     local rtext = eminence.reward_text(q)
-                    if accepted then imgui.TextColored(theme.col('ic_progress'), rtext)
-                    else imgui.TextDisabled(rtext) end
+                    if accepted then theme.TextColored(imgui, theme.col('ic_progress'), rtext)
+                    else theme.TextDisabled(imgui, rtext) end
                 elseif k == 'pin' then
                     fav_button(ui, name, id, 'list', row)
                 elseif k == 'fav' then
@@ -1006,13 +1006,13 @@ function eminence.detail(ui, name, id)
     local st = eminence.state_of(ui, id)
     local icon, icol = '◇', 'text'
     if st == 'accepted' then icon, icol = '◆', 'ic_progress' elseif st == 'completed' then icon, icol = '◆', 'muted' end
-    imgui.TextColored(theme.col(icol), icon)
+    theme.TextColored(imgui, theme.col(icol), icon)
     imgui.SameLine()
     W.heading(ui, (q.name ~= '' and q.name) or ('#' .. tostring(id)))
     if q.body and q.body ~= '' then W.text(ui, q.body) end
     W.sep(ui)
     local function line(label, value)
-        imgui.TextColored(theme.col('heading'), label)
+        theme.TextColored(imgui, theme.col('heading'), label)
         imgui.SameLine()
         W.text(ui, value or '')
     end

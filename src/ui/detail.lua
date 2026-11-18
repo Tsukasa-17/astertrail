@@ -15,6 +15,7 @@ local labels = require('src.ui.labels')
 local poss_ui = require('src.ui.possession_ui')
 local CT = require('src.ui.colored_text')
 local marks_core = require('src.core.marks')
+local theme = require('src.ui.theme')
 
 local detail = {}
 
@@ -30,7 +31,7 @@ function detail.body(ui, win, q, opts)
     local name = win
 
     local marked = require('src.ui.book').is_marked_unimplemented(ui.settings, q.id)
-    imgui.TextColored(require('src.ui.theme').col(marked and 'muted' or 'accent'), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
+    theme.TextColored(imgui, theme.col(marked and 'muted' or 'accent'), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
     if marked then W.muted(ui, ui.t('roe.tag_failed.not_impl')) end
     W.muted(ui, t('detail.category', {
         kind = t('kind.' .. q.kind), area = D:category_label(q.category, ui.settings.language) }))

@@ -680,7 +680,7 @@ function map_view.draw(ui)
             end
         end
         if q then
-            imgui.TextColored(theme.col('accent'), labels.qname(q))
+            theme.TextColored(imgui, theme.col('accent'), labels.qname(q))
             if step and (step.next_line_ja or step.order) then
                 W.muted(ui, string.format('%s %s',
                     step.order and (tostring(step.order) .. '.') or '',
@@ -861,7 +861,7 @@ function map_view.draw(ui)
         if hot then
             pcall(function ()
                 imgui.BeginTooltip()
-                imgui.Text(t('map.exit_tip', { zone = hot.name or tostring(hot.to) }))
+                theme.Text(imgui, t('map.exit_tip', { zone = hot.name or tostring(hot.to) }))
                 imgui.EndTooltip()
             end)
             if clicked then map_view.go(ui, hot.exit) end
