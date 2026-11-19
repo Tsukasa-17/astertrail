@@ -41,10 +41,129 @@ local function after_item(ui, win, id, focused, defer)
 end
 W.after_item = after_item
 
+
+-- 本のミッション・クエスト一覧と同じ縁取り：見える文字は theme.Text*（フックがカーソル位置に縁を付ける）。
+-- ボタンや Selectable の公式の文字は透明にし、同じ位置へ TextColored で描き直す。
+local function visible_label(s)
+    s = tostring(s or '')
+    local i = s:find('##', 1, true)
+    if i then s = s:sub(1, i - 1) end
+    return s
+end
+
+local function cursor_xy(imgui)
+    if type(imgui.GetCursorPosX) == 'function' and type(imgui.GetCursorPosY) == 'function' then
+        return imgui.GetCursorPosX(), imgui.GetCursorPosY()
+    end
+    if type(imgui.GetCursorPos) == 'function' then
+        local ok, a, b = pcall(imgui.GetCursorPos)
+        if ok then
+            if type(a) == 'table' then return a.x or a[1], a.y or a[2] end
+            return a, b
+        end
+    end
+    return nil, nil
+end
+
+local function set_cursor_xy(imgui, x, y)
+    if x == nil or y == nil then return end
+    if type(imgui.SetCursorPos) == 'function' then
+        pcall(imgui.SetCursorPos, { x, y })
+    elseif type(imgui.SetCursorPosX) == 'function' then
+        pcall(imgui.SetCursorPosX, x)
+        if type(imgui.SetCursorPosY) == 'function' then pcall(imgui.SetCursorPosY, y) end
+    end
+end
+
+local function set_cursor_screen(imgui, x, y)
+    if x == nil or y == nil then return false end
+    if type(imgui.SetCursorScreenPos) == 'function' then
+        local ok = pcall(imgui.SetCursorScreenPos, { x, y })
+        if ok then return true end
+    end
+    -- 窓相対へ直す
+    if imgui.GetWindowPos then
+        local ok, a, b = pcall(imgui.GetWindowPos)
+        if ok then
+            local wx, wy
+            if type(a) == 'table' then wx, wy = a.x or a[1], a.y or a[2] else wx, wy = a, b end
+            wx, wy = tonumber(wx), tonumber(wy)
+            if wx and wy then
+                set_cursor_xy(imgui, x - wx, y - wy)
+                return true
+            end
+        end
+    end
+    return false
+end
+
+function W.hide_item_text(imgui)
+    local n = 0
+    if type(imgui.PushStyleColor) == 'function' then
+        if pcall(imgui.PushStyleColor, theme.C('ImGuiCol_Text'), { 0, 0, 0, 0 }) then n = n + 1 end
+    end
+    return n
+end
+
+function W.show_item_text(imgui, n)
+    if n and n > 0 then pcall(imgui.PopStyleColor, n) end
+end
+
+-- 本の一覧と同じ縁取り（crisp_outline.paint_at）＋本文を、画面座標へ描く。ImGui の項目は増やさない。
+function W.paint_label(imgui, x, y, text, color)
+    text = visible_label(text)
+    x, y = tonumber(x), tonumber(y)
+    if text == '' or not x or not y then return end
+    local key = color
+    if key == 'muted' or key == 'disabled' then key = 'muted' end
+    key = key or 'text'
+    local outline = package.loaded['src.ui.crisp_outline']
+    if outline and outline.in_line and outline.in_line() and outline.line_push then
+        outline.line_push(x, y, text, theme.u32(key, 1))
+        return
+    end
+    if outline and outline.active and outline.active() and type(outline.paint_at) == 'function' then
+        pcall(outline.paint_at, imgui, x, y, text)
+    end
+    local dl = imgui.GetWindowDrawList and imgui.GetWindowDrawList()
+    if not dl or not dl.AddText then return end
+    pcall(dl.AddText, dl, { x, y }, theme.u32(key, 1), text)
+end
+
+-- 混在する行：縁を先に、本文をあとにまとめて描く
+function W.line_pass(imgui, fn)
+    local outline = package.loaded['src.ui.crisp_outline']
+    if outline and outline.line_begin then outline.line_begin() end
+    local ok, a, b, c = pcall(fn)
+    if outline and outline.line_end then outline.line_end(imgui) end
+    if not ok then error(a) end
+    return a, b, c
+end
+
+-- 直前の部品の上にラベルを描く。align: 'center'（Button）または 'left'（リンク・Selectable＝項目の左上、本の一覧と同じ）。
+function W.overlay_item_text(imgui, text, color, align)
+    text = visible_label(text)
+    if text == '' then return end
+    local r = W.item_rect(imgui)
+    if not r then return end
+    local x1, y1, x2, y2 = r[1], r[2], r[3], r[4]
+    local tw, th = theme.measure_text(imgui, text)
+    tw, th = tw or (x2 - x1), th or (y2 - y1)
+    local tx, ty
+    if align == 'left' then
+        tx, ty = x1, y1
+    else
+        tx = x1 + math.max(0, (x2 - x1 - tw) / 2)
+        ty = y1 + math.max(0, (y2 - y1 - th) / 2)
+    end
+    W.paint_label(imgui, tx, ty, text, color)
+end
+
 -- ボタン。戻り値: clicked（マウス or 決定）
 function W.button(ui, win, id, label, opts)
     opts = opts or {}
     local imgui = ui.imgui
+    label = tostring(label or '')
     -- no_focus：キー・パッドの選択に入れない（マウスだけで押す。詳細の ■/□ など、0.1.60〜）
     local focused, activated = false, false
     if not opts.no_focus then focused, activated = focus.item(win, id, opts.section, opts.row) end
@@ -52,12 +171,16 @@ function W.button(ui, win, id, label, opts)
         imgui.BeginDisabled(true)
         window.push(ui, 'disabled')
     end
+    -- 公式のラベルは透明。見える文字は本の一覧と同じ TextColored（縁がずれない）
+    local hid = W.hide_item_text(imgui)
     local clicked
     if opts.small then
         clicked = imgui.SmallButton(label .. '##' .. id)
     else
         clicked = imgui.Button(label .. '##' .. id, { opts.width or 0, 0 })
     end
+    W.show_item_text(imgui, hid)
+    W.overlay_item_text(imgui, label, opts.color or 'text', 'center')
     if opts.disabled then
         window.pop(ui, 'disabled')
         clicked, activated = false, false
@@ -167,44 +290,27 @@ end
 function W.link(ui, win, id, label, opts)
     opts = opts or {}
     local imgui = ui.imgui
-    local C = theme.C
+    label = tostring(label or '')
     -- no_focus：キー・パッドの選択に入れない（トラッカーのアイテム名のコピーなど、0.1.61〜）
     local focused, activated = false, false
     if not opts.no_focus then focused, activated = focus.item(win, id, opts.section, opts.row) end
-    local col = theme.col(opts.color or 'npc')
-    local n = 0
-    local function pushc(idx, c)
-        local ok = pcall(function () imgui.PushStyleColor(idx, c) end)
-        if ok then n = n + 1 end
+    -- 文字リンク：背景の箱（Selectable の Header）は出さない。当たりは文字と同じ大きさ。
+    -- 見える文字はあとから（行パスなら縁を先にまとめて）描く。
+    local tw, th = theme.measure_text(imgui, label)
+    if not tw or tw < 1 then tw = 1 end
+    if not th or th < 1 then th = 1 end
+    local okv = pcall(function () imgui.PushStyleVar(theme.C('ImGuiStyleVar_FramePadding'), { 0, 0 }) end)
+    local clicked
+    if imgui.InvisibleButton then
+        clicked = imgui.InvisibleButton(label .. '##' .. id, { tw, th })
+    else
+        local hid = W.hide_item_text(imgui)
+        clicked = imgui.Button(label .. '##' .. id, { tw, th })
+        W.show_item_text(imgui, hid)
     end
-    pushc(C('ImGuiCol_Button'), { 0, 0, 0, 0 })
-    pushc(C('ImGuiCol_ButtonHovered'), theme.col(opts.color or 'npc', 0.22))
-    pushc(C('ImGuiCol_ButtonActive'), theme.col(opts.color or 'npc', 0.35))
-    pushc(C('ImGuiCol_Text'), col)
-    local okv = pcall(function () imgui.PushStyleVar(C('ImGuiStyleVar_FramePadding'), { 0, 0 }) end)
-    local clicked = imgui.SmallButton(label .. '##' .. id)
-    if okv then pcall(function () imgui.PopStyleVar(1) end) end
-    if n > 0 then pcall(function () imgui.PopStyleColor(n) end) end
+    if okv then pcall(imgui.PopStyleVar, 1) end
+    W.overlay_item_text(imgui, label, opts.color or 'npc', 'left')
     if opts.tooltip and imgui.IsItemHovered() then imgui.SetTooltip(opts.tooltip) end
-    -- 本文の縁取り・影：SmallButton の本体は ImGui のまま、位置を取って AddText だけ重ねる（全体は包まない）
-    if theme.body_fx_on() and label and label ~= '' and theme.paint_body_fx_at then
-        pcall(function ()
-            local a, b
-            if imgui.GetItemRectMin then a, b = imgui.GetItemRectMin() end
-            local x1, y1 = theme.xy(a, b)
-            if x1 then theme.paint_body_fx_at(imgui, x1, y1, label) end
-        end)
-    end
-    if opts.bold then
-        -- 太字の代わり：同じ文字を 1px 右にもう一度描く（ImGui に太字のフォントが無いため）
-        pcall(function ()
-            local a, b = imgui.GetItemRectMin()
-            local x1, y1 = theme.xy(a, b)
-            if not x1 then return end
-            local dl = imgui.GetWindowDrawList()
-            dl:AddText({ x1 + 1, y1 }, theme.u32(opts.color or 'npc', 1.0), label)
-        end)
-    end
     if not opts.no_focus then after_item(ui, win, id, focused) end
     return clicked or activated
 end
@@ -217,24 +323,25 @@ function W.named(ui, win, id, template, name, opts)
     local marked = (template or '{name}'):gsub('{name}', '', 1)
     local pre, post = marked:match('^(.*)(.*)$')
     if not pre then pre, post = '', '' end
-    if pre ~= '' then
-        if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
-        if opts.muted ~= false then theme.TextDisabled(imgui, pre) else theme.Text(imgui, pre) end
-        imgui.SameLine(0, 0)
-    end
     local clicked = false
-    if opts.click then
-        clicked = W.link(ui, win, id, name, {
-            color = opts.color or 'npc', section = opts.section, row = opts.row,
-            tooltip = opts.tooltip,
-        })
-    else
-        theme.TextColored(imgui, theme.col(opts.color or 'npc'), name)
-    end
-    if post and post ~= '' then
-        imgui.SameLine(0, 0)
-        if opts.muted ~= false then theme.TextDisabled(imgui, post) else theme.Text(imgui, post) end
-    end
+    W.line_pass(imgui, function ()
+        if pre ~= '' then
+            if opts.muted ~= false then theme.TextDisabled(imgui, pre) else theme.Text(imgui, pre) end
+            imgui.SameLine(0, 0)
+        end
+        if opts.click then
+            clicked = W.link(ui, win, id, name, {
+                color = opts.color or 'npc', section = opts.section, row = opts.row,
+                tooltip = opts.tooltip,
+            })
+        else
+            theme.TextColored(imgui, theme.col(opts.color or 'npc'), name)
+        end
+        if post and post ~= '' then
+            imgui.SameLine(0, 0)
+            if opts.muted ~= false then theme.TextDisabled(imgui, post) else theme.Text(imgui, post) end
+        end
+    end)
     return clicked
 end
 
@@ -247,27 +354,53 @@ function W.row(ui, win, id, lines, opts)
     local imgui = ui.imgui
     local focused, activated = focus.item(win, id, opts.section, opts.row)
     local avail = imgui.GetContentRegionAvail()
+    local term_hit
     imgui.BeginGroup()
     window.push(ui, 'group')
     imgui.PushTextWrapPos(0)
     window.push(ui, 'wrap')
-    for _, l in ipairs(lines) do
-        if l.same_line then imgui.SameLine() end
-        if l.spans or l.terms then
-            CT.draw_spans(ui, l.spans or CT.spans(l.text, l.terms), { base = l.color, muted = l.muted })
-        elseif l.color then
-            theme.TextColored(imgui, theme.col(l.color), tostring(l.text or ''))
-        elseif l.muted then
-            theme.TextDisabled(imgui, tostring(l.text or ''))
-        else
-            theme.TextWrapped(imgui, tostring(l.text or ''))
+    W.line_pass(imgui, function ()
+        for li, l in ipairs(lines) do
+            if l.same_line then imgui.SameLine() end
+            if l.spans or l.terms then
+                local draw_opts = { base = l.color, muted = l.muted }
+                if opts.term_click then
+                    draw_opts.link = function (piece, act)
+                        local tip = opts.tip and opts.tip(act, piece) or nil
+                        if not tip and piece and piece.tip then tip = piece.tip end
+                        local wid = id .. '_' .. tostring(li) .. '_' .. (piece.kind or 'x') .. '_' .. tostring(piece.key or piece.copy_text or piece.text)
+                        if act == 'tip' then
+                            W.link(ui, win, wid, piece.text, { color = piece.color or 'text', tooltip = tip, no_focus = true })
+                            return false
+                        end
+                        return W.link(ui, win, wid, piece.text, {
+                            color = piece.color or CT.KIND_COLOR[piece.kind] or 'npc',
+                            tooltip = tip, no_focus = true,
+                        })
+                    end
+                    draw_opts.on_linked = function (act, piece)
+                        if act == 'tip' then return end
+                        term_hit = { act = act, text = piece.copy_text or piece.text, kind = piece.kind }
+                    end
+                end
+                CT.draw_spans(ui, l.spans or CT.spans(l.text, l.terms), draw_opts)
+            elseif l.color then
+                theme.TextColored(imgui, theme.col(l.color), tostring(l.text or ''))
+            elseif l.muted then
+                theme.TextDisabled(imgui, tostring(l.text or ''))
+            else
+                theme.TextWrapped(imgui, tostring(l.text or ''))
+            end
         end
-    end
+    end)
     window.pop(ui, 'wrap')
     imgui.Dummy({ math.max(1, (avail or 200) - 4), 2 })
     window.pop(ui, 'group')
+    if term_hit and opts.on_term then opts.on_term(term_hit) end
     local clicked = (opts.click ~= false) and imgui.IsItemClicked(0)
     after_item(ui, win, id, focused)
+    -- 名前のコピーなどを押したときは、行全体の選択にしない
+    if term_hit then return false, term_hit end
     return clicked or activated
 end
 
@@ -278,21 +411,46 @@ function W.colored(ui, name, s) CT.wrapped(ui, s, name) end
 -- 名前に色を付けた文（terms は colored_text の言葉の一覧）
 function W.ctext(ui, s, terms, opts) CT.draw(ui, s, terms, opts) end
 
--- 色付きの名前が押せる文。戻り値: { act='map'|'copy', text=, kind= } または nil
+-- だいじなものの所持印（緑のチェック／赤のバツ）。文字は使わず形で描く。
+function W.draw_key_mark(ui, piece, opts)
+    opts = opts or {}
+    local poss_ui = require('src.ui.possession_ui')
+    local owned = piece and (piece.mark == 'ok')
+    local tip = piece and piece.tip or nil
+    if opts.tip and piece then
+        local t2 = opts.tip('tip', piece)
+        if t2 then tip = t2 end
+    end
+    poss_ui.draw_key_mark(ui, owned, { id = '##kmark_' .. tostring(piece and (piece.key or piece.text) or 'x'), tooltip = tip })
+end
+
+-- 色付きの名前が押せる文。戻り値: { act='map'|'copy'|'tip', text=, kind= } または nil
+-- コピーするときは piece.copy_text（正式名称）を優先し、数や括弧は含めない。
 function W.term_line(ui, win, id, text, terms, opts)
     opts = opts or {}
     local clicked
     CT.draw(ui, text, terms, {
         base = opts.color, muted = opts.muted, wrap = opts.wrap, align = opts.align,
+        hang_x = opts.hang_x, tip = opts.tip,
         link = function (piece, act)
             local tip = opts.tip and opts.tip(act, piece) or nil
+            if not tip and piece and piece.tip then tip = piece.tip end
             -- 折り返して下の段に出た名前は、キー・パッドでも上下で移る（0.1.175〜。段ごとに行を分ける）
             local row = opts.row
             if row ~= nil and ui.imgui.GetCursorPosY then
                 local okp, cy = pcall(ui.imgui.GetCursorPosY)
                 if okp and tonumber(cy) then row = tostring(row) .. '@' .. tostring(math.floor(tonumber(cy) + 0.5)) end
             end
-            return W.link(ui, win, id .. '_' .. (piece.kind or 'x') .. '_' .. tostring(piece.text), piece.text, {
+            local wid = id .. '_' .. (piece.kind or 'x') .. '_' .. tostring(piece.key or piece.copy_text or piece.text)
+            -- 数や印はコピーしない。乗せて場所を出すだけ。
+            if act == 'tip' then
+                return W.link(ui, win, wid, piece.text, {
+                    color = piece.color or 'text',
+                    tooltip = tip, section = opts.section, row = row,
+                    no_focus = true,
+                }) and false
+            end
+            return W.link(ui, win, wid, piece.text, {
                 color = piece.color or CT.KIND_COLOR[piece.kind] or 'npc',
                 tooltip = tip, section = opts.section, row = row,
                 -- focus_acts があれば、その種類の名前だけをキー・パッドで選べる（0.1.61〜）
@@ -300,7 +458,8 @@ function W.term_line(ui, win, id, text, terms, opts)
             })
         end,
         on_linked = function (act, piece)
-            clicked = { act = act, text = piece.text, kind = piece.kind }
+            if act == 'tip' then return end
+            clicked = { act = act, text = piece.copy_text or piece.text, kind = piece.kind }
         end,
     })
     return clicked
@@ -317,7 +476,7 @@ end
 
 function W.heading(ui, s)
     local imgui = ui.imgui
-    imgui.TextColored(theme.col('heading'), s)
+    theme.TextColored(imgui, theme.col('heading'), s)
     theme.heading_line(imgui)
 end
 
@@ -906,11 +1065,18 @@ local function picker_body(ui, id, p, def)
     window.pop(ui, 'group')
     p.moved = false
     -- ボタン
-    if imgui.Button(t('color.done') .. '##cpd_' .. id) then result = 'done' end
+    local function color_btn(label, sid)
+        local hid = W.hide_item_text(imgui)
+        local hit = imgui.Button(label .. '##' .. sid)
+        W.show_item_text(imgui, hid)
+        W.overlay_item_text(imgui, label, 'text', 'center')
+        return hit
+    end
+    if color_btn(t('color.done'), 'cpd_' .. id) then result = 'done' end
     imgui.SameLine()
-    if imgui.Button(t('color.cancel') .. '##cpc_' .. id) then result = 'cancel' end
+    if color_btn(t('color.cancel'), 'cpc_' .. id) then result = 'cancel' end
     imgui.SameLine()
-    if imgui.Button(t('color.default') .. '##cpf_' .. id) then result = 'default' end
+    if color_btn(t('color.default'), 'cpf_' .. id) then result = 'default' end
     imgui.TextDisabled(t('color.pad_hint'))
     return result
 end
@@ -1050,7 +1216,12 @@ function W.combo(ui, win, id, prefix, current, choices, opts)
             window.push(ui, 'combo')
             for _, c in ipairs(choices) do
                 local sel = (c.value == current)
-                if imgui.Selectable((c.label or '') .. '##c_' .. tostring(c.value), sel) then
+                local sl = (c.label or '') .. '##c_' .. tostring(c.value)
+                local hid = W.hide_item_text(imgui)
+                local hit = imgui.Selectable(sl, sel)
+                W.show_item_text(imgui, hid)
+                W.overlay_item_text(imgui, c.label or '', 'text', 'left')
+                if hit then
                     changed, newv = true, c.value
                 end
                 if sel then pcall(imgui.SetItemDefaultFocus) end
@@ -1058,7 +1229,12 @@ function W.combo(ui, win, id, prefix, current, choices, opts)
             window.pop(ui, 'combo')
         end
     else
-        if imgui.Button(preview .. ' ▾##' .. id, { opts.width or 0, 0 }) then
+        local bl = preview .. ' ▾'
+        local hid = W.hide_item_text(imgui)
+        local hit = imgui.Button(bl .. '##' .. id, { opts.width or 0, 0 })
+        W.show_item_text(imgui, hid)
+        W.overlay_item_text(imgui, bl, 'text', 'center')
+        if hit then
             local nidx = idx + 1
             if nidx > #choices then nidx = 1 end
             changed, newv = true, choices[nidx].value
@@ -1098,7 +1274,13 @@ function W.combo(ui, win, id, prefix, current, choices, opts)
             if type(imgui.IsWindowHovered) == 'function' and imgui.IsWindowHovered() then ui.hovered_any = true end
             for i, c in ipairs(choices) do
                 local here = (i == dd.idx)
-                if imgui.Selectable((here and '▶ ' or '   ') .. (c.label or '') .. '##dd_' .. id .. '_' .. tostring(c.value), here) then
+                local shown = (here and '▶ ' or '   ') .. (c.label or '')
+                local sl = shown .. '##dd_' .. id .. '_' .. tostring(c.value)
+                local hid = W.hide_item_text(imgui)
+                local hit = imgui.Selectable(sl, here)
+                W.show_item_text(imgui, hid)
+                W.overlay_item_text(imgui, shown, 'text', 'left')
+                if hit then
                     dd.idx = i; dd.pick = true
                 end
                 if here then pcall(imgui.SetScrollHereY, 0.5) end

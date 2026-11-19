@@ -17,7 +17,7 @@ CT.KIND_COLOR = { item = 'item', key_item = 'item', zone = 'zone', npc = 'npc', 
 -- トラッカーなどで名前を押したときの動作。
 -- 話すNPCと調べる対象（???を含む）は地図。アイテムはコピー。
 -- ゾーンは対象外。モンスター（0.1.171〜）は地図を開き、近くにいれば出す。
-CT.CLICK = { npc = 'map', obj = 'map', object = 'map', mob = 'map', item = 'copy', key_item = 'copy', group = 'map' }
+CT.CLICK = { npc = 'map', obj = 'map', object = 'map', mob = 'map', item = 'copy', key_item = 'copy', group = 'map', poss_count = 'tip', poss_key_mark = 'tip' }
 
 function CT.click_action(kind)
     return kind and CT.CLICK[kind] or nil
@@ -25,11 +25,31 @@ end
 
 
 -- 言葉を足す（空・同じ言葉は足さない）
-function CT.add(terms, s, kind)
+function CT.add(terms, s, kind, extra)
     terms = terms or {}
     if type(s) ~= 'string' or s == '' then return terms end
-    for _, t in ipairs(terms) do if t.s == s then return terms end end
-    terms[#terms + 1] = { s = s, kind = kind }
+    extra = extra or {}
+    if not extra.dup then
+        for _, t in ipairs(terms) do
+            if t.s == s then
+                if extra.tip and not t.tip then t.tip = extra.tip end
+                if extra.copy_text and not t.copy_text then t.copy_text = extra.copy_text end
+                if extra.color and not t.color then t.color = extra.color end
+                if extra.key and not t.key then t.key = extra.key end
+                if extra.mark and not t.mark then t.mark = extra.mark end
+                return terms
+            end
+        end
+    end
+    local e = { s = s, kind = kind }
+    if extra.tip then e.tip = extra.tip end
+    if extra.copy_text then e.copy_text = extra.copy_text end
+    if extra.color then e.color = extra.color end
+    if extra.once then e.once = true end
+    if extra.dup then e.dup = true end
+    if extra.key then e.key = extra.key end
+    if extra.mark then e.mark = extra.mark end
+    terms[#terms + 1] = e
     return terms
 end
 
@@ -72,20 +92,29 @@ function CT.spans(text, terms)
     if text == '' then return out end
     if not terms or #terms == 0 then out[1] = { text = text }; return out end
     local pos, n = 1, #text
+    local used = {}
     while pos <= n do
-        local best_s, best_e, best_k
-        for _, t in ipairs(terms) do
-            local s, e = text:find(t.s, pos, true)
-            if s and (not best_s or s < best_s or (s == best_s and e > best_e)) then
-                best_s, best_e, best_k = s, e, t.kind
+        local best_s, best_e, best_i
+        for i, t in ipairs(terms) do
+            if not (t.once and used[i]) then
+                local s, e = text:find(t.s, pos, true)
+                if s and (not best_s or s < best_s or (s == best_s and e > best_e)) then
+                    best_s, best_e, best_i = s, e, i
+                end
             end
         end
         if not best_s then
             out[#out + 1] = { text = text:sub(pos) }
             break
         end
+        local t = terms[best_i]
+        if t.once then used[best_i] = true end
         if best_s > pos then out[#out + 1] = { text = text:sub(pos, best_s - 1) } end
-        out[#out + 1] = { text = text:sub(best_s, best_e), color = CT.KIND_COLOR[best_k] or best_k, kind = best_k }
+        out[#out + 1] = {
+            text = text:sub(best_s, best_e),
+            color = t.color or CT.KIND_COLOR[t.kind] or t.kind,
+            kind = t.kind, tip = t.tip, copy_text = t.copy_text, key = t.key, mark = t.mark,
+        }
         pos = best_e + 1
     end
     return out
@@ -116,7 +145,13 @@ end
 -- 文字（UTF-8）と英数字のかたまりに分ける。色付きの名前は一つのかたまりにする
 local function tokens_of(span)
     local out = {}
-    if span.color or span.kind then out[1] = { text = span.text, color = span.color, kind = span.kind, atom = true }; return out end
+    if span.color or span.kind then
+        out[1] = {
+            text = span.text, color = span.color, kind = span.kind, atom = true,
+            tip = span.tip, copy_text = span.copy_text, key = span.key, mark = span.mark,
+        }
+        return out
+    end
     local s = span.text
     local i, n = 1, #s
     while i <= n do
@@ -144,7 +179,7 @@ end
 local function split_chars(tok)
     local out = {}
     for ch in tok.text:gmatch('[%z\1-\127\194-\244][\128-\191]*') do
-        out[#out + 1] = { text = ch, color = tok.color, kind = tok.kind }
+        out[#out + 1] = { text = ch, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }
     end
     return out
 end
@@ -189,14 +224,19 @@ local function layout(imgui, spans, width)
     local unit = text_w(imgui, 'M')
     if not unit or not width or width <= 0 then return nil end
     local key = {}
-    for _, s in ipairs(spans) do key[#key + 1] = (s.color or '') .. '\1' .. s.text end
+    for _, s in ipairs(spans) do
+        key[#key + 1] = (s.color or '') .. '\1' .. s.text .. '\1' .. (s.kind or '') .. '\1' .. (s.tip or '') .. '\1' .. (s.copy_text or '') .. '\1' .. (s.mark or '')
+    end
     local ck = table.concat(key, '\2') .. '\3' .. math.floor(width) .. '\3' .. unit
     if cache[ck] then return cache[ck] end
     local lines, line, x = {}, {}, 0
     local function push(tok, w)
         local last = line[#line]
-        if last and last.color == tok.color and last.kind == tok.kind then last.text = last.text .. tok.text
-        else line[#line + 1] = { text = tok.text, color = tok.color, kind = tok.kind } end
+        if last and last.color == tok.color and last.kind == tok.kind and last.tip == tok.tip and last.copy_text == tok.copy_text and last.mark == tok.mark and last.key == tok.key then
+            last.text = last.text .. tok.text
+        else
+            line[#line + 1] = { text = tok.text, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }
+        end
         x = x + w
     end
     local function newline()
@@ -235,14 +275,31 @@ local function layout(imgui, spans, width)
 end
 CT._layout = layout
 
+local function cursor_xy(imgui)
+    if not imgui or not imgui.GetCursorScreenPos then return nil, nil end
+    local ok, a, b = pcall(imgui.GetCursorScreenPos)
+    if not ok then return nil, nil end
+    if type(a) == 'table' then return tonumber(a.x or a[1]), tonumber(a.y or a[2]) end
+    return tonumber(a), tonumber(b)
+end
+
+-- 色名を必ず決めてから描く。行パス中は theme.u32(名前) でキューに載せ、
+-- TextColored に色の表を渡してフックで組み直す経路は使わない（0.1.258）。
 local function draw_piece(imgui, piece, opts)
     local name = piece.color or opts.base
-    if name then
-        theme.TextColored(imgui, theme.col(name), piece.text)
-    elseif opts.muted then
+    if not name then name = opts.muted and 'muted' or 'text' end
+    local outline = package.loaded['src.ui.crisp_outline']
+    if outline and outline.in_line and outline.in_line() and outline.line_push then
+        local x, y = cursor_xy(imgui)
+        outline.line_push(x, y, piece.text, theme.u32(name, 1))
+        local tw, th = theme.measure_text(imgui, piece.text)
+        if imgui.Dummy then pcall(imgui.Dummy, { tw or 1, th or 1 }) end
+        return
+    end
+    if name == 'muted' and not piece.color and not opts.base then
         theme.TextDisabled(imgui, piece.text)
     else
-        theme.TextColored(imgui, theme.col('text'), piece.text)
+        theme.TextColored(imgui, theme.col(name), piece.text)
     end
 end
 
@@ -256,7 +313,8 @@ function CT.draw_spans(ui, spans, opts)
     if #spans == 0 then theme.TextColored(imgui, theme.col('text'), ' '); return end
     local has_link = opts.link ~= nil
     local right = opts.align == 'right'
-    if #spans == 1 and not spans[1].color and not (has_link and CT.click_action(spans[1].kind)) and not right then
+    -- hang_x があるときは TextWrapped を使わない（折り返し行が x=0 に戻るため）
+    if #spans == 1 and not spans[1].color and not (has_link and CT.click_action(spans[1].kind)) and not right and not opts.hang_x then
         local s = spans[1].text
         if opts.base then theme.TextColored(imgui, theme.col(opts.base), s)
         elseif opts.muted then theme.TextDisabled(imgui, s)
@@ -281,6 +339,10 @@ function CT.draw_spans(ui, spans, opts)
         lines = { spans }
     end
     for _, line in ipairs(lines) do
+        -- 手順文の折り返しは、1行目と同じ列（hang_x）から始める
+        if opts.hang_x and imgui.SetCursorPosX then
+            pcall(imgui.SetCursorPosX, opts.hang_x)
+        end
         -- 右そろえ：行の幅を測って、右端に寄せる（名前のボタンも同じ位置に置くので、押せる場所は文字と同じ）
         if right then
             if #line > 0 and line[#line].text == ' ' then
@@ -290,18 +352,38 @@ function CT.draw_spans(ui, spans, opts)
             end
             CT.push_right(imgui, line_w(imgui, line))
         end
-        if has_link and imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
-        for i, piece in ipairs(line) do
-            if i > 1 then imgui.SameLine(0, 0) end
-            local act = has_link and CT.click_action(piece.kind)
-            if act then
-                local hit = opts.link(piece, act)
-                if hit and opts.on_linked then opts.on_linked(act, piece) end
-            else
-                draw_piece(imgui, piece, opts)
+        local Wline = package.loaded['src.ui.widgets']
+        local function draw_line()
+            for i, piece in ipairs(line) do
+                if i > 1 then imgui.SameLine(0, 0) end
+                if piece.kind == 'poss_key_mark' or piece.mark then
+                    local Wmark = package.loaded['src.ui.widgets']
+                    if Wmark and Wmark.draw_key_mark then
+                        Wmark.draw_key_mark(ui, piece, opts)
+                    else
+                        draw_piece(imgui, piece, opts)
+                    end
+                else
+                    local act = has_link and CT.click_action(piece.kind)
+                    if act then
+                        local hit = opts.link(piece, act)
+                        if hit and opts.on_linked then opts.on_linked(act, piece) end
+                    else
+                        draw_piece(imgui, piece, opts)
+                    end
+                end
             end
+            if #line == 0 then theme.TextColored(imgui, theme.col('text'), ' ') end
         end
-        if #line == 0 then theme.TextColored(imgui, theme.col('text'), ' ') end
+        -- 既に行パス中ならそのまま（入れ子にしない）。でなければこの行だけ縁を先にまとめる。
+        local o = package.loaded['src.ui.crisp_outline']
+        if o and o.in_line and o.in_line() then
+            draw_line()
+        elseif Wline and Wline.line_pass then
+            Wline.line_pass(imgui, draw_line)
+        else
+            draw_line()
+        end
     end
 end
 

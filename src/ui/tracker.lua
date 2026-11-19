@@ -275,6 +275,9 @@ function tracker.draw(ui)
     local C = theme.C
     local pins = P:pinned_list()
     if #pins == 0 then return end
+    if ui.settings and ui.settings.look == 'sf' then
+        return require('src.ui.tracker_sf').draw(ui)
+    end
     local name = 'tracker'
     local st = ui.state
     local operating = st.active == 'tracker'
@@ -340,6 +343,7 @@ function tracker.draw(ui)
             local last_first = math.max(1, #pins - n_fit + 1)
             first = math.max(1, math.min(first, last_first))
             st.tracker_tab_first = first
+            W.line_pass(imgui, function ()
             local scroll
             if arrows then
                 -- ◀▶（0.1.171〜）：タブの並びを1つ送る（選んでいる件は替えない）。マウスで押す
@@ -375,6 +379,7 @@ function tracker.draw(ui)
                     disabled = first >= last_first, tooltip = t('tracker.tab_next') }) then scroll = 1 end
             end
             if scroll then st.tracker_tab_first = math.max(1, math.min(first + scroll, last_first)) end
+            end)
             top_drawn = true
             font('ops')   -- × とこれ以降はトラッカーの文字サイズ
         end
@@ -417,11 +422,13 @@ function tracker.draw(ui)
             push_w(hw and (hw + 1 + iw) or nil)   -- 太めにした分の 1px
             if icon then ui_marks.inline_icon(ui, icon) end
             local dim = require('src.ui.book').is_marked_unimplemented(S, qid)
-            if W.link(ui, name, 'q_' .. qid, head, {
-                color = dim and 'muted' or 'accent', section = 'list', row = qid .. '_name', bold = true, no_focus = nf,
-            }) then
-                ui.open_detail_solo(qid, 'tracker')
-            end
+            W.line_pass(imgui, function ()
+                if W.link(ui, name, 'q_' .. qid, head, {
+                    color = dim and 'muted' or 'accent', section = 'list', row = qid .. '_name', bold = true, no_focus = nf,
+                }) then
+                    ui.open_detail_solo(qid, 'tracker')
+                end
+            end)
             font('step')
             if not collapsed then
                 local step = P:current_step(qid)
@@ -460,15 +467,15 @@ function tracker.draw(ui)
                 if step then
                     -- 2) 今の手順（ふつうの大きさ・ふつうの色）
                     local cur_text = step.next_line_ja or t('detail.step_no_text')
-                    local cur_terms, counts = terms, {}
+                    local poss_ex
+                    cur_text, poss_ex = poss_ui.apply_to_step(ui, step, cur_text, q)
+                    local cur_terms, counts = {}, {}
+                    for _, x in ipairs(terms) do cur_terms[#cur_terms + 1] = x end
+                    poss_ui.merge_terms(cur_terms, poss_ex)
                     local has_multi = tracker.has_multi_map_targets(D, step)
                     if has_multi then
                         counts = tracker.people_counts(cur_text)
-                        if #counts > 0 then
-                            cur_terms = {}
-                            for _, x in ipairs(terms) do cur_terms[#cur_terms + 1] = x end
-                            for _, s in ipairs(counts) do CT.add(cur_terms, s, 'group') end
-                        end
+                        for _, s in ipairs(counts) do CT.add(cur_terms, s, 'group') end
                     end
                     term_line(cur_text, '_cur', step.id, nil, cur_terms)
                     -- 人数の表記が無い手順でも、複数の相手がいれば「地図」を出す
@@ -481,12 +488,6 @@ function tracker.draw(ui)
                             ui.open_map(qid, step.id)
                         end
                     end
-                    -- 所持（0.1.184〜）：必要な品ごとに 1 行。読めないときは出さない
-                    if S.items and S.items.show_possession and step.needs and #step.needs > 0 then
-                        font('time')
-                        poss_ui.draw_lines(ui, step.needs, push_w)
-                        font('step')
-                    end
                     -- 3) 時間帯・天候（資料がある手順だけ。少し小さく・注意の色）
                     if S.tracker.show_time_weather and step.time_weather_ja then
                         font('time')
@@ -496,8 +497,13 @@ function tracker.draw(ui)
                     -- 4) 次：次の手順（小さく・薄く）
                     font('next')
                     if nav.next then
-                        term_line(t('tracker.next', { text = nav.next.next_line_ja or t('detail.step_no_text') }), '_nx',
-                            nav.next.id, { muted = true })
+                        local nx_text = t('tracker.next', { text = nav.next.next_line_ja or t('detail.step_no_text') })
+                        local nx_ex
+                        nx_text, nx_ex = poss_ui.apply_to_step(ui, nav.next, nx_text, q)
+                        local nx_terms = {}
+                        for _, x in ipairs(terms) do nx_terms[#nx_terms + 1] = x end
+                        poss_ui.merge_terms(nx_terms, nx_ex)
+                        term_line(nx_text, '_nx', nav.next.id, { muted = true }, nx_terms)
                     elseif nav.branch then
                         line('muted', t('tracker.next', { text = t('tracker.next_branch') }))
                     elseif nav.last then
@@ -541,6 +547,8 @@ function tracker.draw(ui)
                     ops_w = cw and (ops_w + cw + style_x(imgui, 'ItemSpacing', 8)) or nil
                 end
                 push_w(ops_w)
+                local unpinned = false
+                W.line_pass(imgui, function ()
                 if count and right then
                     count_text()
                     W.same(ui)
@@ -570,13 +578,14 @@ function tracker.draw(ui)
                     end
                     W.same(ui)
                 end
-                local unpinned = W.button(ui, name, 'unpin_' .. qid, '   ', { section = 'list', row = row, small = true,
+                unpinned = W.button(ui, name, 'unpin_' .. qid, '   ', { section = 'list', row = row, small = true,
                     no_focus = nf, tooltip = t('tracker.unpin') })
                 draw_pin(imgui)
                 if count and not right then
                     W.same(ui)
                     count_text()
                 end
+                end)
                 font('step')
                 if unpinned then ui.request('unpin', qid) end
                 if st.suggest_complete == qid then

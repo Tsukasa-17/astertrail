@@ -33,6 +33,14 @@ function settings.defaults()
         font_shadow_distance = 2,
         font_shadow_alpha = 1,
         font_body_fx = false,   -- 0.1.245：本文の縁取りと影は使わない。古い保存があっても無視する
+        font_crisp = true,        -- 0.1.246：メイリオを ImGui に読んで PushFont（初期オン）
+        font_crisp_bold = false,  -- 太字（meiryob.ttc）。初期はふつうのメイリオ
+        font_crisp_outline = 0,     -- 0.1.247：くっきり縁取りの太さ（0〜3px）。古い font_outline は使わない
+        font_crisp_outline_alpha = 0.85,  -- 縁取りの濃さ。色は黒だけ。影はなし
+        -- 0.1.252：font_face_* の選択は使わない。保存に残っていても読んで無視する。
+        font_face_ja = 'meiryo.ttc',
+        font_face_en = 'meiryo.ttc',
+        font_face_num = 'meiryo.ttc',
         layout_locked = false,
         theme = 'dark_calm',
         background_alpha = 0.85,
@@ -56,7 +64,7 @@ function settings.defaults()
         remember_position = false,
         -- 設定の折りたたみ見出し（0.1.239〜）。キーが true ならたたんだ状態。無いものは開いている
         settings_folds = json.object({}),
-        -- 見た目：'yunaui'（YunaUI 風）／ 'classic'（クラシック）。保存のキーは classic のまま
+        -- 見た目：'yunaui'（YunaUI 風）／ 'classic'（クラシック）／ 'sf'（SF）。初期はクラシックのまま
         -- 0.1.204〜：初期はクラシック（0.1.194 で「これまで」から改名した見た目）
         look = 'classic',
         book = {
@@ -221,6 +229,16 @@ function settings.merge(loaded)
     merged.font_shadow_distance = settings.clamp_shadow_distance(merged.font_shadow_distance)
     merged.font_shadow_alpha = settings.clamp_unit_alpha(merged.font_shadow_alpha)
     merged.font_body_fx = merged.font_body_fx == true
+    -- くっきりフォント：保存が無い／壊れているときはオン。オフと書いたときだけオフ。
+    merged.font_crisp = loaded.font_crisp ~= false
+    merged.font_crisp_bold = loaded.font_crisp_bold == true
+    -- くっきり縁取り：新しいキーだけ読む（古い font_outline の 8px などが効かないように）
+    merged.font_crisp_outline = settings.clamp_crisp_outline(loaded.font_crisp_outline)
+    merged.font_crisp_outline_alpha = settings.clamp_crisp_outline_alpha(loaded.font_crisp_outline_alpha)
+    -- 0.1.252：保存にあっても描画では使わない。キーは残し、無いときは既定のメイリオ。設定ファイルはここでは書き換えない。
+    if loaded.font_face_ja ~= nil then merged.font_face_ja = loaded.font_face_ja end
+    if loaded.font_face_en ~= nil then merged.font_face_en = loaded.font_face_en end
+    if loaded.font_face_num ~= nil then merged.font_face_num = loaded.font_face_num end
     merged.settings_folds = settings.normalize_settings_folds(type(loaded) == 'table' and loaded.settings_folds or nil)
     -- 場所ごとの文字の大きさ。まだ無い古い保存は、これまでの共通の文字サイズを引き継ぐ。
     local loaded_fonts = type(loaded.fonts) == 'table' and loaded.fonts or {}
@@ -462,7 +480,7 @@ function settings.merge(loaded)
         local raw = type(loaded) == 'table' and loaded.look
         if (tonumber(loaded.defaults_rev) or 1) < 6 then
             merged.look = 'classic'
-        elseif raw ~= 'yunaui' and raw ~= 'classic' then
+        elseif raw ~= 'yunaui' and raw ~= 'classic' and raw ~= 'sf' then
             merged.look = 'classic'
         else
             merged.look = raw
@@ -849,6 +867,39 @@ function settings.clamp_stroke(v)
     return v
 end
 -- 通常メニューの縁取りの太さ（px、0.25 刻み。1 が今まで）
+function settings.clamp_crisp_outline(v)
+    -- 保存が無い／壊れているときは 0（今と同じ見た目）。0.25 刻み、0〜3px。
+    -- 古い font_outline は読まない。
+    if v == nil then return 0 end
+    v = tonumber(v)
+    if v == nil then return 0 end
+    v = math.floor(v * 4 + 0.5) / 4
+    if v < 0 then v = 0 elseif v > 3 then v = 3 end
+    return v
+end
+
+function settings.clamp_crisp_outline_alpha(v)
+    if v == nil then return 0.85 end
+    v = tonumber(v)
+    if v == nil then return 0.85 end
+    if v < 0 then v = 0 elseif v > 1 then v = 1 end
+    return v
+end
+
+-- 0.1.250：Windows フォントのファイル名だけ許す（パスや親ディレクトリは既定に戻す）
+function settings.clamp_font_face(v)
+    if type(v) ~= 'string' then return 'meiryo.ttc' end
+    v = v:match('^%s*(.-)%s*$') or v
+    if v == '' or v == 'default' or v == 'meiryo' then return 'meiryo.ttc' end
+    if v:find('[/\\]') or v:find('%.%.') then return 'meiryo.ttc' end
+    local base = v:match('[^/\\]+$') or v
+    if base ~= v then return 'meiryo.ttc' end
+    local ext = (base:match('%.([^%.]+)$') or ''):lower()
+    if ext ~= 'ttf' and ext ~= 'otf' and ext ~= 'ttc' then return 'meiryo.ttc' end
+    if #base > 80 then return 'meiryo.ttc' end
+    return base
+end
+
 function settings.clamp_font_outline(v)
     v = tonumber(v)
     if v == nil then v = settings.STROKE_DEFAULT end

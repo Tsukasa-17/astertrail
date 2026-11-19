@@ -1,12 +1,15 @@
 --[[
   Astertrail - 窓の開け閉めと位置・大きさの記憶
   - 位置・大きさは窓ごとに覚え、文字サイズ（font_scale）とは別に扱う。
-  - 文字サイズを変えても、利用者が決めた窓の大きさは変えない（SetWindowFontScale のみ）。
+  - 文字サイズを変えても、利用者が決めた窓の大きさは変えない。
+  - くっきりフォント（0.1.246）が使える窓は PushFont。使えないときはこれまでどおり SetWindowFontScale。
 ]]
 
 local theme = require('src.ui.theme')
 local focus = require('src.ui.focus')
 local settings_mod = require('src.core.settings')
+local crisp_font = require('src.ui.crisp_font')
+local crisp_outline = require('src.ui.crisp_outline')
 
 local window = {}
 
@@ -169,9 +172,59 @@ function window.draw_title_flash(ui, title, px, py, sw, sh)
     local col = theme.u32('good', 1)
     pcall(function ()
         if dl.PushClipRect then dl:PushClipRect({ x, py }, { right, py + bar_h }, true) end
+        local outline = package.loaded['src.ui.crisp_outline']
+        if outline and outline.active and outline.active() and outline.paint_at then
+            outline.paint_at(imgui, x, y, shown)
+        end
         dl:AddText({ x, y }, col, shown)
         if dl.PopClipRect then dl:PopClipRect() end
     end)
+end
+
+-- くっきりフォントを使う窓（本・トラッカー・コンパス・エミネンス・設定。詳細は本の一部）
+local CRISP_WINS = {
+    book = true, detail = true, tracker = true, compass = true, eminence = true, settings = true,
+    popup = true, resume = true,
+}
+
+local function release_crisp(ui)
+    crisp_outline.leave()
+    if ui and ui._crisp_pushed then
+        crisp_font.pop(ui.imgui)
+        ui._crisp_pushed = false
+    end
+end
+
+-- scale を指定の大きさとして出す。くっきりが使えれば PushFont（引き伸ばさない）。
+local function apply_font(ui, scale, opts)
+    local imgui = ui and ui.imgui
+    if not imgui then return end
+    scale = tonumber(scale) or 1.0
+    if ui._crisp_pushed then
+        crisp_font.pop(imgui)
+        ui._crisp_pushed = false
+    end
+    local name = ui._crisp_win
+    if name and CRISP_WINS[name] and crisp_font.push(imgui, ui.settings, ui._font_base, scale, opts) then
+        ui._crisp_pushed = true
+        return
+    end
+    -- 今までの倍率（フォールバック）
+    if not imgui.SetWindowFontScale then return end
+    local base = ui._font_base
+    if base and base > 0 and imgui.GetFontSize then
+        pcall(imgui.SetWindowFontScale, 1.0)
+        local ok, s1 = pcall(imgui.GetFontSize)
+        s1 = ok and tonumber(s1) or nil
+        if s1 and s1 > 0 then
+            local inherited = s1 / base
+            if inherited > 0.05 then
+                pcall(imgui.SetWindowFontScale, scale / inherited)
+                return
+            end
+        end
+    end
+    pcall(imgui.SetWindowFontScale, scale)
 end
 
 function window.begin(ui, name, opts)
@@ -247,6 +300,12 @@ function window.begin(ui, name, opts)
     local alpha = tonumber(opts.bg_alpha) or settings_mod.alpha_for(ui.settings, name)
     if opts.glass then alpha = tonumber(opts.bg_alpha) or 0.42 end
     local ncol, nvar = theme.push(imgui, alpha)
+    local sf_frame = theme.look == 'sf' and (opts.no_title or opts.sf_frame) and not opts.glass
+    if sf_frame then
+        -- 公式の四角い地は出さず、角を切った枠をあとから描く
+        imgui.PushStyleColor(C('ImGuiCol_WindowBg'), { 0, 0, 0, 0 })
+        ncol = ncol + 1
+    end
     if opts.glass then
         -- 地は自分で描く（ゲームの画面が透ける）。見出しの帯は出さない
         imgui.PushStyleColor(C('ImGuiCol_WindowBg'), { 0, 0, 0, 0 })
@@ -293,7 +352,9 @@ function window.begin(ui, name, opts)
         fsz = fok and tonumber(fsz) or nil
         if fsz and fsz > 0 then ui._font_base = fsz end
     end
-    imgui.SetWindowFontScale(window.font_scale(ui, name))
+    ui._crisp_win = name
+    apply_font(ui, window.font_scale(ui, name))
+    crisp_outline.enter(ui, name)
     -- 通常メニューの縁取り・影（0.1.236〜）。斜体フォントは読まない
     theme.set_text_fx(ui.settings)
     if theme.set_body_area then theme.set_body_area(FONT_AREA[name] or name) end
@@ -306,6 +367,14 @@ function window.begin(ui, name, opts)
             alpha = anim and tonumber(anim.a) or 1,
             reduce_motion = ui.settings and ui.settings.reduce_motion,
         })
+    end
+    if sf_frame and drawing then
+        pcall(function ()
+            require('src.ui.sf_style').draw_window(imgui, {
+                alpha = alpha,
+                reduce_motion = ui.settings and ui.settings.reduce_motion,
+            })
+        end)
     end
 
     -- 位置と大きさを覚える（動かした・変えた時だけ）
@@ -349,30 +418,17 @@ function window.begin(ui, name, opts)
 end
 
 -- 今の窓（子の窓でも）の文字を、決めた倍率ちょうどにする。
--- 子の窓が親の倍率を受け継ぐかは ImGui の版で違うので、倍率 1 にして測り、受け継いだ分を割り戻す。
+-- くっきりフォントが使えるときは PushFont（引き伸ばさない）。
+-- 使えないときは、子の窓が親の倍率を受け継ぐか版で違うので、倍率 1 にして測り、受け継いだ分を割り戻す。
 -- 測れないときは、そのまま渡す（受け継がない動き。0.1.31 の実機ではこちら）。
-function window.set_font(ui, scale)
-    local imgui = ui.imgui
-    if not imgui or not imgui.SetWindowFontScale then return end
-    scale = tonumber(scale) or 1.0
-    local base = ui._font_base
-    if base and base > 0 and imgui.GetFontSize then
-        pcall(imgui.SetWindowFontScale, 1.0)
-        local ok, s1 = pcall(imgui.GetFontSize)
-        s1 = ok and tonumber(s1) or nil
-        if s1 and s1 > 0 then
-            local inherited = s1 / base
-            if inherited > 0.05 then
-                pcall(imgui.SetWindowFontScale, scale / inherited)
-                return
-            end
-        end
-    end
-    pcall(imgui.SetWindowFontScale, scale)
+function window.set_font(ui, scale, opts)
+    apply_font(ui, scale, opts)
 end
 
 function window.finish(ui, name, preferred)
     local imgui = ui.imgui
+    -- PushFont は End の前に戻す（組を崩さない）
+    release_crisp(ui)
     focus.finish(name, preferred)
     window.pop(ui, 'window')
     window.pop(ui, 'style')
@@ -422,6 +478,7 @@ end
 
 -- 失敗した時に、開いたままの組を逆順に閉じる
 function window.unwind(ui)
+    release_crisp(ui)
     local st = ui._stack or {}
     for i = #st, 1, -1 do
         pcall(CLOSERS[st[i].kind], ui.imgui, st[i])

@@ -28,6 +28,23 @@ function labels.qname(q)
     return q.name_en or q.id or ''
 end
 
+-- 表示だけ：資料名の末尾に付いた「 注釈N …」脚注を落とす（資料ファイルは触らない）
+function labels.strip_name_note(s)
+    if type(s) ~= 'string' or s == '' then return s or '' end
+    local a = s:find(' 注釈', 1, true)
+    if not a then return s end
+    local after = s:sub(a + #' 注釈')
+    if after:find('^%d') then
+        return s:sub(1, a - 1)
+    end
+    return s
+end
+
+-- 画面に出す名前（脚注を除く）。クラシックの一覧は labels.qname のまま。
+function labels.display_name(q)
+    return labels.strip_name_note(labels.qname(q))
+end
+
 -- 本の報酬の列：資料の日本語名を「、」でつなぐ（無ければ空）
 function labels.rewards_cell(q)
     local parts = {}

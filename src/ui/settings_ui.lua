@@ -10,7 +10,6 @@ local util = require('src.lib.util')
 local settings_mod = require('src.core.settings')
 local focus = require('src.ui.focus')
 local theme = require('src.ui.theme')
-
 local settings_ui = {}
 
 local function onoff(ui, v) return v and ui.t('common.on') or ui.t('common.off') end
@@ -313,6 +312,14 @@ function settings_ui.body(ui)
         end
         stepper(ui, name, 'font', t('settings.font_other'), S, 'font_scale', 0.1, settings_mod.FONT_MIN, settings_mod.FONT_MAX, UNIT.pct, SEC, DEF.font_scale)
         W.muted(ui, t('settings.font_note'))
+        toggle(ui, name, 'font_crisp', t('settings.font_crisp'), S, 'font_crisp', SEC)
+        toggle(ui, name, 'font_crisp_bold', t('settings.font_crisp_bold'), S, 'font_crisp_bold', SEC)
+        W.muted(ui, t('settings.font_crisp_note'))
+        stepper(ui, name, 'font_crisp_outline', t('settings.font_crisp_outline'), S, 'font_crisp_outline',
+            0.25, 0, 3, UNIT.fpx, SEC, DEF.font_crisp_outline)
+        stepper(ui, name, 'font_crisp_outline_alpha', t('settings.font_crisp_outline_alpha'), S, 'font_crisp_outline_alpha',
+            0.05, 0, 1, UNIT.pct, SEC, DEF.font_crisp_outline_alpha)
+        W.muted(ui, t('settings.font_crisp_outline_note'))
         end
         fold_end(ui, frec)
         -- 背景の濃さも窓ごと（文字サイズと同じ並び）
@@ -327,10 +334,13 @@ function settings_ui.body(ui)
           end
         end
         W.muted(ui, t('settings.alpha_note'))
-        if W.button(ui, name, 'look_style', t('settings.look_style', { v = t('settings.look_' .. (S.look == 'classic' and 'classic' or 'yunaui')) }),
-            { section = SEC, row = 'look_style' }) then
-            S.look = (S.look == 'classic') and 'yunaui' or 'classic'
-            ui.mark_settings_dirty()
+        do
+            local look = (S.look == 'yunaui' or S.look == 'sf' or S.look == 'classic') and S.look or 'classic'
+            if W.button(ui, name, 'look_style', t('settings.look_style', { v = t('settings.look_' .. look) }),
+                { section = SEC, row = 'look_style' }) then
+                S.look = theme.next_look(look)
+                ui.mark_settings_dirty()
+            end
         end
         toggle(ui, name, 'motion', t('settings.reduce_motion'), S, 'reduce_motion', SEC)
         end
@@ -792,7 +802,10 @@ function settings_ui.body(ui)
                     used = used + 8
                 end
             end
+            local hid = W.hide_item_text(imgui)
             local clicked = imgui.Button(label .. '##st_' .. sec.key)
+            W.show_item_text(imgui, hid)
+            W.overlay_item_text(imgui, label, 'text', 'center')
             used = used + w
             if clicked and not on then
                 current_tab = sec.key

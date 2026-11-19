@@ -2772,6 +2772,9 @@ function book.prepare_heading(ui, list)
 end
 
 function book.draw(ui)
+    if ui.settings and ui.settings.look == 'sf' then
+        return require('src.ui.book_sf').draw(ui)
+    end
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local open = { true }
     local name = 'book'

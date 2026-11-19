@@ -345,8 +345,14 @@ local ROLE_FILE = {
     fame = 'fame.png',   -- 名声を教えてくれる人（0.1.69〜、自作の絵）
 }
 
+local cache_dir_ready = nil
+local grad_path_by_key = {}
 function ext.set_addon_dir(dir)
     if type(dir) == 'string' and dir ~= '' then
+        if addon_dir ~= dir then
+            cache_dir_ready = nil
+            grad_path_by_key = {}
+        end
         addon_dir = dir
     end
 end
@@ -1325,6 +1331,7 @@ function ext._write_gradient_bmp(path, width, height, c1, c2)
     return ok and true or false
 end
 local function cache_dir()
+    if cache_dir_ready then return cache_dir_ready end
     local dir = addon_dir
     if type(dir) ~= 'string' or dir == '' then return nil end
     if dir:sub(-1) ~= '\\' and dir:sub(-1) ~= '/' then dir = dir .. '/' end
@@ -1336,25 +1343,54 @@ local function cache_dir()
             os.execute('mkdir -p "' .. dir .. '" >/dev/null 2>&1')
         end
     end)
+    cache_dir_ready = dir
     return dir
 end
+-- 色の組ごとに小さな横グラデを1枚だけ作り、箱の大きさへ伸ばす（大きさごとの BMP は作らない）
+ext.GRAD_SRC_W = 64
+ext.GRAD_SRC_H = 8
+local grad_ready = {}
+
+function ext._quantize_box(w, h)
+    local function q(n, lo)
+        n = math.floor((tonumber(n) or 0) + 0.5)
+        if n < lo then
+            if n < 1 then return 0 end
+            return lo
+        end
+        local step = 4
+        return math.ceil(n / step) * step
+    end
+    return q(w, 2), q(h, 1)
+end
+
 function ext._gradient_file(c1, c2, width, height)
+    -- width / height は互換のため受け取るが、ファイル名と中身には使わない
+    -- 色キーが分かっていれば cache_dir（mkdir）もファイル確認も呼ばない（0.1.259）
     c1 = rgb_of(c1) or { 0, 0, 0 }
     c2 = rgb_of(c2) or c1
-    width = math.floor(tonumber(width) or 64)
-    height = math.floor(tonumber(height) or 24)
-    if width < 2 then width = 2 end
-    if height < 1 then height = 1 end
+    local key = string.format('%02x%02x%02x_%02x%02x%02x',
+        c1[1], c1[2], c1[3], c2[1], c2[2], c2[3])
+    local hit = grad_path_by_key[key]
+    if hit then return hit, ext.GRAD_SRC_W, ext.GRAD_SRC_H end
     local dir = cache_dir()
     if not dir then return nil end
-    local name = string.format('bg_%02x%02x%02x_%02x%02x%02x_%dx%d.bmp',
-        c1[1], c1[2], c1[3], c2[1], c2[2], c2[3], width, height)
-    local path = dir .. '/' .. name
-    local f = io.open(path, 'rb')
-    if f then f:close() else
-        if not ext._write_gradient_bmp(path, width, height, c1, c2) then return nil end
+    local path = dir .. '/' .. 'bg_' .. key .. '.bmp'
+    if grad_ready[path] then
+        grad_path_by_key[key] = path
+        return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
     end
-    return path, width, height
+    local f = io.open(path, 'rb')
+    if f then
+        f:close()
+        grad_ready[path] = true
+        grad_path_by_key[key] = path
+        return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
+    end
+    if not ext._write_gradient_bmp(path, ext.GRAD_SRC_W, ext.GRAD_SRC_H, c1, c2) then return nil end
+    grad_ready[path] = true
+    grad_path_by_key[key] = path
+    return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
 end
 
 local function make_plate_box(path, w, h, alpha)
@@ -1382,7 +1418,15 @@ local function apply_plate(slot, path, w, h, alpha)
     if slot._pf ~= path or slot._pw ~= w or slot._ph ~= h or slot._pa ~= alpha then
         box_set(slot.box, { file = path, width = w, height = h, opacity = alpha, layer = -1 })
         slot._pf, slot._pw, slot._ph, slot._pa = path, w, h, alpha
+        slot._ly = -1
     end
+end
+
+local function ensure_layer(slot, layer)
+    if not slot or not slot.box then return end
+    if slot._ly == layer then return end
+    box_set(slot.box, { layer = layer })
+    slot._ly = layer
 end
 
 -- 印は PNG（または色付きの箱）のまま。クエスト名と対象の名前は別の文字の箱。
@@ -1560,9 +1604,15 @@ local function find_slot(index, part, layer)
     return nil
 end
 
-local function place_box(slot, index, opts)
+local function place_box(slot, index, opts, force)
     local w = world()
     local ok = false
+    -- 板のあとに文字を載せるときだけ、同じ指定でも付け直して手前へ出す
+    if force and slot.attached and w and type(w.detach) == 'function' then
+        pcall(w.detach, slot.box)
+        slot.attached = false
+        slot._opts = nil
+    end
     if slot.attached and slot.index == index and w and type(w.update) == 'function' then
         -- 同じ相手に付いたままなら、置き直しではなく更新（公式の安いやり方）。
         -- 0.1.210〜：位置の指定が前と同じなら何もしない（付いた箱は相手について動く）
@@ -1664,33 +1714,41 @@ function ext.set_name_marks(items)
                     lslot.layer = layer
                     lslot.role = role
                     lslot.label = it.label
-                    place_box(lslot, index, attach_opts(it, 'label', f, lslot.bake))
+                    -- 影 → 板 → 文字の順。層番号だけに頼らず、文字を最後に付ける（0.1.258）
                     ensure_attach_shadow(it, index, f, layer, role, it.label)
-                    -- 背景グラデの板（文字の後ろ）
                     local st = it.label_style
+                    local force_text = false
                     if st and st.grad and lslot.box then
-                        local tw = tonumber(lslot.box.width) or 0
-                        local th = tonumber(lslot.box.height) or 0
-                        local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th) or nil
+                        local tw, th = ext._quantize_box(lslot.box.width, lslot.box.height)
+                        local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color) or nil
                         if path then
                             local pslot = find_slot(index, 'label_bg', layer)
+                            local is_new = false
                             if not pslot then
                                 local box = make_plate_box(path, tw, th, st.alpha)
                                 if box then
                                     pslot = { box = box, kind = 'image', part = 'label_bg', layer = layer, attached = false, role = role }
                                     slots[#slots + 1] = pslot
+                                    is_new = true
                                 end
                             end
                             if pslot then
                                 apply_plate(pslot, path, tw, th, st.alpha)
+                                ensure_layer(pslot, -1)
                                 pslot.keep = true
                                 pslot.part = 'label_bg'
                                 pslot.layer = layer
-                                box_set(lslot.box, { layer = 0 })
+                                pslot.role = role
                                 place_box(pslot, index, attach_opts(it, 'label_bg', f, lslot.bake))
+                                ensure_layer(lslot, 0)
+                                force_text = is_new or not lslot._above_plate
                             end
                         end
+                    else
+                        lslot._above_plate = false
                     end
+                    place_box(lslot, index, attach_opts(it, 'label', f, lslot.bake), force_text)
+                    if force_text or (st and st.grad) then lslot._above_plate = true end
                 end
             end
         end
@@ -1926,7 +1984,7 @@ local function find_world_slot(key, part)
     return nil
 end
 
-local function world_put(w, slot, x, y, z, opts)
+local function world_put(w, slot, x, y, z, opts, force)
     local ok = false
     opts = opts or {}
     local cap = opts._cap
@@ -1940,6 +1998,12 @@ local function world_put(w, slot, x, y, z, opts)
     end
     if cap then
         opts.distance = ext._place_distance(x, y, (z or 0) - (tonumber(opts.up) or 0), true)
+    end
+    -- 板のあとに文字を載せるときだけ、同じ場所でも置き直して手前へ出す
+    if force and slot.placed and w and type(w.detach) == 'function' then
+        pcall(w.detach, slot.box)
+        slot.placed = false
+        slot._put = nil
     end
     local p = slot._put
     if slot.placed and p and p.x == x and p.y == y and p.z == z and p.up == opts.up and p.scale == opts.scale
@@ -2098,38 +2162,46 @@ function ext.set_world_marks(items)
                 label_slot.part = 'label'
                 label_slot.role = role
                 label_slot.label = it.label
-                if world_put(w, label_slot, x, y, z, world_place_opts(it_under, up, 'label', label_h, under_h, pf, under_w, label_slot.bake)) then
-                    any = true
-                end
                 if ensure_world_shadow(w, it_under, key, role, it.label, 'label_shadow', x, y, z, up, label_h, under_h, pf, under_w, label_slot) then
                     any = true
                 end
                 local st = it.label_style
+                local force_label = false
                 if st and st.grad and label_slot.box then
-                    local tw = tonumber(label_slot.box.width) or 0
-                    local th = tonumber(label_slot.box.height) or 0
-                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th) or nil
+                    local tw, th = ext._quantize_box(label_slot.box.width, label_slot.box.height)
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color) or nil
                     if path then
                         local pslot = find_world_slot(key, 'label_bg')
+                        local is_new = false
                         if not pslot then
                             local box = make_plate_box(path, tw, th, st.alpha)
                             if box then
                                 pslot = { box = box, kind = 'image', part = 'label_bg', placed = false, role = role, key = key }
                                 world_slots[#world_slots + 1] = pslot
+                                is_new = true
                             end
                         end
                         if pslot then
                             apply_plate(pslot, path, tw, th, st.alpha)
+                            ensure_layer(pslot, -1)
                             pslot.keep = true
                             pslot.part = 'label_bg'
                             pslot.key = key
-                            box_set(label_slot.box, { layer = 0 })
+                            pslot.role = role
                             if world_put(w, pslot, x, y, z, world_place_opts(it_under, up, 'label_bg', label_h, under_h, pf, under_w, label_slot.bake)) then
                                 any = true
                             end
+                            ensure_layer(label_slot, 0)
+                            force_label = is_new or not label_slot._above_plate
                         end
                     end
+                else
+                    label_slot._above_plate = false
                 end
+                if world_put(w, label_slot, x, y, z, world_place_opts(it_under, up, 'label', label_h, under_h, pf, under_w, label_slot.bake), force_label) then
+                    any = true
+                end
+                if force_label or (st and st.grad) then label_slot._above_plate = true end
             end
             if under_slot then
                 under_slot.keep = true
@@ -2137,38 +2209,46 @@ function ext.set_world_marks(items)
                 under_slot.part = 'under'
                 under_slot.role = role
                 under_slot.under = it.under
-                if world_put(w, under_slot, x, y, z, world_place_opts(it_under, up, 'under', label_h, under_h, pf, under_w, under_slot.bake)) then
-                    any = true
-                end
                 if ensure_world_shadow(w, it_under, key, role, it.under, 'under_shadow', x, y, z, up, label_h, under_h, pf, under_w, under_slot) then
                     any = true
                 end
                 local ust = it.under_style
+                local force_under = false
                 if ust and ust.grad and under_slot.box then
-                    local tw = tonumber(under_slot.box.width) or 0
-                    local th = tonumber(under_slot.box.height) or 0
-                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(ust.color, ust.color2 or ust.color, tw, th) or nil
+                    local tw, th = ext._quantize_box(under_slot.box.width, under_slot.box.height)
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(ust.color, ust.color2 or ust.color) or nil
                     if path then
                         local pslot = find_world_slot(key, 'under_bg')
+                        local is_new = false
                         if not pslot then
                             local box = make_plate_box(path, tw, th, ust.alpha)
                             if box then
                                 pslot = { box = box, kind = 'image', part = 'under_bg', placed = false, role = role, key = key }
                                 world_slots[#world_slots + 1] = pslot
+                                is_new = true
                             end
                         end
                         if pslot then
                             apply_plate(pslot, path, tw, th, ust.alpha)
+                            ensure_layer(pslot, -1)
                             pslot.keep = true
                             pslot.part = 'under_bg'
                             pslot.key = key
-                            box_set(under_slot.box, { layer = 0 })
+                            pslot.role = role
                             if world_put(w, pslot, x, y, z, world_place_opts(it_under, up, 'under_bg', label_h, under_h, pf, under_w, under_slot.bake)) then
                                 any = true
                             end
+                            ensure_layer(under_slot, 0)
+                            force_under = is_new or not under_slot._above_plate
                         end
                     end
+                else
+                    under_slot._above_plate = false
                 end
+                if world_put(w, under_slot, x, y, z, world_place_opts(it_under, up, 'under', label_h, under_h, pf, under_w, under_slot.bake), force_under) then
+                    any = true
+                end
+                if force_under or (ust and ust.grad) then under_slot._above_plate = true end
             end
             if any then
                 placed = placed + 1

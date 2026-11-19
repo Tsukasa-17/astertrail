@@ -204,7 +204,7 @@ do
     check(closed_by_b, 'B closes the book')
     eq(pad(12, 1), false, 'first A after close reaches game'); pad(12, 0)
 
-    -- スライダー：1回目のキャンセルで ↺、2回目で閉じる
+    -- スライダー：1回目のキャンセルで ↺、次で見出しへ、見出しでキャンセルすると閉じる（0.1.239〜）
     app2.open_window('settings'); frame(); frame()
     focus.set('settings', 'font_book'); frame()
     check(focus.is_adjust('settings'), 'on slider')
@@ -216,8 +216,13 @@ do
     press(0xD0); frame()
     check(focus.current('settings') ~= 'font_book', 'down leaves slider row')
     focus.set('settings', 'font_book'); frame()
-    press(0x01); frame(); press(0x01); frame()
-    eq(app2.state.open.settings, false, 'second cancel closes')
+    press(0x01); frame()
+    eq(focus.current('settings'), 'font_book_reset', 'cancel from slider still goes to reset')
+    press(0x01); frame()
+    eq(focus.current('settings'), 'fold_look_fonts', 'cancel from inside goes to heading')
+    eq(app2.state.open.settings, true, 'settings still open on heading')
+    press(0x01); frame()
+    eq(app2.state.open.settings, false, 'cancel on heading closes')
     FAKE.events.unload()
     eq(ncatch(), 0, 'nothing caught after unload')
 end

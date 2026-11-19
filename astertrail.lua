@@ -9,7 +9,7 @@
 
 addon.name    = 'astertrail'
 addon.author  = 'Tsukasa'
-addon.version = '1.1.245'
+addon.version = '1.1.260'
 addon.desc    = 'Quest and mission notebook with tracker (unofficial, Japanese UI).'
 
 -- 自分のフォルダを require の先頭に（他のライブラリと名前がぶつからないよう src. で始める）

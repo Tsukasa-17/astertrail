@@ -31,10 +31,22 @@ function detail.body(ui, win, q, opts)
     local name = win
 
     local marked = require('src.ui.book').is_marked_unimplemented(ui.settings, q.id)
-    theme.TextColored(imgui, theme.col(marked and 'muted' or 'accent'), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
+    local sf_on = opts.sf == true
+    if sf_on then
+        local sc = window.font_scale(ui, 'detail')
+        window.set_font(ui, sc * 1.38, { bold = true })
+    end
+    theme.TextColored(imgui, theme.col(marked and 'muted' or (sf_on and 'heading' or 'accent')), (q.mission_no and (q.mission_no .. '  ') or '') .. labels.qname(q))
+    if sf_on then window.set_font(ui, window.font_scale(ui, 'detail') * 0.78, nil) end
     if marked then W.muted(ui, ui.t('roe.tag_failed.not_impl')) end
-    W.muted(ui, t('detail.category', {
-        kind = t('kind.' .. q.kind), area = D:category_label(q.category, ui.settings.language) }))
+    if sf_on then
+        theme.TextColored(imgui, theme.col('sf_cyan'), t('detail.category', {
+            kind = t('kind.' .. q.kind), area = D:category_label(q.category, ui.settings.language) }))
+        window.set_font(ui, window.font_scale(ui, 'detail'), nil)
+    else
+        W.muted(ui, t('detail.category', {
+            kind = t('kind.' .. q.kind), area = D:category_label(q.category, ui.settings.language) }))
+    end
 
     -- 地図は名前を押して開く（設定でオフなら、名前は色だけ）
     local map_on = ui.settings.map and ui.settings.map.enabled ~= false and ui.open_map
@@ -144,7 +156,13 @@ function detail.body(ui, win, q, opts)
 
     -- 手順
     W.sep(ui)
-    W.heading(ui, t('detail.steps'))
+    if opts.sf then
+        window.set_font(ui, window.font_scale(ui, 'detail') * 0.74, { bold = true })
+        theme.TextColored(imgui, theme.col('sf_cyan'), t('sf.label_objective'))
+        window.set_font(ui, window.font_scale(ui, 'detail'), nil)
+    else
+        W.heading(ui, t('detail.steps'))
+    end
     local cur = P:current_step(q.id)
     -- ルート：選んだルートの手順だけ出し、ほかのルートはたたむ（切り替え・全部表示もできる）
     local routes = P.routes and P:routes(q.id) or {}
@@ -182,6 +200,28 @@ function detail.body(ui, win, q, opts)
         shown = shown + 1
         local done = P:step_done(q.id, s.id)
         local is_cur = cur and cur.id == s.id
+        if opts.sf then
+            local sfst = require('src.ui.sf_style')
+            local okp, px, py = pcall(imgui.GetCursorScreenPos)
+            if type(px) == 'table' then px, py = px.x or px[1], px.y or px[2] end
+            if okp and px and py then
+                local dl = imgui.GetWindowDrawList and imgui.GetWindowDrawList()
+                local cx, cy = px + 9, py + 10
+                sfst.step_dot(dl, cx, cy, 8, shown, { current = is_cur })
+                if is_cur then
+                    local aw = 200
+                    local oka, aa = pcall(imgui.GetContentRegionAvail)
+                    if oka and type(aa) == 'table' then aw = tonumber(aa.x or aa[1]) or aw
+                    elseif oka then aw = tonumber(aa) or aw end
+                    pcall(function ()
+                        dl:AddRectFilled({ px + 22, py - 2 }, { px + math.max(80, aw - 4), py + 22 },
+                            theme.u32('sf_cyan', 0.10), 0)
+                    end)
+                end
+            end
+            imgui.Dummy({ 22, 1 })
+            imgui.SameLine(0, 4)
+        end
         if manual then
             -- 未受注のクエストは □ を押せない（0.1.180〜、t290。付いている ■ は外せる）
             local locked = (not done) and step_lock
@@ -227,11 +267,20 @@ function detail.body(ui, win, q, opts)
         if #s.next > 1 then
             lines[#lines + 1] = { text = t('detail.branch'), color = 'warn' }
         end
-        if W.row(ui, name, 'step_' .. s.id, lines, { section = 'steps', row = s.id }) then
+        local function on_term(hit)
+            if hit and hit.act == 'copy' and ui.copy_to_clipboard then ui.copy_to_clipboard(hit.text) end
+        end
+        if W.row(ui, name, 'step_' .. s.id, lines, {
+            section = 'steps', row = s.id, term_click = true, on_term = on_term,
+            tip = function (act, piece)
+                if piece and piece.tip then return piece.tip end
+                if act == 'copy' then return t('tracker.copy_item') end
+            end,
+        }) then
             ui.request('set_current_step', q.id, s.id)
         end
-        -- 所持（0.1.184〜）：○／2/5／未所持。乗せるとどこにいくつ
-        if #s.needs > 0 and ui.settings.items.show_possession then poss_ui.draw_inline(ui, s.needs) end
+        -- 所持（0.1.184〜）：名前は正式名称をコピー。数は場所、だいじなものはチェック／バツ
+        if #s.needs > 0 and ui.settings.items.show_possession then poss_ui.draw_inline(ui, s.needs, name, 'd' .. s.id) end
         if tn then
             local tloc = (s.location and s.location.zone_id) or (tg and tg.location and tg.location.zone_id)
             local kind = (tg and tg.kind) or 'npc'
@@ -253,12 +302,24 @@ function detail.body(ui, win, q, opts)
 
     -- 報酬
     W.sep(ui)
-    W.heading(ui, t('detail.rewards'))
+    if opts.sf then
+        window.set_font(ui, window.font_scale(ui, 'detail') * 0.74, { bold = true })
+        theme.TextColored(imgui, theme.col('sf_cyan'), t('sf.label_reward'))
+        window.set_font(ui, window.font_scale(ui, 'detail'), nil)
+    else
+        W.heading(ui, t('detail.rewards'))
+    end
     if q.rewards and #q.rewards > 0 then
         for _, r in ipairs(q.rewards) do
             local text = '・' .. labels.reward(t, r)
             if r.kind == 'item' or r.kind == 'key_item' then
-                W.ctext(ui, text, CT.add({}, r.name_ja or r.name_en, 'item'))
+                local nm = r.name_ja or r.name_en or ''
+                local hit = W.term_line(ui, name, 'rw_' .. tostring(nm), text, CT.add({}, nm, 'item', { copy_text = nm }), {
+                    tip = function (act)
+                        if act == 'copy' then return t('tracker.copy_item') end
+                    end,
+                })
+                if hit and hit.act == 'copy' and ui.copy_to_clipboard then ui.copy_to_clipboard(hit.text) end
             else
                 W.text(ui, text)
             end

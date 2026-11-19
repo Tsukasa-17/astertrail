@@ -259,7 +259,9 @@ ext.clear_name_marks()
 local texts = {}
 _G.vana.ui.text = function (opts)
     local box = {
-        text = opts.text, size = opts.size, width = 80, height = 18,
+        text = opts.text, size = opts.size,
+        width = 80 * ((tonumber(opts.size) or 16) / 16),
+        height = 18 * ((tonumber(opts.size) or 16) / 16),
         visible = opts.visible, font = opts.font,
     }
     function box:set(t) for k, v in pairs(t) do self[k] = v end end
@@ -655,9 +657,9 @@ eq(ext.set_world_marks({
     { x = 5, y = 6, z = 1, up = 2, role = 'examine', scale = 1.4, key = 11, icon = 48 },
 }), true, 'icon 48')
 eq(ext.icon_size(), 48, 'size applied')
-eq(world_pics[#world_pics].width, 48, 'image width 48')
-eq(world_pics[#world_pics].height, 48, 'image height 48')
-eq(places[#places].opts.scale, 1, 'mark not scaled by font size')
+eq(world_pics[#world_pics].width, 64, 'image stays native 64')
+eq(world_pics[#world_pics].height, 64, 'image height native 64')
+eq(places[#places].opts.scale, 48 / 64, 'mark scale is display/native, not font size')
 local before = #world_pics
 ext.set_world_marks({
     { x = 5, y = 6, z = 1, up = 2, role = 'examine', scale = 1, key = 11, icon = 48 },
@@ -687,8 +689,9 @@ check(om and ol and ou, 'offset parts')
 eq(om.opts.x, -(28 + 8 + 120) / 2 + 14 + 6, 'mark dx'); eq(om.opts.y, 0 - 10, 'mark dy')
 eq(ol.opts.x, 12, 'quest name dx'); eq(ol.opts.y, -(28 + 24) - 6, 'quest name dy')
 eq(ou.opts.x, (28 + 8 + 120) / 2 - 60 - 8, 'name dx'); eq(ou.opts.y, -(28 - 18) / 2 + 4, 'name dy')
-eq(ol.opts.scale, 1.2, 'quest name scale'); eq(ou.opts.scale, 1.5, 'name own scale')
-eq(om.opts.scale, 1, 'mark not scaled')
+eq(ol.opts.scale, ext._visual_scale(1.2, 64), 'quest name visual scale')
+eq(ou.opts.scale, ext._visual_scale(1.5, 64), 'name visual scale')
+eq(om.opts.scale, ext._icon_place_scale(), 'mark not scaled by font')
 ext.clear_world_marks()
 for i = #places, 1, -1 do places[i] = nil end
 -- 0 ならこれまでどおり

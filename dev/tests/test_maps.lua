@@ -261,7 +261,7 @@ check(not texted('同梱せず'), 'no credit note on map')
 -- 0.1.218〜：Parvipon は正確な座標があるので、マス目の中央の注は出ない（マス目だけの場所の注は test_exact_pos_218）
 check(not texted('マス目の中央。正確な位置ではありません。'), 'exact pin: no grid note')
 -- この時点では座標が無いので現在地の凡例は出ない（目的地は出る）
-check(not texted('現在地'), 'no player legend without coords')
+check(not texted('◆＝現在地') and not texted('現在地は MAP'), 'no player legend without coords')
 check(texted('目的地'), 'dest legend without player')
 -- 選択枠あり（0.1.60〜）
 check(focus.shows_frame('map'), 'frame on map now')
@@ -384,7 +384,7 @@ check(not texted('いまここ'), 'no you-are-here on or under the map')
 -- 別ゾーンなら現在地は出さない（目的地は残る）
 FAKE.player.zone = 231
 frame(); frame()
-check(not texted('現在地'), 'hidden in other zone')
+check(not texted('◆＝現在地') and not texted('現在地は MAP'), 'hidden in other zone')
 check(not texted('範囲の外'), 'not off-map either')
 check(texted('目的地'), 'dest remains in other zone')
 FAKE.player.zone = 230

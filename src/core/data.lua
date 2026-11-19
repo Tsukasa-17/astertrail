@@ -166,6 +166,18 @@ function data:_load_item_refs(fs, base)
         end
     end
     self.item_ref_count = n
+    self.item_name_id = doc.items
+    self.key_name_id = doc.key_items
+end
+
+-- 名前から品／だいじなものの番号を返す（資料の needs に無いとき、表示側の照合用）
+function data:lookup_item_name(name)
+    if type(name) ~= 'string' or name == '' then return nil end
+    local kid = self.key_name_id and tonumber(self.key_name_id[name])
+    if kid then return { kind = 'key_item', key_item_id = kid, name_ja = name } end
+    local iid = self.item_name_id and tonumber(self.item_name_id[name])
+    if iid then return { kind = 'item', item_id = iid, name_ja = name, count = 1 } end
+    return nil
 end
 
 -- ゲームの番号との対応（0.1.169〜、t223。dev/build_game_refs.py が作る）。無くても動く（自動で読まないだけ）。

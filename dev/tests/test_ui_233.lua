@@ -117,7 +117,7 @@ frames(1)
 local S = app._settings()
 S.input.gamepad = true
 S.gameui.capture = true
-eq(app.VERSION, '1.1.245', 'version')
+eq(app.VERSION, '1.1.260', 'version')
 eq(app._data().version, '2026.11.17-124', 'data version unchanged')
 
 ---------------------------------------------------------------------------

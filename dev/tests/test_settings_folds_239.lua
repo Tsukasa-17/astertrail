@@ -10,7 +10,7 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 
-eq(app.VERSION, '1.1.245', 'version')
+eq(app.VERSION, '1.1.260', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 eq(S.settings_folds == nil or next(S.settings_folds) == nil, true, 'fresh folds all open')
 eq(settings.merge({}).settings_folds['look_fx'], nil, 'missing key stays open')
@@ -25,7 +25,7 @@ open_settings()
 eq(sui.current_tab(), 'look', 'look tab')
 eq(focus.current('settings'), 'lang', 'cursor still first item (language)')
 check(labeled('▾ 文字サイズ') or labeled('文字サイズ'), 'fonts heading drawn open')
-check(not (texted('縁取りの太さ') or labeled('縁取りの太さ') or labeled('縁取りと影')), 'look fx fold removed')
+check(not (labeled('縁取りと影') or texted('縁取りと影')), 'old look fx fold removed')
 check(labeled('背景の濃さ'), 'alpha heading')
 
 -- 左で閉じる（カーソルは見出しのまま、先頭の言語へ戻らない）

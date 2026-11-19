@@ -35,7 +35,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.245',
+    VERSION = '1.1.260',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -2658,6 +2658,12 @@ function app.present()
     local t_tick = perf.start()
     app.tick(now)
     perf.stop('tick', t_tick)
+    -- 0.1.246：フォントの読み込みは描画の前に一度だけ（描画の途中では足さない）
+    -- 0.1.250：選んだ日本語・英字・数字のフォントをここで読む
+    -- 0.1.251：tick（ログイン）のあと。先に初期値のメイリオで読むと、保存した選択に切り替えられない。
+    if state.ready then
+        require('src.ui.crisp_font').ensure(imgui, S)
+    end
     if not screens then
         screens = {
             book = require('src.ui.book'), detail = require('src.ui.detail'),

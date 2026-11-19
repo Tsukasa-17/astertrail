@@ -12,6 +12,7 @@ local util = require('src.lib.util')
 local CT = require('src.ui.colored_text')
 local labels = require('src.ui.labels')
 local theme = require('src.ui.theme')
+local poss_ui = require('src.ui.possession_ui')
 
 local notices = {}
 
@@ -28,8 +29,18 @@ function notices.draw_resume(ui, now)
         W.muted(ui, t('resume.title'))
         local line, step = ui.progress:next_line(r.quest)
         local terms = CT.step_terms(ui.data, step)
+        if step and line then
+            local poss_ex
+            line, poss_ex = poss_ui.apply_to_step(ui, step, line, q)
+            poss_ui.merge_terms(terms, poss_ex)
+        end
         if W.row(ui, name, 'go', { { text = labels.qname(q), color = 'accent' }, { text = t('tracker.next', { text = line or '' }), terms = terms } },
-            { section = 'main', row = 'go' }) then
+            { section = 'main', row = 'go', term_click = true, on_term = function (hit)
+                if hit and hit.act == 'copy' and ui.copy_to_clipboard then ui.copy_to_clipboard(hit.text) end
+            end, tip = function (act, piece)
+                if piece and piece.tip then return piece.tip end
+                if act == 'copy' then return t('tracker.copy_item') end
+            end }) then
             ui.state.resume = nil
             if ui.progress:is_pinned(r.quest) then
                 ui.show_tracker(r.quest)

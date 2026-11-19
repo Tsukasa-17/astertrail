@@ -477,6 +477,42 @@ local function heart_button(ui, name, id, section, row)
 end
 eminence._heart = heart
 
+
+-- 本のクエスト一覧と同じ：Selectable で押し、名前は TextColored（縁取りが SmallButton とずれない）
+local function hide_sel_bg(imgui)
+    local n = 0
+    if type(imgui.PushStyleColor) ~= 'function' then return 0 end
+    for _, name in ipairs({ 'ImGuiCol_Header', 'ImGuiCol_HeaderHovered', 'ImGuiCol_HeaderActive' }) do
+        if pcall(imgui.PushStyleColor, theme.C(name), { 0, 0, 0, 0 }) then n = n + 1 end
+    end
+    return n
+end
+
+local function name_selectable(ui, name, id, nm, color, row)
+    local imgui = ui.imgui
+    local wid = 'roesel_' .. id
+    local focused, activated = focus.item(name, wid, 'list', row)
+    local cx, cy
+    if imgui.GetCursorPosX and imgui.GetCursorPosY then
+        cx, cy = imgui.GetCursorPosX(), imgui.GetCursorPosY()
+    end
+    local hid = hide_sel_bg(imgui)
+    local hid_txt = W.hide_item_text(imgui)
+    local clicked = imgui.Selectable(nm .. '##' .. wid, false)
+    W.show_item_text(imgui, hid_txt)
+    if hid > 0 then pcall(imgui.PopStyleColor, hid) end
+    if cx and cy then
+        if type(imgui.SetCursorPos) == 'function' then pcall(imgui.SetCursorPos, { cx, cy })
+        elseif type(imgui.SetCursorPosX) == 'function' then
+            pcall(imgui.SetCursorPosX, cx); pcall(imgui.SetCursorPosY, cy)
+        end
+    end
+    if color == 'muted' then theme.TextDisabled(imgui, nm)
+    else theme.TextColored(imgui, theme.col(color), nm) end
+    W.after_item(ui, name, wid, focused)
+    return (clicked or activated) and true or false
+end
+
 -- 1 行：★ ♥ ［受ける］／［解除］ 名前 進み 印。名前を押す（キー・パッドで行に来る）と右に詳細
 local function draw_row(ui, name, id)
     local imgui, t = ui.imgui, ui.t
@@ -498,7 +534,7 @@ local function draw_row(ui, name, id)
     local dim = (st == 'completed') or failed ~= nil or rot ~= nil
     local color = dim and 'muted' or (st == 'accepted' and 'ic_progress' or 'text')
     if sel_id == id then nm = '▶ ' .. nm end
-    if W.link(ui, name, 'roesel_' .. id, nm, { section = 'list', row = row, color = color }) then
+    if name_selectable(ui, name, id, nm, color, row) then
         sel_id = id
     end
     local tags = {}
@@ -884,7 +920,7 @@ local function draw_rows_table(ui, name, rows, force_top)
                     local nm = (q and q.name ~= '' and q.name) or ('#' .. tostring(id))
                     if sel_id == id then nm = '▶ ' .. nm end
                     local color = accepted and 'ic_progress' or (dim and 'muted' or (sel_id == id and 'accent' or 'text'))
-                    if W.link(ui, name, 'roesel_' .. id, nm, { section = 'list', row = row, color = color }) then sel_id = id end
+                    if name_selectable(ui, name, id, nm, color, row) then sel_id = id end
                     -- 0.1.209〜：状態の列をなくしたので、受けられなかった印は名前の右に小さく
                     if rot then
                         pcall(imgui.SameLine, 0, 4)

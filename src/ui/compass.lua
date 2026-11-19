@@ -36,37 +36,45 @@ function compass.draw(ui)
             local q = ui.data:quest(r.qid)
             if q then
                 local nm = labels.qname(q)
-                if W.link(ui, name, 'q_' .. r.qid, nm, { color = r.icon == 'repeat' and 'ic_repeat' or 'accent',
-                    section = 'list', row = r.qid .. '_name' }) then
-                    ui.open_detail_solo(r.qid, 'compass')
-                end
-                -- 受けられない理由：※ に乗せたときだけ（0.1.177〜）
-                if #r.reasons > 0 then
-                    imgui.SameLine(0, 2)
-                    theme.TextColored(imgui, theme.col('warn'), t('book.cond_mark'))
-                    if imgui.IsItemHovered() then
-                        local tip = {}
-                        for _, x in ipairs(r.reasons) do tip[#tip + 1] = t('book.lock_reason', { text = x.text_ja or '' }) end
-                        imgui.SetTooltip(table.concat(tip, '\n'))
+                local open_q = false
+                W.line_pass(imgui, function ()
+                    if W.link(ui, name, 'q_' .. r.qid, nm, { color = r.icon == 'repeat' and 'ic_repeat' or 'accent',
+                        section = 'list', row = r.qid .. '_name' }) then
+                        open_q = true
                     end
-                end
+                    -- 受けられない理由：※ に乗せたときだけ（0.1.177〜）
+                    if #r.reasons > 0 then
+                        imgui.SameLine(0, 2)
+                        theme.TextColored(imgui, theme.col('warn'), t('book.cond_mark'))
+                        if imgui.IsItemHovered() then
+                            local tip = {}
+                            for _, x in ipairs(r.reasons) do tip[#tip + 1] = t('book.lock_reason', { text = x.text_ja or '' }) end
+                            imgui.SetTooltip(table.concat(tip, '\n'))
+                        end
+                    end
+                end)
+                if open_q then ui.open_detail_solo(r.qid, 'compass') end
                 -- 2行目（0.1.177〜）：依頼者と距離。字下げして、折り返さない（狭いときは横のスクロールバー）
                 -- 依頼者を押すと、その人の場所の地図（0.1.202〜。座標が無い・地図オフのときは色だけ）
                 imgui.Indent()
                 local sl = ui.data:start_location(q)
                 local can = map_on and sl and sl.zone_id and r.npc
-                if can then
-                    if W.link(ui, name, 'npc_' .. r.qid, r.npc, {
-                        color = 'npc', tooltip = t('map.view'),
-                        section = 'list', row = r.qid .. '_npc',
-                    }) then
-                        ui.open_map(r.qid, nil, sl)
+                local open_m = false
+                W.line_pass(imgui, function ()
+                    if can then
+                        if W.link(ui, name, 'npc_' .. r.qid, r.npc, {
+                            color = 'npc', tooltip = t('map.view'),
+                            section = 'list', row = r.qid .. '_npc',
+                        }) then
+                            open_m = true
+                        end
+                    else
+                        theme.TextColored(imgui, theme.col('npc'), r.npc or t('compass.npc_unknown'))
                     end
-                else
-                    theme.TextColored(imgui, theme.col('npc'), r.npc or t('compass.npc_unknown'))
-                end
-                imgui.SameLine()
-                theme.TextColored(imgui, theme.col(r.dist and 'text' or 'muted'), compass_core.dist_text(t, r))
+                    imgui.SameLine()
+                    theme.TextColored(imgui, theme.col(r.dist and 'text' or 'muted'), compass_core.dist_text(t, r))
+                end)
+                if open_m then ui.open_map(r.qid, nil, sl) end
                 imgui.Unindent()
             end
         end

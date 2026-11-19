@@ -30,6 +30,24 @@ imgui.SmallButton = function (label)
     put(label, ulen(vis(label)) * CW + L.pad * 2, 'button')
     return r
 end
+local old_sel = imgui.Selectable
+imgui.Selectable = function (label, ...)
+    local r = old_sel(label, ...)
+    put(label, ulen(vis(label)) * CW + L.pad * 2, 'button')
+    return r
+end
+local old_inv = imgui.InvisibleButton
+imgui.InvisibleButton = function (label, ...)
+    local r = old_inv(label, ...)
+    put(label, ulen(vis(label)) * CW + L.pad * 2, 'button')
+    return r
+end
+local old_btn = imgui.Button
+imgui.Button = function (label, ...)
+    local r = old_btn(label, ...)
+    put(label, ulen(vis(label)) * CW + L.pad * 2, 'button')
+    return r
+end
 for _, fn in ipairs({ 'TextColored', 'TextDisabled', 'TextWrapped', 'Text' }) do
     imgui[fn] = function (a, b)
         local s = (fn == 'TextColored') and b or a

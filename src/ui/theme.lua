@@ -152,14 +152,24 @@ theme.palette = {
     roe_drop_press = { 0.52, 0.12, 0.12 },
 }
 
--- これまでの色（保存して、切り替えで戻せるように）
-local CLASSIC = {}
-for k, v in pairs(theme.palette) do CLASSIC[k] = v end
-CLASSIC.heading = CLASSIC.accent
-CLASSIC.select = CLASSIC.accent
-CLASSIC.ring = CLASSIC.accent
-CLASSIC.gold = CLASSIC.accent    -- 印や入口の絵の金色（どちらの見た目でも同じ）
-for _, k in ipairs({ 'heading', 'select', 'ring', 'gold' }) do theme.palette[k] = CLASSIC[k] end
+-- RGB 表を複製する（同じ表を共有すると、別の見た目へ書き換えたときにクラシックへ漏れないように）
+local function copy_rgb(c)
+    if type(c) ~= 'table' then return c end
+    return { tonumber(c[1] or c.r) or 0, tonumber(c[2] or c.g) or 0, tonumber(c[3] or c.b) or 0 }
+end
+local function copy_map(src)
+    local out = {}
+    for k, v in pairs(src) do out[k] = copy_rgb(v) end
+    return out
+end
+
+-- これまでの色（保存して、切り替えで戻せるように）。値は複製して持ち、共有しない
+local CLASSIC = copy_map(theme.palette)
+CLASSIC.heading = copy_rgb(CLASSIC.accent)
+CLASSIC.select = copy_rgb(CLASSIC.accent)
+CLASSIC.ring = copy_rgb(CLASSIC.accent)
+CLASSIC.gold = copy_rgb(CLASSIC.accent)    -- 印や入口の絵の金色（どちらの見た目でも同じ）
+for _, k in ipairs({ 'heading', 'select', 'ring', 'gold' }) do theme.palette[k] = copy_rgb(CLASSIC[k]) end
 
 -- YunaUI 風（作者の許可あり。値は YunaUI の設定画面の色と形を見て、こちらで組み直したもの）
 --   地：ほぼ黒にすみれ色を少し（0.068, 0.066, 0.088）、文字は青みの白、薄い文字は灰青
@@ -182,17 +192,54 @@ local YUNA = {
     title_ac   = { 0.165, 0.158, 0.205 },
 }
 
-theme.look = 'classic'
-theme.LOOKS = { 'yunaui', 'classic' }
+-- SF（0.1.253〜）：薄暗いガラス＋水色の枠。名前の色分け（item/npc/zone など）はクラシックのまま
+local SF = {
+    text       = { 0.86, 0.95, 1.00 },
+    muted      = { 0.50, 0.68, 0.78 },
+    bg         = { 0.035, 0.055, 0.08 },
+    border     = { 0.35, 0.85, 0.98 },
+    accent     = { 0.40, 0.90, 1.00 },
+    ring       = { 0.45, 0.95, 1.00 },
+    heading    = { 0.75, 0.95, 1.00 },
+    select     = { 0.16, 0.42, 0.55 },
+    button     = { 0.08, 0.14, 0.20 },
+    button_hv  = { 0.12, 0.22, 0.30 },
+    button_ac  = { 0.16, 0.30, 0.40 },
+    frame      = { 0.06, 0.10, 0.14 },
+    title      = { 0.03, 0.05, 0.07 },
+    title_ac   = { 0.05, 0.09, 0.12 },
+    sf_amber   = { 0.95, 0.78, 0.32 },
+    sf_cyan    = { 0.40, 0.90, 1.00 },
+}
 
--- 見た目を切り替える（'yunaui' / 'classic'）。名前の色分けなどはどちらも同じ
+theme.look = 'classic'
+theme.LOOKS = { 'yunaui', 'classic', 'sf' }
+
+function theme.is_sf()
+    return theme.look == 'sf'
+end
+
+function theme.next_look(cur)
+    if cur == 'classic' then return 'yunaui' end
+    if cur == 'yunaui' then return 'sf' end
+    return 'classic'
+end
+
+-- 見た目を切り替える（'yunaui' / 'classic' / 'sf'）。名前の色分けはクラシックを土台にする。
+-- パレットの表は毎回複製して渡し、別テーマの表を直接指さない。クラシックに戻すときは、
+-- クラシックに無いキー（sf_cyan など）も消す。
 function theme.set_look(name)
-    if name ~= 'yunaui' then name = 'classic' end
+    if name ~= 'yunaui' and name ~= 'sf' then name = 'classic' end
     if theme.look == name then return end
     theme.look = name
-    for k, v in pairs(CLASSIC) do theme.palette[k] = v end
+    for k in pairs(theme.palette) do
+        if CLASSIC[k] == nil then theme.palette[k] = nil end
+    end
+    for k, v in pairs(CLASSIC) do theme.palette[k] = copy_rgb(v) end
     if name == 'yunaui' then
-        for k, v in pairs(YUNA) do theme.palette[k] = v end
+        for k, v in pairs(YUNA) do theme.palette[k] = copy_rgb(v) end
+    elseif name == 'sf' then
+        for k, v in pairs(SF) do theme.palette[k] = copy_rgb(v) end
     end
 end
 
@@ -236,6 +283,7 @@ end
 function theme.push(imgui, alpha)
     local C = theme.C
     if theme.look == 'yunaui' then return theme.push_yunaui(imgui, alpha) end
+    if theme.look == 'sf' then return theme.push_sf(imgui, alpha) end
     local cols = {
         { C('ImGuiCol_Text'), theme.col('text') },
         { C('ImGuiCol_TextDisabled'), theme.col('muted') },
@@ -282,6 +330,62 @@ function theme.push(imgui, alpha)
     }
     for _, v in ipairs(vars) do imgui.PushStyleVar(v[1], v[2]) end
     imgui.PushStyleVar(C('ImGuiStyleVar_WindowPadding'), { 12, 10 })
+    imgui.PushStyleVar(C('ImGuiStyleVar_ItemSpacing'), { 8, 6 })
+    imgui.PushStyleVar(C('ImGuiStyleVar_FramePadding'), { 8, 4 })
+    return #cols, #vars + 3
+end
+
+-- SF：暗い半透明の地、角の丸みは付けない（枠は DrawList で角を切って描く）
+function theme.push_sf(imgui, alpha)
+    local C = theme.C
+    alpha = alpha or 0.86
+    local bg = theme.palette.bg or { 0.035, 0.055, 0.08 }
+    local cols = {
+        { C('ImGuiCol_Text'), theme.col('text') },
+        { C('ImGuiCol_TextDisabled'), theme.col('muted') },
+        { C('ImGuiCol_WindowBg'), { bg[1], bg[2], bg[3], alpha } },
+        { C('ImGuiCol_ChildBg'), { 0, 0, 0, 0 } },
+        { C('ImGuiCol_PopupBg'), { bg[1], bg[2], bg[3], math.max(alpha, 0.94) } },
+        { C('ImGuiCol_Border'), theme.col('border', 0.55) },
+        { C('ImGuiCol_FrameBg'), theme.col('frame', 0.90) },
+        { C('ImGuiCol_FrameBgHovered'), theme.col('button_hv', 0.95) },
+        { C('ImGuiCol_FrameBgActive'), theme.col('button_ac', 0.95) },
+        { C('ImGuiCol_TitleBg'), theme.col('title', math.max(alpha, 0.92)) },
+        { C('ImGuiCol_TitleBgActive'), theme.col('title_ac', math.max(alpha, 0.95)) },
+        { C('ImGuiCol_TitleBgCollapsed'), theme.col('title', 0.8) },
+        { C('ImGuiCol_Button'), theme.col('button', 0.90) },
+        { C('ImGuiCol_ButtonHovered'), theme.col('button_hv', 1.0) },
+        { C('ImGuiCol_ButtonActive'), theme.col('button_ac', 1.0) },
+        { C('ImGuiCol_Header'), theme.col('select', 0.45) },
+        { C('ImGuiCol_HeaderHovered'), theme.col('select', 0.60) },
+        { C('ImGuiCol_HeaderActive'), theme.col('select', 0.75) },
+        { C('ImGuiCol_Separator'), theme.col('border', 0.28) },
+    }
+    local opt = {
+        { 'ImGuiCol_TableHeaderBg', theme.col('title_ac', 0.95) },
+        { 'ImGuiCol_TableBorderStrong', theme.col('border', 0.45) },
+        { 'ImGuiCol_TableBorderLight', theme.col('border', 0.25) },
+        { 'ImGuiCol_TableRowBgAlt', theme.col('button', 0.25) },
+        { 'ImGuiCol_SeparatorHovered', theme.col('accent', 0.80) },
+        { 'ImGuiCol_SeparatorActive', theme.col('accent', 0.95) },
+        { 'ImGuiCol_ResizeGrip', theme.col('border', 0.30) },
+        { 'ImGuiCol_ResizeGripHovered', theme.col('accent', 0.80) },
+        { 'ImGuiCol_ResizeGripActive', theme.col('accent', 0.95) },
+        { 'ImGuiCol_ScrollbarBg', { bg[1], bg[2], bg[3], 0.4 } },
+        { 'ImGuiCol_ScrollbarGrab', theme.col('border', 0.40) },
+    }
+    for _, o in ipairs(opt) do
+        local id = theme.C_opt(o[1])
+        if id then cols[#cols + 1] = { id, o[2] } end
+    end
+    for _, c in ipairs(cols) do imgui.PushStyleColor(c[1], c[2]) end
+    local vars = {
+        { C('ImGuiStyleVar_WindowRounding'), 0 },
+        { C('ImGuiStyleVar_FrameRounding'), 0 },
+        { C('ImGuiStyleVar_WindowBorderSize'), 0 },
+    }
+    for _, v in ipairs(vars) do imgui.PushStyleVar(v[1], v[2]) end
+    imgui.PushStyleVar(C('ImGuiStyleVar_WindowPadding'), { 18, 16 })
     imgui.PushStyleVar(C('ImGuiStyleVar_ItemSpacing'), { 8, 6 })
     imgui.PushStyleVar(C('ImGuiStyleVar_FramePadding'), { 8, 4 })
     return #cols, #vars + 3
@@ -503,6 +607,7 @@ function theme.draw_focus(imgui, x1, y1, x2, y2, reduce_motion, clip)
     local dl = imgui.GetWindowDrawList()
     if not dl then return end
     if theme.look == 'yunaui' then return theme.draw_focus_yunaui(imgui, dl, x1, y1, x2, y2, reduce_motion, clip) end
+    if theme.look == 'sf' then return theme.draw_focus_sf(imgui, dl, x1, y1, x2, y2, reduce_motion, clip) end
     if clip then
         dl:PushClipRect({ clip[1], clip[2] }, { clip[3], clip[4] }, false)
     end
@@ -542,6 +647,25 @@ function theme.draw_focus_yunaui(imgui, dl, x1, y1, x2, y2, reduce_motion, clip)
     if clip then dl:PopClipRect() end
 end
 
+function theme.draw_focus_sf(imgui, dl, x1, y1, x2, y2, reduce_motion, clip)
+    pcall(function ()
+        if clip then dl:PushClipRect({ clip[1], clip[2] }, { clip[3], clip[4] }, false) end
+        x1, y1, x2, y2 = x1 - 4, y1 - 2, x2 + 4, y2 + 2
+        local a = 1.0
+        if not reduce_motion then
+            local tm = imgui.GetTime and imgui.GetTime() or 0
+            a = 0.80 + 0.20 * math.sin((tonumber(tm) or 0) * 3.2)
+        end
+        local sf = package.loaded['src.ui.sf_style']
+        if sf and sf.brackets then
+            sf.brackets(dl, x1, y1, x2, y2, 10, theme.u32('ring', 0.95 * a), 1.6)
+        else
+            dl:AddRect({ x1, y1 }, { x2, y2 }, theme.u32('ring', 0.95 * a), 0, 0, 1.4)
+        end
+        if clip then dl:PopClipRect() end
+    end)
+end
+
 -- 見出し：YunaUI 風は文字の右に細い線を伸ばす（文字は少し明るいすみれ）
 function theme.heading_line(imgui)
     if theme.look ~= 'yunaui' then return end
@@ -576,6 +700,10 @@ function theme.draw_row_bg(imgui, x1, y1, x2, y2, alpha)
         dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.u32('select', (alpha or 0.22) * 0.8), 8)
         return
     end
+    if theme.look == 'sf' then
+        dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.u32('select', (alpha or 0.22) * 0.9), 0)
+        return
+    end
     dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.u32('accent', alpha or 0.22), 4)
 end
 
@@ -589,6 +717,13 @@ function theme.draw_section(imgui, x1, y1, x2, y2)
         dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.u32('border', 0.035), 12)
         dl:AddRect({ x1, y1 }, { x2, y2 }, theme.u32('border', 0.10), 12, 0, 1.0)
         return
+    end
+    if theme.look == 'sf' then
+        local sf = package.loaded['src.ui.sf_style']
+        if sf and sf.frame then
+            sf.frame(dl, x1, y1, x2, y2, { fill_a = 0.18, line_a = 0.70, cut = 7, brackets = true })
+            return
+        end
     end
     dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.u32('border', 0.08), 5)
     dl:AddRect({ x1, y1 }, { x2, y2 }, theme.u32('border', 0.70), 5, 0, 1.2)
@@ -1070,7 +1205,15 @@ function theme.paint_text(imgui, x, y, text, opts)
     local function add(px, py, col, aa)
         pcall(dl.AddText, dl, { px, py }, theme.u32(col, (aa or 1) * a), text)
     end
-    theme.paint_fx(dl, x, y, text, opts)
+    -- 縁取りは本の一覧と同じ crisp_outline（古い paint_fx の 8 方向＋太字ずらしは使わない）
+    local outline = package.loaded['src.ui.crisp_outline']
+    if outline and type(outline.paint_at) == 'function' and outline.active and outline.active() then
+        if opts.outline ~= false then
+            pcall(outline.paint_at, imgui, x, y, text)
+        end
+    else
+        theme.paint_fx(dl, x, y, text, opts)
+    end
     if opts.glow then
         local gcol = opts.glow_col or 'gold'
         for _, d in ipairs({ { -3, 0 }, { 3, 0 }, { 0, -2 }, { 0, 2 }, { -2, -2 }, { 2, 2 } }) do
@@ -1078,7 +1221,8 @@ function theme.paint_text(imgui, x, y, text, opts)
         end
     end
     local col = opts.col or 'text'
-    if opts.bold ~= false then
+    -- 太字のずらし重ねは、縁と同じに見えて形が崩れるので、明示したときだけ
+    if opts.bold == true then
         add(x + 1, y, col, 1)
         add(x, y + 1, col, 0.9)
         add(x + 1, y + 1, col, 0.7)
@@ -1349,7 +1493,7 @@ function theme.draw_popup_button(imgui, x1, y1, x2, y2, label, opts)
     local ty = (y1 + y2) / 2 - (th or 16) / 2 + (pressed and 1 or 0)
     -- 文字はクリーム色（金色だと金の地に埋もれる）。黒い影と輪郭で読む。ホバー・選択も同じ色のまま少し光る
     theme.paint_text(imgui, tx, ty, tostring(label or ''), {
-        col = 'cream', bold = true, outline = true, shadow = true,
+        col = 'cream', bold = false, outline = true, shadow = false,
         outline_px = 1.5, glow = hover or focused, glow_col = 'cream',
         alpha = a,
     })

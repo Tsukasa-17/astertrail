@@ -46,7 +46,7 @@ local sui = require('src.ui.settings_ui')
 FAKE.player = { name = 'TabFont', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
-eq(app.VERSION, '1.1.245', 'version')
+eq(app.VERSION, '1.1.260', 'version')
 eq(app._data().version, '2026.11.17-124', 'data version unchanged')
 S.input.gamepad = true
 S.tracker.visible = true
@@ -79,7 +79,7 @@ local function watch(label)
     elseif label:find('##q_', 1, true) then name_scales[#name_scales + 1] = scale_now
     end
 end
-local orig_btn, orig_small = imgui.Button, imgui.SmallButton
+local orig_btn, orig_small, orig_sel = imgui.Button, imgui.SmallButton, imgui.Selectable
 imgui.Button = function (label, ...)
     watch(label)
     return orig_btn(label, ...)
@@ -87,6 +87,15 @@ end
 imgui.SmallButton = function (label, ...)
     watch(label)
     return orig_small(label, ...)
+end
+imgui.Selectable = function (label, ...)
+    watch(label)
+    return orig_sel(label, ...)
+end
+local orig_inv = imgui.InvisibleButton
+imgui.InvisibleButton = function (label, ...)
+    watch(label)
+    return orig_inv(label, ...)
 end
 
 S.windows = S.windows or {}
