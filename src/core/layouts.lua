@@ -91,7 +91,7 @@ function layouts.apply_settings(S, snap)
     end
     -- スナップに見た目があるときはそのまま使う（defaults_rev が無い古い枠でも、保存した見た目を移さない）
     local look = type(snap) == 'table' and snap.look
-    if look == 'yunaui' or look == 'classic' then S.look = look end
+    if look == 'yunaui' or look == 'classic' or look == 'sf' then S.look = look end
     return true
 end
 

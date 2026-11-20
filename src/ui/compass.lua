@@ -16,6 +16,9 @@ local compass_core = require('src.core.compass')
 local compass = {}
 
 function compass.draw(ui)
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.compass_sf').draw(ui)
+    end
     local imgui, t = ui.imgui, ui.t
     local name = 'compass'
     local open = { true }

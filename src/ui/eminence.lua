@@ -84,6 +84,9 @@ function eminence.window_rows(ui)
 end
 
 function eminence.draw(ui)
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.eminence_win_sf').draw(ui)
+    end
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local E = S.eminence
     local name = 'eminence'
@@ -476,6 +479,148 @@ local function heart_button(ui, name, id, section, row)
     end
 end
 eminence._heart = heart
+
+-- 0.1.265：SF カード用。heart_options.png の A（丸みのあるクラシックハート）。
+-- 塗りは凹ポリ、無ければ左右の凸に分ける。色とオン／オフは今までどおり。
+function eminence._heart_a(dl, cx, cy, r, on)
+    if not dl then return end
+    local col = on and theme.u32('ic_bad', 1) or theme.u32('text', 0.55)
+    local s = r * 1.15
+    local pts = {}
+    local n = 48
+    for i = 0, n - 1 do
+        local a = (i / n) * math.pi * 2
+        local sx = math.sin(a)
+        local x = 16 * sx * sx * sx
+        local y = 13 * math.cos(a) - 5 * math.cos(2 * a) - 2 * math.cos(3 * a) - math.cos(4 * a)
+        pts[#pts + 1] = { cx + x * s / 17, cy - y * s / 17 - s * 0.05 }
+    end
+    if on then
+        local filled = false
+        if dl.AddConcavePolyFilled then
+            filled = pcall(dl.AddConcavePolyFilled, dl, pts, col)
+        end
+        if not filled and dl.PathClear and dl.PathLineTo and (dl.PathFillConcave or dl.PathFillConvex) then
+            local ok = pcall(function ()
+                dl:PathClear()
+                for _, pt in ipairs(pts) do dl:PathLineTo(pt) end
+                if dl.PathFillConcave then dl:PathFillConcave(col) else dl:PathFillConvex(col) end
+            end)
+            filled = ok
+        end
+        if not filled and dl.AddConvexPolyFilled then
+            local mid = math.floor(n / 2)
+            local right, left = {}, {}
+            for i = 1, mid + 1 do right[#right + 1] = pts[i] end
+            left[#left + 1] = pts[1]
+            for i = mid + 1, n do left[#left + 1] = pts[i] end
+            pcall(dl.AddConvexPolyFilled, dl, right, col)
+            pcall(dl.AddConvexPolyFilled, dl, left, col)
+        end
+    end
+    if dl.AddPolyline then pcall(dl.AddPolyline, dl, pts, col, true, on and 1.2 or 1.6) end
+end
+
+
+-- 0.1.266：コンパクトな丸ハート。☆と同じ正方形（高さ 2r）に収まり、下の尖りは短い。
+function eminence._heart_round(dl, cx, cy, r, on)
+    if not dl or not r or r <= 0 then return end
+    local col = on and theme.u32('ic_bad', 1) or theme.u32('text', 0.55)
+    -- クラシック式の下半分を縮め、バウンディングを 2r の正方形へ正規化して中央に置く
+    local raw = {}
+    local n = 64
+    for i = 0, n - 1 do
+        local a = (i / n) * math.pi * 2
+        local sx = math.sin(a)
+        local x = 16 * sx * sx * sx
+        local y = 13 * math.cos(a) - 5 * math.cos(2 * a) - 2 * math.cos(3 * a) - math.cos(4 * a)
+        if y < 0 then y = y * 0.52 end
+        raw[#raw + 1] = { x, y }
+    end
+    local minx, miny, maxx, maxy = raw[1][1], raw[1][2], raw[1][1], raw[1][2]
+    for _, p in ipairs(raw) do
+        if p[1] < minx then minx = p[1] end
+        if p[1] > maxx then maxx = p[1] end
+        if p[2] < miny then miny = p[2] end
+        if p[2] > maxy then maxy = p[2] end
+    end
+    local bw, bh = maxx - minx, maxy - miny
+    if bw < 0.001 then bw = 1 end
+    if bh < 0.001 then bh = 1 end
+    -- 高さは☆（2r）以内。幅は同じ 18px マス（r=6 のとき 3r）に少し余白を残して収める。
+    local sc = math.min((r * 2 * 0.92) / bh, (r * 3 * 0.90) / bw)
+    local midx, midy = (minx + maxx) * 0.5, (miny + maxy) * 0.5
+    local pts = {}
+    for _, p in ipairs(raw) do
+        -- 式の y は上が正なので、画面座標では反転
+        pts[#pts + 1] = { cx + (p[1] - midx) * sc, cy - (p[2] - midy) * sc }
+    end
+    if on then
+        local filled = false
+        if dl.AddConcavePolyFilled then
+            filled = pcall(dl.AddConcavePolyFilled, dl, pts, col)
+        end
+        if not filled and dl.PathClear and dl.PathLineTo then
+            local ok = pcall(function ()
+                dl:PathClear()
+                for _, pt in ipairs(pts) do dl:PathLineTo(pt) end
+                if dl.PathFillConcave then dl:PathFillConcave(col)
+                elseif dl.PathFillConvex then dl:PathFillConvex(col) end
+            end)
+            filled = ok
+        end
+        if not filled and dl.AddConvexPolyFilled then
+            local mid = math.floor(n / 2)
+            local right, left = {}, {}
+            for i = 1, mid + 1 do right[#right + 1] = pts[i] end
+            left[#left + 1] = pts[1]
+            for i = mid + 1, n do left[#left + 1] = pts[i] end
+            pcall(dl.AddConvexPolyFilled, dl, right, col)
+            pcall(dl.AddConvexPolyFilled, dl, left, col)
+        end
+    end
+    if dl.AddPolyline then pcall(dl.AddPolyline, dl, pts, col, true, on and 1.15 or 1.5) end
+end
+
+-- SF の詳細からも同じ操作を使う（見た目は先方で描く）
+function eminence.action_info(ui, id)
+    return action_of(ui, id)
+end
+
+function eminence.draw_actions(ui, name, id, section, row)
+    fav_button(ui, name, id, section, row)
+    ui.imgui.SameLine()
+    heart_button(ui, name, id, section, row)
+    ui.imgui.SameLine()
+    action_button(ui, name, id, section, row)
+end
+
+function eminence.toggle_pin(ui, id)
+    local E = ui.settings.eminence
+    local key = tostring(id)
+    if E.pins[key] == true then E.pins[key] = nil else E.pins[key] = true end
+    if ui.mark_settings_dirty then ui.mark_settings_dirty() end
+    return E.pins[key] == true
+end
+
+function eminence.toggle_fav(ui, id)
+    local E = ui.settings.eminence
+    local key = tostring(id)
+    if E.favs[key] == true then E.favs[key] = nil else E.favs[key] = true end
+    if ui.mark_settings_dirty then ui.mark_settings_dirty() end
+    return E.favs[key] == true
+end
+
+function eminence.is_pinned(ui, id)
+    local E = ui.settings and ui.settings.eminence
+    return E and E.pins and E.pins[tostring(id)] == true
+end
+
+function eminence.is_faved(ui, id)
+    local E = ui.settings and ui.settings.eminence
+    return E and E.favs and E.favs[tostring(id)] == true
+end
+
 
 
 -- 本のクエスト一覧と同じ：Selectable で押し、名前は TextColored（縁取りが SmallButton とずれない）
@@ -1114,7 +1259,7 @@ function eminence.book_filters(ui, name, row, cw1, cw2, search_w, inline)
 end
 
 -- 本のいまの分類・検索・フィルタで見えるレコードの行（選んだものが残っているか見る用。0.1.203〜）
-local function book_list_rows(ui, E, db, root)
+function eminence.book_list_rows(ui, E, db, root)
     if not db then return {}, nil, nil end
     local words = util.split_words(E.book_text or '')
     if #words == 0 then words = nil end
@@ -1200,7 +1345,7 @@ function eminence.book_body(ui, name)
 
     -- 左：分類の木　中央：項目の表　右：詳細（0.1.208〜）
     local book = require('src.ui.book')
-    local rows, empty_key, extra = book_list_rows(ui, E, db, root)
+    local rows, empty_key, extra = eminence.book_list_rows(ui, E, db, root)
     if sel_id == nil then sel_id = tonumber(E.last_id) end
     local searching = E.book_text and E.book_text ~= ''
     local heading_id = book.current_heading(S, 'eminence')

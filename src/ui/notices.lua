@@ -59,6 +59,9 @@ end
 -- 受注・完了のお知らせ（先頭の 1 件だけ。ほかは待つ）。選ぶとふわっと消える。マウスを乗せている間・操作中は消えない
 -- 0.1.197〜：大きな見出し（影・輪郭・太字）、金色の名前、飾り線、半透明の地、ふわっと出る
 function notices.draw_popup(ui, now)
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.notices_sf').draw_popup(ui, now)
+    end
     local list = ui.state.popups
     local p = list and list[1]
     if not p or not p.shown_at then return end

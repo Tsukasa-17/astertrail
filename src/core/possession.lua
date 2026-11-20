@@ -10,6 +10,7 @@
   snapshot = { containers = { [番号] = { [品の番号] = 個数 } または false（未確認） }, key = function(id) → true/false/nil }
 ]]
 
+local gil = require('src.core.gil')
 local possession = {}
 
 -- 数える入れ物（並びは画面の内訳の順）
@@ -39,24 +40,73 @@ end
 --   { state = 'unknown' }                         … 番号が分からない・何も読めない
 --   { state = 'enough' | 'short', have, need, parts, unknown, kind = 'item' }
 --   { state = 'owned' | 'missing' | 'unknown', kind = 'key' }
+function possession.count_many(snap, ids)
+    local r = { total = 0, parts = {}, unknown = {} }
+    local unk_seen, part_idx = {}, {}
+    for _, id in ipairs(ids or {}) do
+        local c = possession.count(snap, tonumber(id))
+        r.total = r.total + (c.total or 0)
+        for _, p in ipairs(c.parts or {}) do
+            local k = p[1]
+            if part_idx[k] then
+                local e = r.parts[part_idx[k]]
+                e[2] = e[2] + p[2]
+            else
+                r.parts[#r.parts + 1] = { p[1], p[2] }
+                part_idx[k] = #r.parts
+            end
+        end
+        for _, cid in ipairs(c.unknown or {}) do
+            if not unk_seen[cid] then
+                unk_seen[cid] = true
+                r.unknown[#r.unknown + 1] = cid
+            end
+        end
+    end
+    return r
+end
+
 function possession.need_state(snap, n)
     if type(n) ~= 'table' then return { state = 'unknown' } end
-    if n.kind == 'key_item' then
-        local id = tonumber(n.key_item_id)
-        if not id or not snap or type(snap.key) ~= 'function' then return { state = 'unknown', kind = 'key' } end
-        local ok, has = pcall(snap.key, id)
-        if not ok or has == nil then return { state = 'unknown', kind = 'key' } end
-        return { state = has and 'owned' or 'missing', kind = 'key' }
+    if gil.is_gil_need(n) then return { state = 'unknown', kind = 'gil' } end
+    local key_ids = n.key_item_ids
+    if type(key_ids) ~= 'table' or #key_ids == 0 then
+        if n.kind == 'key_item' or n.key_item_id ~= nil then
+            key_ids = { n.key_item_id }
+        end
     end
-    local id = tonumber(n.item_id)
-    if not id or not snap or type(snap.containers) ~= 'table' then return { state = 'unknown', kind = 'item' } end
-    local c = possession.count(snap, id)
+    if type(key_ids) == 'table' and #key_ids > 0 then
+        if not snap or type(snap.key) ~= 'function' then return { state = 'unknown', kind = 'key' } end
+        local any, saw_unknown, saw_false = false, false, false
+        for _, id in ipairs(key_ids) do
+            local kid = tonumber(id)
+            if not kid then saw_unknown = true
+            else
+                local ok, has = pcall(snap.key, kid)
+                if not ok or has == nil then saw_unknown = true
+                elseif has then any = true
+                else saw_false = true end
+            end
+        end
+        if any then return { state = 'owned', kind = 'key' } end
+        if saw_unknown then return { state = 'unknown', kind = 'key' } end
+        if saw_false then return { state = 'missing', kind = 'key' } end
+        return { state = 'unknown', kind = 'key' }
+    end
+    local ids = n.item_ids
+    if type(ids) ~= 'table' or #ids == 0 then
+        if n.item_id then ids = { n.item_id } end
+    end
+    if type(ids) ~= 'table' or #ids == 0 or not snap or type(snap.containers) ~= 'table' then
+        return { state = 'unknown', kind = 'item' }
+    end
+    local c = possession.count_many(snap, ids)
     local need = math.max(1, tonumber(n.count) or 1)
     local r = { kind = 'item', have = c.total, need = need, parts = c.parts, unknown = c.unknown }
     if c.total >= need then
         r.state = 'enough'
     elseif #c.unknown == #possession.CONTAINERS then
-        r.state = 'unknown'   -- どこも読めていない
+        r.state = 'unknown'
     else
         r.state = 'short'
     end

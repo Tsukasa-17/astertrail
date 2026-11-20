@@ -43,6 +43,13 @@ function platform.config_dir()
     return with_sep(install) .. 'config\\addons\\astertrail\\'
 end
 
+-- 作業用（更新の zip など）。設定フォルダには書かない
+function platform.temp_dir()
+    local t = os.getenv('TEMP') or os.getenv('TMP') or os.getenv('TMPDIR')
+    if type(t) ~= 'string' or t == '' then return nil end
+    return with_sep(t) .. 'astertrail_update\\'
+end
+
 ---------------------------------------------------------------------------
 -- ファイル（UTF-8 のまま読み書き。パスは ANSI 扱いなので英数字だけにする）
 ---------------------------------------------------------------------------
@@ -95,7 +102,55 @@ function fs.mkdir(path)
         local ok, r = pcall(ashita.fs.create_directory, path)
         if ok and r ~= false then return true end
     end
+    -- 公式 vana.fs.create_dir は親も作る
+    if ext and ext.create_dir then
+        local ok, r = pcall(ext.create_dir, path)
+        if ok and r ~= false then return true end
+    end
     return fs.exists(path)
+end
+
+function fs.mkdir_p(path)
+    if not path or path == '' then return nil end
+    local bs = string.char(92)
+    path = path:gsub('[' .. bs .. '/]+$', '')
+    if fs.exists(path) then return true end
+    local acc, sep = '', bs
+    if path:find('/', 1, true) and not path:find(bs, 1, true) and not path:match('^%a:') then sep = '/' end
+    local i = 1
+    if path:match('^%a:[' .. bs .. '/]') then
+        acc = path:sub(1, 2)
+        i = 3
+    elseif path:sub(1, 1) == '/' or path:sub(1, 1) == bs then
+        acc = path:sub(1, 1)
+        i = 2
+    end
+    local rest = path:sub(i):gsub(bs, '/')
+    for part in rest:gmatch('[^/]+') do
+        if acc == '' or acc == '/' or acc:match('^%a:$') then
+            acc = acc .. part
+        else
+            acc = acc .. sep .. part
+        end
+        if #acc > 0 then fs.mkdir(acc) end
+    end
+    return fs.exists(path) and true or fs.mkdir(path)
+end
+
+function fs.copy(src, dst)
+    if not src or not dst then return nil, 'no path' end
+    if src == dst then return true end
+    local inf, err = io.open(src, 'rb')
+    if not inf then return nil, err end
+    local out, e2 = io.open(dst, 'wb')
+    if not out then inf:close(); return nil, e2 end
+    while true do
+        local chunk = inf:read(1024 * 256)
+        if not chunk then break end
+        out:write(chunk)
+    end
+    inf:close(); out:close()
+    return true
 end
 
 function fs.list(dir)
@@ -494,7 +549,10 @@ local function on_key_data(e)
     if action == 'tab' then action = shift_down and 'section_prev' or 'section_next' end
     if e.down then
         -- 前の「離した」を取りこぼしていても、ここで決め直す（止めっぱなしにしない）
-        if app.want_keys() and app.input(action, true, 'key') then
+        -- 操作中でなくとも、自分の窓に乗っている／選ばれているときの Esc は閉じる（0.1.282〜）
+        local take = app.want_keys()
+        if not take and action == 'back' and app.want_esc and app.want_esc() then take = true end
+        if take and app.input(action, true, 'key') then
             held_keys[k] = true
             e.blocked = true
             return true
@@ -1474,6 +1532,18 @@ function platform.http_get(url, cb)
     return ok and r == true
 end
 
+function platform.http_download(url, path, cb, opts)
+    if not ext or not ext.http_download then return false end
+    local ok, r = pcall(ext.http_download, url, path, cb, opts)
+    return ok and r == true
+end
+
+function platform.chat_run(line)
+    if not ext or not ext.chat_run then return false end
+    local ok, r = pcall(ext.chat_run, line)
+    return ok and r == true
+end
+
 -- 効果音（0.1.183〜、t295）。WAV のファイルを鳴らす。VanaCore の vana.system.play_sound を先に、
 -- 無ければ Ashita v4 の ashita.misc.play_sound。どちらも無ければ false（鳴らさない）
 function platform.can_play_sound()
@@ -2163,5 +2233,27 @@ function platform.start(the_app)
         if text then pcall(app.on_text_in, text, e.mode) end
     end)
 end
+
+-- 品の静的資料とアイコン（0.1.262〜）。ゲームの API が無いときは nil。
+function platform.gamedata_item(id)
+    if ext and ext.gamedata_item then return ext.gamedata_item(id) end
+    return nil
+end
+
+function platform.gamedata_key_item(id)
+    if ext and ext.gamedata_key_item then return ext.gamedata_key_item(id) end
+    return nil
+end
+
+function platform.gamedata_job(id)
+    if ext and ext.gamedata_job then return ext.gamedata_job(id) end
+    return nil
+end
+
+function platform.item_icon_bytes(id)
+    if ext and ext.item_icon_bytes then return ext.item_icon_bytes(id) end
+    return nil
+end
+
 
 return platform

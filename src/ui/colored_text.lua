@@ -8,11 +8,38 @@
 ]]
 
 local theme = require('src.ui.theme')
+local gil = require('src.core.gil')
 
 local CT = {}
 
+local ID_KEYS = { 'item_id', 'item_ids', 'key_item_id', 'key_item_ids' }
+local function copy_ids(dst, src)
+    if not src then return dst end
+    for _, k in ipairs(ID_KEYS) do
+        if src[k] ~= nil and dst[k] == nil then dst[k] = src[k] end
+    end
+    return dst
+end
+local function same_ids(a, b)
+    a, b = a or {}, b or {}
+    for _, k in ipairs(ID_KEYS) do
+        if a[k] ~= b[k] then
+            -- 表は中身で比べる
+            if type(a[k]) == 'table' or type(b[k]) == 'table' then
+                local x, y = a[k], b[k]
+                if type(x) ~= 'table' or type(y) ~= 'table' or #x ~= #y then return false end
+                for i = 1, #x do if x[i] ~= y[i] then return false end end
+            else
+                return false
+            end
+        end
+    end
+    return true
+end
+
+
 -- 色分けの種類 → theme.palette の名前
-CT.KIND_COLOR = { item = 'item', key_item = 'item', zone = 'zone', npc = 'npc', mob = 'mob', object = 'obj', obj = 'obj', group = 'accent' }
+CT.KIND_COLOR = { item = 'item', key_item = 'item', zone = 'zone', npc = 'npc', mob = 'mob', object = 'obj', obj = 'obj', group = 'accent', gil = 'gold' }
 
 -- トラッカーなどで名前を押したときの動作。
 -- 話すNPCと調べる対象（???を含む）は地図。アイテムはコピー。
@@ -37,6 +64,7 @@ function CT.add(terms, s, kind, extra)
                 if extra.color and not t.color then t.color = extra.color end
                 if extra.key and not t.key then t.key = extra.key end
                 if extra.mark and not t.mark then t.mark = extra.mark end
+                copy_ids(t, extra)
                 return terms
             end
         end
@@ -49,6 +77,7 @@ function CT.add(terms, s, kind, extra)
     if extra.dup then e.dup = true end
     if extra.key then e.key = extra.key end
     if extra.mark then e.mark = extra.mark end
+    copy_ids(e, extra)
     terms[#terms + 1] = e
     return terms
 end
@@ -67,9 +96,15 @@ function CT.step_terms(D, step, terms)
         if tg.location then CT.add(terms, tg.location.zone_name or D:zone_name(tg.location.zone_id), 'zone') end
     end
     for _, n in ipairs(step.needs or {}) do
-        local k = (n.kind == 'key_item') and 'key_item' or 'item'
-        CT.add(terms, n.name_ja, k)
-        CT.add(terms, n.name_en, k)
+        if not gil.is_gil_need(n) then
+            local k = (n.kind == 'key_item') and 'key_item' or 'item'
+            local ex = {
+                item_id = n.item_id, item_ids = n.item_ids or (n.item_id and { n.item_id } or nil),
+                key_item_id = n.key_item_id, key_item_ids = n.key_item_ids or (n.key_item_id and { n.key_item_id } or nil),
+            }
+            CT.add(terms, n.name_ja, k, ex)
+            CT.add(terms, n.name_en, k, ex)
+        end
     end
     return terms
 end
@@ -90,23 +125,42 @@ function CT.spans(text, terms)
     text = tostring(text or '')
     local out = {}
     if text == '' then return out end
-    if not terms or #terms == 0 then out[1] = { text = text }; return out end
+    terms = terms or {}
     local pos, n = 1, #text
     local used = {}
     while pos <= n do
         local best_s, best_e, best_i
+        local best_kind
         for i, t in ipairs(terms) do
-            if not (t.once and used[i]) then
+            if not (t.once and used[i]) and t.s and not gil.is_gil_name(t.s) and t.kind ~= 'gil' then
                 local s, e = text:find(t.s, pos, true)
                 if s and (not best_s or s < best_s or (s == best_s and e > best_e)) then
                     best_s, best_e, best_i = s, e, i
+                    best_kind = t.kind
                 end
+            end
+        end
+        do
+            local gs, ge = gil.find_amount(text, pos)
+            if gs and (not best_s or gs < best_s or (gs == best_s and ge > best_e)) then
+                best_s, best_e, best_i, best_kind = gs, ge, nil, 'gil'
             end
         end
         if not best_s then
             out[#out + 1] = { text = text:sub(pos) }
             break
         end
+        if best_kind == 'gil' and not best_i then
+            if best_s > pos then out[#out + 1] = { text = text:sub(pos, best_s - 1) } end
+            out[#out + 1] = {
+                text = text:sub(best_s, best_e),
+                color = CT.KIND_COLOR.gil,
+                kind = 'gil',
+            }
+            pos = best_e + 1
+            -- continue the while
+            -- (use a flag)
+        else
         local t = terms[best_i]
         if t.once then used[best_i] = true end
         if best_s > pos then out[#out + 1] = { text = text:sub(pos, best_s - 1) } end
@@ -115,7 +169,9 @@ function CT.spans(text, terms)
             color = t.color or CT.KIND_COLOR[t.kind] or t.kind,
             kind = t.kind, tip = t.tip, copy_text = t.copy_text, key = t.key, mark = t.mark,
         }
+        copy_ids(out[#out], t)
         pos = best_e + 1
+        end
     end
     return out
 end
@@ -150,6 +206,7 @@ local function tokens_of(span)
             text = span.text, color = span.color, kind = span.kind, atom = true,
             tip = span.tip, copy_text = span.copy_text, key = span.key, mark = span.mark,
         }
+        copy_ids(out[1], span)
         return out
     end
     local s = span.text
@@ -179,7 +236,7 @@ end
 local function split_chars(tok)
     local out = {}
     for ch in tok.text:gmatch('[%z\1-\127\194-\244][\128-\191]*') do
-        out[#out + 1] = { text = ch, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }
+        out[#out + 1] = copy_ids({ text = ch, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }, tok)
     end
     return out
 end
@@ -205,12 +262,38 @@ function CT.push_right(imgui, w)
     return true
 end
 
+function CT.push_center(imgui, w)
+    if not w then return false end
+    local okc, cx = pcall(imgui.GetCursorPosX)
+    local oka, av = pcall(imgui.GetContentRegionAvail)
+    cx, av = okc and num_x(cx) or nil, oka and num_x(av) or nil
+    if not cx or not av then return false end
+    if av > w then pcall(imgui.SetCursorPosX, cx + (av - w) * 0.5) end
+    return true
+end
+
+local function item_icon_pad(imgui, tok)
+    if not tok then return 0 end
+    local ok, item_tip = pcall(require, 'src.ui.item_tip')
+    if ok and item_tip and item_tip.icon_reserve_width then
+        local okw, w = pcall(item_tip.icon_reserve_width, imgui, tok)
+        if okw and tonumber(w) then return tonumber(w) end
+    end
+    return 0
+end
+
+local function merges_with(last, tok)
+    return last and last.color == tok.color and last.kind == tok.kind and last.tip == tok.tip
+        and last.copy_text == tok.copy_text and last.mark == tok.mark and last.key == tok.key
+        and same_ids(last, tok)
+end
+
 local function line_w(imgui, line)
     local w = 0
     for _, piece in ipairs(line) do
         local pw = text_w(imgui, piece.text)
         if not pw then return nil end
-        w = w + pw
+        w = w + pw + item_icon_pad(imgui, piece)
     end
     return w
 end
@@ -224,18 +307,20 @@ local function layout(imgui, spans, width)
     local unit = text_w(imgui, 'M')
     if not unit or not width or width <= 0 then return nil end
     local key = {}
+    local icon_mark = '0'
     for _, s in ipairs(spans) do
-        key[#key + 1] = (s.color or '') .. '\1' .. s.text .. '\1' .. (s.kind or '') .. '\1' .. (s.tip or '') .. '\1' .. (s.copy_text or '') .. '\1' .. (s.mark or '')
+        key[#key + 1] = (s.color or '') .. '\1' .. s.text .. '\1' .. (s.kind or '') .. '\1' .. (s.tip or '') .. '\1' .. (s.copy_text or '') .. '\1' .. (s.mark or '') .. '\1' .. tostring(s.item_id or '')
+        if item_icon_pad(imgui, s) > 0 then icon_mark = '1' end
     end
-    local ck = table.concat(key, '\2') .. '\3' .. math.floor(width) .. '\3' .. unit
+    local ck = table.concat(key, '\2') .. '\3' .. math.floor(width) .. '\3' .. unit .. '\3' .. icon_mark
     if cache[ck] then return cache[ck] end
     local lines, line, x = {}, {}, 0
     local function push(tok, w)
         local last = line[#line]
-        if last and last.color == tok.color and last.kind == tok.kind and last.tip == tok.tip and last.copy_text == tok.copy_text and last.mark == tok.mark and last.key == tok.key then
+        if last and last.color == tok.color and last.kind == tok.kind and last.tip == tok.tip and last.copy_text == tok.copy_text and last.mark == tok.mark and last.key == tok.key and same_ids(last, tok) then
             last.text = last.text .. tok.text
         else
-            line[#line + 1] = { text = tok.text, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }
+            line[#line + 1] = copy_ids({ text = tok.text, color = tok.color, kind = tok.kind, tip = tok.tip, copy_text = tok.copy_text, key = tok.key, mark = tok.mark }, tok)
         end
         x = x + w
     end
@@ -243,27 +328,38 @@ local function layout(imgui, spans, width)
         lines[#lines + 1] = line
         line, x = {}, 0
     end
+    local function tok_extra(tok)
+        if merges_with(line[#line], tok) then return 0 end
+        return item_icon_pad(imgui, tok)
+    end
     local function by_char(tok)
         for _, ch in ipairs(split_chars(tok)) do
             local cw = text_w(imgui, ch) or 0
-            if x > 0 and x + cw > width then newline() end
-            push(ch, cw)
+            local extra = tok_extra(ch)
+            if x > 0 and x + cw + extra > width then
+                newline()
+                extra = item_icon_pad(imgui, tok)
+            end
+            push(ch, cw + extra)
         end
     end
     for _, sp in ipairs(spans) do
         for _, tok in ipairs(tokens_of(sp)) do
             local w = text_w(imgui, tok.text) or 0
-            if w > width and #tok.text > 1 then
+            local extra = tok_extra(tok)
+            local tw = w + extra
+            if tw > width and #tok.text > 1 then
                 -- 一行に入らない長いかたまりは文字で折る
                 by_char(tok)
-            elseif x > 0 and x + w > width and NO_START[tok.text] and x + w <= width + w then
+            elseif x > 0 and x + tw > width and NO_START[tok.text] and x + tw <= width + w then
                 -- 行頭に来てはいけない記号（、。」など）は前の行の終わりに付ける
-                push(tok, w)
-            elseif x > 0 and x + w > width then
+                push(tok, tw)
+            elseif x > 0 and x + tw > width then
                 newline()
-                if tok.text ~= ' ' then push(tok, w) end
+                extra = item_icon_pad(imgui, tok)
+                if tok.text ~= ' ' then push(tok, w + extra) end
             else
-                push(tok, w)
+                push(tok, tw)
             end
         end
     end
@@ -285,9 +381,25 @@ end
 
 -- 色名を必ず決めてから描く。行パス中は theme.u32(名前) でキューに載せ、
 -- TextColored に色の表を渡してフックで組み直す経路は使わない（0.1.258）。
+local function draw_gil_prefix(imgui, piece)
+    if not piece or piece.kind ~= 'gil' then return 0 end
+    local pad = item_icon_pad(imgui, piece)
+    if pad <= 0 then return 0 end
+    local sz = pad - 3
+    local x, y = cursor_xy(imgui)
+    local ok, item_tip = pcall(require, 'src.ui.item_tip')
+    if x and y and ok and item_tip and item_tip.draw_gil_icon then
+        pcall(item_tip.draw_gil_icon, imgui, x, y, sz)
+    end
+    if imgui.Dummy then pcall(imgui.Dummy, { pad, math.max(1, sz) }) end
+    if imgui.SameLine then pcall(imgui.SameLine, 0, 0) end
+    return pad
+end
+
 local function draw_piece(imgui, piece, opts)
     local name = piece.color or opts.base
     if not name then name = opts.muted and 'muted' or 'text' end
+    draw_gil_prefix(imgui, piece)
     local outline = package.loaded['src.ui.crisp_outline']
     if outline and outline.in_line and outline.in_line() and outline.line_push then
         local x, y = cursor_xy(imgui)
@@ -323,9 +435,17 @@ function CT.draw_spans(ui, spans, opts)
     end
     local lines
     if opts.wrap ~= false or right then
-        local avail = imgui.GetContentRegionAvail()
-        if type(avail) == 'table' then avail = avail.x or avail[1] end
-        lines = layout(imgui, spans, (tonumber(avail) or 0) - 4)
+        local width
+        if tonumber(opts.wrap_width) and tonumber(opts.wrap_width) > 0 then
+            width = tonumber(opts.wrap_width)
+        else
+            local avail = imgui.GetContentRegionAvail()
+            if type(avail) == 'table' then avail = avail.x or avail[1] end
+            -- 既定の右余白は 4。SF 詳細は wrap_width で左右と同じ余白を渡す（0.1.268〜）
+            local pad = tonumber(opts.wrap_pad) or 4
+            width = (tonumber(avail) or 0) - pad
+        end
+        lines = layout(imgui, spans, width)
     end
     if not lines then
         -- 測れない：右そろえはやめて、今までどおり描く
@@ -389,7 +509,7 @@ end
 
 -- 色の付かない文を、今の幅で折り返して描く（日本語は一文字ずつ、英語は空白で）。
 -- mode: 'muted' | 'text' | 色の名前。改行はそのまま。幅が測れないときは ImGui の折り返しに任せる
-function CT.wrapped(ui, text, mode, align)
+function CT.wrapped(ui, text, mode, align, width)
     local imgui = ui.imgui
     text = tostring(text or '')
     local function one(s)
@@ -397,9 +517,12 @@ function CT.wrapped(ui, text, mode, align)
         elseif mode == 'text' or mode == nil then theme.TextColored(imgui, theme.col('text'), s)
         else theme.TextColored(imgui, theme.col(mode), s) end
     end
-    local avail = imgui.GetContentRegionAvail and imgui.GetContentRegionAvail() or nil
-    if type(avail) == 'table' then avail = avail.x or avail[1] end
-    local width = (tonumber(avail) or 0) - 4
+    width = tonumber(width)
+    if not width or width <= 0 then
+        local avail = imgui.GetContentRegionAvail and imgui.GetContentRegionAvail() or nil
+        if type(avail) == 'table' then avail = avail.x or avail[1] end
+        width = (tonumber(avail) or 0) - 4
+    end
     local lines = {}
     local measured = width > 8
     for para in (text .. '\n'):gmatch('(.-)\n') do
@@ -423,7 +546,8 @@ function CT.wrapped(ui, text, mode, align)
     end
     for _, l in ipairs(lines) do
         local s = (l == '' and ' ' or l)
-        if align == 'right' then CT.push_right(imgui, text_w(imgui, s)) end
+        if align == 'right' then CT.push_right(imgui, text_w(imgui, s))
+        elseif align == 'center' then CT.push_center(imgui, text_w(imgui, s)) end
         one(s)
     end
 end

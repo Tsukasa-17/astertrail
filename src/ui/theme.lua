@@ -192,9 +192,12 @@ local YUNA = {
     title_ac   = { 0.165, 0.158, 0.205 },
 }
 
--- SF（0.1.253〜）：薄暗いガラス＋水色の枠。名前の色分け（item/npc/zone など）はクラシックのまま
+-- SF（0.1.253〜）：薄暗いガラス＋水色の枠。
+-- 0.1.268〜：調べる対象はピンクマゼンタ、話すNPCは鮮やかな紫（本文の水色白や既存の色分けと区別する）
 local SF = {
     text       = { 0.86, 0.95, 1.00 },
+    obj        = { 1.00, 0.48, 0.82 },   -- 調べる対象（??? など）：ピンクマゼンタ
+    npc        = { 0.82, 0.58, 1.00 },   -- 話す NPC：鮮やかな紫
     muted      = { 0.50, 0.68, 0.78 },
     bg         = { 0.035, 0.055, 0.08 },
     border     = { 0.35, 0.85, 0.98 },
@@ -209,10 +212,12 @@ local SF = {
     title      = { 0.03, 0.05, 0.07 },
     title_ac   = { 0.05, 0.09, 0.12 },
     sf_amber   = { 0.95, 0.78, 0.32 },
+    sf_amber_hover = { 1.00, 0.88, 0.45 },
+    sf_amber_press = { 0.78, 0.60, 0.18 },
     sf_cyan    = { 0.40, 0.90, 1.00 },
 }
 
-theme.look = 'classic'
+theme.look = 'sf'
 theme.LOOKS = { 'yunaui', 'classic', 'sf' }
 
 function theme.is_sf()
@@ -228,9 +233,11 @@ end
 -- 見た目を切り替える（'yunaui' / 'classic' / 'sf'）。名前の色分けはクラシックを土台にする。
 -- パレットの表は毎回複製して渡し、別テーマの表を直接指さない。クラシックに戻すときは、
 -- クラシックに無いキー（sf_cyan など）も消す。
+-- 同じ名前でもパレットを作り直す（0.1.285〜）。0.1.284 では theme.look の初期値が
+-- すでに 'sf' のため set_look('sf') が何もせず、パレットがクラシックのまま残った。
+-- アストラルの枠の下にクラシックの地色が出る混在の原因。
 function theme.set_look(name)
     if name ~= 'yunaui' and name ~= 'sf' then name = 'classic' end
-    if theme.look == name then return end
     theme.look = name
     for k in pairs(theme.palette) do
         if CLASSIC[k] == nil then theme.palette[k] = nil end
@@ -242,6 +249,8 @@ function theme.set_look(name)
         for k, v in pairs(SF) do theme.palette[k] = copy_rgb(v) end
     end
 end
+-- 読み込み時に、初期の見た目（アストラル）とパレットを揃える。最初の描画より前に行う。
+theme.set_look(theme.look)
 
 -- 色名、{r,g,b}、壊れた値のどれでも、RGB 0〜1 を返す。不明なら黒（ink）。
 local function color_rgb(c)
@@ -753,11 +762,12 @@ function theme.draw_resize_rail(imgui, x, y1, y2, hovered, active)
     local dl = theme.resize_rail_drawlist(imgui)
     if not dl then return end
     local w = active and 5 or (hovered and 4 or 2)
-    local col = active and theme.u32('accent', 0.95)
-        or (hovered and theme.u32('accent', 0.80) or theme.u32('border', 0.70))
+    local rail = (theme.look == 'sf') and 'sf_cyan' or 'accent'
+    local col = active and theme.u32(rail, 0.95)
+        or (hovered and theme.u32(rail, 0.80) or theme.u32('border', 0.70))
     pcall(function ()
         if lit then
-            dl:AddRectFilled({ x - (w / 2 + 2), y1 }, { x + (w / 2 + 2), y2 }, theme.u32('accent', 0.18), 1)
+            dl:AddRectFilled({ x - (w / 2 + 2), y1 }, { x + (w / 2 + 2), y2 }, theme.u32(rail, 0.18), 1)
         end
         dl:AddRectFilled({ x - w / 2, y1 }, { x + w / 2, y2 }, col, 1)
     end)

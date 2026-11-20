@@ -396,6 +396,8 @@ function tracker_sf.draw(ui)
                 window.pop(ui, 'group')
                 W.after_item(ui, name, 'e_' .. qid, efocused)
             end
+            -- 一覧で複数あるとき、件と件のあいだだけ細い線（最後のあとは引かない）
+            if (not tabs) and n_i < #shown then W.entry_sep(ui) end
         end
         if child then window.pop(ui, 'child') end
         local okh, hov = pcall(imgui.IsWindowHovered, C('ImGuiHoveredFlags_ChildWindows'))

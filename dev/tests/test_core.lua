@@ -26,7 +26,7 @@ local fs = posix_fs()
 local D = data_mod.load(fs, ROOT .. '/data/')
 eq(#D.errors, 0, 'data errors: ' .. json.encode(D.errors, true))
 eq(#D:list('quest'), 1168, 'quests'); eq(#D:list('mission'), 661, 'missions')
-eq(D.version, '2026.11.17-124', 'data version')
+eq(D.version, '2026.11.20-125', 'data version')
 local q = D:quest('quest.sandoria.001'); check(q, 'quest')
 eq(q.name_en, "The Merchant's Bidding", 'english name')
 local s1 = D:first_step(q); check(s1, 'first step')
@@ -71,12 +71,14 @@ do  -- 決定は今の手順を選ぶだけ（前の手順に付けない・受�
     check(not P:step_done(q.id, q.steps[1].id), 'decide: earlier steps not checked')
     P:set_current_step(q.id, q.steps[1].id)
 end
-do  -- ミッションはこれまでどおり（受注の操作が無いので、チェックで受注中にする）
+do  -- 0.1.261〜：ミッションも、チェックしても受注中にしない
     local m
     for _, x in ipairs(D.quests) do if x.kind == 'mission' and #x.steps > 0 then m = x; break end end
     check(m and not P:steps_locked(m.id), 'missions are not locked')
     local mr = P:check_step(m.id, m.steps[1].id)
-    check(mr.ok and mr.promoted, 'mission: check promotes to accepted')
+    check(mr.ok and not mr.promoted, 'mission: check does not promote to accepted')
+    eq(P:state(m.id), 'not_accepted', 'mission stays not started')
+    check(P:step_done(m.id, m.steps[1].id), 'mission check is stored')
     P:check_step(m.id, m.steps[1].id, false)
 end
 P:set_state(q.id, 'accepted')
@@ -105,7 +107,7 @@ local m2
 for _, x in ipairs(D.quests) do if x.kind == 'mission' and #x.steps > 0 and not P:record(x.id) then m2 = x; break end end
 P:lock(m2.id)
 local r2 = P:check_step(m2.id, m2.steps[1].id)
-check(r2.ok and r2.kept_by_lock and not r2.promoted, 'kept by lock'); eq(P:state(m2.id), 'not_accepted', 'state kept')
+check(r2.ok and not r2.promoted, 'locked mission: check stored, not promoted'); eq(P:state(m2.id), 'not_accepted', 'state kept')
 check(P:step_done(m2.id, m2.steps[1].id), 'step recorded')
 P:unlock(m2.id)
 -- pins

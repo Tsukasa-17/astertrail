@@ -6,6 +6,7 @@
   決まり：テンポラリは数えない。まだ届いていない入れ物は空にしない。
 ]]
 local poss = require('src.core.possession')
+local gil = require('src.core.gil')
 local theme = require('src.ui.theme')
 local CT = require('src.ui.colored_text')
 
@@ -17,10 +18,14 @@ function M.segments(ui, needs)
     local out = {}
     local many = #needs > 1
     for _, n in ipairs(needs) do
+        if gil.is_gil_need(n) then
+            -- ギルは所持数も欄も出さない
+        else
         local s = ui.need_possession and ui.need_possession(n) or { state = 'unknown' }
         local st = poss.text(t, s)
         local text = many and t('poss.seg', { name = n.name_ja or n.name_en or '?', state = st }) or st
         out[#out + 1] = { text = text, color = poss.color(s), tip = poss.where(t, s), state = s.state, need = n, st = s }
+        end
     end
     return out
 end
@@ -125,10 +130,10 @@ local function copy_name(ui, name)
     if name and name ~= '' and ui.copy_to_clipboard then ui.copy_to_clipboard(name) end
 end
 
-local function draw_need_name(ui, win, id, name)
+local function draw_need_name(ui, win, id, name, n)
     local W = require('src.ui.widgets')
     local tip = ui.t and ui.t('tracker.copy_item') or nil
-    if W.link(ui, win or 'book', id, name, { color = 'item', tooltip = tip, no_focus = true }) then
+    if W.link(ui, win or 'book', id, name, { color = 'item', tooltip = tip, no_focus = true, need = n }) then
         copy_name(ui, name)
     end
 end
@@ -146,7 +151,7 @@ local function draw_need_pieces(ui, win, prefix, n, st, i)
     local name = official_name(n)
     if name == '' then return end
     local t = ui.t
-    draw_need_name(ui, win, prefix .. '_n' .. tostring(i), name)
+    draw_need_name(ui, win, prefix .. '_n' .. tostring(i), name, n)
     if st.state == 'unknown' then return end
     imgui.SameLine(0, 0)
     theme.TextColored(imgui, theme.col('text'), '(')
@@ -170,12 +175,8 @@ local function draw_need_pieces(ui, win, prefix, n, st, i)
         end
     end
     imgui.SameLine(0, 0)
-    -- 通常の品は括弧の中に「所持」を残す。だいじなものは印だけ。
-    if not (n.kind == 'key_item' or st.kind == 'key') then
-        theme.TextColored(imgui, theme.col('text'), '所持)')
-    else
-        theme.TextColored(imgui, theme.col('text'), ')')
-    end
+    -- 括弧の中は数または印だけ（0.1.261〜。「所持」は出さない）
+    theme.TextColored(imgui, theme.col('text'), ')')
 end
 
 -- 1 行に並べる（幅が足りなければ次の行へ）。先頭に「所持:」
@@ -312,17 +313,25 @@ local function need_key(n)
 end
 
 local function lookup_need(ui, name, hint)
+    local D = ui and ui.data
+    local ref = (D and D.lookup_item_name) and D:lookup_item_name(name) or nil
     if hint then
         local h = {}
         for k, v in pairs(hint) do h[k] = v end
         if not h.name_ja then h.name_ja = name end
+        if ref then
+            if ref.kind == 'key_item' then
+                h.kind = 'key_item'
+                h.key_item_id = h.key_item_id or ref.key_item_id
+                h.key_item_ids = h.key_item_ids or ref.key_item_ids
+            else
+                h.item_id = h.item_id or ref.item_id
+                h.item_ids = h.item_ids or ref.item_ids
+            end
+        end
         return h
     end
-    local D = ui and ui.data
-    if D and D.lookup_item_name then
-        local r = D:lookup_item_name(name)
-        if r then return r end
-    end
+    if ref then return ref end
     -- 番号が無い。だいじなものかどうかは分からないので、表示だけ名前を残す
     return { kind = 'item', name_ja = name, count = 1 }
 end
@@ -332,6 +341,7 @@ function M.gather_needs(ui, step, text, q)
     local out, seen = {}, {}
     local function add(n)
         if type(n) ~= 'table' then return end
+        if gil.is_gil_need(n) then return end
         local key = need_key(n)
         if key == ':' or seen[key] then return end
         seen[key] = true
@@ -351,6 +361,8 @@ function M.gather_needs(ui, step, text, q)
 
     -- かぎかっこの名前：直後が必要の言葉なら足す。入手の言葉なら足さない。
     for _, qn in ipairs(M.quoted_names(text or '')) do
+        -- 合言葉「HGSI」などは品ではない
+        if (text or ''):find('合言葉「' .. qn.name, 1, true) then goto nx_q end
         local role = M.role_after(text, qn.b)
         if role == 'require' and not hints[qn.name] or role == 'require' then
             -- always add required quoted names (may already be in step.needs)
@@ -360,6 +372,7 @@ function M.gather_needs(ui, step, text, q)
             end
             if not already then add(lookup_need(ui, qn.name, hints[qn.name])) end
         end
+        ::nx_q::
     end
 
     -- 資料の needs にだけあり、文では短い名前で出ているものはそのまま（step.needs 済み）
@@ -382,16 +395,30 @@ local function poss_suffix(ui, n)
     return suf, M.count_tip(ui, st), st
 end
 
-local function push_name_terms(extras, shown, official, kind)
-    extras[#extras + 1] = { s = shown, kind = kind, copy_text = official }
+local function ids_of(n)
+    if not n then return {} end
+    local extra = {}
+    if n.kind == 'key_item' or n.key_item_id or n.key_item_ids then
+        extra.key_item_id = n.key_item_id
+        extra.key_item_ids = n.key_item_ids or (n.key_item_id and { n.key_item_id } or nil)
+    else
+        extra.item_id = n.item_id
+        extra.item_ids = n.item_ids or (n.item_id and { n.item_id } or nil)
+    end
+    return extra
+end
+
+local function push_name_terms(extras, shown, official, kind, n)
+    local ids = ids_of(n)
+    extras[#extras + 1] = { s = shown, kind = kind, copy_text = official, item_id = ids.item_id, item_ids = ids.item_ids, key_item_id = ids.key_item_id, key_item_ids = ids.key_item_ids }
     if official and official ~= shown then
-        extras[#extras + 1] = { s = official, kind = kind, copy_text = official }
+        extras[#extras + 1] = { s = official, kind = kind, copy_text = official, item_id = ids.item_id, item_ids = ids.item_ids, key_item_id = ids.key_item_id, key_item_ids = ids.key_item_ids }
     end
 end
 
 local function push_hold_terms(extras, n, shown, official, suf, tip, st)
     local kind = (n.kind == 'key_item' or (st and st.kind == 'key')) and 'key_item' or 'item'
-    push_name_terms(extras, shown, official, kind)
+    push_name_terms(extras, shown, official, kind, n)
     if not suf or not st then return end
     if kind == 'key_item' then
         extras[#extras + 1] = {
@@ -477,6 +504,8 @@ function M.merge_terms(terms, extras)
         CT.add(terms, e.s, e.kind, {
             tip = e.tip, copy_text = e.copy_text, color = e.color,
             once = e.once, dup = e.dup, key = e.key, mark = e.mark,
+            item_id = e.item_id, item_ids = e.item_ids,
+            key_item_id = e.key_item_id, key_item_ids = e.key_item_ids,
         })
     end
     return terms

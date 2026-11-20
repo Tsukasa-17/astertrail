@@ -226,11 +226,13 @@ do
     eq(app.state.map and app.state.map.quest, row.qid, 'pad map is this quest')
     eq(app.state.map and app.state.map.loc and app.state.map.loc.zone_id, sl.zone_id, 'pad map uses the giver location')
     app.close_window('map'); frame()
-    -- キャンセルでゲームに戻る（コンパス自体は出したまま）
+    -- キャンセルでコンパスを隠す（1.1.285〜。乗っている／操作中の窓は Esc で閉じる）
     app.activate('compass'); frame()
     press(0x01); frame(); frame()
     check(not app.operating(), 'cancel releases compass')
-    eq(S.compass.visible, true, 'cancel does not hide the compass')
+    eq(S.compass.visible, false, 'cancel hides the compass')
+    app.set_compass_visible(true); frame(); frame()
+    eq(S.compass.visible, true, 'compass shown again for later checks')
 end
 -- エリアが変わるとすぐ作り直す
 FAKE.player.zone = 231; frame(); frame()

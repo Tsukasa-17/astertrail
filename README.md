@@ -4,7 +4,7 @@
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**版 1.1.260**（公開 β）／ データ `2026.11.17-124`
+**版 1.1.285**（公開 β）／ データ `2026.11.20-125`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -76,13 +76,13 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 - **ショートカット**：設定の「操作」で、パッドのボタンの組み合わせを割り当てられます（初期値はなし）。
   - 本を開く、トラッカーの表示／非表示と操作、エミネンスとコンパスの表示／非表示に使えます。
 - **見た目**：好みの見た目に変えられます。
-  - 初期はクラシックで、設定の「見た目」で YunaUI 風や SF（実験中）に変えられます。
+  - 初期はアストラルで、設定の「見た目」でクラシックや YunaUI 風に変えられます。
   - 文字サイズと背景の濃さは、窓ごとに変えられます。
   - 自分で決めた窓の大きさは、文字サイズを変えてもそのままです。
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-1.1.260.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.285.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -91,7 +91,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ![VanaCore の設定。ADDON WINDOWS の Font (ImGui) で日本語対応のフォントを選んだところ（画像は Meiryo.ttf の例）](docs/images/vanacore-imgui-font.png)
 
-更新するときは、同じ場所の `astertrail` フォルダを新しいものに差し替えます。進行と設定は次の場所に残るので、上書きされません。自分で置いたアイコン（`assets/marks/` の PNG。`example/` 以外）も、更新では上書きしません。
+更新するときは、同じ場所の `astertrail` フォルダを新しいものに差し替えます。進行と設定は次の場所に残るので、上書きされません。自分で置いたアイコン（`assets/marks/` の PNG。`example/` 以外）も、更新では上書きしません。この版からは、設定の「このアドオンについて」のお知らせから、新しい版の zip をダウンロードして差し替えることもできます（`version.json` の `zip_url` と `sha256` を使います。進行と設定は触りません）。
 
 ```
 Vanacore\config\addons\astertrail\catseye_<キャラ名>\
@@ -138,7 +138,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 
 設定は本の中に、タブで出ます。⚙️、ゲームのコンフィグのボタン、`/astertrail settings` のどれでも開けます。
 
-- **見た目**：クラシック／YunaUI 風／SF（実験中）、文字サイズ、くっきりフォント、背景の濃さ、動きを減らす
+- **見た目**：アストラル／クラシック／YunaUI 風、文字サイズ、くっきりフォント、背景の濃さ、動きを減らす
 - **配置**：配置のロック、初期配置に戻す、入口アイコン、前回の位置を覚える、コンパスを出す
 - **トラッカー**：出す、件数の上限、出し方（一覧／タブ）、そろえ、× を出す、所持の欄
 - **地図**：地図を使う
@@ -152,7 +152,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 ## 操作の要点
 
 - **マウス**：普通にクリック。アドオンの窓の外をクリックすると、操作をやめます。
-- **キーボード**（操作中だけ）：本では、左の見出しで ↑↓に見出しを選び、←で閉じる・→で開く（開いていれば下の見出しへ）、Enter で中央の一覧へ入ります。一覧では ↑↓で行、←→は同じ行の中、Esc で見出しへ戻ります。見出しで Esc を押すと本を閉じます。Tab／Shift+Tab で場所（絞り込み・見出し・一覧・詳細）を移動します。タブ（ミッション／クエスト／エミネンス）は上の行です。
+- **キーボード**（操作中だけ）：本では、左の見出しで ↑↓に見出しを選び、←で閉じる・→で開く（開いていれば下の見出しへ）、Enter で中央の一覧へ入ります。一覧では ↑↓で行、←→は同じ行の中、Esc で見出しへ戻ります。見出しや右の詳細で Esc を押すと本を閉じます。乗っている／選ばれているほかの窓（詳細だけの窓、地図、設定、エミネンス、コンパス）も Esc で閉じます。トラッカーは遊びながら見る窓なので、Esc では閉じません。Tab／Shift+Tab で場所（絞り込み・見出し・一覧・詳細）を移動します。タブ（ミッション／クエスト／エミネンス）は上の行です。
 - **パッド**（操作中、または受注・完了のお知らせが出ているとき）：本では、左の見出しで上下に見出しを選び、左右で開く・閉じる（右で下の見出しへ）、決定で中央の一覧へ入ります。一覧では上下で行、左右は行の中、キャンセルで見出しへ戻ります。見出しでキャンセルすると本を閉じます。LB／RB で場所（絞り込み・見出し・一覧・詳細）を移動します。ショートカットは設定の「操作」で決めます（初期値はなし）。
 - トラッカーは、見えているだけではキーもパッドも受け取りません（操作のショートカットで操作します）。
 - 受注・完了のお知らせが出ているあいだは、パッドで「ピン留めする／しない」を選べます（決定で押す、キャンセルで閉じる）。閉じたあと、ゲームのボタンが押しっぱなしにならないよう入力を離します。キーで操作するときは `/astertrail notice`（`/ast notice`）か、ほかの窓を操作しているときです。
@@ -175,6 +175,8 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 
 画面の作りは YunaUI を参考にしています（コードは写していません）。**Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui**
 
+アストラルの見た目の英語見出し（ロゴや MISSION / QUEST / EMINENCE、OBJECTIVE / REWARD / LOCATION など）には、[Melete Bold](https://dotcolon.net/font/melete/)（SIL Open Font License 1.1）を使っています。本文と日本語は、いままでどおり Windows のメイリオです。ライセンス全文は `fonts/melete/OFL.txt` です。
+
 ## 非公式であること
 
 このアドオンはファンメイドの非公式なものです。Square Enix とは関係がなく、公式のものでもありません。CatsEyeXI や VanaCore とも関係がありません。ゲームの画像・音・データファイルは同梱しません。地図は、実行時に手元のクライアントの DAT を読むだけです。効果音は自作です。
@@ -193,7 +195,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.260, data `2026.11.17-124`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.285, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 
@@ -207,8 +209,8 @@ To update, replace the addon folder. Progress and settings stay in `Vanacore\con
 
 It is not affiliated with or endorsed by Square Enix, CatsEyeXI, or VanaCore. No game assets are bundled. Maps are read from your local client DAT files at runtime. Sounds are original. Of 1829 quests and missions, 1625 can be matched to the game's records; **204 cannot** (including Campaign, TVR, and some missions).
 
-Update notice: when enabled, the addon reads this repository's `version.json` once after loading (read-only) and prints one chat line if a newer version exists. You can turn it off in the settings.
+Update notice: when enabled, the addon reads this repository's `version.json` once after loading (read-only) and prints one chat line if a newer version exists. From this build, the notice can also download the release zip (`zip_url` and `sha256`) and swap the addon files without touching your progress or settings. You can turn it off in the settings.
 
 License: [GNU GPL v3.0](LICENSE).
 
-Reference sources (not shown in the in-game UI): FF11 Yougo Jiten (https://wiki.ffo.jp/), with gaps checked against BG Wiki, LandSandBoat, and HorizonXI. Step text is our own short summary, not copied article text. Look is inspired by YunaUI (no code copied): Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui
+Reference sources (not shown in the in-game UI): FF11 Yougo Jiten (https://wiki.ffo.jp/), with gaps checked against BG Wiki, LandSandBoat, and HorizonXI. Step text is our own short summary, not copied article text. Look is inspired by YunaUI (no code copied): Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui The Astral look bundles [Melete Bold](https://dotcolon.net/font/melete/) (SIL Open Font License 1.1) for English heading labels. Body text and Japanese stay Meiryo. The full license text is in `fonts/melete/OFL.txt`.

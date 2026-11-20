@@ -8,9 +8,10 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 local D = app._data()
-eq(app.VERSION, '1.1.260', 'version')
-eq(S.look, 'classic', 'default remains classic')
-eq(require('src.core.settings').defaults().look, 'classic', 'defaults classic')
+eq(app.VERSION, '1.1.285', 'version')
+S.look = 'classic'
+theme.set_look('classic')
+eq(S.look, 'classic', 'classic selected to check unchanged classic book')
 
 -- クラシックの本：従来のタブ名。ASTERTRAIL ロゴは出さない。作り話の BUILD も出さない。
 app.close_all(); app.open_window('book'); frame(); frame()

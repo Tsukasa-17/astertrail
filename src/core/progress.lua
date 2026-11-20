@@ -525,17 +525,8 @@ function progress:check_step(qid, sid, done)
     else
         r.steps[sid] = nil
     end
+    -- 0.1.261〜：手順のチェックは記録するが、受注中にはしない（受注はゲームの記録から）
     local promoted, kept_by_lock = false, false
-    if done and (r.state == 'not_accepted' or r.state == 'unknown') then
-        if r.locked then
-            kept_by_lock = true
-        else
-            r.state = 'accepted'
-            r.state_source = 'manual'
-            r.state_at = now
-            promoted = true
-        end
-    end
     self:_focus(qid, sid)
     self:_changed('check_step', qid)
     local last = self.data:is_last_step(step)
@@ -749,12 +740,7 @@ function progress:decide_step(qid, sid)
     res.auto_unchecked = self:_uncheck_after(qid, sid, true)
     -- 未受注のクエストは、今の手順を選ぶだけ（前の手順にチェックを付けない。0.1.180〜）
     res.auto_checked = self:steps_locked(qid) and 0 or self:_check_before(qid, sid, false, now)
-    if res.auto_checked > 0 and (r.state == 'not_accepted' or r.state == 'unknown') and not r.locked then
-        r.state = 'accepted'
-        r.state_source = 'manual'
-        r.state_at = now
-        res.promoted = true
-    end
+    -- 0.1.261〜：今の手順を選んでも受注中にはしない
     r.current_step = sid
     self:_changed('set_current_step', qid)
     return res
@@ -898,6 +884,51 @@ function progress:start_cycle(qid, confirmed)
     self:_focus(qid, nil)
     self:_changed('start_cycle', qid)
     return { ok = true, code = 'ok' }
+end
+
+
+-- ゲームの受注フラグが立っていないものを未開始に戻す（0.1.261〜）。
+-- game_of(qid) は 'not_accepted' / 'accepted' / 'completed' / nil（読めない）。
+-- qid を指定すればその1件だけ。ゲームが受注・完了としているものは触らない。
+function progress:revert_unstarted(game_of, qid)
+    if self.read_only or type(game_of) ~= 'function' then
+        return { ok = false, code = 'read_only', reverted = 0, skipped = 0, kept = 0 }
+    end
+    local ids = {}
+    if qid then
+        ids[1] = qid
+    else
+        for id in pairs(self.doc.quests or {}) do ids[#ids + 1] = id end
+        table.sort(ids)
+    end
+    local reverted, skipped, kept = 0, 0, 0
+    local names = {}
+    for _, id in ipairs(ids) do
+        if not self.data:quest(id) then goto nx end
+        local st = game_of(id)
+        if not st then
+            skipped = skipped + 1
+        elseif st == 'accepted' or st == 'completed' then
+            kept = kept + 1
+        elseif st == 'not_accepted' then
+            local cur = self:state(id)
+            if cur == 'not_accepted' then
+                kept = kept + 1
+            else
+                local ok = self:apply_game(id, 'not_accepted')
+                if ok then
+                    reverted = reverted + 1
+                    if #names < 5 then names[#names + 1] = id end
+                else
+                    skipped = skipped + 1
+                end
+            end
+        else
+            skipped = skipped + 1
+        end
+        ::nx::
+    end
+    return { ok = true, code = 'ok', reverted = reverted, skipped = skipped, kept = kept, ids = names }
 end
 
 ---------------------------------------------------------------------------

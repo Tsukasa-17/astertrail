@@ -268,6 +268,10 @@ end
 
 -- 本の中（一覧と詳細の場所）に設定を描く（0.1.175〜。本の book.draw から呼ぶ）
 function settings_ui.body(ui)
+    -- SF は専用の設定画面（0.1.270〜）。クラシック／YunaUI はこのまま。
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.settings_sf').body(ui)
+    end
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local name = 'settings'
     fold_items = {}
@@ -339,6 +343,7 @@ function settings_ui.body(ui)
             if W.button(ui, name, 'look_style', t('settings.look_style', { v = t('settings.look_' .. look) }),
                 { section = SEC, row = 'look_style' }) then
                 S.look = theme.next_look(look)
+                theme.set_look(S.look)
                 ui.mark_settings_dirty()
             end
         end
@@ -415,6 +420,9 @@ function settings_ui.body(ui)
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'map', title = t('settings.map'), draw = function ()
         toggle(ui, name, 'map_on', t('map.enabled'), S.map, 'enabled', SEC)
+        if S.map.grid_alpha == nil then S.map.grid_alpha = 0.35 end
+        stepper(ui, name, 'map_grid', t('map.grid_alpha'), S.map, 'grid_alpha', 0.05, 0, 1, UNIT.pct, SEC, 0.35)
+        W.muted(ui, t('map.grid_alpha_help'))
         W.muted(ui, t('map.credit_note'))
     end }
     SECTIONS[#SECTIONS + 1] = { key = 'marks', title = t('settings.marks'), draw = function ()
@@ -738,6 +746,10 @@ function settings_ui.body(ui)
             end
         end
         end
+        if W.button(ui, name, 'reset_unstarted', t('settings.reset_unstarted'), { section = SEC, row = 'reset_unstarted' }) then
+            if ui.revert_unstarted then ui.revert_unstarted() end
+        end
+        W.muted(ui, t('settings.reset_unstarted_note'))
         fold_end(ui, frec)
         -- デバッグ（0.1.187〜、t308）。公開版には出さない
         if ui.manual_checks == nil or ui.manual_checks() then
@@ -762,6 +774,7 @@ function settings_ui.body(ui)
     SECTIONS[#SECTIONS + 1] = { key = 'about', title = t('about.title'), draw = function ()
         W.muted(ui, 'Based on YunaUI by Yunas - https://github.com/YunasXI/yunaui')
         W.muted(ui, t('about.license'))
+        W.muted(ui, t('about.font_melete'))
         W.muted(ui, t('about.version', { v = ui.addon_version, d = ui.data.version or '?' }))
         S.update_notice = S.update_notice or { enabled = true }
         toggle(ui, name, 'update_notice', t('about.update_notice'), S.update_notice, 'enabled', SEC)

@@ -2243,6 +2243,41 @@ local function splitter(ui, S, avail_w, left_w, body_h, opts)
 end
 book.splitter = splitter   -- エミネンスの一覧と詳細の境目にも使う（0.1.177〜）。割合は今のタブだけ変える（0.1.192〜）
 
+-- SF のカード格子と詳細の境目（0.1.263〜）。割合は book.splits（タブごと）。フォントを変えても割合のまま。
+book.SF_SPLIT_GAP = 6
+function book.sf_cards_width(S, rem_w, tab, opts)
+    opts = opts or {}
+    local min_l = opts.min_left or book.SPLIT_MIN_LIST
+    local min_r = opts.min_right or book.SPLIT_MIN_DETAIL
+    local gap = book.SF_SPLIT_GAP
+    rem_w = tonumber(rem_w) or 800
+    local split = tonumber(book.split_of(S, tab)) or book.SPLIT
+    local w = math.floor((rem_w - gap) * split + 0.5)
+    if rem_w > min_l + min_r + gap then
+        if w < min_l then w = min_l end
+        if w > rem_w - gap - min_r then w = rem_w - gap - min_r end
+    else
+        w = math.max(80, math.min(w, rem_w - gap - 80))
+    end
+    return w
+end
+
+function book.sf_cards_splitter(ui, S, rem_w, cards_w, rem_h, tab)
+    tab = tab or book.split_tab(S)
+    splitter(ui, S, rem_w, cards_w, rem_h, {
+        id = '##astertrail_sf_split_' .. tostring(tab),
+        min_left = book.SPLIT_MIN_LIST,
+        min_right = book.SPLIT_MIN_DETAIL,
+        on_width = function (nw, aw)
+            if book.set_split(S, nw / aw, tab) then ui.mark_settings_dirty() end
+        end,
+        reset = function ()
+            if book.set_split(S, book.SPLIT, tab) then ui.mark_settings_dirty() end
+        end,
+    })
+end
+
+
 function book.tree_splitter(ui, S, avail_w, tree_w, body_h)
     splitter(ui, S, avail_w, tree_w, body_h, {
         id = '##book_split_tree',
@@ -2512,14 +2547,12 @@ function book.nav_action(action)
     if not ui or not tree then return false end
     if ui.state and ui.state.open and ui.state.open.settings then return false end
     local cur = focus.current('book')
-    -- 0.1.225〜（t502）：詳細の中。キャンセルで一覧の選んでいる行へ、上下はボタンを移り、端では詳細を送る
+    -- 0.1.225〜（t502）：詳細の中。上下はボタンを移り、端では詳細を送る。
+    -- 0.1.285〜：右の詳細は本の一部。キャンセルで一覧へフォーカスを戻すだけだと、
+    -- 詳細の枠が点滅するだけで本は閉じなかった。Esc は本を閉じる（do_action へ渡す）。
     if book.area_of(section_of_current('book')) == 'detail' then
         if action == 'back' then
-            local wid = selected_row_wid(ui)
-            if wid then focus_nav(wid)
-            else focus_nav(book.tree_wid(book.split_tab(ui.settings), book.display_heading(ui))) end
-            if ui.state then ui.state.book_scroll_to_sel = true end
-            return true
+            return false
         end
         if action == 'up' or action == 'down' then
             if not focus.move('book', action) then

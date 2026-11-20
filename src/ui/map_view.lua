@@ -642,6 +642,9 @@ function map_view.find_mobs(ui, info, zone_id)
 end
 
 function map_view.draw(ui)
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.map_sf').draw(ui)
+    end
     local t, imgui = ui.t, ui.imgui
     local st = ui.state
     local info = st.map

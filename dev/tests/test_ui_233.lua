@@ -117,8 +117,8 @@ frames(1)
 local S = app._settings()
 S.input.gamepad = true
 S.gameui.capture = true
-eq(app.VERSION, '1.1.260', 'version')
-eq(app._data().version, '2026.11.17-124', 'data version unchanged')
+eq(app.VERSION, '1.1.285', 'version')
+eq(app._data().version, '2026.11.20-125', 'data version unchanged')
 
 ---------------------------------------------------------------------------
 -- 3) 緑色の案内は見出しの帯へ。中身の TextColored には出ない

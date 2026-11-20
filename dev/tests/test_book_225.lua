@@ -72,8 +72,8 @@ for _, tab in ipairs({ 'mission', 'quest' }) do
     check(not texted('パッドで操作中') and not texted('with the pad'), tab .. ': no pad help line')
 end
 
--- チェックで絞る（決定で付け外し）
-do
+-- チェックで絞る（決定で付け外し）。公開版は手で受注にできないので、この塊だけ飛ばす
+if not require('src.build_flags').public then
     open_tab('quest')
     key('confirm')   -- すべて → 表
     local all_n = #rows()
@@ -117,7 +117,7 @@ do
     eq('row_' .. tostring(S.book.last_row), r1, 'and back up')
 end
 
--- t502：決定 見出し → 一覧 → 詳細、キャンセル 詳細 → 一覧 → 見出し → 閉じる
+-- t502：決定 見出し → 一覧 → 詳細。1.1.285〜：詳細のキャンセルは本を閉じる（枠の点滅だけにしない）
 for _, tab in ipairs({ 'mission', 'quest' }) do
     open_tab(tab)
     key('down')
@@ -139,11 +139,17 @@ for _, tab in ipairs({ 'mission', 'quest' }) do
     key('up')
     eq(book.area_of(items()[cur()] and items()[cur()].section), 'detail', tab .. ': up stays in the detail')
     key('back')
-    eq(cur(), row, tab .. ': cancel → back to the same row')
+    eq(app.state.open.book, false, tab .. ': cancel from in-book detail closes the book')
+    -- 一覧からのキャンセルは、これまでどおり見出しへ、もう一度で閉じる
+    open_tab(tab)
+    key('down')
+    eq(cur(), head, tab .. ': heading again')
+    key('confirm')
+    check(cur():find('^row_'), tab .. ': confirm → list again')
     key('back')
-    eq(cur(), head, tab .. ': cancel → heading')
+    eq(cur(), head, tab .. ': cancel from the list → heading')
     key('back')
-    eq(app.state.open.book, false, tab .. ': cancel → book closes')
+    eq(app.state.open.book, false, tab .. ': cancel from the heading closes the book')
 end
 
 -- 詳細の上の端で上：詳細を送る指示（詳細の中にとどまる）

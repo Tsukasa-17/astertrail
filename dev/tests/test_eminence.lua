@@ -383,7 +383,7 @@ do
     check(labeled('× 解除##roe_remove_13') or labeled('× Cancel##roe_remove_13'), 'remove has × mark (0.1.203)')
     check(not labeled('外す##roe_remove_13'), 'no 外す label')
     check(labeled('##roe_start_12'), 'take button for not taken')
-    check(labeled('＋ 受ける##roe_start_12') or labeled('＋ Take##roe_start_12'), 'accept has ＋ mark (0.1.203)')
+    check(labeled('＋ 受注##roe_start_12') or labeled('＋ Accept##roe_start_12'), 'accept has ＋ mark (0.1.203)')
     FAKE.clicks['##roe_start_12'] = true; frame()
     eq(#INJ, n0 + 1, 'one press, one packet')
     eq(INJ[#INJ].id, 0x10C); eq(INJ[#INJ].data:byte(5), 12)
@@ -709,7 +709,7 @@ do
     end
     check(found ~= nil, 'eminence list is a table')
     eq(found and found.cols, 6, 'six columns (no くり返し, no 状態 since 0.1.209)')
-    for _, h in ipairs({ '名前', '進み', '報酬', '★', 'お気に入り', '受ける・解除' }) do
+    for _, h in ipairs({ '名前', '進み', '報酬', '★', 'お気に入り', '受注・解除' }) do
         check(texted(h), 'column header: ' .. h)
     end
     check(not texted('くり返し'), 'no くり返し column header')
@@ -791,11 +791,18 @@ do
     for _ = 1, 10 do key('down') end
     eq(area_now(), 'detail', 'stays in the detail')
     key('back')
-    eq(cur(), 'roesel_12', 'cancel → back to the row')
+    eq(app.state.open.book, false, 'cancel from in-book detail closes the book')
+    app.open_window('book'); S.book.tab = 'eminence'
+    S.eminence.book_root = -2; S.eminence.book_text = ''; S.eminence.book_favs_only = false
+    S.eminence.book_state = 'all'
+    bk.set_heading(S, 'eminence', 'all', function () end)
+    frame(); frame()
+    focus.set('book', 'roesel_12', true); frame(); frame()
+    eq(cur(), 'roesel_12', 'on the row again')
     key('back')
-    eq(area_now(), 'tree', 'cancel → heading: ' .. cur())
+    eq(area_now(), 'tree', 'cancel from the list → heading: ' .. cur())
     key('back')
-    eq(app.state.open.book, false, 'cancel → book closes')
+    eq(app.state.open.book, false, 'cancel from the heading closes the book')
     -- t503：閉じた見出しで決定しても開かない。表へ入り、その見出しのレコードが出る
     app.open_window('book'); S.book.tab = 'eminence'; frame(); frame()
     focus.set('book', bk.tree_wid('eminence', 0xF210), true); frame(); frame()

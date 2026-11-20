@@ -146,7 +146,7 @@ imgui.IsItemHovered = function () return hovered end
 imgui.SetTooltip = function (s) tips[#tips + 1] = s end
 app.open_detail_solo('quest.jeuno.116'); frame(); frame()
 check(texted('所持: '), 'possession label')
-check(texted('所持)') or texted('/5所持'), 'enough shows have/need in detail')
+check(texted('/5)') or texted('(1/5)'), 'enough shows have/need in detail')
 local found = false
 for _, s2 in ipairs(tips) do if s2:find('かばん99', 1, true) then found = true end end
 check(found, 'hover tooltip shows where')
@@ -167,7 +167,7 @@ S.items.show_possession = true
 app.request('pin', 'quest.jeuno.116')
 S.tracker.visible = true
 frame(); frame()
-check(texted('1/5所持') or texted('(1/5所持)'), 'tracker shows inline have/need')
+check(texted('1/5)') or texted('(1/5)'), 'tracker shows inline have/need')
 -- アイコン：全部読めていて足りないときだけ「進めない」
 local marks_core = require('src.core.marks')
 eq(marks_core.quest_icon(app._data(), PR, app._data():quest('quest.jeuno.116'), { have = app.have_for_need }), 'blocked', 'short: blocked icon')

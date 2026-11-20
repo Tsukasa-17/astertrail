@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 
 local labels = require('src.ui.labels')
 local book_sf = require('src.ui.book_sf')
@@ -106,7 +106,7 @@ do
     local ui = {
         settings = { items = { show_possession = true } },
         t = function (k, args)
-            if k == 'sf.poss_held' then return string.format('(%s/%s所持)', args.have, args.need) end
+            if k == 'sf.poss_held' then return string.format('(%s/%s)', args.have, args.need) end
             if k == 'poss.part' then return args.where .. tostring(args.n) end
             if k == 'poss.c0' then return 'かばん' end
             if k == 'poss.c1' then return '金庫' end
@@ -130,12 +130,12 @@ do
     }
     local text = 'パルブロ鉱山のクゥダフを倒して、クゥダフ人形の頭・胴・腕・足を集める'
     local out, extras = poss_ui.apply_to_step(ui, step, text)
-    check(out:find('クゥダフ人形の頭(1/1所持)', 1, true) ~= nil, 'full name keeps its count')
-    check(out:find('胴(0/1所持)', 1, true) ~= nil, 'short 胴 is colored as a count span')
-    check(out:find('腕(0/1所持)', 1, true) ~= nil, 'short 腕 is colored as a count span')
-    check(out:find('足(0/1所持)', 1, true) ~= nil, 'short 足 is colored as a count span')
-    -- 0.1.260 で名前と所持数の言葉は分けた。文面の「(0/1所持)」は残る。
-    check(out:find('クゥダフ人形の頭(1/1所持)', 1, true) ~= nil, 'annotated text kept')
+    check(out:find('クゥダフ人形の頭(1/1)', 1, true) ~= nil, 'full name keeps its count')
+    check(out:find('胴(0/1)', 1, true) ~= nil, 'short 胴 is colored as a count span')
+    check(out:find('腕(0/1)', 1, true) ~= nil, 'short 腕 is colored as a count span')
+    check(out:find('足(0/1)', 1, true) ~= nil, 'short 足 is colored as a count span')
+    -- 0.1.260 で名前と所持数の言葉は分けた。文面の「(0/1)」は残る。
+    check(out:find('クゥダフ人形の頭(1/1)', 1, true) ~= nil, 'annotated text kept')
 end
 
 print('test_sf_259 ok')

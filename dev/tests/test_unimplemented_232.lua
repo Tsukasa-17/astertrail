@@ -35,7 +35,7 @@ local focus = require('src.ui.focus')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 eq(S.book.filters.show.unimplemented, true, 'runtime default 未実装 on')
 eq(S.eminence.book_show.unimplemented, true, 'runtime eminence 未実装 on')
 

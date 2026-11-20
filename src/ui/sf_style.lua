@@ -395,6 +395,43 @@ function sf.underline(dl, x1, y, x2, col, thick)
     end)
 end
 
+-- 薄い横線の高さ（上下の余白を含む）。詳細の手順と報酬のあいだの予約に使う
+function sf.rule_gap(opts)
+    opts = opts or {}
+    local pad = tonumber(opts.pad) or 6
+    local thick = tonumber(opts.thick) or 1.0
+    return pad + math.max(1, math.ceil(thick)) + pad
+end
+
+-- カーソル位置に薄い水色の横線を描き、上下に余白を取って高さを進める。
+-- 詳細の OBJECTIVE / 手順と、下の REWARD / LOCATION のあいだ用（0.1.273〜）。
+function sf.rule(imgui, opts)
+    opts = opts or {}
+    if not imgui then return 0 end
+    local pad = tonumber(opts.pad) or 6
+    local thick = tonumber(opts.thick) or 1.0
+    local inset = tonumber(opts.inset) or 0
+    local gap = sf.rule_gap({ pad = pad, thick = thick })
+    if imgui.Dummy and pad > 0 then pcall(imgui.Dummy, { 1, pad }) end
+    local okd, dl = pcall(imgui.GetWindowDrawList)
+    if not okd then dl = nil end
+    local x, y = sf.xy(pcall(imgui.GetCursorScreenPos))
+    local aw = select(1, sf.avail(imgui)) or 0
+    if dl and x and y and aw > 8 then
+        local x1, x2 = x + inset, x + aw - inset
+        if x2 > x1 + 4 then
+            local col = opts.col or theme.u32('sf_cyan', 0.42)
+            pcall(function ()
+                dl:AddLine({ x1, y }, { x2, y }, theme.u32('sf_cyan', 0.14), thick + 3)
+                dl:AddLine({ x1, y }, { x2, y }, col, thick)
+            end)
+        end
+    end
+    local after = gap - pad
+    if imgui.Dummy and after > 0 then pcall(imgui.Dummy, { 1, after }) end
+    return gap
+end
+
 -- LOCATION 欄の小さな方位磁針（装飾。N だけ文字）
 function sf.compass_rose(dl, cx, cy, r, col)
     col = col or theme.u32('sf_cyan', 0.90)
@@ -409,6 +446,209 @@ function sf.compass_rose(dl, cx, cy, r, col)
             dl:AddLine({ cx + c * inner, cy + s * inner }, { cx + c * r * 0.92, cy + s * r * 0.92 }, col, i % 2 == 0 and 1.5 or 1.0)
         end
     end)
+end
+
+
+-- 英語の見出し語（ASTERTRAIL / MISSION / OBJECTIVE など）。日本語は対象外。
+function sf.is_en_heading(text)
+    text = tostring(text or '')
+    if text == '' then return false end
+    if not text:find('%a') then return false end
+    return not text:find('[^%w %p]')
+end
+
+-- 0.1.264〜0.1.268：サンプルに近づけ、タイトルは 8/46（46px で 8px）、見出しは 5/24（24px で 5px）、下限 1px。
+-- 0.1.269：字間が広すぎて狭い窓で切れるので、追加の字間は付けない（0px。フォント本来の間隔）。
+-- 幅が足りないときは、残っている字間を 0 まで詰めてから描く。窓の大きさは変えない。
+function sf.heading_track(px, kind)
+    return 0
+end
+
+local function heading_chars(text)
+    text = tostring(text or '')
+    local out, i, n = {}, 1, #text
+    while i <= n do
+        local b = text:byte(i)
+        local step = (not b and 1) or (b < 128 and 1) or (b < 224 and 2) or (b < 240 and 3) or 4
+        out[#out + 1] = text:sub(i, i + step - 1)
+        i = i + step
+    end
+    return out
+end
+
+local function font_px(imgui)
+    if imgui and imgui.GetFontSize then
+        local ok, v = pcall(imgui.GetFontSize)
+        if ok and tonumber(v) and tonumber(v) > 0 then return tonumber(v) end
+    end
+    return 18
+end
+
+local function heading_opts(opts)
+    if type(opts) == 'number' then return { max_w = opts } end
+    return opts or {}
+end
+
+-- 今のフォント（見出しなら Push 済み）で、字間込みの幅を測る。
+-- opts.track で字間を指定、opts.max_w があればその幅に収まるまで字間を 0 まで詰める。
+function sf.measure_heading(imgui, text, kind, opts)
+    opts = heading_opts(opts)
+    text = tostring(text or '')
+    if text == '' then return 0, 0, {} end
+    local chars = heading_chars(text)
+    local spaced = kind and sf.is_en_heading(text)
+    local gap = 0
+    if spaced then
+        if tonumber(opts.track) then
+            gap = math.max(0, tonumber(opts.track))
+        else
+            gap = sf.heading_track(font_px(imgui), kind)
+        end
+    end
+    local function pack(g)
+        local total, th, parts, letters = 0, 0, {}, 0
+        for i, ch in ipairs(chars) do
+            local tw, h = theme.measure_text(imgui, ch)
+            tw, h = tonumber(tw) or 12, tonumber(h) or 16
+            local gi = (spaced and i < #chars) and g or 0
+            parts[i] = { ch = ch, w = tw, gap = gi }
+            total = total + tw + gi
+            letters = letters + tw
+            if h > th then th = h end
+        end
+        return total, th, parts, letters
+    end
+    local total, th, parts, letters = pack(gap)
+    local max_w = tonumber(opts.max_w)
+    if spaced and max_w and max_w > 0 and total > max_w then
+        local n = #chars - 1
+        gap = (n > 0) and math.max(0, (max_w - letters) / n) or 0
+        total, th, parts = pack(gap)
+    end
+    return total, th, parts
+end
+
+-- DrawList に字間付きで描く。縁取りがオンなら既存の outline.paint_at を使う。
+function sf.add_heading(imgui, x, y, col, text, kind, opts)
+    text = tostring(text or '')
+    if text == '' or not x or not y then return 0, 0 end
+    local w, h, parts = sf.measure_heading(imgui, text, kind, opts)
+    local outline = package.loaded['src.ui.crisp_outline']
+    if not outline then pcall(function () outline = require('src.ui.crisp_outline') end) end
+    local dl
+    if imgui and imgui.GetWindowDrawList then
+        local ok, got = pcall(imgui.GetWindowDrawList)
+        if ok then dl = got end
+    end
+    local tx = x
+    for _, p in ipairs(parts) do
+        if outline and outline.active and outline.active() and outline.paint_at then
+            pcall(outline.paint_at, imgui, tx, y, p.ch)
+        end
+        sf.add_text(dl, tx, y, col, p.ch)
+        tx = tx + (p.w or 0) + (p.gap or 0)
+    end
+    return w, h
+end
+
+-- カーソル位置に見出しを出し、高さを進める（OBJECTIVE などの行）
+-- 幅の指定がなければ、今の行の残り幅に収まるまで字間を詰める。
+function sf.heading_line(ui, text, col, kind, opts)
+    if not ui or not ui.imgui then return 0, 0 end
+    local imgui = ui.imgui
+    opts = heading_opts(opts)
+    if opts.max_w == nil and imgui.GetContentRegionAvail then
+        local oka, a, b = pcall(imgui.GetContentRegionAvail)
+        if oka then
+            if type(a) == 'table' then a = a.x or a[1] end
+            opts.max_w = tonumber(a) or opts.max_w
+        end
+    end
+    local x, y = sf.xy(pcall(imgui.GetCursorScreenPos))
+    x, y = x or 0, y or 0
+    local kind_s = kind or 'label'
+    local mw = select(1, sf.measure_heading(imgui, text, kind_s, opts)) or 0
+    if (opts.align == 'center' or opts.center) and opts.max_w and mw then
+        x = x + math.max(0, (opts.max_w - mw) * 0.5)
+    end
+    local w, h = sf.add_heading(imgui, x, y, col, text, kind_s, opts)
+    local dummy_w = w
+    if (opts.align == 'center' or opts.center) and opts.max_w then
+        dummy_w = math.max(w, opts.max_w)
+    end
+    if imgui.Dummy then pcall(imgui.Dummy, { math.max(1, dummy_w), math.max(1, h) }) end
+    return w, h
+end
+
+-- 受注・完了お知らせの SF 枠（シアンのガラス＋角のアクセント。完了は金の縁）（0.1.280〜）
+function sf.draw_popup(imgui, kind, opts)
+    opts = opts or {}
+    local dl
+    if imgui and imgui.GetWindowDrawList then
+        local ok, got = pcall(imgui.GetWindowDrawList)
+        if ok then dl = got end
+    end
+    if not dl then return end
+    local x, y = sf.xy(pcall(imgui.GetWindowPos))
+    local w, h = sf.xy(pcall(imgui.GetWindowSize))
+    if not (x and y and w and h) or w < 8 or h < 8 then return end
+    local scale = tonumber(opts.scale) or 1
+    local alpha = tonumber(opts.alpha) or 1
+    if alpha <= 0 then return end
+    local cx, cy = x + w / 2, y + h / 2
+    local rw, rh = w * scale, h * scale
+    local x1, y1 = cx - rw / 2, cy - rh / 2
+    local x2, y2 = cx + rw / 2, cy + rh / 2
+    local complete = (kind == 'complete')
+    local colname = complete and 'gold' or 'sf_cyan'
+    local line = theme.u32(colname, 0.90 * alpha)
+    local glow = theme.u32(colname, 0.22 * alpha)
+    -- 柔らかいネオンの暈（広がるほど薄く。完了は金。reduce_motion なら脈打たない）（0.1.281〜）
+    local pulse = 1
+    if not opts.reduce_motion then
+        local now = 0
+        if imgui.GetTime then
+            local okt, v = pcall(imgui.GetTime)
+            if okt then now = tonumber(v) or 0 end
+        end
+        pulse = 0.84 + 0.16 * (0.5 + 0.5 * math.sin(now * 2.1))
+    end
+    local halo_dl = dl
+    if imgui.GetForegroundDrawList then
+        local okf, got = pcall(imgui.GetForegroundDrawList)
+        if okf and got then halo_dl = got end
+    end
+    local dx, dy = 1920, 1080
+    if imgui.GetIO then
+        local oki, io = pcall(imgui.GetIO)
+        if oki and type(io) == 'table' and io.DisplaySize then
+            dx = tonumber(io.DisplaySize.x or io.DisplaySize[1]) or dx
+            dy = tonumber(io.DisplaySize.y or io.DisplaySize[2]) or dy
+        end
+    end
+    for i = 1, 5 do
+        local pad = 2.6 * i
+        local a = (0.26 / i) * alpha * pulse
+        local hx1 = math.max(1, x1 - pad)
+        local hy1 = math.max(1, y1 - pad)
+        local hx2 = math.min(dx - 1, x2 + pad)
+        local hy2 = math.min(dy - 1, y2 + pad)
+        if hx2 > hx1 + 4 and hy2 > hy1 + 4 then
+            sf.stroke_cut(halo_dl, hx1, hy1, hx2, hy2, 8 + i * 0.5, theme.u32(colname, a), math.max(1.15, 2.3 - i * 0.18))
+        end
+    end
+    sf.frame(dl, x1, y1, x2, y2, {
+        cut = 8,
+        fill = theme.u32('bg', 0.62 * alpha),
+        line = line,
+        brackets = true,
+        bracket_len = 14,
+        glow = 1,
+        glow_col = glow,
+        thick = 1.6,
+        band = true,
+        band_a = 0.08,
+    })
 end
 
 return sf

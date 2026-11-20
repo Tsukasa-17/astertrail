@@ -303,4 +303,81 @@ function sound.file_name(kind, volume)
     return 'astertrail_' .. tostring(kind) .. '_v' .. tostring(sound.level(volume)) .. '_' .. tostring(sound.VERSION) .. '.wav'
 end
 
+
+-- SF テーマ専用の同梱 WAV（0.1.280〜。dev/gen_sf_sounds.py で作ったオリジナル）
+sound.SF_FILES = {
+    accept = 'assets/sounds/sf_accept.wav',
+    complete = 'assets/sounds/sf_complete.wav',
+}
+
+function sound.sf_rel(kind)
+    return sound.SF_FILES[kind]
+end
+
+function sound.sf_path(addon_dir, kind)
+    local rel = sound.sf_rel(kind)
+    if not rel or type(addon_dir) ~= 'string' or addon_dir == '' then return nil end
+    local p = addon_dir
+    local sep = (p:find('\\', 1, true) and '\\') or '/'
+    if p:sub(-1) ~= '/' and p:sub(-1) ~= '\\' then p = p .. sep end
+    return p .. rel:gsub('[/\\]', sep)
+end
+
+-- 同梱 WAV（PCM 16bit モノラル）に音量を掛ける。設定フォルダには書かない。
+function sound.wav_apply_volume(raw, volume)
+    if type(raw) ~= 'string' or raw:sub(1, 4) ~= 'RIFF' or raw:sub(9, 12) ~= 'WAVE' then return nil end
+    local lv = sound.level(volume)
+    if lv <= 0 then return nil end
+    if lv >= 100 then return raw end
+    local function u16le(s, i)
+        local a, b = s:byte(i, i + 1)
+        if not a or not b then return nil end
+        return a + b * 256
+    end
+    local function u32le(s, i)
+        local lo, hi = u16le(s, i), u16le(s, i + 2)
+        if not lo or not hi then return nil end
+        return lo + hi * 65536
+    end
+    -- data チャンクを探す（fmt のあとに extra があってもよい）
+    local i = 13
+    local data_at, data_sz
+    while i + 8 <= #raw do
+        local id = raw:sub(i, i + 3)
+        local sz = u32le(raw, i + 4)
+        if not sz then return nil end
+        if id == 'data' then
+            data_at, data_sz = i + 8, sz
+            break
+        end
+        i = i + 8 + sz + (sz % 2)
+    end
+    if not data_at or not data_sz or data_at + data_sz - 1 > #raw then return nil end
+    -- 16bit PCM のみ
+    local fmt_at = raw:find('fmt ', 13, true)
+    if not fmt_at then return nil end
+    local fmt_sz = u32le(raw, fmt_at + 4)
+    local audio_fmt = u16le(raw, fmt_at + 8)
+    local bits = u16le(raw, fmt_at + 8 + 14)
+    if audio_fmt ~= 1 or bits ~= 16 then return nil end
+    local gain = (lv / 100) ^ 1.5
+    local parts = { raw:sub(1, data_at - 1) }
+    local n = math.floor(data_sz / 2)
+    local body = {}
+    for k = 1, n do
+        local off = data_at + (k - 1) * 2
+        local v = u16le(raw, off)
+        if v >= 32768 then v = v - 65536 end
+        local x = math.floor(v * gain + 0.5)
+        if x > 32767 then x = 32767 elseif x < -32768 then x = -32768 end
+        if x < 0 then x = x + 65536 end
+        body[k] = string.char(x % 256, math.floor(x / 256) % 256)
+    end
+    parts[2] = table.concat(body)
+    if data_at + data_sz <= #raw then
+        parts[3] = raw:sub(data_at + data_sz)
+    end
+    return table.concat(parts)
+end
+
 return sound

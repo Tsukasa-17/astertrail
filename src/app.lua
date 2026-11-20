@@ -17,6 +17,7 @@ local fame_mod    = require('src.core.fame')
 local focus       = require('src.ui.focus')
 local settings_ui_mod = require('src.ui.settings_ui')
 local window      = require('src.ui.window')
+local theme       = require('src.ui.theme')
 local W           = require('src.ui.widgets')
 local maps_mod    = require('src.core.maps')
 local exits_mod   = require('src.core.exits')
@@ -35,7 +36,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.260',
+    VERSION = '1.1.285',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -148,6 +149,8 @@ function app.init(platform)
     I = i18n_mod.new(P.fs, base .. 'locales' .. P.fs.sep)
     T = I:fn()
     S = settings_mod.defaults()
+    -- 移行や描画より前に、初期の見た目のパレットを揃える（0.1.285〜）
+    theme.set_look(S.look)
     PR = progress_mod.new({
         data = D,
         clock = { now = os.time, iso = util.iso_time },
@@ -198,6 +201,7 @@ function app.on_login(name)
         PR:reset(state.character)
         PR:set_read_only('no_config_dir')
         state.ready = true
+        theme.set_look(S.look)
         diag.log('save', 'config dir unknown')
         return
     end
@@ -206,12 +210,19 @@ function app.on_login(name)
 
     -- 設定
     local sv, sinfo = storage.load_json(P.fs, paths.settings, nil, nil, util.stamp())
+    local had_astral_flag = type(sv) == 'table' and sv.theme_astral_migrated == true
     local merged, snote = settings_mod.merge(sv)
     S = merged
     if not S.book.remember_filters then
         S.book.filters = settings_mod.defaults().book.filters
     end
     if snote == 'newer_schema' then state.settings_read_only = true end
+    -- 見た目の移行（0.1.284〜）のあとに、パレットとスタイルを一度揃えてから描画する（0.1.285〜）
+    theme.set_look(S.look)
+    -- 0.1.284：初回だけアストラルへ移したときは、いつもの設定保存で印を残す
+    if S.theme_astral_migrated and not had_astral_flag and not state.settings_read_only then
+        app.mark_settings_dirty()
+    end
     I:set_language(S.language)
     window.reapply()
     require('src.ui.book').reset_search()
@@ -277,6 +288,7 @@ function app.on_logout()
     state.roe.sent, state.roe.last_send = {}, nil
     PR:reset(nil)
     S = settings_mod.defaults()
+    theme.set_look(S.look)
     LAY = layouts_mod.empty_slots()
     I:set_language(S.language)
     window.reapply()
@@ -395,6 +407,7 @@ function app.load_layout(i)
     if not s or not s.saved or type(s.settings) ~= 'table' then return false, 'empty' end
     local keep_settings = state.open and state.open.settings == true
     layouts_mod.apply_settings(S, s.settings)
+    theme.set_look(S.look)
     if I and S.language then I:set_language(S.language) end
     window.reapply()
     local open = type(s.open) == 'table' and s.open or {}
@@ -609,9 +622,11 @@ function app.close_window(name)
         -- 表示は設定で決める。操作中なら終えるだけ。
         if state.active == 'tracker' then app.release() end
         return
-    else
-        state.open[name] = false
     end
+    -- エミネンス／コンパスは state.open ではなく設定の visible で出している
+    if name == 'eminence' then app.set_eminence_visible(false) end
+    if name == 'compass' then app.set_compass_visible(false) end
+    state.open[name] = false
     if name == 'detail' then
         state.confirm = nil
         state.detail_return_book = nil
@@ -981,7 +996,6 @@ local function do_action(action, win)
         if win == 'tracker' then app.release()
         elseif win == 'resume' then state.resume = nil; app.release()
         elseif win == 'popup' then app.popup_choose(false)
-        elseif win == 'compass' then app.release()
         else app.close_window(win) end
     end
 end
@@ -995,6 +1009,15 @@ function app.input(action, pressed, source)
     end
     local win = state.active
     if not app.operating() then
+        -- 乗っている／選ばれている自分の窓の Esc は、操作中でなくても閉じる（0.1.282〜）
+        if source == 'key' and action == 'back' and app.want_esc and app.want_esc() then
+            if pressed then
+                local target = app.esc_target()
+                if target == 'update' then app.update_later()
+                elseif target then app.close_window(target) end
+            end
+            return true
+        end
         -- 遊んでいるときに出たお知らせ：パッドだけ受け取る（キーは /astertrail notice か、ほかの窓の操作中）
         if source == 'pad' and app.want_pad() and app.popup_visible() then
             win = 'popup'
@@ -1221,6 +1244,202 @@ function app.check_update()
         end
     end)
     return ok and started == true
+end
+
+---------------------------------------------------------------------------
+-- 新しい版のダウンロードと入れ替え（0.1.282〜）
+-- zip は TEMP へ置き、確認してからアドオンへ移す。失敗したら今のファイルに戻す。設定フォルダは触らない。
+---------------------------------------------------------------------------
+
+local function update_job()
+    return state.update
+end
+
+function app.update_later()
+    local job = state.update
+    if not job then return end
+    if job.status == 'download' or job.status == 'verify' or job.status == 'extract' or job.status == 'swap' then
+        return
+    end
+    job.status = 'later'
+end
+
+function app.want_esc()
+    if state.chat_open or state.text_active then return false end
+    if app.menu_takes_input() then return false end
+    return app.esc_target() ~= nil
+end
+
+-- 乗っている／選ばれている自分の窓のうち、閉じる対象。
+-- 手前：更新のお知らせ → 設定 → 独立した詳細 → 本 → 地図 → エミネンス → コンパス。
+-- トラッカーは HUD なので Esc では閉じない（操作中なら入力処理で操作を終えるだけ）。
+function app.esc_target()
+    local h, f = state.win_hover or {}, state.win_focus or {}
+    local function hit(name)
+        return h[name] or f[name]
+    end
+    local job = state.update
+    if job and (job.status == 'offer' or job.status == 'failed' or job.status == 'done') and hit('update') then
+        return 'update'
+    end
+    local bookish = hit('book') or hit('settings')
+    if state.open and state.open.settings and bookish then return 'settings' end
+    if state.open and state.open.detail and hit('detail') then return 'detail' end
+    if state.open and state.open.book and app.book_visible() and bookish then return 'book' end
+    if state.open and state.open.map and hit('map') then return 'map' end
+    if S and S.eminence and S.eminence.visible and hit('eminence') then return 'eminence' end
+    if S and S.compass and S.compass.visible and hit('compass') then return 'compass' end
+    return nil
+end
+
+local function update_fail(code)
+    local job = state.update
+    if not job then return end
+    job.status = 'failed'
+    job.error = code
+    pcall(P.print, T('update.err_' .. ({
+        network = 'network', hash = 'hash', extract = 'extract', swap = 'swap',
+        https = 'https', temp = 'temp', no_zip = 'generic',
+    })[code] or 'generic'))
+end
+
+function app.update_reload()
+    local name = (addon and addon.name) or 'astertrail'
+    local line = '/addon reload ' .. tostring(name)
+    if P.chat_run and P.chat_run(line) then
+        if state.update then state.update.status = 'reload' end
+        pcall(P.print, T('update.reloading'))
+        return true
+    end
+    pcall(P.print, T('update.ask_reload'))
+    if state.update then state.update.status = 'done' end
+    return false
+end
+
+local function update_fs()
+    local fs = P.fs
+    return {
+        read = function (path) return fs.read(path) end,
+        write = function (path, data)
+            local par = path:match('^(.*)[\\/][^\\/]+$')
+            if par and fs.mkdir_p then fs.mkdir_p(par) elseif par and fs.mkdir then fs.mkdir(par) end
+            return fs.write(path, data)
+        end,
+        exists = function (path) return fs.exists(path) == true end,
+        mkdir = function (path)
+            if fs.mkdir_p then return fs.mkdir_p(path) end
+            return fs.mkdir(path)
+        end,
+        remove = function (path) return fs.remove(path) end,
+        copy = function (a, b)
+            if fs.copy then return fs.copy(a, b) end
+            local data, err = fs.read(a)
+            if not data then return nil, err end
+            return fs.write(b, data)
+        end,
+        sep = (fs.sep or '\\'),
+    }
+end
+
+function app.start_update()
+    local job = state.update
+    if not job or job.status == 'download' or job.status == 'verify' or job.status == 'extract'
+        or job.status == 'swap' or job.status == 'reload' then
+        return false
+    end
+    if type(job.zip_url) ~= 'string' or not job.zip_url:match('^https?://') then
+        update_fail('no_zip')
+        return false
+    end
+    if not P.http_download then
+        update_fail('network')
+        return false
+    end
+    local root = P.temp_dir and P.temp_dir()
+    if type(root) ~= 'string' or root == '' then
+        update_fail('temp')
+        return false
+    end
+    -- 設定フォルダには絶対に書かない
+    if update_mod.dest_is_config(root, P.config_dir and P.config_dir()) then
+        update_fail('temp')
+        return false
+    end
+    local fs = update_fs()
+    fs.mkdir(root)
+    job.work = root
+    job.status = 'download'
+    job.error = nil
+    local zip_path = root .. 'pending.zip'
+    local ok, started = pcall(P.http_download, job.zip_url, zip_path, function (saved, err)
+        if not saved then
+            update_fail('network')
+            return
+        end
+        app._update_apply(saved)
+    end)
+    if not (ok and started) then
+        update_fail('network')
+        return false
+    end
+    return true
+end
+
+function app._update_apply(zip_path)
+    local job = state.update
+    if not job then return end
+    local fs = update_fs()
+    local sha256 = require('src.lib.sha256')
+    local zip = require('src.lib.zip')
+    job.status = 'verify'
+    if job.sha256 then
+        local got = sha256.of_file(zip_path, fs.read)
+        if not sha256.eq(got, job.sha256) then
+            update_fail('hash')
+            return
+        end
+    end
+    job.status = 'extract'
+    local stage = job.work .. 'stage'
+    fs.mkdir(stage)
+    local extracted, err = zip.extract_file(zip_path, stage, {
+        write = fs.write, mkdir = fs.mkdir, read = fs.read, sep = fs.sep,
+    })
+    if not extracted then
+        update_fail('extract')
+        return
+    end
+    local root_rel, files = update_mod.stage_root(extracted.files, fs.exists, stage, fs.sep)
+    if root_rel == nil or not files then
+        update_fail('extract')
+        return
+    end
+    local src_root = stage
+    if root_rel ~= '' then src_root = stage .. fs.sep .. root_rel:gsub('/', fs.sep) end
+    local dest = P.addon_dir and P.addon_dir()
+    if type(dest) ~= 'string' or dest == '' then
+        update_fail('swap')
+        return
+    end
+    dest = dest:gsub('[\\/]+$', '')
+    if update_mod.dest_is_config(dest, P.config_dir and P.config_dir()) then
+        update_fail('swap')
+        return
+    end
+    job.status = 'swap'
+    local rollback = job.work .. 'rollback'
+    local ok, why = update_mod.swap(src_root, dest, files, rollback, {
+        exists = fs.exists, mkdir = fs.mkdir, copy = fs.copy, remove = fs.remove,
+        config_dir = P.config_dir and P.config_dir(), sep = fs.sep,
+    })
+    if not ok then
+        update_fail('swap')
+        return
+    end
+    job.status = 'done'
+    pcall(P.print, T('update.done', { v = job.version or '?' }))
+    -- 公式 vana.chat.run があれば、次のフレームに読み直す（安全）
+    app.update_reload()
 end
 
 ---------------------------------------------------------------------------
@@ -1511,13 +1730,54 @@ function app.popup_preview(kind)
     return true
 end
 
--- 効果音のファイル（設定のフォルダの sounds\。音量ごとに一度だけ作る）
+-- 効果音のファイル（クラシック／YunaUI：設定フォルダの sounds\。音量ごとに一度だけ作る）
 local sound_files = {}
+-- SF：同梱 WAV。音量 100 はそのまま、それ以外は TEMP に掛けたコピー（設定フォルダには書かない）
+local sf_sound_files = {}
+
+local function play_sf_sound(kind, lv)
+    local root = P.addon_dir and P.addon_dir()
+    if not root then return false end
+    local src = sound_mod.sf_path(root, kind)
+    if not src or not P.fs.exists(src) then
+        diag.log('sound', 'sf wav missing ' .. tostring(kind))
+        return false
+    end
+    local path = src
+    if lv < 100 then
+        local name = 'astertrail_sf_' .. tostring(kind) .. '_v' .. tostring(lv) .. '.wav'
+        path = sf_sound_files[name]
+        if not path then
+            local tmp = os.getenv('TEMP') or os.getenv('TMPDIR') or os.getenv('TMP')
+            if (not tmp or tmp == '') and type(TMP) == 'string' then tmp = TMP end
+            if not tmp or tmp == '' then tmp = '.' end
+            local sep = (P.fs and P.fs.sep) or '/'
+            local last = tmp:sub(-1)
+            if last ~= '/' and last ~= string.char(92) then tmp = tmp .. sep end
+            path = tmp .. name
+            local raw = P.fs.read(src)
+            local wav = raw and sound_mod.wav_apply_volume(raw, lv)
+            if not wav or not P.fs.write(path, wav) then
+                diag.log('sound', 'sf volume write failed ' .. name)
+                return false
+            end
+            sf_sound_files[name] = path
+        end
+    end
+    local ok = P.play_sound(path)
+    if not ok then diag.log('sound', 'sf play failed') end
+    return ok
+end
+
 -- force：設定の「試しに鳴らす」（効果音がオフでも鳴らす）
 function app.play_sound(kind, force)
     if (not S.notify.sound and not force) or not P.play_sound or not sound_mod.KINDS[kind] then return false end
     local lv = sound_mod.level(S.notify.sound_volume)
     if lv <= 0 then return false end
+    -- SF のときだけ同梱の短い効果音。ほかの見た目は従来のファンファーレのまま（0.1.280〜）
+    if S.look == 'sf' then
+        return play_sf_sound(kind, lv)
+    end
     local name = sound_mod.file_name(kind, lv)
     local path = sound_files[name]
     if not path then
@@ -1641,6 +1901,52 @@ function app.read_game_log(why)
     g.snap = snap
     g.mask = info
     return app.sync_game_log(why)
+end
+
+-- ゲームの受注フラグが立っていないものを未開始に戻す（0.1.261〜）。手順のチェックは消さない。
+function app.game_state_of(qid)
+    if not D or not D.game_refs or not qid then return nil end
+    local ref = D.game_refs[qid]
+    if not ref then return nil end
+    local g = state.glog
+    if not g or not g.snap then return nil end
+    local info = ref[1] == 'm' and D.game_mission_info[tonumber(ref[2])] or nil
+    return game_log.state_of(g.snap, ref, info)
+end
+
+function app.can_revert_unstarted(qid)
+    if not qid or not PR then return false end
+    local cur = PR:state(qid)
+    if cur == 'not_accepted' then return false end
+    return app.game_state_of(qid) == 'not_accepted'
+end
+
+function app.revert_unstarted(qid)
+    if PR and PR.read_only then
+        return { ok = false, code = 'read_only', reverted = 0, skipped = 0, kept = 0 }
+    end
+    app.read_game_log('command')
+    local res = PR:revert_unstarted(app.game_state_of, qid)
+    if res and res.ok and (res.reverted or 0) > 0 then
+        app.schedule_progress_save()
+    end
+    return res
+end
+
+function app.report_revert_unstarted(qid)
+    local res = app.revert_unstarted(qid)
+    if not res or not res.ok then
+        P.print(T('cmd.reset_unstarted_none', { kept = '0', skipped = '0' }))
+        return res
+    end
+    local args = {
+        n = tostring(res.reverted or 0),
+        kept = tostring(res.kept or 0),
+        skipped = tostring(res.skipped or 0),
+    }
+    if (res.reverted or 0) > 0 then P.print(T('cmd.reset_unstarted_ok', args))
+    else P.print(T('cmd.reset_unstarted_none', args)) end
+    return res
 end
 
 --[[ 所持（0.1.184〜、t297）
@@ -2553,6 +2859,8 @@ local function make_ui(imgui)
     ui.tracker_check = app.tracker_check
     ui.tracker_step = app.tracker_step
     ui.manual_checks = app.manual_checks
+    ui.revert_unstarted = function (qid) return app.report_revert_unstarted(qid) end
+    ui.can_revert_unstarted = app.can_revert_unstarted
     ui.state_buttons = app.state_buttons
     ui.open_detail = app.open_detail
     ui.select_in_book = app.select_in_book
@@ -2572,6 +2880,9 @@ local function make_ui(imgui)
     ui.log = diag.log
     ui.open_window = app.open_window
     ui.close_window = app.close_window
+    ui.start_update = app.start_update
+    ui.update_later = app.update_later
+    ui.update_reload = app.update_reload
     ui.show_tracker = app.show_tracker
     ui.popup_choose = app.popup_choose
     ui.popup_preview = app.popup_preview
@@ -2671,6 +2982,7 @@ function app.present()
             entry = require('src.ui.entry'),
             notices = require('src.ui.notices'), map_view = require('src.ui.map_view'),
             eminence = require('src.ui.eminence'),
+            update_popup = require('src.ui.update_popup'),
         }
         perf_names = {}
         for k, m in pairs(screens) do
@@ -2724,8 +3036,14 @@ function app.present()
     if state.ready and S.compass.visible then guarded(screens.compass.draw, ui) end
     guarded(screens.notices.draw_resume, ui, now)
     if S.notify.popup then guarded(screens.notices.draw_popup, ui, now) end
+    if screens.update_popup and screens.update_popup.visible and screens.update_popup.visible(ui) then
+        guarded(screens.update_popup.draw, ui)
+    end
 
     state.text_active = ui.text_active
+    -- 直前のフレームの乗っている／選ばれている窓（Esc 判定。入力は描画の前後どちらでも来る）
+    state.win_hover = ui.win_hover or {}
+    state.win_focus = ui.win_focus or {}
     -- デバッグがオンのときだけ、本文の重ね描き回数を VanaCore のログへ 1 回出す
     if not state.body_fx_logged and theme.body_fx_stats and S and S.debug and S.debug.state_buttons == true then
         local st = theme.body_fx_stats()
@@ -2910,6 +3228,31 @@ function app.command(text)
             if onoff == 'on' then on = true elseif onoff == 'off' then on = false else on = not app.state_buttons() end
             app.set_state_buttons(on)
             P.print(T(on and 'cmd.debug_buttons_on' or 'cmd.debug_buttons_off'))
+        elseif what == 'icon' then
+            -- /astertrail debug icon <id>：アイコンバイト列の長さと先頭を、アドオンフォルダへ書く（設定フォルダには書かない）
+            local id = tonumber(onoff)
+            if not id then
+                P.print(T('cmd.debug_icon_bad'))
+            else
+                local item_tip = require('src.ui.item_tip')
+                local dir = (P.addon_dir and P.addon_dir()) or ''
+                if dir == '' and addon and addon.path then dir = tostring(addon.path) end
+                if dir ~= '' and dir:sub(-1) ~= '/' and dir:sub(-1) ~= '\\' then
+                    dir = dir .. '/'
+                end
+                local path = dir .. 'debug_item_icon.txt'
+                local ok, meta = item_tip.write_icon_debug(id, path)
+                if ok then
+                    local n, kind = 0, 'none'
+                    if type(meta) == 'table' then
+                        n = tonumber(meta.length) or 0
+                        kind = meta.kind or 'none'
+                    end
+                    P.print(T('cmd.debug_icon_ok', { path = path, n = tostring(n), kind = tostring(kind) }))
+                else
+                    P.print(T('cmd.debug_icon_fail', { why = tostring(meta or 'write') }))
+                end
+            end
         else
             P.print(T('cmd.debug_help'))
         end
@@ -3139,6 +3482,10 @@ function app.command(text)
         if r.last_send then
             P.print(T('cmd.roe_last_send', { op = r.last_send.op, id = tostring(r.last_send.id), name = roe_name(r.last_send.id) }))
         end
+    elseif sub == 'reset' and arg == 'unstarted' then
+        local qid = args[4]
+        if qid == '' then qid = nil end
+        app.report_revert_unstarted(qid)
     elseif sub == 'resetlayout' then
         for _, ws in pairs(S.windows) do ws.x, ws.y, ws.w, ws.h = nil, nil, nil, nil end
         window.reapply()

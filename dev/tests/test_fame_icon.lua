@@ -78,6 +78,7 @@ check(f ~= nil, 'fame.png exists'); if f then f:close() end
 local ext = require('src.platform.vanacore_ext')
 check(ext.mark_file('fame'):find('fame.png', 1, true) ~= nil, 'ext knows fame.png')
 local theme = require('src.ui.theme')
+theme.set_look('classic')
 check(theme.palette.ic_fame ~= nil, 'ic_fame color')
 for _, k in ipairs({ 'npc', 'mob', 'obj', 'gold', 'ic_main', 'ic_sub', 'ic_repeat', 'ic_progress', 'ic_done', 'ic_bad' }) do
     local a, b = theme.palette.ic_fame, theme.palette[k]

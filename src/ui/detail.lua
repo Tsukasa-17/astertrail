@@ -78,6 +78,13 @@ function detail.body(ui, win, q, opts)
 
     local state = P:state(q.id)
     W.text(ui, t('detail.state', { state = labels.state(t, state) }))
+    if state ~= 'not_accepted' and ui.can_revert_unstarted and ui.can_revert_unstarted(q.id) then
+        if W.button(ui, name, 'reset_unstarted', t('detail.reset_unstarted'), {
+            section = 'state', row = 'state', tooltip = t('detail.reset_unstarted_tip'),
+        }) then
+            if ui.revert_unstarted then ui.revert_unstarted(q.id) end
+        end
+    end
 
     -- 状態とピンを1列に（公開版は状態のボタンを出さない。受注・完了はゲームの記録から。t225）
     local manual = (ui.manual_checks == nil) or ui.manual_checks()
@@ -332,6 +339,9 @@ end
 
 -- 詳細だけの窓（本の一覧でダブルクリックした時）
 function detail.draw(ui)
+    if theme.is_sf and theme.is_sf() then
+        return require('src.ui.detail_win_sf').draw(ui)
+    end
     local t = ui.t
     local st = ui.state
     local qid = st.detail_quest

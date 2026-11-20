@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 
 local book_sf = require('src.ui.book_sf')
 local src = io.open(ROOT .. '/src/ui/book_sf.lua', 'r'):read('*a')
@@ -24,7 +24,7 @@ do
     local ui = {
         settings = { items = { show_possession = true } },
         t = function (k, args)
-            if k == 'sf.poss_held' then return string.format('(%s/%s所持)', args.have, args.need) end
+            if k == 'sf.poss_held' then return string.format('(%s/%s)', args.have, args.need) end
             return k
         end,
         need_possession = function (n)
@@ -41,10 +41,10 @@ do
     }
     local text = 'パルブロ鉱山のクゥダフを倒して、クゥダフ人形の頭・胴・腕・足を集める'
     local out = book_sf._step_text_with_poss(ui, s, text)
-    check(out:find('クゥダフ人形の頭(0/1所持)', 1, true) ~= nil, 'full name keeps its count')
-    check(out:find('胴(0/1所持)', 1, true) ~= nil, 'short 胴 gets a count')
-    check(out:find('腕(0/1所持)', 1, true) ~= nil, 'short 腕 gets a count')
-    check(out:find('足(0/1所持)', 1, true) ~= nil, 'short 足 gets a count')
+    check(out:find('クゥダフ人形の頭(0/1)', 1, true) ~= nil, 'full name keeps its count')
+    check(out:find('胴(0/1)', 1, true) ~= nil, 'short 胴 gets a count')
+    check(out:find('腕(0/1)', 1, true) ~= nil, 'short 腕 gets a count')
+    check(out:find('足(0/1)', 1, true) ~= nil, 'short 足 gets a count')
     -- 文に全く出ない必要品は末尾へ
     local s2 = { needs = { { name_ja = 'ジュノ大公面会許可証', kind = 'key_item', count = 1 } } }
     ui.need_possession = function () return { state = 'missing', kind = 'key' } end

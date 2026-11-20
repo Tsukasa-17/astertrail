@@ -8,7 +8,7 @@ local app = require('src.app')
 local imgui = require('imgui')
 local ffi = require('ffi')
 
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 eq(crisp.DEFAULT_FACE, 'meiryo.ttc', 'default face')
 eq(crisp.LARGE_PX, 36, 'loaded at 36px from the start')
 
@@ -83,7 +83,14 @@ crisp._reset()
 local S0 = settings.merge({ font_crisp = true })
 eq(crisp.ensure(imgui, S0), false, 'first ensure not ready')
 eq(crisp.dynamic(), true, 'dynamic after large load')
-eq(#added, 2, 'default: regular+bold only, no merge')
+do
+    local body, head = 0, 0
+    for _, e in ipairs(added) do
+        if tostring(e.path):find('Melete', 1, true) then head = head + 1 else body = body + 1 end
+    end
+    eq(body, 2, 'default: regular+bold only, no merge')
+    eq(head, 1, 'Melete heading is also loaded at the same time')
+end
 eq(added[1].px, 36, 'regular loaded at 36')
 eq(added[2].px, 36, 'bold loaded at 36')
 check(not added[1].merge, 'default: no MergeMode')

@@ -56,6 +56,66 @@ function ext.http_get(url, cb)
     return ok
 end
 
+-- 大きなファイルを作業フォルダへ保存（0.1.282〜）。公式 vana.http.download（docs/addons/17-http-and-websockets.md）。
+-- 途中失敗では半端なファイルを残さない。無ければ vana.http.get の save で代用。cb(path) / 失敗時 cb(nil, err)。
+function ext.http_download(url, path, cb, opts)
+    local v = V()
+    if not v or type(v.http) ~= 'table' then return false end
+    if type(url) ~= 'string' or type(path) ~= 'string' or type(cb) ~= 'function' then return false end
+    opts = opts or {}
+    local headers = opts.headers or { ['User-Agent'] = 'Astertrail-updater' }
+    local req = {
+        timeout = tonumber(opts.timeout) or 30,
+        max_time = tonumber(opts.max_time) or 600,
+        follow = true,
+        headers = headers,
+    }
+    local function finish(ok_path, err)
+        pcall(cb, ok_path, err)
+    end
+    if type(v.http.download) == 'function' then
+        local ok = pcall(v.http.download, url, path, req, function (res, err)
+            if err or type(res) ~= 'table' or not res.ok then
+                finish(nil, err or { code = 'http', message = 'download failed' })
+                return
+            end
+            finish(res.saved or path)
+        end)
+        return ok
+    end
+    if type(v.http.get) ~= 'function' then return false end
+    req.save = path
+    req.strict = true
+    local ok = pcall(v.http.get, url, req, function (res, err)
+        if err or type(res) ~= 'table' or not res.ok then
+            finish(nil, err or { code = 'http', message = 'download failed' })
+            return
+        end
+        finish(res.saved or path)
+    end)
+    return ok
+end
+
+-- 次のフレームに、打ったのと同じコマンドを走らせる（公式 vana.chat.run。docs/addons/05-chat-and-commands.md）
+
+function ext.create_dir(path)
+    if type(path) ~= 'string' or path == '' then return false end
+    local v = V()
+    if v and type(v.fs) == 'table' and type(v.fs.create_dir) == 'function' then
+        local ok, r = pcall(v.fs.create_dir, path)
+        return ok and r ~= false
+    end
+    return false
+end
+
+function ext.chat_run(line)
+    if type(line) ~= 'string' or line == '' then return false end
+    local v = V()
+    if not v or type(v.chat) ~= 'table' or type(v.chat.run) ~= 'function' then return false end
+    local ok = pcall(v.chat.run, line)
+    return ok
+end
+
 -- 効果音（0.1.183〜、t295）。VanaCore の vana.system.play_sound(path)（Windows の PlaySound でファイルを鳴らす）。
 -- 無い・失敗したら false
 function ext.can_play_sound()
@@ -2580,6 +2640,57 @@ end
 function ext.release_menus(id)
     local g = gameui()
     if g and id ~= nil and type(g.off) == 'function' then pcall(g.off, id) end
+end
+
+
+-- 品の静的資料（0.1.262〜）。公式の vana.gamedata / vana.ashita.item_icon だけを読む。
+local function gamedata()
+    local v = rawget(_G, 'vana')
+    if type(v) ~= 'table' then return nil end
+    return v.gamedata
+end
+
+function ext.gamedata_item(id)
+    id = tonumber(id)
+    if not id then return nil end
+    local gd = gamedata()
+    if not gd or type(gd.items) ~= 'table' then return nil end
+    local ok, row = pcall(function () return gd.items[id] end)
+    if ok and type(row) == 'table' then return row end
+    return nil
+end
+
+function ext.gamedata_key_item(id)
+    id = tonumber(id)
+    if not id then return nil end
+    local gd = gamedata()
+    if not gd or type(gd.key_items) ~= 'table' then return nil end
+    local ok, row = pcall(function () return gd.key_items[id] end)
+    if ok and type(row) == 'table' then return row end
+    return nil
+end
+
+function ext.gamedata_job(id)
+    id = tonumber(id)
+    if not id then return nil end
+    local gd = gamedata()
+    if not gd or type(gd.jobs) ~= 'table' then return nil end
+    local ok, row = pcall(function () return gd.jobs[id] end)
+    if ok and type(row) == 'table' then return row end
+    return nil
+end
+
+-- 戻り値は DAT から読んだアイコンのバイト列（文字）。無いときは '' または nil。
+function ext.item_icon_bytes(id)
+    id = tonumber(id)
+    if not id then return nil end
+    local v = rawget(_G, 'vana')
+    if type(v) ~= 'table' or type(v.ashita) ~= 'table' or type(v.ashita.item_icon) ~= 'function' then
+        return nil
+    end
+    local ok, s = pcall(v.ashita.item_icon, id)
+    if not ok or type(s) ~= 'string' or s == '' then return nil end
+    return s
 end
 
 

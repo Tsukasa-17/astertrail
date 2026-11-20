@@ -45,7 +45,7 @@ local S = app._settings()
 S.input.gamepad = true
 S.gameui.capture = true
 S.gameui.menus_on_top = true
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 
 local LIST = '##astertrail_book_list'
 local function open_menu_flag()

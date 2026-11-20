@@ -5,6 +5,7 @@
 
 local json = require('src.lib.json')
 local util = require('src.lib.util')
+local gil = require('src.core.gil')
 
 local SUPPORTED_DATA_SCHEMA = 1
 
@@ -159,7 +160,9 @@ function data:_load_item_refs(fs, base)
                         if nd.key_item_id == nil and id then nd.key_item_id = id; n = n + 1 end
                     elseif nd.item_id == nil then
                         local id = tonumber(doc.items[nd.name_ja])
-                        if id then nd.item_id = id; n = n + 1 end
+                        if id and not gil.should_skip_item_lookup(nd.name_ja, id) then
+                            nd.item_id = id; n = n + 1
+                        end
                     end
                 end
             end
@@ -168,13 +171,93 @@ function data:_load_item_refs(fs, base)
     self.item_ref_count = n
     self.item_name_id = doc.items
     self.key_name_id = doc.key_items
+    self.item_name_ids = {}
+    self.key_name_ids = {}
+    self:_merge_item_refs_extra(fs, base)
+    self:_apply_item_ref_ids()
+end
+
+local function _copy_ids(src)
+    local out = {}
+    if type(src) ~= 'table' then return out end
+    for _, v in ipairs(src) do
+        local id = tonumber(v)
+        if id then out[#out + 1] = id end
+    end
+    return out
+end
+
+-- 手で足した番号（data/item_refs_extra.json。同じ公式名の複数番号は合算）
+function data:_merge_item_refs_extra(fs, base)
+    local t = fs.read(base .. 'item_refs_extra.json')
+    if not t then return end
+    local extra = json.decode(t)
+    if type(extra) ~= 'table' then return end
+    self.item_name_id = self.item_name_id or {}
+    self.key_name_id = self.key_name_id or {}
+    for name, id in pairs(type(extra.items) == 'table' and extra.items or {}) do
+        if type(name) == 'string' and tonumber(id) then
+            -- items に一本化したら、以前の items_any は使わない（0.1.281〜 堀ブナなど）
+            self.item_name_id[name] = tonumber(id)
+            if self.item_name_ids then self.item_name_ids[name] = nil end
+        end
+    end
+    for name, id in pairs(type(extra.key_items) == 'table' and extra.key_items or {}) do
+        if type(name) == 'string' and tonumber(id) then
+            self.key_name_id[name] = tonumber(id)
+            if self.key_name_ids then self.key_name_ids[name] = nil end
+        end
+    end
+    for name, ids in pairs(type(extra.items_any) == 'table' and extra.items_any or {}) do
+        local list = _copy_ids(ids)
+        if type(name) == 'string' and #list > 0 then self.item_name_ids[name] = list end
+    end
+    for name, ids in pairs(type(extra.key_items_any) == 'table' and extra.key_items_any or {}) do
+        local list = _copy_ids(ids)
+        if type(name) == 'string' and #list > 0 then self.key_name_ids[name] = list end
+    end
+end
+
+-- 資料の needs に、名前表（本体＋手入力）の番号を足す
+function data:_apply_item_ref_ids()
+    local n = self.item_ref_count or 0
+    for _, q in pairs(self.by_id or {}) do
+        for _, s in ipairs(q.steps or {}) do
+            for _, nd in ipairs(s.needs or {}) do
+                if type(nd) == 'table' then
+                    local name = nd.name_ja or nd.name_en
+                    local ref = name and self:lookup_item_name(name)
+                    if ref then
+                        if ref.kind == 'key_item' then
+                            nd.kind = 'key_item'
+                            if nd.key_item_id == nil then nd.key_item_id = ref.key_item_id; n = n + 1 end
+                            if ref.key_item_ids then nd.key_item_ids = ref.key_item_ids end
+                        else
+                            if nd.item_id == nil then nd.item_id = ref.item_id; n = n + 1 end
+                            if ref.item_ids then nd.item_ids = ref.item_ids end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    self.item_ref_count = n
 end
 
 -- 名前から品／だいじなものの番号を返す（資料の needs に無いとき、表示側の照合用）
 function data:lookup_item_name(name)
     if type(name) ~= 'string' or name == '' then return nil end
+    if gil.should_skip_item_lookup(name) then return nil end
+    local kids = self.key_name_ids and self.key_name_ids[name]
+    if kids and #kids > 0 then
+        return { kind = 'key_item', key_item_id = kids[1], key_item_ids = kids, name_ja = name }
+    end
     local kid = self.key_name_id and tonumber(self.key_name_id[name])
     if kid then return { kind = 'key_item', key_item_id = kid, name_ja = name } end
+    local iids = self.item_name_ids and self.item_name_ids[name]
+    if iids and #iids > 0 then
+        return { kind = 'item', item_id = iids[1], item_ids = iids, name_ja = name, count = 1 }
+    end
     local iid = self.item_name_id and tonumber(self.item_name_id[name])
     if iid then return { kind = 'item', item_id = iid, name_ja = name, count = 1 } end
     return nil

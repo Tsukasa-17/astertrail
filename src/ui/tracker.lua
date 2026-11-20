@@ -406,7 +406,6 @@ function tracker.draw(ui)
             local q = D:quest(qid)
             -- 件の中をパッドで選べるか（操作していない＝全部、inside＝その件だけ、entries＝件そのものだけ）
             local nf = not (level == 'all' or (level == 'inside' and entry == qid))
-            if not (tabs and n_i == 1 and not top_drawn) then W.sep(ui) end
             local efocused = false
             if level == 'entries' then
                 efocused = focus.item(name, 'e_' .. qid, 'entries', qid)
@@ -597,6 +596,8 @@ function tracker.draw(ui)
                 -- 件ごとの枠（パッドの1段目）
                 W.after_item(ui, name, 'e_' .. qid, efocused)
             end
+            -- 一覧で複数あるとき、件と件のあいだだけ細い線（最後のあとは引かない）
+            if (not tabs) and n_i < #shown then W.entry_sep(ui) end
         end
         -- 一番下の「必要品」（必要品まとめを開く）は 0.1.173 でなくした（t251）
         if child then window.pop(ui, 'child') end

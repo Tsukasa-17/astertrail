@@ -24,6 +24,7 @@ local DEFAULTS = {
     entry    = { fx = 0.97, fy = 0.60, auto = true },
     resume   = { fx = 0.50, fy = 0.18, auto = true },
     popup    = { fx = 0.50, fy = 0.28, auto = true },   -- 受注・完了のお知らせ（0.1.183〜。0.1.197〜は大きめ）
+    update   = { fx = 0.50, fy = 0.28, auto = true },   -- 新しい版のダウンロード（0.1.282〜）
     eminence = { fx = 0.14, fy = 0.40, w = 380, h = 320 },   -- 0.1.172〜
     compass  = { fx = 0.14, fy = 0.72, w = 400, h = 240 },   -- 0.1.173〜
 }
@@ -204,10 +205,23 @@ local function apply_font(ui, scale, opts)
         crisp_font.pop(imgui)
         ui._crisp_pushed = false
     end
+    -- 昔の呼び出しは第3引数に bold（boolean）を渡すことがある
+    if type(opts) == 'boolean' then
+        opts = { bold = opts }
+    elseif type(opts) ~= 'table' then
+        opts = nil
+    end
     local name = ui._crisp_win
-    if name and CRISP_WINS[name] and crisp_font.push(imgui, ui.settings, ui._font_base, scale, opts) then
-        ui._crisp_pushed = true
-        return
+    if name and CRISP_WINS[name] then
+        -- SF の英語見出し：同梱フォント。失敗したら今のくっきりフォントへ。
+        if opts and opts.heading and crisp_font.push_heading and crisp_font.push_heading(imgui, ui.settings, ui._font_base, scale) then
+            ui._crisp_pushed = true
+            return
+        end
+        if crisp_font.push(imgui, ui.settings, ui._font_base, scale, opts) then
+            ui._crisp_pushed = true
+            return
+        end
     end
     -- 今までの倍率（フォールバック）
     if not imgui.SetWindowFontScale then return end
@@ -362,11 +376,19 @@ function window.begin(ui, name, opts)
         pcall(theme.draw_capsule, imgui, name, cap_s, ui.settings.reduce_motion)
     end
     if opts.glass and drawing then
-        pcall(theme.draw_popup_glass, imgui, opts.glass_kind or 'accept', {
+        local gopts = {
             scale = anim and tonumber(anim.scale) or 1,
             alpha = anim and tonumber(anim.a) or 1,
             reduce_motion = ui.settings and ui.settings.reduce_motion,
-        })
+        }
+        -- SF はシアンのガラス枠。クラシック／YunaUI は従来のガラスのまま（0.1.280〜）
+        if theme.is_sf and theme.is_sf() then
+            pcall(function ()
+                require('src.ui.sf_style').draw_popup(imgui, opts.glass_kind or 'accept', gopts)
+            end)
+        else
+            pcall(theme.draw_popup_glass, imgui, opts.glass_kind or 'accept', gopts)
+        end
     end
     if sf_frame and drawing then
         pcall(function ()
@@ -412,6 +434,16 @@ function window.begin(ui, name, opts)
     end
     if imgui.IsWindowHovered(C('ImGuiHoveredFlags_ChildWindows')) then
         ui.hovered_any = true
+        ui.win_hover = ui.win_hover or {}
+        ui.win_hover[name] = true
+    end
+    -- フォーカス（子窓も含む）。Esc で閉じる判定に使う（0.1.282〜）
+    do
+        local okf, foc = pcall(imgui.IsWindowFocused, C('ImGuiFocusedFlags_ChildWindows'))
+        if okf and foc then
+            ui.win_focus = ui.win_focus or {}
+            ui.win_focus[name] = true
+        end
     end
     focus.begin(name)
     return drawing

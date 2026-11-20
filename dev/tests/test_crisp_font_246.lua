@@ -7,7 +7,7 @@ local window = require('src.ui.window')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 ---------------------------------------------------------------------------
 -- 1) 初期値と保存の合わせ込み
 ---------------------------------------------------------------------------
@@ -100,10 +100,17 @@ imgui.SetWindowFontScale = function (v) scale_calls[#scale_calls + 1] = v end
 eq(crisp.ensure(imgui), false, 'first ensure loads, not yet ready (atlas next frame)')
 eq(crisp.dynamic(), true, 'LegacySize -> dynamic')
 check(#added >= 1, 'regular loaded')
-check(#added <= 2, 'only regular+bold, not a size list')
+do
+    local body, head = 0, 0
+    for _, e in ipairs(added) do
+        if tostring(e.path):find('Melete', 1, true) then head = head + 1 else body = body + 1 end
+    end
+    eq(body, 2, 'only regular+bold meiryo, not a size list')
+    eq(head, 1, 'Melete heading loaded once with the body fonts')
+end
 eq(crisp.ensure(imgui), true, 'second ensure ready')
 eq(crisp.ensure(imgui), true, 'later ensure does not reload')
-eq(#added, 2, 'still two fonts (regular and bold)')
+eq(#added, 3, 'still regular+bold+heading, no reload')
 
 local S = settings.merge({ font_crisp = true, font_crisp_bold = false, fonts = { tracker = 1.5 } })
 ui.settings = S

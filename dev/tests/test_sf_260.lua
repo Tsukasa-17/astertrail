@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.260', 'version')
+eq(app.VERSION, '1.1.285', 'version')
 
 local labels = require('src.ui.labels')
 local poss_ui = require('src.ui.possession_ui')
@@ -33,7 +33,7 @@ local function ui_of(fn_need)
     return {
         settings = { items = { show_possession = true } },
         t = function (k, args)
-            if k == 'sf.poss_held' then return string.format('(%s/%s所持)', args.have, args.need) end
+            if k == 'sf.poss_held' then return string.format('(%s/%s)', args.have, args.need) end
             if k == 'sf.poss_none_tip' then return '未所持' end
             if k == 'poss.part' then return args.where .. tostring(args.n) end
             if k == 'poss.c0' then return 'かばん' end
@@ -63,8 +63,8 @@ do
     }
     local text = 'パルブロ鉱山のクゥダフを倒して、クゥダフ人形の頭・胴・腕・足を集める'
     local out, extras = poss_ui.apply_to_step(ui, step, text)
-    check(out:find('クゥダフ人形の頭(1/1所持)', 1, true) ~= nil, 'full name keeps its count in the text')
-    check(out:find('胴(0/1所持)', 1, true) ~= nil, 'short name keeps its count in the text')
+    check(out:find('クゥダフ人形の頭(1/1)', 1, true) ~= nil, 'full name keeps its count in the text')
+    check(out:find('胴(0/1)', 1, true) ~= nil, 'short name keeps its count in the text')
     local by_s = {}
     for _, e in ipairs(extras) do by_s[e.s] = e end
     eq(by_s['胴'].kind, 'item', 'short name is an item term')
@@ -76,7 +76,7 @@ do
     check(by_s['0/1'] and by_s['0/1'].kind == 'poss_count', 'short count is a count term')
     eq(by_s['0/1'].color, 'ic_bad', 'short count is red')
     eq(by_s['0/1'].tip, '未所持', 'zero count tip is 未所持')
-    check(not by_s['胴(0/1所持)'], 'the combined name+count is not a single term')
+    check(not by_s['胴(0/1)'], 'the combined name+count is not a single term')
 
     local terms = poss_ui.merge_terms({}, extras)
     local spans = CT.spans(out, terms)
@@ -119,7 +119,7 @@ do
     eq(marks['無い鍵'], 'no', 'missing key mark is no')
 end
 
--- BM2-1：必要品だけ付ける。入手や汎用クリスタルは付けない。報告書は渡す手順で付ける。
+-- BM2-1：必要品だけ付ける。入手だけの品は付けない。報告書は渡す手順で付ける。
 do
     local D = data_mod.load(posix_fs(), ROOT .. '/data/')
     local q = D:quest('mission.bastok.004')
@@ -128,7 +128,7 @@ do
         if n.kind == 'key_item' or n.name_ja == 'CL研究報告書' then
             return { state = 'missing', kind = 'key' }
         end
-        if n.item_id or (n.name_ja and n.name_ja ~= 'クリスタル') then
+        if n.item_id or n.item_ids or (n.name_ja and n.name_ja ~= 'クリスタル') then
             return { state = 'short', have = 0, need = n.count or 1, kind = 'item', parts = {}, unknown = {} }
         end
         return { state = 'unknown', kind = 'item' }
@@ -136,10 +136,10 @@ do
     ui.data = D
     local s2, s3, s5 = q.steps[2], q.steps[3], q.steps[5]
     local t2 = poss_ui.apply_to_step(ui, s2, s2.next_line_ja, q)
-    check(not t2:find('クリスタル(', 1, true), 'generic クリスタル gets no count')
+    check(t2:find('クリスタル(0/1)', 1, true) ~= nil, 'generic クリスタル sums the 8 crystals')
     check(not t2:find('変色クリスタル(', 1, true), 'obtained 変色クリスタル on step 2 gets no count')
     local t3 = poss_ui.apply_to_step(ui, s3, s3.next_line_ja, q)
-    check(t3:find('変色クリスタル(0/1所持)', 1, true) ~= nil, 'required 変色クリスタル on step 3 is counted')
+    check(t3:find('変色クリスタル(0/1)', 1, true) ~= nil, 'required 変色クリスタル on step 3 is counted')
     check(not t3:find('CL研究報告書(', 1, true), 'obtained 報告書 on step 3 gets no count')
     local t5, ex5 = poss_ui.apply_to_step(ui, s5, s5.next_line_ja, q)
     local has_mark = t5:find('CL研究報告書(' .. poss_ui.KEY_MARK_SLOT .. ')', 1, true) ~= nil
@@ -168,7 +168,7 @@ do
     check(not t3:find('カギ(', 1, true) and not t3:find('ダボイ貯蔵庫のカギ(', 1, true),
         'obtaining the key does not add a count')
     local t4 = poss_ui.apply_to_step(ui, s4, '次：' .. (s4.next_line_ja or ''), q)
-    check(t4:find('カギ(0/1所持)', 1, true) ~= nil or t4:find('ダボイ貯蔵庫のカギ(0/1所持)', 1, true) ~= nil,
+    check(t4:find('カギ(0/1)', 1, true) ~= nil or t4:find('ダボイ貯蔵庫のカギ(0/1)', 1, true) ~= nil,
         'the 次： trade line counts the required key')
     check(not t4:find('オーキシュ・ドライフード(', 1, true), 'obtained food on the 次： line gets no count')
 end

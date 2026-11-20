@@ -227,4 +227,85 @@ function maps.location_for(data, progress, q, step_id)
     return nil, nil
 end
 
+-- その地図のマス目の範囲。A–P / 1–16 を固定しない。
+-- 換算は maps.BASE / MARGIN / CELL。地図ごとの列数・行数が資料にあればそれを使い、
+-- 無ければ画像の内側に収まるマスだけを出す（0.1.275〜）。
+function maps.grid_layout(floor, opts)
+    opts = opts or {}
+    local base = tonumber(opts.base) or maps.BASE
+    local margin = maps.MARGIN
+    local cell = maps.CELL
+    if floor then
+        if tonumber(floor.grid_margin) then margin = tonumber(floor.grid_margin) end
+        if tonumber(floor.margin) then margin = tonumber(floor.margin) end
+        if tonumber(floor.grid_cell) then cell = tonumber(floor.grid_cell) end
+        if tonumber(floor.cell) then cell = tonumber(floor.cell) end
+    end
+    if tonumber(opts.margin) then margin = tonumber(opts.margin) end
+    if tonumber(opts.cell) then cell = tonumber(opts.cell) end
+    if cell == nil or cell <= 0 then cell = maps.CELL end
+    if margin == nil then margin = 0 end
+    -- 表示は 512px 基準の座標。画像サイズが違うときは、同じ UV をその大きさに合わせる
+    local iw = tonumber(opts.image_w)
+    local ih = tonumber(opts.image_h) or iw
+    local w = base
+    local h = base
+    if iw and iw > 0 then w = base end
+    if ih and iw and iw > 0 and ih > 0 and ih ~= iw then
+        h = base * (ih / iw)
+    end
+    local function axis(first, limit)
+        -- マスの矩形が画像の内側（0..limit）に完全に収まるものだけ
+        local ids = {}
+        local i, guard = 0, 0
+        while guard < 40 do
+            guard = guard + 1
+            local a = first + i * cell
+            local b = a + cell
+            if a >= limit then break end
+            if a >= -1e-6 and b <= limit + 1e-6 then
+                ids[#ids + 1] = i
+            elseif a > limit then
+                break
+            end
+            i = i + 1
+        end
+        return ids
+    end
+    -- 明示の列数・行数（資料にあるときだけ。推測では付けない）
+    local col_ids, row_ids
+    local given_c = floor and (tonumber(floor.grid_cols) or tonumber(floor.cols))
+    local given_r = floor and (tonumber(floor.grid_rows) or tonumber(floor.rows))
+    if given_c and given_c > 0 then
+        col_ids = {}
+        for i = 0, math.floor(given_c) - 1 do col_ids[#col_ids + 1] = i end
+    else
+        col_ids = axis(margin, w)
+    end
+    if given_r and given_r > 0 then
+        row_ids = {}
+        for i = 0, math.floor(given_r) - 1 do row_ids[#row_ids + 1] = i end
+    else
+        row_ids = axis(margin, h)
+    end
+    local letters = {}
+    for _, i in ipairs(col_ids) do
+        if i >= 0 and i < 26 then letters[#letters + 1] = string.char(string.byte('A') + i) end
+    end
+    local rows = {}
+    for _, i in ipairs(row_ids) do rows[#rows + 1] = i + 1 end
+    return {
+        margin = margin, cell = cell, base = base, w = w, h = h,
+        col_ids = col_ids, row_ids = row_ids,
+        letters = table.concat(letters),
+        rows = rows,
+        col_count = #col_ids, row_count = #row_ids,
+        -- マス i の左／上（512px 基準）
+        x_at = function (i) return margin + i * cell end,
+        y_at = function (i) return margin + i * cell end,
+        x_center = function (i) return margin + i * cell + cell / 2 end,
+        y_center = function (i) return margin + i * cell + cell / 2 end,
+    }
+end
+
 return maps

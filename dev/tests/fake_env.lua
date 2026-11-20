@@ -22,10 +22,12 @@ local imgui = {
         FAKE.begin_flags[title] = flags
         return true
     end,
-    BeginChild = function (id)
+    BeginChild = function (id, size, border, flags)
         FAKE.child = id or '_child'
         FAKE.scroll_y = FAKE.scroll_y or {}
         if FAKE.scroll_y[FAKE.child] == nil then FAKE.scroll_y[FAKE.child] = 0 end
+        FAKE.child_calls = FAKE.child_calls or {}
+        FAKE.child_calls[#FAKE.child_calls + 1] = { id = id, size = size, border = border, flags = flags }
         return true
     end,
     EndChild = function () FAKE.child = nil end,
@@ -187,9 +189,24 @@ AshitaCore = {
 _G.print = function (s) FAKE.printed[#FAKE.printed + 1] = tostring(s) end
 addon = { path = ROOT .. '/' }
 
+-- 1.1.285〜：本番の初期見た目はアストラル。既存テストの多くはクラシック前提なので、
+-- 明示しない限りクラシックにする。初期値そのものを見るテストは先に FAKE.keep_default_look = true。
+local function apply_test_look()
+    if FAKE._look_applied or FAKE.keep_default_look == true then return end
+    local app = package.loaded['src.app']
+    if not (app and app.state and app.state.ready and app._settings) then return end
+    local S = app._settings()
+    if not S then return end
+    S.look = 'classic'
+    local th = package.loaded['src.ui.theme']
+    if th and th.set_look then th.set_look('classic') end
+    FAKE._look_applied = true
+end
+
 function frame(dt)
     FAKE.time = FAKE.time + (dt or 0.016)
-    FAKE.drawn = {}; FAKE.labels = {}; FAKE.texts = {}
+    FAKE.drawn = {}; FAKE.labels = {}; FAKE.texts = {}; FAKE.child_calls = {}
+    apply_test_look()
     FAKE.events.d3d_present()
 end
 function frames(seconds) local n = math.floor(seconds / 0.1) for _ = 1, n do frame(0.1) end end

@@ -16,6 +16,9 @@ local CT = require('src.ui.colored_text')
 local poss_ui = require('src.ui.possession_ui')
 local marks_core = require('src.core.marks')
 local book_sf = {}
+local bottom_fit = {}
+local steps_fit = {}
+local step_card_h = {}
 
 local function font(ui, win, mul, bold)
     local base = window.font_scale(ui, win)
@@ -81,30 +84,16 @@ end
 
 local function draw_logo(ui, win, x, y)
     local imgui, t = ui.imgui, ui.t
-    font(ui, win, 1.85, true)
+    window.set_font(ui, window.font_scale(ui, win) * 1.85, { heading = true, bold = true })
     local label = t('sf.logo')
-    local gap = 3
-    local widths, total, th = {}, 0, 22
-    for i = 1, #label do
-        local ch = label:sub(i, i)
-        local tw, h = theme.measure_text(imgui, ch)
-        tw, h = tw or 12, h or 22
-        widths[i] = tw
-        total = total + tw + (i > 1 and gap or 0)
-        if h > th then th = h end
-    end
+    local total, th = sf.measure_heading(imgui, label, 'title')
+    total, th = total or 0, th or 22
     local w, h = total + 4, th + 10
     if x and y then sf.set_cursor(imgui, x, y) end
     local clicked = sf.hit(imgui, '##sflogo', w, h)
     local x1, y1, x2, y2 = sf.item_rect(imgui)
     if x1 then
-        local tx = x1
-        local col = label_col('heading')
-        for i = 1, #label do
-            local ch = label:sub(i, i)
-            sf.add_text(dl_of(imgui), tx, y1, col, ch)
-            tx = tx + (widths[i] or 12) + gap
-        end
+        sf.add_heading(imgui, x1, y1, label_col('heading'), label, 'title')
         if sf.underline then
             sf.underline(dl_of(imgui), x1, y2 - 3, x1 + total, theme.u32('sf_cyan', 0.95), 1.5)
         end
@@ -116,8 +105,8 @@ end
 
 local function draw_tab(ui, win, id, label, on, x, y)
     local imgui = ui.imgui
-    font(ui, win, 1.08, true)
-    local tw, th = theme.measure_text(imgui, label)
+    window.set_font(ui, window.font_scale(ui, win) * 1.08, { heading = true, bold = true })
+    local tw, th = sf.measure_heading(imgui, label, 'label')
     tw, th = tw or 64, th or 18
     local pad_x, pad_y = 18, 9
     local w, h = tw + pad_x * 2, th + pad_y * 2
@@ -135,7 +124,7 @@ local function draw_tab(ui, win, id, label, on, x, y)
             glow_col2 = theme.u32('sf_cyan', 0.32),
             band_a = on and 0.22 or 0.03,
         })
-        sf.add_text(dl_of(imgui), x1 + pad_x, y1 + pad_y - 1, label_col(on and 'heading' or 'muted'), label)
+        sf.add_heading(imgui, x1 + pad_x, y1 + pad_y - 1, label_col(on and 'heading' or 'muted'), label, 'label')
         if sf.snap_after_item then sf.snap_after_item(imgui) end
     end
     font(ui, win, 1, false)
@@ -426,8 +415,14 @@ end
 
 local function section_label(ui, win, key)
     local imgui, t = ui.imgui, ui.t
-    font(ui, win, 0.72, true)
-    theme.TextColored(imgui, theme.col('sf_cyan'), t(key))
+    local label = t(key)
+    if sf.is_en_heading(label) then
+        window.set_font(ui, window.font_scale(ui, win) * 0.72, { heading = true, bold = true })
+        sf.heading_line(ui, label, theme.u32('sf_cyan', 1.0), 'label')
+    else
+        font(ui, win, 0.72, true)
+        theme.TextColored(imgui, theme.col('sf_cyan'), label)
+    end
     font(ui, win, 1, false)
 end
 
@@ -502,7 +497,9 @@ local function step_text_with_poss(ui, s, text)
     return out
 end
 
-local function draw_detail_sf(ui, win, q)
+local function draw_detail_sf(ui, win, q, opts)
+    opts = opts or {}
+    local standalone = opts.standalone == true
     local imgui, t = ui.imgui, ui.t
     local P, D, S = ui.progress, ui.data, ui.settings
     -- 枠は外側の子窓に描き、中身は内側の子窓へ入れて四方の余白を共有する
@@ -560,10 +557,58 @@ local function draw_detail_sf(ui, win, q)
             function ()
                 if book.toggle_unimplemented(S, q.id) and ui.mark_settings_dirty then ui.mark_settings_dirty() end
             end)
+        -- 0.1.261〜：ゲームの受注フラグが無いものを未開始に戻す
+        if P:state(q.id) ~= 'not_accepted' and ui.can_revert_unstarted and ui.can_revert_unstarted(q.id) then
+            put('reset_unstarted', t('detail.reset_unstarted'), false, t('detail.reset_unstarted_tip'),
+                function ()
+                    if ui.revert_unstarted then ui.revert_unstarted(q.id) end
+                end)
+        end
         flow_end(imgui, stf)
     end
     if q.repeatable == 'yes' then W.muted(ui, t('detail.repeatable_yes'))
     elseif q.repeatable == 'no' then W.muted(ui, t('detail.repeatable_no')) end
+
+    -- 独立した窓だけ：クラシックの詳細にある状態・確認・勧め（本の右ペインの見た目は変えない）
+    if standalone then
+        local state = P:state(q.id)
+        W.text(ui, t('detail.state', { state = labels.state(t, state) }))
+        local manual = (ui.manual_checks == nil) or ui.manual_checks()
+        local state_buttons = manual and ui.state_buttons ~= nil and ui.state_buttons()
+        if state_buttons then
+            for i, stt in ipairs({ 'not_accepted', 'accepted', 'completed' }) do
+                if i > 1 then W.same(ui) end
+                local mark = (state == stt) and '◆' or '◇'
+                if W.button(ui, win, 'state_' .. stt, mark .. ' ' .. t('state.' .. stt),
+                    { section = 'state', row = 'state' }) then
+                    ui.request('set_state', q.id, stt)
+                end
+            end
+        end
+        local st = ui.state
+        if st.confirm and st.confirm.quest == q.id then
+            W.colored(ui, 'warn', st.confirm.text)
+            if W.button(ui, win, 'confirm_yes', t('common.yes'), { section = 'confirm', row = 'c' }) then
+                ui.request(st.confirm.action, q.id, st.confirm.arg, true)
+                st.confirm = nil
+            end
+            W.same(ui)
+            if W.button(ui, win, 'confirm_no', t('common.no'), { section = 'confirm', row = 'c' }) then
+                st.confirm = nil
+            end
+        end
+        if state_buttons and st.suggest_complete == q.id and P:state(q.id) ~= 'completed' then
+            W.colored(ui, 'good', t('detail.suggest_complete'))
+            if W.button(ui, win, 'suggest_yes', t('detail.mark_complete'), { section = 'confirm', row = 's' }) then
+                ui.request('set_state', q.id, 'completed')
+                st.suggest_complete = nil
+            end
+            W.same(ui)
+            if W.button(ui, win, 'suggest_no', t('common.later'), { section = 'confirm', row = 's' }) then
+                st.suggest_complete = nil
+            end
+        end
+    end
 
     if q.lock_reasons and #q.lock_reasons > 0 then
         local blocked = false
@@ -614,19 +659,42 @@ local function draw_detail_sf(ui, win, q)
     -- 手順と REWARD/LOCATION が重ならないよう、残り高さに収める
     -- 内側の子窓にいるので、余白はもう載っている
     local rest = sf.remain_below(imgui, 4)
-    local split_gap = 8
-    local bottom_h = 100
-    if rest < bottom_h + 56 + split_gap then
-        bottom_h = math.max(56, math.floor(rest * 0.34))
+    -- 手順と REWARD/LOCATION のあいだに横線と余白を置く（0.1.273〜）
+    local split_gap = (sf.rule_gap and sf.rule_gap()) or 13
+    -- 下段は中身の高さに合わせ、K-6 などが切れないようにする（0.1.274〜）。手順側がスクロールする
+    local min_steps, min_bot = 36, 80
+    local need = bottom_fit[q.id] or 120
+    local bottom_h = need
+    -- 独立した窓（0.1.285〜）：手順の実測高さを使い、下段をその下に置く。
+    -- 固定の下段バンドを先に取ると、足した場所／相手の行に REWARD が重なっていた。
+    -- 足りなければ内側の子窓がスクロールする。本の右ペインは従来どおり下段を残して手順をスクロール。
+    local need_steps = steps_fit[q.id]
+    local flow_steps = standalone == true
+    if (not flow_steps) and need_steps and rest >= need_steps + need + split_gap then
+        bottom_h = need
+    elseif (not flow_steps) and rest < bottom_h + min_steps + split_gap then
+        bottom_h = math.max(min_bot, rest - min_steps - split_gap)
     end
-    local steps_h = math.max(36, rest - bottom_h - split_gap)
-    local ok_steps = pcall(imgui.BeginChild, '##astertrail_sf_steps', { 0, steps_h }, 0, 0)
-    if ok_steps then window.push(ui, 'child') end
+    local steps_h
+    if not flow_steps then
+        if need_steps and rest >= need_steps + bottom_h + split_gap then
+            steps_h = need_steps
+        else
+            steps_h = math.max(min_steps, rest - bottom_h - split_gap)
+        end
+    end
+    local steps_top = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
+    local ok_steps = false
+    if steps_h then
+        ok_steps = pcall(imgui.BeginChild, '##astertrail_sf_steps', { 0, steps_h }, 0, 0)
+        if ok_steps then window.push(ui, 'child') end
+    end
     local shown, hidden = 0, 0
     local first_y, last_y, line_x
     local manual = (ui.manual_checks == nil) or ui.manual_checks()
     local step_lock = P.steps_locked and P:steps_locked(q.id) or false
     local map_on = S.map and S.map.enabled ~= false and ui.open_map
+    if standalone and manual and step_lock then W.muted(ui, t('detail.steps_locked')) end
     local terms = sf_terms(ui, q)
     local tracker = require('src.ui.tracker')
     -- 丸はモックアップの ①②③ に近い大きさ。数字は CalcTextSize で中央へ
@@ -653,16 +721,18 @@ local function draw_detail_sf(ui, win, q)
             local chk_w = manual and 22 or 0
             local text_col = COL + chk_w + 8
             font(ui, win, is_cur and 0.96 or 0.88, is_cur)
-            local text_avail = math.max(40, (aw or 200) - text_col - 4)
+            local text_avail = math.max(40, (aw or 200) - text_col - 12)
             local _, th = theme.measure_text(imgui, text, text_avail)
             font(ui, win, 1, false)
             local row_h = math.max(DOT_R * 2 + 6, (th or 16) + 10)
-            -- 今の手順の枠は丸に重ねず、手順文の列から始める
+            -- 今の手順の枠は丸に重ねず、手順文の列から始める。
+            -- 独立した窓では場所／相手などの行も含めた高さを使う（0.1.285〜）。
+            -- 線は測ってから描く。先に 1 行分の枠を描くと、下の行に枠が重なっていた。
+            local card_key = tostring(q.id) .. '\0' .. tostring(s.id)
+            local guessed = step_card_h[card_key] or row_h
+            local card_r = ax and (ax + math.max(80, aw) - 4) or nil
             if is_cur and ax and ay then
-                sf.frame(dl_of(imgui), ax + text_col - 6, ay, ax + math.max(80, aw) - 4, ay + row_h, {
-                    cut = 5, fill_a = 0.28, line_a = 0.95, glow = 1, brackets = false,
-                    thick = 1.4, band_a = 0.10, glow_col = theme.u32('sf_cyan', 0.75),
-                })
+                sf.fill_cut(dl_of(imgui), ax + text_col - 6, ay, card_r, ay + guessed, 5, theme.u32('sf_cyan', 0.28))
             end
             local cx, cy
             if ax and ay then
@@ -700,6 +770,7 @@ local function draw_detail_sf(ui, win, q)
             font(ui, win, is_cur and 0.96 or 0.88, is_cur)
             local hit = W.term_line(ui, win, 'step_' .. s.id, text, step_terms, {
                 section = 'steps', row = s.id, muted = not is_cur, hang_x = hang_x,
+                wrap_width = text_avail,
                 focus_acts = { map = true },
                 tip = function (act, piece)
                     if piece and piece.tip then return piece.tip end
@@ -740,11 +811,89 @@ local function draw_detail_sf(ui, win, q)
                 end
                 font(ui, win, 1, false)
             end
-            -- 「相手：」「所持：」の別行は出さない（名前のクリックと、文中の所持表示に任せる）
-            local _, cy2 = cursor(imgui)
-            if ay and cy2 and cy2 < ay + row_h then
-                imgui.Dummy({ 1, (ay + row_h) - cy2 })
+            -- 本の右ペインでは「相手：」「所持：」の別行は出さない（名前のクリックと、文中の所持表示に任せる）
+            -- 独立した窓では、クラシックと同じ詳しい行をアストラルの色で足す（0.1.284〜）
+            -- 0.1.285〜：これらの行はタイムラインの線の右、手順文と同じ列から始める。
+            local function indent_extra()
+                if hang_x and imgui.SetCursorPosX then
+                    pcall(imgui.SetCursorPosX, hang_x)
+                elseif ax then
+                    local _, cy = cursor(imgui)
+                    if cy then sf.set_cursor(imgui, ax + text_col, cy) end
+                end
             end
+            local extra_opts = { hang_x = hang_x, wrap_width = text_avail }
+            if standalone then
+                font(ui, win, 0.82, false)
+                local loc = D:location_text(s, t)
+                if loc and loc ~= '' then
+                    indent_extra()
+                    W.ctext(ui, t('detail.where', { loc = loc }), step_terms, extra_opts)
+                end
+                local rname = (type(s.routes_ja) == 'table' and #s.routes_ja > 0) and table.concat(s.routes_ja, ' / ') or s.route_ja
+                if rname and rname ~= '' then
+                    indent_extra()
+                    W.muted(ui, t('detail.route', { route = rname }) ..
+                        ((not in_route) and ('  ' .. t('detail.route_other')) or ''))
+                end
+                if s.text_ja and s.text_ja ~= '' then
+                    indent_extra()
+                    W.ctext(ui, s.text_ja, step_terms, extra_opts)
+                end
+                if s.time_weather_ja then
+                    indent_extra()
+                    W.colored(ui, 'warn', labels.time_weather(t, s.time_weather_ja, ui.current_weather and ui.current_weather()))
+                end
+                if s.needs and #s.needs > 0 then
+                    local parts, alt = {}, false
+                    for _, n in ipairs(s.needs) do
+                        parts[#parts + 1] = labels.need(t, n)
+                        if n.group then alt = true end
+                    end
+                    local joined = table.concat(parts, alt and t('need.or') or '、')
+                    indent_extra()
+                    W.ctext(ui, t('detail.needs', { list = joined }), step_terms, extra_opts)
+                    if S.items and S.items.show_possession then
+                        indent_extra()
+                        poss_ui.draw_inline(ui, s.needs, win, 'd' .. s.id)
+                    end
+                end
+                if s.next and #s.next > 1 then
+                    indent_extra()
+                    W.colored(ui, 'warn', t('detail.branch'))
+                end
+                local tn = D:target_name(s.target)
+                if tn then
+                    local tg = s.target and D:target(s.target)
+                    local tloc = (s.location and s.location.zone_id) or (tg and tg.location and tg.location.zone_id)
+                    local kind = (tg and tg.kind) or 'npc'
+                    local can = map_on and tloc
+                    local col = CT.KIND_COLOR and (CT.KIND_COLOR[kind] or 'npc') or 'npc'
+                    indent_extra()
+                    if W.named(ui, win, 'map_' .. s.id, t('detail.target', { name = '{name}' }), tn, {
+                        color = col, click = can, section = 'steps', row = s.id .. '#target',
+                        tooltip = can and t('map.view') or nil, muted = true,
+                    }) then
+                        if kind == 'mob' then ui.open_map(q.id, s.id, nil, { mob = s.target }) else ui.open_map(q.id, s.id) end
+                    end
+                end
+                font(ui, win, 1, false)
+            end
+            local _, cy2 = cursor(imgui)
+            local card_h = row_h
+            if ay and cy2 then card_h = math.max(card_h, (cy2 - ay) + (standalone and 6 or 0)) end
+            step_card_h[card_key] = card_h
+            if is_cur and ax and ay and card_r then
+                sf.frame(dl_of(imgui), ax + text_col - 6, ay, card_r, ay + card_h, {
+                    cut = 5, fill_a = 0, line_a = 0.95, glow = 1, brackets = false,
+                    thick = 1.4, band_a = 0.10, glow_col = theme.u32('sf_cyan', 0.75),
+                })
+            end
+            if ay and cy2 and cy2 < ay + card_h then
+                imgui.Dummy({ 1, (ay + card_h) - cy2 })
+            end
+            -- 縦線は最後の手順の本文の下まで（ドット中心だけだと、下の行を横切って見える）
+            if ay then last_y = math.max(last_y or ay, ay + card_h) end
             imgui.Dummy({ 1, ROW_GAP })
         end
     end
@@ -752,8 +901,19 @@ local function draw_detail_sf(ui, win, q)
         sf.vline(dl_of(imgui), line_x, first_y + 10, last_y - 10, theme.u32('sf_cyan', 0.40), 1.2)
     end
     if hidden > 0 then W.muted(ui, t('detail.route_hidden', { n = hidden })) end
+    do
+        local steps_bot = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
+        if steps_top and steps_bot and steps_bot > steps_top then
+            steps_fit[q.id] = (steps_bot - steps_top) + 4
+        end
+    end
     if ok_steps then window.pop(ui, 'child') end
-    pcall(function () if imgui.NewLine then imgui.NewLine() end end)
+    -- 手順の下、REWARD / LOCATION の上。文字に重ねず、ペインの内側いっぱい
+    if sf.rule then
+        sf.rule(imgui)
+    else
+        pcall(function () if imgui.NewLine then imgui.NewLine() end end)
+    end
     do
         local left = sf.remain_below(imgui, 4)
         if left < bottom_h then bottom_h = math.max(48, left) end
@@ -763,9 +923,24 @@ local function draw_detail_sf(ui, win, q)
     local ok_bot = pcall(imgui.BeginChild, '##astertrail_sf_bottom', { 0, bottom_h }, 0, 0)
     if ok_bot then window.push(ui, 'child') end
     local aw = select(1, sf.avail(imgui)) or 400
-    local left_w = math.max(140, math.floor(aw * 0.52))
-    local ok_rw = pcall(imgui.BeginChild, '##astertrail_sf_rew', { left_w, bottom_h - 4 }, 0, 0)
+    local split = 12
+    local left_w = math.max(140, math.floor((aw - split) * 0.52))
+    local bx, by = sf.xy(pcall(imgui.GetCursorScreenPos))
+    -- REWARD | LOCATION のあいだに薄い縦線（横線とは別。スクロールバーと混同しない）
+    if bx and by and sf.vline then
+        local vx = bx + left_w + split * 0.5
+        local col = theme.u32('sf_cyan', 0.42)
+        pcall(function ()
+            local dl = dl_of(imgui)
+            if dl then
+                dl:AddLine({ vx, by + 4 }, { vx, by + math.max(8, bottom_h - 8) }, theme.u32('sf_cyan', 0.14), 4)
+                sf.vline(dl, vx, by + 4, by + math.max(8, bottom_h - 8), col, 1.0)
+            end
+        end)
+    end
+    local ok_rw = pcall(imgui.BeginChild, '##astertrail_sf_rew', { left_w, 0 }, 0, 0)
     if ok_rw then window.push(ui, 'child') end
+    local rew_top = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
     section_label(ui, win, 'sf.label_reward')
     if q.rewards and #q.rewards > 0 then
         for _, r in ipairs(q.rewards) do
@@ -785,11 +960,14 @@ local function draw_detail_sf(ui, win, q)
     else
         W.muted(ui, t('detail.rewards_none'))
     end
+    if standalone and q.note_ja then W.muted(ui, q.note_ja) end
+    local rew_bot = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
     if ok_rw then window.pop(ui, 'child') end
 
-    imgui.SameLine(0, 8)
-    local ok_lc = pcall(imgui.BeginChild, '##astertrail_sf_loc', { 0, bottom_h - 4 }, 0, 0)
+    imgui.SameLine(0, split)
+    local ok_lc = pcall(imgui.BeginChild, '##astertrail_sf_loc', { 0, 0 }, 0, 0)
     if ok_lc then window.push(ui, 'child') end
+    local loc_top = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
     section_label(ui, win, 'sf.label_location')
     local lines, sl = loc_lines(ui, q)
     local place = D:start_place_text(q)
@@ -833,6 +1011,14 @@ local function draw_detail_sf(ui, win, q)
             font(ui, win, 1, false)
         end
     end
+    local loc_bot = select(2, sf.xy(pcall(imgui.GetCursorScreenPos)))
+    -- 方位磁針と文字が重ならないよう、下に余白を見る
+    local loc_need = 0
+    if loc_top and loc_bot then loc_need = (loc_bot - loc_top) + 36 end
+    local rew_need = 0
+    if rew_top and rew_bot then rew_need = (rew_bot - rew_top) + 8 end
+    local fitted = math.max(min_bot or 80, rew_need, loc_need, 72)
+    bottom_fit[q.id] = fitted
     if ok_lc then window.pop(ui, 'child') end
     if ok_bot then window.pop(ui, 'child') end
     if ok_inner then window.pop(ui, 'child') end
@@ -968,7 +1154,7 @@ function book_sf.draw(ui)
         if settings_on then
             require('src.ui.settings_ui').body(ui)
         elseif emin then
-            require('src.ui.eminence').book_body(ui, name)
+            require('src.ui.eminence_sf').book_body(ui, name)
         else
             local f = S.book.filters
             if type(f.show) ~= 'table' then
@@ -1082,9 +1268,7 @@ function book_sf.draw(ui)
             local rem_w = select(1, sf.avail(imgui)) or 800
             -- カードと詳細の高さは、この子窓の下端までの実測。絞り込みを開いた分だけ短くなる。
             local rem_h = math.max(80, sf.remain_below(imgui, 8))
-            local split = tonumber(book.split_of and book.split_of(S, S.book.tab)) or 0.56
-            if split < 0.35 then split = 0.35 elseif split > 0.70 then split = 0.70 end
-            local cards_w = math.max(220, math.floor((rem_w or 800) * split) - 4)
+            local cards_w = book.sf_cards_width(S, rem_w, S.book.tab)
 
             local ok_cards = pcall(imgui.BeginChild, '##astertrail_sf_cards', { cards_w, rem_h }, 0, 0)
             if ok_cards then window.push(ui, 'child') end
@@ -1160,7 +1344,9 @@ function book_sf.draw(ui)
             if ui.state then ui.state._table_scroll_captured = nil end
             if ok_cards then window.pop(ui, 'child') end
 
-            imgui.SameLine(0, 8)
+            imgui.SameLine(0, 0)
+            book.sf_cards_splitter(ui, S, rem_w, cards_w, rem_h, S.book.tab)
+            imgui.SameLine(0, 0)
             local ok_det = pcall(imgui.BeginChild, '##astertrail_sf_detail', { 0, rem_h }, 0, 0)
             if ok_det then window.push(ui, 'child') end
             window.set_font(ui, window.font_scale(ui, 'detail'))
@@ -1216,5 +1402,6 @@ end
 
 book_sf._step_text_with_poss = step_text_with_poss
 book_sf._short_need_name = short_need_name
+book_sf.draw_detail = draw_detail_sf
 
 return book_sf

@@ -64,9 +64,11 @@ function settings.defaults()
         remember_position = false,
         -- 設定の折りたたみ見出し（0.1.239〜）。キーが true ならたたんだ状態。無いものは開いている
         settings_folds = json.object({}),
-        -- 見た目：'yunaui'（YunaUI 風）／ 'classic'（クラシック）／ 'sf'（SF）。初期はクラシックのまま
-        -- 0.1.204〜：初期はクラシック（0.1.194 で「これまで」から改名した見た目）
-        look = 'classic',
+        -- 見た目：'yunaui'（YunaUI 風）／ 'classic'（クラシック）／ 'sf'（アストラル）。初期はアストラル（0.1.284〜）
+        -- 内部キーは sf のまま。表示名だけ「アストラル」。0.1.204〜0.1.283 の初期はクラシックだった
+        look = 'sf',
+        -- 0.1.284 の初回起動でアストラルへ移した印。付いたあとは自分で選んだ見た目を維持する
+        theme_astral_migrated = true,
         book = {
             remember_filters = true,
             tab = 'mission',
@@ -139,7 +141,7 @@ function settings.defaults()
         diagnostics = { level = 'minimal' },
         -- 予約（この版では画面に出さない）
         auto_detect = { enabled = false },
-        map = { enabled = true },
+        map = { enabled = true, grid_alpha = 0.35 },  -- 0.1.275〜：マス目の線の濃さ（0 でオフ）。SF 地図のみ
         marks = {
             -- 表示のオン・オフは4つだけ（0.1.59〜）。それぞれ名前のとおりのものだけを動かす
             show_icons = true,          -- アイコンを表示する（NPC・モンスター・調べるオブジェクトのクエストの目印）
@@ -474,16 +476,21 @@ function settings.merge(loaded)
         merged.tracker.tab_chars = math.max(3, math.min(16, n))
     end
     if merged.language ~= 'ja' and merged.language ~= 'en' then merged.language = 'ja' end
-    -- 0.1.204〜（defaults_rev 6）：見た目の初期をクラシックに。
-    -- 前の初期値（YunaUI風）のままなら移す。すでにクラシックの保存と、改訂後に YunaUI風へ戻したものはそのまま。
+    -- 0.1.284〜：初回だけアストラル（内部キー sf）へ移す。印が付いたあとは classic / yunaui / sf を維持する。
+    -- 保存にキーが無い・不明なとき、および 0.1.284 より前の保存は、一度アストラルにする。
     do
         local raw = type(loaded) == 'table' and loaded.look
-        if (tonumber(loaded.defaults_rev) or 1) < 6 then
-            merged.look = 'classic'
-        elseif raw ~= 'yunaui' and raw ~= 'classic' and raw ~= 'sf' then
-            merged.look = 'classic'
+        local had = type(loaded) == 'table' and loaded.theme_astral_migrated == true
+        if had then
+            if raw == 'yunaui' or raw == 'classic' or raw == 'sf' then
+                merged.look = raw
+            else
+                merged.look = 'sf'
+            end
+            merged.theme_astral_migrated = true
         else
-            merged.look = raw
+            merged.look = 'sf'
+            merged.theme_astral_migrated = true
         end
     end
     -- 0.1.225〜（t497/t498）：状態の選択 → 「表示：」のチェック。地域の選択は使わない（左の見出しの木で選ぶ）
@@ -525,6 +532,7 @@ function settings.merge(loaded)
         merged.map.enabled = true
     end
     if merged.map then merged.map.introduced = 1 end
+    if merged.map and tonumber(merged.map.grid_alpha) == nil then merged.map.grid_alpha = 0.35 end
     -- 以前は予約で enabled=false のまま画面に出していなかった。初めて出す版ではオンにする。
     local loaded_marks = type(loaded) == 'table' and loaded.marks
     -- 0.1.58 までの「アイコンを出す」（enabled）は全部の表示のオン・オフだった。オフ（自分で切ったもの）なら4つともオフへ移す。

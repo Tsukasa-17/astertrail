@@ -10,7 +10,7 @@ local focus = require('src.ui.focus')
 local fs = posix_fs()
 local D = data_mod.load(fs, ROOT .. '/data/')
 eq(#D.errors, 0, 'data errors: ' .. json.encode(D.errors, true))
-eq(D.version, '2026.11.17-124', 'data version')
+eq(D.version, '2026.11.20-125', 'data version')
 eq(#D.map_floors, 525, '525 floors with map_n')
 eq(#D.map_unconfirmed, 15, '15 unconfirmed zones')
 
