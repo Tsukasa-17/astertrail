@@ -192,7 +192,33 @@ function W.button(ui, win, id, label, opts)
     return clicked or activated
 end
 
--- お知らせ専用の豪華なボタン（0.1.198〜）。金の縁・光・ホバー・押下・選択。本や設定では使わない
+-- お知らせのボタンの当たり（0.1.291〜）。VanaCore の Binding は ImVec2 を表でしか受けない。
+-- 0.1.290 は InvisibleButton(id, w, h) を先に呼んでいて、数値は「省略」扱いで大きさ (0,0) になり、
+-- ImGui の check（imgui_widgets.cpp:834 size_arg.x != 0 && size_arg.y != 0）で当たりが無くなっていた。
+-- pcall は成功するので表の呼び方に落ちず、マウスで押せなかった。いまは表の形だけで呼ぶ。
+-- 当たりの上に Dummy を重ねない（GetItemRect / IsItemHovered はこの当たりを指す）。
+function W._popup_hit(imgui, bid, bw, bh)
+    bw = math.max(1, math.floor((tonumber(bw) or 1) + 0.5))
+    bh = math.max(1, math.floor((tonumber(bh) or 1) + 0.5))
+    if imgui.InvisibleButton then
+        local ok, c = pcall(imgui.InvisibleButton, bid, { bw, bh })
+        if ok then return c and true or false end
+    end
+    return false
+end
+
+local function popup_item_rect(imgui, bw, bh)
+    local function xy(ok, a, b)
+        if not ok then return nil, nil end
+        if type(a) == 'table' then return tonumber(a.x or a[1]), tonumber(a.y or a[2]) end
+        return tonumber(a), tonumber(b)
+    end
+    local x1, y1 = xy(pcall(imgui.GetItemRectMin))
+    if not (x1 and y1) then return 0, 0, bw, bh end
+    return x1, y1, x1 + bw, y1 + bh
+end
+
+-- お知らせ専用の豪華なボタン（0.1.198〜。クラシック／YunaUI）。金の縁・光・ホバー・押下・選択。
 -- opts: { section, row, width, height, kind, alpha, disabled }
 function W.popup_button(ui, win, id, label, opts)
     opts = opts or {}
@@ -203,23 +229,9 @@ function W.popup_button(ui, win, id, label, opts)
     local bw, bh = theme.popup_button_size(imgui, label)
     bw = tonumber(opts.width) or bw
     bh = tonumber(opts.height) or bh
-    local clicked = false
-    if imgui.InvisibleButton then
-        clicked = imgui.InvisibleButton(label .. '##' .. id, { bw, bh }) and true or false
-    else
-        clicked = imgui.Button(label .. '##' .. id, { bw, bh }) and true or false
-    end
+    local clicked = W._popup_hit(imgui, label .. '##' .. id, bw, bh)
     if opts.disabled then clicked, activated = false, false end
-    local function xy(ok, a, b)
-        if not ok then return nil, nil end
-        if type(a) == 'table' then return tonumber(a.x or a[1]), tonumber(a.y or a[2]) end
-        return tonumber(a), tonumber(b)
-    end
-    local x1, y1 = xy(pcall(imgui.GetItemRectMin))
-    local x2, y2 = xy(pcall(imgui.GetItemRectMax))
-    if not (x1 and y1 and x2 and y2) then
-        x1, y1, x2, y2 = 0, 0, bw, bh
-    end
+    local x1, y1, x2, y2 = popup_item_rect(imgui, bw, bh)
     local hover = imgui.IsItemHovered and imgui.IsItemHovered() or false
     local pressed = imgui.IsItemActive and imgui.IsItemActive() or false
     theme.draw_popup_button(imgui, x1, y1, x2, y2, label, {
@@ -229,6 +241,52 @@ function W.popup_button(ui, win, id, label, opts)
     })
     if opts.tooltip and imgui.IsItemHovered and imgui.IsItemHovered() then imgui.SetTooltip(opts.tooltip) end
     if not opts.no_focus then after_item(ui, win, id, focused) end
+    return clicked or activated
+end
+
+-- アストラルのお知らせボタン（0.1.291〜）。トラッカーの操作ボタンと同じ角切り枠（cut 4）＋シアンの線。
+-- 完了は金の線。ホバーで塗りと線が明るく、押下で少し沈む。選択（キー・パッド）は SF の角ブラケット。
+-- 丸角・金ベージュのクラシックの見た目（theme.draw_popup_button）は使わない。
+function W.astral_popup_button(ui, win, id, label, opts)
+    opts = opts or {}
+    local imgui = ui.imgui
+    label = tostring(label or '')
+    local focused, activated = false, false
+    if not opts.no_focus then focused, activated = focus.item(win, id, opts.section, opts.row) end
+    local tw, th = theme.measure_text(imgui, label)
+    tw, th = tonumber(tw) or 40, tonumber(th) or 16
+    local bw = tonumber(opts.width) or math.max(72, tw + 28)
+    local bh = tonumber(opts.height) or math.max(28, th + 12)
+    local clicked = W._popup_hit(imgui, label .. '##' .. id, bw, bh)
+    if opts.disabled then clicked, activated = false, false end
+    local x1, y1, x2, y2 = popup_item_rect(imgui, bw, bh)
+    local hover = imgui.IsItemHovered and imgui.IsItemHovered() or false
+    local pressed = imgui.IsItemActive and imgui.IsItemActive() or false
+    local a = tonumber(opts.alpha) or 1
+    local sf = require('src.ui.sf_style')
+    local dl = imgui.GetWindowDrawList and imgui.GetWindowDrawList()
+    if dl and a > 0 then
+        local colname = (opts.kind == 'complete') and 'gold' or 'sf_cyan'
+        local lit = hover or focused
+        local d = pressed and 1 or 0
+        pcall(sf.frame, dl, x1, y1 + d, x2, y2 + d, {
+            cut = 4,
+            fill = theme.u32('bg', (pressed and 0.70 or (lit and 0.58 or 0.44)) * a),
+            line = theme.u32(colname, (lit and 1.0 or 0.82) * a),
+            brackets = false, band = false,
+            glow = lit and 1 or false,
+            glow_col = theme.u32(colname, 0.30 * a),
+            thick = lit and 1.6 or 1.2,
+        })
+        sf.add_text(dl, (x1 + x2) / 2 - tw / 2, (y1 + y2) / 2 - th / 2 + d,
+            theme.u32(lit and 'heading' or 'text', a), label)
+        if focused and theme.draw_focus_sf then
+            theme.draw_focus_sf(imgui, dl, x1, y1, x2, y2, ui.settings and ui.settings.reduce_motion)
+        end
+    end
+    if opts.tooltip and imgui.IsItemHovered and imgui.IsItemHovered() then imgui.SetTooltip(opts.tooltip) end
+    -- 選択枠は自前で描いたので、after_item には「選ばれていない」で渡し、ホバーで選択を移す処理だけ使う
+    if not opts.no_focus then after_item(ui, win, id, false) end
     return clicked or activated
 end
 

@@ -189,11 +189,22 @@ function book.row_cells(ui, q)
     if P:is_locked(q.id) then marks[#marks + 1] = t('badge.locked') end
     local tip = {}
     local cond = false
-    if st == 'not_accepted' then
-        local reasons = q.lock_reasons or {}
-        if #reasons > 0 then
+    local status = ui.player_status and ui.player_status() or nil
+    local blocks = {}
+    if st == 'not_accepted' and ui.data then
+        blocks = marks_core.accept_blocks(ui.data, P, q, status, ui.inventory_count)
+        if #blocks > 0 then
             cond = true
-            for _, r in ipairs(reasons) do tip[#tip + 1] = t('book.lock_reason', { text = r.text_ja or '' }) end
+            for _, b in ipairs(blocks) do
+                local s = marks_core.block_text(t, b)
+                if s and s ~= '' then tip[#tip + 1] = t('book.lock_reason', { text = s }) end
+            end
+        else
+            local reasons = q.lock_reasons or {}
+            if #reasons > 0 then
+                cond = true
+                for _, r in ipairs(reasons) do tip[#tip + 1] = t('book.lock_reason', { text = r.text_ja or '' }) end
+            end
         end
     end
     local rewards = book.reward_text(q)
@@ -216,8 +227,9 @@ function book.row_cells(ui, q)
         -- 状態のアイコン（0.1.63〜。相手の印・トラッカーと同じ分け方）
         icon = (ui.data and marks_core.quest_icon(ui.data, P, q, {
             have = ui.inventory_count, next_missions = ui._icon_nm,
-            status = ui.player_status and ui.player_status() or nil,
+            status = status,
         })) or nil,
+        icon_tip = (#blocks > 0 and marks_core.unavailable_tip(t, blocks)) or nil,
     }
 end
 
@@ -1042,7 +1054,7 @@ local function draw_quest_row(ui, name, q, selected, keys, sel_flags, deferred_f
     for i, k in ipairs(keys) do
         if i > 1 then imgui.TableSetColumnIndex(i) end
         local text, color, muted = col_cell(ui, c, k, selected == q.id)
-        if k == 'state' and c.icon then ui_marks.inline_icon(ui, c.icon) end
+        if k == 'state' and c.icon then ui_marks.inline_icon(ui, c.icon, { tip_text = c.icon_tip }) end
         cell_text(imgui, text, color, muted)
         if k == 'state' and book.cond_icon(ui, c) then c.icon_hover = true end
         row_rect = book.union_rect(row_rect, item_rect(imgui))
@@ -1226,7 +1238,7 @@ local function draw_columns(ui, name, list, selected, with_no)
         wrap_cell(vi + 1, c.rewards, 'text', true)
         y_max = math.max(y_max or 0, select(2, cursor_xy(imgui)) or 0)
         restore_cursor(imgui, xs[vi + 2], y0)
-        if c.icon then ui_marks.inline_icon(ui, c.icon) end
+        if c.icon then ui_marks.inline_icon(ui, c.icon, { tip_text = c.icon_tip }) end
         wrap_cell(vi + 2, c.state, c.state_color)
         book.cond_icon(ui, c)
         y_max = math.max(y_max or 0, select(2, cursor_xy(imgui)) or 0)

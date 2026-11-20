@@ -15,7 +15,7 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 FAKE.keep_default_look = true
 frames(1)
 local S = app._settings()
-eq(S.look, 'sf', 'default look is アストラル (1.1.285)')
+eq(S.look, 'sf', 'default look is アストラル (0.1.285)')
 eq(S.theme_astral_migrated, true, 'new session has the migration flag')
 -- 以降の切替テストはクラシック起点（サイクルは classic → yunaui → sf → classic）
 S.look = 'classic'
@@ -52,7 +52,7 @@ eq(pc, 0, 'colors balanced (yunaui)'); eq(pv, 0, 'vars balanced (yunaui)')
 -- 初期値に戻すとクラシック
 eq(require('src.core.settings').defaults().look, 'sf', 'reset-to-default is アストラル')
 
--- 1.1.285：印が無い保存は一度アストラルへ。印のあとは自分で選んだ見た目を維持する
+-- 0.1.285：印が無い保存は一度アストラルへ。印のあとは自分で選んだ見た目を維持する
 local settings = require('src.core.settings')
 eq(settings.merge({}).look, 'sf', 'merge empty is アストラル')
 eq(settings.merge({}).theme_astral_migrated, true, 'merge empty sets the flag')

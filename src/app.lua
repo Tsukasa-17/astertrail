@@ -36,7 +36,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.285',
+    VERSION = '1.1.292',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -1237,9 +1237,18 @@ function app.check_update()
     if not P.http_get then return false end
     local current = app.VERSION
     local ok, started = pcall(P.http_get, url, function (body)
-        local v = update_mod.version_in(body)
+        -- version_in は版だけ。zip_url / sha256 は manifest_in で取る（0.1.287〜）
+        local man = update_mod.manifest_in(body)
+        local v = (man and man.version) or update_mod.version_in(body)
         if v and update_mod.newer(v, current) then
             state.update_found = v
+            state.update = {
+                status = 'offer',
+                version = v,
+                current = current,
+                zip_url = man and man.zip_url or nil,
+                sha256 = man and man.sha256 or nil,
+            }
             pcall(P.print, T('msg.update_available', { v = v, cur = current }))
         end
     end)
@@ -1513,11 +1522,20 @@ function app.on_text_in(text, mode)
     local lv = fame_mod.read(spec.area, text)
     state.fame_heard = state.fame_heard or {}
     if lv then
+        -- チャットへの案内は次のフレームで出す（0.1.289〜）。
+        -- text_in の最中に P.print（Lua の print）すると、NPC の台詞が流れているあいだに
+        -- ゲーム側に飲まれて行が出ない。名声そのものはここで覚える。同じ会話（20 秒以内）では一行だけ。
+        local last = state.fame_heard[spec.area]
+        local now = tonumber(state.now) or 0
+        local same_talk = last and (now - last) < 20
         S.fame = S.fame or {}
         S.fame[spec.area] = { level = lv, at = util.iso_time(), npc = spec.npc }
-        state.fame_heard[spec.area] = state.now
+        state.fame_heard[spec.area] = now
         app.mark_settings_dirty()
-        P.print(T('fame.heard', { area = T('fame.area.' .. spec.area), level = tostring(lv) }))
+        if not same_talk then
+            state.fame_notice = state.fame_notice or {}
+            state.fame_notice[#state.fame_notice + 1] = { area = spec.area, level = lv }
+        end
         diag.log('fame', spec.area .. ' ' .. tostring(lv))
         return
     end
@@ -1528,6 +1546,17 @@ function app.on_text_in(text, mode)
 end
 
 -- /astertrail status の名声の行
+-- text_in の外（次の tick）で、覚えた名声の案内を出す（0.1.289〜）
+function app.flush_fame_notices()
+    local q = state.fame_notice
+    if not q or #q == 0 then return end
+    state.fame_notice = {}
+    for _, n in ipairs(q) do
+        local area_name = T('fame.area.' .. n.area)
+        pcall(P.print, T('fame.heard', { area = area_name, level = tostring(n.level) }))
+    end
+end
+
 function app.fame_line()
     local fm = S and S.fame
     local parts = {}
@@ -1558,13 +1587,18 @@ function app.sync_game_log(why)
         local info = ref[1] == 'm' and D.game_mission_info[tonumber(ref[2])] or nil
         local st = game_log.state_of(g.snap, ref, info)
         if st then
-            local changed, before = PR:apply_game(qid, st)
-            if changed and before ~= st then
+            local changed, before = PR:apply_game(qid, st, app.have_for_need)
+            local actual = PR:state(qid)
+            if changed and before ~= actual then
                 n = n + 1
-                if #names < 3 then names[#names + 1] = { qid = qid, to = st } end
-                events[#events + 1] = { qid = qid, from = before, to = st }
+                if #names < 3 then names[#names + 1] = { qid = qid, to = actual } end
+                events[#events + 1] = { qid = qid, from = before, to = actual }
             end
         end
+    end
+    local deferred_done
+    if PR and PR.sync_followup_key_steps then
+        _, deferred_done = PR:sync_followup_key_steps(app.have_for_need)
     end
     -- 受注・完了のお知らせ（0.1.183〜）：遊んでいる間に届いた通信で変わった分だけ
     if app.popup_live(why, n) then
@@ -1574,6 +1608,7 @@ function app.sync_game_log(why)
             elseif e.to == 'completed' then app.popup_push('complete', e.qid) end
         end
     end
+    app.popup_deferred_completes(deferred_done)
     -- 最初の当て（読み込み・ログインの読み直し、届いた通信のどちらでも）が済んだら、次からを遊んでいる間の変化とみなす
     g.based = true
     g.syncs = g.syncs + 1
@@ -1602,12 +1637,26 @@ end
 -- 先頭だけ出し、ほかは並べて待つ。出たときに効果音を鳴らす。
 ---------------------------------------------------------------------------
 
-function app.popup_live(why, n)
+function app.popup_allowed()
     local g = state.glog
-    if why ~= 'packet' or not g.based or g.mem_due then return false end
-    if (n or 0) < 1 or n > app.POPUP_BULK then return false end
+    if not g or not g.based or g.mem_due then return false end
     if g.login_at and state.now - g.login_at < app.POPUP_AFTER_LOGIN then return false end
     return S.notify.popup == true or S.notify.sound == true
+end
+
+function app.popup_live(why, n)
+    if why ~= 'packet' then return false end
+    if (n or 0) < 1 or n > app.POPUP_BULK then return false end
+    return app.popup_allowed()
+end
+
+-- 後日談のだいじなものを渡したあと、完了に進めたときのお知らせ（0.1.292〜）
+function app.popup_deferred_completes(ids)
+    if type(ids) ~= 'table' or #ids == 0 then return end
+    if not app.popup_allowed() then return end
+    for _, qid in ipairs(ids) do
+        app.popup_push('complete', qid)
+    end
 end
 
 -- 完了の次（連続クエスト・次のミッション）。無ければ nil
@@ -1971,6 +2020,10 @@ function app.tick_possession()
     ps.snap = (ok and type(snap) == 'table') and snap or nil
     ps.scans = ps.scans + 1
     if not ok then diag.log('possession', snap) end
+    if PR and PR.sync_followup_key_steps then
+        local _, deferred_done = PR:sync_followup_key_steps(app.have_for_need)
+        app.popup_deferred_completes(deferred_done)
+    end
 end
 
 function app.possession() return state.poss.snap end
@@ -2738,6 +2791,8 @@ end
 
 function app.tick(now)
     state.now = now
+    -- 名声の案内は text_in では出さず、ここで出す（NPC 台詞中の print が消えるため）
+    pcall(app.flush_fame_notices)
     -- 現在地のピンが遅れないよう、位置は毎フレーム取る
     local ok, err = pcall(poll_player)
     if not ok then diag.log('platform', err) end

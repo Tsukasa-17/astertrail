@@ -346,8 +346,54 @@ function marks.mission_rank(q)
     return tonumber(r), q.category
 end
 
+-- 国ミッションの、そのランクの最後の段（BM7-2 ならランク7の最後）
+local function last_of_nation_rank(data)
+    if not data then return nil end
+    if data._last_nation_rank then return data._last_nation_rank end
+    local last = {}
+    for _, q in ipairs(data.quests or {}) do
+        if q.kind == 'mission' then
+            local r, cat = marks.mission_rank(q)
+            if r and NATION_CAT[cat or ''] then
+                last[cat] = last[cat] or {}
+                local suf = tonumber((tostring(q.mission_no or '')):match('%d+%-(%d+)')) or 0
+                local cur = last[cat][r]
+                local cur_suf = cur and (tonumber((tostring(cur.mission_no or '')):match('%d+%-(%d+)')) or -1) or -1
+                if (not cur) or suf > cur_suf then last[cat][r] = q end
+            end
+        end
+    end
+    data._last_nation_rank = last
+    return last
+end
+
+-- その国ミッションを終えたとき、所属国ランクは少なくともこの値（最後の段を終えると次のランクへ）
+function marks.granted_nation_rank(data, q)
+    local r, cat = marks.mission_rank(q)
+    if not r or not NATION_CAT[cat or ''] then return nil end
+    local last = last_of_nation_rank(data)
+    local top = last and last[cat] and last[cat][r]
+    if top and top.id == q.id then return r + 1 end
+    return r
+end
+
+-- 本の完了記録から読める、その国の所属国ランク（読めなければ 0）
+function marks.progress_nation_rank(data, progress, cat)
+    if not data or not progress or not NATION_CAT[cat or ''] then return 0 end
+    local best = 0
+    for _, q in ipairs(data.quests or {}) do
+        if q.kind == 'mission' and q.category == cat and progress.state and progress:state(q.id) == 'completed' then
+            local g = marks.granted_nation_rank(data, q)
+            if g and g > best then best = g end
+        end
+    end
+    return best
+end
+
 -- 読めた値で、受ける条件を満たしていないと分かるか（読めない値の条件は数えない）
-function marks.reqs_unmet(q, status)
+-- data, progress があれば、本で完了した国ミッションからも所属国ランクを読む（0.1.291〜）。
+-- ゲームの rank が古くても、前のミッションを終えていれば止めない。
+function marks.reqs_unmet(q, status, data, progress)
     if type(status) ~= 'table' then return false end
     local lv, job = tonumber(status.main_job_level), tonumber(status.main_job)
     if lv and lv > 0 then
@@ -363,9 +409,18 @@ function marks.reqs_unmet(q, status)
     if need then
         local nation = marks.NATION_OF[tonumber(status.nation) or -1]
         local rank = tonumber(status.rank)
+        local inferred = marks.progress_nation_rank(data, progress, cat)
         if NATION_CAT[cat or ''] then
-            if nation and cat and nation ~= cat then return true end   -- ほかの国のミッションは受けられない
-            if nation and nation == cat and rank and rank > 0 and rank < need then return true end
+            -- 本でその国のミッションを終えていれば、所属国の読み違いでは止めない
+            local same = (nation and nation == cat) or (inferred > 0)
+            if nation and cat and nation ~= cat and inferred <= 0 then return true end
+            local have = 0
+            if same then
+                have = math.max(rank or 0, inferred)
+            else
+                have = inferred
+            end
+            if have > 0 and have < need then return true end
         elseif rank and rank > 0 and rank < need then
             return true   -- 所属国ランクが足りない（ジラートの最初など。読めないランクでは止めない）
         end
@@ -373,6 +428,170 @@ function marks.reqs_unmet(q, status)
     -- 名声（0.1.66〜）：名声を教えてくれる人の返事で覚えたランクだけで判断する。覚えていない地域は止めない
     if require('src.core.fame').unmet(q, status.fame) then return true end
     return false
+end
+
+-- 止まっている受ける条件を、理由の一覧で返す（0.1.291〜）。ランク不足は前提の文とは別にする。
+function marks.req_issues(q, status, data, progress)
+    local issues = {}
+    if type(status) ~= 'table' or not q then return issues end
+    local lv, job = tonumber(status.main_job_level), tonumber(status.main_job)
+    if lv and lv > 0 then
+        for _, rq in ipairs(marks.level_reqs(q)) do
+            local unmet = false
+            if rq.job then
+                if job and job > 0 and (job ~= rq.job or lv < rq.level) then unmet = true end
+            elseif lv < rq.level then
+                unmet = true
+            end
+            if unmet then
+                local text
+                for _, r in ipairs(q.lock_reasons or {}) do
+                    local s = r.text_ja or ''
+                    if s:find('Lv', 1, true) or s:find('レベル', 1, true) then
+                        text = s
+                        break
+                    end
+                end
+                issues[#issues + 1] = { kind = 'level', need = rq.level, job = rq.job, text = text }
+            end
+        end
+    end
+    local need, cat = marks.mission_rank(q)
+    if need then
+        local nation = marks.NATION_OF[tonumber(status.nation) or -1]
+        local rank = tonumber(status.rank)
+        local inferred = marks.progress_nation_rank(data, progress, cat)
+        if NATION_CAT[cat or ''] then
+            local same = (nation and nation == cat) or (inferred > 0)
+            if nation and cat and nation ~= cat and inferred <= 0 then
+                issues[#issues + 1] = { kind = 'nation', cat = cat }
+            end
+            local have = 0
+            if same then
+                have = math.max(rank or 0, inferred)
+            else
+                have = inferred
+            end
+            if have > 0 and have < need then
+                issues[#issues + 1] = { kind = 'rank', need = need, have = have, cat = cat }
+            end
+        elseif rank and rank > 0 and rank < need then
+            issues[#issues + 1] = { kind = 'rank', need = need, have = rank, cat = cat }
+        end
+    end
+    if require('src.core.fame').unmet(q, status.fame) then
+        local text
+        for _, r in ipairs(q.lock_reasons or {}) do
+            local s = r.text_ja or ''
+            if s:find('名声', 1, true) then text = s; break end
+        end
+        issues[#issues + 1] = { kind = 'fame', text = text }
+    end
+    return issues
+end
+
+function marks.key_held(have, kid, need)
+    if type(have) ~= 'function' or not kid then return nil end
+    local n = need or { kind = 'key_item', key_item_id = kid }
+    local ok, c = pcall(have, kid, n)
+    if not ok then return nil end
+    if c == 1 or c == 0 then return c end
+    return nil
+end
+
+-- 後日談で止まっているか（手紙を持っている、または手順が未完了／所持が未確認）
+function marks.followup_block(data, progress, q, have)
+    local req = q and q.followup_requires
+    if type(req) ~= 'table' then return nil end
+    local kid = req.key_item_id
+    if not kid and type(req.key_item) == 'string' and data and data.lookup_item_name then
+        local ref = data:lookup_item_name(req.key_item)
+        if ref and ref.kind == 'key_item' then kid = ref.key_item_id end
+    end
+    local held = marks.key_held(have, kid, {
+        kind = 'key_item', key_item_id = kid, name_ja = req.key_item,
+    })
+    local sid = req.step
+    local qid = type(sid) == 'string' and sid:match('^(.*)#[^#]+$') or nil
+    local step_done = qid and progress and progress.step_done and progress:step_done(qid, sid)
+    if held == 0 then
+        local step = data and data.step and data:step(sid)
+        if progress and progress.followup_key_received and step and qid
+            and progress:followup_key_received(qid, step) then
+            step_done = true
+        elseif step_done then
+            -- already marked
+        end
+    end
+    -- 未確認は未完了。持っている間も未完了。
+    if held == 1 or held == nil or not step_done then
+        return { kind = 'followup', text = req.reason_ja, text_en = req.reason_en, id = sid }
+    end
+    return nil
+end
+
+function marks.prereq_blocks(data, progress, q)
+    local out = {}
+    if not marks.prereq_unmet(data, progress, q) then return out end
+    for _, r in ipairs(q.lock_reasons or {}) do
+        local text = r.text_ja or ''
+        if text ~= '' and (
+            text:find('終了', 1, true) or text:find('クリア', 1, true)
+            or text:find('完了', 1, true) or text:find('コンプリート', 1, true)
+            or text:find('を終え', 1, true) or text:find('済み', 1, true)
+        ) then
+            out[#out + 1] = { kind = 'prereq', text = text }
+        end
+    end
+    if #out == 0 then
+        out[1] = { kind = 'prereq' }
+    end
+    return out
+end
+
+-- 受けられない理由の一覧（実際に止まっているものだけ）
+function marks.accept_blocks(data, progress, q, status, have)
+    local blocks = {}
+    if not q then return blocks end
+    for _, b in ipairs(marks.prereq_blocks(data, progress, q)) do
+        blocks[#blocks + 1] = b
+    end
+    for _, b in ipairs(marks.req_issues(q, status, data, progress)) do
+        blocks[#blocks + 1] = b
+    end
+    local fu = marks.followup_block(data, progress, q, have)
+    if fu then blocks[#blocks + 1] = fu end
+    return blocks
+end
+
+function marks.block_text(t, b)
+    if not b then return '' end
+    if b.kind == 'rank' then
+        return t and t('detail.block_rank', { need = b.need, have = b.have })
+            or ('所属国ランクが足りない（必要 ' .. tostring(b.need) .. '、いま ' .. tostring(b.have) .. '）')
+    end
+    if b.kind == 'nation' then
+        return t and t('detail.block_nation') or '所属国が違う'
+    end
+    return b.text or ''
+end
+
+function marks.unavailable_tip(t, blocks)
+    if type(blocks) ~= 'table' or #blocks == 0 then
+        return t and t('marks.icon.unavailable') or ''
+    end
+    local only_rank = (#blocks == 1 and blocks[1].kind == 'rank')
+    if only_rank then
+        return t and t('marks.icon.unavailable_rank', { need = blocks[1].need, have = blocks[1].have })
+            or marks.block_text(t, blocks[1])
+    end
+    local parts = {}
+    for _, b in ipairs(blocks) do
+        local s = marks.block_text(t, b)
+        if s and s ~= '' then parts[#parts + 1] = s end
+    end
+    if #parts == 0 then return t and t('marks.icon.unavailable') or '' end
+    return table.concat(parts, '\n')
 end
 
 -- クエスト・ミッション1件のアイコン（本・トラッカーと相手の印で同じ）。出さないときは nil
@@ -392,8 +611,8 @@ function marks.quest_icon(data, progress, q, opts)
         return (q.repeatable == 'yes') and 'repeat' or nil
     end
     -- まだ受けていない
-    if marks.prereq_unmet(data, progress, q) then return 'unavailable' end
-    if marks.reqs_unmet(q, opts.status) then return 'unavailable' end
+    local blocks = marks.accept_blocks(data, progress, q, opts.status, opts.have)
+    if #blocks > 0 then return 'unavailable' end
     if q.kind == 'mission' then
         -- 次のミッションは main。後のものでも、前提と条件を満たしていれば受けられる（省略可など）。
         -- 次かどうかだけで受けられないにはしない（0.1.196〜）

@@ -34,7 +34,7 @@ FAKE.events.load()
 local app = require('src.app')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
-eq(app.VERSION, '1.1.285', 'version 0.1.251')
+eq(app.VERSION, '1.1.292', 'version 0.1.251')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 
 local function last_lines()

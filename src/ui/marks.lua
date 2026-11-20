@@ -625,7 +625,7 @@ function marks.inline_icon(ui, icon, opts)
     if opts.tip ~= false and imgui.IsItemHovered then
         local ok, hov = pcall(imgui.IsItemHovered)
         if ok and hov and imgui.SetTooltip and ui.t then
-            pcall(imgui.SetTooltip, ui.t('marks.icon.' .. icon))
+            pcall(imgui.SetTooltip, opts.tip_text or ui.t('marks.icon.' .. icon))
         end
     end
     if imgui.SameLine then pcall(imgui.SameLine, 0, gap) end
@@ -776,6 +776,15 @@ function marks.draw(ui)
     if not plat or not plat.visible_entities then
         clear()
         return { skipped = true, why = 'no_platform' }
+    end
+    -- イベント中・会話中は、輪と同じ判定（status==4 またはゲームのメニュー）で
+    -- 頭上のクエスト名／印、オブジェクト名、近くのオブジェクト名も消す（0.1.288〜）。
+    -- 設定 hide_rings_in_event がオフなら、輪と同様に出たまま。UI の窓は触らない。
+    if marks.hide_rings_now(ui) then
+        clear()
+        clear_rings()
+        if plat.clear_world_marks then pcall(plat.clear_world_marks) end
+        return { skipped = true, why = 'event', drawn = 0, nearby = 0, rings = 0 }
     end
     local player = ui.player or {}
     local zone_id = player.zone_id

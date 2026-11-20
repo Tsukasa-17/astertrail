@@ -49,6 +49,7 @@ function progress:reset(character)
     }
     self.read_only = false
     self.read_only_reason = nil
+    self._defer_notify = {}
 end
 
 -- 読み込んだ表を受け入れる。戻り値: ok, why
@@ -107,6 +108,9 @@ function progress:adopt(doc, character)
         doc.steps_on_complete = true
         self.steps_migrated = true
     end
+    -- だいじなもの依存の後日談は、所持が分かるまで自動チェックを残さない（0.1.291〜）
+    self._defer_notify = {}
+    self:sync_followup_key_steps(nil)
     return true
 end
 
@@ -236,9 +240,29 @@ end
 
 ---------------------------------------------------------------------------
 -- ルート（書き直した手順で、回る順などを選ぶもの）
---[[ 完了したら手順を全部チェック済みにする（0.1.189〜、t319・t320）
+-- 同じルート（または共通）の手順で、先に「して完了」「ここで完了」があり、自分はそうでないもの（後日談）
+function progress.is_complete_line(step)
+    local line = step and step.next_line_ja or ''
+    if type(line) ~= 'string' or line == '' then return false end
+    return line:find('して完了', 1, true) ~= nil or line:find('ここで完了', 1, true) ~= nil
+end
+
+function progress.is_post_complete_followup(q, step, route)
+    if not q or not step or progress.is_complete_line(step) then return false end
+    local seen = false
+    for _, st in ipairs(q.steps or {}) do
+        if progress.step_in_route(st, route) then
+            if st.id == step.id then return seen end
+            if progress.is_complete_line(st) then seen = true end
+        end
+    end
+    return false
+end
+
+--[[ 完了したら手順をチェック済みにする（0.1.189〜、t319・t320）
   ゲームの記録・ログインの読み直し・デバッグの手の切り替えのどれで完了になっても。
   ルートを選んでいれば、共通の手順と選んだルートの手順。選んでいなければ全部の手順（どのルートで済ませたか分からないため）。
+  「して完了」よりあとの後日談は付けない（0.1.291〜。手紙を渡すなど、ミッション完了とは別のあと始末）。
   前からチェックしてあるものはそのまま（いつ・どこで付けたかを残す）。未完了に戻してもチェックは外さない。
   戻り値: 新しくチェックした数 ]]
 function progress:complete_steps(qid, source)
@@ -251,12 +275,193 @@ function progress:complete_steps(qid, source)
     local now = self.clock.iso(self.clock.now())
     local n = 0
     for _, st in ipairs(q.steps or {}) do
-        if progress.step_in_route(st, route) and not (r.steps[st.id] and r.steps[st.id].done) then
+        if progress.step_in_route(st, route) and not (r.steps[st.id] and r.steps[st.id].done)
+            and not progress.is_post_complete_followup(q, st, route) then
             r.steps[st.id] = { done = true, source = 'completed', via = source, at = now }
             n = n + 1
         end
     end
     return n
+end
+
+-- だいじなものの所持から、後日談の手順のチェックを合わせる。
+-- have(id, need) → 1 / 0 / nil。nil（未確認）と持っているときは未完了。持っていないときだけ済み。
+-- 手紙を受け取る前（指定の手順より前）は、所持が 0 でもまだ受け取っていないことがあるので触れない。
+function progress:followup_key_received(qid, step)
+    if not step then return false end
+    if self:state(qid) == 'completed' then return true end
+    local r = self.doc and self.doc.quests and self.doc.quests[qid]
+    if r and r.defer_complete then return true end
+    local after = step.followup_key_item_after
+    if after and self:step_done(qid, after) then return true end
+    return false
+end
+
+-- ミッションの、一時的なだいじなものを渡す後日談（0.1.292〜）
+function progress:followup_complete_step(qid)
+    local q = self.data and self.data:quest(qid)
+    if not q or q.kind ~= 'mission' then return nil end
+    local route = self:chosen_route(qid)
+    for _, st in ipairs(q.steps or {}) do
+        if st.followup_key_item_id and progress.is_post_complete_followup(q, st, route) then
+            return st
+        end
+    end
+    return nil
+end
+
+function progress:followup_key_count(step, have)
+    local kid = step and step.followup_key_item_id
+    if type(have) ~= 'function' or not kid then return nil end
+    local ok, c = pcall(have, kid, {
+        kind = 'key_item', key_item_id = kid, name_ja = step.followup_key_item,
+    })
+    if not ok then return nil end
+    if c == 0 or c == 1 then return c end
+    return nil
+end
+
+-- have が渡されているときだけ：持っている／未確認なら、ゲームの完了を待たせる
+function progress:should_defer_game_complete(qid, have)
+    if type(have) ~= 'function' then return false end
+    if not self:followup_complete_step(qid) then return false end
+    local st = self:followup_complete_step(qid)
+    return self:followup_key_count(st, have) ~= 0
+end
+
+function progress:_begin_defer_complete(qid, before, have)
+    local r = self:_ensure(qid)
+    if r.state ~= 'accepted' then
+        r.state = 'accepted'
+        r.state_at = self.clock.iso(self.clock.now())
+    end
+    r.state_source = 'game'
+    r.defer_complete = true
+    self:complete_steps(qid, 'game')
+    self:_point_current_at_followup(qid)
+    self._defer_notify = self._defer_notify or {}
+    if self:followup_key_count(self:followup_complete_step(qid), have) == 1 then
+        self._defer_notify[qid] = true
+    end
+    self:_changed('defer_complete', qid)
+    return true, before
+end
+
+-- すでに本が完了になっていた（前の版で Karst 報告時に完了にした）記録を、手紙があるあいだ進行中に戻す。
+-- 戻すときは完了のお知らせを出さない。手紙を渡したとき、一度だけ出す。
+function progress:_demote_deferred_complete(qid)
+    local r = self.doc.quests[qid]
+    if not r or r.state ~= 'completed' then return false end
+    r.state = 'accepted'
+    r.state_source = 'game'
+    r.defer_complete = true
+    r.defer_complete_notified = nil
+    self._defer_notify = self._defer_notify or {}
+    self._defer_notify[qid] = true
+    self:_point_current_at_followup(qid)
+    -- 完了時にピン留めが外れているので、トラッカーに Gumbah の手順が出るよう付け直す
+    if not r.pinned then self:pin(qid) end
+    self:_changed('defer_complete', qid)
+    return true
+end
+
+function progress:_finalize_deferred_complete(qid, have)
+    local r = self.doc.quests[qid]
+    if not r then return false end
+    r.defer_complete = nil
+    local notified = r.defer_complete_notified
+    r.defer_complete_notified = nil
+    local notify = (self._defer_notify and self._defer_notify[qid] and true or false) and not notified
+    if self._defer_notify then self._defer_notify[qid] = nil end
+    if r.state == 'completed' then return false end
+    if r.state == 'accepted' and #(r.cycles or {}) > 0 then
+        self._skip_cycle_once = qid
+    end
+    self:apply_game(qid, 'completed', have)
+    self._skip_cycle_once = nil
+    return notify
+end
+
+function progress:sync_followup_key_steps(have)
+    if not self.data then return 0, {} end
+    local n, completed = 0, {}
+    for _, q in ipairs(self.data.quests or {}) do
+        local changed = 0
+        for _, st in ipairs(q.steps or {}) do
+            local kid = st.followup_key_item_id
+            if kid and self:followup_key_received(q.id, st) then
+                local held
+                if type(have) == 'function' then
+                    local ok, c = pcall(have, kid, {
+                        kind = 'key_item', key_item_id = kid,
+                        name_ja = st.followup_key_item,
+                    })
+                    if ok then held = c end
+                end
+                local want = (held == 0)
+                -- 未確認・持っている・have が無い → 未完了
+                local is_done = self:step_done(q.id, st.id)
+                if want and not is_done then
+                    local r = self:_ensure(q.id)
+                    r.steps = r.steps or json.object({})
+                    if getmetatable(r.steps) == nil then json.object(r.steps) end
+                    r.steps[st.id] = {
+                        done = true, source = 'key_item',
+                        at = self.clock.iso(self.clock.now()),
+                    }
+                    changed = changed + 1
+                elseif (not want) and is_done then
+                    local r = self.doc.quests[q.id]
+                    if r and r.steps then r.steps[st.id] = nil end
+                    changed = changed + 1
+                end
+            end
+        end
+        if changed > 0 then
+            self:_point_current_at_followup(q.id)
+            n = n + changed
+        end
+        -- ゲームが完了でも、一時的なだいじなものを持っているあいだは進行中のまま（0.1.292〜）
+        local fu = self:followup_complete_step(q.id)
+        if fu and type(have) == 'function' then
+            local held = self:followup_key_count(fu, have)
+            local r = self.doc.quests[q.id]
+            if r and r.state == 'completed' and held == 1 then
+                if self:_demote_deferred_complete(q.id) then n = n + 1 end
+            elseif r and r.defer_complete and held == 0 then
+                local notify = self:_finalize_deferred_complete(q.id, have)
+                n = n + 1
+                if notify then completed[#completed + 1] = q.id end
+            elseif r and r.defer_complete and held == 1 then
+                if not r.defer_complete_notified then
+                    self._defer_notify = self._defer_notify or {}
+                    self._defer_notify[q.id] = true
+                end
+            end
+        end
+    end
+    if n > 0 then self:_changed('sync_followup', nil) end
+    return n, completed
+end
+
+-- 完了済みの本文のあとに、未完了の後日談があれば、今の手順をそこに合わせる
+function progress:_point_current_at_followup(qid)
+    local q = self.data and self.data:quest(qid)
+    local r = self.doc.quests[qid]
+    if not q or not r then return end
+    local route = self:chosen_route(qid)
+    local first
+    for _, st in ipairs(q.steps or {}) do
+        if progress.step_in_route(st, route) and not self:step_done(qid, st.id) then
+            first = st
+            break
+        end
+    end
+    if first and progress.is_post_complete_followup(q, first, route) then
+        if r.current_step ~= first.id then
+            r.current_step = first.id
+        end
+    end
 end
 
 -- 手順の route_ja（1つ）か routes_ja（複数）がルート。どちらも無い手順は全ルート共通。
@@ -468,7 +673,7 @@ end
 -- 受注・完了はゲームの記録を正しいものとする。手順のチェック（steps）はさわらない（消さない）。
 -- 記録がなく、ゲームでも未受注のものは記録を作らない。戻り値: 変えたか, 前の状態
 progress.HISTORY_MAX = 300
-function progress:apply_game(qid, state)
+function progress:apply_game(qid, state, have)
     if self.read_only or not self.doc.character then return false end
     if not STATES[state or ''] or not self.data:quest(qid) then return false end
     local r = self.doc.quests[qid]
@@ -479,13 +684,20 @@ function progress:apply_game(qid, state)
         return false
     end
     r = self:_ensure(qid)
+    -- 後日談で一時的なだいじなものをまだ持っている／未確認なら、完了にしない（0.1.292〜）
+    if state == 'completed' and before ~= 'completed' and self:should_defer_game_complete(qid, have) then
+        return self:_begin_defer_complete(qid, before, have)
+    end
     local now = self.clock.iso(self.clock.now())
     r.state = state
     r.state_source = 'game'
     r.state_at = now
     if state == 'completed' and before ~= 'completed' then
+        r.defer_complete = nil
         local c = r.cycles
-        c[#c + 1] = { completed_at = now, source = 'game' }
+        if self._skip_cycle_once ~= qid then
+            c[#c + 1] = { completed_at = now, source = 'game' }
+        end
         self:_unpin_completed(qid)
         self:complete_steps(qid, 'game')
     elseif state == 'accepted' and before == 'completed' then

@@ -8,7 +8,7 @@ local app = require('src.app')
 local imgui = require('imgui')
 local ffi = require('ffi')
 
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 eq(crisp.DEFAULT_FACE, 'meiryo.ttc', 'default face')
 eq(crisp.LARGE_PX, 36, 'loaded at 36px from the start')
 

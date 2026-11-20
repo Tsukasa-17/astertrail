@@ -464,11 +464,10 @@ local function draw_layout(ui, name)
     return {
         { id = 'lay_windows', title = 'WINDOWS', draw = function ()
             toggle(ui, name, 'lock', tkey(ui, 'sf.set.layout_locked', '窓の位置を固定'), S, 'layout_locked')
-            if button(ui, name, 'inside', tkey(ui, 'sf.set.bring_inside', '画面内へ戻す'), { section = SEC, row = 'pos' }) then
+            if button(ui, name, 'inside', tkey(ui, 'sf.set.bring_inside', '画面内へ戻す'), { section = SEC, row = 'pos_inside' }) then
                 ui.bring_inside()
             end
-            W.same(ui)
-            if button(ui, name, 'reset', tkey(ui, 'sf.set.reset_layout', '初期配置に戻す'), { section = SEC, row = 'pos' }) then
+            if button(ui, name, 'reset', tkey(ui, 'sf.set.reset_layout', '初期配置に戻す'), { section = SEC, row = 'pos_reset' }) then
                 ui.reset_layout()
             end
             toggle(ui, name, 'icon', tkey(ui, 'sf.set.entry_icon', '画面の入口アイコン'), S.entry_icon, 'visible')
@@ -666,7 +665,7 @@ local function draw_marks(ui, name)
             if type(M.ring_strength) ~= 'number' then M.ring_strength = settings_mod.RING_STRENGTH_DEFAULT or 1 end
             stepper(ui, name, 'marks_ring_strength', tkey(ui, 'sf.set.rings_strength', 'リングの濃さ'),
                 M, 'ring_strength', 0.1, settings_mod.RING_STRENGTH_MIN, settings_mod.RING_STRENGTH_MAX, nil, DM.ring_strength)
-            toggle(ui, name, 'marks_rings_event', tkey(ui, 'sf.set.rings_hide_in_event', 'イベント中はリングを消す'), M, 'hide_rings_in_event')
+            toggle(ui, name, 'marks_rings_event', tkey(ui, 'sf.set.rings_hide_in_event', 'イベント中はリングや名前を消す'), M, 'hide_rings_in_event')
             for _, k in ipairs(settings_mod.RING_KINDS) do
                 local key = 'ring_' .. k
                 color_row(ui, name, 'marks_' .. key, t('settings.rings_' .. k), M, key, DM[key], {
@@ -931,12 +930,10 @@ local function draw_preview(ui, name, cat, pw, ph)
         help(ui, tkey(ui, 'sf.set.preview_look', '文字サイズと背景の濃さの見本'))
         help(ui, string.format('%d%%', math.floor((S.font_scale or 1) * 100 + 0.5)))
     elseif cat == 'layout' then
-        pcall(function ()
-            dl:AddRect({ cx, cy + 10 }, { cx + cw * 0.55, cy + 70 }, theme.u32('sf_cyan', 0.85), 0, 0, 1.4)
-            dl:AddRect({ cx + cw * 0.48, cy + 40 }, { cx + cw - 4, math.max(cy + 80, cy + ch - 16) }, theme.u32('sf_cyan', 0.55), 0, 0, 1.2)
-        end)
+        -- 枠は子窓の外接に draw_preview 先頭で一枚だけ。中にずれた二重の枠は描かない（0.1.289〜）
         help(ui, S.layout_locked and tkey(ui, 'sf.set.preview_locked', '窓の位置は固定されています')
             or tkey(ui, 'sf.set.preview_unlocked', '窓はドラッグして動かせます'))
+        help(ui, tkey(ui, 'sf.set.preview_layout_book', '本は開いたときの位置と、一覧の列を覚えます。'))
     elseif cat == 'tracker' then
         help(ui, (S.tracker.view == 'tabs') and 'TAB  ·  TAB  ·  TAB' or tkey(ui, 'sf.set.preview_tracker_list', 'ピン留めしたクエストの一覧'))
         if S.tracker.show_time_weather then help(ui, '12:00  晴れ') end
@@ -1077,7 +1074,8 @@ function M.body(ui)
     if (rem_w or aw) >= 700 then prev_w = math.max(180, math.min(250, math.floor((rem_w or aw) * 0.28)))
     elseif (rem_w or aw) >= 580 then prev_w = 170 end
     local center_w = math.max(200, (rem_w or aw) - nav_w - gap - (prev_w > 0 and (prev_w + gap) or 0) - 4)
-    local cols = (center_w >= 440) and 2 or 1
+    -- 配置は長い名前とボタンがあるので、常に1列（2列だと BOOK が窮屈で、WINDOWS の横が空く）
+    local cols = (center_w >= 440 and cat ~= 'layout') and 2 or 1
 
     -- 左ナビ（高さは残りぴったり。中は自分で置くので余白0、バーは出さない）
     local ok_nav, var_nav = begin_pane(ui, '##astertrail_sf_set_nav', nav_w, mid_h, no_scroll_flags(), { 0, 0 })

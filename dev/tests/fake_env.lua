@@ -189,7 +189,7 @@ AshitaCore = {
 _G.print = function (s) FAKE.printed[#FAKE.printed + 1] = tostring(s) end
 addon = { path = ROOT .. '/' }
 
--- 1.1.285〜：本番の初期見た目はアストラル。既存テストの多くはクラシック前提なので、
+-- 0.1.285〜：本番の初期見た目はアストラル。既存テストの多くはクラシック前提なので、
 -- 明示しない限りクラシックにする。初期値そのものを見るテストは先に FAKE.keep_default_look = true。
 local function apply_test_look()
     if FAKE._look_applied or FAKE.keep_default_look == true then return end

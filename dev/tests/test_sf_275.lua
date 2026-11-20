@@ -3,7 +3,7 @@ require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 
 local maps = require('src.core.maps')
 local theme = require('src.ui.theme')

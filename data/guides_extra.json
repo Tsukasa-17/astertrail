@@ -1,0 +1,21 @@
+{
+  "source": "0.1.291 手入力。手順の注記と、完了後の後日談の条件を足す。dev/build_data.py は使っていない。",
+  "read_on": "2026-11-21",
+  "steps": {
+    "mission.bastok.016#g05": {
+      "text_ja": "これをしないと次のミッションを受けられない。蝕世のエンブリオのイベントが先に出ることがあるので、手紙の話が出るまで話し続ける。",
+      "followup_key_item": "ウェライからの手紙",
+      "followup_key_item_after": "mission.bastok.016#g03"
+    }
+  },
+  "quests": {
+    "mission.bastok.017": {
+      "followup_requires": {
+        "step": "mission.bastok.016#g05",
+        "key_item": "ウェライからの手紙",
+        "reason_ja": "BM7-2の後日談：バストゥーク鉱山区(J-7)のGumbahに「ウェライからの手紙」を渡す",
+        "reason_en": "BM7-2 follow-up: give the Letter from Werei to Gumbah in Bastok Mines (J-7)."
+      }
+    }
+  }
+}

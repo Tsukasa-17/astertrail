@@ -580,7 +580,86 @@ function sf.heading_line(ui, text, col, kind, opts)
     return w, h
 end
 
--- 受注・完了お知らせの SF 枠（シアンのガラス＋角のアクセント。完了は金の縁）（0.1.280〜）
+-- お知らせ窓の中の幅（文字・ボタン・枠で同じ値を使う。0.1.288〜）
+sf.POPUP_INNER_W = 560
+sf.POPUP_PAD_X = 26
+sf.POPUP_PAD_Y = 22
+-- 枠の外側に残すネオンの暈の幅（0.1.291〜）。窓の中に暈まで入れ、窓の外（前景の描画リスト）には描かない
+sf.POPUP_GLOW = 12
+-- 窓の内側の余白＝本文の余白＋暈の幅
+function sf.popup_pad()
+    local g = sf.POPUP_GLOW or 12
+    return (sf.POPUP_PAD_X or 26) + g, (sf.POPUP_PAD_Y or 22) + g
+end
+-- 窓の外幅＝本文の幅＋左右の余白（暈を含む）
+function sf.popup_outer_w()
+    local px = sf.popup_pad()
+    return (sf.POPUP_INNER_W or 560) + px * 2
+end
+
+-- 自動サイズでも横幅を確保する。高さ 0 の Dummy は無視されることがあるので 1px。
+-- カーソルは元の位置に戻し、本文が Dummy の右に流れないようにする。
+function sf.reserve_popup_inner(imgui, inner)
+    inner = tonumber(inner) or sf.POPUP_INNER_W or 560
+    local x, y
+    if imgui and imgui.GetCursorPos then
+        local ok, a, b = pcall(imgui.GetCursorPos)
+        if ok then
+            if type(a) == 'table' then x, y = a.x or a[1], a.y or a[2]
+            else x, y = a, b end
+        end
+    end
+    if x == nil and imgui and imgui.GetCursorPosX then
+        local okx, cx = pcall(imgui.GetCursorPosX)
+        local oky, cy = pcall(imgui.GetCursorPosY)
+        if okx then x = cx end
+        if oky then y = cy end
+    end
+    if imgui and imgui.Dummy then pcall(imgui.Dummy, { inner, 1 }) end
+    if x ~= nil and y ~= nil and imgui and imgui.SetCursorPos then
+        pcall(imgui.SetCursorPos, { x, y })
+    elseif x ~= nil and imgui and imgui.SetCursorPosX then
+        pcall(imgui.SetCursorPosX, x)
+        if y ~= nil and imgui.SetCursorPosY then pcall(imgui.SetCursorPosY, y) end
+    end
+    return inner
+end
+
+function sf.center_in_popup(imgui, width, inner)
+    inner = tonumber(inner) or sf.POPUP_INNER_W or 560
+    width = tonumber(width) or 0
+    local ox = math.max(0, (inner - width) / 2)
+    if ox <= 0 or not imgui then return 0 end
+    if imgui.SetCursorPosX and imgui.GetCursorPosX then
+        local ok, cx = pcall(imgui.GetCursorPosX)
+        if ok then
+            local x = cx
+            if type(x) == 'table' then x = x.x or x[1] end
+            pcall(imgui.SetCursorPosX, (tonumber(x) or 0) + ox)
+            return ox
+        end
+    end
+    if imgui.Dummy then
+        pcall(imgui.Dummy, { ox, 0 })
+        if imgui.SameLine then imgui.SameLine(0, 0) end
+    end
+    return ox
+end
+
+-- 受注・完了お知らせの SF 枠（0.1.280〜）。0.1.291〜：窓の矩形から POPUP_GLOW だけ内側に角切り枠を一枚、
+-- その外側（窓の中）にネオンの暈。どちらも窓の描画リストに、窓の矩形のクリップで描く。
+-- 0.1.281〜0.1.290 は暈だけ GetForegroundDrawList（窓の外・全部の窓の上）に描いていて、
+-- 窓の中の枠と別々に見えていた。戻り値：枠の x1, y1, x2, y2（テスト用）
+function sf.popup_frame_rect(wx, wy, ww, wh, scale)
+    local g = sf.POPUP_GLOW or 12
+    scale = tonumber(scale) or 1
+    if scale > 1 then scale = 1 end
+    local fx1, fy1, fx2, fy2 = wx + g, wy + g, wx + ww - g, wy + wh - g
+    local cx, cy = (fx1 + fx2) / 2, (fy1 + fy2) / 2
+    local rw, rh = (fx2 - fx1) * scale, (fy2 - fy1) * scale
+    return cx - rw / 2, cy - rh / 2, cx + rw / 2, cy + rh / 2
+end
+
 function sf.draw_popup(imgui, kind, opts)
     opts = opts or {}
     local dl
@@ -591,19 +670,15 @@ function sf.draw_popup(imgui, kind, opts)
     if not dl then return end
     local x, y = sf.xy(pcall(imgui.GetWindowPos))
     local w, h = sf.xy(pcall(imgui.GetWindowSize))
-    if not (x and y and w and h) or w < 8 or h < 8 then return end
-    local scale = tonumber(opts.scale) or 1
+    local g = sf.POPUP_GLOW or 12
+    if not (x and y and w and h) or w < g * 2 + 8 or h < g * 2 + 8 then return end
     local alpha = tonumber(opts.alpha) or 1
     if alpha <= 0 then return end
-    local cx, cy = x + w / 2, y + h / 2
-    local rw, rh = w * scale, h * scale
-    local x1, y1 = cx - rw / 2, cy - rh / 2
-    local x2, y2 = cx + rw / 2, cy + rh / 2
+    local x1, y1, x2, y2 = sf.popup_frame_rect(x, y, w, h, opts.scale)
     local complete = (kind == 'complete')
     local colname = complete and 'gold' or 'sf_cyan'
     local line = theme.u32(colname, 0.90 * alpha)
     local glow = theme.u32(colname, 0.22 * alpha)
-    -- 柔らかいネオンの暈（広がるほど薄く。完了は金。reduce_motion なら脈打たない）（0.1.281〜）
     local pulse = 1
     if not opts.reduce_motion then
         local now = 0
@@ -613,29 +688,18 @@ function sf.draw_popup(imgui, kind, opts)
         end
         pulse = 0.84 + 0.16 * (0.5 + 0.5 * math.sin(now * 2.1))
     end
-    local halo_dl = dl
-    if imgui.GetForegroundDrawList then
-        local okf, got = pcall(imgui.GetForegroundDrawList)
-        if okf and got then halo_dl = got end
+    -- 窓の矩形いっぱいをクリップに（ImGui の内側クリップで暈や線が切れないように）
+    local clipped = false
+    if dl.PushClipRect then
+        clipped = pcall(function () dl:PushClipRect({ x, y }, { x + w, y + h }, false) end)
     end
-    local dx, dy = 1920, 1080
-    if imgui.GetIO then
-        local oki, io = pcall(imgui.GetIO)
-        if oki and type(io) == 'table' and io.DisplaySize then
-            dx = tonumber(io.DisplaySize.x or io.DisplaySize[1]) or dx
-            dy = tonumber(io.DisplaySize.y or io.DisplaySize[2]) or dy
-        end
-    end
-    for i = 1, 5 do
-        local pad = 2.6 * i
+    -- 暈：枠から外へ g-1 px まで、広がるほど薄く。窓の外には出ない
+    local n = 4
+    for i = 1, n do
+        local pad = (g - 1) * i / n
         local a = (0.26 / i) * alpha * pulse
-        local hx1 = math.max(1, x1 - pad)
-        local hy1 = math.max(1, y1 - pad)
-        local hx2 = math.min(dx - 1, x2 + pad)
-        local hy2 = math.min(dy - 1, y2 + pad)
-        if hx2 > hx1 + 4 and hy2 > hy1 + 4 then
-            sf.stroke_cut(halo_dl, hx1, hy1, hx2, hy2, 8 + i * 0.5, theme.u32(colname, a), math.max(1.15, 2.3 - i * 0.18))
-        end
+        sf.stroke_cut(dl, x1 - pad, y1 - pad, x2 + pad, y2 + pad, 8 + pad * 0.4,
+            theme.u32(colname, a), math.max(1.15, 2.3 - i * 0.25))
     end
     sf.frame(dl, x1, y1, x2, y2, {
         cut = 8,
@@ -646,9 +710,11 @@ function sf.draw_popup(imgui, kind, opts)
         glow = 1,
         glow_col = glow,
         thick = 1.6,
-        band = true,
-        band_a = 0.08,
+        band = false,
+        band_a = 0,
     })
+    if clipped then pcall(function () dl:PopClipRect() end) end
+    return x1, y1, x2, y2
 end
 
 return sf

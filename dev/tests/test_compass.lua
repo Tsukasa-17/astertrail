@@ -226,7 +226,7 @@ do
     eq(app.state.map and app.state.map.quest, row.qid, 'pad map is this quest')
     eq(app.state.map and app.state.map.loc and app.state.map.loc.zone_id, sl.zone_id, 'pad map uses the giver location')
     app.close_window('map'); frame()
-    -- キャンセルでコンパスを隠す（1.1.285〜。乗っている／操作中の窓は Esc で閉じる）
+    -- キャンセルでコンパスを隠す（0.1.285〜。乗っている／操作中の窓は Esc で閉じる）
     app.activate('compass'); frame()
     press(0x01); frame(); frame()
     check(not app.operating(), 'cancel releases compass')

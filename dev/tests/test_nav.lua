@@ -45,7 +45,7 @@ check(not app.state.open.detail, 'enter does not open a separate detail')
 eq(app.state.active, 'book', 'book still operating')
 eq('row_' .. tostring(S.book.last_row), row, 'enter selects the focused row')
 check(labeled('##pin') or labeled('##chk_'), 'detail pane drawn in the book')
--- 1.1.285〜：行で決定すると右の詳細へ。キャンセルは本を閉じる（枠の点滅だけにしない）
+-- 0.1.285〜：行で決定すると右の詳細へ。キャンセルは本を閉じる（枠の点滅だけにしない）
 eq(focus.current('book'), 'detail_pane', 'enter moves into the detail')
 press(0x01); frame(); frame()
 eq(app.state.open.book, false, 'cancel from in-book detail closes the book')

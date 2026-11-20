@@ -1,4 +1,4 @@
--- 1.1.285：見た目の表示名をアストラルに、初期と初回移行、× を枠の内側へ、独立詳細の詳しい行
+-- 0.1.285：見た目の表示名をアストラルに、初期と初回移行、× を枠の内側へ、独立詳細の詳しい行
 require('fake_env')
 
 local json = require('src.lib.json')
@@ -56,7 +56,7 @@ wf:write(json.encode({ look = 'classic', language = 'ja' }))
 wf:close()
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 FAKE.player = { name = 'OldUser', zone = 230, tidx = 5, status = 0, x = 0, y = 0, z = 0 }

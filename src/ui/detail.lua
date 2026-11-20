@@ -149,16 +149,24 @@ function detail.body(ui, win, q, opts)
         end
     end
 
-    -- 受ける条件（資料に書いてあるものだけ）。まだ満たしていないときだけ「受けられない理由」
-    if q.lock_reasons and #q.lock_reasons > 0 then
+    -- 受ける条件。まだ満たしていないときだけ、実際に止まっている理由を出す（0.1.291〜）
+    local status = ui.player_status and ui.player_status() or nil
+    local blocks, blocked = {}, false
+    if P and D and P:state(q.id) == 'not_accepted' then
+        blocks = marks_core.accept_blocks(D, P, q, status, ui.inventory_count)
+        blocked = #blocks > 0
+    end
+    if blocked or (q.lock_reasons and #q.lock_reasons > 0) then
         W.sep(ui)
-        local blocked = false
-        if P and D and P:state(q.id) == 'not_accepted' then
-            local status = ui.player_status and ui.player_status() or nil
-            blocked = marks_core.prereq_unmet(D, P, q) or marks_core.reqs_unmet(q, status)
-        end
         W.heading(ui, t(blocked and 'detail.lock_reasons' or 'detail.lock_conditions'))
-        for _, r in ipairs(q.lock_reasons) do W.text(ui, '・' .. (r.text_ja or '')) end
+        if blocked then
+            for _, b in ipairs(blocks) do
+                local s = marks_core.block_text(t, b)
+                if s and s ~= '' then W.text(ui, '・' .. s) end
+            end
+        else
+            for _, r in ipairs(q.lock_reasons or {}) do W.text(ui, '・' .. (r.text_ja or '')) end
+        end
     end
 
     -- 手順

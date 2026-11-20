@@ -109,7 +109,9 @@ FAKE.events.text_in({ mode = 150, message = 'Namonutice : ああ、Testerか。\
 local e = app._settings().fame.sandoria
 check(e and e.level == 3, 'remembered sandoria 3')
 check(e and e.at and e.at:match('^%d%d%d%d%-%d%d%-%d%d'), 'with date')
-check(printed('名声を覚えました：サンドリア ランク3'), 'told in chat')
+check(not printed('名声を覚えました'), 'not printed inside text_in (would be swallowed in-game)')
+frame()
+check(printed('名声を覚えました：サンドリア ランク3'), 'told in chat on the next frame')
 -- 続きの行は記録しない、関係ない返事は記録する
 local log = TMP .. '/Vanacore/config/addons/astertrail/catseye_Tester/fame_unmatched.log'
 FAKE.events.text_in({ mode = 150, message = 'Namonutice : 評判もまあまあと言ったところか。' })

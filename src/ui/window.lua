@@ -274,6 +274,21 @@ function window.begin(ui, name, opts)
         end
     end
 
+    -- SF お知らせ：横幅だけ枠の外幅に固定し、高さは AlwaysAutoResize に任せる（0.1.291〜）。
+    -- 0.1.288〜0.1.290 は毎フレーム SetNextWindowSize({outer, 前の高さ}, Always) していた。ImGui 1.92 は
+    -- 大きさを API で決めた軸の自動サイズを止めるので、高さが最初の 200 のまま固まり、
+    -- 見出しや本文が切れて縦のスクロールバーが出ていた。ここでは SetNextWindowSize を呼ばない。
+    if opts.glass and d.auto and theme.is_sf and theme.is_sf() then
+        local outer = 560 + (26 + 12) * 2
+        local ok, sfmod = pcall(require, 'src.ui.sf_style')
+        if ok and sfmod and sfmod.popup_outer_w then
+            outer = tonumber(sfmod.popup_outer_w()) or outer
+        end
+        if imgui.SetNextWindowSizeConstraints then
+            pcall(imgui.SetNextWindowSizeConstraints, { outer, 1 }, { outer, 4096 })
+        end
+    end
+
     -- 地図の窓は画面いっぱいまで引き延ばせる
     if name == 'map' then
         pcall(function ()
@@ -300,6 +315,13 @@ function window.begin(ui, name, opts)
         end
     end
     if opts.no_focus then flags = flags + C('ImGuiWindowFlags_NoFocusOnAppearing') end
+    -- ガラスの窓は ImGui の地・ふち・見出しの帯を出さない（枠はあとから一枚だけ）
+    if opts.glass then
+        local nb = C('ImGuiWindowFlags_NoBackground')
+        if type(nb) == 'number' and nb ~= 0 then flags = flags + nb end
+        -- お知らせは中身に合わせた大きさ。スクロールバーもホイールのスクロールも出さない（0.1.291〜）
+        flags = flags + C('ImGuiWindowFlags_NoScrollbar') + C('ImGuiWindowFlags_NoScrollWithMouse')
+    end
     -- 横にはみ出す窓（コンパス、0.1.177〜）：狭いときは横のスクロールバー
     if opts.hscroll then flags = flags + C('ImGuiWindowFlags_HorizontalScrollbar') end
     -- 上の行（タブなど）をいつも見せる窓：窓そのものは動かさず、中の子の窓だけが動く
@@ -321,13 +343,28 @@ function window.begin(ui, name, opts)
         ncol = ncol + 1
     end
     if opts.glass then
-        -- 地は自分で描く（ゲームの画面が透ける）。見出しの帯は出さない
+        -- 地・ふち・見出しの帯は出さない。枠は sf.draw_popup / draw_popup_glass だけ（0.1.288〜）
         imgui.PushStyleColor(C('ImGuiCol_WindowBg'), { 0, 0, 0, 0 })
         imgui.PushStyleColor(C('ImGuiCol_Border'), { 0, 0, 0, 0 })
-        ncol = ncol + 2
+        imgui.PushStyleColor(C('ImGuiCol_TitleBg'), { 0, 0, 0, 0 })
+        imgui.PushStyleColor(C('ImGuiCol_TitleBgActive'), { 0, 0, 0, 0 })
+        imgui.PushStyleColor(C('ImGuiCol_TitleBgCollapsed'), { 0, 0, 0, 0 })
+        ncol = ncol + 5
         imgui.PushStyleVar(C('ImGuiStyleVar_WindowBorderSize'), 0)
-        imgui.PushStyleVar(C('ImGuiStyleVar_WindowRounding'), 16)
-        imgui.PushStyleVar(C('ImGuiStyleVar_WindowPadding'), { 26, 22 })
+        -- SF は角切り枠だけ。ImGui の丸角が中にずれて重ならないよう Rounding は 0
+        local rnd = (theme.is_sf and theme.is_sf()) and 0 or 16
+        imgui.PushStyleVar(C('ImGuiStyleVar_WindowRounding'), rnd)
+        local pad_x, pad_y = 26, 22
+        if theme.is_sf and theme.is_sf() then
+            -- 本文の余白＋暈の幅（枠は窓から暈の幅だけ内側。0.1.291〜）
+            local ok, sfmod = pcall(require, 'src.ui.sf_style')
+            if ok and sfmod and sfmod.popup_pad then
+                local a, b = sfmod.popup_pad()
+                pad_x = tonumber(a) or pad_x
+                pad_y = tonumber(b) or pad_y
+            end
+        end
+        imgui.PushStyleVar(C('ImGuiStyleVar_WindowPadding'), { pad_x, pad_y })
         nvar = nvar + 3
     end
     if anim and tonumber(anim.a) and anim.a < 0.999 then

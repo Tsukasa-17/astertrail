@@ -7,7 +7,7 @@ local window = require('src.ui.window')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 ---------------------------------------------------------------------------
 -- 1) 初期値と保存の合わせ込み
 ---------------------------------------------------------------------------

@@ -51,7 +51,7 @@ local FALLBACK = {
     ImGuiStyleVar_FramePadding = 11, ImGuiStyleVar_FrameRounding = 12, ImGuiStyleVar_ItemSpacing = 14,
     ImGuiWindowFlags_NoTitleBar = 1, ImGuiWindowFlags_NoResize = 2, ImGuiWindowFlags_NoMove = 4,
     ImGuiWindowFlags_NoScrollbar = 8, ImGuiWindowFlags_NoScrollWithMouse = 16, ImGuiWindowFlags_NoCollapse = 32,
-    ImGuiWindowFlags_AlwaysAutoResize = 64, ImGuiWindowFlags_NoSavedSettings = 256,
+    ImGuiWindowFlags_AlwaysAutoResize = 64, ImGuiWindowFlags_NoBackground = 128, ImGuiWindowFlags_NoSavedSettings = 256,
     ImGuiWindowFlags_NoFocusOnAppearing = 4096, ImGuiWindowFlags_NoNavInputs = 65536,
     ImGuiWindowFlags_NoNavFocus = 131072, ImGuiWindowFlags_HorizontalScrollbar = 2048,
     ImGuiWindowFlags_NoMouseInputs = 512, ImGuiStyleVar_Alpha = 0,
@@ -1327,6 +1327,8 @@ end
 -- 半透明の地と、枠を流れる光（受注・完了のお知らせ。0.1.198〜 ネオンの光）
 -- scale, alpha, reduce_motion は数値でも、表でも受け取る
 function theme.draw_popup_glass(imgui, kind, scale, alpha)
+    -- アストラルは sf.draw_popup の角切り枠だけ。こちらは丸角 r=16 の内側枠になる（0.1.290〜）
+    if theme.is_sf and theme.is_sf() then return end
     local reduce = false
     if type(scale) == 'table' then
         local o = scale

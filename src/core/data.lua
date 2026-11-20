@@ -69,6 +69,7 @@ function data.load(fs, base)
     self:_fill_listed_talk_targets()
     self:_load_game_refs(fs, base)
     self:_load_item_refs(fs, base)
+    self:_apply_guides_extra(fs, base)
     self:_load_exits(fs, base)
     self:_load_step_mobs(fs, base)
     self:_check()
@@ -351,6 +352,55 @@ function data:_apply_guides()
                 self.warnings[#self.warnings + 1] = 'guides: 書き直した手順がありません ' .. q.id
             end
             q.steps = {}
+        end
+    end
+end
+
+
+-- 手で足した手順の注記・後日談の条件（data/guides_extra.json。dev/build_data.py は使わない）
+function data:_apply_guides_extra(fs, base)
+    local t = fs.read(base .. 'guides_extra.json')
+    if not t then return end
+    local extra = json.decode(t)
+    if type(extra) ~= 'table' then
+        self.warnings[#self.warnings + 1] = 'guides_extra.json: 読めません'
+        return
+    end
+    for sid, patch in pairs(type(extra.steps) == 'table' and extra.steps or {}) do
+        local s = type(sid) == 'string' and self.steps[sid] or nil
+        if type(patch) ~= 'table' then
+            -- skip
+        elseif not s then
+            self.warnings[#self.warnings + 1] = 'guides_extra: 手順がありません ' .. tostring(sid)
+        else
+            if type(patch.text_ja) == 'string' then s.text_ja = patch.text_ja end
+            if type(patch.followup_key_item) == 'string' then
+                s.followup_key_item = patch.followup_key_item
+                local ref = self.lookup_item_name and self:lookup_item_name(patch.followup_key_item)
+                if ref and ref.kind == 'key_item' then
+                    s.followup_key_item_id = ref.key_item_id
+                end
+            end
+            if type(patch.followup_key_item_after) == 'string' then
+                s.followup_key_item_after = patch.followup_key_item_after
+            end
+        end
+    end
+    for qid, patch in pairs(type(extra.quests) == 'table' and extra.quests or {}) do
+        local q = type(qid) == 'string' and self.by_id[qid] or nil
+        if type(patch) ~= 'table' then
+            -- skip
+        elseif not q then
+            self.warnings[#self.warnings + 1] = 'guides_extra: クエストがありません ' .. tostring(qid)
+        else
+            if type(patch.followup_requires) == 'table' then
+                q.followup_requires = patch.followup_requires
+                local name = patch.followup_requires.key_item
+                local ref = type(name) == 'string' and self:lookup_item_name(name) or nil
+                if ref and ref.kind == 'key_item' then
+                    q.followup_requires.key_item_id = ref.key_item_id
+                end
+            end
         end
     end
 end

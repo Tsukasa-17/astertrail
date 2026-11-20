@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 
 local item_tip = require('src.ui.item_tip')
 local CT = require('src.ui.colored_text')

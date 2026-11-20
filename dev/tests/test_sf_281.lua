@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.285', 'version')
+eq(app.VERSION, '1.1.292', 'version')
 
 -- --- ソース：閉じるは地図列。右ペインはバーより上。クリックで close_window ---
 local ms = io.open(ROOT .. '/src/ui/map_sf.lua', 'r'):read('*a')
@@ -46,7 +46,7 @@ local nsf = io.open(ROOT .. '/src/ui/notices_sf.lua', 'r'):read('*a')
 check(nsf:find("align = 'center'", 1, true) ~= nil, 'SF heading is centered')
 check(nsf:find("CT.wrapped(ui, qname", 1, true) ~= nil and nsf:find("'center'", 1, true) ~= nil,
     'quest name is centered')
-check(nsf:find('center_row', 1, true) ~= nil, 'buttons are centered with center_row')
+check(nsf:find('center_in_popup', 1, true) ~= nil or nsf:find('center_row', 1, true) ~= nil, 'buttons are centered to the popup width')
 local notices = io.open(ROOT .. '/src/ui/notices.lua', 'r'):read('*a')
 check(notices:find("theme.is_sf()", 1, true) ~= nil, 'notices still hooks SF')
 check(notices:find('theme.draw_popup_glass', 1, true) == nil or true, 'placeholder')
@@ -55,11 +55,11 @@ check(not notices:find("align = 'center'", 1, true), 'classic notices has no SF 
 check(not notices:find("CT.wrapped", 1, true), 'classic notices does not use CT.wrapped center')
 
 local sfs = io.open(ROOT .. '/src/ui/sf_style.lua', 'r'):read('*a')
-check(sfs:find('for i = 1, 5 do', 1, true) ~= nil, 'halo has several expanding outlines')
+check(sfs:find('for i = 1, n do', 1, true) ~= nil, 'halo has several expanding outlines')
 check(sfs:find('opts.reduce_motion', 1, true) ~= nil, 'halo pulse respects reduce_motion')
 check(sfs:find("complete and 'gold' or 'sf_cyan'", 1, true) ~= nil, 'complete halo is gold, else cyan')
-check(sfs:find('GetForegroundDrawList', 1, true) ~= nil, 'halo prefers the foreground draw list')
-check(sfs:find('DisplaySize', 1, true) ~= nil, 'halo is clamped to the display')
+-- 0.1.291〜：暈は窓の中（前景の描画リストは使わない。test_sf_291）
+check(sfs:find('PushClipRect', 1, true) ~= nil, 'halo is clipped to the popup window rect')
 
 local win = io.open(ROOT .. '/src/ui/window.lua', 'r'):read('*a')
 check(win:find('theme.draw_popup_glass', 1, true) ~= nil, 'classic/YunaUI glass is unchanged')
@@ -131,7 +131,21 @@ local halo_dl = setmetatable({
         halo.cols[#halo.cols + 1] = col
     end,
 }, { __index = function () return function () end end })
-imgui.GetForegroundDrawList = function () return halo_dl end
+-- 0.1.291〜：暈はお知らせの窓の描画リスト（窓の中）。お知らせの窓の間だけ記録する
+halo_dl.AddText = function (_, pos, col, text)
+    if type(text) == 'string' then FAKE.texts[#FAKE.texts + 1] = text end
+end
+local in_popup = false
+local orig_begin, orig_wdl = imgui.Begin, imgui.GetWindowDrawList
+imgui.Begin = function (title, open, flags)
+    in_popup = tostring(title):find('astertrail_popup', 1, true) ~= nil
+    return orig_begin(title, open, flags)
+end
+imgui.End = function () in_popup = false end
+imgui.GetWindowDrawList = function ()
+    if in_popup then return halo_dl end
+    return orig_wdl()
+end
 
 check(app.popup_preview('accept'), 'sf preview accept')
 FAKE.cursor_xs, FAKE.dummies = {}, {}

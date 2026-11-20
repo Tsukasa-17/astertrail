@@ -419,7 +419,14 @@ function tracker.draw(ui)
             local hw = CT.text_w(imgui, head)
             local iw = icon and ui_marks.inline_icon_w(ui, icon) or 0
             push_w(hw and (hw + 1 + iw) or nil)   -- 太めにした分の 1px
-            if icon then ui_marks.inline_icon(ui, icon) end
+            local icon_tip
+            if icon == 'unavailable' and ui.data and ui.progress then
+                icon_tip = marks_core.unavailable_tip(ui.t, marks_core.accept_blocks(
+                    ui.data, ui.progress, q,
+                    ui.player_status and ui.player_status() or nil,
+                    ui.inventory_count))
+            end
+            if icon then ui_marks.inline_icon(ui, icon, { tip_text = icon_tip }) end
             local dim = require('src.ui.book').is_marked_unimplemented(S, qid)
             W.line_pass(imgui, function ()
                 if W.link(ui, name, 'q_' .. qid, head, {

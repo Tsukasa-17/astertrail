@@ -1,5 +1,5 @@
 {
-  "source": "0.1.261 手入力。公式名と番号は Windower Resources（DAT 抽出、2026-04 更新）で確認し、用語辞典・BG Wiki の種類（アイテム／だいじなもの）と食い違わないものだけを入れた。同じ公式名に番号が2つ以上あるものは合算用に items_any / key_items_any へ。dev/build_data.py は使っていない。0.1.281：堀ブナは LSB The Rivalry / The Competition が xi.item.MOAT_CARP_1（4401）を要求するため items へ移した。5789（MOAT_CARP_2）は Goblin Weel 分解の非スタック品で、クエストの必要品ではない。",
+  "source": "0.1.261 手入力。公式名と番号は Windower Resources（DAT 抽出、2026-04 更新）で確認し、用語辞典・BG Wiki の種類（アイテム／だいじなもの）と食い違わないものだけを入れた。同じ公式名に番号が2つ以上あるものは合算用に items_any / key_items_any へ。dev/build_data.py は使っていない。0.1.281：堀ブナは LSB The Rivalry / The Competition が xi.item.MOAT_CARP_1（4401）を要求するため items へ移した。5789（MOAT_CARP_2）は Goblin Weel 分解の非スタック品で、クエストの必要品ではない。 0.1.291：「ウェライからの手紙」（Letter from Werei）は Windower Resources key_items.lua の id=290。",
   "read_on": "2026-11-20",
   "items": {
     "森ブナ": 4289,
@@ -54,7 +54,9 @@
     "鍾乳石のしずく": 141,
     "奇妙な珊瑚": 257,
     "ランピモンピ特製シチュー": 100,
-    "虹苺": 776
+    "虹苺": 776,
+    "ウェライからの手紙": 290,
+    "letter from Werei": 290
   },
   "key_items_any": {
     "ヴォイドストーン": [1539, 1540, 1541, 1542, 1543, 1544]

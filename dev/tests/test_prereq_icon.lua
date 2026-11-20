@@ -77,7 +77,9 @@ for _, q in ipairs(D.quests) do
         for _, id in ipairs(grp) do P:set_state(id, 'completed') end
     end
     local ic = marks.quest_icon(D, P, q)
-    if ic == 'unavailable' and not marks.prereq_unmet(D, P, q) then
+    -- 後日談（BM8-1 の手紙など）が残っている受けられないは、前提が済んでいても正しい
+    if ic == 'unavailable' and not marks.prereq_unmet(D, P, q)
+        and not marks.followup_block(D, P, q, nil) then
         false_un = false_un + 1
     end
 end

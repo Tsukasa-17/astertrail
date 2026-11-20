@@ -73,6 +73,12 @@ local function cursor(imgui)
     return sf.xy(pcall(imgui.GetCursorScreenPos))
 end
 
+local function mouse_in(imgui, x1, y1, x2, y2)
+    if not (x1 and y1 and x2 and y2) then return false end
+    local mx, my = sf.xy(pcall(imgui.GetMousePos))
+    return mx and my and mx >= x1 and mx < x2 and my >= y1 and my < y2
+end
+
 local function label_col(name)
     return theme.u32(name or 'text', 1.0)
 end
@@ -610,14 +616,22 @@ local function draw_detail_sf(ui, win, q, opts)
         end
     end
 
-    if q.lock_reasons and #q.lock_reasons > 0 then
-        local blocked = false
-        if P and D and P:state(q.id) == 'not_accepted' then
-            local status = ui.player_status and ui.player_status() or nil
-            blocked = marks_core.prereq_unmet(D, P, q) or marks_core.reqs_unmet(q, status)
-        end
+    local status = ui.player_status and ui.player_status() or nil
+    local blocks, blocked = {}, false
+    if P and D and P:state(q.id) == 'not_accepted' then
+        blocks = marks_core.accept_blocks(D, P, q, status, ui.inventory_count)
+        blocked = #blocks > 0
+    end
+    if blocked or (q.lock_reasons and #q.lock_reasons > 0) then
         W.muted(ui, t(blocked and 'detail.lock_reasons' or 'detail.lock_conditions'))
-        for _, r in ipairs(q.lock_reasons) do W.muted(ui, '・' .. (r.text_ja or '')) end
+        if blocked then
+            for _, b in ipairs(blocks) do
+                local s = marks_core.block_text(t, b)
+                if s and s ~= '' then W.muted(ui, '・' .. s) end
+            end
+        else
+            for _, r in ipairs(q.lock_reasons or {}) do W.muted(ui, '・' .. (r.text_ja or '')) end
+        end
     end
 
     section_label(ui, win, 'sf.label_objective')
@@ -725,14 +739,43 @@ local function draw_detail_sf(ui, win, q, opts)
             local _, th = theme.measure_text(imgui, text, text_avail)
             font(ui, win, 1, false)
             local row_h = math.max(DOT_R * 2 + 6, (th or 16) + 10)
-            -- 今の手順の枠は丸に重ねず、手順文の列から始める。
+            -- 今の手順の枠は丸とチェックに重ねず、チェックの右から始める（0.1.286〜）。
             -- 独立した窓では場所／相手などの行も含めた高さを使う（0.1.285〜）。
             -- 線は測ってから描く。先に 1 行分の枠を描くと、下の行に枠が重なっていた。
             local card_key = tostring(q.id) .. '\0' .. tostring(s.id)
             local guessed = step_card_h[card_key] or row_h
             local card_r = ax and (ax + math.max(80, aw) - 4) or nil
-            if is_cur and ax and ay then
-                sf.fill_cut(dl_of(imgui), ax + text_col - 6, ay, card_r, ay + guessed, 5, theme.u32('sf_cyan', 0.28))
+            local row_w = math.max(80, aw or 200)
+            -- 手順行全体（①、チェック、本文と折り返し、独立詳細の足した行）を当たりにする。
+            -- 先に置き、AllowOverlap で後のチェックや名前のリンクがクリックを受け取れるようにする。
+            -- 枠はチェックの右から始める（6px 左へ寄せると ▢ に重なっていた）。
+            local FRAME_GAP = 4
+            local frame_x = ax and (ax + (manual and (COL + chk_w) or COL) + FRAME_GAP) or nil
+            local row_clicked = false
+            if ax and ay then
+                -- 行全体の当たりは残す（0.1.286）。地・ホバーの塗りは出さない。
+                -- そうしないと ▢ の下から枠の右・下にはみ出す別の塗りになる。
+                local ninv = 0
+                local function hide_hit_col(name)
+                    if imgui.PushStyleColor then
+                        pcall(imgui.PushStyleColor, theme.C(name), { 0, 0, 0, 0 })
+                        ninv = ninv + 1
+                    end
+                end
+                hide_hit_col('ImGuiCol_Button')
+                hide_hit_col('ImGuiCol_ButtonHovered')
+                hide_hit_col('ImGuiCol_ButtonActive')
+                hide_hit_col('ImGuiCol_Header')
+                hide_hit_col('ImGuiCol_HeaderHovered')
+                hide_hit_col('ImGuiCol_HeaderActive')
+                hide_hit_col('ImGuiCol_FrameBg')
+                hide_hit_col('ImGuiCol_FrameBgHovered')
+                hide_hit_col('ImGuiCol_FrameBgActive')
+                sf.set_cursor(imgui, ax, ay)
+                row_clicked = sf.hit(imgui, '##sfstep_' .. s.id, row_w, math.max(1, guessed))
+                if imgui.SetItemAllowOverlap then pcall(imgui.SetItemAllowOverlap) end
+                if ninv > 0 and imgui.PopStyleColor then pcall(imgui.PopStyleColor, ninv) end
+                sf.set_cursor(imgui, ax, ay)
             end
             local cx, cy
             if ax and ay then
@@ -749,6 +792,7 @@ local function draw_detail_sf(ui, win, q, opts)
             end
             imgui.Dummy({ COL, math.max(1, DOT_R * 2) })
             imgui.SameLine(0, 6)
+            local chk_clicked, chk_x1, chk_y1, chk_x2, chk_y2 = false, nil, nil, nil, nil
             if manual then
                 local locked = (not done) and step_lock
                 if W.button(ui, win, 'chk_' .. s.id, done and '■' or '□', {
@@ -756,7 +800,12 @@ local function draw_detail_sf(ui, win, q, opts)
                     disabled = locked,
                     tooltip = locked and t('detail.check_locked') or (done and t('detail.uncheck') or t('detail.check')),
                 }) then
+                    chk_clicked = true
                     ui.request(done and 'uncheck_step' or 'check_step', q.id, s.id)
+                end
+                chk_x1, chk_y1, chk_x2, chk_y2 = sf.item_rect(imgui)
+                if ax and chk_x2 then
+                    frame_x = chk_x2 + FRAME_GAP
                 end
                 imgui.SameLine(0, 6)
             end
@@ -780,7 +829,9 @@ local function draw_detail_sf(ui, win, q, opts)
                 end,
             })
             font(ui, win, 1, false)
+            local consumed = chk_clicked
             if hit and hit.act == 'map' then
+                consumed = true
                 if hit.kind == 'group' then
                     ui.open_map(q.id, s.id)
                 else
@@ -796,9 +847,8 @@ local function draw_detail_sf(ui, win, q, opts)
                     end
                 end
             elseif hit and hit.act == 'copy' and ui.copy_to_clipboard then
+                consumed = true
                 ui.copy_to_clipboard(hit.text)
-            elseif imgui.IsItemClicked and imgui.IsItemClicked(0) then
-                ui.request('set_current_step', q.id, s.id)
             end
             if has_multi and map_on and #tracker.people_counts(text) == 0 then
                 imgui.SameLine(0, 6)
@@ -807,6 +857,7 @@ local function draw_detail_sf(ui, win, q, opts)
                     color = 'sf_cyan', section = 'steps', row = s.id, no_focus = true,
                     tooltip = t('tracker.map_all'),
                 }) then
+                    consumed = true
                     ui.open_map(q.id, s.id)
                 end
                 font(ui, win, 1, false)
@@ -874,6 +925,7 @@ local function draw_detail_sf(ui, win, q, opts)
                         color = col, click = can, section = 'steps', row = s.id .. '#target',
                         tooltip = can and t('map.view') or nil, muted = true,
                     }) then
+                        consumed = true
                         if kind == 'mob' then ui.open_map(q.id, s.id, nil, { mob = s.target }) else ui.open_map(q.id, s.id) end
                     end
                 end
@@ -883,11 +935,28 @@ local function draw_detail_sf(ui, win, q, opts)
             local card_h = row_h
             if ay and cy2 then card_h = math.max(card_h, (cy2 - ay) + (standalone and 6 or 0)) end
             step_card_h[card_key] = card_h
-            if is_cur and ax and ay and card_r then
-                sf.frame(dl_of(imgui), ax + text_col - 6, ay, card_r, ay + card_h, {
-                    cut = 5, fill_a = 0, line_a = 0.95, glow = 1, brackets = false,
-                    thick = 1.4, band_a = 0.10, glow_col = theme.u32('sf_cyan', 0.75),
+            -- 今の手順の塗りは、測った枠と同じ矩形。線の太さと角の切れの分だけ内側へ。
+            -- 先に guessed で塗ると、チェック前の frame_x や高さが枠とずれてはみ出していた（0.1.290〜）。
+            if is_cur and ax and ay and card_r and frame_x then
+                local x1, y1, x2, y2 = frame_x, ay, card_r, ay + card_h
+                local thick, cut = 1.4, 5
+                sf.fill_cut(dl_of(imgui), x1 + thick, y1 + thick, x2 - thick, y2 - thick,
+                    math.max(2, cut - thick), theme.u32('sf_cyan', 0.28))
+                sf.frame(dl_of(imgui), x1, y1, x2, y2, {
+                    cut = cut, fill_a = 0, line_a = 0.95, glow = 1, brackets = false,
+                    thick = thick, band = false, glow_col = theme.u32('sf_cyan', 0.75),
                 })
+            end
+            -- ①・本文・折り返し・余白など、行のどこを押しても今の手順にする。
+            -- チェックと、NPC／対象／アイテム名の動作は上で消費済み。
+            -- 名前の InvisibleButton が行の当たりを奪っても、マウスが行の中なら拾う。
+            if ax and ay and not consumed then
+                local over_chk = chk_x1 and mouse_in(imgui, chk_x1, chk_y1, chk_x2, chk_y2)
+                local over_row = mouse_in(imgui, ax, ay, ax + row_w, ay + card_h)
+                local clicked_mouse = imgui.IsMouseClicked and imgui.IsMouseClicked(0)
+                if row_clicked or (clicked_mouse and over_row and not over_chk) then
+                    ui.request('set_current_step', q.id, s.id)
+                end
             end
             if ay and cy2 and cy2 < ay + card_h then
                 imgui.Dummy({ 1, (ay + card_h) - cy2 })
