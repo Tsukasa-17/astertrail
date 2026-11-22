@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 -- ソース：即時の P.print はせず、flush_fame_notices を tick から呼ぶ
 local src = io.open(ROOT .. '/src/app.lua', 'r'):read('*a')
@@ -98,12 +98,8 @@ check(not lay:find('W.same', 1, true), 'layout buttons are not on the same line'
 check(lay:find("row = 'pos_inside'", 1, true) ~= nil, 'bring-inside has its own row')
 check(lay:find("row = 'pos_reset'", 1, true) ~= nil, 'reset-layout has its own row')
 check(setsrc:find("cat ~= 'layout'", 1, true) ~= nil, 'layout category is packed in one column')
--- プレビュー：ずれた二重の AddRect は置かない
-local i_prev = setsrc:find("elseif cat == 'layout' then", 1, true)
-check(i_prev ~= nil, 'layout preview branch exists')
-local prev = setsrc:sub(i_prev, i_prev + 800)
-check(not prev:find('AddRect', 1, true), 'layout preview has no inner offset rectangles')
-check(prev:find('preview_layout_book', 1, true) ~= nil, 'preview explains book layout memory')
+-- 1.1.300：右のプレビューはやめた。本の覚え方の説明は「一覧の列…を元に戻す」の i に
+check(lay:find('preview_layout_book', 1, true) ~= nil, 'book layout memory is explained in the BOOK box')
 
 local theme = require('src.ui.theme')
 local settings_ui = require('src.ui.settings_ui')
@@ -170,15 +166,16 @@ frames(1)
 sf.frame = orig_frame
 imgui.GetWindowSize = orig_gws
 imgui.GetContentRegionAvail = orig_avail
-check(seen('窓はドラッグして動かせます') or seen('窓の位置は固定されています'), 'preview has the move/lock line')
-check(seen('本は開いたときの位置と、一覧の列を覚えます'), 'preview is not only one sparse line')
+-- 1.1.300：右のプレビューはやめた。文は出さず、行の i の説明に
+check(not seen('窓はドラッグして動かせます') and not seen('本は開いたときの位置と、一覧の列を覚えます'), 'no preview text lines')
+check(not seen('PREVIEW'), 'no PREVIEW heading')
 
 -- ほかのカテゴリも、標準と狭いサイズで主要なラベルが出て落ちない
 local samples = {
     look = { '動きを減らす', 'テーマ' },
     tracker = { 'トラッカーを出す', 'ピンの上限' },
     map = { '地図を出す' },
-    marks = { 'アイコンを表示する', 'イベント中はリングや名前を消す' },
+    marks = { 'アイコンを表示する', 'イベント中', '会話', 'メニュー' },
     notify = { '受注・完了のお知らせ' },
     input = { 'パッドで画面を操作' },
     save = { '今すぐ保存' },

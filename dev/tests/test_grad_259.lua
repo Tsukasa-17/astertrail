@@ -3,7 +3,7 @@ require('harness')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 ext.set_addon_dir(TMP .. '/')
 

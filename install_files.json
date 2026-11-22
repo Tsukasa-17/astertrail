@@ -1,0 +1,565 @@
+{
+"version": "1.1.300",
+"files": [
+{
+"path": "LICENSE",
+"sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+},
+{
+"path": "NOTICE.md",
+"sha256": "b27ff6dd08d124e1639526e0fa00624af83a6a47bf4aeb0dde4b87b7bba7433a"
+},
+{
+"path": "README.md",
+"sha256": "b77a7590cfd8dd28ffadec4d87b5a97ab57ae407f7d35bce95e3db0107800df5"
+},
+{
+"path": "TECH_VALIDATION.md",
+"sha256": "6e928f09bb58b3a23b22a303e650e9f574571effbbf5bdf91dac9dade48f42f2"
+},
+{
+"path": "astertrail.lua",
+"sha256": "306098d9c51dd418778d38aba3ecb86ab597b6fde0fe16f98045d9ab827d2fc4"
+},
+{
+"path": "assets/marks/README.txt",
+"sha256": "bc3d1f621374e7e35c2ce7a9c6b55f90991cf438b14219d606af312c6ca3d086"
+},
+{
+"path": "assets/marks/example/blocked.png",
+"sha256": "a605d700d133ec42112c6ab754444791ca3b635e1390f32b47abed46ecf74f49"
+},
+{
+"path": "assets/marks/example/complete.png",
+"sha256": "2b4386d0543172f08d2754466d02e6c194c276566937e3a0f0e57288f4c78680"
+},
+{
+"path": "assets/marks/example/examine.png",
+"sha256": "99a9e65e77bd559ce4c5f7396ab936da8158f30d253374ba81f56ba514654896"
+},
+{
+"path": "assets/marks/example/fame.png",
+"sha256": "2e8cec0d56c529f9311641f71a6ae48ef5ad78ea0bb172aa1a33c9ffcb5d7438"
+},
+{
+"path": "assets/marks/example/guard.png",
+"sha256": "f975f5f954e510ddc706eebd1738145599a644994bb6e7cfb8a178c4a69fe7e3"
+},
+{
+"path": "assets/marks/example/hunt.png",
+"sha256": "f1fee9d0f91c5971ff6fae8d49ffc6c6239a0dca1bb2fcf546fb388ed0b4de9f"
+},
+{
+"path": "assets/marks/example/main.png",
+"sha256": "b2a92dcb1914ccef471a1b60f8e695ef013864bfee29c9c10bc180a5fe267b98"
+},
+{
+"path": "assets/marks/example/progress.png",
+"sha256": "e72b4fc478cc62c2f5247d4c88c33275393f37fbf950a09ea5fc5335be83ab87"
+},
+{
+"path": "assets/marks/example/repeat.png",
+"sha256": "945ed29987d9716ae1500e77f13c42e82d2c74e9ed66e2e89bb96c78fc4c366e"
+},
+{
+"path": "assets/marks/example/sub.png",
+"sha256": "78fb7bd3c990ea285ac583df00e6f7f549099fb84fc9bed8bccedecd2b60a3a2"
+},
+{
+"path": "assets/marks/example/talk.png",
+"sha256": "e41852b06e4679c6d0604e8e2cfda71826a9d09453f6b97dee7a442bb442d9b0"
+},
+{
+"path": "assets/marks/example/unavailable.png",
+"sha256": "2e25f34346c61ad6845c4ca54456e629b8449a9325aa92f584c6dac6f7087b44"
+},
+{
+"path": "assets/sounds/README.txt",
+"sha256": "e466a4094a60d4ed2a524adfd5a33f0192d16661e1f5001cf932468076453dd9"
+},
+{
+"path": "assets/sounds/sf_accept.wav",
+"sha256": "12fe48bd6152a5e522fba52ec012ae1167e195cc8933ce7998ce7233af6bed3d"
+},
+{
+"path": "assets/sounds/sf_complete.wav",
+"sha256": "0aa1d3947f7090eccc68a37a51e57fc40043541653df32b9dca7589a13dd3419"
+},
+{
+"path": "data/exits.json",
+"sha256": "b3f3d809b28cc7d6e20203fec5b13598812a9d276bf344611baf9bbd5213276d"
+},
+{
+"path": "data/game_refs.json",
+"sha256": "9589ca23fe939b6fe2a824b6c276f825024f9d5d0e3b08e9642ef3c6a4e52751"
+},
+{
+"path": "data/guards.json",
+"sha256": "ca93c95cfc6c185aa4fa793ac5e68940a3cdc528c571e0ad73017fdcd3ece630"
+},
+{
+"path": "data/guides_extra.json",
+"sha256": "8404a807326d1fb7aa8521d5f3a7a19ead71988ca8d27a13da75fd9d21b565fc"
+},
+{
+"path": "data/item_refs.json",
+"sha256": "da3841dc1a1ec9d8f44149e76b55dc7872ab3ce297bbeacab7e88129dc0c4118"
+},
+{
+"path": "data/item_refs_extra.json",
+"sha256": "4e6f3be1a6da3709be6b9f3277c7c8d06bedc9ec7473dd28be0f3a3743d42719"
+},
+{
+"path": "data/manifest.json",
+"sha256": "5bbf904545e939daa0922e23a2dae6dde9aaad39e56ae22a8ac6d6b552a2dab6"
+},
+{
+"path": "data/maps.json",
+"sha256": "245525535a8aa41f1993b574aa79c7e21a995dc0894f2ee3d23bf5c393d52115"
+},
+{
+"path": "data/roe_cycles.json",
+"sha256": "f8060f643f19c38284ed5aceb76559e5af9c61e8c61aa1c798d5dba2715bedf2"
+},
+{
+"path": "data/roe_unimplemented.json",
+"sha256": "3cdc798aefd201990ab060996e67f9c5f6094c8216bb3eb72bb330b87cc43d4f"
+},
+{
+"path": "data/step_mobs.json",
+"sha256": "83b0d64a3aaee296609b7ef2cae8120f44a0f827a7db170dc6014923bf9fdfd8"
+},
+{
+"path": "data/zones.json",
+"sha256": "5f293de2d9a5ade901020e9ea1f5e7d5adffb040f2dcd78ef23d0a350cdb7c67"
+},
+{
+"path": "data/guides/step_map.json",
+"sha256": "200b41b04535800cb7c07741a6805e1459b04c275f9ddb349cfe1d5f750db4de"
+},
+{
+"path": "data/guides/steps_v2.json",
+"sha256": "9dcf29835923194201749bf8d1cc1f07eaea1bc422f48e4475252347534d518d"
+},
+{
+"path": "data/missions/acp.json",
+"sha256": "4b400ecf8b04b88897134092ea5755044ab65f402558451894bf071a0fa56d77"
+},
+{
+"path": "data/missions/adoulin.json",
+"sha256": "94bde6e845bbaff4bdc33d96ef5bf33941e5b6e92fb5e9643bf875d7c357e913"
+},
+{
+"path": "data/missions/aht_urhgan.json",
+"sha256": "7b3559c103175319690d333a12878d20381a47ec2c461a4a8002cf82c30070a8"
+},
+{
+"path": "data/missions/altana.json",
+"sha256": "ee42d717f9d361cf09251ee344a644eff405306dbf51d05d41cfeb3c6796ebdd"
+},
+{
+"path": "data/missions/asa.json",
+"sha256": "60188bcf21092fda48483997329a612d014d3634bbea94693d86373d09cfaf36"
+},
+{
+"path": "data/missions/assault.json",
+"sha256": "03cf86df6202e1fe86add4bb960520e3988f7764c5b7860962d541fc4c041fa5"
+},
+{
+"path": "data/missions/bastok.json",
+"sha256": "57675b139891000c70db616e4d8ea3d2544c288f8eeff6dd3921d648b6e21c11"
+},
+{
+"path": "data/missions/campaign.json",
+"sha256": "31146dd2fc8d476e638503aa81ff98b8aa779fd8ffcdb82e2216ec0ce53c83f3"
+},
+{
+"path": "data/missions/mkd.json",
+"sha256": "25b7d4b100125e6e3340f095855f1915e11768df4bb229d085703b75454cf4cc"
+},
+{
+"path": "data/missions/promathia.json",
+"sha256": "484ef7276cb907879e3150a3b4fc417e09eb0b37c3b7f374e31c7d5dcfd53611"
+},
+{
+"path": "data/missions/rov.json",
+"sha256": "0f1a05d7d7f55be0bcc2121761118298ff34ebfbbdf184940987834020755998"
+},
+{
+"path": "data/missions/sandoria.json",
+"sha256": "1726cd9107558448b75b49d08ee3dbcfd89e9f06cf80bf65715c7f93730b3932"
+},
+{
+"path": "data/missions/tvr.json",
+"sha256": "83cb5359832c86ad9e3afcb64c26f4d1be4c959a46d52e5912179abda60d4725"
+},
+{
+"path": "data/missions/windurst.json",
+"sha256": "836211b075558d16753927c3cd52247092ac317cbd2278dcf07d830d897bf12b"
+},
+{
+"path": "data/missions/zilart.json",
+"sha256": "15ee663d945927dc058c8188f3c3435c2a82f47ceeb6cff1f8ec42735eb6a3d9"
+},
+{
+"path": "data/quests/abyssea.json",
+"sha256": "f063204e2d70f4d4587336af9cfd6a5c90e3ce24351c8d1a607540d8ae693fd8"
+},
+{
+"path": "data/quests/adoulin.json",
+"sha256": "f57ecb1872e172272212dc92e20ae921304a12ac53497bea7e8e2d32630d4d9f"
+},
+{
+"path": "data/quests/aht_urhgan.json",
+"sha256": "d1300a62108334ab5e341b0472dad1337003a4c865fb6730ddfbe845077dba99"
+},
+{
+"path": "data/quests/altana.json",
+"sha256": "07b5074856de238cd881485ca83c15443de816134b871ac8386c19b7a148d6f0"
+},
+{
+"path": "data/quests/bastok.json",
+"sha256": "4e80a9ad6ca73ea1ba3575f19b56ed7ebcc8c41792ef8a3647f925ef19e76633"
+},
+{
+"path": "data/quests/jeuno.json",
+"sha256": "a5a7ba0d73c9524a74df1e3cb6f8a8923f313744cf9ff1639a589d0b48ed42d9"
+},
+{
+"path": "data/quests/kazham.json",
+"sha256": "565f7285a67ccc4f7867c90651f7c41db5a408aaba9c450f48ee2ca280c4930b"
+},
+{
+"path": "data/quests/misc.json",
+"sha256": "a608552913b5286476ed59bfdf37a5e5fe52181a5d9a48f19896b37571050d8f"
+},
+{
+"path": "data/quests/norg.json",
+"sha256": "f569268fd0c4445a4d35216b0da47ee7bb9fe746b9c006f9ca8d2d4b2dbb6713"
+},
+{
+"path": "data/quests/rabao.json",
+"sha256": "bc256d98a8c0ab59c4024b042c3ef3ee26269eeffb3c3611f5c0d4f917151f5d"
+},
+{
+"path": "data/quests/records.json",
+"sha256": "2ee2e556fff63b3879d961f83797387587347c8d0251c24ef97dadca612e3950"
+},
+{
+"path": "data/quests/sandoria.json",
+"sha256": "0623a0a6d2f2e34c3d1a400fb5df70363ce9753f4df1e4cfbed76bc14c27159f"
+},
+{
+"path": "data/quests/selbina_mhaura.json",
+"sha256": "f031db05d7901bb82f42732c86322b9483ac525297f9e655d66109eaaa0bdddf"
+},
+{
+"path": "data/quests/tavnazia.json",
+"sha256": "d5fd88c6810886b11e54d7da52961bdc0e102d6bf43a144be9fef6143498756e"
+},
+{
+"path": "data/quests/windurst.json",
+"sha256": "94fc1e0e9356065817aed475bc9b21b413c389ab89409060f52f377123c1e52b"
+},
+{
+"path": "docs/images/vanacore-imgui-font.png",
+"sha256": "6d6c20d478dffc65fcc4f21c5386970bb1f494fa47ecae1676baa21a2fc4fdcb"
+},
+{
+"path": "fonts/melete/Melete-Bold.otf",
+"sha256": "db19306598d42e57dbb6ea6d6381a61f1228f818229be0d6d48f6e5e2bef989b"
+},
+{
+"path": "fonts/melete/Melete-Bold.ttf",
+"sha256": "ef0d5599a73e3032b6e6de241390f212bfd74ec729cf3ca99d68c7d2e7f167f9"
+},
+{
+"path": "fonts/melete/OFL.txt",
+"sha256": "7f18ec1ebb6b50e3ed0f74b2c61f25b8d7cd69e43f4de66e991bcfd3c419a8bb"
+},
+{
+"path": "locales/en.json",
+"sha256": "ed975ae6ceff1ccd98d0d25010ad54fe2223670939bde3cbd0effd2039f9d44e"
+},
+{
+"path": "locales/ja.json",
+"sha256": "5c2ca2fba41ead1f92f9b9b7dc6913ff50a448c7601961b12116159b2275c1ae"
+},
+{
+"path": "src/app.lua",
+"sha256": "46b372c01e28596f520cc1b3055661dc4cf62b46c65cf1933cf5ea4fcf09d6d2"
+},
+{
+"path": "src/build_flags.lua",
+"sha256": "39a392d74884d21858461c5d4cb43d6a0418f64e9bbe74896fe4724c6309fcff"
+},
+{
+"path": "src/core/compass.lua",
+"sha256": "101e5da1a927393efbf0ec57acc31bced539464f52979f382531bc238178ec65"
+},
+{
+"path": "src/core/data.lua",
+"sha256": "3a68617d640c5f18621afdc1399453f44487b6135bddc70504684e89ee00c212"
+},
+{
+"path": "src/core/diagnostics.lua",
+"sha256": "78798338bc3966e2788b6d7165ebca1d3b78c8e5969d4b5f6a1eaa408b8eb8df"
+},
+{
+"path": "src/core/exits.lua",
+"sha256": "4fd26ffa1c51c857606b4dc0680c8162fb33dcb06c0ed27e05877229eac17b40"
+},
+{
+"path": "src/core/fame.lua",
+"sha256": "58f0a370094be08f4fdac85a1e744a11ad53f64d235f037dafb5518d445d8b88"
+},
+{
+"path": "src/core/game_log.lua",
+"sha256": "c5a2b929997cb3da0f3cdb0e089f8ec26ee7d7321a20fb9a0f040792ad6a3ef1"
+},
+{
+"path": "src/core/gil.lua",
+"sha256": "542ef9e642318987da0338748ed0e354ababf30eeb73da59776f123b9043aa03"
+},
+{
+"path": "src/core/i18n.lua",
+"sha256": "e8c86702a28ef07dc2cdb6721e8f162157746e1f87607f7fb8da16d0c2b26560"
+},
+{
+"path": "src/core/install_backup.lua",
+"sha256": "c8a8be3acd8df321f6ae46d57621e5c17202c0c2a3aee378fb0834d6fceca4ce"
+},
+{
+"path": "src/core/layouts.lua",
+"sha256": "5890f2e0e31b918231e6623082b8d80944da9ba69accce596085a785f6f40d7d"
+},
+{
+"path": "src/core/map_dat.lua",
+"sha256": "8925ddbc57df16bb5fe2c4646151cffe3f2744824e25cfab68038fee65b52703"
+},
+{
+"path": "src/core/maps.lua",
+"sha256": "100c540fb3a4082bc8963f148c30d88c66ac27c55b64b662fc625032f3bfe4ba"
+},
+{
+"path": "src/core/marks.lua",
+"sha256": "ab9c3ce1000a028a81c2cda56b33de883a2dfa014dbd15ec59ae4a09df746f1c"
+},
+{
+"path": "src/core/perf.lua",
+"sha256": "dbd0012596e647fbff2fdaec7a7ff2c759a71fdabfd8ece13a470c36ac1f904b"
+},
+{
+"path": "src/core/possession.lua",
+"sha256": "c980eb3f466a8b2c0eae8775c5b5b88f64372692494a4b41bf4017eaf22db2b9"
+},
+{
+"path": "src/core/progress.lua",
+"sha256": "7b18e863618dd5fddb70a1ca3496597edbd5fa0f70bf6f0a778502301a4bf7bf"
+},
+{
+"path": "src/core/project.lua",
+"sha256": "ea4af938837a1cb95c0446b3e141dbd3bbdf13a909e3292a5672e749037ac157"
+},
+{
+"path": "src/core/roe.lua",
+"sha256": "c0beab373d5d7f3b65a5ad8a9c31bc9f6a30a06f21368c1d26261828b6bcb571"
+},
+{
+"path": "src/core/roe_cycle.lua",
+"sha256": "f7fd13045d0982b11926063a2fa33d233ce559c4aa8909a68823e9d4ec0dcf14"
+},
+{
+"path": "src/core/settings.lua",
+"sha256": "63f073f2870ac8e25aa3e4b7c625227e23138c5936c945f46477cfe59dfd9e74"
+},
+{
+"path": "src/core/shortcut.lua",
+"sha256": "f656d5e8dbca53f4ea9256ccf17d5a3769054d497ed592af49559a36d6a185a3"
+},
+{
+"path": "src/core/sound.lua",
+"sha256": "913725b308d9bf8d55c4dab2bb5d1ec266803426772732d98867fb95d90cadcb"
+},
+{
+"path": "src/core/storage.lua",
+"sha256": "f20e6f0dfbc8076cea78d8e00821d4c992e9a43fe1310ad5773fbe3ba4f151f6"
+},
+{
+"path": "src/core/update.lua",
+"sha256": "a87c6629718036dfde7002374ae482b29c928243013f6eb12124a0c8d39b0336"
+},
+{
+"path": "src/core/zonedat.lua",
+"sha256": "ba7482fa40f01c74259557139234a4441c559f3248829b2ccac823d45d184a94"
+},
+{
+"path": "src/lib/json.lua",
+"sha256": "8480ed3d910eb4f1c971b5ae2b928db4be829f8390111bc0ada2e5128888f2a7"
+},
+{
+"path": "src/lib/sha256.lua",
+"sha256": "f4b531f7e94a8cd7914345e06deb8f117c9b647baaa552896ea4aa2e218da9c7"
+},
+{
+"path": "src/lib/util.lua",
+"sha256": "3023a2fa6a51f1d4aaa28690725b73110e11bfa6c5498ba0d116b19a17fd5063"
+},
+{
+"path": "src/lib/zip.lua",
+"sha256": "c3598a95dcdfe7b632e65de4872e952808755f2d0d01f0c2994503f6df30deae"
+},
+{
+"path": "src/platform/ashita.lua",
+"sha256": "d107e0045f0dcf8f822b4aecde74b9c0693bb89512ee820fe86136c2f65445d2"
+},
+{
+"path": "src/platform/cp932.lua",
+"sha256": "1bfdf1f26b2e017ddbcb8aa0ed6410600da42e41923097c4e807e88e6a4d3e5d"
+},
+{
+"path": "src/platform/vanacore_ext.lua",
+"sha256": "c80ed9641e1ed1b3037e4ed7787d612adeff68f469e47a93c26e60b6086872e5"
+},
+{
+"path": "src/ui/book.lua",
+"sha256": "a2bbce8be43ac39f94907866697afa0aee727b1d41db4b029a6c0bd4070eef3a"
+},
+{
+"path": "src/ui/book_sf.lua",
+"sha256": "b05323e613e65945e1dfcb28cbed031eb8e66ddacad216348ed3c4c37e0dd36c"
+},
+{
+"path": "src/ui/colored_text.lua",
+"sha256": "5809ed40494cc3d151f1ff9cd630dbd423713554f16b780e8a16494ec266a698"
+},
+{
+"path": "src/ui/compass.lua",
+"sha256": "9a757b25aa12fb375823bbbff7639248e69a0711f6aac4fa2d19ba3e757918ec"
+},
+{
+"path": "src/ui/compass_sf.lua",
+"sha256": "ff8ccc3f55586454f011ec21343a8e2585e538236573b0821ddc7f5b9adab5f9"
+},
+{
+"path": "src/ui/crisp_font.lua",
+"sha256": "36f824aee22b4a269f74a35a7f6e1dd1920f14a5b3e368c1b66661efcab9c670"
+},
+{
+"path": "src/ui/crisp_outline.lua",
+"sha256": "277c2485b3ec0f25400ecec4d5656536f8be8ce662f2adb96ac9b82e1abe4a59"
+},
+{
+"path": "src/ui/detail.lua",
+"sha256": "5795c92800c21577c58d38c29cf2d6ae083467f6c703d5deda473396d63aa049"
+},
+{
+"path": "src/ui/detail_win_sf.lua",
+"sha256": "c14fb34b3cee105d497e17ececff25efe20b6f2799954082cc4c18e4819727c6"
+},
+{
+"path": "src/ui/eminence.lua",
+"sha256": "dd1386b127938f894636cec7c77c81728f4ac59c2ca0f88c2a8c6047f0a2fd7d"
+},
+{
+"path": "src/ui/eminence_sf.lua",
+"sha256": "b7070f75a146c348d9770b78cbeff4e4a1c194438a44a218a023ff1ce22c4fc1"
+},
+{
+"path": "src/ui/eminence_win_sf.lua",
+"sha256": "eff0027c0c23ae58e57d87f6d8c72a8f40d668f780ec036205f4ae8a4d0e1ba9"
+},
+{
+"path": "src/ui/entry.lua",
+"sha256": "2e381bc9c6f74e3e30daff4b26ba12497e416574d6724859f7b104d93187d1c7"
+},
+{
+"path": "src/ui/focus.lua",
+"sha256": "5f1f410c06cf52562608dbe28181c06b39a13105c55a18eb012008c91c0cb50f"
+},
+{
+"path": "src/ui/hide_scenes_ui.lua",
+"sha256": "018d5098d7178ff63c522ab7eba634951cd5e7f5a84fa22aba80a3e341db3857"
+},
+{
+"path": "src/ui/icons.lua",
+"sha256": "cb38cd142f88f061a25d8d31212575621013f5c23b32ac510b18fcc1f34c75b5"
+},
+{
+"path": "src/ui/item_tip.lua",
+"sha256": "8b9377aad2cd60be05b9d60f49a3de68239c5095432c51594d19ccfbceafce1e"
+},
+{
+"path": "src/ui/labels.lua",
+"sha256": "92307095065471ca9c766437c37fb09c278fe1ef8c5a495fd1ede8304754ef98"
+},
+{
+"path": "src/ui/map_sf.lua",
+"sha256": "3615442b2423f170810b5904015164cd8e9e9ea67bceee21e04d1cb83c65f376"
+},
+{
+"path": "src/ui/map_view.lua",
+"sha256": "06d6892592decea0d2cd0b0d4d6ebb6b38e2e0f4a9102d8efa982546667311eb"
+},
+{
+"path": "src/ui/marks.lua",
+"sha256": "04a5bb93a8e95a118fead4d182bdfcb6af503ccb247e0aab6bd05be835bb41ca"
+},
+{
+"path": "src/ui/notices.lua",
+"sha256": "42e8875ae3fb274cdd60e31176bd3dd37609e01ec6c283cf5a07792d2fc7a2db"
+},
+{
+"path": "src/ui/notices_sf.lua",
+"sha256": "c52c07ed749b1f47ff45b5ebf5a3cc2a2afff96cacb94b4cede98d770bdb2191"
+},
+{
+"path": "src/ui/possession_ui.lua",
+"sha256": "c744844853f3387dc4e8b0e553f4d27e537d3d73f62978a3d668bb6f1a508abe"
+},
+{
+"path": "src/ui/settings_sf.lua",
+"sha256": "3868b48c05cb4609fb16b949737a7d9be7d74c029e7a70a61893cb21c4984f5b"
+},
+{
+"path": "src/ui/settings_ui.lua",
+"sha256": "432e84b80278781b57ca5317b88e086b85f76ed87910483983fc524ed2d63190"
+},
+{
+"path": "src/ui/sf_style.lua",
+"sha256": "8e4414cda63ceade7d4eb20ae27b8c3d4c0c0686677d9d8f9f4bba1fcb54401c"
+},
+{
+"path": "src/ui/theme.lua",
+"sha256": "fa99efcf0bd5f576fb3d4fbfe17a74b6b2ad84a466e4f7c6106bc84a936ab9db"
+},
+{
+"path": "src/ui/title_close.lua",
+"sha256": "7ed56bc5e98bf2ad9fc3a4ebe2ada8656c28d1005223bca2bfc0eef7cc66f412"
+},
+{
+"path": "src/ui/tracker.lua",
+"sha256": "b398f04a76990ab7a5f19b72dc1ab88704fd37cc8cb6f9e868ebc03be2121d32"
+},
+{
+"path": "src/ui/tracker_sf.lua",
+"sha256": "40c8a09d96b669951d973b0af21d7e0466f90ced725c718cccae34d2eeb87394"
+},
+{
+"path": "src/ui/update_panel_ui.lua",
+"sha256": "1b75cf74678fe7394abb3fe8ac91bbae216a65ca9662512d33e3a328db267ccc"
+},
+{
+"path": "src/ui/update_popup.lua",
+"sha256": "3ec5561cae5c6b389dd6d203c6c0f166aba38408dbbf11d4122f5684380a210c"
+},
+{
+"path": "src/ui/widgets.lua",
+"sha256": "be9fde4320c823de2b6dfc38e33816eba8d70eb1b9303a9078f2596885dd9e7d"
+},
+{
+"path": "src/ui/window.lua",
+"sha256": "cd06e21108a1d8d41a5198f9ad41ab4853b72306663aeb08e9eb0d4fd3727967"
+}
+]
+}

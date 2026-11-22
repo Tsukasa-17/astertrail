@@ -6,7 +6,7 @@ local crisp = require('src.ui.crisp_font')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local function norm(path)
     return tostring(path or ''):gsub('/', '\\'):lower()

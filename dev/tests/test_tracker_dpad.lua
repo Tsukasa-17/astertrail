@@ -131,6 +131,8 @@ for _, mode in ipairs({ 'after', 'before' }) do
     eq(tg and tg.name_en, 'Excenmille', mode .. ': map shows that target')
     tap('circle'); frame()
     eq(app.state.active, 'tracker', mode .. ': ○ on the map returns to the tracker')
+    eq(app.state.open.map, true, mode .. ': ○ does not close the map (0.1.296)')
+    app.close_window('map'); frame()
     -- 名前：詳細
     focus.set('tracker', 'q_' .. QA); frame()
     tap('cross'); frame()

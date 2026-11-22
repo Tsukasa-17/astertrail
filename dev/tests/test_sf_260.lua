@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local labels = require('src.ui.labels')
 local poss_ui = require('src.ui.possession_ui')

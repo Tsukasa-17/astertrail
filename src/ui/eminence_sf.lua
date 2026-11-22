@@ -13,6 +13,7 @@ local eminence = require('src.ui.eminence')
 local sf = require('src.ui.sf_style')
 local util = require('src.lib.util')
 local roe = require('src.core.roe')
+local roe_cycle = require('src.core.roe_cycle')
 
 local eminence_sf = {}
 
@@ -165,6 +166,94 @@ local function db_of(ui)
     return nil
 end
 
+-- くり返し・期間外（0.1.293〜）。戻り値: { mode = 'active'|'open'|'wait'|'done', reason, at }
+local function cycle_of(ui, id)
+    if ui.roe_cycle_status then
+        local ok, c = pcall(ui.roe_cycle_status, id)
+        if ok and c then return c end
+    end
+    local st = eminence.state_of(ui, id) or 'not_accepted'
+    if st == 'accepted' then return { mode = 'active' } end
+    if st == 'completed' then
+        local db = db_of(ui)
+        local q = db and db.quests and db.quests[id]
+        return { mode = (q and q.repeatable) and 'open' or 'done' }
+    end
+    return { mode = 'open' }
+end
+eminence_sf.cycle_of = cycle_of
+
+-- 札の区分（0.1.294〜。絞り込みも同じ区分）：
+--   active＝解除（受注中）、open＝受注、wait＝期間外、other＝対象外、auto＝自動、completed＝達成、unimplemented＝未実装
+-- 受注中は未実装でも解除のまま。未実装は期間外などより先に見る（受けても断られるため）
+eminence_sf.SHOW_KEYS = { 'active', 'open', 'wait', 'other', 'auto', 'completed', 'unimplemented' }
+local SHOW_DEFAULT = { active = true, open = true, wait = true, other = true, auto = true, completed = false, unimplemented = true }
+local SHOW_FROM_BOOK = { active = 'accepted', open = 'not_accepted', wait = 'not_accepted', other = 'not_accepted',
+    auto = 'not_accepted', completed = 'completed', unimplemented = 'unimplemented' }
+
+function eminence_sf.ensure_show(E)
+    if type(E.sf_show) ~= 'table' then E.sf_show = {} end
+    for _, k in ipairs(eminence_sf.SHOW_KEYS) do
+        if type(E.sf_show[k]) ~= 'boolean' then
+            local b = nil
+            if type(E.book_show) == 'table' then b = E.book_show[SHOW_FROM_BOOK[k]] end
+            if type(b) == 'boolean' then E.sf_show[k] = b else E.sf_show[k] = SHOW_DEFAULT[k] end
+        end
+    end
+    return E.sf_show
+end
+
+local function is_unimpl(ui, id)
+    local failed = ui.roe_failed and ui.roe_failed(id)
+    return failed ~= nil and failed.why == 'not_impl'
+end
+
+function eminence_sf.category(ui, id, cyc)
+    cyc = cyc or cycle_of(ui, id)
+    if cyc.mode == 'active' then return 'active' end
+    if is_unimpl(ui, id) then return 'unimplemented' end
+    if cyc.mode == 'done' then return 'completed' end
+    if cyc.mode == 'wait' then
+        if cyc.reason == 'other_leader' then return 'other' end
+        if cyc.reason == 'timed_auto' then return 'auto' end
+        return 'wait'
+    end
+    return 'open'
+end
+
+-- 本の一覧で出すか（eminence.book_visible から。ignore_state は見出しの件数用：未実装の絞りだけ効かせる）
+function eminence_sf.visible(ui, id, opts)
+    local E = ui.settings.eminence
+    if not E then return true end
+    local show = eminence_sf.ensure_show(E)
+    local cat = eminence_sf.category(ui, id)
+    if opts and opts.ignore_state then
+        return not (cat == 'unimplemented' and show.unimplemented == false)
+    end
+    return show[cat] ~= false
+end
+eminence.sf_filter = eminence_sf.visible
+
+-- 期間外の札の字：待てば受けられる＝期間外、ほかのリーダー＝対象外、ゲームが入れる＝自動
+local WAIT_LABEL = { other_leader = 'roe.wait.other', timed_auto = 'roe.wait.auto' }
+function eminence_sf.wait_label(t, c)
+    if c and c.unimpl then return t('state.unimplemented') end
+    return t(WAIT_LABEL[c and c.reason] or 'roe.wait.period')
+end
+
+-- 次に受けられる時刻の字（分からなければ nil）
+function eminence_sf.wait_when(t, c, now)
+    if not (c and c.at) then return nil end
+    -- 自動（ゲームが4時間ごとに入れる）は、次に入るまでの残り時間（0.1.294〜）
+    if c.reason == 'timed_auto' then
+        local h, m = roe_cycle.remain_parts(c.at, now or os.time())
+        if h > 0 and m == 0 then return t('roe.wait.in_h', { h = tostring(h) }) end
+        if h > 0 then return t('roe.wait.in_hm', { h = tostring(h), m = tostring(m) }) end
+        return t('roe.wait.in_m', { m = tostring(m) })
+    end
+    return t('roe.wait.from', { when = roe_cycle.format_when(c.at) })
+end
+
 local function list_sig(ui, heading_id)
     local E = ui.settings.eminence or {}
     local r = ui.state and ui.state.roe or {}
@@ -175,9 +264,20 @@ local function list_sig(ui, heading_id)
         E.book_text or '',
         E.book_favs_only and '1' or '0',
         eminence.show_sig(E),
+        (function ()
+            local sh = eminence_sf.ensure_show(E)
+            local o = {}
+            for _, k in ipairs(eminence_sf.SHOW_KEYS) do o[#o + 1] = sh[k] and '1' or '0' end
+            return table.concat(o)
+        end)(),
+        (E.known_unimpl == false) and 'u0' or 'u1',
         tostring(nact),
         tostring(r.db_why or ''),
         tostring(r.rev or r.complete_rev or ''),
+        -- 達成の表が替わったとき・0:00 JST を過ぎたとき・組や週が届いたときも組み直す（0.1.293〜）
+        tostring(r.complete),
+        tostring(roe.days_since(ui.epoch_now and ui.epoch_now() or os.time())),
+        tostring(r.unity and r.unity.shared or '') .. ':' .. tostring(r.unity and r.unity.week or '') .. ':' .. tostring(r.leader or ''),
     }
     -- 受けている id と進みも署名へ（件数が同じでも中身が変わったら組み直す）
     if r.active then
@@ -211,12 +311,14 @@ function eminence_sf.shown_rows(ui)
         end
     end
     local shown = eminence.recs_for_heading(ui, heading_id, rows)
-    -- 進行中を前に（本のカードと同じ順）
-    local rank = { accepted = 1, not_accepted = 2, completed = 3 }
+    -- 受注中 → 受けられる → 期間外 → 達成（0.1.293〜。期間外は下へ。受けられる日になれば元の位置に戻る）
+    local rank = roe_cycle.RANK
     local tagged = {}
     for i, r in ipairs(shown) do
-        local st = eminence.state_of(ui, r.id) or 'not_accepted'
-        tagged[i] = { r = r, i = i, rank = rank[st] or 2 }
+        local c = cycle_of(ui, r.id)
+        local cat = eminence_sf.category(ui, r.id, c)
+        local key = (cat == 'unimplemented') and 'unimplemented' or c.mode
+        tagged[i] = { r = r, i = i, rank = rank[key] or 2 }
     end
     table.sort(tagged, function (a, b)
         if a.rank ~= b.rank then return a.rank < b.rank end
@@ -263,22 +365,30 @@ local function draw_card(ui, win, rec, selected, width)
         band = selected, band_a = selected and 0.14 or 0,
     })
     local st = eminence.state_of(ui, id) or 'not_accepted'
+    local cyc = cycle_of(ui, id)
+    local mode = cyc.mode
     local failed = ui.roe_failed and ui.roe_failed(id)
+    -- 0.1.294〜：未実装（受注中でないもの）は「未実装」の灰色の札。押せない
+    local unimpl = mode ~= 'active' and failed ~= nil and failed.why == 'not_impl'
+    if unimpl then cyc = { mode = 'wait', reason = 'not_impl', unimpl = true }; mode = 'wait' end
     local name = eminence.name(ui, id)
     local yy = y1 + 10
     font(ui, win, 1.05, true)
     local pin_s, pin_gap = 18, 2
     local name_max = math.max(16, w - 10 - pin_s * 2 - pin_gap - 8)
     local shown, _ = window.clip_line(imgui, name, name_max)
-    local muted = (st == 'completed') or (failed and failed.why == 'not_impl' and st ~= 'accepted')
+    local muted = (mode == 'done') or (mode == 'wait') or (failed and failed.why == 'not_impl' and st ~= 'accepted')
     sf.text_at(imgui, x1 + 10, yy, function ()
         theme.TextColored(imgui, theme.col(muted and 'muted' or 'text'), shown)
     end)
     -- 未開始／進行中の表示は出さず、受注／解除のボタンだけ（完了はこれまでどおり表示）
+    -- 0.1.293〜：くり返しできる達成は受注ボタン。いま受けられないものは「期間外」などの灰色の札
     local badge, bcol
-    if st == 'completed' then
-        badge, bcol = badge_of(t, st)
-    elseif st == 'accepted' then
+    if mode == 'done' then
+        badge, bcol = badge_of(t, 'completed')
+    elseif mode == 'wait' then
+        badge, bcol = eminence_sf.wait_label(t, cyc), 'muted'
+    elseif mode == 'active' then
         badge, bcol = t('roe.remove'), 'sf_cyan'
     else
         badge, bcol = t('roe.accept'), 'muted'
@@ -290,9 +400,34 @@ local function draw_card(ui, win, rec, selected, width)
     local bh = (thb or 12) + bpad_y * 2
     local bx2, by2 = x2 - 10, y2 - 8
     local bx1, by1 = bx2 - bw, by2 - bh
+    -- 0.1.295〜：未実装の札は手で外せる（「元に戻す」）。外したものは「未実装に戻す」。札の左の小さいボタン
+    local ust = ui.roe_unimpl_state and ui.roe_unimpl_state(id) or nil
+    local ulab = ust and t(ust == 'unimpl' and 'roe.unimpl.restore' or 'roe.unimpl.mark') or nil
+    local ux1, uy1, ux2, uy2
+    if ulab then
+        font(ui, win, 0.62, false)
+        local twu, thu = theme.measure_text(imgui, ulab)
+        font(ui, win, 1, false)
+        local uw, uh = (twu or 40) + 10, (thu or 11) + 5
+        ux2 = bx1 - 6
+        ux1 = ux2 - uw
+        uy2 = by2
+        uy1 = uy2 - uh
+        -- カードが狭くて左の数と重なるときは、札の上に重ねて置く。それでも入らなければ出さない（詳細のボタンで切りかえる）
+        if ux1 < x1 + 70 then
+            ux2 = bx2
+            ux1 = ux2 - uw
+            uy2 = by1 - 4
+            uy1 = uy2 - uh
+            if ux1 < x1 + 10 or uy1 < y1 + 30 then ulab, ux1 = nil, nil end
+        end
+    end
     local frac, ci, ct = frac_of(ui, id)
     local count = (ci ~= nil) and (ct and (tostring(ci) .. ' / ' .. tostring(ct)) or tostring(ci)) or nil
-    font(ui, win, 1.12, true)
+    -- 期間外で次に受けられる時刻が分かるときは、数の代わりに「11/23 0:00から」
+    local when = (mode == 'wait') and eminence_sf.wait_when(t, cyc, ui.epoch_now and ui.epoch_now() or nil) or nil
+    if when then count = when end
+    font(ui, win, when and 0.78 or 1.12, not when)
     local cw, ch = 0, 16
     if count then
         cw, ch = theme.measure_text(imgui, count)
@@ -302,13 +437,28 @@ local function draw_card(ui, win, rec, selected, width)
     local bar_h = 5
     local bar_y = math.min(by1, count_y) - 8 - bar_h
     if bar_y < yy + 14 then bar_y = yy + 14 end
-    sf.bar(dl, x1 + 10, bar_y, math.max(36, bx1 - 8 - (x1 + 10)), bar_h, frac or 0)
+    sf.bar(dl, x1 + 10, bar_y, math.max(36, (ux1 or bx1) - 8 - (x1 + 10)), bar_h, frac or 0)
     if count then
-        sf.add_text(dl, x1 + 10, count_y, theme.u32('heading', 1), count)
+        if when then font(ui, win, 0.78, false) end
+        sf.add_text(dl, x1 + 10, count_y, theme.u32(when and 'muted' or 'heading', 1), count)
+        if when then font(ui, win, 1, false) end
     end
     -- 未開始／進行中のバッジは受注・解除のボタン（色で見分けやすく）。完了は表示だけ。
     local badge_hit, over_badge = false, false
-    if st ~= 'completed' then
+    if mode == 'wait' then
+        -- 期間外：押せない灰色の札。理由と次に受けられる時刻は札のツールチップ
+        pcall(function () imgui.SetCursorScreenPos({ bx1, by1 }) end)
+        sf.hit(imgui, '##sfemw_' .. tostring(id), bw, bh)
+        sf.frame(dl, bx1, by1, bx2, by2, {
+            cut = 3, fill = theme.u32('muted', 0.10), fill_a = 1, line = theme.u32('muted', 0.70), line_a = 1,
+            brackets = false, glow = false, thick = 1.0, band = false,
+        })
+        font(ui, win, 0.68, true)
+        sf.add_text(dl, bx1 + bpad_x, by1 + bpad_y, theme.u32('muted', 0.95), badge)
+        font(ui, win, 1, false)
+        local tip = ui.roe_why_text and ui.roe_why_text(cyc.reason, id) or nil
+        show_tip(imgui, tip)
+    elseif mode ~= 'done' then
         pcall(function () imgui.SetCursorScreenPos({ bx1, by1 }) end)
         badge_hit = sf.hit(imgui, '##sfemb_' .. tostring(id), bw, bh)
         local op, can, why = eminence.action_info(ui, id)
@@ -339,6 +489,28 @@ local function draw_card(ui, win, rec, selected, width)
         font(ui, win, 0.68, true)
         sf.add_text(dl, bx1 + bpad_x, by1 + bpad_y, theme.u32(bcol, 1.0), badge)
         font(ui, win, 1, false)
+    end
+    if ulab and ux1 then
+        pcall(function () imgui.SetCursorScreenPos({ ux1, uy1 }) end)
+        local uhit = sf.hit(imgui, '##sfemu_' .. tostring(id), ux2 - ux1, uy2 - uy1)
+        local utip = t(ust == 'unimpl' and 'roe.unimpl.restore_tip' or 'roe.unimpl.mark_tip')
+        show_tip(imgui, utip)
+        local over_u = mouse_in(imgui, ux1, uy1, ux2, uy2)
+        local ucol = (ust == 'unimpl') and 'sf_cyan' or 'muted'
+        sf.frame(dl, ux1, uy1, ux2, uy2, {
+            cut = 2, fill = theme.u32(ucol, over_u and 0.22 or 0.08), fill_a = 1, line = theme.u32(ucol, over_u and 0.95 or 0.60), line_a = 1,
+            brackets = false, glow = false, thick = 1.0, band = false,
+        })
+        font(ui, win, 0.62, false)
+        sf.add_text(dl, ux1 + 5, uy1 + 2, theme.u32(ucol, 0.95), ulab)
+        font(ui, win, 1, false)
+        if over_u and card_hov and imgui.SetTooltip and not (imgui.IsItemHovered and imgui.IsItemHovered()) then
+            pcall(imgui.SetTooltip, utip)
+        end
+        if uhit or (clicked and over_u) then
+            if ui.roe_toggle_unimpl then ui.roe_toggle_unimpl(id) end
+            clicked = false
+        end
     end
     -- 右上：お気に入りの♥、その右に★（ピン）
     -- カード全体の InvisibleButton が先だと、ImGui は重なった小さい当たりをクリックしない。
@@ -415,11 +587,21 @@ local function draw_detail(ui, win, id)
         return
     end
     local st = eminence.state_of(ui, id)
+    local cyc = cycle_of(ui, id)
+    local mode = cyc.mode
+    if mode ~= 'active' and is_unimpl(ui, id) then cyc = { mode = 'wait', reason = 'not_impl', unimpl = true }; mode = 'wait' end
     font(ui, win, 1.42, true)
-    theme.TextColored(imgui, theme.col((st == 'completed') and 'muted' or 'heading'), eminence.name(ui, id))
+    theme.TextColored(imgui, theme.col((mode == 'done' or mode == 'wait') and 'muted' or 'heading'), eminence.name(ui, id))
     font(ui, win, 0.78, false)
-    local badge = badge_of(t, st or 'not_accepted')
-    theme.TextColored(imgui, theme.col('sf_cyan'), badge)
+    -- 状態の字：くり返しできる達成は「未開始」、いま受けられないものは「期間外」（0.1.293〜）
+    if mode == 'wait' then
+        local lab = eminence_sf.wait_label(t, cyc)
+        local when = eminence_sf.wait_when(t, cyc, ui.epoch_now and ui.epoch_now() or nil)
+        theme.TextColored(imgui, theme.col('muted'), when and (lab .. '  ' .. when) or lab)
+    else
+        local badge = badge_of(t, (mode == 'done' and 'completed') or (mode == 'active' and 'accepted') or 'not_accepted')
+        theme.TextColored(imgui, theme.col('sf_cyan'), badge)
+    end
     font(ui, win, 1, false)
     if q.body and q.body ~= '' then W.text(ui, q.body) end
 
@@ -442,7 +624,7 @@ local function draw_detail(ui, win, id)
         put('fav', faved and t('roe.unfav') or t('roe.fav'), faved, nil, function ()
             eminence.toggle_fav(ui, id)
         end)
-        if eminence.action_visible(ui, id) then
+        if mode == 'active' or mode == 'open' then
             local op, can, why = eminence.action_info(ui, id)
             local lab = (op == 'start') and t('roe.accept') or t('roe.remove')
             local tip = can and t(op == 'start' and 'roe.accept_tip' or 'roe.remove_tip')
@@ -450,6 +632,14 @@ local function draw_detail(ui, win, id)
             put('act', lab, op == 'start', tip, function ()
                 if can and ui.roe_send then ui.roe_send(op, id) end
             end, { action = op })
+        end
+        -- 0.1.295〜：未実装の札を手で外す ⇄ 未実装に戻す
+        local ust = ui.roe_unimpl_state and ui.roe_unimpl_state(id) or nil
+        if ust then
+            put('unimpl', t(ust == 'unimpl' and 'roe.unimpl.restore' or 'roe.unimpl.mark'), ust == 'restored',
+                t(ust == 'unimpl' and 'roe.unimpl.restore_tip' or 'roe.unimpl.mark_tip'), function ()
+                    if ui.roe_toggle_unimpl then ui.roe_toggle_unimpl(id) end
+                end)
         end
         flow_end(imgui, stf)
     end
@@ -462,13 +652,16 @@ local function draw_detail(ui, win, id)
     if sf.rule then sf.rule(imgui) end
     section_label(ui, win, 'roe.d.reward')
     W.text(ui, eminence.reward_text(q))
-    W.muted(ui, t(q.repeatable and 'roe.d.repeatable' or 'roe.d.not_repeatable'))
-    if st ~= 'accepted' and ui.roe_rotation and ui.roe_why_text then
-        local rot = ui.roe_rotation(id)
-        if rot then W.muted(ui, ui.roe_why_text(rot, id)) end
+    local rep = cyc['repeat']
+    if rep == nil then rep = q.repeatable end
+    W.muted(ui, t(rep and 'roe.d.repeatable' or 'roe.d.not_repeatable'))
+    if mode == 'wait' and ui.roe_why_text then
+        W.muted(ui, ui.roe_why_text(cyc.reason, id))
     end
     if ok_inner then window.pop(ui, 'child') end
 end
+
+eminence_sf._draw_detail = draw_detail   -- テスト用
 
 local function flow_chips(ui, name, items)
     local imgui = ui.imgui
@@ -526,32 +719,29 @@ function eminence_sf.book_body(ui, name)
             return math.max(260, math.min(460, (tonumber(rest) or 400) - 16))
         end, false)
         sf.break_row(imgui)
-        if type(E.book_show) ~= 'table' then E.book_show = { accepted = true, not_accepted = true, completed = false, unimplemented = true } end
-        if E.book_show.unimplemented == nil then E.book_show.unimplemented = true end
+        -- 0.1.294〜：カードの札と同じ言葉で絞る。解除＝受注中、受注＝受けられる、期間外・対象外・自動・達成・未実装
+        local show = eminence_sf.ensure_show(E)
+        local CHIP = {
+            active = { 'roe.remove', 'roe.filter.active_tip' },
+            open = { 'roe.accept', 'roe.filter.open_tip' },
+            wait = { 'roe.wait.period', 'roe.filter.wait_tip' },
+            other = { 'roe.wait.other', 'roe.filter.other_tip' },
+            auto = { 'roe.wait.auto', 'roe.filter.auto_tip' },
+            completed = { 'roe.state.completed', 'roe.filter.completed_tip' },
+            unimplemented = { 'state.unimplemented', 'roe.filter.unimplemented_tip' },
+        }
         local items = {}
-        for _, k in ipairs(eminence.SHOW_STATES) do
-            local on = E.book_show[k] ~= false
-            local label = (k == 'completed') and t('roe.state.completed') or t('state.' .. k)
-            local tip = (k == 'completed') and t('roe.show_completed_tip') or t('book.show_tip')
+        for _, k in ipairs(eminence_sf.SHOW_KEYS) do
+            local on = show[k] ~= false
             items[#items + 1] = {
-                id = 'em_show_' .. k, label = label, on = on, tip = tip,
+                id = 'em_sf_show_' .. k, label = t(CHIP[k][1]), on = on, tip = t(CHIP[k][2]),
                 on_click = function ()
-                    E.book_show[k] = not on
+                    show[k] = not on
                     ui.mark_settings_dirty()
                     eminence_sf.reset_cache()
                 end,
             }
         end
-        local on_u = E.book_show.unimplemented ~= false
-        items[#items + 1] = {
-            id = 'em_show_unimpl', label = t('state.unimplemented'), on = on_u,
-            tip = t('roe.show_unimplemented_tip'),
-            on_click = function ()
-                E.book_show.unimplemented = not on_u
-                ui.mark_settings_dirty()
-                eminence_sf.reset_cache()
-            end,
-        }
         local on_f = E.book_favs_only == true
         items[#items + 1] = {
             id = 'em_favs', label = t('roe.favs_only'), on = on_f, tip = t('roe.favs_only_tip'),

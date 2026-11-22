@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local update = require('src.core.update')
 eq(update.URL, 'https://raw.githubusercontent.com/Tsukasa-17/astertrail/main/version.json', 'url is the repo version.json')
@@ -196,7 +196,7 @@ S.look = 'sf'
 theme.set_look('sf')
 app.state.update = { status = 'offer', version = '0.1.283', current = '0.1.282', zip_url = 'https://example.com/a.zip' }
 frame()
-check(texted('新しい版があります') or texted('A new version is available'), 'offer heading')
+check(texted('新しいバージョンがあります') or texted('A new version is available'), 'offer heading')
 check(labeled('ダウンロードして更新') or labeled('Download and update'), 'download button')
 check(labeled('あとで') or labeled('Later'), 'later button')
 app.update_later()

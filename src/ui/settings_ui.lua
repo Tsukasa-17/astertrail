@@ -16,7 +16,7 @@ local function onoff(ui, v) return v and ui.t('common.on') or ui.t('common.off')
 
 local label_w   -- 下で決める（名前の列の幅）
 local text_w
-local function toggle(ui, name, id, label, tbl, key, section)
+local function toggle(ui, name, id, label, tbl, key, section, info)
     if theme.look == 'yunaui' then
         -- YunaUI 風：名前と、丸いスイッチ（スライダーの ↺ と同じ列にそろえる。名前が長ければ名前のすぐ右）
         local col_x
@@ -24,14 +24,22 @@ local function toggle(ui, name, id, label, tbl, key, section)
             local w = text_w(ui.imgui, label)
             if w and w + 12 < label_w + 20 then col_x = label_w + 20 end
         end
-        if W.switch(ui, name, id, label, tbl[key] == true, { section = section, row = id, col_x = col_x, reduce_motion = ui.reduce_motion }) then
+        if W.switch(ui, name, id, label, tbl[key] == true, { section = section, row = id, col_x = col_x, reduce_motion = ui.reduce_motion, info = info }) then
             tbl[key] = not tbl[key]
             ui.mark_settings_dirty()
             return true
         end
         return false
     end
-    if W.button(ui, name, id, label .. '：' .. onoff(ui, tbl[key]), { section = section, row = id }) then
+    local hit = W.button(ui, name, id, label .. '：' .. onoff(ui, tbl[key]), { section = section, row = id })
+    -- 0.1.299〜：説明の i（乗せる・パッドで選ぶと説明）
+    if info and info ~= '' then
+        local focused = focus.current(name) == id and focus.why(name) ~= 'hover'
+        ui.imgui.SameLine(0, 6)
+        W.info_mark(ui, name .. '/' .. id, info, { lit = focused })
+        if focused then W.tooltip(ui, info) end
+    end
+    if hit then
         tbl[key] = not tbl[key]
         ui.mark_settings_dirty()
         return true
@@ -347,7 +355,7 @@ function settings_ui.body(ui)
                 ui.mark_settings_dirty()
             end
         end
-        toggle(ui, name, 'motion', t('settings.reduce_motion'), S, 'reduce_motion', SEC)
+        toggle(ui, name, 'motion', t('settings.reduce_motion'), S, 'reduce_motion', SEC, t('settings.reduce_motion_tip'))
         end
         fold_end(ui, frec)
     end }
@@ -438,6 +446,13 @@ function settings_ui.body(ui)
         toggle(ui, name, 'marks_fame', t('settings.marks_show_fame'), S.marks, 'show_fame_npcs', SEC)
         W.muted(ui, t('settings.marks_switches_note'))
         stepper(ui, name, 'marks_icon', t('settings.marks_icon_size'), S.marks, 'icon_size', 4, 16, 64, UNIT.px, SEC, DEF.marks.icon_size)
+        -- 隠す場面（0.1.296〜。前は足元の輪の「イベント中はリングや名前を消す」）
+        require('src.ui.hide_scenes_ui').draw(ui, name, {
+            toggle = function (u, n, id, label, tbl, key, info) return toggle(u, n, id, label, tbl, key, SEC, info) end,
+            help = function (text) W.muted(ui, text) end,
+            subhead = function (text) W.heading(ui, text) end,
+            section = SEC,
+        })
         end
         fold_end(ui, frec)
         -- 位置の調整（px、＋で右・下）
@@ -550,8 +565,6 @@ function settings_ui.body(ui)
             if type(M.ring_strength) ~= 'number' then M.ring_strength = settings_mod.RING_STRENGTH_DEFAULT or 1 end
             stepper(ui, name, 'marks_ring_strength', t('settings.rings_strength'), M, 'ring_strength', 0.1,
                 settings_mod.RING_STRENGTH_MIN, settings_mod.RING_STRENGTH_MAX, nil, SEC, DM.ring_strength)
-            toggle(ui, name, 'marks_rings_event', t('settings.rings_hide_in_event'), M, 'hide_rings_in_event', SEC)
-            W.muted(ui, t('settings.rings_hide_in_event_note'))
             W.muted(ui, t('settings.rings_strength_note'))
             for _, k in ipairs(settings_mod.RING_KINDS) do
                 local key = 'ring_' .. k
@@ -767,6 +780,10 @@ function settings_ui.body(ui)
     SECTIONS[#SECTIONS + 1] = { key = 'eminence', title = t('settings.eminence'), draw = function ()
         -- 窓の出す・隠すは本の上の行のボタンだけ（0.1.182〜、t293。ここのスイッチはなくした）
         toggle(ui, name, 'roe_fold', t('settings.roe_collapsed'), S.eminence, 'collapsed', SEC)
+        -- 0.1.294〜：サーバーに入っていないと分かっているものに未実装の札（初期オン）
+        if S.eminence.known_unimpl == nil then S.eminence.known_unimpl = true end
+        toggle(ui, name, 'roe_known_unimpl', t('settings.roe_known_unimpl'), S.eminence, 'known_unimpl', SEC)
+        W.muted(ui, t('settings.roe_known_unimpl_note'))
         -- 達成間近の目安は、窓の達成間近のタブをなくしたので出さない（0.1.177〜。値は残す）
         -- 0.1.226〜：「本で達成したものを隠す」はやめた（本の「表示：☑達成」に移した）
         W.muted(ui, t('settings.roe_note'))
@@ -776,8 +793,16 @@ function settings_ui.body(ui)
         W.muted(ui, t('about.license'))
         W.muted(ui, t('about.font_melete'))
         W.muted(ui, t('about.version', { v = ui.addon_version, d = ui.data.version or '?' }))
-        S.update_notice = S.update_notice or { enabled = true }
-        toggle(ui, name, 'update_notice', t('about.update_notice'), S.update_notice, 'enabled', SEC)
+        -- 0.1.297〜：更新（様子・今すぐ確認・前のバージョンに戻す）
+        W.heading(ui, t('settings.update_title'))
+        require('src.ui.update_panel_ui').draw(ui, name, {
+            toggle = function (u, n, id, label, tbl, key, info) return toggle(u, n, id, label, tbl, key, SEC, info) end,
+            text = function (s) W.muted(ui, s) end,
+            button = function (n, id, label, o)
+                o = o or {}
+                return W.button(ui, n, id, label, { section = SEC, row = id, disabled = o.disabled, tooltip = o.tooltip })
+            end,
+        })
         W.muted(ui, t('about.update_notice_note'))
     end }
 

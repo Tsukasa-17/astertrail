@@ -8,13 +8,13 @@ local marks_ui = require('src.ui.marks')
 local theme = require('src.ui.theme')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local src = io.open(ROOT .. '/src/ui/marks.lua', 'r'):read('*a')
 local i_draw = src:find('function marks.draw(ui)', 1, true)
 check(i_draw ~= nil, 'marks.draw exists')
 local chunk = src:sub(i_draw, i_draw + 2500)
-check(chunk:find('marks.hide_rings_now(ui)', 1, true) ~= nil, 'draw uses the same hide_rings_now check as rings')
+check(chunk:find('marks.hide_now(ui)', 1, true) ~= nil, 'draw uses the same hide_now check as rings (0.1.296)')
 check(chunk:find("why = 'event'", 1, true) ~= nil, 'event hide returns why=event')
 check(chunk:find('clear_world_marks', 1, true) ~= nil, 'event hide clears world marks (object / nearby names)')
 check(chunk:find('clear_name_marks', 1, true) ~= nil or chunk:find('clear()', 1, true) ~= nil,
@@ -23,11 +23,11 @@ check(chunk:find('clear_name_marks', 1, true) ~= nil or chunk:find('clear()', 1,
 -- 設定の案内も、名前が消えることに触れる
 local ja = io.open(ROOT .. '/locales/ja.json', 'r'):read('*a')
 local en = io.open(ROOT .. '/locales/en.json', 'r'):read('*a')
-check(ja:find('イベント中はリングや名前を消す', 1, true) ~= nil, 'JA setting mentions names')
+check(ja:find('隠す場面', 1, true) ~= nil, 'JA hide scenes label')
 check(ja:find('クエスト名', 1, true) ~= nil and ja:find('オブジェクト名', 1, true) ~= nil, 'JA note lists name kinds')
-check(ja:find('アドオンの窓はそのまま', 1, true) ~= nil, 'JA note keeps addon windows')
-check(en:find('Hide rings and names during events', 1, true) ~= nil, 'EN setting mentions names')
-check(en:find('Addon windows stay visible', 1, true) ~= nil, 'EN note keeps addon windows')
+check(ja:find('「調べる」だけはイベントが始まらないと分かりません', 1, true) ~= nil, 'JA help about examine')
+check(en:find('Hide in scenes', 1, true) ~= nil, 'EN hide scenes label')
+check(en:find('Examining alone', 1, true) ~= nil, 'EN help about examine')
 
 local D = data_mod.load(posix_fs(), ROOT .. '/data/')
 local P = progress.new({ data = D, max_pins = function () return 10 end, on_change = function () end })
@@ -41,7 +41,7 @@ S.marks.show_nearby_names = true
 S.marks.show_icons = true
 S.marks.show_quest_name = true
 S.marks.show_rings = true
-S.marks.hide_rings_in_event = true
+S.marks.hide_scenes.event.on = true; S.marks.hide_scenes.menu.on = true
 
 local attached, placed, rings, cleared = {}, {}, {}, { name = 0, world = 0, rings = 0 }
 local status, menu = 0, false
@@ -124,14 +124,14 @@ ui.state.game_menu_open = nil
 menu = false
 
 -- 設定オフなら、イベント中も名前は出たまま（リングと同じ）
-S.marks.hide_rings_in_event = false
+S.marks.hide_scenes.event.on = false; S.marks.hide_scenes.menu.on = false
 status = 4
 reset_counts()
 info = marks_ui.draw(ui)
 check(not info.skipped, 'setting off: still drawn in a cutscene')
 check(has_index(placed, 11), 'setting off: object name stays')
 check(has_index(placed, 20), 'setting off: nearby name stays')
-S.marks.hide_rings_in_event = true
+S.marks.hide_scenes.event.on = true; S.marks.hide_scenes.menu.on = true
 status = 0
 
 -- アドオンの窓は消さない（リングの判定も窓は触らない）

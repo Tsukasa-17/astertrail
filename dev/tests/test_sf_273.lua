@@ -3,7 +3,7 @@ require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local CT = require('src.ui.colored_text')
 local theme = require('src.ui.theme')
@@ -64,7 +64,7 @@ for name, text in pairs({
     layouts = layouts_tip,
     yuna = yuna,
     folder = '設定フォルダ: C:\\Games\\CatsEyeXI\\catseyexi-client\\Vanacore\\config\\addons\\astertrail\\Tester',
-    version = '版 0.1.273 ／ データ 2026.11.20-125',
+    version = 'バージョン 0.1.273 ／ データ 2026.11.20-125',
     preview = '文字サイズと背景の濃さの見本',
 }) do
     local lines = wrap_out(text, narrow)

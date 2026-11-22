@@ -4,7 +4,7 @@
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**版 1.1.292**（公開 β）／ データ `2026.11.20-125`
+**バージョン 1.1.300**（公開 β）／ データ `2026.11.20-125`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -82,7 +82,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.292.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.300.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -195,7 +195,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.292, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.300, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 

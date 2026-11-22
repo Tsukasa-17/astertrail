@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 -- --- ソース：フックと右上の ×。クラシックは触らない。窓サイズは上書きしない ---
 local det = io.open(ROOT .. '/src/ui/detail.lua', 'r'):read('*a')

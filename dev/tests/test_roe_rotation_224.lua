@@ -181,6 +181,8 @@ FAKE.player = { name = 'Tester', zone = 100, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 local st = app.state
+-- 0.1.294〜：調べた未実装の一覧（3019 なども入る）はここでは使わない（日・週の入れ替えだけを確かめる）
+S.eminence.known_unimpl = false
 check(st.ready, 'logged in')
 
 -- まだ 0x110・0x061 が無い：止めない（推測しない）。期間限定だけは止める

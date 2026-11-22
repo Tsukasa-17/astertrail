@@ -25,6 +25,8 @@ local panel_inner_w = nil
 -- カテゴリ内でそろえるラベル列（前フレームの最大幅を使う）
 local form_cat = {}
 local form = nil
+-- 0.1.300〜：箱ごとの、前のフレームのスライダーの行の名前の幅と、スライダー以外の操作の幅
+local step_meas = {}
 
 local CATS = {
     { key = 'look',    ja = '見た目' },
@@ -188,7 +190,20 @@ end
 
 local function form_opts(base)
     local o = base or {}
-    if form and form.label_w then
+    -- 0.1.298〜：名前は左、操作は箱の右端。行のあいだに薄い線
+    if form and form.label_w and panel_inner_w and panel_inner_w > 40 then
+        o.form_right = true
+        o.form_inner = panel_inner_w
+        o.form_gap = 12
+        o.form_value_w = form.value_w
+        o.form_slider_w = form.slider_w
+        -- 0.1.299〜：まとまり（group）の中は線を引かない。線はまとまりの前だけ
+        local g = form.group
+        o.form_rule = (form.rows or 0) > 0 and (not g or g.first)
+        if g then g.first = false end
+        form.rows = (form.rows or 0) + 1
+        o.wrap_w = nil
+    elseif form and form.label_w then
         o.form_label_w = form.label_w
         o.form_gap = form.gap
         o.form_value_w = form.value_w
@@ -200,10 +215,20 @@ local function form_opts(base)
     return o
 end
 
-local function toggle(ui, name, id, label, tbl, key)
+-- 続けて置く行のまとまり（線はまとまりの前に 1 本だけ）。fn の中の行をまとめる
+local function group(fn)
+    if not form then return fn() end
+    local prev = form.group
+    form.group = { first = true }
+    local ok, err = pcall(fn)
+    form.group = prev
+    if not ok then error(err, 0) end
+end
+
+local function toggle(ui, name, id, label, tbl, key, info)
     form_note(ui, label)
     if W.switch(ui, name, id, label, tbl[key] == true, form_opts({
-        section = SEC, row = id, reduce_motion = ui.reduce_motion,
+        section = SEC, row = id, reduce_motion = ui.reduce_motion, info = info,
     })) then
         tbl[key] = not tbl[key]
         ui.mark_settings_dirty()
@@ -212,13 +237,37 @@ local function toggle(ui, name, id, label, tbl, key)
     return false
 end
 
-local function stepper(ui, name, id, label, tbl, key, step, lo, hi, text, default)
+-- 0.1.299〜：パッドでその行を選んでいるときも説明を出す（ids のどれかが選ばれている）
+local function focus_tip(ui, name, info, ids)
+    if not info or info == '' then return end
+    if focus.why(name) == 'hover' then return end
+    local cur = focus.current(name)
+    for _, i in ipairs(ids) do
+        if cur == i then W.tooltip(ui, info); return end
+    end
+end
+
+local function stepper(ui, name, id, label, tbl, key, step, lo, hi, text, default, info)
     form_note(ui, label)
-    return W.slider(ui, name, id, label, tbl, key, form_opts({
+    local r = W.slider(ui, name, id, label, tbl, key, form_opts({
         step = step, lo = lo, hi = hi, default = default, text = text, section = SEC,
-        slider_w = 120,
+        slider_w = 120, info = info,
         tooltip_reset = ui.t('settings.reset_default'),
     }))
+    -- 0.1.300〜：次のフレームのスライダーの幅のために、名前の幅（i の印も）とスライダー以外の操作の幅を覚える
+    if form and form.slider_w then
+        local imgui = ui.imgui
+        local tw = tonumber(select(1, theme.measure_text(imgui, tostring(label or '')))) or 0
+        if info and info ~= '' then tw = tw + W.info_mark_size(imgui) + 6 end
+        if tw > (form.step_lab or 0) then form.step_lab = tw end
+        local cw = tonumber(W._ctrl_w_cache[name .. '/' .. id])
+        if cw and cw > form.slider_w then
+            local rest = cw - form.slider_w
+            if rest > (form.step_fixed or 0) then form.step_fixed = rest end
+        end
+    end
+    focus_tip(ui, name, info, { id, id .. '_reset' })
+    return r
 end
 
 -- パネル内の説明は、子窓の残り幅ではなく、そのパネルの内側の幅で折り返す
@@ -242,6 +291,7 @@ end
 
 local function subhead(ui, text)
     if not text or text == '' then return end
+    if form then form.rows = 0 end
     if panel_inner_w and panel_inner_w > 8 then
         CT.wrapped(ui, text, 'heading', nil, panel_inner_w)
     else
@@ -253,7 +303,8 @@ local function button(ui, win, id, label, opts)
     opts = opts or {}
     local imgui = ui.imgui
     local form_row
-    if form and form.label_w and form.label_w > 8 and imgui.SetCursorScreenPos and not opts.no_form then
+    -- 0.1.298〜：操作のボタン（名前のないもの）は左から。名前の列へずらさない
+    if false then
         local ok, a, b = pcall(imgui.GetCursorScreenPos)
         local sx, sy
         if ok and type(a) == 'table' then sx, sy = tonumber(a.x or a[1]), tonumber(a.y or a[2])
@@ -278,7 +329,57 @@ local function button(ui, win, id, label, opts)
     end
     local hit = W.button(ui, win, id, label, opts)
     if form_row and W._form_end then W._form_end(imgui, form_row) end
+    -- 0.1.299〜：説明はボタンのすぐ右の i（乗せる・パッドで選ぶと出る）
+    if opts.info and opts.info ~= '' then
+        pcall(imgui.SameLine, 0, 6)
+        W.info_mark(ui, win .. '/' .. id, opts.info)
+        focus_tip(ui, win, opts.info, { id })
+    end
     return hit
+end
+
+-- 「文字のそろえ：{v}」の形から名前だけ（0.1.298〜）
+local function strip_v(s)
+    s = tostring(s or ''):gsub('{v}', '')
+    -- 0.1.299〜：全角の「：」は 3 バイト。文字のまとまりで後ろから外す（[：:] だと 1 バイトだけ消えて「?」が残る）
+    local changed = true
+    while changed do
+        changed = false
+        for _, tail in ipairs({ '：', ':', ' ', '　' }) do
+            if #s >= #tail and s:sub(-#tail) == tail then s = s:sub(1, -#tail - 1); changed = true end
+        end
+    end
+    return s
+end
+
+-- 名前は左、いまの値を出す小さなボタンを右端に（押すと切りかえ）。opts.after で右にもう一つ置ける
+local function choice(ui, win, id, label, value, opts)
+    opts = opts or {}
+    local imgui = ui.imgui
+    value = tostring(value or '')
+    if form and form.label_w and panel_inner_w and panel_inner_w > 40 and W._form_start then
+        local fo = form_opts({ info = opts.info })
+        local tw = tonumber(select(1, theme.measure_text(imgui, value))) or 0
+        local row = W._form_start(ui, imgui, label, fo, win .. '/' .. id, tw + 18 + (opts.extra_w or 0))
+        if row then
+            local hit = W.button(ui, win, id, value, {
+                section = SEC, row = opts.row or id, tooltip = opts.tooltip, disabled = opts.disabled,
+            })
+            focus_tip(ui, win, fo.info, { id })
+            local extra
+            if opts.after then
+                imgui.SameLine(0, 6)
+                extra = opts.after()
+            end
+            W._form_end(imgui, row)
+            return hit, extra
+        end
+    end
+    local sep = (ui.settings and ui.settings.language == 'en') and ': ' or '：'
+    local hit = button(ui, win, id, label .. sep .. value, { section = SEC, row = opts.row or id })
+    local extra
+    if opts.after then W.same(ui); extra = opts.after() end
+    return hit, extra
 end
 
 local function heading_font(ui, win, on)
@@ -317,11 +418,45 @@ local function panel(ui, id, title, pw, fn)
     panel_inner_w = math.max(40, inner - 4)
     -- 2列フォーム：ラベル列はカテゴリ内の前フレーム最大幅（上限あり）
     local gap, value_w, min_ctrl = 8, 56, 168
+    -- 0.1.299〜：値と単位の幅は決めておく（-128 px・100 %・100 ヤルムなどが 1 行に入る幅）。どの行もそろう
+    do
+        local t = ui.t
+        local samples = { '-128 px', '100 %', '1000 ms', '1.25 px' }
+        for _, k in ipairs({ 'settings.unit_yalms', 'settings.unit_count', 'settings.unit_chars' }) do
+            local u = t and t(k)
+            if type(u) == 'string' and u ~= k then samples[#samples + 1] = '100 ' .. u end
+        end
+        for _, smp in ipairs(samples) do
+            local w = tonumber(select(1, theme.measure_text(imgui, smp))) or 0
+            if w + 4 > value_w then value_w = math.ceil(w + 4) end
+        end
+    end
     local cap = math.max(64, math.min(200, inner - min_ctrl))
     local last = 0
     if prev_form and prev_form.shared then last = prev_form.shared end
     local lw = math.min(cap, math.max(64, last > 0 and last or cap))
+    -- 0.1.300〜：スライダーの幅は箱で 1 つ。名前の列と、↺・－・＋・値のかたまりのあいだを埋める。
+    -- 最小 120・最大 260（4K などの倍率つき）。狭いときは名前を折り返す前にスライダーを縮める
+    local slider_w
+    do
+        local okh, fh = pcall(imgui.GetFrameHeight)
+        fh = okh and tonumber(fh) or 20
+        local sc = math.max(0.5, fh / 20)
+        local smin, smax = math.floor(120 * sc + 0.5), math.floor(260 * sc + 0.5)
+        local m = step_meas[id]
+        local fixed = (m and m.fixed and m.fixed > 0) and m.fixed or (fh + 52 + value_w + 32)
+        local lab = (m and m.lab) or 0
+        if lab > 0 then
+            local avail = (math.max(40, inner - 4)) - 12 - lab - fixed - 2
+            slider_w = math.max(smin, math.min(smax, math.floor(avail)))
+        else
+            slider_w = smin
+        end
+        -- 箱がとても狭いときは、行の幅の中に収まるところまで（最小より小さくなることもある）
+        slider_w = math.max(48, math.min(slider_w, math.floor((inner - 4) - 12 - 40 - fixed)))
+    end
     form = {
+        slider_w = slider_w, id = id, step_lab = 0, step_fixed = 0,
         label_w = lw, gap = gap, value_w = value_w, inner = inner,
         control_w = math.max(48, inner - lw - gap),
         measured = 0, shared = last, cat = prev_form and prev_form.cat or nil,
@@ -336,6 +471,9 @@ local function panel(ui, id, title, pw, fn)
     end
     if imgui.PushItemWidth then pcall(imgui.PushItemWidth, math.max(80, panel_inner_w)) end
     fn(inner)
+    if form and form.step_lab and form.step_lab > 0 then
+        step_meas[id] = { lab = form.step_lab, fixed = form.step_fixed }
+    end
     if imgui.PopItemWidth then pcall(imgui.PopItemWidth) end
     if wrapped and imgui.PopTextWrapPos then pcall(imgui.PopTextWrapPos) end
     if form and form.cat then
@@ -375,23 +513,21 @@ local function draw_look(ui, name)
     -- THEME / TYPE / WINDOWS / FONT
     return {
         { id = 'look_general', title = 'GENERAL', draw = function ()
-            if button(ui, name, 'lang', tkey(ui, 'sf.set.language', '表示言語：{v}', {
-                v = S.language == 'ja' and '日本語' or 'English'
-            }), { section = SEC, row = 'lang' }) then
+            if choice(ui, name, 'lang', strip_v(tkey(ui, 'sf.set.language', '表示言語：{v}')),
+                S.language == 'ja' and '日本語' or 'English') then
                 S.language = (S.language == 'ja') and 'en' or 'ja'
                 ui.set_language(S.language)
                 ui.mark_settings_dirty()
             end
             do
                 local look = (S.look == 'yunaui' or S.look == 'sf' or S.look == 'classic') and S.look or 'classic'
-                if button(ui, name, 'look_style', tkey(ui, 'sf.set.theme', 'テーマ：{v}', { v = t('settings.look_' .. look) }),
-                    { section = SEC, row = 'look_style' }) then
+                if choice(ui, name, 'look_style', strip_v(tkey(ui, 'sf.set.theme', 'テーマ：{v}')), t('settings.look_' .. look)) then
                     S.look = theme.next_look(look)
                     theme.set_look(S.look)
                     ui.mark_settings_dirty()
                 end
             end
-            toggle(ui, name, 'motion', tkey(ui, 'sf.set.reduce_motion', '動きを減らす'), S, 'reduce_motion')
+            toggle(ui, name, 'motion', tkey(ui, 'sf.set.reduce_motion', '動きを減らす'), S, 'reduce_motion', t('settings.reduce_motion_tip'))
         end },
         { id = 'look_type', title = 'TYPE', draw = function ()
             S.fonts = S.fonts or {}
@@ -409,6 +545,8 @@ local function draw_look(ui, name)
                 if S.fonts[area] == nil then S.fonts[area] = settings_mod.font_for(S, area) end
                 local lo, hi = settings_mod.font_range(area)
                 local L = labels[area] or { 'settings.font_' .. area, area }
+                -- 0.1.299〜：トラッカーとトラッカータブの文字は 1 つのまとまり
+                if area == 'tracker' and form then form.group = { first = true } end
                 stepper(ui, name, 'font_' .. area, tkey(ui, L[1], L[2]), S.fonts, area, 0.1, lo, hi, UNIT.pct, DEF.fonts[area])
                 if area == 'tracker' then
                     local lo_t, hi_t = settings_mod.font_range('tracker')
@@ -422,6 +560,7 @@ local function draw_look(ui, name)
                         else S.fonts.tracker_tabs = nv end
                         ui.mark_settings_dirty()
                     end
+                    if form then form.group = nil end
                 end
             end
             stepper(ui, name, 'font', tkey(ui, 'sf.set.font_other', 'その他（設定・お知らせ・入口）'),
@@ -442,19 +581,22 @@ local function draw_look(ui, name)
                 if area ~= 'settings' then
                     if S.alphas[area] == nil then S.alphas[area] = settings_mod.alpha_for(S, area) end
                     local L = labels[area] or { 'settings.alpha_' .. area, area }
-                    stepper(ui, name, 'alpha_' .. area, tkey(ui, L[1], L[2]), S.alphas, area, 0.05, 0.3, 1.0, UNIT.pct, DEF.alphas[area])
+                    -- 0.1.299〜：「その他」の説明は、その行の i に
+                    stepper(ui, name, 'alpha_' .. area, tkey(ui, L[1], L[2]), S.alphas, area, 0.05, 0.3, 1.0, UNIT.pct, DEF.alphas[area],
+                        area == 'other' and tkey(ui, 'sf.set.alpha_note', '「その他」は、お知らせと入口のアイコンです。') or nil)
                 end
             end
-            help(ui, tkey(ui, 'sf.set.alpha_note', '「その他」は、お知らせと入口のアイコンです。'))
         end },
         { id = 'look_font', title = 'FONT', draw = function ()
-            toggle(ui, name, 'font_crisp', tkey(ui, 'sf.set.font_crisp', '画面の文字をくっきり（メイリオ）'), S, 'font_crisp')
-            help(ui, tkey(ui, 'sf.set.font_crisp_help', 'オフでも、英語見出しの Melete はそのままです。'))
+            toggle(ui, name, 'font_crisp', tkey(ui, 'sf.set.font_crisp', '画面の文字をくっきり（メイリオ）'), S, 'font_crisp',
+                tkey(ui, 'sf.set.font_crisp_help', 'オフでも、英語見出しの Melete はそのままです。'))
             toggle(ui, name, 'font_crisp_bold', tkey(ui, 'sf.set.font_crisp_bold', '太字（メイリオ）'), S, 'font_crisp_bold')
-            stepper(ui, name, 'font_crisp_outline', tkey(ui, 'sf.set.font_crisp_outline', '縁取りの太さ'),
-                S, 'font_crisp_outline', 0.25, 0, 3, UNIT.fpx, DEF.font_crisp_outline)
-            stepper(ui, name, 'font_crisp_outline_alpha', tkey(ui, 'sf.set.font_crisp_outline_alpha', '縁取りの濃さ'),
-                S, 'font_crisp_outline_alpha', 0.05, 0, 1, UNIT.pct, DEF.font_crisp_outline_alpha)
+            group(function ()
+                stepper(ui, name, 'font_crisp_outline', tkey(ui, 'sf.set.font_crisp_outline', '縁取りの太さ'),
+                    S, 'font_crisp_outline', 0.25, 0, 3, UNIT.fpx, DEF.font_crisp_outline)
+                stepper(ui, name, 'font_crisp_outline_alpha', tkey(ui, 'sf.set.font_crisp_outline_alpha', '縁取りの濃さ'),
+                    S, 'font_crisp_outline_alpha', 0.05, 0, 1, UNIT.pct, DEF.font_crisp_outline_alpha)
+            end)
         end },
     }
 end
@@ -463,7 +605,9 @@ local function draw_layout(ui, name)
     local S = ui.settings
     return {
         { id = 'lay_windows', title = 'WINDOWS', draw = function ()
-            toggle(ui, name, 'lock', tkey(ui, 'sf.set.layout_locked', '窓の位置を固定'), S, 'layout_locked')
+            -- 0.1.300〜：右のプレビューをやめたので、窓の動かし方の説明は i に
+            toggle(ui, name, 'lock', tkey(ui, 'sf.set.layout_locked', '窓の位置を固定'), S, 'layout_locked',
+                tkey(ui, 'sf.set.preview_unlocked', '窓はドラッグして動かせます'))
             if button(ui, name, 'inside', tkey(ui, 'sf.set.bring_inside', '画面内へ戻す'), { section = SEC, row = 'pos_inside' }) then
                 ui.bring_inside()
             end
@@ -476,7 +620,8 @@ local function draw_layout(ui, name)
             toggle(ui, name, 'filters', tkey(ui, 'sf.set.remember_filters', '絞り込みを覚える'), S.book, 'remember_filters')
             toggle(ui, name, 'remember_pos', tkey(ui, 'sf.set.remember_position', '設定を開いたとき、前回の項目から始める'), S, 'remember_position')
             if button(ui, name, 'reset_cols', tkey(ui, 'sf.set.reset_columns', '一覧の列の並びと表示を元に戻す'),
-                { section = SEC, row = 'reset_cols' }) then
+                { section = SEC, row = 'reset_cols',
+                  info = tkey(ui, 'sf.set.preview_layout_book', '本は開いたときの位置と、一覧の列を覚えます。') }) then
                 if require('src.ui.book').reset_columns(S) then ui.mark_settings_dirty() end
             end
         end },
@@ -487,10 +632,10 @@ local function draw_tracker(ui, name)
     local t, S = ui.t, ui.settings
     return {
         { id = 'tr_main', title = 'TRACKER', draw = function ()
-            if toggle(ui, name, 'tr_vis', tkey(ui, 'sf.set.tracker_visible', 'トラッカーを出す'), S.tracker, 'visible') then
+            if toggle(ui, name, 'tr_vis', tkey(ui, 'sf.set.tracker_visible', 'トラッカーを出す'), S.tracker, 'visible',
+                tkey(ui, 'sf.set.tracker_visible_help', '本の★からも切り替えられます。')) then
                 if not S.tracker.visible and ui.release then ui.release() end
             end
-            help(ui, tkey(ui, 'sf.set.tracker_visible_help', '本の★からも切り替えられます。'))
             stepper(ui, name, 'pins', tkey(ui, 'sf.set.max_pins', 'ピンの上限'), S.tracker, 'max_pins', 1, 1, 30,
                 unit(t('settings.unit_count')), DEF.tracker.max_pins)
             if toggle(ui, name, 'tr_fold', tkey(ui, 'sf.set.tracker_collapsed', '名前だけ表示'), S.tracker, 'collapsed')
@@ -498,14 +643,12 @@ local function draw_tracker(ui, name)
                 require('src.ui.tracker').set_collapsed(ui, true)
             end
             local al = (S.tracker.align == 'left') and 'left' or 'right'
-            if button(ui, name, 'tr_align', tkey(ui, 'sf.set.tracker_align', '文字のそろえ：{v}', { v = t('settings.tracker_align_' .. al) }),
-                { section = SEC, row = 'tr_align' }) then
+            if choice(ui, name, 'tr_align', strip_v(tkey(ui, 'sf.set.tracker_align', '文字のそろえ：{v}')), t('settings.tracker_align_' .. al)) then
                 S.tracker.align = (al == 'left') and 'right' or 'left'
                 ui.mark_settings_dirty()
             end
             local vw = (S.tracker.view == 'tabs') and 'tabs' or 'list'
-            if button(ui, name, 'tr_view', tkey(ui, 'sf.set.tracker_view', '表示形式：{v}', { v = t('settings.tracker_view_' .. vw) }),
-                { section = SEC, row = 'tr_view' }) then
+            if choice(ui, name, 'tr_view', strip_v(tkey(ui, 'sf.set.tracker_view', '表示形式：{v}')), t('settings.tracker_view_' .. vw)) then
                 S.tracker.view = (vw == 'tabs') and 'list' or 'tabs'
                 ui.mark_settings_dirty()
             end
@@ -519,15 +662,21 @@ local function draw_tracker(ui, name)
             toggle(ui, name, 'poss', tkey(ui, 'sf.set.show_possession', '持っている数の表示'), S.items, 'show_possession')
         end },
         { id = 'tr_compass', title = 'COMPASS', draw = function ()
-            if toggle(ui, name, 'compass_vis', tkey(ui, 'sf.set.compass_visible', 'コンパスを出す'), S.compass, 'visible')
-                and S.compass.visible and ui.set_compass_visible then
-                ui.set_compass_visible(true)
-            end
-            stepper(ui, name, 'compass_range', tkey(ui, 'sf.set.compass_range', '何ヤルム以内を出す'),
-                S.compass, 'max_dist', 5, 5, 100, unit(t('settings.unit_yalms')), DEF.compass.max_dist)
+            group(function ()
+                if toggle(ui, name, 'compass_vis', tkey(ui, 'sf.set.compass_visible', 'コンパスを出す'), S.compass, 'visible')
+                    and S.compass.visible and ui.set_compass_visible then
+                    ui.set_compass_visible(true)
+                end
+                stepper(ui, name, 'compass_range', tkey(ui, 'sf.set.compass_range', '何ヤルム以内を出す'),
+                    S.compass, 'max_dist', 5, 5, 100, unit(t('settings.unit_yalms')), DEF.compass.max_dist)
+            end)
         end },
         { id = 'tr_eminence', title = 'EMINENCE', draw = function ()
             toggle(ui, name, 'roe_fold', tkey(ui, 'sf.set.roe_collapsed', '★を付けたものだけ出す'), S.eminence, 'collapsed')
+            -- 0.1.294〜：サーバーに入っていないと分かっているものに未実装の札（初期オン）
+            if S.eminence.known_unimpl == nil then S.eminence.known_unimpl = true end
+            toggle(ui, name, 'roe_known_unimpl', tkey(ui, 'sf.set.roe_known_unimpl', '未実装の札を自動でつける'), S.eminence, 'known_unimpl',
+                tkey(ui, 'sf.set.roe_known_unimpl_help', 'LSBで未実装のエミネンスに未実装の札をつけます。サーバーが独自に実装している場合もあります。'))
         end },
     }
 end
@@ -536,12 +685,12 @@ local function draw_map(ui, name)
     local S = ui.settings
     return {
         { id = 'map_main', title = 'MAP', draw = function ()
-            toggle(ui, name, 'map_on', tkey(ui, 'sf.set.map_enabled', '地図を出す'), S.map, 'enabled')
+            toggle(ui, name, 'map_on', tkey(ui, 'sf.set.map_enabled', '地図を出す'), S.map, 'enabled',
+                tkey(ui, 'sf.set.map_credit', '地図の画像は同梱せず、クライアントのデータを実行時に表示します。'))
             if S.map.grid_alpha == nil then S.map.grid_alpha = 0.35 end
             stepper(ui, name, 'map_grid', tkey(ui, 'sf.set.map_grid_alpha', 'マス目の線の濃さ'),
-                S.map, 'grid_alpha', 0.05, 0, 1, UNIT.pct, 0.35)
-            help(ui, tkey(ui, 'sf.set.map_grid_alpha_help', '0 で線と外側の目盛りを出さない。ズームしても、地図の枠の外にマスの記号を出します。'))
-            help(ui, tkey(ui, 'sf.set.map_credit', '地図の画像は同梱せず、クライアントのデータを実行時に表示します。'))
+                S.map, 'grid_alpha', 0.05, 0, 1, UNIT.pct, 0.35,
+                tkey(ui, 'sf.set.map_grid_alpha_help', '0 で線と外側の目盛りを出さない。ズームしても、地図の枠の外にマスの記号を出します。'))
         end },
     }
 end
@@ -552,20 +701,46 @@ local function color_row(ui, name, id, label, tbl, key, def, opts)
     local o = {}
     for k, v in pairs(opts) do o[k] = v end
     o = form_opts(o)
-    return W.color_row(ui, name, id, label, tbl, key, def, o)
+    local r = W.color_row(ui, name, id, label, tbl, key, def, o)
+    focus_tip(ui, name, o.info, { id, id .. '_reset' })
+    return r
 end
 
+-- 0.1.299〜：色の行は「色・グラデーション・終わりの色」と「背景色・背景グラデーション・背景の終わりの色」を
+-- それぞれ 1 つのまとまりにして（中は線なし）、「背景の濃さ」はそのすぐ下に 1 行で置く
 local function color_main(ui, name, which, sample)
     local S, t = ui.settings, ui.t
     local M, DM = S.marks, DEF.marks
-    subhead(ui, tkey(ui, 'sf.set.color_' .. which, which == 'label' and 'クエスト名' or 'オブジェクト名'))
+    subhead(ui, tkey(ui, 'sf.set.color_' .. which, which == 'label' and 'クエスト名' or 'クエストの対象名'))
     local c1, c2 = settings_mod.text_colors(M, which)
     W.color_preview(ui, sample, c1, c2)
-    color_row(ui, name, 'marks_' .. which .. '_color', tkey(ui, 'sf.set.color_start', '色'),
-        M, which .. '_color', DM[which .. '_color'], {
-            section = SEC, row = 'marks_' .. which .. '_color',
-            tooltip_reset = t('settings.reset_default'),
-        })
+    group(function ()
+        color_row(ui, name, 'marks_' .. which .. '_color', tkey(ui, 'sf.set.color_start', '色'),
+            M, which .. '_color', DM[which .. '_color'], {
+                section = SEC, row = 'marks_' .. which .. '_color',
+                tooltip_reset = t('settings.reset_default'),
+            })
+        toggle(ui, name, 'marks_' .. which .. '_grad', t('settings.color_gradient'), M, which .. '_grad')
+        if M[which .. '_grad'] then
+            color_row(ui, name, 'marks_' .. which .. '_color2', t('settings.color_end'),
+                M, which .. '_color2', DM[which .. '_color2'], {
+                    section = SEC, row = 'marks_' .. which .. '_color2', tooltip_reset = t('settings.reset_default'),
+                })
+        end
+    end)
+    group(function ()
+        color_row(ui, name, 'marks_' .. which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'),
+            M, which .. '_bg_color', DM[which .. '_bg_color'], {
+                section = SEC, row = 'marks_' .. which .. '_bg_color', tooltip_reset = t('settings.reset_default'),
+            })
+        toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'), M, which .. '_bg_grad')
+        if M[which .. '_bg_grad'] then
+            color_row(ui, name, 'marks_' .. which .. '_bg_color2', t('settings.marks_' .. which .. '_bg_color2'),
+                M, which .. '_bg_color2', DM[which .. '_bg_color2'], {
+                    section = SEC, row = 'marks_' .. which .. '_bg_color2', tooltip_reset = t('settings.reset_default'),
+                })
+        end
+    end)
     local bg_key = which .. '_bg_alpha'
     if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
     stepper(ui, name, 'marks_' .. bg_key, tkey(ui, 'sf.set.' .. bg_key, '背景の濃さ'),
@@ -575,30 +750,15 @@ end
 local function color_detail(ui, name, which)
     local S, t = ui.settings, ui.t
     local M, DM = S.marks, DEF.marks
-    toggle(ui, name, 'marks_' .. which .. '_grad', t('settings.color_gradient'), M, which .. '_grad')
-    if M[which .. '_grad'] then
-        color_row(ui, name, 'marks_' .. which .. '_color2', t('settings.color_end'),
-            M, which .. '_color2', DM[which .. '_color2'], {
-                section = SEC, row = 'marks_' .. which .. '_color2', tooltip_reset = t('settings.reset_default'),
-            })
-    end
-    color_row(ui, name, 'marks_' .. which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'),
-        M, which .. '_bg_color', DM[which .. '_bg_color'], {
-            section = SEC, row = 'marks_' .. which .. '_bg_color', tooltip_reset = t('settings.reset_default'),
-        })
-    toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'), M, which .. '_bg_grad')
-    if M[which .. '_bg_grad'] then
-        color_row(ui, name, 'marks_' .. which .. '_bg_color2', t('settings.marks_' .. which .. '_bg_color2'),
-            M, which .. '_bg_color2', DM[which .. '_bg_color2'], {
-                section = SEC, row = 'marks_' .. which .. '_bg_color2', tooltip_reset = t('settings.reset_default'),
-            })
-    end
+    -- 縁取りの太さ・濃さは 1 つのまとまり
     local sk, sak = which .. '_stroke', which .. '_stroke_alpha'
-    if type(M[sk]) ~= 'number' then M[sk] = settings_mod.STROKE_DEFAULT or 1 end
-    stepper(ui, name, 'marks_' .. sk, t('settings.marks_' .. sk), M, sk, 1,
-        settings_mod.STROKE_MIN, settings_mod.STROKE_MAX, UNIT.px, DM[sk])
-    if type(M[sak]) ~= 'number' then M[sak] = 1 end
-    stepper(ui, name, 'marks_' .. sak, t('settings.marks_' .. sak), M, sak, 0.05, 0, 1, UNIT.pct, DM[sak] or 1)
+    group(function ()
+        if type(M[sk]) ~= 'number' then M[sk] = settings_mod.STROKE_DEFAULT or 1 end
+        stepper(ui, name, 'marks_' .. sk, t('settings.marks_' .. sk), M, sk, 1,
+            settings_mod.STROKE_MIN, settings_mod.STROKE_MAX, UNIT.px, DM[sk])
+        if type(M[sak]) ~= 'number' then M[sak] = 1 end
+        stepper(ui, name, 'marks_' .. sak, t('settings.marks_' .. sak), M, sak, 0.05, 0, 1, UNIT.pct, DM[sak] or 1)
+    end)
     if button(ui, name, 'marks_' .. which .. '_all_reset', t('settings.color_reset'),
         { section = SEC, row = 'marks_' .. which .. '_all_reset', small = true }) then
         for _, k in ipairs({ which .. '_color', which .. '_color2', which .. '_bg_color', which .. '_bg_color2' }) do
@@ -618,20 +778,30 @@ local function draw_marks(ui, name)
         { id = 'mk_display', title = 'DISPLAY', draw = function ()
             toggle(ui, name, 'marks_icons', tkey(ui, 'sf.set.marks_show_icons', 'アイコンを表示する'), S.marks, 'show_icons')
             toggle(ui, name, 'marks_quest', tkey(ui, 'sf.set.marks_show_quest_name', 'クエスト名を表示する'), S.marks, 'show_quest_name')
-            toggle(ui, name, 'marks_objects', tkey(ui, 'sf.set.marks_show_object_names', 'クエストの対象名を表示する'), S.marks, 'show_object_names')
-            toggle(ui, name, 'marks_nearby', tkey(ui, 'sf.set.marks_show_nearby', '近くのオブジェクト名を表示する'), S.marks, 'show_nearby_names')
+            -- 0.1.299〜：DISPLAY の説明は、対象名と近くのオブジェクト名の行の i に
+            local names_help = tkey(ui, 'sf.set.marks_names_help', '「クエストの対象名」はクエストに関わる ??? など。「近くのオブジェクト名」は 30 ヤルム以内の名前で、アイコンは付けません。')
+            toggle(ui, name, 'marks_objects', tkey(ui, 'sf.set.marks_show_object_names', 'クエストの対象名を表示する'), S.marks, 'show_object_names', names_help)
+            toggle(ui, name, 'marks_nearby', tkey(ui, 'sf.set.marks_show_nearby', '近くのオブジェクト名を表示する'), S.marks, 'show_nearby_names', names_help)
             toggle(ui, name, 'marks_fame', tkey(ui, 'sf.set.marks_show_fame', '名声を教える人のアイコン'), S.marks, 'show_fame_npcs')
-            help(ui, tkey(ui, 'sf.set.marks_names_help', '「クエストの対象名」はクエストに関わる ??? など。「近くのオブジェクト名」は 30 ヤルム以内の名前で、アイコンは付けません。'))
             stepper(ui, name, 'marks_icon', tkey(ui, 'sf.set.marks_icon_size', 'アイコンの大きさ'),
                 S.marks, 'icon_size', 4, 16, 64, UNIT.px, DEF.marks.icon_size)
+            -- 隠す場面（0.1.296〜。前は RINGS の「イベント中はリングや名前を消す」）
+            require('src.ui.hide_scenes_ui').draw(ui, name, {
+                -- 0.1.299〜：まとめの説明は「イベント中に隠す」の i に足す（文の行は出さない）
+                toggle = toggle, subhead = subhead, section = SEC, help_into_first = true,
+                width = (panel_inner_w and panel_inner_w > 8) and panel_inner_w or nil,
+            })
         end },
         { id = 'mk_position', title = 'POSITION', draw = function ()
             local lo, hi, st = settings_mod.OFFSET_MIN, settings_mod.OFFSET_MAX, settings_mod.OFFSET_STEP
+            -- 0.1.299〜：小見出しごとの位置の行は 1 つのまとまり（中は線なし）
             local function offsets(keys, base)
-                for i, k in ipairs(keys) do
-                    if type(S.marks[k]) ~= 'number' then S.marks[k] = 0 end
-                    stepper(ui, name, 'marks_' .. k, t('settings.marks_' .. base[i]), S.marks, k, st, lo, hi, UNIT.spx, 0)
-                end
+                group(function ()
+                    for i, k in ipairs(keys) do
+                        if type(S.marks[k]) ~= 'number' then S.marks[k] = 0 end
+                        stepper(ui, name, 'marks_' .. k, t('settings.marks_' .. base[i]), S.marks, k, st, lo, hi, UNIT.spx, 0)
+                    end
+                end)
             end
             subhead(ui, t('settings.marks_pos_obj'))
             offsets(settings_mod.OBJ_OFFSET_KEYS, { 'row_dx', 'row_dy', 'label_dx', 'label_dy' })
@@ -665,13 +835,15 @@ local function draw_marks(ui, name)
             if type(M.ring_strength) ~= 'number' then M.ring_strength = settings_mod.RING_STRENGTH_DEFAULT or 1 end
             stepper(ui, name, 'marks_ring_strength', tkey(ui, 'sf.set.rings_strength', 'リングの濃さ'),
                 M, 'ring_strength', 0.1, settings_mod.RING_STRENGTH_MIN, settings_mod.RING_STRENGTH_MAX, nil, DM.ring_strength)
-            toggle(ui, name, 'marks_rings_event', tkey(ui, 'sf.set.rings_hide_in_event', 'イベント中はリングや名前を消す'), M, 'hide_rings_in_event')
-            for _, k in ipairs(settings_mod.RING_KINDS) do
-                local key = 'ring_' .. k
-                color_row(ui, name, 'marks_' .. key, t('settings.rings_' .. k), M, key, DM[key], {
-                    section = SEC, row = 'marks_' .. key, tooltip_reset = t('settings.reset_default'),
-                })
-            end
+            -- 0.1.299〜：種類ごとのリングの色は 1 つのまとまり
+            group(function ()
+                for _, k in ipairs(settings_mod.RING_KINDS) do
+                    local key = 'ring_' .. k
+                    color_row(ui, name, 'marks_' .. key, t('settings.rings_' .. k), M, key, DM[key], {
+                        section = SEC, row = 'marks_' .. key, tooltip_reset = t('settings.reset_default'),
+                    })
+                end
+            end)
             if button(ui, name, 'marks_rings_reset', t('settings.rings_reset'),
                 { section = SEC, row = 'marks_rings_reset', small = true }) then
                 for _, k in ipairs(settings_mod.RING_KINDS) do
@@ -689,24 +861,48 @@ local function draw_notify(ui, name)
     local N = S.notify
     return {
         { id = 'nt_login', title = 'LOGIN', draw = function ()
-            toggle(ui, name, 'n_login', tkey(ui, 'sf.set.login_resume', 'ログイン時の続き'), N, 'login_resume')
-            stepper(ui, name, 'n_login_s', tkey(ui, 'sf.set.login_resume_seconds', '続きの表示秒数'),
-                N, 'login_resume_seconds', 1, 3, 60, unit(t('settings.unit_sec')), DEF.notify.login_resume_seconds)
+            group(function ()
+                toggle(ui, name, 'n_login', tkey(ui, 'sf.set.login_resume', 'ログイン時の続き'), N, 'login_resume')
+                stepper(ui, name, 'n_login_s', tkey(ui, 'sf.set.login_resume_seconds', '続きの表示秒数'),
+                    N, 'login_resume_seconds', 1, 3, 60, unit(t('settings.unit_sec')), DEF.notify.login_resume_seconds)
+            end)
         end },
         { id = 'nt_popup', title = 'POPUP', draw = function ()
-            toggle(ui, name, 'n_popup', tkey(ui, 'sf.set.popup', '受注・完了のお知らせ'), N, 'popup')
-            stepper(ui, name, 'n_popup_s', tkey(ui, 'sf.set.popup_seconds', 'お知らせの表示秒数'),
-                N, 'popup_seconds', 1, 3, 30, unit(t('settings.unit_sec')), DEF.notify.popup_seconds)
-            toggle(ui, name, 'n_sound', tkey(ui, 'sf.set.sound', '受注・完了の効果音'), N, 'sound')
-            stepper(ui, name, 'n_sound_v', tkey(ui, 'sf.set.sound_volume', '効果音の音量'),
-                N, 'sound_volume', 10, 0, 100, unit('%'), DEF.notify.sound_volume)
-            if ui.can_play_sound and not ui.can_play_sound() then
-                help(ui, t('settings.sound_unavailable'))
+            group(function ()
+                toggle(ui, name, 'n_popup', tkey(ui, 'sf.set.popup', '受注・完了のお知らせ'), N, 'popup')
+                stepper(ui, name, 'n_popup_s', tkey(ui, 'sf.set.popup_seconds', 'お知らせの表示秒数'),
+                    N, 'popup_seconds', 1, 3, 30, unit(t('settings.unit_sec')), DEF.notify.popup_seconds)
+            end)
+            group(function ()
+                local no_sound = ui.can_play_sound and not ui.can_play_sound()
+                toggle(ui, name, 'n_sound', tkey(ui, 'sf.set.sound', '受注・完了の効果音'), N, 'sound',
+                    no_sound and t('settings.sound_unavailable') or nil)
+                stepper(ui, name, 'n_sound_v', tkey(ui, 'sf.set.sound_volume', '効果音の音量'),
+                    N, 'sound_volume', 10, 0, 100, unit('%'), DEF.notify.sound_volume)
+            end)
+            -- 0.1.300〜：試すボタンは右のプレビューからここへ（プレビューはやめた）
+            if button(ui, name, 'n_popup_try', t('settings.popup_try_accept'),
+                { section = SEC, row = 'n_popup_try', info = t('settings.popup_try_note') }) then
+                if ui.popup_preview then ui.popup_preview('accept') end
+            end
+            W.same(ui)
+            if button(ui, name, 'n_popup_try2', t('settings.popup_try_complete'), { section = SEC, row = 'n_popup_try' }) then
+                if ui.popup_preview then ui.popup_preview('complete') end
             end
         end },
         { id = 'nt_updates', title = 'UPDATES', draw = function ()
-            toggle(ui, name, 'update_notice', tkey(ui, 'sf.set.update_notice', 'アップデートのお知らせ'), S.update_notice, 'enabled')
-            help(ui, tkey(ui, 'sf.set.update_notice_help', '新しい版があれば、読み込み時にチャットへ1行出します。'))
+            -- 0.1.297〜：更新の様子・今すぐ確認・前のバージョンに戻す（src/ui/update_panel_ui.lua）
+            require('src.ui.update_panel_ui').draw(ui, name, {
+                toggle = function (u, n, id, _label, tbl, key)
+                    return toggle(u, n, id, tkey(ui, 'sf.set.update_notice', '新しいバージョンを知らせる'), tbl, key,
+                        tkey(ui, 'sf.set.update_notice_help', '新しいバージョンがあれば、読み込み時にチャットと画面でお知らせします。zip の場所が書いてあれば、そこから更新できます。'))
+                end,
+                text = function (s) help(ui, s) end,
+                button = function (n, id, label, o)
+                    o = o or {}
+                    return button(ui, n, id, label, { section = SEC, row = id, small = true, disabled = o.disabled, tooltip = o.tooltip, no_form = true })
+                end,
+            })
         end },
     }
 end
@@ -716,11 +912,12 @@ local function draw_input(ui, name)
     local caps = ui.capabilities and ui.capabilities() or {}
     return {
         { id = 'in_pad', title = 'GAMEPAD', draw = function ()
-            toggle(ui, name, 'pad', tkey(ui, 'sf.set.gamepad', 'パッドで画面を操作'), S.input, 'gamepad')
-            help(ui, tkey(ui, 'sf.set.gamepad_help', 'このテーマの設定画面はマウスで操作します。パッドはほかの画面で使えます。'))
+            -- 0.1.299〜：説明とパッドの読み取りの様子は、この行の i に
+            toggle(ui, name, 'pad', tkey(ui, 'sf.set.gamepad', 'パッドで画面を操作'), S.input, 'gamepad',
+                tkey(ui, 'sf.set.gamepad_help', 'このテーマの設定画面はマウスで操作します。パッドはほかの画面で使えます。')
+                .. '\n' .. t('settings.pad_state', { v = caps.gamepad_note or '?' }))
             stepper(ui, name, 'repeat', tkey(ui, 'sf.set.repeat_ms', '押し続けの間隔（ミリ秒）'),
                 S.input, 'repeat_ms', 20, 60, 1000, unit('ms'), DEF.input.repeat_ms)
-            help(ui, t('settings.pad_state', { v = caps.gamepad_note or '?' }))
         end },
         { id = 'in_short', title = 'SHORTCUTS', draw = function ()
             S.shortcut = S.shortcut or { open_book = {}, pass_to_game = true }
@@ -745,14 +942,20 @@ local function draw_input(ui, name)
                     end
                 else
                     local v = sc.label(S.shortcut[R.key]) or t('settings.shortcut_none')
-                    if button(ui, name, R.id, t('settings.shortcut_' .. R.key, { v = v }), { section = SEC, row = R.id }) then
+                    local at_default = sc.same(S.shortcut[R.key] or {}, {})
+                    -- 0.1.298〜：名前は左、いまの組み合わせと ↺ は右端
+                    local hit, reset = choice(ui, name, R.id, t('settings.shortcut_name_' .. R.key), v, {
+                        extra_w = 30,
+                        after = function ()
+                            return W.reset_button(ui, name, R.reset, {
+                                section = SEC, row = R.id, tooltip = t('settings.reset_default'), at_default = at_default,
+                            })
+                        end,
+                    })
+                    if hit then
                         if ui.shortcut_capture_start then ui.shortcut_capture_start(R.key) end
                     end
-                    W.same(ui)
-                    local at_default = sc.same(S.shortcut[R.key] or {}, {})
-                    if W.reset_button(ui, name, R.reset, {
-                        section = SEC, row = R.id, tooltip = t('settings.reset_default'), at_default = at_default,
-                    }) then
+                    if reset then
                         S.shortcut[R.key] = json_.array({})
                         ui.mark_settings_dirty()
                     end
@@ -776,9 +979,10 @@ local function draw_save(ui, name)
         { id = 'sv_backup', title = 'BACKUP', draw = function ()
             stepper(ui, name, 'keep', tkey(ui, 'sf.set.backup_keep', '残すバックアップの数'),
                 S.backup, 'keep', 1, 1, 100, unit(t('settings.unit_count')), DEF.backup.keep)
-            help(ui, t('settings.char_folder', { v = ui.state.char_folder or t('status.waiting') }))
-            help(ui, t('settings.data_version', { v = ui.data and ui.data.version or '?' }))
-            if button(ui, name, 'save_now', tkey(ui, 'sf.set.save_now', '今すぐ保存'), { section = SEC, row = 'save_now' }) then
+            -- 0.1.299〜：保存先のフォルダとデータのバージョンは「今すぐ保存」の i に
+            if button(ui, name, 'save_now', tkey(ui, 'sf.set.save_now', '今すぐ保存'), { section = SEC, row = 'save_now',
+                info = t('settings.char_folder', { v = ui.state.char_folder or t('status.waiting') })
+                    .. '\n' .. t('settings.data_version', { v = ui.data and ui.data.version or '?' }) }) then
                 ui.save_now()
             end
             local orphans = ui.progress and ui.progress.orphan_count and ui.progress:orphan_count() or 0
@@ -788,7 +992,6 @@ local function draw_save(ui, name)
             end
         end },
         { id = 'sv_layouts', title = 'LAYOUTS', draw = function ()
-            help(ui, t('settings.layouts_tip'))
             local slots = ui.layout_slots and ui.layout_slots() or {}
             local scale = S.font_scale or 1
             local imgui = ui.imgui
@@ -807,7 +1010,8 @@ local function draw_save(ui, name)
                 ui.text_active = ui.text_active or imgui.IsItemActive()
                 if imgui.IsItemHovered() and imgui.IsItemClicked and imgui.IsItemClicked(0) then focus.set(name, id) end
                 W.same(ui)
-                if button(ui, name, 'lay_save_' .. i, t('settings.layout_save'), { section = SEC, row = 'lay_save_' .. i }) then
+                if button(ui, name, 'lay_save_' .. i, t('settings.layout_save'), { section = SEC, row = 'lay_save_' .. i,
+                    info = (i == 1) and t('settings.layouts_tip') or nil }) then
                     if ui.set_layout_name then ui.set_layout_name(i, buf[1]) end
                     if ui.save_layout then ui.save_layout(i) end
                 end
@@ -822,10 +1026,9 @@ local function draw_save(ui, name)
         end },
         { id = 'sv_progress', title = 'PROGRESS', draw = function ()
             if button(ui, name, 'reset_unstarted', tkey(ui, 'sf.set.reset_unstarted', '受注フラグのないものを未開始に戻す'),
-                { section = SEC, row = 'reset_unstarted' }) then
+                { section = SEC, row = 'reset_unstarted', info = t('settings.reset_unstarted_note') }) then
                 if ui.revert_unstarted then ui.revert_unstarted() end
             end
-            help(ui, t('settings.reset_unstarted_note'))
         end },
         { id = 'sv_about', title = 'ABOUT', draw = function ()
             help(ui, 'Based on YunaUI by Yunas - https://github.com/YunasXI/yunaui')
@@ -835,8 +1038,7 @@ local function draw_save(ui, name)
         { id = 'sv_debug', title = 'DEBUG', draw = function ()
             colored(ui, 'accent', t('settings.debug'))
             S.debug = S.debug or { state_buttons = false }
-            toggle(ui, name, 'dbg_state', t('settings.debug_state_buttons'), S.debug, 'state_buttons')
-            help(ui, t('settings.debug_note'))
+            toggle(ui, name, 'dbg_state', t('settings.debug_state_buttons'), S.debug, 'state_buttons', t('settings.debug_note'))
         end, when = function ()
             return ui.manual_checks == nil or ui.manual_checks()
         end },
@@ -848,10 +1050,9 @@ local DRAWERS = {
     marks = draw_marks, notify = draw_notify, input = draw_input, save = draw_save,
 }
 
--- ========== プレビュー（0.1.276〜：高さは残りに合わせ、スクロールバーを出さない。中身は枠の内側余白で折り返す） ==========
+-- ========== 窓の組み立て（0.1.300〜：右のプレビューはやめた。中央の箱が幅を使う） ==========
 
 local footer_used = 32
-local PREV_PAD = 16
 
 local function no_scroll_flags()
     return theme.C('ImGuiWindowFlags_NoScrollbar') + theme.C('ImGuiWindowFlags_NoScrollWithMouse')
@@ -874,106 +1075,6 @@ local function end_pane(ui, ok, nvar)
     local imgui = ui.imgui
     if ok then window.pop(ui, 'child') end
     if (nvar or 0) > 0 and imgui.PopStyleVar then pcall(imgui.PopStyleVar, nvar) end
-end
-
-local function win_rect(imgui, fw, fh)
-    local x, y = sf.xy(pcall(imgui.GetWindowPos))
-    local ok, a, b = pcall(imgui.GetWindowSize)
-    local w, h
-    if ok then
-        if type(a) == 'table' then w, h = tonumber(a.x or a[1]), tonumber(a.y or a[2])
-        else w, h = tonumber(a), tonumber(b) end
-    end
-    return x or 0, y or 0, w or fw or 200, h or fh or 200
-end
-
-local function preview_text(ui, imgui, x, y, w, h, text, col)
-    sf.add_heading(imgui, x, y + h * 0.42, col or theme.u32('heading', 0.95), text, 'label', { max_w = math.max(8, w) })
-end
-
-local function draw_preview(ui, name, cat, pw, ph)
-    local imgui, t, S = ui.imgui, ui.t, ui.settings
-    -- 枠は子窓の外接矩形（余白の外側）に合わせ、中身は WindowPadding の内側から始める
-    local wx, wy, ww, wh = win_rect(imgui, pw, ph)
-    local dl = dl_of(imgui)
-    sf.frame(dl, wx, wy, wx + ww, wy + wh, {
-        cut = 8, fill_a = 0.10, line_a = 0.80, line = theme.u32('sf_cyan', 0.80),
-        brackets = false, glow = 0, thick = 1.3, band = false,
-    })
-    local x, y = sf.xy(pcall(imgui.GetCursorScreenPos))
-    x, y = x or (wx + PREV_PAD), y or (wy + PREV_PAD)
-    local cw, ch = avail(imgui)
-    cw = math.max(40, cw or ((pw or ww) - PREV_PAD * 2) or 80)
-    ch = math.max(20, ch or ((ph or wh) - PREV_PAD * 2) or 40)
-    heading_font(ui, 'settings', true)
-    local _, hh = sf.add_heading(imgui, x, y, theme.u32('sf_cyan', 1.0), 'PREVIEW', 'label', { max_w = cw })
-    heading_font(ui, 'settings', false)
-    local title_block = math.max(22, (tonumber(hh) or 18) + 8)
-    local cx, cy = x, y + title_block
-    sf.set_cursor(imgui, cx, cy)
-    local prev_w = panel_inner_w
-    panel_inner_w = math.max(40, cw - 4)
-    local wrapped = false
-    if imgui.GetCursorPosX and imgui.PushTextWrapPos then
-        local okx, px = pcall(imgui.GetCursorPosX)
-        px = okx and tonumber(px) or nil
-        if px then wrapped = pcall(imgui.PushTextWrapPos, px + panel_inner_w) end
-    end
-
-    if cat == 'look' then
-        heading_font(ui, 'settings', true)
-        local _, lh = sf.add_heading(imgui, cx, cy, theme.u32('heading', 1), 'ASTERTRAIL', 'title', { max_w = panel_inner_w })
-        heading_font(ui, 'settings', false)
-        -- 見出しの下へ進めてから説明を出す（同じ位置に重ねない）
-        local ty = cy + (tonumber(lh) or 22) + 8
-        sf.set_cursor(imgui, cx, ty)
-        help(ui, tkey(ui, 'sf.set.preview_look', '文字サイズと背景の濃さの見本'))
-        help(ui, string.format('%d%%', math.floor((S.font_scale or 1) * 100 + 0.5)))
-    elseif cat == 'layout' then
-        -- 枠は子窓の外接に draw_preview 先頭で一枚だけ。中にずれた二重の枠は描かない（0.1.289〜）
-        help(ui, S.layout_locked and tkey(ui, 'sf.set.preview_locked', '窓の位置は固定されています')
-            or tkey(ui, 'sf.set.preview_unlocked', '窓はドラッグして動かせます'))
-        help(ui, tkey(ui, 'sf.set.preview_layout_book', '本は開いたときの位置と、一覧の列を覚えます。'))
-    elseif cat == 'tracker' then
-        help(ui, (S.tracker.view == 'tabs') and 'TAB  ·  TAB  ·  TAB' or tkey(ui, 'sf.set.preview_tracker_list', 'ピン留めしたクエストの一覧'))
-        if S.tracker.show_time_weather then help(ui, '12:00  晴れ') end
-        if S.tracker.show_items then help(ui, tkey(ui, 'sf.set.preview_need', '必要品アイコン')) end
-        if S.items and S.items.show_possession then help(ui, '0/1') end
-    elseif cat == 'map' then
-        pcall(function ()
-            dl:AddRect({ cx, cy }, { cx + math.max(8, cw), cy + math.min(ch - 8, 140) }, theme.u32('sf_cyan', 0.5), 0, 0, 1.2)
-            local mx, my = cx + cw * 0.5, cy + 50
-            dl:AddCircle({ mx, my }, 6, theme.u32('sf_amber', 1), 10, 1.6)
-        end)
-        if not (S.map and S.map.enabled) then
-            help(ui, tkey(ui, 'sf.set.preview_map_off', '地図を出すがオフです'))
-        end
-    elseif cat == 'marks' then
-        pcall(function ()
-            dl:AddCircle({ cx + 10, cy + 10 }, 6, theme.u32('npc', 1), 10, 1.5)
-        end)
-        sf.set_cursor(imgui, cx + 22, cy)
-        theme.TextColored(imgui, theme.col('item'), 'NPC')
-        sf.set_cursor(imgui, cx, cy + 22)
-        theme.TextColored(imgui, theme.col('obj'), '???')
-        help(ui, tkey(ui, 'sf.set.preview_marks', 'アイコンと名前の見本'))
-    elseif cat == 'notify' then
-        if button(ui, name, 'n_popup_try', t('settings.popup_try_accept'), { section = SEC, row = 'n_popup_try' }) then
-            if ui.popup_preview then ui.popup_preview('accept') end
-        end
-        if button(ui, name, 'n_popup_try2', t('settings.popup_try_complete'), { section = SEC, row = 'n_popup_try' }) then
-            if ui.popup_preview then ui.popup_preview('complete') end
-        end
-        help(ui, t('settings.popup_try_note'))
-    elseif cat == 'input' then
-        help(ui, tkey(ui, 'sf.set.preview_input', 'ショートカットとパッドの割り当て'))
-    elseif cat == 'save' then
-        help(ui, t('settings.layouts'))
-        help(ui, t('about.version', { v = ui.addon_version, d = (ui.data and ui.data.version) or '?' }))
-    end
-    if wrapped and imgui.PopTextWrapPos then pcall(imgui.PopTextWrapPos) end
-    panel_inner_w = prev_w
-    -- 子窓の高さは呼び出し側で残りに合わせてあり、ここからはみ出す Dummy は置かない（0.1.276〜）
 end
 
 local function draw_nav(ui, name, cat, nw, nh)
@@ -1070,12 +1171,17 @@ function M.body(ui)
     end
     local footer_h = math.max(footer_used or 32, frame_h + 8)
     local mid_h = math.max(80, (tonumber(rem_h) or ah or 200) - footer_h)
-    local prev_w = 0
-    if (rem_w or aw) >= 700 then prev_w = math.max(180, math.min(250, math.floor((rem_w or aw) * 0.28)))
-    elseif (rem_w or aw) >= 580 then prev_w = 170 end
-    local center_w = math.max(200, (rem_w or aw) - nav_w - gap - (prev_w > 0 and (prev_w + gap) or 0) - 4)
+    -- 0.1.300〜：右のプレビューはやめて、その幅を中央の箱に使う
+    local center_w = math.max(200, (rem_w or aw) - nav_w - gap - 4)
     -- 配置は長い名前とボタンがあるので、常に1列（2列だと BOOK が窮屈で、WINDOWS の横が空く）
-    local cols = (center_w >= 440 and cat ~= 'layout') and 2 or 1
+    -- 0.1.300〜：2 列にするのは、箱 1 つに名前・スライダー（最小 120）・↺／－／＋／値が 1 行で入る幅（460×倍率）があるときだけ
+    local sc = 1
+    do
+        local okh, fh1 = pcall(imgui.GetFrameHeight)
+        fh1 = okh and tonumber(fh1) or nil
+        if fh1 and fh1 > 0 then sc = math.max(0.5, fh1 / 20) end
+    end
+    local cols = (center_w >= math.floor(460 * sc) * 2 + 10 and cat ~= 'layout') and 2 or 1
 
     -- 左ナビ（高さは残りぴったり。中は自分で置くので余白0、バーは出さない）
     local ok_nav, var_nav = begin_pane(ui, '##astertrail_sf_set_nav', nav_w, mid_h, no_scroll_flags(), { 0, 0 })
@@ -1098,24 +1204,6 @@ function M.body(ui)
     if (st.measured or 0) > 0 then st.used = st.measured end
     form = nil
     end_pane(ui, ok_mid, var_mid)
-
-    if prev_w > 0 then
-        imgui.SameLine(0, gap)
-        -- プレビュー：残り高さぴったり、NoScrollbar / NoScrollWithMouse、内側余白は枠の内側
-        local ok_pr, var_pr = begin_pane(ui, '##astertrail_sf_set_prev', prev_w, mid_h, no_scroll_flags(), { PREV_PAD, PREV_PAD })
-        local pw_in, ph_in = avail(imgui)
-        draw_preview(ui, name, cat, pw_in or prev_w, ph_in or mid_h)
-        end_pane(ui, ok_pr, var_pr)
-    elseif cat == 'notify' then
-        -- 狭いときはプレビュー代わりに試すボタンを下へ
-        if button(ui, name, 'n_popup_try', t('settings.popup_try_accept'), { section = SEC, row = 'n_popup_try' }) then
-            if ui.popup_preview then ui.popup_preview('accept') end
-        end
-        W.same(ui)
-        if button(ui, name, 'n_popup_try2', t('settings.popup_try_complete'), { section = SEC, row = 'n_popup_try' }) then
-            if ui.popup_preview then ui.popup_preview('complete') end
-        end
-    end
 
     -- フッタ
     local fy = hy + header_h + mid_h + 4

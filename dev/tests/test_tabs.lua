@@ -129,8 +129,12 @@ eq(app.state.active, nil, 'book closed -> game')
 -- 3枚：本 → 設定 → 地図（必要品まとめは 0.1.173 でなくした）
 app.open_window('book'); frame(); app.open_window('settings'); frame(); app.open_map(); frame()
 press(0x01); frame(); eq(app.state.active, 'settings', 'map -> settings')
+eq(app.state.open.map, true, '0.1.296: cancel does not close the map')
 press(0x01); frame(); eq(app.state.active, 'book', 'settings -> book')
 close_book()
 eq(app.state.active, nil, 'book -> game')
+eq(app.state.open.map, true, 'map still open')
+app.close_window('map'); frame()
+eq(app.state.open.map, false, 'map closes with its close button (close_window)')
 
 print('test_tabs ok')

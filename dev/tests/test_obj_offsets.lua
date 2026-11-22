@@ -38,7 +38,7 @@ local function seen(pat)
     for _, x in ipairs(FAKE.labels) do if x:find(pat, 1, true) then return true end end
     return false
 end
-check(seen('位置の調整：調べるオブジェクト'), 'object heading')
+check(seen('位置の調整：クエストの対象名'), 'object heading')
 check(seen('位置の調整：そのほか'), 'other heading')
 check(seen('クエスト名の位置（左右）'), 'quest name slider label')
 check(seen('アイコンの位置（上下）'), 'object row slider label')

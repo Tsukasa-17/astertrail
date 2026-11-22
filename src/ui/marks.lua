@@ -521,24 +521,106 @@ function marks.ground_rings(ui, matched, player)
 end
 
 -- 公式に渡す（使えなければ ImGui で描く）。戻り値: 'native' | 'imgui' | 'off' | 'none'
--- 設定がオンのとき、今は輪を出さないか（イベント status==4、または会話などのゲームメニュー）
-function marks.hide_rings_now(ui)
-    local SM = ui and ui.settings and ui.settings.marks or {}
-    if SM.hide_rings_in_event ~= true then return false end
+local function settings_core() return require('src.core.settings') end
+
+-- 会話の窓（0.1.298〜。GAME-PC の /astertrail menus で確かめた：NPC のセリフは rem4line・rem4li2、選択肢は query）。
+-- inline はどちらでも出るので数えない。query は会話でない「はい／いいえ」でも出ることがある
+marks.TALK_WINDOWS = { rem4line = true, rem4li2 = true, query = true }
+marks.NEUTRAL_WINDOWS = { inline = true }
+
+-- ゲームの窓が開いているとき、会話かメニューか。戻り値: talk, menu
+function marks.menu_kind(open, info)
+    if open ~= true then return false, false end
+    local talk, other, any = false, false, false
+    local function look(list, field)
+        if type(list) ~= 'table' then return end
+        for _, x in ipairs(list) do
+            local n = tostring(field and type(x) == 'table' and x[field] or x):lower()
+            if marks.TALK_WINDOWS[n] then talk = true; any = true
+            elseif not marks.NEUTRAL_WINDOWS[n] and n ~= '' then other = true; any = true end
+        end
+    end
+    if type(info) == 'table' then
+        look(info.rects, 'name')
+        look(info.focused, nil)
+    end
+    -- 名前で分からないとき（印だけ・inline だけ）はメニューとして扱う（前と同じ）
+    if not any then return false, true end
+    return talk, other
+end
+
+-- いまの場面（0.1.296〜）。event＝自分の status 4（カットシーンなど）、combat＝status 1（戦闘中）、
+-- menu＝ゲームのメニュー・会話の窓が開いている、chat＝チャット入力中。戻り値: { event=, combat=, menu=, chat= }
+function marks.scenes_now(ui, need)
     local plat = ui and ui.platform
-    if plat and plat.self_status then
-        local ok, st = pcall(plat.self_status)
-        if ok and tonumber(st) == 4 then return true end
+    local out = {}
+    local st
+    if (need.event or need.combat) and plat and plat.self_status then
+        local ok, v = pcall(plat.self_status)
+        if ok then st = tonumber(v) end
     end
-    -- 同じフレームで app が調べ済みならそれを使う（メニュー一覧を二重に読まない）
-    if ui.state and ui.state.game_menu_open ~= nil then
-        return ui.state.game_menu_open == true
+    out.event = need.event and st == 4 or false
+    out.combat = need.combat and st == 1 or false
+    if need.menu or need.talk then
+        -- 同じフレームで app が調べ済みならそれを使う（メニュー一覧を二重に読まない）
+        local open, info
+        if ui.state and ui.state.game_menu_open ~= nil then
+            open, info = ui.state.game_menu_open, ui.state.game_menu_info
+        elseif plat and plat.game_menu_state then
+            local ok, o, i = pcall(plat.game_menu_state)
+            if ok then open, info = o, i end
+        end
+        local talk, menu = marks.menu_kind(open == true, info)
+        out.talk = need.talk and talk or false
+        out.menu = need.menu and menu or false
     end
-    if plat and plat.game_menu_state then
-        local ok, open = pcall(plat.game_menu_state)
-        if ok and open == true then return true end
+    if need.chat then
+        if ui.state and ui.state.chat_open ~= nil then
+            out.chat = ui.state.chat_open == true
+        elseif plat and plat.chat_open then
+            local ok, c = pcall(plat.chat_open)
+            out.chat = ok and c == true
+        end
     end
-    return false
+    return out
+end
+
+-- 今消すもの（隠す場面の設定と、いまの場面から）。戻り値: { rings=, icons=, quest=, names=, nearby=, all=, scene= } または nil
+function marks.hide_now(ui)
+    local SM = ui and ui.settings and ui.settings.marks or {}
+    local HS = settings_core().hide_scenes_of(SM)
+    local need, any = {}, false
+    for sc, e in pairs(HS) do
+        if e.on then
+            for _, part in ipairs(settings_core().HIDE_PARTS) do
+                if e[part] then need[sc] = true; any = true; break end
+            end
+        end
+    end
+    if not any then return nil end
+    local now = marks.scenes_now(ui, need)
+    local out, hit = {}, nil
+    for _, sc in ipairs(settings_core().HIDE_SCENES) do
+        if need[sc] and now[sc] then
+            hit = hit or sc
+            for _, part in ipairs(settings_core().HIDE_PARTS) do
+                if HS[sc][part] then out[part] = true end
+            end
+        end
+    end
+    if not hit then return nil end
+    out.scene = hit
+    out.all = true
+    for _, part in ipairs(settings_core().HIDE_PARTS) do
+        if not out[part] then out.all = false end
+    end
+    return out
+end
+
+-- 今は輪を出さないか（隠す場面で「リング」を選んだ場面のどれかに入っている）
+function marks.hide_rings_now(ui)
+    local h = marks.hide_now(ui)
+    return h ~= nil and h.rings == true
 end
 
 function marks.apply_rings(ui, rings)
@@ -777,10 +859,10 @@ function marks.draw(ui)
         clear()
         return { skipped = true, why = 'no_platform' }
     end
-    -- イベント中・会話中は、輪と同じ判定（status==4 またはゲームのメニュー）で
-    -- 頭上のクエスト名／印、オブジェクト名、近くのオブジェクト名も消す（0.1.288〜）。
-    -- 設定 hide_rings_in_event がオフなら、輪と同様に出たまま。UI の窓は触らない。
-    if marks.hide_rings_now(ui) then
+    -- 隠す場面（0.1.296〜。前は「イベント中はリングや名前を消す」）：場面ごとに選んだものだけ消す。
+    -- 全部消すときはこれまでどおり何も描かない。UI の窓は触らない。
+    local hide = marks.hide_now(ui)
+    if hide and hide.all then
         clear()
         clear_rings()
         if plat.clear_world_marks then pcall(plat.clear_world_marks) end
@@ -827,6 +909,12 @@ function marks.draw(ui)
     local show_icons = SM.show_icons ~= false           -- アイコン（NPC・モンスター・調べるオブジェクト）
     local show_obj_names = SM.show_object_names ~= false -- クエストのオブジェクト名
     local show_nearby = SM.show_nearby_names == true     -- 近くのオブジェクト名（クエストに関係ないもの）
+    -- 隠す場面で選んだものは、その場面のあいだだけ消す（0.1.296〜）
+    if hide then
+        if hide.icons then show_icons = false end
+        if hide.names then show_obj_names = false end
+        if hide.nearby then show_nearby = false end
+    end
     if #wanted == 0 and not show_nearby then
         clear()
         clear_rings()
@@ -850,6 +938,7 @@ function marks.draw(ui)
 
     local icon_size = util_clamp_icon(S.marks and S.marks.icon_size)
     local function show_quest_name()
+        if hide and hide.quest then return false end
         return S.marks and S.marks.show_quest_name == true
     end
     local function quest_label(w)

@@ -118,10 +118,17 @@ function settings.defaults()
             pins = json.object({}), -- ピン { ["12"] = true }
             failed = json.object({}), -- 受けられない・まだ無いと言われた番号 { ["3055"] = { why = 'not_impl', at = ... } }
             impl_ok = json.object({}), -- 未実装と分かっていた番号が、あとから受けられた { ["3055"] = true }
+            unimpl_off = json.object({}), -- 手で未実装を外した番号（0.1.295〜）{ ["3055"] = true }。また「未実装」と断られたら消す
             book_root = -2,         -- 0.1.226〜：分類の選択はなくした（左の見出しの木で選ぶ）。古い保存との互換で -2 のまま残す
             book_state = 'all',     -- 0.1.226〜：状態の選択はなくした（古い保存との互換で 'all' のまま残す）
             book_show = { accepted = true, not_accepted = true, completed = false, unimplemented = true },  -- 表示：受注中・未受注・達成・未実装。達成の初期はオフ。未実装の初期はオン（0.1.232〜）
             book_text = '',
+            -- アストラルの本の絞り込み（0.1.294〜）：解除（受注中）・受注（受けられる）・期間外・対象外・自動・達成・未実装。
+            -- 保存に無いときは book_show から引き継ぐ（merge）。クラシック・YunaUI は book_show のまま
+            sf_show = { active = true, open = true, wait = true, other = true, auto = true, completed = false, unimplemented = true },
+            -- サーバーに入っていないと分かっているエミネンスに未実装の札をつける（0.1.294〜。初期オン）。
+            -- オフでも、自分で受けて断られた番号（failed）は未実装のまま
+            known_unimpl = true,
             favs = json.object({}), -- お気に入り（0.1.182〜、本だけ。★ のピンとは別）{ ["12"] = true }
             book_favs_only = false, -- 本でお気に入りだけ出す（0.1.182〜。前の「★だけ」はなくした）
             -- 本のエミネンスの列（0.1.193〜）。くり返しの列は無し。並びはドラッグで入れ替え
@@ -184,7 +191,17 @@ function settings.defaults()
             -- 足元の輪（0.1.171〜）。公式 vana.world.marks で、印を付けた相手の足元に、アイコンと同じ色の光の輪
             show_rings = true, ring_size = 1.0,
             -- 輪の濃さ（公式 strength 0〜4、初期 1＝今まで）と、イベント中は輪を消す（0.1.237〜：初期オン）
-            ring_strength = 1.0, hide_rings_in_event = true,
+            ring_strength = 1.0,
+            -- 隠す場面（0.1.296〜。前の hide_rings_in_event「イベント中はリングや名前を消す」から）。
+            -- 場面ごとにオン・オフと、消すもの（リング・アイコン・クエスト名・対象名・近くのオブジェクト名）
+            hide_scenes = {
+                event = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
+                combat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true },
+                -- 0.1.298〜：会話（rem4line・rem4li2・query の窓）とメニュー（それ以外のゲームの窓）に分けた
+                talk = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
+                menu = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
+                chat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true },
+            },
             -- 輪の色（種類ごと、{r, g, b} 0〜255）。初期値は今のアイコンの色（theme.palette の ic_* ・mob・gold）
             ring_sub = { 255, 219, 92 }, ring_progress = { 107, 189, 255 }, ring_blocked = { 230, 71, 66 },
             ring_complete = { 92, 214, 117 }, ring_repeat = { 148, 209, 163 }, ring_unavailable = { 230, 71, 66 },
@@ -213,11 +230,70 @@ end
 
 settings.SCHEMA = SETTINGS_SCHEMA
 
+-- アストラルの絞り込み（0.1.294〜）。保存の sf_show を優先し、無い項目は book_show（受注中・未受注・達成・未実装）から引き継ぐ
+settings.SF_SHOW_KEYS = { 'active', 'open', 'wait', 'other', 'auto', 'completed', 'unimplemented' }
+local SF_FROM_BOOK = { active = 'accepted', open = 'not_accepted', wait = 'not_accepted', other = 'not_accepted',
+    auto = 'not_accepted', completed = 'completed', unimplemented = 'unimplemented' }
+local SF_DEFAULT = { active = true, open = true, wait = true, other = true, auto = true, completed = false, unimplemented = true }
+function settings.sf_show_from(saved, book_show)
+    local out = {}
+    for _, k in ipairs(settings.SF_SHOW_KEYS) do
+        local v = nil
+        if type(saved) == 'table' then v = saved[k] end
+        if type(v) ~= 'boolean' then
+            local b = nil
+            if type(book_show) == 'table' then b = book_show[SF_FROM_BOOK[k]] end
+            if type(b) == 'boolean' then v = b else v = SF_DEFAULT[k] end
+        end
+        out[k] = v
+    end
+    return out
+end
+
+-- 隠す場面（0.1.296〜）
+settings.HIDE_SCENES = { 'event', 'combat', 'talk', 'menu', 'chat' }
+settings.HIDE_PARTS = { 'rings', 'icons', 'quest', 'names', 'nearby' }
+local HIDE_SCENE_ON = { event = true, combat = false, talk = true, menu = true, chat = false }
+
+-- marks の表から、場面ごとの { on, rings, icons, quest, names, nearby } を作る（元の表は変えない）。
+-- hide_scenes が無ければ、前の hide_rings_in_event（false ならイベントと会話・メニューもオフ）から
+function settings.hide_scenes_of(M)
+    local saved = type(M) == 'table' and type(M.hide_scenes) == 'table' and M.hide_scenes or nil
+    local legacy = nil
+    if type(M) == 'table' then legacy = M.hide_rings_in_event end
+    local out = {}
+    for _, sc in ipairs(settings.HIDE_SCENES) do
+        local src = saved and type(saved[sc]) == 'table' and saved[sc] or nil
+        -- 0.1.298〜：会話が無い保存（0.1.296・297 の「会話・メニュー」）は、メニューの設定を会話にも写す
+        if sc == 'talk' and not src and saved and type(saved.menu) == 'table' then src = saved.menu end
+        local on
+        if src and type(src.on) == 'boolean' then
+            on = src.on
+        elseif legacy == false and not saved then
+            on = false
+        else
+            on = HIDE_SCENE_ON[sc]
+        end
+        local e = { on = on }
+        for _, part in ipairs(settings.HIDE_PARTS) do
+            if src and type(src[part]) == 'boolean' then e[part] = src[part] else e[part] = true end
+        end
+        out[sc] = e
+    end
+    return out
+end
+
 -- 読み込んだ表を初期値と合わせる。新しい形式なら読み取り専用の印を返す
 function settings.merge(loaded)
     local d = settings.defaults()
     if type(loaded) ~= 'table' then return d, nil end
     local schema = tonumber(loaded.settings_schema) or SETTINGS_SCHEMA
+    -- 0.1.294〜：絞り込みの保存は、初期値と合わせる前に写しておく（無い項目だけ book_show から引き継ぐため）
+    local raw_sf_show = nil
+    if type(loaded.eminence) == 'table' and type(loaded.eminence.sf_show) == 'table' then
+        raw_sf_show = {}
+        for k, v in pairs(loaded.eminence.sf_show) do raw_sf_show[k] = v end
+    end
     local merged = util.merge_defaults(d, loaded)
     merged.settings_schema = SETTINGS_SCHEMA
     -- 範囲の確認（壊れた値で画面が崩れないように）
@@ -468,6 +544,9 @@ function settings.merge(loaded)
             return { why = why, at = type(v.at) == 'string' and v.at or nil }
         end)
         E.impl_ok = ids(E.impl_ok, function (v) return v and true or nil end)
+        E.unimpl_off = ids(E.unimpl_off, function (v) return v == true or nil end)
+        E.known_unimpl = E.known_unimpl ~= false
+        E.sf_show = settings.sf_show_from(raw_sf_show, E.book_show)
     end
     if merged.tracker.view ~= 'list' and merged.tracker.view ~= 'tabs' then merged.tracker.view = 'list' end
     merged.tracker.show_close = merged.tracker.show_close ~= false
@@ -569,12 +648,10 @@ function settings.merge(loaded)
             'no_enlarge_near' }) do
             merged.marks[k] = type(loaded_marks) == 'table' and loaded_marks[k] == true or false
         end
-        -- イベント中は輪を消す：保存にキーが無ければオン（0.1.237〜）。明示のオフは残す
-        if type(loaded_marks) == 'table' and loaded_marks.hide_rings_in_event ~= nil then
-            merged.marks.hide_rings_in_event = loaded_marks.hide_rings_in_event == true
-        else
-            merged.marks.hide_rings_in_event = true
-        end
+        -- 隠す場面（0.1.296〜）。保存に無ければ前の「イベント中はリングや名前を消す」から引き継ぐ
+        -- （オフならイベントと会話・メニューもオフ。無ければ初期どおり）
+        merged.marks.hide_scenes = settings.hide_scenes_of(type(loaded_marks) == 'table' and loaded_marks or nil)
+        merged.marks.hide_rings_in_event = nil
         -- 斜体は使わない（保存に残っていてもオフ）
         merged.marks.label_italic = false
         merged.marks.under_italic = false

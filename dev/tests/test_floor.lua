@@ -300,7 +300,7 @@ require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
 for _, lab in ipairs({ 'アイコンの位置（左右）', 'アイコンの位置（上下）', 'クエスト名の位置（左右）', 'クエスト名の位置（上下）' }) do
     check(texted(lab), 'setting ' .. lab)
 end
-for _, lab in ipairs({ 'アイコンを表示する', 'クエスト名を表示する', 'クエストのオブジェクト名を表示する', '近くのオブジェクト名を表示する' }) do
+for _, lab in ipairs({ 'アイコンを表示する', 'クエスト名を表示する', 'クエストの対象名を表示する', '近くのオブジェクト名を表示する' }) do
     check(labeled(lab), 'setting ' .. lab)
 end
 -- 古い名前は出さない（0.1.58・0.1.59 で変えたもの）

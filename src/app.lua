@@ -26,8 +26,10 @@ local map_dat_mod = require('src.core.map_dat')
 local marks_ui    = require('src.ui.marks')
 local shortcut_mod = require('src.core.shortcut')
 local update_mod  = require('src.core.update')
+local backup_mod  = require('src.core.install_backup')
 local game_log    = require('src.core.game_log')
 local roe_mod     = require('src.core.roe')
+local roe_cycle   = require('src.core.roe_cycle')
 local compass_mod = require('src.core.compass')
 local build_flags = require('src.build_flags')
 local marks_core  = require('src.core.marks')
@@ -36,7 +38,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.292',
+    VERSION = '1.1.300',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -146,6 +148,8 @@ function app.init(platform)
     P = platform
     local base = P.addon_dir()
     D = data_mod.load(P.fs, base .. 'data' .. P.fs.sep)
+    -- エミネンスのくり返し・日・週・月で受け直せる目標の印（0.1.293〜。無くても動く）
+    pcall(roe_cycle.load, P.fs, base .. 'data' .. P.fs.sep, json)
     I = i18n_mod.new(P.fs, base .. 'locales' .. P.fs.sep)
     T = I:fn()
     S = settings_mod.defaults()
@@ -663,6 +667,23 @@ function app.close_window(name)
     end
 end
 
+-- 地図でキャンセル（0.1.296〜）：地図は閉じずに、開いた元の窓（なければ下に開いている窓）の操作へ戻す。
+-- どれも無ければ操作をゲームへ返す。地図を閉じるのは ❌（close_window）
+function app.map_cancel()
+    local back = state.map_from or (state.map and state.map.from)
+    if back and not (state.open[back] or (back == 'tracker' and app.tracker_on())) then back = nil end
+    if not back then
+        local st = state.stack
+        for i = #st, 1, -1 do
+            local w = st[i]
+            if w ~= 'map' and state.open[w] then back = w break end
+        end
+    end
+    -- 地図は開いたまま、戻る順の重なりからは外す（ほかの窓を閉じたときに地図へ戻らない。押せばまた操作できる）
+    stack_remove('map')
+    if back then app.activate(back) else app.release() end
+end
+
 function app.close_all()
     for k in pairs(state.open) do state.open[k] = false end
     -- トラッカーは HUD なので残す（隠すのは設定の「トラッカーを出す」か /astertrail tracker hide）
@@ -994,6 +1015,8 @@ local function do_action(action, win)
         -- スライダーの上では、まず同じ行の ↺ へ戻る（もう一度で閉じる）
         if focus.back_from_adjust(win) then return end
         if win == 'tracker' then app.release()
+        -- 地図はキャンセル（パッドの戻る・操作中の Esc）で閉じない。操作をゲームへ返すだけ（0.1.296〜）。閉じるのは ❌
+        elseif win == 'map' then app.map_cancel()
         elseif win == 'resume' then state.resume = nil; app.release()
         elseif win == 'popup' then app.popup_choose(false)
         else app.close_window(win) end
@@ -1228,18 +1251,36 @@ state.update_found = nil
 function app.update_url() return update_mod.URL end   -- 開発用（テストで差し替える）
 app._update_url = nil
 
-function app.check_update()
-    if state.update_checked then return false end
-    if not (S and S.update_notice and S.update_notice.enabled ~= false) then return false end
-    state.update_checked = true
-    local url = app._update_url or update_mod.URL
-    if not update_mod.configured(url) then return false end
-    if not P.http_get then return false end
+-- 確かめた結果（設定の「更新」の一行。0.1.297〜）：
+-- state.update_check = { status = 'idle'|'checking'|'latest'|'offer'|'error'|'unsupported', version = }
+state.update_check = { status = 'idle' }
+app.UPDATE_CHECK_GAP = 60   -- 「今すぐ確認」は 60 秒に 1 回まで
+
+local function check_url() return app._update_url or update_mod.URL end
+
+-- 実際に調べる（読み込み時の 1 回と「今すぐ確認」の両方から）
+local function do_check(notify)
+    local url = check_url()
+    if not update_mod.configured(url) or not P.http_get then
+        state.update_check = { status = 'unsupported' }
+        return false
+    end
     local current = app.VERSION
+    state.update_check = { status = 'checking' }
+    state.update_check_at = state.now or 0
     local ok, started = pcall(P.http_get, url, function (body)
-        -- version_in は版だけ。zip_url / sha256 は manifest_in で取る（0.1.287〜）
+        -- version_in はバージョンだけ。zip_url / sha256 は manifest_in で取る（0.1.287〜）
         local man = update_mod.manifest_in(body)
         local v = (man and man.version) or update_mod.version_in(body)
+        if not v then
+            state.update_check = { status = 'error' }
+            return
+        end
+        if not update_mod.newer(v, current) then
+            state.update_check = { status = 'latest', version = v }
+            return
+        end
+        state.update_check = { status = 'offer', version = v }
         if v and update_mod.newer(v, current) then
             state.update_found = v
             state.update = {
@@ -1249,10 +1290,51 @@ function app.check_update()
                 zip_url = man and man.zip_url or nil,
                 sha256 = man and man.sha256 or nil,
             }
-            pcall(P.print, T('msg.update_available', { v = v, cur = current }))
+            if notify ~= false then pcall(P.print, T('msg.update_available', { v = v, cur = current })) end
         end
     end)
-    return ok and started == true
+    if not (ok and started == true) then
+        state.update_check = { status = 'error' }
+        return false
+    end
+    return true
+end
+
+function app.check_update()
+    if state.update_checked then return false end
+    if not (S and S.update_notice and S.update_notice.enabled ~= false) then
+        -- お知らせがオフでも、このバージョンで確かめられるかだけは一行に出す
+        if not update_mod.configured(check_url()) then state.update_check = { status = 'unsupported' } end
+        return false
+    end
+    state.update_checked = true
+    return do_check(true)
+end
+
+-- 「今すぐ確認」（60 秒に 1 回まで）。戻り値: 始めたら true、まだなら false と残りの秒
+function app.update_check_wait()
+    local at = state.update_check_at
+    if not at then return 0 end
+    local left = app.UPDATE_CHECK_GAP - ((state.now or 0) - at)
+    if left <= 0 then return 0 end
+    return math.ceil(left)
+end
+
+function app.check_update_now()
+    if not update_mod.configured(check_url()) then
+        state.update_check = { status = 'unsupported' }
+        return false
+    end
+    local left = app.update_check_wait()
+    if left > 0 then return false, left end
+    if state.update_check and state.update_check.status == 'checking' then return false end
+    state.update_checked = true
+    return do_check(true)
+end
+
+function app.update_check_status()
+    if not update_mod.configured(check_url()) then return { status = 'unsupported' } end
+    return state.update_check or { status = 'idle' }
 end
 
 ---------------------------------------------------------------------------
@@ -1288,7 +1370,7 @@ function app.esc_target()
         return h[name] or f[name]
     end
     local job = state.update
-    if job and (job.status == 'offer' or job.status == 'failed' or job.status == 'done') and hit('update') then
+    if job and (job.status == 'offer' or job.status == 'failed' or job.status == 'done' or job.status == 'confirm') and hit('update') then
         return 'update'
     end
     local bookish = hit('book') or hit('settings')
@@ -1308,7 +1390,8 @@ local function update_fail(code)
     job.error = code
     pcall(P.print, T('update.err_' .. ({
         network = 'network', hash = 'hash', extract = 'extract', swap = 'swap',
-        https = 'https', temp = 'temp', no_zip = 'generic',
+        https = 'https', temp = 'temp', no_zip = 'generic', no_sha = 'no_sha', backup = 'backup',
+        rollback = 'rollback',
     })[code] or 'generic'))
 end
 
@@ -1360,6 +1443,11 @@ function app.start_update()
         update_fail('no_zip')
         return false
     end
+    -- 0.1.297〜：sha256 の無いダウンロードはしない
+    if type(job.sha256) ~= 'string' or #job.sha256 ~= 64 then
+        update_fail('no_sha')
+        return false
+    end
     if not P.http_download then
         update_fail('network')
         return false
@@ -1401,12 +1489,10 @@ function app._update_apply(zip_path)
     local sha256 = require('src.lib.sha256')
     local zip = require('src.lib.zip')
     job.status = 'verify'
-    if job.sha256 then
-        local got = sha256.of_file(zip_path, fs.read)
-        if not sha256.eq(got, job.sha256) then
-            update_fail('hash')
-            return
-        end
+    local got = job.sha256 and sha256.of_file(zip_path, fs.read) or nil
+    if not job.sha256 or not sha256.eq(got, job.sha256) then
+        update_fail('hash')
+        return
     end
     job.status = 'extract'
     local stage = job.work .. 'stage'
@@ -1435,6 +1521,20 @@ function app._update_apply(zip_path)
         update_fail('swap')
         return
     end
+    -- 0.1.297〜：入れ替える前に、いま入っているファイルを backups\prev に写す（戻すため）。
+    -- 一覧（install_files.json）が無い古い入れ方なら写せないので、そのまま進める。写すのに失敗したらやめる
+    if backup_mod.read_list(dest, fs) then
+        app.finish_backup_jobs()
+        local bj = backup_mod.snapshot_job(dest, backup_mod.join(dest, backup_mod.PREV, fs.sep), fs, app.VERSION)
+        local bok = bj and bj:run_all()
+        if not bok then
+            update_fail('backup')
+            return
+        end
+        state.rollback_prev = nil
+    else
+        diag.log('update', 'no install_files.json: no backup before swap')
+    end
     job.status = 'swap'
     local rollback = job.work .. 'rollback'
     local ok, why = update_mod.swap(src_root, dest, files, rollback, {
@@ -1449,6 +1549,115 @@ function app._update_apply(zip_path)
     pcall(P.print, T('update.done', { v = job.version or '?' }))
     -- 公式 vana.chat.run があれば、次のフレームに読み直す（安全）
     app.update_reload()
+end
+
+---------------------------------------------------------------------------
+-- 前のバージョンをとっておく・戻す（0.1.297〜。backups\cur・backups\prev、src/core/install_backup.lua）
+---------------------------------------------------------------------------
+
+app.BACKUP_DELAY = 5        -- 読み込んでから写し始めるまでの秒（ログインの重い処理と重ねない）
+app.BACKUP_STEP = 20        -- 1 フレームに写すファイルの数
+
+local function addon_root()
+    local d = P.addon_dir and P.addon_dir()
+    if type(d) ~= 'string' or d == '' then return nil end
+    d = d:gsub('[\\/]+$', '')
+    if update_mod.dest_is_config(d, P.config_dir and P.config_dir()) then return nil end
+    return d
+end
+
+-- 読み込んだあと一度だけ：バージョンが変わっていれば cur を prev へ、いまを cur へ（少しずつ）
+function app.tick_backup()
+    local b = state.backup
+    if b == nil then
+        if not state.ready then return end
+        state.backup = { due = (state.now or 0) + app.BACKUP_DELAY }
+        return
+    end
+    if b.done then return end
+    if not b.jobs then
+        if (state.now or 0) < b.due then return end
+        local root = addon_root()
+        if not root or not P.fs then b.done = true; return end
+        local fs = update_fs()
+        local jobs, how = backup_mod.plan_on_load(root, fs, app.VERSION)
+        b.jobs, b.i, b.how = jobs, 1, how
+        if #jobs == 0 then b.done = true; state.rollback_prev = nil; return end
+    end
+    local j = b.jobs[b.i]
+    if not j then b.done = true; state.rollback_prev = nil; return end
+    local st, err = j:step(app.BACKUP_STEP)
+    if st == 'failed' then
+        diag.log('backup', tostring(err))
+        b.done = true
+        state.rollback_prev = nil
+    elseif st == 'done' then
+        b.i = b.i + 1
+        if b.i > #b.jobs then b.done = true; state.rollback_prev = nil end
+    end
+end
+
+-- 途中の写しを最後まで済ませる（更新の前に）
+function app.finish_backup_jobs()
+    local b = state.backup
+    if not (b and b.jobs) or b.done then return end
+    for i = b.i, #b.jobs do
+        local ok, err = b.jobs[i]:run_all()
+        if not ok then diag.log('backup', tostring(err)) break end
+    end
+    b.done = true
+end
+
+-- 戻せる先（backups\prev の manifest。いまと同じバージョンなら nil）。読むのは変わったときだけ
+function app.rollback_prev()
+    if state.backup and state.backup.jobs and not state.backup.done then return nil end
+    if state.rollback_prev == nil then
+        local root = addon_root()
+        local man = (root and P.fs) and backup_mod.prev_info(root, update_fs(), app.VERSION) or nil
+        state.rollback_prev = man or false
+    end
+    return state.rollback_prev or nil
+end
+
+-- 「x に戻す」を押した：確認の窓（お知らせの窓を使う）
+function app.ask_rollback()
+    local man = app.rollback_prev()
+    if not man then return false end
+    local job = state.update
+    if job and (job.status == 'download' or job.status == 'verify' or job.status == 'extract'
+        or job.status == 'swap' or job.status == 'reload') then
+        return false
+    end
+    state.update = { kind = 'rollback', status = 'confirm', version = man.version, current = app.VERSION }
+    return true
+end
+
+-- 確認の窓で「戻す」：prev を確かめて入れ替え、新しいほうにだけあったファイルを消して読み直す。失敗したらいまのまま
+function app.start_rollback()
+    local job = state.update
+    if not (job and job.kind == 'rollback' and job.status == 'confirm') then return false end
+    local root = addon_root()
+    local tmp = P.temp_dir and P.temp_dir()
+    if not root or type(tmp) ~= 'string' or tmp == '' or update_mod.dest_is_config(tmp, P.config_dir and P.config_dir()) then
+        update_fail('rollback')
+        return false
+    end
+    app.finish_backup_jobs()
+    local fs = update_fs()
+    fs.mkdir(tmp)
+    job.status = 'verify'
+    local r, why = backup_mod.restore(root, fs, {
+        rollback_dir = tmp .. 'rollback_restore', config_dir = P.config_dir and P.config_dir(),
+    })
+    if not r then
+        diag.log('update', 'rollback failed: ' .. tostring(why))
+        update_fail('rollback')
+        return false
+    end
+    job.status = 'done'
+    pcall(P.print, T('update.rolled_back', { v = job.version or '?' }))
+    app.update_reload()
+    return true
 end
 
 ---------------------------------------------------------------------------
@@ -2136,6 +2345,12 @@ end
 function app.tick_roe()
     local r = state.roe
     if not state.ready then return end
+    -- 0:00 JST を過ぎたら、少し待ってから記録を読み直す（日・週・月の達成が消える。0.1.293〜）
+    local day = roe_mod.days_since(app.epoch_now())
+    if r.cycle_day and r.cycle_day ~= day then
+        r.mem_due = state.now + app.ROE_DAY_REREAD
+    end
+    r.cycle_day = day
     if r.mem_due and state.now >= r.mem_due then
         r.mem_due = nil
         app.read_roe('memory')
@@ -2164,29 +2379,77 @@ function app.roe_mark_failed(id, why)
         S.eminence.failed[key] = { why = why, at = util.iso_time() }
         app.mark_settings_dirty()
     end
+    -- 0.1.295〜：手で未実装を外していても、もう一度受けて「未実装」と断られたら、また未実装にする
+    if why == 'not_impl' and type(S.eminence.unimpl_off) == 'table' and S.eminence.unimpl_off[key] then
+        S.eminence.unimpl_off[key] = nil
+        app.mark_settings_dirty()
+    end
     -- 断られたのも答え：少し後に押せるようにする（すぐ消すと連打でまた送る。0.1.178〜）
     local s = state.roe.sent[id]
     if s and not s.answered_at then s.answered_at = state.now end
     diag.log('roe', 'failed ' .. tostring(id) .. ' ' .. tostring(why))
 end
 
-function app.roe_failed(id)
+-- 未実装の札の元（手で外したかは見ない）。戻り値は roe_failed と同じ
+local function roe_failed_raw(id)
     id = tonumber(id)
     if not id then return nil end
     local key = tostring(id)
     local E = S and S.eminence
     local f = E and E.failed
     if f and f[key] then return f[key] end
+    -- 0.1.294〜：「未実装のエミネンスを表示」がオフなら、調べた一覧（data/roe_unimplemented.json と 3055〜3060）は使わない。
+    -- 自分で受けて断られた番号（上の failed）はオン・オフどちらでも未実装のまま
+    if E and E.known_unimpl == false then return nil end
     -- サーバーが受け付けたことがあれば、既知の未実装リストは使わない
     if E and E.impl_ok and E.impl_ok[key] then return nil end
-    if roe_mod.is_known_unimplemented and roe_mod.is_known_unimplemented(id) then
-        return { why = 'not_impl' }
+    if roe_cycle.known_missing(id) or (roe_mod.is_known_unimplemented and roe_mod.is_known_unimplemented(id)) then
+        return { why = 'not_impl', known = true }
     end
     return nil
 end
 
+-- 手で未実装を外した番号か（0.1.295〜。eminence.unimpl_off）
+local function unimpl_off(key)
+    local E = S and S.eminence
+    return E ~= nil and type(E.unimpl_off) == 'table' and E.unimpl_off[key] == true
+end
+
+function app.roe_failed(id)
+    id = tonumber(id)
+    if not id then return nil end
+    local f = roe_failed_raw(id)
+    -- 手で外したものは未実装の札をつけない（受けられない〈unable〉の印はそのまま）
+    if f and f.why == 'not_impl' and unimpl_off(tostring(id)) then return nil end
+    return f
+end
+
+-- 未実装の札の手動の切りかえ（0.1.295〜）。戻り値: 'unimpl'（いま未実装・外せる）/ 'restored'（手で外した・戻せる）/ nil
+function app.roe_unimpl_state(id)
+    id = tonumber(id)
+    if not id or app.roe_active_entry(id) then return nil end
+    local f = roe_failed_raw(id)
+    if not f or f.why ~= 'not_impl' then return nil end
+    return unimpl_off(tostring(id)) and 'restored' or 'unimpl'
+end
+
+-- 未実装を外す ⇄ 未実装に戻す。外したものは保存し、「未実装の札を自動でつける」がオンでも戻らない。
+-- failed（断られた記録）は消さない。戻り値: 切りかえたら新しい状態
+function app.roe_toggle_unimpl(id)
+    local cur = app.roe_unimpl_state(id)
+    if not cur then return nil end
+    local E = S.eminence
+    local key = tostring(tonumber(id))
+    if type(E.unimpl_off) ~= 'table' then E.unimpl_off = {} end
+    if cur == 'unimpl' then E.unimpl_off[key] = true else E.unimpl_off[key] = nil end
+    app.mark_settings_dirty()
+    diag.log('roe', 'unimpl ' .. (cur == 'unimpl' and 'off ' or 'on ') .. key)
+    return (cur == 'unimpl') and 'restored' or 'unimpl'
+end
+
 -- いまの時刻（秒）。日・週で替わる目標の組を進めるのに使う（テストで差し替える）
 function app.epoch_now() return os.time() end
+app.ROE_DAY_REREAD = 10   -- 0:00 JST のあと、記録を読み直すまでの秒
 
 -- 日・週で替わる目標の、いまの組・週・リーダー。戻り値: { shared, week, leader } または nil
 function app.roe_rotation_now()
@@ -2204,13 +2467,59 @@ function app.roe_rotation(id)
     return roe_mod.rotation_block(id, cur, cur.leader)
 end
 
+-- 時刻 t のときに受けられない理由（組・週・リーダー。0.1.293〜）
+function app.roe_rotation_at(id, t)
+    local r = state.roe
+    local cur = roe_mod.rotation_now(r.unity, t) or {}
+    return roe_mod.rotation_block(tonumber(id), cur, r.leader)
+end
+
+-- くり返し・期間外（0.1.293〜）。戻り値: roe_cycle.status の表（記録がまだなら nil）
+-- 達成を初めて見た時刻を覚え、その次の区切り（0:00 JST など）までを期間外にする
+function app.roe_cycle_status(id)
+    id = tonumber(id)
+    local r = state.roe
+    if not (id and r.active) then return nil end
+    local st = 'not_accepted'
+    if app.roe_active_entry(id) then st = 'accepted'
+    elseif roe_mod.is_complete(r.complete, id) then st = 'completed' end
+    local now = app.epoch_now()
+    r.cycle_seen = r.cycle_seen or {}
+    if st == 'completed' then
+        if not r.cycle_seen[id] then r.cycle_seen[id] = now end
+    else
+        r.cycle_seen[id] = nil
+    end
+    local db = r.db
+    local q = db and db.quests and db.quests[id]
+    return roe_cycle.status(id, {
+        st = st, dat_repeat = q and q.repeatable, now = now, seen_at = r.cycle_seen[id],
+        rotation_at = app.roe_rotation_at,
+    })
+end
+
+-- アストラルの本で、達成でも一覧に残すもの（くり返しできる・期間外で待つもの）
+function app.roe_cycle_keep(id)
+    local c = app.roe_cycle_status(id)
+    return c ~= nil and c.mode ~= 'done'
+end
+
 -- 押せない理由の文（ボタンの説明・お知らせ）
 function app.roe_why_text(why, id)
     local cur = app.roe_rotation_now()
     local today = cur.shared and roe_mod.BLOCKS[cur.shared + 1] or '?'
     local first = cur.shared and (roe_mod.SHARED_FIRST + cur.shared * 9) or 0
-    return T('roe.msg.' .. tostring(why), { name = id and roe_name(id) or '', today = today,
-        from = tostring(first), to = tostring(first + 8) })
+    local when = ''
+    if id and type(why) == 'string' and (why:find('^cycle_') or why == 'not_today' or why == 'not_this_week' or why == 'timed_auto') then
+        local c = app.roe_cycle_status(id)
+        when = (c and c.at and roe_cycle.format_when(c.at)) or ''
+    end
+    local text = T('roe.msg.' .. tostring(why), { name = id and roe_name(id) or '', today = today,
+        from = tostring(first), to = tostring(first + 8), when = when })
+    if when ~= '' then
+        text = text .. T(why == 'timed_auto' and 'roe.msg.next_timed' or 'roe.msg.next_open', { when = when })
+    end
+    return text
 end
 
 -- 届いた 0x111・0x112・0x029・0x110・0x061（platform の packet_in から。読むだけ）
@@ -2287,6 +2596,8 @@ function app.on_roe_packet(id, data)
             if E then
                 E.impl_ok = E.impl_ok or {}
                 if not E.impl_ok[tostring(rid)] then E.impl_ok[tostring(rid)] = true; changed = true end
+                -- 受け付けられたので、手で外した印（0.1.295〜）はもう要らない
+                if type(E.unimpl_off) == 'table' and E.unimpl_off[tostring(rid)] then E.unimpl_off[tostring(rid)] = nil; changed = true end
             end
             if changed then app.mark_settings_dirty() end
         end
@@ -2348,7 +2659,13 @@ function app.roe_can(op, id)
         if app.roe_active_count() >= roe_mod.MAX_ACTIVE then return false, 'full' end
         local db = app.roe_db()
         local q = db and db.quests[id]
-        if roe_mod.is_complete(r.complete, id) and not (q and q.repeatable) then return false, 'completed' end
+        if roe_mod.is_complete(r.complete, id) then
+            -- くり返し・日・週・月で受け直せるか（0.1.293〜。印が無い番号は DAT のくり返しの印）
+            local c = app.roe_cycle_status(id)
+            if c and c.mode == 'wait' then return false, c.reason end
+            if c and c.mode == 'done' then return false, 'completed' end
+            if not c and not (q and q.repeatable) then return false, 'completed' end
+        end
         return true
     elseif op == 'remove' then
         if not e then return false, 'not_active' end
@@ -2822,6 +3139,8 @@ function app.tick(now)
         local uok, uerr = pcall(app.check_update)
         if not uok then state.update_checked = true; diag.log('update', uerr) end
     end
+    local bok, berr = pcall(app.tick_backup)
+    if not bok then state.backup = { done = true }; diag.log('backup', berr) end
     if state.pending_shortcut then
         local list = state.pending_shortcut
         state.pending_shortcut = false
@@ -2936,6 +3255,12 @@ local function make_ui(imgui)
     ui.open_window = app.open_window
     ui.close_window = app.close_window
     ui.start_update = app.start_update
+    ui.check_update_now = app.check_update_now
+    ui.update_check_status = app.update_check_status
+    ui.update_check_wait = app.update_check_wait
+    ui.rollback_prev = app.rollback_prev
+    ui.ask_rollback = app.ask_rollback
+    ui.start_rollback = app.start_rollback
     ui.update_later = app.update_later
     ui.update_reload = app.update_reload
     ui.show_tracker = app.show_tracker
@@ -2953,7 +3278,12 @@ local function make_ui(imgui)
     ui.roe_send = app.roe_send
     ui.roe_can = app.roe_can
     ui.roe_failed = app.roe_failed
+    ui.roe_unimpl_state = app.roe_unimpl_state
+    ui.roe_toggle_unimpl = app.roe_toggle_unimpl
     ui.roe_rotation = app.roe_rotation
+    ui.roe_cycle_status = app.roe_cycle_status
+    ui.roe_cycle_keep = app.roe_cycle_keep
+    ui.epoch_now = app.epoch_now
     ui.roe_why_text = app.roe_why_text
     ui.roe_active_entry = app.roe_active_entry
     ui.roe_active_count = app.roe_active_count

@@ -774,8 +774,179 @@ end
 
 -- 2列フォーム：左に名前（列幅で折り返し）、右の固定位置に操作を置く（0.1.274〜）
 -- 戻り値が nil なら従来どおり（名前の直後に操作）
-local function form_start(ui, imgui, label, opts)
+-- 説明のツールチップ（0.1.300〜）。設定の本文と同じ文字の大きさ（設定の文字サイズ・4K の倍率もそのまま）、
+-- 幅は全角 30 字ほどか窓の 4 割で折り返す。背景と枠はテーマに合わせる。段落は \n\n で分け、2 段落目は少し淡く
+local function fnum(ok, a, b)
+    if not ok then return nil, nil end
+    if type(a) == 'table' then return tonumber(a.x or a[1]), tonumber(a.y or a[2]) end
+    return tonumber(a), tonumber(b)
+end
+function W.tooltip_wrap_w(font_px, win_w)
+    font_px = tonumber(font_px) or 16
+    local cap = font_px * 30
+    local w = (tonumber(win_w) and win_w > 0) and win_w * 0.40 or cap
+    return math.floor(math.min(cap, math.max(font_px * 14, w)) + 0.5)
+end
+function W.tooltip(ui, text)
+    if type(text) ~= 'string' or text == '' then return end
+    local imgui = ui.imgui
+    if not imgui.BeginTooltip then pcall(imgui.SetTooltip, text); return end
+    local okf, fs = pcall(imgui.GetFontSize)
+    fs = okf and tonumber(fs) or nil
+    local ww = select(1, fnum(pcall(imgui.GetWindowSize)))
+    local n_col, n_var = 0, 0
+    local function col(name, rgba)
+        if imgui.PushStyleColor and pcall(imgui.PushStyleColor, theme.C(name), rgba) then n_col = n_col + 1 end
+    end
+    local function var(name, v, opt)
+        if not imgui.PushStyleVar then return end
+        local id = opt and theme.C_opt(name) or theme.C(name)
+        if id ~= nil and pcall(imgui.PushStyleVar, id, v) then n_var = n_var + 1 end
+    end
+    local sfl = theme.is_sf and theme.is_sf()
+    local bg = sfl and { 0.035, 0.055, 0.08, 0.97 } or (theme.look == 'yunaui' and { 0.068, 0.066, 0.088, 0.97 } or { 0.07, 0.07, 0.09, 0.97 })
+    col('ImGuiCol_PopupBg', bg)
+    col('ImGuiCol_Border', theme.col(sfl and 'sf_cyan' or 'accent', 0.85))
+    local pad = math.floor((fs or 16) * 0.6 + 0.5)
+    var('ImGuiStyleVar_WindowPadding', { pad + 2, pad })
+    var('ImGuiStyleVar_WindowBorderSize', 1)
+    var('ImGuiStyleVar_PopupBorderSize', 1, true)
+    var('ImGuiStyleVar_WindowRounding', sfl and 2 or 6)
+    var('ImGuiStyleVar_PopupRounding', sfl and 2 or 6, true)
+    local ok_b, opened = pcall(imgui.BeginTooltip)
+    if ok_b and opened ~= false then
+        -- 設定の窓の文字の大きさにそろえる（ツールチップは新しい窓なので、倍率が 1 に戻っている）
+        if fs and imgui.SetWindowFontScale then
+            pcall(imgui.SetWindowFontScale, 1.0)
+            local okb, base = pcall(imgui.GetFontSize)
+            base = okb and tonumber(base) or nil
+            if base and base > 0 then pcall(imgui.SetWindowFontScale, fs / base) end
+        end
+        local wrap = W.tooltip_wrap_w(fs, ww)
+        local pushed = imgui.PushTextWrapPos and pcall(imgui.PushTextWrapPos, wrap) or false
+        local first = true
+        for para in (text .. '\n\n'):gmatch('(.-)\n\n') do
+            if para ~= '' then
+                if not first and imgui.Dummy then pcall(imgui.Dummy, { 1, math.floor((fs or 16) * 0.35) }) end
+                -- くっきり（縁取り）は 1 行の前提で描くので、折り返す説明では使わない（ImGui の文字だけ）
+                local c = theme.col(first and 'text' or 'muted', 1)
+                if imgui.TextColored then pcall(imgui.TextColored, c, para) else pcall(imgui.Text, para) end
+                first = false
+            end
+        end
+        if pushed then pcall(imgui.PopTextWrapPos) end
+        pcall(imgui.EndTooltip)
+    end
+    for _ = 1, n_var do pcall(imgui.PopStyleVar, 1) end
+    for _ = 1, n_col do pcall(imgui.PopStyleColor, 1) end
+end
+
+-- 丸で囲んだ i（0.1.299〜。YunaUI のような説明の印。画像は使わず線で描く）。
+-- 乗せると説明（ツールチップ）。戻り値: 乗っているか
+function W.info_mark_size(imgui)
+    return math.max(12, math.floor(frame_h(imgui) * 0.62 + 0.5))
+end
+function W.info_mark(ui, id, tip, opts)
     opts = opts or {}
+    local imgui = ui.imgui
+    local h = frame_h(imgui)
+    local d = W.info_mark_size(imgui)
+    local x, y = cur_xy(imgui)
+    pcall(imgui.InvisibleButton, '##info_' .. tostring(id), { d, h })
+    local hov = imgui.IsItemHovered and imgui.IsItemHovered() or false
+    if x and y then
+        pcall(function ()
+            local dl = imgui.GetWindowDrawList()
+            local cx, cy, r = x + d / 2, y + h / 2, d / 2 - 0.5
+            local col = theme.u32((hov or opts.lit) and 'text' or 'muted', (hov or opts.lit) and 0.95 or 0.70)
+            dl:AddCircle({ cx, cy }, r, col, 20, 1.1)
+            local u = r / 6
+            dl:AddCircleFilled({ cx, cy - u * 2.6 }, math.max(0.9, u * 0.85), col, 8)
+            dl:AddLine({ cx, cy - u * 0.9 }, { cx, cy + u * 3.0 }, col, math.max(1.1, u * 1.1))
+        end)
+    end
+    if hov and tip and tip ~= '' then W.tooltip(ui, tip) end
+    return hov
+end
+
+-- 名前のあとに i を置く（opts.info のとき）。戻り値: 乗っているか
+local function label_info(ui, imgui, opts, id)
+    if not (opts and opts.info and opts.info ~= '') then return false end
+    pcall(imgui.SameLine, 0, 6)
+    return W.info_mark(ui, id or opts.row or 'x', opts.info)
+end
+
+-- 0.1.298〜（アストラル）：右よせの行。名前は左、操作は箱の右端にそろえる。
+-- 操作の幅は前のフレームで測ったもの（はじめは est）。名前は残りの幅で折り返し、操作に重ねない。
+-- opts.form_right = true, opts.form_inner = 行の幅, opts.form_rule = 上に薄い線
+local ctrl_w_cache = {}
+W._ctrl_w_cache = ctrl_w_cache
+local function form_start_right(ui, imgui, label, opts, key, est)
+    local inner = tonumber(opts.form_inner)
+    local sx, sy = cur_xy(imgui)
+    if not (inner and inner > 40 and sx and sy) then return nil end
+    local gap = tonumber(opts.form_gap) or 12
+    if opts.form_rule then
+        pcall(function ()
+            local dl = imgui.GetWindowDrawList()
+            dl:AddLine({ sx, sy + 1 }, { sx + inner, sy + 1 }, theme.u32(theme.is_sf and theme.is_sf() and 'sf_cyan' or 'muted', 0.16), 1)
+        end)
+        sy = sy + 5
+        if imgui.SetCursorScreenPos then pcall(imgui.SetCursorScreenPos, { sx, sy }) end
+    end
+    key = tostring(key or label or '')
+    local cw = tonumber(ctrl_w_cache[key]) or tonumber(est) or 120
+    cw = math.max(8, math.min(cw, inner - 40 - gap))
+    local lw = math.max(40, inner - cw - gap)
+    if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
+    label = tostring(label or '')
+    local info_hov = false
+    if label ~= '' then
+        local tw = tonumber(select(1, theme.measure_text(imgui, label))) or 0
+        -- 0.1.299〜：i の印を置くぶんを残す
+        local iw = (opts.info and opts.info ~= '') and (W.info_mark_size(imgui) + 6) or 0
+        if tw > lw - iw then
+            CT.wrapped(ui, label, 'text', nil, math.max(24, lw - iw))
+        else
+            imgui.Text(label)
+        end
+        info_hov = label_info(ui, imgui, opts, key)
+    end
+    local lb = (label ~= '' and item_bottom(imgui)) or sy
+    local cx = math.max(sx + lw + gap, sx + inner - cw)
+    if imgui.SetCursorScreenPos then pcall(imgui.SetCursorScreenPos, { cx, sy }) end
+    imgui.BeginGroup()
+    window.push(ui, 'group')
+    -- 0.1.299〜：操作の中の文字（値と単位・#RRGGBB）は折り返さない（パネルの折り返し位置で 2 行にならないように）
+    local nowrap = imgui.PushTextWrapPos and pcall(imgui.PushTextWrapPos, -1) or false
+    if nowrap then window.push(ui, 'wrap') end
+    return { sx = sx, sy = sy, label_bottom = lb, lw = lw, gap = gap, right = true, key = key, ui = ui,
+        inner = inner, ctrl_x = cx, nowrap = nowrap, info_hov = info_hov }
+end
+
+-- 右よせの操作の組を閉じて、幅を覚える（次のフレームから右端にぴったり）
+local function form_ctrl_done(imgui, row)
+    if not (row and row.right) or row.closed then return end
+    row.closed = true
+    if row.nowrap then window.pop(row.ui, 'wrap') end
+    window.pop(row.ui, 'group')
+    local ok1, a1, b1 = pcall(imgui.GetItemRectMin)
+    local ok2, a2, b2 = pcall(imgui.GetItemRectMax)
+    local x1 = ok1 and (type(a1) == 'table' and tonumber(a1.x or a1[1]) or tonumber(a1)) or nil
+    local x2 = ok2 and (type(a2) == 'table' and tonumber(a2.x or a2[1]) or tonumber(a2)) or nil
+    -- 0.1.300〜：値の列を決めている行（スライダー）は、値の文字の幅で動かさない
+    if row.fixed_w then
+        ctrl_w_cache[row.key] = row.fixed_w
+    elseif x1 and x2 and x2 > x1 then
+        local w = math.ceil(x2 - x1)
+        local old = ctrl_w_cache[row.key]
+        if not old or math.abs(old - w) >= 1 then ctrl_w_cache[row.key] = w end
+    end
+end
+
+local function form_start(ui, imgui, label, opts, key, est)
+    opts = opts or {}
+    if opts.form_right then return form_start_right(ui, imgui, label, opts, key, est) end
     local lw = tonumber(opts.form_label_w)
     if not lw or lw < 8 then return nil end
     local gap = tonumber(opts.form_gap) or 8
@@ -795,7 +966,9 @@ local function form_start(ui, imgui, label, opts)
 end
 
 local function form_end(imgui, row)
-    if not row or not imgui.SetCursorScreenPos then return end
+    if not row then return end
+    form_ctrl_done(imgui, row)
+    if not imgui.SetCursorScreenPos then return end
     local _, cy = cur_xy(imgui)
     local ib = item_bottom(imgui)
     local bottom = row.label_bottom or row.sy
@@ -836,9 +1009,11 @@ function W.switch(ui, win, id, label, on, opts)
     local h = frame_h(imgui)
     local sh = math.max(12, math.floor(h * 0.72 + 0.5))   -- YunaUI より低め
     local sw = sh * 2
-    local form = form_start(ui, imgui, label, opts)
+    local form = form_start(ui, imgui, label, opts, win .. '/' .. id, sw)
+    local info_hov = form and form.info_hov or false
     if not form then
         local stacked = label_fits_or_wrap(ui, imgui, label, opts.wrap_w, sw + 8)
+        if label_info(ui, imgui, opts, win .. '/' .. id) then info_hov = true end
         if not stacked then
             if opts.col_x then
                 if not pcall(imgui.SameLine, opts.col_x) then imgui.SameLine() end
@@ -851,10 +1026,13 @@ function W.switch(ui, win, id, label, on, opts)
     if okp and type(px) == 'table' then px, py = px.x or px[1], px.y or px[2] end
     local pressed = imgui.InvisibleButton(label .. '##' .. id, { sw, h })
     local hov = imgui.IsItemHovered()
+    if form then form_ctrl_done(imgui, form) end
     window.pop(ui, 'group')
     if form then form_end(imgui, form) end
     -- 名前の上を押したときも切り替える（スイッチの上は、スイッチ自身が押した後に返す。二重にしない）
-    local row_clicked = (not hov) and imgui.IsItemClicked and imgui.IsItemClicked(0) or false
+    local row_clicked = (not hov) and (not info_hov) and imgui.IsItemClicked and imgui.IsItemClicked(0) or false
+    -- 0.1.299〜：パッドで選んだときも説明を出す
+    if opts.info and focused and not info_hov and focus.why(win) ~= 'hover' then W.tooltip(ui, opts.info) end
     -- つまみはゆっくり滑る（動きを減らす設定なら、すぐ）
     local target = on and 1 or 0
     local v = SWA[id] or target
@@ -1057,7 +1235,21 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     local changed = false
 
     -- 名前（左の列をそろえる）。フォーム指定時は右の操作位置を固定
-    local form = form_start(ui, imgui, label, opts)
+    -- 0.1.298〜 右よせ：スライダーは行の幅の 6 割まで（名前の場所を残す）
+    local right_w
+    if opts.form_right and tonumber(opts.form_inner) then
+        local fh = frame_h(imgui)
+        local vw = tonumber(opts.form_value_w) or 0
+        local reserved = fh + 52 + math.max(vw, 8) + 32
+        if tonumber(opts.form_slider_w) then
+            -- 0.1.300〜：箱で決めた幅（名前の列と操作のあいだを埋める。箱の中の行はみな同じ）
+            right_w = math.max(24, math.floor(tonumber(opts.form_slider_w)))
+        else
+            right_w = math.max(48, math.min(opts.slider_w or 120, tonumber(opts.form_inner) * 0.62 - reserved))
+        end
+    end
+    local form = form_start(ui, imgui, label, opts, win .. '/' .. id,
+        right_w and (frame_h(imgui) + right_w + 52 + math.max(tonumber(opts.form_value_w) or 0, 8) + 32) or nil)
     if not form then
         local stacked = label_fits_or_wrap(ui, imgui, label, opts.wrap_w, (opts.slider_w or 160) + 90)
         if not stacked then
@@ -1102,7 +1294,9 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     local buf = { v }
     local w = opts.slider_w or 160
     local value_w = tonumber(opts.form_value_w) or 0
-    if form and tonumber(opts.form_control_w) then
+    if right_w then
+        w = right_w
+    elseif form and tonumber(opts.form_control_w) then
         -- リセット・－／＋・値の幅を残して、スライダーを列の中に収める
         local reserved = frame_h(imgui) + 8 + 52 + 8 + math.max(value_w, 8)
         w = math.max(48, math.min(w, tonumber(opts.form_control_w) - reserved))
@@ -1180,6 +1374,15 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     end
     imgui.SameLine()
     local vtext = opts.text and opts.text(v) or tostring(v)
+    -- 0.1.300〜：右よせの行は、値の列の幅を決めて（無ければ「-128 px」の幅）その中で右にそろえる。
+    -- 操作のかたまりの幅＝値の前までの幅＋値の列の幅（値の文字の幅は入れない）なので、どの値でも位置が同じ
+    if form and form.right then
+        if value_w <= 8 then
+            value_w = math.ceil((tonumber(select(1, theme.measure_text(imgui, '-128 px'))) or 48) + 4)
+        end
+        local vx = cur_xy(imgui)
+        if vx and form.ctrl_x then form.fixed_w = math.ceil(vx - form.ctrl_x + value_w) end
+    end
     if value_w > 8 then
         local tw = tonumber(select(1, theme.measure_text(imgui, vtext))) or 0
         local pad = math.max(0, value_w - tw)
@@ -1388,7 +1591,7 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
     local cur = tbl[key]
     if type(cur) ~= 'table' then cur = { def[1], def[2], def[3] }; tbl[key] = cur end
     local changed = false
-    local form = form_start(ui, imgui, label, opts)
+    local form = form_start(ui, imgui, label, opts, win .. '/' .. id, frame_h(imgui) * 2.4 + 90)
     if not form then
         local stacked = label_fits_or_wrap(ui, imgui, label, opts.wrap_w, 120)
         if not stacked then
@@ -1445,6 +1648,7 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
         end)
     end
     after_item(ui, win, id, focused)
+    if form then form_ctrl_done(imgui, form) end
     local p = focus.picker(win)
     if (clicked or activated) and not (p and p.id == id) then
         local hh, ss, vv = W.rgb_to_hsv(cur)
@@ -1608,5 +1812,6 @@ end
 -- テスト・設定の2列フォーム用
 W._form_start = form_start
 W._form_end = form_end
+W._form_ctrl_done = form_ctrl_done
 
 return W

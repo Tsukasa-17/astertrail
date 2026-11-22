@@ -188,7 +188,7 @@ do
         if lang == 'ja' then
             eq(L['settings.marks_show_icons'], 'アイコンを表示する', 'ja 1')
             eq(L['settings.marks_show_quest_name'], 'クエスト名を表示する', 'ja 2')
-            eq(L['settings.marks_show_object_names'], 'クエストのオブジェクト名を表示する', 'ja 3')
+            eq(L['settings.marks_show_object_names'], 'クエストの対象名を表示する', 'ja 3')
             eq(L['settings.marks_show_nearby'], '近くのオブジェクト名を表示する', 'ja 4')
             check(not L['settings.marks_switches_note']:find('頭上', 1, true), 'no disliked word')
         end

@@ -187,6 +187,11 @@ function eminence.show_sig(E)
     local out = {}
     for _, k in ipairs(eminence.SHOW_STATES) do out[#out + 1] = (show[k] ~= false) and '1' or '0' end
     out[#out + 1] = (show.unimplemented ~= false) and '1' or '0'
+    -- 0.1.295〜：断られた番号・手で未実装を外した番号が増減したら組み直す
+    local nf, no = 0, 0
+    if type(E.failed) == 'table' then for _ in pairs(E.failed) do nf = nf + 1 end end
+    if type(E.unimpl_off) == 'table' then for _ in pairs(E.unimpl_off) do no = no + 1 end end
+    out[#out + 1] = ':' .. nf .. ':' .. no
     return table.concat(out)
 end
 
@@ -206,6 +211,11 @@ end
 function eminence.book_visible(ui, id, words, opts)
     opts = opts or {}
     local E = ui.settings.eminence
+    -- アストラル（0.1.294〜）：絞り込みはカードの札と同じ区分（eminence_sf が eminence.sf_filter を入れる）
+    if ui.settings.look == 'sf' and eminence.sf_filter then
+        if eminence.sf_filter(ui, id, opts) == false then return false end
+        return matches(ui, id, words)
+    end
     -- 未実装のチェックは件数にも効く（ignore_state でも隠す。受注中は残す）
     if eminence.hidden_unimplemented(ui, id) then return false end
     local st = eminence.state_of(ui, id)
@@ -213,9 +223,14 @@ function eminence.book_visible(ui, id, words, opts)
         if st == 'completed' then
             -- 達成オフ：くり返しできない達成だけ隠す。くり返しできる達成は残す（以前の「達成済みを非表示」と同じ）
             if not eminence.show_completed(E) then
-                local db = db_of(ui)
-                local q = db and db.quests and db.quests[id]
-                if not (q and q.repeatable) then return false end
+                if ui.settings.look == 'sf' and ui.roe_cycle_keep then
+                    -- アストラル（0.1.293〜）：くり返しできる達成と、期間外で待つもの（日・週・月で受け直せる）は残す
+                    if not ui.roe_cycle_keep(id) then return false end
+                else
+                    local db = db_of(ui)
+                    local q = db and db.quests and db.quests[id]
+                    if not (q and q.repeatable) then return false end
+                end
             end
         elseif not eminence.state_shown(E, st) then
             return false
@@ -1207,6 +1222,16 @@ function eminence.detail(ui, name, id)
     heart_button(ui, name, id, 'detail', 'd')
     imgui.SameLine()
     action_button(ui, name, id, 'detail', 'd')
+    -- 0.1.295〜：未実装の札を手で外す ⇄ 未実装に戻す（受注中は出さない）
+    local ust = ui.roe_unimpl_state and ui.roe_unimpl_state(id) or nil
+    if ust then
+        imgui.SameLine()
+        local lab = t(ust == 'unimpl' and 'roe.unimpl.restore' or 'roe.unimpl.mark')
+        local tip = t(ust == 'unimpl' and 'roe.unimpl.restore_tip' or 'roe.unimpl.mark_tip')
+        if W.button(ui, name, 'roe_unimpl', lab, { section = 'detail', row = 'd', tooltip = tip }) then
+            if ui.roe_toggle_unimpl then ui.roe_toggle_unimpl(id) end
+        end
+    end
     -- 今日・今週は受けられないわけ（0.1.224〜。パッドでは説明の吹き出しが出ないので、ここに書く）
     if st ~= 'accepted' and ui.roe_rotation then
         local rot = ui.roe_rotation(id)

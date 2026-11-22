@@ -14,6 +14,15 @@ local update_popup = {}
 local function status_text(ui, job)
     local t = ui.t
     local st = job and job.status or 'idle'
+    -- 0.1.297〜：前のバージョンに戻す
+    if job and job.kind == 'rollback' then
+        if st == 'confirm' then return t('update.rollback_body', { v = job.version or '?', cur = job.current or '?' }) end
+        if st == 'verify' then return t('update.verifying') end
+        if st == 'reload' then return t('update.reloading') end
+        if st == 'done' then return t('update.rolled_back', { v = job.version or '?' }) end
+        if st == 'failed' then return t('update.err_rollback') end
+        return ''
+    end
     if st == 'offer' then
         if job.zip_url then
             return t('update.body', { v = job.version or '?', cur = job.current or '?' })
@@ -36,6 +45,9 @@ local function status_text(ui, job)
         elseif e == 'https' then key = 'update.err_https'
         elseif e == 'temp' then key = 'update.err_temp'
         elseif e == 'no_zip' then key = 'update.no_zip'
+        elseif e == 'no_sha' then key = 'update.err_no_sha'
+        elseif e == 'backup' then key = 'update.err_backup'
+        elseif e == 'rollback' then key = 'update.err_rollback'
         elseif type(e) == 'string' and e ~= '' then
             return t('update.err_generic') .. ' (' .. e .. ')'
         end
@@ -48,7 +60,7 @@ function update_popup.visible(ui)
     local job = ui.state and ui.state.update
     if not job then return false end
     local st = job.status
-    return st == 'offer' or st == 'download' or st == 'verify' or st == 'extract'
+    return st == 'confirm' or st == 'offer' or st == 'download' or st == 'verify' or st == 'extract'
         or st == 'swap' or st == 'reload' or st == 'done' or st == 'failed'
 end
 
@@ -74,7 +86,7 @@ function update_popup.draw(ui)
         if window.set_font then
             window.set_font(ui, base * 1.20, { heading = true, bold = true })
         end
-        local title = t('update.title')
+        local title = (job.kind == 'rollback') and t('update.rollback_title') or t('update.title')
         if is_sf then
             sf.heading_line(ui, title, theme.u32('sf_cyan', 1.0), 'title', { align = 'center', max_w = iw })
         else
@@ -109,7 +121,17 @@ function update_popup.draw(ui)
                 end
                 return W.button(ui, name, id, lab, { section = 'main', row = 'c' })
             end
-            if st == 'offer' and job.zip_url then
+            if job.kind == 'rollback' and st == 'confirm' then
+                local a, b = t('update.rollback_go'), t('update.rollback_cancel')
+                center(bw(a) + 14 + bw(b))
+                if btn('upd_rb_go', a) then
+                    if ui.start_rollback then ui.start_rollback() end
+                end
+                imgui.SameLine(0, 14)
+                if btn('upd_rb_cancel', b) then
+                    if ui.update_later then ui.update_later() end
+                end
+            elseif st == 'offer' and job.zip_url then
                 local a, b = t('update.download'), t('update.later')
                 center(bw(a) + 14 + bw(b))
                 if btn('upd_go', a) then

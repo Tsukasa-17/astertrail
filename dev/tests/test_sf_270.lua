@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
@@ -30,7 +30,7 @@ check(sfsrc:find('function ICONS.notify', 1, true) ~= nil, 'bell icon is drawn i
 check(sfsrc:find('function ICONS.save', 1, true) ~= nil, 'disk icon is drawn in code')
 check(sfsrc:find('function ICONS.input', 1, true) ~= nil, 'input icon is drawn in code')
 check(sfsrc:find('.png', 1, true) == nil, 'no copied image assets')
-check(sfsrc:find('n_popup_try', 1, true) ~= nil, 'notify preview has try buttons')
+check(sfsrc:find('n_popup_try', 1, true) ~= nil, 'notify POPUP box has try buttons')
 check(sfsrc:find('manual_checks', 1, true) ~= nil, 'debug stays behind manual_checks')
 check(sfsrc:find("look_style", 1, true) ~= nil, 'look_style widget id is kept')
 
@@ -66,7 +66,7 @@ app.close_all(); frame()
 S.look = 'sf'
 theme.set_look('sf')
 app.open_window('settings'); frame(); frame(); frame()
-check(labeled('テーマ：アストラル'), 'SF settings uses the アストラル theme label')
+check(labeled('アストラル') and texted('テーマ'), 'SF settings uses the アストラル theme label')
 -- くっきりは FONT パネルに出している（たたみはしない）
 check(labeled('画面の文字をくっきり（メイリオ）'), 'SF crisp rename is visible')
 check(not labeled('くっきりフォント（テスト）'), 'old crisp label is not used on the SF screen')
@@ -89,7 +89,7 @@ settings_ui.select_tab('tracker'); frame(); frame()
 check(texted('★を付けたものだけ出す') or labeled('★を付けたものだけ出す'), 'eminence fold lives under tracker with the new label')
 
 settings_ui.select_tab('save'); frame(); frame()
-check(texted('版 ' .. app.VERSION) or labeled('版 ' .. app.VERSION), 'footer or about shows the version')
+check(texted('バージョン ' .. app.VERSION) or labeled('バージョン ' .. app.VERSION), 'footer or about shows the version')
 check(texted('Based on YunaUI by Yunas') or labeled('Based on YunaUI by Yunas'), 'license credit at end of save')
 
 -- 公開ビルドではデバッグが出ない

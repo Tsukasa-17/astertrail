@@ -246,7 +246,15 @@ eq(app.roe_active_entry(12).progress, 150, 'injected packet ignored')
 eq(app.roe_can('start', 12), false, 'already taken'); eq(select(2, app.roe_can('start', 12)), 'already')
 eq(app.roe_can('remove', 12), true, 'can drop taken')
 eq(select(2, app.roe_can('remove', 0xFAF)), 'timed', 'timed cannot be dropped')
-eq(select(2, app.roe_can('start', 300)), 'completed', 'done and not repeatable')
+-- 0.1.293〜：LSB の印がある番号はその印（300 は LSB で repeat）。印が無いときは DAT の印（ここでは くり返し不可）
+eq(app.roe_can('start', 300), true, 'done but repeatable in LSB flags (0.1.293)')
+do
+    local rc = require('src.core.roe_cycle')
+    local json_ = require('src.lib.json')
+    rc.bind(nil)
+    eq(select(2, app.roe_can('start', 300)), 'completed', 'done and not repeatable (DAT flag only)')
+    rc.bind(json_.decode(io.open(ROOT .. '/data/roe_cycles.json', 'r'):read('*a')))
+end
 eq(app.roe_can('start', 13), true, 'can take')
 
 do
@@ -314,7 +322,7 @@ do
     FAKE.events.text_in({ message = 'The record #3055 is not implemented at this time.', mode = 9 })
     eq(app.roe_failed(3055).why, 'not_impl', 'not implemented remembered')
     -- 番号の無い「受けられない」は、直前に押した番号
-    app.roe_send('start', 300)   -- 押せない（達成済み）→ 送らない
+    app.roe_send('start', 1)   -- 押せない（達成済み・くり返し不可。0.1.293 で 300 は LSB の repeat なので 1 に）→ 送らない
     eq(#INJ, 3, 'refused press sends nothing')
     st.roe.last_send = { op = 'start', id = 12, at = st.now }
     FAKE.events.packet_in({ id = 0x029, data = msg_packet(704, 12) })

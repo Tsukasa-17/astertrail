@@ -4,7 +4,7 @@ require('fake_env')
 local theme = require('src.ui.theme')
 local sf = require('src.ui.sf_style')
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 -- ImVec2 風の表と、2引数の座標
 local x, y = sf.xy(true, { x = 10, y = 20 })

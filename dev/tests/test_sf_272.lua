@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 
 local theme = require('src.ui.theme')
 local settings_ui = require('src.ui.settings_ui')
@@ -17,7 +17,8 @@ check(sfsrc:find("title = 'FONT'", 1, true) ~= nil, 'FONT panel exists')
 check(sfsrc:find("title = 'POSITION'", 1, true) ~= nil, 'POSITION panel exists')
 check(sfsrc:find("title = 'PROGRESS'", 1, true) ~= nil, 'PROGRESS panel exists')
 check(sfsrc:find('look_font', 1, true) ~= nil, 'look font panel id')
-check(sfsrc:find("ty = cy +", 1, true) ~= nil or sfsrc:find('cy + (tonumber(hh)', 1, true) ~= nil, 'preview caption is moved below the heading')
+-- 1.1.300：右のプレビューはやめた
+check(not sfsrc:find('draw_preview', 1, true), 'preview pane removed')
 check(sfsrc:find('panel_h[id] = h', 1, true) ~= nil, 'panel height follows measured content')
 
 dofile(ROOT .. '/astertrail.lua')
@@ -57,7 +58,7 @@ check(labeled('画面の文字をくっきり（メイリオ）'), 'crisp lives 
 check(labeled('太字（メイリオ）') or seen('太字（メイリオ）'), 'bold lives in FONT')
 check(labeled('縁取りの太さ') or seen('縁取りの太さ'), 'outline width lives in FONT')
 check(labeled('縁取りの濃さ') or seen('縁取りの濃さ'), 'outline alpha lives in FONT')
-check(seen('お知らせと入口のアイコンです'), 'windows help line is visible')
+check(not seen('お知らせと入口のアイコンです'), 'windows help moved into the i tooltip (0.1.299)')
 check(seen_joined('FONT'), 'FONT heading is shown')
 check(not labeled('DETAILS  ▸') and not labeled('DETAILS  ▾') and not labeled('DETAILS'), 'no DETAILS control on screen')
 
@@ -72,11 +73,10 @@ check(labeled('一覧の列の並びと表示を元に戻す') or seen('一覧�
 settings_ui.select_tab('save'); frame(); frame()
 check(labeled('受注フラグのないものを未開始に戻す') or seen('受注フラグのないものを未開始に戻す'), 'reset unstarted lives in PROGRESS')
 check(seen_joined('PROGRESS'), 'PROGRESS heading is shown')
-check(texted('版 ' .. app.VERSION) or labeled('版 ' .. app.VERSION), 'version shown')
+check(texted('バージョン ' .. app.VERSION) or labeled('バージョン ' .. app.VERSION), 'version shown')
 
--- プレビューの説明は、見出しの下へカーソルを進めてから出す（狭いときはプレビュー自体をしまう）
-check(sfsrc:find('文字サイズと背景の濃さの見本', 1, true) ~= nil, 'look preview caption remains in source')
-check(sfsrc:find('見出しの下へ進めてから説明を出す', 1, true) ~= nil, 'preview caption is drawn below the heading')
+-- 1.1.300：右のプレビューはやめた（見本の文は出さない）
+check(not seen('文字サイズと背景の濃さの見本'), 'no preview sample text')
 
 app.close_all(); frame()
 S.look = 'classic'

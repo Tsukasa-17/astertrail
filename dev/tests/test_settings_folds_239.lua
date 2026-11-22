@@ -10,7 +10,7 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 
-eq(app.VERSION, '1.1.292', 'version')
+eq(app.VERSION, '1.1.300', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 eq(S.settings_folds == nil or next(S.settings_folds) == nil, true, 'fresh folds all open')
 eq(settings.merge({}).settings_folds['look_fx'], nil, 'missing key stays open')
@@ -73,7 +73,7 @@ sui.select_tab('marks'); frame(); frame(); frame()
 check(labeled('表示'), 'marks show heading')
 check(labeled('位置'), 'marks pos heading')
 check(labeled('クエスト名'), 'marks quest heading')
-check(labeled('オブジェクト名'), 'marks object heading')
+check(labeled('クエストの対象名'), 'marks object heading')
 check(labeled('リング'), 'marks rings heading')
 
 -- 操作・保存
