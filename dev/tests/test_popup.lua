@@ -238,14 +238,15 @@ eq(app.state.active, nil, 'released after')
 -- 設定：お知らせを消すと音だけ。音を消すと鳴らない
 local N = require('src.core.settings').defaults().notify
 eq(N.popup, true, 'popup on by default'); eq(N.sound, true, 'sound on by default'); eq(N.popup_seconds, 8, 'popup seconds')
-eq(N.login_resume, false, 'login resume off by default')
+-- 0.1.303：ログイン時の続きはなくした。設定にも無く、古い保存の値は捨てる
+eq(N.login_resume, nil, 'no login resume setting')
+eq(N.login_resume_seconds, nil, 'no login resume seconds')
 local m = require('src.core.settings').merge({ notify = { popup_seconds = 100, sound_volume = 64, popup = 'x' } })
 eq(m.notify.popup_seconds, 30, 'seconds clamped'); eq(m.notify.sound_volume, 60, 'volume step'); eq(m.notify.popup, true, 'bad popup value: default')
-eq(m.notify.login_resume, false, 'unset login resume stays off')
-local m2 = require('src.core.settings').merge({ notify = { login_resume = true } })
-eq(m2.notify.login_resume, true, 'saved login resume kept')
-local m3 = require('src.core.settings').merge({ notify = { login_resume = false } })
-eq(m3.notify.login_resume, false, 'saved off kept')
+local m2 = require('src.core.settings').merge({ notify = { login_resume = true, login_resume_seconds = 20 }, windows = { resume = { x = 1, y = 2 } } })
+eq(m2.notify.login_resume, nil, 'old saved login resume ignored')
+eq(m2.notify.login_resume_seconds, nil, 'old saved seconds ignored')
+eq(m2.windows.resume, nil, 'old resume window position ignored')
 local SS = app._settings()
 SS.notify.popup = false; played = {}
 app.popup_push('accept', qid_of(1, 24)); frames(1)

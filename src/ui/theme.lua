@@ -739,16 +739,19 @@ function theme.draw_section(imgui, x1, y1, x2, y2)
 end
 
 
--- つかめる線の描画先。子窓や表の列クリップの下に隠れないよう、前景を優先する
+-- つかめる線の描画先。0.1.307〜：実機の描画リストは table ではなく userdata なので、
+-- table だけ受けていた 0.1.204〜0.1.306 は線が一度も描かれていなかった。
+-- 重なったほかの窓の上に線が出ないよう、今の窓の描画リストを先に使う（線は表を閉じたあとに描く）
 function theme.resize_rail_drawlist(imgui)
     if not imgui then return nil end
     local function ok_dl(fn)
         if type(fn) ~= 'function' then return nil end
         local ok, v = pcall(fn)
-        if ok and type(v) == 'table' and v.AddRectFilled then return v end
+        local tv = type(v)
+        if ok and (tv == 'table' or tv == 'userdata') then return v end
         return nil
     end
-    return ok_dl(imgui.GetForegroundDrawList) or ok_dl(imgui.GetWindowDrawList)
+    return ok_dl(imgui.GetWindowDrawList) or ok_dl(imgui.GetForegroundDrawList)
 end
 
 -- 窓の幅を変えるときと同じ、縦のつかめる線。乗っている／つかんでいると色と太さが変わる

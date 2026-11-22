@@ -1,10 +1,10 @@
 -- 0.1.276：SF 設定の中央・左ナビは残り高さに合わせる
--- 1.1.300：右の PREVIEW はやめた。中央の箱がその幅を使い、試すボタンは POPUP の箱へ
+-- 0.1.300：右の PREVIEW はやめた。中央の箱がその幅を使い、試すボタンは POPUP の箱へ
 require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local theme = require('src.ui.theme')
 local no_bar = theme.C('ImGuiWindowFlags_NoScrollbar') + theme.C('ImGuiWindowFlags_NoScrollWithMouse')

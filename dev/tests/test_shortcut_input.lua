@@ -136,6 +136,8 @@ app.close_all(); frame()
 app.open_window('settings'); frame()
 sui.select_tab('input'); frame(); frame()
 local function seen(p) for _, l in ipairs(FAKE.labels) do if l:find(p, 1, true) then return true end end return texted and texted(p) end
+-- 0.1.304〜：パッドの読み取りの様子は「ゲームに送らない」の行の i
+require('src.ui.focus').set('settings', 'sc_pass', false, 'nav'); FAKE.texts = {}; frame(); frame()
 check(seen('DirectInput（dinput_button'), 'source shown as DirectInput')
 app.close_all(); frame()
 -- XInput が届いたら DirectInput は数えない（二重にしない）

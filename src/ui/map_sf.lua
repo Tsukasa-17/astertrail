@@ -596,14 +596,14 @@ function map_sf.draw(ui)
         })
         sf.set_cursor(imgui, frame_x, frame_y)
 
-        local shown_image, hot, clicked = false, nil, false
+        local shown_image, hot, clicked, hover_at = false, nil, false, nil
         local file_id = sc.floor and sc.floor.file_id
         local img
         if file_id and ui.load_map_image then
             img = select(1, ui.load_map_image(file_id))
         end
         if img and img.tex then
-            shown_image, hot, clicked = map_view._draw_image_for_test(
+            shown_image, hot, clicked, hover_at = map_view._draw_image_for_test(
                 imgui, img.tex, img.width, img.height, inner, sc.pin, sc.me, info.view, sc.ov)
         end
         if not shown_image then
@@ -633,6 +633,18 @@ function map_sf.draw(ui)
                 -- ここでは線と目盛りを優先し、ピンは to_screen で最小限。
             end
         end
+        -- 0.1.301〜：画像が無いときも、枠の中に乗せた所をマスの名前に使う
+        if not hover_at and not (img and img.tex) then
+            local mok, mx0, my0 = pcall(function () return xy(imgui.GetMousePos()) end)
+            local okh, wh = pcall(function () return imgui.IsWindowHovered and imgui.IsWindowHovered() end)
+            if mok and mx0 and my0 and okh and wh and mx0 >= frame_x and mx0 <= frame_r and my0 >= frame_y and my0 <= frame_b then
+                local v = info.view or { z = 1, ox = 0, oy = 0 }
+                local s0 = (frame_r - frame_x) / maps.BASE * (v.z or 1)
+                if s0 > 0 then
+                    hover_at = { bx = (v.ox or 0) * maps.BASE + (mx0 - frame_x) / s0, by = (v.oy or 0) * maps.BASE + (my0 - frame_y) / s0 }
+                end
+            end
+        end
         if hot then
             pcall(function ()
                 imgui.BeginTooltip()
@@ -640,6 +652,8 @@ function map_sf.draw(ui)
                 imgui.EndTooltip()
             end)
             if clicked then map_view.go(ui, hot.exit) end
+        else
+            map_view.grid_tip(ui, hover_at, layout)
         end
         -- 下バー：案内はボタンの上の独立した行。幅で折り返し、高さを確保する（0.1.278〜）
         -- 目盛り帯は枠の外（下端は frame_b）まで。バーは gap_bar だけ離す
@@ -691,7 +705,7 @@ function map_sf.draw(ui)
         W.same(ui)
         do
             local close_lab = t('common.close')
-            local cw = (tonumber(select(1, theme.measure_text(imgui, close_lab))) or 40) + 24
+            local cw = (tonumber((theme.measure_text(imgui, close_lab))) or 40) + 24
             local bx, bys = cur_xy(imgui)
             local col_r = (mx or 0) + math.max(80, (right_w > 0) and map_w or (aw or 200)) - 4
             if bx and bys and col_r - cw > bx + 8 then

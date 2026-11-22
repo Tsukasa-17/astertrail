@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local sf = require('src.ui.sf_style')
 local theme = require('src.ui.theme')

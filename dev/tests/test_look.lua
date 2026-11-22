@@ -36,11 +36,11 @@ local g = theme.col('gold'); check(math.abs(g[2] - 0.83) < 1e-6, 'icon gold kept
 
 -- 設定の 見た目 タブにある切り替え
 app.close_all(); app.open_window('settings'); frame(); frame(); frame()
-check(labeled('見た目：クラシック'), 'toggle label is classic')
+check(labeled('クラシック##look_style'), 'theme row shows classic')
 focus.set('settings', 'look_style'); frame()
 press(0x1C); frame(); frame()
 eq(S.look, 'yunaui', 'toggle to YunaUI style')
-check(labeled('見た目：YunaUI風'), 'label shows YunaUI style')
+check(labeled('YunaUI風##look_style'), 'theme row shows YunaUI style')
 eq(theme.look, 'yunaui', 'theme yunaui')
 local acc2 = theme.col('ring')
 check(math.abs(acc2[1] - 1.0) < 1e-6 and math.abs(acc2[2] - 0.42) < 1e-6, 'neon focus ring in yunaui')

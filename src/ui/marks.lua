@@ -1054,6 +1054,7 @@ function marks.draw(ui)
     if show_nearby then
         near_all = marks_core.nearby_objects(ents, {
             px = player.x, py = player.y,
+            radius = tonumber(SM.nearby_radius) or nil,   -- 0.1.302〜：設定の距離
             info = plat.object_info and function (ent)
                 local ok, info = pcall(plat.object_info, ent)
                 return ok and info or nil

@@ -38,7 +38,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.300',
+    VERSION = '1.1.308',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -76,7 +76,6 @@ local state = {
     stack = {},               -- 開いた窓の重なり（操作した順。閉じたら下へ戻る）
     detail_quest = nil,
     detail_from = nil,
-    resume = nil,
     compass = nil,        -- コンパスの行（0.1.173〜。app.tick_compass が作る）
     compass_due = 0,
     confirm = nil,
@@ -117,7 +116,8 @@ local state = {
     -- エミネンス・レコード（0.1.172〜、t243）
     roe = { db = nil, db_lang = nil, db_why = nil, active = nil, complete = nil, parts = {}, src = nil,
             mem_due = nil, packets = 0, sent = {}, last_send = nil, game_sent = nil,
-            unity = nil, leader = nil },   -- 0.1.224〜：0x110 の組・週 { shared, week, day_at, week_at }、0x061 のリーダー
+            unity = nil, leader = nil,      -- 0.1.224〜：0x110 の組・週 { shared, week, day_at, week_at }、0x061 のリーダー
+            visited = nil, visited_rev = 0 },   -- 0.1.305〜：行ったエリアの表（0x008。38 バイト）
 }
 app.state = state
 local SC = shortcut_mod.new()   -- パッドのショートカットの判定（本を開く）
@@ -129,7 +129,7 @@ local SCS = {
 }
 app.SHORTCUT_KEYS = SC_KEYS
 
-local OPERABLE = { book = true, detail = true, settings = true, tracker = true, resume = true, map = true, popup = true, compass = true }
+local OPERABLE = { book = true, detail = true, settings = true, tracker = true, map = true, popup = true, compass = true }
 
 -- 窓の重なり（操作した順）。閉じたら、その下の開いている窓へ操作を戻す
 local STACKABLE = { book = true, detail = true, settings = true, map = true }
@@ -283,7 +283,7 @@ function app.on_logout()
     state.ready = false
     state.character = nil
     state.char_folder = nil
-    state.resume, state.confirm, state.branch = nil, nil, nil
+    state.confirm, state.branch = nil, nil
     state.last_zone = nil
     state.glog.snap, state.glog.mem_due, state.glog.due = nil, nil, nil
     state.glog.based = false
@@ -687,7 +687,6 @@ end
 function app.close_all()
     for k in pairs(state.open) do state.open[k] = false end
     -- トラッカーは HUD なので残す（隠すのは設定の「トラッカーを出す」か /astertrail tracker hide）
-    state.resume = nil
     state.map, state.map_from = nil, nil
     state.stack = {}
     -- メニューが開いているあいだに自分で閉じたら、メニューを閉じても本は出さない（0.1.231〜）
@@ -760,7 +759,9 @@ function app.open_map(qid, step_id, loc, opts)
         return
     end
     local q = qid and D:quest(qid) or nil
-    if not q then
+    -- opts.here（0.1.308〜）：本の左の地図ボタン。選んでいる項目ではなく、いまいるエリアの地図
+    local here = opts and opts.here and state.player and state.player.zone_id
+    if not q and not here then
         local fallback = state.detail_quest or (S.book and S.book.last_row)
         q = fallback and D:quest(fallback)
     end
@@ -891,10 +892,66 @@ function app.operating()
     local a = state.active
     if not a then return false end
     if a == 'tracker' then return app.tracker_on() end
-    if a == 'resume' then return state.resume ~= nil end
     if a == 'popup' then return state.popups[1] ~= nil end
     if a == 'compass' then return S and S.compass and S.compass.visible == true end
     return state.open[a] == true
+end
+
+--[[ 隠す場面で窓も隠す（0.1.301〜）。
+  隠す場面の場面ごとに、本・コンパス・トラッカー・エミネンス・詳細の単体画面を隠すかを選べる（初期はどれもオフ）。
+  場面は頭上の印と同じ（marks.scenes_now）。隠している窓を操作していたら入力をゲームへ返し、場面が終わったら戻す。 ]]
+function app.scene_hidden_windows(ui)
+    local HS = S and S.marks and S.marks.hide_scenes
+    if type(HS) ~= 'table' then return nil end
+    local need, any = {}, false
+    for _, sc in ipairs(settings_mod.HIDE_SCENES) do
+        local e = HS[sc]
+        if type(e) == 'table' and e.on then
+            for _, w in ipairs(settings_mod.HIDE_WINDOWS) do
+                if e['win_' .. w] == true then need[sc] = true; any = true; break end
+            end
+        end
+    end
+    if not any then return nil end
+    local now = marks_ui.scenes_now(ui, need)
+    local out, hit = {}, false
+    for sc in pairs(need) do
+        if now[sc] then
+            for _, w in ipairs(settings_mod.HIDE_WINDOWS) do
+                if HS[sc]['win_' .. w] == true then out[w] = true; hit = true end
+            end
+        end
+    end
+    return hit and out or nil
+end
+
+-- 今の隠す窓に合わせて、入力を返す・戻す（前のフレームと比べる）
+function app.sync_scene_hide(hide)
+    local prev = state.scene_hide or {}
+    state.scene_hide = hide or {}
+    for _, w in ipairs(settings_mod.HIDE_WINDOWS) do
+        local was, now = prev[w] == true, state.scene_hide[w] == true
+        if now and not was then
+            local act = state.active
+            if act == w or (w == 'book' and act == 'settings') then
+                state.scene_resume_active = act
+                app.release()
+            end
+        elseif was and not now then
+            -- 描いていなかった間に ImGui が窓を忘れるので、保存してある位置・大きさで出し直す
+            window.reapply(w)
+            if w == 'book' then window.reapply('settings') end
+            local r = state.scene_resume_active
+            if r and (r == w or (w == 'book' and r == 'settings')) then
+                state.scene_resume_active = nil
+                if not state.game_menu_open then app.resume_after_menu(r) end
+            end
+        end
+    end
+end
+
+function app.scene_hides(name)
+    return state.scene_hide ~= nil and state.scene_hide[name] == true
 end
 
 -- 本を画面に出すか（開いていて、ゲームのメニューのせいで隠していない。0.1.231〜）
@@ -1017,7 +1074,6 @@ local function do_action(action, win)
         if win == 'tracker' then app.release()
         -- 地図はキャンセル（パッドの戻る・操作中の Esc）で閉じない。操作をゲームへ返すだけ（0.1.296〜）。閉じるのは ❌
         elseif win == 'map' then app.map_cancel()
-        elseif win == 'resume' then state.resume = nil; app.release()
         elseif win == 'popup' then app.popup_choose(false)
         else app.close_window(win) end
     end
@@ -1078,7 +1134,7 @@ function app._shortcut() return SC end   -- 開発用（テストから読む）
 -- 自前のメニュー（トラッカー以外）が開いているか
 function app.own_menu_open()
     for _, on in pairs(state.open) do if on then return true end end
-    return state.resume ~= nil or state.map ~= nil
+    return state.map ~= nil
 end
 
 -- which: 'open_book' / 'tracker_toggle' / 'tracker_operate' / 'eminence_toggle' / 'compass_toggle'（0.1.194〜）
@@ -1614,6 +1670,8 @@ function app.rollback_prev()
     if state.rollback_prev == nil then
         local root = addon_root()
         local man = (root and P.fs) and backup_mod.prev_info(root, update_fs(), app.VERSION) or nil
+        -- 0.1.301〜：手元の試しの版（0. で始まる）には戻さない。公開版（1.x）だけ
+        if man and tostring(man.version or ''):find('^0%.') then man = nil end
         state.rollback_prev = man or false
     end
     return state.rollback_prev or nil
@@ -1661,15 +1719,8 @@ function app.start_rollback()
 end
 
 ---------------------------------------------------------------------------
--- 通知（ログイン時の続き／エリア入場）
+-- ゾーンに入ったとき（ログイン時の続きの窓は 0.1.303 でなくした）
 ---------------------------------------------------------------------------
-
-local function show_resume()
-    if not S.notify.login_resume then return end
-    local lf = PR:last_focus()
-    if not lf or not lf.quest or PR:state(lf.quest) ~= 'accepted' then return end
-    state.resume = { quest = lf.quest, hide_at = state.now + S.notify.login_resume_seconds }
-end
 
 local function on_zone(zone_id)
     -- トラッカー・お知らせの操作中にエリアが変わったら、操作をゲームに戻す（0.1.188〜、t310）
@@ -1687,8 +1738,7 @@ local function on_zone(zone_id)
     state.roe.mem_due = state.roe.mem_due and math.min(state.roe.mem_due, due) or due
     state.compass_due = state.now   -- コンパスはゾーンが変わったらすぐ作り直す（0.1.173〜）
     if first then
-        -- ログイン直後の最初のゾーンは「続き」を出す
-        show_resume()
+        -- ログイン直後の最初のゾーンは保存しない（前は「続き」の窓を出していた。0.1.303 でなくした）
         return
     end
     app.save_all('zone')
@@ -2123,7 +2173,6 @@ end
 -- 窓が開いていて操作できるか（お知らせから戻る先）
 function app.operating_name(name)
     if name == 'tracker' then return app.tracker_on() end
-    if name == 'resume' then return state.resume ~= nil end
     return state.open[name] == true
 end
 
@@ -2322,6 +2371,11 @@ function app.read_roe(why)
         local p = P.last_packet(roe_mod.PKT_ACTIVE)
         local act = p and roe_mod.parse_active(p)
         if act then r.active, r.src, r.at = act, 'last_packet', state.now end
+    end
+    -- 0.1.305〜：行ったエリア（0x008）がまだ無ければ最後に届いたものを読む
+    if not r.visited and P.last_packet then
+        local p = P.last_packet(roe_mod.PKT_VISITED)
+        if p then app.on_visited_packet(p, 'last_packet') end
     end
     -- 日・週で替わる目標の組・週・リーダー（0.1.224〜）：まだ届いていなければ最後に届いたものを読む
     if P.last_packet then
@@ -2523,6 +2577,54 @@ function app.roe_why_text(why, id)
 end
 
 -- 届いた 0x111・0x112・0x029・0x110・0x061（platform の packet_in から。読むだけ）
+-- 0.1.305〜：行ったエリアの表（0x008）。キャラごとの設定にも残す（次に読み込んだとき、届く前でも使える）
+function app.on_visited_packet(data, src)
+    local v = roe_mod.parse_visited(data)
+    if not v then return false end
+    local r = state.roe
+    local hex = roe_mod.visited_hex(v)
+    if r.visited_hex ~= hex then
+        r.visited, r.visited_hex = v, hex
+        r.visited_rev = (r.visited_rev or 0) + 1
+        r.visited_src = src or 'packet'
+    end
+    if S and S.eminence and S.eminence.visited ~= hex then
+        S.eminence.visited = hex
+        app.mark_settings_dirty()
+    end
+    return true
+end
+
+-- いまのキャラの行ったエリア（届いたもの、無ければ保存のもの）
+function app.roe_visited()
+    local r = state.roe
+    if r.visited then return r.visited, r.visited_src end
+    local hex = S and S.eminence and S.eminence.visited
+    if type(hex) == 'string' and hex ~= '' then
+        if r.saved_hex ~= hex then
+            r.saved_hex, r.saved_visited = hex, roe_mod.visited_from_hex(hex)
+        end
+        if r.saved_visited then return r.saved_visited, 'saved' end
+    end
+    return nil
+end
+
+-- ゲームでまだ出ていない目標の組（0.1.305〜）。達成の表・行ったエリア・DAT が替わったときだけ作り直す
+function app.roe_gate_sets()
+    local r = state.roe
+    local db = app.roe_db()
+    local visited, vsrc = app.roe_visited()
+    -- 行ごとに呼ばれるので、文字列は作らずに中身の表そのもので比べる
+    if not r.gate or r.gate_db ~= db or r.gate_c ~= r.complete or r.gate_v ~= visited or r.gate_vr ~= r.visited_rev then
+        r.gate = roe_mod.hidden_sets(db, { complete = r.complete, visited = visited })
+        r.gate.visited_src = vsrc
+        r.gate_db, r.gate_c, r.gate_v, r.gate_vr = db, r.complete, visited, r.visited_rev
+        r.gate_rev = (r.gate_rev or 0) + 1
+        r.gate_key = tostring(r.gate_rev)
+    end
+    return r.gate
+end
+
 function app.on_roe_packet(id, data)
     local r = state.roe
     if id == roe_mod.PKT_UNITY then
@@ -3026,10 +3128,12 @@ function app.tick_game_menus()
         state.gm_due = now + app.GAME_MENU_EVERY
         local open, info = P.game_menu_state()
         state.game_menu_open, state.game_menu_info = open, info
-        local want = S.gameui.menus_on_top ~= false and open == true
+        -- 0.1.301〜：重なったとき 'hide'（隠す。今まで）／'behind'（こちらの窓はそのまま、ゲームのメニューを前に出す）
+        local behind = S.gameui.menu_overlap == 'behind'
+        local want = (S.gameui.menus_on_top ~= false or behind) and open == true
         -- 0.1.189〜（t315）：メニューの窓と重なるこちらの窓は、その間だけ引っ込める（透明・マウスを通す）。
         -- game_on_top は貼り直す窓が 8 つまでで、チャット欄・ヘルプの行などで埋まると、メニューが後ろに残るため
-        state.game_menu_rects = (want and type(info) == 'table' and type(info.rects) == 'table' and #info.rects > 0) and info.rects or nil
+        state.game_menu_rects = (not behind and want and type(info) == 'table' and type(info.rects) == 'table' and #info.rects > 0) and info.rects or nil
         if want ~= (state.game_on_top == true) then
             local ok = P.set_game_on_top and P.set_game_on_top(want)
             state.game_on_top = want and ok and true or false
@@ -3052,7 +3156,14 @@ function app.sync_menu_suspend()
         if state.book_keep_over_menu then
             return
         end
-        if state.open.book and not state.book_hidden_for_menu then
+        local behind = S and S.gameui and S.gameui.menu_overlap == 'behind'
+        if behind then
+            -- 0.1.301〜：「メニューの後ろに出す」では本を隠さない（隠していたら戻す）
+            if state.book_hidden_for_menu then
+                state.book_hidden_for_menu = false
+                window.reapply('book')
+            end
+        elseif state.open.book and not state.book_hidden_for_menu then
             state.book_hidden_for_menu = true
         end
         if app.operating() then
@@ -3090,8 +3201,6 @@ function app.resume_after_menu(name)
         if state.open.map then app.activate('map') end
     elseif name == 'detail' then
         if state.open.detail then app.activate('detail') end
-    elseif name == 'resume' then
-        if state.resume then app.activate('resume') end
     end
 end
 
@@ -3278,6 +3387,7 @@ local function make_ui(imgui)
     ui.roe_send = app.roe_send
     ui.roe_can = app.roe_can
     ui.roe_failed = app.roe_failed
+    ui.roe_gate_sets = app.roe_gate_sets
     ui.roe_unimpl_state = app.roe_unimpl_state
     ui.roe_toggle_unimpl = app.roe_toggle_unimpl
     ui.roe_rotation = app.roe_rotation
@@ -3373,7 +3483,6 @@ function app.present()
         for k, m in pairs(screens) do
             if type(m.draw) == 'function' then perf_names[m.draw] = k end
         end
-        perf_names[screens.notices.draw_resume] = 'resume'
         perf_names[screens.notices.draw_popup] = 'popup'
     end
     local ui = make_ui(imgui)
@@ -3413,13 +3522,18 @@ function app.present()
     end
 
     if S.entry_icon.visible and not state.open.book then guarded(screens.entry.draw, ui) end
-    if screens.tracker.visible(ui) then guarded(screens.tracker.draw, ui) end
-    if app.book_visible() then guarded(screens.book.draw, ui) end
-    if state.open.detail then guarded(screens.detail.draw, ui) end
+    -- 0.1.301〜：隠す場面で窓も隠す（選んだ窓だけ）
+    do
+        local okh, hide = pcall(app.scene_hidden_windows, ui)
+        app.sync_scene_hide(okh and hide or nil)
+    end
+    local sh = app.scene_hides
+    if screens.tracker.visible(ui) and not sh('tracker') then guarded(screens.tracker.draw, ui) end
+    if app.book_visible() and not sh('book') then guarded(screens.book.draw, ui) end
+    if state.open.detail and not sh('detail') then guarded(screens.detail.draw, ui) end
     if state.open.map then guarded(screens.map_view.draw, ui) end
-    if state.ready and S.eminence.visible then guarded(screens.eminence.draw, ui) end
-    if state.ready and S.compass.visible then guarded(screens.compass.draw, ui) end
-    guarded(screens.notices.draw_resume, ui, now)
+    if state.ready and S.eminence.visible and not sh('eminence') then guarded(screens.eminence.draw, ui) end
+    if state.ready and S.compass.visible and not sh('compass') then guarded(screens.compass.draw, ui) end
     if S.notify.popup then guarded(screens.notices.draw_popup, ui, now) end
     if screens.update_popup and screens.update_popup.visible and screens.update_popup.visible(ui) then
         guarded(screens.update_popup.draw, ui)
@@ -3586,7 +3700,7 @@ function app.command(text)
         if state.popups[1] and S.notify.popup then
             if state.active ~= 'popup' then state.popup_back = state.active end
             app.activate('popup')
-        elseif state.resume then app.activate('resume') end
+        end
     elseif sub == 'release' then
         app.release()
     elseif sub == 'save' then
@@ -3859,6 +3973,33 @@ function app.command(text)
             dat = db and tostring(db.count) or ('- ' .. tostring(r.db_why or '')),
             failed = tostring(nf),
         }))
+        -- 0.1.305〜：DAT の印の種類ごとの数と、ゲームでまだ出ていないので隠している数
+        if db and db.kind_counts then
+            local function kinds(t)
+                local ks, o = {}, {}
+                for k in pairs(t or {}) do ks[#ks + 1] = k end
+                table.sort(ks)
+                for _, k in ipairs(ks) do o[#o + 1] = tostring(k) .. '=' .. tostring(t[k]) end
+                return table.concat(o, ' ')
+            end
+            P.print(T('cmd.roe_flags', { obj = kinds(db.kind_counts.obj), cat = kinds(db.kind_counts.cat) }))
+        end
+        do
+            local g = app.roe_gate_sets()
+            local visited, vsrc = app.roe_visited()
+            local nv = 0
+            if visited then
+                for z = 0, roe_mod.VISITED_MAX_ZONE do if roe_mod.has_visited(visited, z) then nv = nv + 1 end end
+            end
+            P.print(T('cmd.roe_hidden', {
+                on = (S.eminence.game_gate ~= false) and T('cmd.gamelog_ok') or T('cmd.gamelog_ng'),
+                ready = g.ready and T('cmd.gamelog_ok') or T('cmd.gamelog_ng'),
+                ids = tostring(g.n_ids or 0), cats = tostring(g.n_cats or 0),
+                pre = tostring(g.by_kind and g.by_kind[roe_mod.GATE_PREREQ] or 0),
+                zone = tostring(g.by_kind and g.by_kind[roe_mod.GATE_ZONE] or 0),
+                visited = visited and (tostring(nv) .. ' (' .. tostring(vsrc) .. ')') or '-',
+            }))
+        end
         local gs = r.game_sent
         if gs then
             P.print(T('cmd.roe_game_sent', { pid = string.format('0x%03X', gs.pid), id = tostring(gs.id or '-'),

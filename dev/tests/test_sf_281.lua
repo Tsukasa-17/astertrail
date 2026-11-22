@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 -- --- ソース：閉じるは地図列。右ペインはバーより上。クリックで close_window ---
 local ms = io.open(ROOT .. '/src/ui/map_sf.lua', 'r'):read('*a')

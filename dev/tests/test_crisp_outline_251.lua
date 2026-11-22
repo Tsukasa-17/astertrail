@@ -5,7 +5,7 @@ local settings = require('src.core.settings')
 local outline = require('src.ui.crisp_outline')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local order = {}
 local hook_dl = {

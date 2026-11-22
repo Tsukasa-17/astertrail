@@ -771,9 +771,15 @@ local function draw_detail_sf(ui, win, q, opts)
                 hide_hit_col('ImGuiCol_FrameBg')
                 hide_hit_col('ImGuiCol_FrameBgHovered')
                 hide_hit_col('ImGuiCol_FrameBgActive')
-                sf.set_cursor(imgui, ax, ay)
-                row_clicked = sf.hit(imgui, '##sfstep_' .. s.id, row_w, math.max(1, guessed))
-                if imgui.SetItemAllowOverlap then pcall(imgui.SetItemAllowOverlap) end
+                -- 0.1.307：実機の ImGui では SetItemAllowOverlap が効かず、先に置いた行の当たりが
+                -- NPC・対象・アイテム名のクリックを全部取っていた（詳細から地図が開かなかった）。
+                -- 後の部品に譲れる SetNextItemAllowOverlap があるときだけ当たりを置き、
+                -- 無いときは下のマウス位置の判定だけで行を選ぶ
+                if imgui.SetNextItemAllowOverlap then
+                    sf.set_cursor(imgui, ax, ay)
+                    pcall(imgui.SetNextItemAllowOverlap)
+                    row_clicked = sf.hit(imgui, '##sfstep_' .. s.id, row_w, math.max(1, guessed))
+                end
                 if ninv > 0 and imgui.PopStyleColor then pcall(imgui.PopStyleColor, ninv) end
                 sf.set_cursor(imgui, ax, ay)
             end
@@ -954,6 +960,11 @@ local function draw_detail_sf(ui, win, q, opts)
                 local over_chk = chk_x1 and mouse_in(imgui, chk_x1, chk_y1, chk_x2, chk_y2)
                 local over_row = mouse_in(imgui, ax, ay, ax + row_w, ay + card_h)
                 local clicked_mouse = imgui.IsMouseClicked and imgui.IsMouseClicked(0)
+                -- ほかの窓が上に重なっているときは拾わない
+                if clicked_mouse and imgui.IsWindowHovered then
+                    local okh, hv = pcall(imgui.IsWindowHovered)
+                    if okh and hv == false then clicked_mouse = false end
+                end
                 if row_clicked or (clicked_mouse and over_row and not over_chk) then
                     ui.request('set_current_step', q.id, s.id)
                 end
@@ -1097,6 +1108,9 @@ local function toggle_map(ui)
     if not ui.open_window then return end
     if ui.state.open and ui.state.open.map then
         if ui.close_window then ui.close_window('map') end
+    elseif ui.open_map then
+        -- 0.1.308〜：閉じているときは、いまいるエリアの地図を開く
+        ui.open_map(nil, nil, nil, { here = true })
     else
         ui.open_window('map')
     end

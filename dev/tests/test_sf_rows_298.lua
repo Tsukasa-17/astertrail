@@ -102,7 +102,7 @@ for k, v in pairs(saved) do imgui[k] = v end
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 FAKE.player = { name = 'Rows298', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
@@ -116,13 +116,13 @@ check(labeled('一覧##tr_view') or labeled('一覧'), 'view value on the right'
 FAKE.clicks['##tr_align'] = true; frame(); frame()
 eq(S.tracker.align, 'left', 'value button still switches')
 check(labeled('左そろえ##tr_align') or labeled('左そろえ'), 'value updated')
--- 隠す場面に「会話」と「メニュー」
-require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
+-- 隠す場面に「会話」と「メニュー」（0.1.308〜は操作）
+require('src.ui.settings_ui').select_tab('input'); frame(); frame()
 check(texted('会話') and texted('メニュー'), 'talk and menu scenes (astral)')
 check(not texted('会話・メニュー'), 'old combined label gone')
 app.close_all(); frame()
 S.look = 'classic'; require('src.ui.theme').set_look('classic')
 app.open_window('settings'); frame()
-require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
+require('src.ui.settings_ui').select_tab('input'); frame(); frame()
 check(texted('会話') and texted('メニュー'), 'talk and menu scenes (classic)')
 app.close_all(); frame()

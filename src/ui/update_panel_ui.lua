@@ -45,11 +45,20 @@ function M.draw(ui, name, opts)
         end
     end
     local prev = ui.rollback_prev and ui.rollback_prev() or nil
+    -- 0.1.301〜：戻せるのは公開版（1.x など）だけ。手元の試しの版（0. で始まる）には戻すボタンを出さない
+    if prev and not M.public_version(prev.version) then prev = nil end
     if prev then
         if opts.button(name, 'upd_rollback', t('update.rollback_button', { v = prev.version }), { tooltip = t('update.rollback_tip') }) then
             if ui.ask_rollback then ui.ask_rollback() end
         end
     end
+end
+
+-- 公開されたバージョンか（0. で始まるのは手元の試しの版）
+function M.public_version(v)
+    v = tostring(v or '')
+    if v == '' or v:find('^0%.') then return false end
+    return v:find('^%d+%.') ~= nil
 end
 
 return M

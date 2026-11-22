@@ -77,12 +77,15 @@ eq(marks_ui.hide_rings_now({ settings = { marks = { hide_rings_in_event = false 
 local ss = io.open(ROOT .. '/src/ui/settings_sf.lua', 'r'):read('*a')
 local cs = io.open(ROOT .. '/src/ui/settings_ui.lua', 'r'):read('*a')
 check(not ss:find('hide_rings_in_event', 1, true) and not cs:find('hide_rings_in_event', 1, true), 'old toggle removed')
-local i_disp, i_pos = ss:find("id = 'mk_display'", 1, true), ss:find("id = 'mk_position'", 1, true)
+-- 0.1.308〜：操作の GAME UI（メニューと重なったときの下）
+local i_g, i_ov = ss:find("id = 'in_gameui'", 1, true), ss:find("'g_overlap'", 1, true)
 local i_hide = ss:find("hide_scenes_ui", 1, true)
-check(i_disp and i_hide and i_pos and i_disp < i_hide and i_hide < i_pos, 'astral: in DISPLAY')
-local c_show, c_pos = cs:find("'marks_show'", 1, true), cs:find("'marks_pos'", 1, true)
+local i_disp, i_pos = ss:find("id = 'mk_display'", 1, true), ss:find("id = 'mk_position'", 1, true)
+check(i_g and i_ov and i_hide and i_g < i_ov and i_ov < i_hide, 'astral: in GAME UI after menu overlap')
+check(not (i_disp < i_hide and i_hide < i_pos), 'astral: no longer in DISPLAY')
+local c_g, c_ov = cs:find("'input_gameui'", 1, true), cs:find("'g_overlap'", 1, true)
 local c_hide = cs:find("hide_scenes_ui", 1, true)
-check(c_show and c_hide and c_pos and c_show < c_hide and c_hide < c_pos, 'classic: in the display fold')
+check(c_g and c_ov and c_hide and c_g < c_ov and c_ov < c_hide, 'classic: in the game menu fold')
 
 -- 字
 local ja = json.decode(io.open(ROOT .. '/locales/ja.json', 'r'):read('*a'))
@@ -106,7 +109,7 @@ check(as:find("elseif win == 'map' then app.map_cancel()", 1, true) ~= nil, 'map
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 app.open_map(); frames(1)

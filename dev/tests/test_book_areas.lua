@@ -109,7 +109,7 @@ eq(app.state.open.settings, true, 'gear shows the settings')
 eq(app.state.open.book, true, 'in the book')
 eq(app.state.active, 'settings', 'pad goes to the settings')
 check(not list_rows(), 'list hidden')
-check(labeled('◆ 見た目'), 'settings tabs drawn')
+check(labeled('##sfcat_look'), 'settings categories drawn (0.1.304: same layout as Astral)')
 check(item('tab_mission') ~= nil, 'book tab row still drawn')
 check(not focus.shows_frame('book'), 'no book cursor frame while in the settings')
 check(focus.shows_frame('settings'), 'settings cursor frame')
@@ -135,7 +135,7 @@ FAKE.clicks['##open_settings'] = true; frame(); frame()
 eq(app.state.open.settings, false, 'gear toggles back to the list')
 -- 設定の「一覧に戻る」
 FAKE.clicks['##open_settings'] = true; frame(); frame()
-check(labeled('一覧に戻る'), 'back-to-list button')
+check(labeled('戻る##close'), 'back button (0.1.304: footer)')
 FAKE.clicks['##close'] = nil
 -- タブを押すと一覧に戻ってそのタブ
 FAKE.clicks['##tab_quest'] = true; frame(); frame()

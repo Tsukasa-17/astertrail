@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 -- ソース：即時の P.print はせず、flush_fame_notices を tick から呼ぶ
 local src = io.open(ROOT .. '/src/app.lua', 'r'):read('*a')
@@ -98,7 +98,7 @@ check(not lay:find('W.same', 1, true), 'layout buttons are not on the same line'
 check(lay:find("row = 'pos_inside'", 1, true) ~= nil, 'bring-inside has its own row')
 check(lay:find("row = 'pos_reset'", 1, true) ~= nil, 'reset-layout has its own row')
 check(setsrc:find("cat ~= 'layout'", 1, true) ~= nil, 'layout category is packed in one column')
--- 1.1.300：右のプレビューはやめた。本の覚え方の説明は「一覧の列…を元に戻す」の i に
+-- 0.1.300：右のプレビューはやめた。本の覚え方の説明は「一覧の列…を元に戻す」の i に
 check(lay:find('preview_layout_book', 1, true) ~= nil, 'book layout memory is explained in the BOOK box')
 
 local theme = require('src.ui.theme')
@@ -166,7 +166,7 @@ frames(1)
 sf.frame = orig_frame
 imgui.GetWindowSize = orig_gws
 imgui.GetContentRegionAvail = orig_avail
--- 1.1.300：右のプレビューはやめた。文は出さず、行の i の説明に
+-- 0.1.300：右のプレビューはやめた。文は出さず、行の i の説明に
 check(not seen('窓はドラッグして動かせます') and not seen('本は開いたときの位置と、一覧の列を覚えます'), 'no preview text lines')
 check(not seen('PREVIEW'), 'no PREVIEW heading')
 
@@ -175,9 +175,9 @@ local samples = {
     look = { '動きを減らす', 'テーマ' },
     tracker = { 'トラッカーを出す', 'ピンの上限' },
     map = { '地図を出す' },
-    marks = { 'アイコンを表示する', 'イベント中', '会話', 'メニュー' },
+    marks = { 'アイコンを表示する' },
     notify = { '受注・完了のお知らせ' },
-    input = { 'パッドで画面を操作' },
+    input = { 'パッドで画面を操作', 'イベント中', '会話', 'メニュー' },
     save = { '今すぐ保存' },
 }
 for _, sz in ipairs({ { 520, 620 }, { 400, 520 } }) do

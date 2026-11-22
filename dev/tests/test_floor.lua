@@ -290,8 +290,8 @@ eq(S.windows.book.w, w_before, 'saved book width unchanged')
 check(has(1.0), 'new book scale applied')
 app.close_window('book')
 cmd('/astertrail settings'); frame(); frame()
-check(labeled('文字サイズ（本）') or texted('文字サイズ（本）'), 'book font setting')
-for _, lab in ipairs({ '文字サイズ（詳細）', '文字サイズ（トラッカー）', '文字サイズ（地図）', '文字サイズ（アイコンのクエスト名）', '文字サイズ（アイコンの名前）', '文字サイズ（その他）',
+check(labeled('本の見出しの文字サイズ') or texted('本の見出しの文字サイズ'), 'book font setting')
+for _, lab in ipairs({ '詳細の文字サイズ', 'トラッカーの文字サイズ', '地図の文字サイズ', 'アイコンのクエスト名の文字サイズ', 'アイコンの名前の文字サイズ', 'その他（設定・お知らせ・入口）',
     }) do
     check(texted(lab), 'setting ' .. lab)
 end
@@ -388,8 +388,8 @@ do
     app.open_window('settings'); frame(); frame()
     check(texted('100%'), 'percent shown')
     require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
-    check(texted('28 px'), 'icon px shown')
-    check(texted('0 px'), 'offset px shown')
+    check(texted('28') and texted('px'), 'icon px shown (number and unit drawn apart)')
+    check(texted('0'), 'offset px shown')
     require('src.ui.settings_ui').select_tab('look'); frame(); frame()
     check(labeled('##font_book_plus') and labeled('##font_book_minus'), 'plus/minus step buttons')
     check(labeled('##font_book_reset'), 'reset button')
@@ -408,7 +408,7 @@ do
     app.input('right', true, 'key'); app.input('right', false, 'key'); frame(); frame()
     eq(S.marks.mark_dx, 2, 'right adds one step')
     eq(focus.current('settings'), 'marks_mark_dx', 'focus stays on slider')
-    check(texted('+2 px'), 'signed px')
+    check(texted('+2') and texted('px'), 'signed px')
     for _ = 1, 200 do app.input('right', true, 'key'); app.input('right', false, 'key'); frame() end
     eq(S.marks.mark_dx, 256, 'up to 256')
     app.input('left', true, 'key'); app.input('left', false, 'key'); frame()

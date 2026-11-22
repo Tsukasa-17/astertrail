@@ -192,6 +192,8 @@ function eminence.show_sig(E)
     if type(E.failed) == 'table' then for _ in pairs(E.failed) do nf = nf + 1 end end
     if type(E.unimpl_off) == 'table' then for _ in pairs(E.unimpl_off) do no = no + 1 end end
     out[#out + 1] = ':' .. nf .. ':' .. no
+    -- 0.1.305〜：ゲームでまだ出ていない目標を隠すか
+    out[#out + 1] = (E.game_gate == false) and ':g0' or ':g1'
     return table.concat(out)
 end
 
@@ -207,10 +209,30 @@ function eminence.hidden_unimplemented(ui, id)
     return false
 end
 
+-- 0.1.305〜：ゲームの目標一覧にまだ出ていない（前の目標が未達成・行ったことのないエリア・その分類ごと）。
+-- 受けているものは隠さない。cid があればその分類の中での出方（ほかの分類では出ていても、隠れた分類の中では出さない）
+function eminence.game_hidden(ui, id, cid)
+    local E = ui and ui.settings and ui.settings.eminence
+    if not E or E.game_gate == false then return false end
+    local g = ui.roe_gate_sets and ui.roe_gate_sets()
+    if not g or not g.ready then return false end
+    local hid
+    if cid ~= nil then
+        hid = (g.occ[cid] and g.occ[cid][id]) and true or false
+    else
+        hid = g.ids[id] and true or false
+    end
+    if not hid then return false end
+    if eminence.state_of(ui, id) == 'accepted' then return false end
+    return true
+end
+
 -- 本で出すか（状態・達成を隠す・検索）
 function eminence.book_visible(ui, id, words, opts)
     opts = opts or {}
     local E = ui.settings.eminence
+    -- 0.1.305〜：ゲームでまだ出ていない目標は、件数にも出さない（どのテーマでも）
+    if eminence.game_hidden(ui, id, opts.cid) then return false end
     -- アストラル（0.1.294〜）：絞り込みはカードの札と同じ区分（eminence_sf が eminence.sf_filter を入れる）
     if ui.settings.look == 'sf' and eminence.sf_filter then
         if eminence.sf_filter(ui, id, opts) == false then return false end
@@ -298,6 +320,25 @@ function eminence.ids_under(db, cid)
     end
     walk(cid, 0)
     cache[cid] = out
+    return out
+end
+
+-- 0.1.305〜：見出しの件数用。ゲームでまだ出ていない目標を、その分類の中での出方で外す（隠れた分類の下も外す）
+function eminence.ids_under_shown(ui, db, cid)
+    local all = eminence.ids_under(db, cid)
+    local g = ui and ui.roe_gate_sets and ui.roe_gate_sets()
+    local E = ui and ui.settings and ui.settings.eminence
+    if not g or not g.ready or (E and E.game_gate == false) then return all end
+    local out, seen_id, seen_cat = {}, {}, {}
+    local function walk(c, depth)
+        if seen_cat[c] or depth > 8 then return end
+        seen_cat[c] = true
+        for _, id in ipairs(roe.objectives_in(db, c)) do
+            if not seen_id[id] and not eminence.game_hidden(ui, id, c) then seen_id[id] = true; out[#out + 1] = id end
+        end
+        for _, sub in ipairs(roe.subcats(db, c)) do walk(sub, depth + 1) end
+    end
+    walk(cid, 0)
     return out
 end
 
@@ -732,7 +773,7 @@ local function cat_rows(ui, out, cid, words, depth, keep_children)
     if not c or depth > 5 then return false end
     local ids = {}
     for _, id in ipairs(roe.objectives_in(db, cid)) do
-        if eminence.book_visible(ui, id, words) then ids[#ids + 1] = id end
+        if eminence.book_visible(ui, id, words, { cid = cid }) then ids[#ids + 1] = id end
     end
     local subs = roe.subcats(db, cid)
     if #ids == 0 and #subs == 0 then return false end
@@ -743,7 +784,7 @@ local function cat_rows(ui, out, cid, words, depth, keep_children)
     open_cats[cid] = is_open
     local head
     if depth > 0 then
-        local done, total = eminence.cat_progress(ui, eminence.ids_under(db, cid), words)
+        local done, total = eminence.cat_progress(ui, eminence.ids_under_shown(ui, db, cid), words)
         head = { kind = 'cat', key = cid, label = c.name, n = total, done = done, total = total, depth = depth, open = is_open }
         out[#out + 1] = head
     end

@@ -2207,6 +2207,11 @@ function platform.start(the_app)
             if app.on_inventory_packet then pcall(app.on_inventory_packet, id) end
             return
         end
+        -- 0.1.305〜：0x008（行ったエリアの表）も読む（エミネンスの、ゲームでまだ出ていない目標を隠すのに使う）
+        if id == 0x008 then
+            if app.on_visited_packet and type(e.data) == 'string' then pcall(app.on_visited_packet, e.data, 'packet') end
+            return
+        end
         -- 0.1.224〜：0x110（ユニティの今日の組・今週）・0x061（自分のユニティのリーダー）も読む
         if id ~= 0x056 and id ~= 0x111 and id ~= 0x112 and id ~= 0x029 and id ~= 0x110 and id ~= 0x061 then return end
         local d = e.data

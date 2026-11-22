@@ -1,5 +1,5 @@
 {
-"version": "1.1.300",
+"version": "1.1.308",
 "files": [
 {
 "path": "LICENSE",
@@ -11,7 +11,7 @@
 },
 {
 "path": "README.md",
-"sha256": "b77a7590cfd8dd28ffadec4d87b5a97ab57ae407f7d35bce95e3db0107800df5"
+"sha256": "10d81481be5107af74074a64b67896ec93ddc66ee1e84bd7c71d4a793d52876b"
 },
 {
 "path": "TECH_VALIDATION.md",
@@ -19,7 +19,7 @@
 },
 {
 "path": "astertrail.lua",
-"sha256": "306098d9c51dd418778d38aba3ecb86ab597b6fde0fe16f98045d9ab827d2fc4"
+"sha256": "f8192a0595033e488851a2b8216fd00bcc8541124443b846ca7d47e15d4254f2"
 },
 {
 "path": "assets/marks/README.txt",
@@ -279,15 +279,15 @@
 },
 {
 "path": "locales/en.json",
-"sha256": "ed975ae6ceff1ccd98d0d25010ad54fe2223670939bde3cbd0effd2039f9d44e"
+"sha256": "73adffec32ef782d8d18f7e40b0fa247111b191a2fb7ee9a56eeda1325871d1e"
 },
 {
 "path": "locales/ja.json",
-"sha256": "5c2ca2fba41ead1f92f9b9b7dc6913ff50a448c7601961b12116159b2275c1ae"
+"sha256": "c253b89fc9d26b8dae9d95bb1222a0fe9eb2164848099b1c46eada878e4e624e"
 },
 {
 "path": "src/app.lua",
-"sha256": "46b372c01e28596f520cc1b3055661dc4cf62b46c65cf1933cf5ea4fcf09d6d2"
+"sha256": "6659c1e00cc0d59627835c331d7b3a605b9796f0d6583409dc6e76e240c71482"
 },
 {
 "path": "src/build_flags.lua",
@@ -339,7 +339,7 @@
 },
 {
 "path": "src/core/maps.lua",
-"sha256": "100c540fb3a4082bc8963f148c30d88c66ac27c55b64b662fc625032f3bfe4ba"
+"sha256": "05c3ed0e1c26601ccef674f08d728edcb035a86906837c893c8cd983be317171"
 },
 {
 "path": "src/core/marks.lua",
@@ -363,7 +363,7 @@
 },
 {
 "path": "src/core/roe.lua",
-"sha256": "c0beab373d5d7f3b65a5ad8a9c31bc9f6a30a06f21368c1d26261828b6bcb571"
+"sha256": "42b80f53bcde9a7e157f4775ebb9c162e7d2aaf288bc5ada3548bf5d5c639a6a"
 },
 {
 "path": "src/core/roe_cycle.lua",
@@ -371,7 +371,7 @@
 },
 {
 "path": "src/core/settings.lua",
-"sha256": "63f073f2870ac8e25aa3e4b7c625227e23138c5936c945f46477cfe59dfd9e74"
+"sha256": "0e354901d3c307f33f41c71e9f11ac510ecd5eab600a9e83926c398989a7991c"
 },
 {
 "path": "src/core/shortcut.lua",
@@ -387,7 +387,7 @@
 },
 {
 "path": "src/core/update.lua",
-"sha256": "a87c6629718036dfde7002374ae482b29c928243013f6eb12124a0c8d39b0336"
+"sha256": "6ca3969e7c4deded3917e63b9b674ee54e9eed6b57da859408c2bbd7276b0fd3"
 },
 {
 "path": "src/core/zonedat.lua",
@@ -411,7 +411,7 @@
 },
 {
 "path": "src/platform/ashita.lua",
-"sha256": "d107e0045f0dcf8f822b4aecde74b9c0693bb89512ee820fe86136c2f65445d2"
+"sha256": "2e34fcb7b1d99ffc7559f6bee993fa98b21b70f749400eef29413551df9bd78c"
 },
 {
 "path": "src/platform/cp932.lua",
@@ -427,7 +427,7 @@
 },
 {
 "path": "src/ui/book_sf.lua",
-"sha256": "b05323e613e65945e1dfcb28cbed031eb8e66ddacad216348ed3c4c37e0dd36c"
+"sha256": "f52e2c89a6d400f5ffef8746a33401b3c76c56662a6841d28b9342514172c705"
 },
 {
 "path": "src/ui/colored_text.lua",
@@ -447,11 +447,11 @@
 },
 {
 "path": "src/ui/crisp_outline.lua",
-"sha256": "277c2485b3ec0f25400ecec4d5656536f8be8ce662f2adb96ac9b82e1abe4a59"
+"sha256": "df383508256aac46c65018280756d35ce9e4eba19d7257265b17460ef71fccd7"
 },
 {
 "path": "src/ui/detail.lua",
-"sha256": "5795c92800c21577c58d38c29cf2d6ae083467f6c703d5deda473396d63aa049"
+"sha256": "47e25c6c696f0861ead7c68deb254ad14b51abaaca31fa81392ab0d18b640a60"
 },
 {
 "path": "src/ui/detail_win_sf.lua",
@@ -459,11 +459,11 @@
 },
 {
 "path": "src/ui/eminence.lua",
-"sha256": "dd1386b127938f894636cec7c77c81728f4ac59c2ca0f88c2a8c6047f0a2fd7d"
+"sha256": "75a0585a69e327c0f740b69b292dbabfbe33ad72357279522e36002c68849257"
 },
 {
 "path": "src/ui/eminence_sf.lua",
-"sha256": "b7070f75a146c348d9770b78cbeff4e4a1c194438a44a218a023ff1ce22c4fc1"
+"sha256": "474d24600d1d853f1715dfb05561839666356081faec474b5034581aef337a81"
 },
 {
 "path": "src/ui/eminence_win_sf.lua",
@@ -479,7 +479,7 @@
 },
 {
 "path": "src/ui/hide_scenes_ui.lua",
-"sha256": "018d5098d7178ff63c522ab7eba634951cd5e7f5a84fa22aba80a3e341db3857"
+"sha256": "eea8eb7c3d49f1bd2b9661c7b1eca0e56c402f50838eafbfa906f2c07b72dbbc"
 },
 {
 "path": "src/ui/icons.lua",
@@ -487,7 +487,7 @@
 },
 {
 "path": "src/ui/item_tip.lua",
-"sha256": "8b9377aad2cd60be05b9d60f49a3de68239c5095432c51594d19ccfbceafce1e"
+"sha256": "5f3da47f80f50a55e60e79902acf2aaa43c92275d6945dfb4a411853bcb794b0"
 },
 {
 "path": "src/ui/labels.lua",
@@ -495,23 +495,23 @@
 },
 {
 "path": "src/ui/map_sf.lua",
-"sha256": "3615442b2423f170810b5904015164cd8e9e9ea67bceee21e04d1cb83c65f376"
+"sha256": "fc28dee23d09ebf130c38b52d97dd633c0f7a4a1f04a5bb8aea74f2beeb817de"
 },
 {
 "path": "src/ui/map_view.lua",
-"sha256": "06d6892592decea0d2cd0b0d4d6ebb6b38e2e0f4a9102d8efa982546667311eb"
+"sha256": "3da02bfeb61982d3b78c490bfa60f69c7a0b2b6361a32888ff6ac659e84d9251"
 },
 {
 "path": "src/ui/marks.lua",
-"sha256": "04a5bb93a8e95a118fead4d182bdfcb6af503ccb247e0aab6bd05be835bb41ca"
+"sha256": "8feba8515d038c50bec910e99889d85b8bf404e61ecdeebcc65856fba4960d5d"
 },
 {
 "path": "src/ui/notices.lua",
-"sha256": "42e8875ae3fb274cdd60e31176bd3dd37609e01ec6c283cf5a07792d2fc7a2db"
+"sha256": "87d51e1b8e087f526854f4fb2b0dd392441d4f7b16ff2a1d5cfd9f9411c4b861"
 },
 {
 "path": "src/ui/notices_sf.lua",
-"sha256": "c52c07ed749b1f47ff45b5ebf5a3cc2a2afff96cacb94b4cede98d770bdb2191"
+"sha256": "86544f1c48e1d44132ddd3c3435e1cbefe0127493a4d5d56c4e4c2c2b4c3492a"
 },
 {
 "path": "src/ui/possession_ui.lua",
@@ -519,11 +519,11 @@
 },
 {
 "path": "src/ui/settings_sf.lua",
-"sha256": "3868b48c05cb4609fb16b949737a7d9be7d74c029e7a70a61893cb21c4984f5b"
+"sha256": "2f7502a6935764ad9bf62cd56feb8d9f0e06947a720afead37425d41244ac4a7"
 },
 {
 "path": "src/ui/settings_ui.lua",
-"sha256": "432e84b80278781b57ca5317b88e086b85f76ed87910483983fc524ed2d63190"
+"sha256": "18a037d93bda108651f379250d275399a73fec30ea87cf1a02ffc40b748cf68c"
 },
 {
 "path": "src/ui/sf_style.lua",
@@ -531,7 +531,7 @@
 },
 {
 "path": "src/ui/theme.lua",
-"sha256": "fa99efcf0bd5f576fb3d4fbfe17a74b6b2ad84a466e4f7c6106bc84a936ab9db"
+"sha256": "9c47f825556bbf1bd26a6c5b8526e28e1e5bdecafe393c83c254ce84dfcb371f"
 },
 {
 "path": "src/ui/title_close.lua",
@@ -547,19 +547,19 @@
 },
 {
 "path": "src/ui/update_panel_ui.lua",
-"sha256": "1b75cf74678fe7394abb3fe8ac91bbae216a65ca9662512d33e3a328db267ccc"
+"sha256": "9b69b8f1656729acb861c2f99b2ebc58146b9f16de395a3504ae9403b6bdac80"
 },
 {
 "path": "src/ui/update_popup.lua",
-"sha256": "3ec5561cae5c6b389dd6d203c6c0f166aba38408dbbf11d4122f5684380a210c"
+"sha256": "5bbd10412f46a577dc878cd54f9e08b03175055d0bf186a10f03b5edbebb6e4c"
 },
 {
 "path": "src/ui/widgets.lua",
-"sha256": "be9fde4320c823de2b6dfc38e33816eba8d70eb1b9303a9078f2596885dd9e7d"
+"sha256": "46fe49264e6ab8ee19dfc583c26011a8779fdbb782236cd57af9ef53222c73aa"
 },
 {
 "path": "src/ui/window.lua",
-"sha256": "cd06e21108a1d8d41a5198f9ad41ab4853b72306663aeb08e9eb0d4fd3727967"
+"sha256": "4c26df8a49d1fa02971ad606e2eb81422615a3c57aa883a49bc67a6e05ee1b5b"
 }
 ]
 }

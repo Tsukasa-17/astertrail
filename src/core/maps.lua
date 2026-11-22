@@ -148,6 +148,21 @@ function maps.grid_name(bx, by)
     return string.char(string.byte('A') + col) .. '-' .. tostring(row)
 end
 
+-- マス目の名前（その地図の grid_layout の余白・マスの大きさ・列と行から）。範囲外なら nil（0.1.301〜、地図のマスに乗せたとき）
+function maps.grid_name_in(layout, bx, by)
+    if not layout or bx == nil or by == nil then return maps.grid_name(bx, by) end
+    local cell = tonumber(layout.cell) or maps.CELL
+    local margin = tonumber(layout.margin) or maps.MARGIN
+    if cell <= 0 then return nil end
+    local col = math.floor((bx - margin) / cell)
+    local row = math.floor((by - margin) / cell)
+    local okc, okr = false, false
+    for _, i in ipairs(layout.col_ids or {}) do if i == col then okc = true; break end end
+    for _, i in ipairs(layout.row_ids or {}) do if i == row then okr = true; break end end
+    if not (okc and okr) or col < 0 or col >= 26 then return nil end
+    return string.char(string.byte('A') + col) .. '-' .. tostring(row + 1)
+end
+
 -- 自分の現在地。Ashita の GetLocalPositionX と GetLocalPositionY が水平面で、
 -- GetLocalPositionZ は高さ。Z を水平に使うと、印が「高さ 0」の線に寄ってしまう。
 -- 同じゾーンのときだけ。地図の範囲から大きく外れていれば off=true（別階層などの目安）。

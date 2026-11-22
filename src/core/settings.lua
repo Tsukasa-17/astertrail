@@ -10,6 +10,17 @@ local SETTINGS_SCHEMA = 1
 
 local settings = {}
 
+-- 近くのオブジェクト名の距離（0.1.302〜）。50 ヤルムはゲーム（サーバー）が NPC などを読み込む距離（LSB の ENTITY_RENDER_DISTANCE）
+settings.NEARBY_RADIUS_MIN = 5
+settings.NEARBY_RADIUS_MAX = 50
+settings.NEARBY_RADIUS_DEFAULT = 30
+function settings.nearby_radius(m)
+    local r = tonumber(m and m.nearby_radius) or settings.NEARBY_RADIUS_DEFAULT
+    if r < settings.NEARBY_RADIUS_MIN then r = settings.NEARBY_RADIUS_MIN end
+    if r > settings.NEARBY_RADIUS_MAX then r = settings.NEARBY_RADIUS_MAX end
+    return math.floor(r + 0.5)
+end
+
 local function win(open)
     -- x, y, w, h は未設定（nil）。初回は画面中央付近に既定の大きさで出す
     return { open = open }
@@ -54,7 +65,6 @@ function settings.defaults()
             settings = win(false),
             map = win(false),
             entry = win(true),
-            resume = win(true),
             popup = win(true),
             eminence = win(false),   -- エミネンスの窓（0.1.172〜。出す・隠すは eminence.visible）
             compass = win(false),    -- コンパスの窓（0.1.173〜。出す・隠すは compass.visible）
@@ -129,6 +139,10 @@ function settings.defaults()
             -- サーバーに入っていないと分かっているエミネンスに未実装の札をつける（0.1.294〜。初期オン）。
             -- オフでも、自分で受けて断られた番号（failed）は未実装のまま
             known_unimpl = true,
+            -- 0.1.305〜：ゲームの目標一覧にまだ出ていない目標（前の目標が未達成・行ったことのないエリア）を隠す。初期オン
+            game_gate = true,
+            -- 0.1.305〜：行ったエリアの表（0x008 の 0〜303 番、38 バイトを 16 進で）。キャラごと
+            visited = '',
             favs = json.object({}), -- お気に入り（0.1.182〜、本だけ。★ のピンとは別）{ ["12"] = true }
             book_favs_only = false, -- 本でお気に入りだけ出す（0.1.182〜。前の「★だけ」はなくした）
             -- 本のエミネンスの列（0.1.193〜）。くり返しの列は無し。並びはドラッグで入れ替え
@@ -137,8 +151,6 @@ function settings.defaults()
             hidden = {},
         },
         notify = {
-            login_resume = false,  -- 0.1.200〜：新しい導入・未設定はオフ。保存済みのオン／オフはそのまま
-            login_resume_seconds = 10,
             popup = true,           -- 受注・完了のお知らせ（0.1.183〜、t295）
             popup_seconds = 8,      -- お知らせが消えるまで（秒）
             sound = true,           -- 受注・完了の効果音
@@ -163,6 +175,8 @@ function settings.defaults()
             icon_size = 28,
             -- 近くのオブジェクト名を表示する（0.1.58〜、初期はオフ）。クエストに関係ない近くのオブジェクトの名前
             show_nearby_names = false,
+            -- 近くのオブジェクト名を出す距離（0.1.302〜。ヤルム。5〜50、初期 30。50 はゲームが相手を読み込む距離）
+            nearby_radius = 30,
             -- 名声を教えてくれる人のアイコン（0.1.69〜、初期はオン）。いちばん低い優先（ゲートガードより下）
             show_fame_npcs = true,
             -- 頭上の位置の調整（px）。＋で右・下。0 がこれまでの位置。
@@ -195,12 +209,12 @@ function settings.defaults()
             -- 隠す場面（0.1.296〜。前の hide_rings_in_event「イベント中はリングや名前を消す」から）。
             -- 場面ごとにオン・オフと、消すもの（リング・アイコン・クエスト名・対象名・近くのオブジェクト名）
             hide_scenes = {
-                event = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
-                combat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true },
+                event = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true, win_book = false, win_compass = false, win_tracker = false, win_eminence = false, win_detail = false },
+                combat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true, win_book = false, win_compass = false, win_tracker = false, win_eminence = false, win_detail = false },
                 -- 0.1.298〜：会話（rem4line・rem4li2・query の窓）とメニュー（それ以外のゲームの窓）に分けた
-                talk = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
-                menu = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true },
-                chat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true },
+                talk = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true, win_book = false, win_compass = false, win_tracker = false, win_eminence = false, win_detail = false },
+                menu = { on = true, rings = true, icons = true, quest = true, names = true, nearby = true, win_book = false, win_compass = false, win_tracker = false, win_eminence = false, win_detail = false },
+                chat = { on = false, rings = true, icons = true, quest = true, names = true, nearby = true, win_book = false, win_compass = false, win_tracker = false, win_eminence = false, win_detail = false },
             },
             -- 輪の色（種類ごと、{r, g, b} 0〜255）。初期値は今のアイコンの色（theme.palette の ic_* ・mob・gold）
             ring_sub = { 255, 219, 92 }, ring_progress = { 107, 189, 255 }, ring_blocked = { 230, 71, 66 },
@@ -218,7 +232,9 @@ function settings.defaults()
             tracker_operate = json.array({}), compass_toggle = json.array({}),
             eminence_toggle = json.array({}), pass_to_game = true },
         -- ゲーム本来のメニュー（vana.gameui）
-        gameui = { mission_book = true, config_button = true, capture = true, menus_on_top = true },   -- menus_on_top 0.1.186〜
+        gameui = { mission_book = true, config_button = true, capture = true, menus_on_top = true,
+            -- 0.1.301〜：ゲームのメニューと重なったとき。'hide'＝隠す（今まで）、'behind'＝メニューの後ろに出す
+            menu_overlap = 'hide' },   -- menus_on_top 0.1.186〜
         -- デバッグ（0.1.187〜、t308）：手で 未受注・受注中・完了 にするボタン。初めは出さない（公開版はいつも出さない）
         debug = { state_buttons = false },
         -- 話して覚えた名声（0.1.66〜）。{ sandoria = { level = 3, at = '2026-11-14T...', npc = 'Namonutice' }, ... }
@@ -253,6 +269,8 @@ end
 -- 隠す場面（0.1.296〜）
 settings.HIDE_SCENES = { 'event', 'combat', 'talk', 'menu', 'chat' }
 settings.HIDE_PARTS = { 'rings', 'icons', 'quest', 'names', 'nearby' }
+-- 0.1.301〜：場面ごとに、こちらの窓も隠すか（初期はどれもオフ＝今までどおり）。保存の名前は win_ をつける
+settings.HIDE_WINDOWS = { 'book', 'compass', 'tracker', 'eminence', 'detail' }
 local HIDE_SCENE_ON = { event = true, combat = false, talk = true, menu = true, chat = false }
 
 -- marks の表から、場面ごとの { on, rings, icons, quest, names, nearby } を作る（元の表は変えない）。
@@ -278,6 +296,10 @@ function settings.hide_scenes_of(M)
         for _, part in ipairs(settings.HIDE_PARTS) do
             if src and type(src[part]) == 'boolean' then e[part] = src[part] else e[part] = true end
         end
+        for _, w in ipairs(settings.HIDE_WINDOWS) do
+            local k = 'win_' .. w
+            if src and type(src[k]) == 'boolean' then e[k] = src[k] else e[k] = false end
+        end
         out[sc] = e
     end
     return out
@@ -298,6 +320,14 @@ function settings.merge(loaded)
     merged.settings_schema = SETTINGS_SCHEMA
     -- 範囲の確認（壊れた値で画面が崩れないように）
     merged.font_scale = util.clamp(tonumber(merged.font_scale) or 1.0, settings.FONT_MIN, settings.FONT_MAX)
+    -- 0.1.302〜：近くのオブジェクト名の距離（5〜50 ヤルム、整数）
+    if type(merged.marks) == 'table' then
+        local r = tonumber(merged.marks.nearby_radius) or settings.NEARBY_RADIUS_DEFAULT
+        merged.marks.nearby_radius = math.floor(util.clamp(r, settings.NEARBY_RADIUS_MIN, settings.NEARBY_RADIUS_MAX) + 0.5)
+    end
+    if type(merged.gameui) == 'table' and merged.gameui.menu_overlap ~= 'hide' and merged.gameui.menu_overlap ~= 'behind' then
+        merged.gameui.menu_overlap = 'hide'
+    end
     -- 斜体は使わない。保存にオンが残っていても無視して、ふつうのフォントに戻す
     merged.font_italic = false
     merged.font_outline = settings.clamp_font_outline(merged.font_outline)
@@ -419,10 +449,12 @@ function settings.merge(loaded)
                          'zone_entry_seconds', 'suppress_in_combat', 'muted_zones' }) do
         merged.notify[k] = nil
     end
+    -- 0.1.303：ログイン時の続きをなくした。古い保存の値は読まずに捨てる（窓の位置も）
+    merged.notify.login_resume, merged.notify.login_resume_seconds = nil, nil
+    if type(merged.windows) == 'table' then merged.windows.resume = nil end
     -- 0.1.183〜：受注・完了のお知らせと効果音
     do
         local N, DN = merged.notify, settings.defaults().notify
-        N.login_resume = (N.login_resume == nil) and DN.login_resume or (N.login_resume == true)
         N.popup = (N.popup == nil) and DN.popup or (N.popup == true)
         N.sound = (N.sound == nil) and DN.sound or (N.sound == true)
         N.popup_seconds = util.clamp(math.floor(tonumber(N.popup_seconds) or DN.popup_seconds), 3, 30)
@@ -546,6 +578,8 @@ function settings.merge(loaded)
         E.impl_ok = ids(E.impl_ok, function (v) return v and true or nil end)
         E.unimpl_off = ids(E.unimpl_off, function (v) return v == true or nil end)
         E.known_unimpl = E.known_unimpl ~= false
+        E.game_gate = E.game_gate ~= false
+        if type(E.visited) ~= 'string' or not (#E.visited == 76 and not E.visited:find('[^0-9a-f]')) then E.visited = '' end
         E.sf_show = settings.sf_show_from(raw_sf_show, E.book_show)
     end
     if merged.tracker.view ~= 'list' and merged.tracker.view ~= 'tabs' then merged.tracker.view = 'list' end

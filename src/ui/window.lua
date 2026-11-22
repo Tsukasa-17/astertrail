@@ -22,7 +22,6 @@ local DEFAULTS = {
     settings = { fx = 0.50, fy = 0.50, w = 520, h = 620 },
     map      = { fx = 0.62, fy = 0.48, w = 680, h = 820 },
     entry    = { fx = 0.97, fy = 0.60, auto = true },
-    resume   = { fx = 0.50, fy = 0.18, auto = true },
     popup    = { fx = 0.50, fy = 0.28, auto = true },   -- 受注・完了のお知らせ（0.1.183〜。0.1.197〜は大きめ）
     update   = { fx = 0.50, fy = 0.28, auto = true },   -- 新しい版のダウンロード（0.1.282〜）
     eminence = { fx = 0.14, fy = 0.40, w = 380, h = 320 },   -- 0.1.172〜
@@ -185,7 +184,7 @@ end
 -- くっきりフォントを使う窓（本・トラッカー・コンパス・エミネンス・設定。詳細は本の一部）
 local CRISP_WINS = {
     book = true, detail = true, tracker = true, compass = true, eminence = true, settings = true,
-    popup = true, resume = true,
+    popup = true,
 }
 
 local function release_crisp(ui)

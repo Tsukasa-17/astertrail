@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local labels = require('src.ui.labels')
 local poss_ui = require('src.ui.possession_ui')
@@ -23,7 +23,7 @@ check(src_trs:find('apply_to_step(ui, step, cur_text, q)', 1, true) ~= nil, 'SF 
 check(src_sf:find('apply_to_step(ui, s, s.next_line_ja or t(\'detail.step_no_text\'), q)', 1, true) ~= nil, 'SF detail passes the quest')
 check(src_det:find('term_click = true', 1, true) ~= nil, 'classic detail names are clickable')
 check(src_det:find('draw_inline(ui, s.needs, name', 1, true) ~= nil, 'classic 所持 line uses the new drawer')
-check(src_nt:find('apply_to_step', 1, true) ~= nil, 'resume notice annotates the step line')
+check(not src_nt:find('draw_resume', 1, true), 'resume notice removed (0.1.303)')
 check(src_w:find('piece.copy_text or piece.text', 1, true) ~= nil, 'term_line copies the official name')
 check(src_w:find('draw_key_mark', 1, true) ~= nil, 'widgets can draw the key-item mark')
 eq(CT.click_action('poss_count'), 'tip', 'count is not a copy target')

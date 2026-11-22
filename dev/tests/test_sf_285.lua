@@ -68,7 +68,7 @@ wf:write(json.encode({ look = 'classic', language = 'ja' }))
 wf:close()
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 FAKE.player = { name = 'MixUser', zone = 230, tidx = 5, status = 0, x = 0, y = 0, z = 0 }

@@ -115,7 +115,6 @@ S.tracker.visible = true; S.tracker.collapsed = false
 S.eminence.visible = true; S.compass.visible = true; S.notify.popup = true
 app.open_window('book')
 app.open_map(Q)
-app.state.resume = { quest = Q, hide_at = app.state.now + 60 }
 app.state.popups[#app.state.popups + 1] = { kind = 'accept', quest = Q }
 frames(0.5)
 local function titles()
@@ -136,7 +135,7 @@ local function check_all(expect, label)
     return got, n
 end
 local got, n = check_all(false, 'no menu')
-for _, w in ipairs({ 'book', 'tracker', 'map', 'eminence', 'compass', 'resume', 'popup' }) do
+for _, w in ipairs({ 'book', 'tracker', 'map', 'eminence', 'compass', 'popup' }) do
     check(got[w] ~= nil, 'drawn: ' .. w)
 end
 -- ホームポイントのメニュー（左上。全部の窓と重なる場所に）

@@ -7,7 +7,7 @@ local window = require('src.ui.window')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 ---------------------------------------------------------------------------
 -- 1) 初期値と保存の合わせ込み
 ---------------------------------------------------------------------------
@@ -186,5 +186,5 @@ local function seen(pat)
     for _, l in ipairs(FAKE.texts) do if l:find(pat, 1, true) then return true end end
     return false
 end
-check(seen('くっきりフォント（テスト）'), 'crisp toggle shown')
+check(seen('画面の文字をくっきり（メイリオ）'), 'crisp toggle shown')
 check(seen('太字（メイリオ）'), 'bold toggle shown')

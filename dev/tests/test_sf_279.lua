@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local ms = io.open(ROOT .. '/src/ui/map_sf.lua', 'r'):read('*a')
 -- 閉じるボタンがある。ラベルは common.close。動きはクラシックと同じ

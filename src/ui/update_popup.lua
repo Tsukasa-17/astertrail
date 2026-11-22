@@ -103,7 +103,7 @@ function update_popup.draw(ui)
         if not busy then
             imgui.Dummy({ 1, 10 })
             local function bw(lab)
-                local w = (tonumber(select(1, theme.measure_text(imgui, lab))) or 40) + 28
+                local w = (tonumber((theme.measure_text(imgui, lab))) or 40) + 28
                 return math.max(72, math.min(240, w))
             end
             local function center(width)

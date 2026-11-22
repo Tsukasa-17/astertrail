@@ -137,7 +137,9 @@ ui.settings = {}
 ui.update_check_status = function () return { status = 'unsupported' } end
 eq(draw(ui), '', 'unsupported, no backup: no buttons')
 ui.rollback_prev = function () return { version = '0.1.296' } end
-eq(draw(ui), 'upd_rollback=update.rollback_button', 'rollback button only')
+eq(draw(ui), '', '0.1.301: local test build in prev: no rollback button')
+ui.rollback_prev = function () return { version = '1.1.292' } end
+eq(draw(ui), 'upd_rollback=update.rollback_button', 'rollback button only (public prev)')
 ui.update_check_status = function () return { status = 'offer', version = '1.1.300' } end
 ui.update_check_wait = function () return 30 end
 ui.state = { update = { status = 'later', zip_url = 'https://x/z.zip', sha256 = string.rep('a', 64) } }

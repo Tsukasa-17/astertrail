@@ -74,7 +74,7 @@ app.close_all(); frame()
 -- 設定の 見た目 に窓ごとの背景の濃さ
 FAKE.labels = {}; FAKE.texts = {}
 app.open_window('settings'); frame(); frame()
-for _, k in ipairs({ '背景の濃さ（本）', '背景の濃さ（詳細）', '背景の濃さ（トラッカー）', '背景の濃さ（地図）', '背景の濃さ（その他）' }) do
+for _, k in ipairs({ '本の背景の濃さ', '詳細の背景の濃さ', 'トラッカーの背景の濃さ', '地図の背景の濃さ', 'その他の背景の濃さ' }) do
     local hit = labeled(k)
     for _, x in ipairs(FAKE.texts) do if x:find(k, 1, true) then hit = true end end
     check(hit, 'row ' .. k)

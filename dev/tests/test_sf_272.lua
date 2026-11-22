@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local theme = require('src.ui.theme')
 local settings_ui = require('src.ui.settings_ui')
@@ -17,7 +17,7 @@ check(sfsrc:find("title = 'FONT'", 1, true) ~= nil, 'FONT panel exists')
 check(sfsrc:find("title = 'POSITION'", 1, true) ~= nil, 'POSITION panel exists')
 check(sfsrc:find("title = 'PROGRESS'", 1, true) ~= nil, 'PROGRESS panel exists')
 check(sfsrc:find('look_font', 1, true) ~= nil, 'look font panel id')
--- 1.1.300：右のプレビューはやめた
+-- 0.1.300：右のプレビューはやめた
 check(not sfsrc:find('draw_preview', 1, true), 'preview pane removed')
 check(sfsrc:find('panel_h[id] = h', 1, true) ~= nil, 'panel height follows measured content')
 
@@ -47,7 +47,7 @@ local S = app._settings()
 S.look = 'classic'
 theme.set_look('classic')
 app.close_all(); app.open_window('settings'); frame(); frame(); frame()
-check(labeled('くっきりフォント（テスト）'), 'classic crisp label unchanged')
+check(labeled('画面の文字をくっきり（メイリオ）'), 'classic uses the same settings rows (0.1.304)')
 app.close_all(); frame()
 
 S.look = 'sf'
@@ -75,7 +75,7 @@ check(labeled('受注フラグのないものを未開始に戻す') or seen('�
 check(seen_joined('PROGRESS'), 'PROGRESS heading is shown')
 check(texted('バージョン ' .. app.VERSION) or labeled('バージョン ' .. app.VERSION), 'version shown')
 
--- 1.1.300：右のプレビューはやめた（見本の文は出さない）
+-- 0.1.300：右のプレビューはやめた（見本の文は出さない）
 check(not seen('文字サイズと背景の濃さの見本'), 'no preview sample text')
 
 app.close_all(); frame()

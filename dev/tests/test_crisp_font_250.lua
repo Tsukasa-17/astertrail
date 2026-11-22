@@ -8,7 +8,7 @@ local app = require('src.app')
 local imgui = require('imgui')
 local ffi = require('ffi')
 
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 eq(crisp.DEFAULT_FACE, 'meiryo.ttc', 'default face')
 eq(crisp.LARGE_PX, 36, 'loaded at 36px from the start')
 
@@ -156,7 +156,7 @@ check(not seen('日本語のフォント'), 'ja font picker removed')
 check(not seen('英字のフォント'), 'en font picker removed')
 check(not seen('数字のフォント'), 'num font picker removed')
 check(not seen('Windows のフォントから選べます'), 'selection note removed')
-check(seen('くっきりフォント（テスト）'), 'crisp toggle still shown')
+check(seen('画面の文字をくっきり（メイリオ）'), 'crisp toggle still shown')
 check(seen('太字（メイリオ）'), 'bold switch still shown')
 
 io.open = io_open

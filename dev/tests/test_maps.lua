@@ -368,7 +368,8 @@ app._settings().map.enabled = true
 cmd('/astertrail settings'); frame()
 require('src.ui.settings_ui').select_tab('map'); frame(); frame()
 check(labeled('地図を出す'), 'settings toggle')
-check(texted('同梱せず') or texted('クライアント'), 'settings credit note')
+-- 0.1.304〜：地図の画像の説明は「地図を出す」の i
+check(io.open(ROOT .. '/src/ui/settings_sf.lua', 'r'):read('*a'):find('sf.set.map_credit', 1, true) ~= nil, 'settings credit note (i)')
 
 -- 同じゾーンに座標があれば「いまここ」
 FAKE.player.x = -160

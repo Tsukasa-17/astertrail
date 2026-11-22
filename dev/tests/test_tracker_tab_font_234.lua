@@ -46,7 +46,7 @@ local sui = require('src.ui.settings_ui')
 FAKE.player = { name = 'TabFont', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 eq(app._data().version, '2026.11.20-125', 'data version unchanged')
 S.input.gamepad = true
 S.tracker.visible = true
@@ -143,8 +143,8 @@ imgui.Button, imgui.SmallButton = orig_btn, orig_small
 -- 設定の「見た目」：トラッカーの文字サイズのすぐ下に同じ形のスライダー。パッドでも届く
 app.open_window('settings'); frame()
 sui.select_tab('look'); frame(); frame()
-check(texted('タブの文字の大きさ'), 'settings: タブの文字の大きさ')
-check(texted('文字サイズ（トラッカー）'), 'settings: tracker font still there')
+check(texted('トラッカータブの文字'), 'settings: tracker tab font')
+check(texted('トラッカーの文字サイズ'), 'settings: tracker font still there')
 local ids = {}
 for _, it in ipairs((focus.windows.settings and focus.windows.settings.list) or {}) do
     ids[#ids + 1] = it.id

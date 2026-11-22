@@ -23,6 +23,7 @@ roe.PKT_REMOVE = 0x10D
 roe.PKT_ACTIVE = 0x111
 roe.PKT_LOG = 0x112
 roe.PKT_MESSAGE = 0x029
+roe.PKT_VISITED = 0x008      -- 0.1.305〜：行ったエリアの表（GP_SERV_COMMAND_ENTERZONE）
 roe.MSG_START = 704          -- 受けた（0x029 の文の番号。数 1 が番号）
 roe.MSG_UNABLE = 742         -- 今は受けられない
 roe.DAT_IDS = {
@@ -219,7 +220,10 @@ function roe.parse_categories(raw, conv)
                 local p = b + 8 + (i - 1) * 20
                 local child, flag = dec_u32(raw, p), dec_u32(raw, p + 4)
                 if child and child > 0 then
-                    local e = { id = child, flag = flag or 0 }
+                    -- 0.1.305〜：子の印は 種類（上 8 ビット）と値（下 24 ビット）で残す（目標にも分類にも）。
+                    -- 1＝その番号の目標の達成が要る、4＝そのエリアに行ったことが要る、6・7＝ユニティ（共通の組・リーダー）
+                    local e = { id = child, flag = flag or 0,
+                        gate_kind = math.floor((flag or 0) / 16777216), gate_val = (flag or 0) % 16777216 }
                     if child >= 0xF000 then
                         e.kind = 'cat'
                     else
@@ -253,6 +257,7 @@ function roe.build(quests, cats)
     end
     table.sort(db.roots)
     -- 上から順に見て、レコードの分類とエリアを覚える
+    db.kind_counts = { obj = {}, cat = {} }   -- 0.1.305〜：印の種類ごとの数（/astertrail roe）
     local seen = {}
     local function walk(cid, depth)
         if seen[cid] or depth > 6 then return end
@@ -261,9 +266,11 @@ function roe.build(quests, cats)
         if not c then return end
         for _, e in ipairs(c.children) do
             if e.kind == 'cat' then
+                db.kind_counts.cat[e.gate_kind or 0] = (db.kind_counts.cat[e.gate_kind or 0] or 0) + 1
                 walk(e.id, depth + 1)
             else
                 if not db.cat_of[e.id] then db.cat_of[e.id] = cid end
+                db.kind_counts.obj[e.gate_kind or 0] = (db.kind_counts.obj[e.gate_kind or 0] or 0) + 1
                 if e.zone then
                     db.zones[e.id] = db.zones[e.id] or {}
                     db.zones[e.id][e.zone] = true
@@ -280,6 +287,115 @@ function roe.build(quests, cats)
     db.count = 0
     for _ in pairs(db.quests) do db.count = db.count + 1 end
     return db
+end
+
+---------------------------------------------------------------------------
+-- ゲームでまだ出ていない目標（0.1.305〜）。ゲームの目標一覧と同じに隠す
+-- - 印 1：値の番号の目標を達成していないと出ない（番号は DAT に無い隠しの記録 4057〜4064・4079 などもある。
+--   達成の表は 0〜4095 のすべてを持つので、その表で見る）
+-- - 印 4：値のエリア（ゾーン番号）に行ったことがないと出ない（0x008 の表。0〜303 だけ使う）
+-- - 分類に付いた印が満たされないと、その分類と下のものが全部出ない
+-- - 達成の表か行ったエリアの表がまだ無いときは、何も隠さない
+---------------------------------------------------------------------------
+
+roe.GATE_PREREQ = 1
+roe.GATE_ZONE = 4
+roe.VISITED_MAX_ZONE = 303
+
+-- 0x008（GP_SERV_COMMAND_ENTERZONE）：頭 4 バイトの後に 48 バイトのビットの表。0〜303 番（38 バイト）だけ使う
+-- （LSB は 38 バイトの表から 48 バイト写すので、後ろの 10 バイトはごみ）
+function roe.parse_visited(data)
+    if type(data) ~= 'string' or #data < 4 + 38 then return nil end
+    if (data:byte(1) + (data:byte(2) % 2) * 256) ~= roe.PKT_VISITED then return nil end
+    local out = {}
+    for i = 1, 38 do out[i] = data:byte(4 + i) end
+    return out
+end
+
+function roe.visited_hex(v)
+    if type(v) ~= 'table' then return nil end
+    local o = {}
+    for i = 1, 38 do o[i] = string.format('%02x', tonumber(v[i]) or 0) end
+    return table.concat(o)
+end
+
+function roe.visited_from_hex(s)
+    if type(s) ~= 'string' or #s ~= 76 or s:find('[^0-9a-fA-F]') then return nil end
+    local out = {}
+    for i = 1, 38 do out[i] = tonumber(s:sub(i * 2 - 1, i * 2), 16) end
+    return out
+end
+
+function roe.has_visited(v, zone)
+    zone = tonumber(zone)
+    if type(v) ~= 'table' or not zone or zone < 0 or zone > roe.VISITED_MAX_ZONE then return nil end
+    local b = v[math.floor(zone / 8) + 1]
+    if b == nil then return nil end
+    return math.floor(b / 2 ^ (zone % 8)) % 2 == 1
+end
+
+-- 印を満たすか。分からないときは true（隠さない）
+function roe.gate_ok(kind, val, ctx)
+    if kind == roe.GATE_PREREQ then
+        if not val or val <= 0 then return true end
+        local c = roe.is_complete(ctx and ctx.complete, val)
+        if c == nil then return true end
+        return c
+    elseif kind == roe.GATE_ZONE then
+        local v = roe.has_visited(ctx and ctx.visited, val)
+        if v == nil then return true end
+        return v
+    end
+    return true
+end
+
+-- 隠すものの組。ctx = { complete = 達成の表, visited = 行ったエリアの表 }。どちらか無ければ空（何も隠さない）。
+-- 戻り値 { ids = { [id] = true }（どこに出ても隠れる目標）, occ = { [cid] = { [id] = true } }（その分類の中で隠れる）,
+--          cats = { [cid] = true }, n_ids, n_cats, by_kind = { [1] = 数, [4] = 数 }, ready }
+function roe.hidden_sets(db, ctx)
+    local out = { ids = {}, occ = {}, cats = {}, n_ids = 0, n_cats = 0, by_kind = {}, ready = false }
+    if not db or not db.cats or not ctx or not ctx.complete or not ctx.visited then return out end
+    out.ready = true
+    local shown_somewhere, seen_occ = {}, {}
+    local function walk(cid, hidden, depth, path)
+        if depth > 8 or path[cid] then return end
+        path[cid] = true
+        local c = db.cats[cid]
+        if c then
+            for _, e in ipairs(c.children) do
+                local ok = hidden == nil and roe.gate_ok(e.gate_kind, e.gate_val, ctx)
+                local why = hidden or ((not ok) and e.gate_kind) or nil
+                if e.kind == 'cat' then
+                    if why and not out.cats[e.id] then
+                        out.cats[e.id] = why; out.n_cats = out.n_cats + 1
+                    end
+                    walk(e.id, why, depth + 1, path)
+                elseif db.quests[e.id] then
+                    seen_occ[e.id] = seen_occ[e.id] or why or false
+                    if why then
+                        out.occ[cid] = out.occ[cid] or {}
+                        out.occ[cid][e.id] = why
+                    else
+                        shown_somewhere[e.id] = true
+                    end
+                end
+            end
+        end
+        path[cid] = nil
+    end
+    for _, r in ipairs(db.roots or {}) do walk(r, nil, 0, {}) end
+    for id, why in pairs(seen_occ) do
+        if why and not shown_somewhere[id] then
+            -- 最初に見つかった理由で数える（分類ごと隠れたものは分類の印の種類）
+            local k = why
+            for _, o in pairs(out.occ) do if o[id] then k = o[id]; break end end
+            out.ids[id] = k
+            out.n_ids = out.n_ids + 1
+            out.by_kind[k] = (out.by_kind[k] or 0) + 1
+        end
+    end
+    -- 分類が見えていても、その中では隠れていないことがある（ほかの分類で出ていても、隠れた分類の中では出さない）
+    return out
 end
 
 -- 分類の中の、表示するレコードの番号（その分類の直下だけ、DAT の並び）

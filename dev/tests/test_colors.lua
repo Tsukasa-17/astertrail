@@ -46,7 +46,7 @@ end
 FAKE.texts = {}; FAKE.labels = {}
 app.open_window('settings'); frame()
 require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
-check(seen('クエスト名の色'), 'quest color heading'); check(seen('クエストの対象名の色'), 'object color heading')
+check(seen('クエスト名の背景色'), 'quest color group'); check(seen('オブジェクト名の背景色'), 'object color group')
 check(seen('#F8F4E8'), 'hex preview')
 check(not seen('##marks_label_color2') and not seen('##marks_under_color2'), 'end color hidden while gradient off')
 check(not seen('赤（R）'), 'no RGB sliders any more')
@@ -74,7 +74,7 @@ local before = table.concat(S.marks.label_color, ',')
 press(0xCD); frame(); press(0xCD); frame(); press(0xD0); frame(); press(0x0F); frame(); frame()
 check(table.concat(S.marks.label_color, ',') ~= before, 'color changed live')
 FAKE.texts = {}; FAKE.labels = {}; frame()
-check(seen('クエストの対象名の色'), 'tab not switched by hue key')
+check(seen('オブジェクト名の背景色'), 'tab not switched by hue key')
 -- キャンセル：元の色に戻り、色えらびだけ閉じる（設定の窓は開いたまま）
 press(0x01); frame(); frame()
 eq(table.concat(S.marks.label_color, ','), before, 'cancel restores color')

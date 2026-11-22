@@ -296,7 +296,24 @@ local function draw_grid(imgui, size, pin, highlight, player_pin, ov, mouse)
         local ok, c = pcall(imgui.IsMouseClicked, 0)
         clicked = ok and c and true or false
     end
-    return hot, clicked
+    -- 0.1.301〜：乗せている所（マスの名前の説明に使う）
+    local hover_at
+    if mouse and x0 and size > 0 then
+        local okh, wh = pcall(function () return imgui.IsWindowHovered and imgui.IsWindowHovered() end)
+        if (not imgui.IsWindowHovered) or (okh and wh) then
+            local bx, by = (mouse.x - gx) / scale, (mouse.y - gy) / scale
+            if bx >= 0 and by >= 0 and bx <= maps.BASE and by <= maps.BASE then hover_at = { bx = bx, by = by } end
+        end
+    end
+    return hot, clicked, hover_at
+end
+
+-- 0.1.301〜：地図のマスに乗せたら、そのマスの名前（例：G-8）を読みやすい説明で出す
+function map_view.grid_tip(ui, hover_at, layout)
+    if not hover_at then return nil end
+    local g = layout and maps.grid_name_in(layout, hover_at.bx, hover_at.by) or maps.grid_name(hover_at.bx, hover_at.by)
+    if g then W.tooltip(ui, g) end
+    return g
 end
 
 -- 拡大（マウスホイール）。1倍〜MAX_ZOOM倍。拡大中は左ドラッグで動かす。
@@ -426,7 +443,16 @@ local function draw_image(imgui, tex, iw, ih, show_w, pin, player_pin, view, ov)
     -- ドラッグで動かしたあとの離しは「押した」にしない
     local clicked = pressed and (view.dragged or 0) < 6
     if not active then view.dragged = 0 end
-    return true, hot, clicked
+    -- 0.1.301〜：乗せている所（512px 基準の画像の位置）。マスの名前の説明に使う
+    local hover_at
+    if hovered and w > 0 then
+        local mx, my = xy(imgui.GetMousePos())
+        if mx and my and mx >= r1 and mx <= r3 and my >= r2 and my <= r4 then
+            local s = w / maps.BASE * view.z
+            hover_at = { bx = view.ox * maps.BASE + (mx - r1) / s, by = view.oy * maps.BASE + (my - r2) / s }
+        end
+    end
+    return true, hot, clicked, hover_at
 end
 
 map_view._draw_image_for_test = draw_image
@@ -842,13 +868,13 @@ function map_view.draw(ui)
 
         -- 画像が読めたらそれを出し、だめなら方眼。大きさは窓の余りに合わせ、上限は設けない。
         local shown_image = false
-        local hot, clicked
+        local hot, clicked, hover_at
         local file_id = floor and floor.file_id
         if file_id and ui.load_map_image then
             local img, why = ui.load_map_image(file_id)
             if img and img.tex then
                 local show_w = content_square(imgui, 140)
-                shown_image, hot, clicked = draw_image(imgui, img.tex, img.width, img.height, show_w, pin, me, info.view, ov)
+                shown_image, hot, clicked, hover_at = draw_image(imgui, img.tex, img.width, img.height, show_w, pin, me, info.view, ov)
             end
         end
         if not shown_image then
@@ -856,7 +882,7 @@ function map_view.draw(ui)
             local mouse
             local mok, mx, my = pcall(function () return xy(imgui.GetMousePos()) end)
             if mok and mx and my then mouse = { x = mx, y = my } end
-            hot, clicked = draw_grid(imgui, size, pin, hl, me, ov, mouse)
+            hot, clicked, hover_at = draw_grid(imgui, size, pin, hl, me, ov, mouse)
             if file_id then
                 W.muted(ui, t('map.no_image'))
             end
@@ -868,6 +894,8 @@ function map_view.draw(ui)
                 imgui.EndTooltip()
             end)
             if clicked then map_view.go(ui, hot.exit) end
+        else
+            map_view.grid_tip(ui, hover_at, nil)
         end
 
         if info.browse then

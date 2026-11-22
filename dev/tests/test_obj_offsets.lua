@@ -71,12 +71,12 @@ frame()
 rawset(imgui, 'BeginChild', ob); rawset(imgui, 'Button', obtn); rawset(imgui, 'Begin', obeg)
 local i_tab, i_child, i_close
 for i, x in ipairs(order) do
-    if x:find('##st_marks', 1, true) then i_tab = i end
-    if x == 'child:##astertrail_settings_body' then i_child = i end
+    if x == 'child:##astertrail_sf_set_nav' then i_tab = i end
+    if x == 'child:##astertrail_sf_set_mid' then i_child = i end
     if x:find('##close', 1, true) then i_close = i end
 end
-check(i_tab and i_child and i_close, 'tabs, body, close')
-check(i_tab < i_child and i_child < i_close, 'tabs above the scrolling body, close below')
+check(i_tab and i_child, 'categories and body (0.1.304)')
+check(i_tab < i_child, 'categories pane, then the scrolling body (0.1.304: close is in the footer)')
 local theme = require('src.ui.theme')
 local NS = theme.C('ImGuiWindowFlags_NoScrollWithMouse')
 for title, f in pairs(flags_of) do

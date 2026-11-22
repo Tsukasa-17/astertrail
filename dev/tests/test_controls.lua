@@ -27,7 +27,7 @@ end
 -- YunaUI 風：スイッチ（ボタンに「：オン」は付かない）
 S.look = 'yunaui'
 open_layout()
-check(seen('配置ロック##lock'), 'switch drawn')
+check(seen('窓の位置を固定##lock'), 'switch drawn')
 check(not seen('：オフ##lock') and not seen('：オン##lock'), 'no on/off text button in yunaui')
 local before = S.layout_locked
 FAKE.clicks['##lock'] = true; frame(); frame()
@@ -39,7 +39,8 @@ eq(S.layout_locked, before, 'enter toggles back')
 -- これまで：今までのボタン
 S.look = 'classic'
 open_layout()
-check(seen('：オフ##lock') or seen('：オン##lock'), 'classic on/off button')
+-- 0.1.304〜：クラシックも同じ並びのスイッチ（オン／オフの文字のボタンはやめた）
+check(seen('窓の位置を固定##lock') and not seen('：オフ##lock') and not seen('：オン##lock'), 'classic switch row')
 S.look = 'yunaui'
 
 -- スライダーの見た目：積んだ色は戻す、桃色の帯の長さは値の割合

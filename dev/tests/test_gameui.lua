@@ -218,11 +218,9 @@ do
     focus.set('settings', 'font_book'); frame()
     press(0x01); frame()
     eq(focus.current('settings'), 'font_book_reset', 'cancel from slider still goes to reset')
+    -- 0.1.304〜：見出しの折りたたみは無い。↺ でもう一度キャンセルすると設定を閉じる（本へ）
     press(0x01); frame()
-    eq(focus.current('settings'), 'fold_look_fonts', 'cancel from inside goes to heading')
-    eq(app2.state.open.settings, true, 'settings still open on heading')
-    press(0x01); frame()
-    eq(app2.state.open.settings, false, 'cancel on heading closes')
+    eq(app2.state.open.settings, false, 'cancel from reset closes')
     FAKE.events.unload()
     eq(ncatch(), 0, 'nothing caught after unload')
 end

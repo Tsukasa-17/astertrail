@@ -5,7 +5,7 @@ local outline = require('src.ui.crisp_outline')
 local theme = require('src.ui.theme')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local adds, pushes, pops = {}, {}, {}
 local font = { name = 'fake-font' }

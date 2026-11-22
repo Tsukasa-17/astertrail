@@ -660,12 +660,12 @@ do
     local sui = require('src.ui.settings_ui')
     app.open_window('settings'); frame()
     sui.select_tab('eminence'); frame(); frame()
-    eq(sui.current_tab(), 'eminence', 'settings tab')
+    eq(sui.current_tab(), 'tracker', 'settings: eminence lives in the tracker category (0.1.304)')
     -- 0.1.182〜（t293）：窓を出すスイッチは設定に無い（本の上の行のボタンだけ）
     check(not labeled('エミネンスの窓を出す') and not labeled('Show the Eminence window') and not labeled('##roe_vis'), 'no window switch in settings')
     check(labeled('##roe_fold'), 'other eminence settings stay')
     sui.cycle_tab(1); frame(); frame()
-    eq(sui.current_tab(), 'about', 'about stays last')
+    eq(sui.current_tab(), 'map', 'next category after tracker (0.1.304)')
     app.close_window('settings'); frame()
 end
 -- 0.1.177〜：設定の「見た目」にエミネンスの窓の文字サイズ・背景の濃さ（まだ無い保存はトラッカーの値）

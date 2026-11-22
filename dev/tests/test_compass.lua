@@ -107,7 +107,7 @@ do
         windows = { items = { x = 1 }, herenow = { x = 2 } }, compass = { visible = 'yes' } })
     eq(m.notify.zone_entry, nil, 'zone_entry gone'); eq(m.notify.muted_zones, nil, 'muted zones gone')
     eq(m.notify.suppress_in_combat, nil, 'combat switch gone')
-    eq(m.notify.login_resume, false, 'login resume kept')
+    eq(m.notify.login_resume, nil, 'login resume dropped (0.1.303)')
     eq(m.windows.items, nil, 'items window gone'); eq(m.windows.herenow, nil, 'herenow window gone')
     eq(m.compass.visible, false, 'compass visible needs true')
     eq(m.compass.max_dist, 30, 'missing range becomes 30')

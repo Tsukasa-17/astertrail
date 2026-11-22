@@ -787,8 +787,16 @@ function W.tooltip_wrap_w(font_px, win_w)
     local w = (tonumber(win_w) and win_w > 0) and win_w * 0.40 or cap
     return math.floor(math.min(cap, math.max(font_px * 14, w)) + 0.5)
 end
+local tooltip_body
 function W.tooltip(ui, text)
     if type(text) ~= 'string' or text == '' then return end
+    local outline = package.loaded['src.ui.crisp_outline']
+    local q = outline and outline.pause_line and outline.pause_line() or nil
+    local ok, err = pcall(tooltip_body, ui, text)
+    if outline and outline.resume_line then outline.resume_line(q) end
+    if not ok then error(err) end
+end
+tooltip_body = function (ui, text)
     local imgui = ui.imgui
     if not imgui.BeginTooltip then pcall(imgui.SetTooltip, text); return end
     local okf, fs = pcall(imgui.GetFontSize)
@@ -902,7 +910,7 @@ local function form_start_right(ui, imgui, label, opts, key, est)
     label = tostring(label or '')
     local info_hov = false
     if label ~= '' then
-        local tw = tonumber(select(1, theme.measure_text(imgui, label))) or 0
+        local tw = tonumber((theme.measure_text(imgui, label))) or 0
         -- 0.1.299〜：i の印を置くぶんを残す
         local iw = (opts.info and opts.info ~= '') and (W.info_mark_size(imgui) + 6) or 0
         if tw > lw - iw then
@@ -954,7 +962,7 @@ local function form_start(ui, imgui, label, opts, key, est)
     if not (sx and sy) then return nil end
     if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
     label = tostring(label or '')
-    local tw = tonumber(select(1, theme.measure_text(imgui, label))) or 0
+    local tw = tonumber((theme.measure_text(imgui, label))) or 0
     if tw > lw and lw > 8 then
         CT.wrapped(ui, label, 'text', nil, lw)
     else
@@ -1378,23 +1386,50 @@ function W.slider(ui, win, id, label, tbl, key, opts)
     -- 操作のかたまりの幅＝値の前までの幅＋値の列の幅（値の文字の幅は入れない）なので、どの値でも位置が同じ
     if form and form.right then
         if value_w <= 8 then
-            value_w = math.ceil((tonumber(select(1, theme.measure_text(imgui, '-128 px'))) or 48) + 4)
+            value_w = math.ceil((tonumber((theme.measure_text(imgui, '-128 px'))) or 48) + 4)
         end
-        local vx = cur_xy(imgui)
+        local vx, vy = cur_xy(imgui)
         if vx and form.ctrl_x then form.fixed_w = math.ceil(vx - form.ctrl_x + value_w) end
+        -- 0.1.301〜：値は位置を直に決めて置く（Dummy で詰めない）。右端 R＝値の列の右。
+        -- 単位があれば単位を R に右よせし、数はそのすぐ左に右よせ（同じ単位なら単位も数も右端がそろう）
+        if vx and vy and imgui.SetCursorScreenPos then
+            local R = vx + value_w
+            local num, uw = tostring(vtext):match('^(.-)%s+(%S+)$')
+            local function put(x, s)
+                pcall(imgui.SetCursorScreenPos, { math.floor(x + 0.5), vy })
+                if yuna then imgui.TextColored({ 1, 1, 1, 0.70 }, s) else imgui.Text(s) end
+            end
+            if num and num ~= '' then
+                local w_u = tonumber((theme.measure_text(imgui, uw))) or 0
+                local w_n = tonumber((theme.measure_text(imgui, num))) or 0
+                local w_sp = tonumber((theme.measure_text(imgui, ' '))) or 4
+                local ux = R - w_u
+                put(math.max(vx, ux - w_sp - w_n), num)
+                imgui.SameLine(0, 0)
+                put(ux, uw)
+            else
+                local tw = tonumber((theme.measure_text(imgui, vtext))) or 0
+                put(math.max(vx, R - tw), vtext)
+            end
+            form.value_done = true
+        end
     end
-    if value_w > 8 then
-        local tw = tonumber(select(1, theme.measure_text(imgui, vtext))) or 0
+    if form and form.value_done then
+        -- 置いた
+    elseif value_w > 8 then
+        local tw = tonumber((theme.measure_text(imgui, vtext))) or 0
         local pad = math.max(0, value_w - tw)
         if pad > 0 and imgui.Dummy then
             pcall(imgui.Dummy, { pad, 1 })
             imgui.SameLine(0, 0)
         end
     end
-    if yuna then
-        imgui.TextColored({ 1, 1, 1, 0.70 }, vtext)
-    else
-        imgui.Text(vtext)
+    if not (form and form.value_done) then
+        if yuna then
+            imgui.TextColored({ 1, 1, 1, 0.70 }, vtext)
+        else
+            imgui.Text(vtext)
+        end
     end
     if form then form_end(imgui, form) end
 

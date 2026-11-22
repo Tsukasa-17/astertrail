@@ -35,7 +35,7 @@ end
 -- ボタン幅は文字＋余白。枠の幅や残り幅はいっぱい使わない（0.1.290〜）
 local BTN_MIN, BTN_MAX = 72, 200
 local function btn_w(imgui, lab)
-    local w = (tonumber(select(1, theme.measure_text(imgui, lab))) or 40) + 24
+    local w = (tonumber((theme.measure_text(imgui, lab))) or 40) + 24
     if w < BTN_MIN then w = BTN_MIN end
     if w > BTN_MAX then w = BTN_MAX end
     return w

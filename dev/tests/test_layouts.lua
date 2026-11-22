@@ -132,13 +132,13 @@ eq(S.fame.windurst.level, 1, 'fame not rolled back')
 eq(S.fame.sandoria, nil, 'fame from the snapshot not applied')
 eq(S.debug.state_buttons, false, 'debug not restored')
 
--- 設定の保存タブに並ぶ
+-- 0.1.304〜：設定の見た目タブに並ぶ（保存タブからうつした）
 app.open_window('settings')
-require('src.ui.settings_ui').select_tab('save')
+require('src.ui.settings_ui').select_tab('look')
 FAKE.texts, FAKE.labels = {}, {}
 frame(); frame()
-check(texted('マイレイアウト') or texted('My layouts'), 'heading')
-check(labeled('ⓘ##lay_info'), 'info button')
+check(texted('LAYOUTS'), 'heading')
+check(labeled('##info_settings/lay_save_1'), 'info mark')
 check(labeled('保存##lay_save_1') or labeled('Save##lay_save_1'), 'save button')
 check(labeled('読込##lay_load_1') or labeled('Load##lay_load_1'), 'load button')
 local function has(id)
@@ -146,7 +146,7 @@ local function has(id)
         if it.id == id then return it end
     end
 end
-check(has('lay_info') and has('lay_name_1') and has('lay_save_1') and has('lay_load_1'), 'items are in the pad list')
+check(has('lay_name_1') and has('lay_save_1') and has('lay_load_1'), 'items are in the pad list')
 check(has('lay_name_5') and has('lay_save_5') and has('lay_load_5'), 'all five slots')
 eq(has('lay_name_1').section, 'page', 'same section as other save rows')
 -- 空のスロットの読込は押せない

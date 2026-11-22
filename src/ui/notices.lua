@@ -1,5 +1,5 @@
 --[[
-  Astertrail - ログイン時の続き（エリア入場時の表示は 0.1.173 でなくした）と、受注・完了のお知らせ（0.1.183〜、t295）
+  Astertrail - 受注・完了のお知らせ（0.1.183〜、t295）。ログイン時の続きの窓は 0.1.303 でなくした
   自動で出るので、遊んでいるときはキーは奪わない（マウスのクリックはできる）。
   パッドは出ているあいだ使える（0.1.197〜）：十字キーでピンのボタンを選び、決定で押す、キャンセルで閉じる（0.1.226〜：左スティックでは動かさない）。
   閉じたあと（ボタン・キャンセル・時間切れ）は入力を全部離す（ゲームのボタンが押しっぱなしにならないように）。
@@ -15,46 +15,6 @@ local theme = require('src.ui.theme')
 local poss_ui = require('src.ui.possession_ui')
 
 local notices = {}
-
-function notices.draw_resume(ui, now)
-    local r = ui.state.resume
-    if not r then return end
-    if now >= r.hide_at and not r.hovered then ui.state.resume = nil; return end
-    local imgui, t = ui.imgui, ui.t
-    local q = ui.data:quest(r.quest)
-    if not q then ui.state.resume = nil; return end
-    local name = 'resume'
-    local drawing = window.begin(ui, name, { title = 'resume', no_title = true, no_focus = true, operable = false })
-    if drawing then
-        W.muted(ui, t('resume.title'))
-        local line, step = ui.progress:next_line(r.quest)
-        local terms = CT.step_terms(ui.data, step)
-        if step and line then
-            local poss_ex
-            line, poss_ex = poss_ui.apply_to_step(ui, step, line, q)
-            poss_ui.merge_terms(terms, poss_ex)
-        end
-        if W.row(ui, name, 'go', { { text = labels.qname(q), color = 'accent' }, { text = t('tracker.next', { text = line or '' }), terms = terms } },
-            { section = 'main', row = 'go', term_click = true, on_term = function (hit)
-                if hit and hit.act == 'copy' and ui.copy_to_clipboard then ui.copy_to_clipboard(hit.text) end
-            end, tip = function (act, piece)
-                if piece and piece.tip then return piece.tip end
-                if act == 'copy' then return t('tracker.copy_item') end
-            end }) then
-            ui.state.resume = nil
-            if ui.progress:is_pinned(r.quest) then
-                ui.show_tracker(r.quest)
-            else
-                ui.open_detail(r.quest, 'resume')
-            end
-        end
-        r.hovered = imgui.IsWindowHovered()
-        if W.button(ui, name, 'dismiss', t('common.close'), { section = 'main', row = 'x', small = true }) then
-            ui.state.resume = nil
-        end
-    end
-    window.finish(ui, name)
-end
 
 -- 受注・完了のお知らせ（先頭の 1 件だけ。ほかは待つ）。選ぶとふわっと消える。マウスを乗せている間・操作中は消えない
 -- 0.1.197〜：大きな見出し（影・輪郭・太字）、金色の名前、飾り線、半透明の地、ふわっと出る

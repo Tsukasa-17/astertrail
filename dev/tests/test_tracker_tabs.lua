@@ -71,7 +71,7 @@ check(labeled('×##hide'), '× back')
 app.open_window('settings'); frame()
 require('src.ui.settings_ui').select_tab('tracker'); frame(); frame()
 check(labeled('##tr_close') or labeled('tr_close'), 'settings: show close switch')
-check(labeled('出し方：一覧##tr_view'), 'settings: layout button (list)')
+check(labeled('一覧##tr_view'), 'settings: layout button (list)')
 local tabw = false
 for _, l in ipairs(FAKE.labels) do if l:find('tr_tabw', 1, true) then tabw = true end end
 check(tabw, 'settings: tab width stepper')

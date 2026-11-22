@@ -3,7 +3,7 @@ require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local W = require('src.ui.widgets')
 local theme = require('src.ui.theme')
@@ -88,6 +88,6 @@ check(labeled('本の文字') or seen('本の文字') or labeled('縁取りの�
 S.look = 'classic'
 theme.set_look('classic')
 app.close_all(); app.open_window('settings'); frame(); frame(); frame()
-check(labeled('くっきりフォント（テスト）') or seen('くっきりフォント'), 'classic settings labels unchanged')
+check(labeled('画面の文字をくっきり（メイリオ）'), 'classic uses the same settings rows (0.1.304)')
 
 print('test_sf_274 ok')

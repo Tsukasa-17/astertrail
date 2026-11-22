@@ -278,6 +278,8 @@ local function list_sig(ui, heading_id)
         tostring(r.complete),
         tostring(roe.days_since(ui.epoch_now and ui.epoch_now() or os.time())),
         tostring(r.unity and r.unity.shared or '') .. ':' .. tostring(r.unity and r.unity.week or '') .. ':' .. tostring(r.leader or ''),
+        -- 0.1.305〜：ゲームでまだ出ていない目標の組が替わったら（達成の表・行ったエリア）
+        tostring(r.gate_key or ''),
     }
     -- 受けている id と進みも署名へ（件数が同じでも中身が変わったら組み直す）
     if r.active then

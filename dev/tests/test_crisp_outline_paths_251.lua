@@ -64,8 +64,6 @@ end)(), ','), 'button', 'SmallButton is not hooked')
 
 outline.enter(ui, 'popup')
 eq(outline.active(), true, 'popup uses the same outline')
-outline.enter(ui, 'resume')
-eq(outline.active(), true, 'resume uses the same outline')
 outline.enter({ imgui = hook_im, _crisp_pushed = true, settings = ui.settings }, 'map')
 eq(outline.active(), false, 'map stays without body outline (grid letters)')
 outline.leave()

@@ -64,7 +64,7 @@ W.tooltip = saved_tooltip
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 FAKE.player = { name = 'Info299', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
@@ -79,10 +79,12 @@ for _, x in ipairs(FAKE.texts) do
 end
 -- 説明の行は出さず、i の説明へ（DISPLAY の対象名の説明・トラッカーの★の説明）
 require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
+require('src.ui.settings_ui').select_tab('input'); frame(); frame()
 check(texted('イベント中に隠す') and texted('メニューを開いたときに隠す'), 'clear scene labels (astral)')
 check(not texted('「クエストの対象名」はクエストに関わる'), 'names help is not a text line')
 check(not texted('オンの場面では'), 'hide scenes help is not a text line (astral)')
--- 1.1.300：POSITION のスライダーは箱で同じ幅（テストの窓は狭いので最小 120 より小さくなる）
+require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
+-- 0.1.300：POSITION のスライダーは箱で同じ幅（テストの窓は狭いので最小 120 より小さくなる）
 do
     local ig = package.loaded['imgui']
     local sw0, sl0 = ig.SetNextItemWidth, ig.SliderFloat
@@ -126,10 +128,13 @@ do
     eq(rules['marks_label_color'], false, 'label color: first row after the sample (subhead)')
     eq(rules['marks_label_grad'], false, 'no line between 色 and グラデーション')
     eq(rules['marks_label_color2'], false, 'no line before 終わりの色')
-    eq(rules['marks_label_bg_color'], true, 'line between the two groups')
+    -- 0.1.301〜：背景の濃さは背景のまとまりの先頭（線はその前だけ）
+    eq(rules['marks_label_bg_alpha'], true, 'line between the two groups (before 背景の濃さ)')
+    eq(rules['marks_label_bg_color'], false, 'no line between 背景の濃さ and 背景色')
     eq(rules['marks_label_bg_grad'], false, 'no line inside the background group')
     eq(rules['marks_label_bg_color2'], false, 'no line before 背景の終わりの色')
-    eq(rules['marks_label_bg_alpha'], true, '背景の濃さ is its own row')
+    S.marks.obj_bg_grad = true
+    eq(rules['marks_obj_bg_alpha'] ~= false, true, 'object: density opens its bg group')
     eq(rules['marks_label_stroke_alpha'], false, 'stroke group')
     eq(rules['marks_ring_main'] ~= nil and rules['marks_ring_progress'], false, 'ring colors: no lines inside')
 end
@@ -142,11 +147,11 @@ app.close_all(); frame()
 -- クラシック：わかりやすい名前（説明の文はそのまま）
 S.look = 'classic'; require('src.ui.theme').set_look('classic')
 app.open_window('settings'); frame()
-require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
+require('src.ui.settings_ui').select_tab('input'); frame(); frame()
 check(texted('イベント中に隠す') or labeled('イベント中に隠す'), 'classic scene label')
 app.close_all(); frame()
 
--- 1.1.300：説明のツールチップは設定の本文と同じ大きさで、折り返す
+-- 0.1.300：説明のツールチップは設定の本文と同じ大きさで、折り返す
 do
     eq(W.tooltip_wrap_w(16, 400), 224, 'narrow window: at least 14 chars')
     eq(W.tooltip_wrap_w(16, 1000), 400, '40% of the window')

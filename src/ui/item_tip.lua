@@ -1470,7 +1470,7 @@ local function draw_wrapped(imgui, col, text)
 end
 
 -- すでにホバー中のときだけ描く（呼び出し側が IsItemHovered を見る）
-function M.draw(ui, info)
+local function draw_tip(ui, info)
     if not info or not ui or not ui.imgui then return false end
     local imgui = ui.imgui
     local lines = M.lines(ui, info)
@@ -1530,6 +1530,16 @@ function M.draw(ui, info)
     pop_style()
     if not ok then return text_only() end
     return true
+end
+
+-- 行をまとめて描いている途中（トラッカーの1行など）でも、ツールチップの文字はツールチップに描く（0.1.307〜）
+function M.draw(ui, info)
+    local outline = package.loaded['src.ui.crisp_outline']
+    local q = outline and outline.pause_line and outline.pause_line() or nil
+    local ok, r = pcall(draw_tip, ui, info)
+    if outline and outline.resume_line then outline.resume_line(q) end
+    if not ok then error(r) end
+    return r
 end
 
 -- 番号が無いときは、資料の名前表から公式名で補う（推測はしない。ちょうど一致だけ）

@@ -34,7 +34,6 @@ local CATS = {
     { key = 'tracker', ja = 'トラッカー' },
     { key = 'map',     ja = '地図' },
     { key = 'marks',   ja = 'アイコン' },
-    { key = 'notify',  ja = 'お知らせ' },
     { key = 'input',   ja = '操作' },
     { key = 'save',    ja = '保存' },
 }
@@ -84,6 +83,51 @@ local function dl_of(imgui)
         if ok then return d end
     end
     return nil
+end
+
+-- 0.1.304〜：クラシック・YunaUI もこの設定画面の並び（名前は左、操作は右の列、行の間の線、i の説明）を使う。
+-- 枠・見出し・左の選択の見た目だけテーマごと（アストラルは角を切ったシアンの枠と Melete の英字見出し）
+local function astral()
+    return theme.is_sf and theme.is_sf() or false
+end
+
+local function skin_rect(dl, x1, y1, x2, y2, fill_a, line_a, fill_key, line_key)
+    if not dl then return end
+    local rnd = (theme.look == 'yunaui') and 6 or 3
+    if fill_a and fill_a > 0 and dl.AddRectFilled then
+        pcall(dl.AddRectFilled, dl, { x1, y1 }, { x2, y2 }, theme.u32(fill_key or 'border', fill_a), rnd)
+    end
+    if line_a and line_a > 0 and dl.AddRect then
+        pcall(dl.AddRect, dl, { x1, y1 }, { x2, y2 }, theme.u32(line_key or 'border', line_a), rnd, 0, 1)
+    end
+end
+
+-- 箱の枠（塗り＋線）。fill_only=false のときは線だけ描き直す
+local function box_frame(dl, x1, y1, x2, y2, fill)
+    if astral() then
+        sf.frame(dl, x1, y1, x2, y2, {
+            cut = 6, fill_a = fill and 0.14 or 0, line_a = 0.78,
+            line = theme.u32('sf_cyan', 0.85),
+            brackets = false, glow = 0, thick = 1.25, band = false,
+        })
+    elseif theme.look == 'yunaui' then
+        skin_rect(dl, x1, y1, x2, y2, fill and 0.04 or 0, 0.16, 'border', 'border')
+    else
+        skin_rect(dl, x1, y1, x2, y2, fill and 0.10 or 0, 0.55, 'frame', 'accent')
+    end
+end
+
+-- 箱の見出し。アストラルは Melete の英字、ほかはふつうの文字でテーマの見出しの色。高さを返す
+local function box_heading(ui, imgui, x, y, title, max_w)
+    if astral() then
+        local _, hh = sf.add_heading(imgui, x, y, theme.u32('sf_cyan', 1.0), title, 'label', { max_w = max_w })
+        return hh
+    end
+    local h = select(2, theme.measure_text(imgui, title)) or 16
+    sf.text_at(imgui, x, y, function ()
+        theme.TextColored(imgui, theme.col(theme.look == 'yunaui' and 'lavender' or 'heading'), title)
+    end)
+    return h
 end
 
 local function avail(imgui)
@@ -144,17 +188,6 @@ function ICONS.marks(dl, x, y, r, col)
         dl:AddLine({ x + r * 0.72, y + r * 0.70 }, { x + r * 0.38, y + r * 0.26 }, col, 1.2)
     end)
 end
-function ICONS.notify(dl, x, y, r, col)
-    -- ベル
-    pcall(function ()
-        dl:AddLine({ x - r * 0.45, y + r * 0.15 }, { x - r * 0.45, y - r * 0.05 }, col, 1.5)
-        dl:AddLine({ x + r * 0.45, y + r * 0.15 }, { x + r * 0.45, y - r * 0.05 }, col, 1.5)
-        dl:AddLine({ x - r * 0.45, y - r * 0.05 }, { x, y - r * 0.85 }, col, 1.5)
-        dl:AddLine({ x + r * 0.45, y - r * 0.05 }, { x, y - r * 0.85 }, col, 1.5)
-        dl:AddLine({ x - r * 0.55, y + r * 0.15 }, { x + r * 0.55, y + r * 0.15 }, col, 1.5)
-        dl:AddCircle({ x, y + r * 0.42 }, r * 0.14, col, 8, 1.4)
-    end)
-end
 function ICONS.input(dl, x, y, r, col)
     -- マウス（操作）
     pcall(function ()
@@ -176,6 +209,8 @@ end
 local function cat_key(raw)
     if raw == 'eminence' then return 'tracker' end
     if raw == 'about' then return 'save' end
+    -- 0.1.304〜：お知らせの分類はなくし、中身は見た目へ
+    if raw == 'notify' then return 'look' end
     for _, c in ipairs(CATS) do
         if c.key == raw then return raw end
     end
@@ -184,7 +219,7 @@ end
 
 local function form_note(ui, label)
     if not form then return end
-    local tw = tonumber(select(1, theme.measure_text(ui.imgui, tostring(label or '')))) or 0
+    local tw = tonumber((theme.measure_text(ui.imgui, tostring(label or '')))) or 0
     if tw > (form.measured or 0) then form.measured = tw end
 end
 
@@ -257,7 +292,7 @@ local function stepper(ui, name, id, label, tbl, key, step, lo, hi, text, defaul
     -- 0.1.300〜：次のフレームのスライダーの幅のために、名前の幅（i の印も）とスライダー以外の操作の幅を覚える
     if form and form.slider_w then
         local imgui = ui.imgui
-        local tw = tonumber(select(1, theme.measure_text(imgui, tostring(label or '')))) or 0
+        local tw = tonumber((theme.measure_text(imgui, tostring(label or '')))) or 0
         if info and info ~= '' then tw = tw + W.info_mark_size(imgui) + 6 end
         if tw > (form.step_lab or 0) then form.step_lab = tw end
         local cw = tonumber(W._ctrl_w_cache[name .. '/' .. id])
@@ -315,7 +350,7 @@ local function button(ui, win, id, label, opts)
         end
         local o = {}
         for k, v in pairs(opts) do o[k] = v end
-        local tw = (tonumber(select(1, theme.measure_text(imgui, tostring(label or '')))) or 0) + 16
+        local tw = (tonumber((theme.measure_text(imgui, tostring(label or '')))) or 0) + 16
         local cap = form.control_w or panel_inner_w
         if cap and tw > cap then o.width = cap end
         opts = o
@@ -359,7 +394,7 @@ local function choice(ui, win, id, label, value, opts)
     value = tostring(value or '')
     if form and form.label_w and panel_inner_w and panel_inner_w > 40 and W._form_start then
         local fo = form_opts({ info = opts.info })
-        local tw = tonumber(select(1, theme.measure_text(imgui, value))) or 0
+        local tw = tonumber((theme.measure_text(imgui, value))) or 0
         local row = W._form_start(ui, imgui, label, fo, win .. '/' .. id, tw + 18 + (opts.extra_w or 0))
         if row then
             local hit = W.button(ui, win, id, value, {
@@ -398,14 +433,10 @@ local function panel(ui, id, title, pw, fn)
     local pad = 10
     local guessed = panel_h[id] or 90
     local dl = dl_of(imgui)
-    sf.frame(dl, x, y, x + pw, y + guessed, {
-        cut = 6, fill_a = 0.14, line_a = 0.78,
-        line = theme.u32('sf_cyan', 0.85),
-        brackets = false, glow = 0, thick = 1.25, band = false,
-    })
-    heading_font(ui, win, true)
-    local _, hh = sf.add_heading(imgui, x + pad, y + 5, theme.u32('sf_cyan', 1.0), title, 'label', { max_w = pw - pad * 2 })
-    heading_font(ui, win, false)
+    box_frame(dl, x, y, x + pw, y + guessed, true)
+    if astral() then heading_font(ui, win, true) end
+    local hh = box_heading(ui, imgui, x + pad, y + 5, title, pw - pad * 2)
+    if astral() then heading_font(ui, win, false) end
     -- 見出しの実高さを確保して、説明文や次の見出しと重ねない
     local title_block = math.max(22, (tonumber(hh) or 18) + 8)
     sf.set_cursor(imgui, x + pad, y + pad + title_block)
@@ -427,7 +458,7 @@ local function panel(ui, id, title, pw, fn)
             if type(u) == 'string' and u ~= k then samples[#samples + 1] = '100 ' .. u end
         end
         for _, smp in ipairs(samples) do
-            local w = tonumber(select(1, theme.measure_text(imgui, smp))) or 0
+            local w = tonumber((theme.measure_text(imgui, smp))) or 0
             if w + 4 > value_w then value_w = math.ceil(w + 4) end
         end
     end
@@ -494,11 +525,7 @@ local function panel(ui, id, title, pw, fn)
     panel_h[id] = h
     -- 高さが前フレームと違うとき、枠線だけ正しい大きさで描き直す（塗りは文字の上に重ねない）
     if math.abs(h - guessed) > 1 then
-        sf.frame(dl, x, y, x + pw, y + h, {
-            cut = 6, fill_a = 0, line_a = 0.78,
-            line = theme.u32('sf_cyan', 0.85),
-            brackets = false, glow = 0, thick = 1.25, band = false,
-        })
+        box_frame(dl, x, y, x + pw, y + h, false)
     end
     sf.set_cursor(imgui, x, y + h)
     if imgui.Dummy then pcall(imgui.Dummy, { pw, 1 }) end
@@ -507,7 +534,7 @@ end
 
 -- ========== カテゴリ中身 ==========
 
-local function draw_look(ui, name)
+local function draw_look_base(ui, name)
     local t, S = ui.t, ui.settings
     -- GENERAL
     -- THEME / TYPE / WINDOWS / FONT
@@ -674,6 +701,10 @@ local function draw_tracker(ui, name)
         { id = 'tr_eminence', title = 'EMINENCE', draw = function ()
             toggle(ui, name, 'roe_fold', tkey(ui, 'sf.set.roe_collapsed', '★を付けたものだけ出す'), S.eminence, 'collapsed')
             -- 0.1.294〜：サーバーに入っていないと分かっているものに未実装の札（初期オン）
+            -- 0.1.305〜：ゲームの目標一覧にまだ出ていない目標を隠す
+            if S.eminence.game_gate == nil then S.eminence.game_gate = true end
+            toggle(ui, name, 'roe_game_gate', tkey(ui, 'sf.set.roe_game_gate', 'ゲームでまだ出ていない目標を隠す'), S.eminence, 'game_gate',
+                tkey(ui, 'sf.set.roe_game_gate_help', 'ゲームの目標一覧と同じに、まだ出ていない目標を隠します。'))
             if S.eminence.known_unimpl == nil then S.eminence.known_unimpl = true end
             toggle(ui, name, 'roe_known_unimpl', tkey(ui, 'sf.set.roe_known_unimpl', '未実装の札を自動でつける'), S.eminence, 'known_unimpl',
                 tkey(ui, 'sf.set.roe_known_unimpl_help', 'LSBで未実装のエミネンスに未実装の札をつけます。サーバーが独自に実装している場合もあります。'))
@@ -707,11 +738,11 @@ local function color_row(ui, name, id, label, tbl, key, def, opts)
 end
 
 -- 0.1.299〜：色の行は「色・グラデーション・終わりの色」と「背景色・背景グラデーション・背景の終わりの色」を
--- それぞれ 1 つのまとまりにして（中は線なし）、「背景の濃さ」はそのすぐ下に 1 行で置く
+-- それぞれ 1 つのまとまりにして（中は線なし）。0.1.301〜「背景の濃さ」は背景のまとまりの先頭
 local function color_main(ui, name, which, sample)
     local S, t = ui.settings, ui.t
     local M, DM = S.marks, DEF.marks
-    subhead(ui, tkey(ui, 'sf.set.color_' .. which, which == 'label' and 'クエスト名' or 'クエストの対象名'))
+    subhead(ui, tkey(ui, 'sf.set.color_' .. which, which == 'label' and 'クエスト名' or 'オブジェクト（クエスト対象名を含む）'))
     local c1, c2 = settings_mod.text_colors(M, which)
     W.color_preview(ui, sample, c1, c2)
     group(function ()
@@ -728,7 +759,12 @@ local function color_main(ui, name, which, sample)
                 })
         end
     end)
+    -- 0.1.301〜：「背景の濃さ」は背景のまとまりの先頭（背景色・背景グラデーション・背景の終わりの色と一緒、中は線なし）
+    local bg_key = which .. '_bg_alpha'
+    if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
     group(function ()
+        stepper(ui, name, 'marks_' .. bg_key, tkey(ui, 'sf.set.' .. bg_key, '背景の濃さ'),
+            M, bg_key, 0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX, UNIT.pct, DM[bg_key])
         color_row(ui, name, 'marks_' .. which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'),
             M, which .. '_bg_color', DM[which .. '_bg_color'], {
                 section = SEC, row = 'marks_' .. which .. '_bg_color', tooltip_reset = t('settings.reset_default'),
@@ -741,10 +777,6 @@ local function color_main(ui, name, which, sample)
                 })
         end
     end)
-    local bg_key = which .. '_bg_alpha'
-    if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
-    stepper(ui, name, 'marks_' .. bg_key, tkey(ui, 'sf.set.' .. bg_key, '背景の濃さ'),
-        M, bg_key, 0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX, UNIT.pct, DM[bg_key])
 end
 
 local function color_detail(ui, name, which)
@@ -779,18 +811,23 @@ local function draw_marks(ui, name)
             toggle(ui, name, 'marks_icons', tkey(ui, 'sf.set.marks_show_icons', 'アイコンを表示する'), S.marks, 'show_icons')
             toggle(ui, name, 'marks_quest', tkey(ui, 'sf.set.marks_show_quest_name', 'クエスト名を表示する'), S.marks, 'show_quest_name')
             -- 0.1.299〜：DISPLAY の説明は、対象名と近くのオブジェクト名の行の i に
-            local names_help = tkey(ui, 'sf.set.marks_names_help', '「クエストの対象名」はクエストに関わる ??? など。「近くのオブジェクト名」は 30 ヤルム以内の名前で、アイコンは付けません。')
+            -- 0.1.302〜：近くのオブジェクト名の距離は設定（説明の数もそれに合わせる）
+            -- 0.1.306〜：説明は 2 行（1 行目：クエストの対象名、2 行目：近くのオブジェクト名）
+            local near_r = settings_mod.nearby_radius(S.marks)
+            local names_help = tkey(ui, 'sf.set.marks_names_help', '「クエストの対象名」はクエストに関わる ??? など。\n「近くのオブジェクト名」は {d} ヤルム以内の名前で、アイコンは付けません。', { d = near_r }):gsub('{d}', tostring(near_r))
             toggle(ui, name, 'marks_objects', tkey(ui, 'sf.set.marks_show_object_names', 'クエストの対象名を表示する'), S.marks, 'show_object_names', names_help)
-            toggle(ui, name, 'marks_nearby', tkey(ui, 'sf.set.marks_show_nearby', '近くのオブジェクト名を表示する'), S.marks, 'show_nearby_names', names_help)
+            group(function ()
+                toggle(ui, name, 'marks_nearby', tkey(ui, 'sf.set.marks_show_nearby', '近くのオブジェクト名を表示する'), S.marks, 'show_nearby_names', names_help)
+                if S.marks.show_nearby_names then
+                    if type(S.marks.nearby_radius) ~= 'number' then S.marks.nearby_radius = settings_mod.NEARBY_RADIUS_DEFAULT end
+                    stepper(ui, name, 'marks_nearby_radius', t('settings.marks_nearby_radius'), S.marks, 'nearby_radius', 1,
+                        settings_mod.NEARBY_RADIUS_MIN, settings_mod.NEARBY_RADIUS_MAX, unit(t('settings.unit_yalms')),
+                        DEF.marks.nearby_radius, t('settings.marks_nearby_radius_tip', { d = near_r }))
+                end
+            end)
             toggle(ui, name, 'marks_fame', tkey(ui, 'sf.set.marks_show_fame', '名声を教える人のアイコン'), S.marks, 'show_fame_npcs')
             stepper(ui, name, 'marks_icon', tkey(ui, 'sf.set.marks_icon_size', 'アイコンの大きさ'),
                 S.marks, 'icon_size', 4, 16, 64, UNIT.px, DEF.marks.icon_size)
-            -- 隠す場面（0.1.296〜。前は RINGS の「イベント中はリングや名前を消す」）
-            require('src.ui.hide_scenes_ui').draw(ui, name, {
-                -- 0.1.299〜：まとめの説明は「イベント中に隠す」の i に足す（文の行は出さない）
-                toggle = toggle, subhead = subhead, section = SEC, help_into_first = true,
-                width = (panel_inner_w and panel_inner_w > 8) and panel_inner_w or nil,
-            })
         end },
         { id = 'mk_position', title = 'POSITION', draw = function ()
             local lo, hi, st = settings_mod.OFFSET_MIN, settings_mod.OFFSET_MAX, settings_mod.OFFSET_STEP
@@ -860,13 +897,7 @@ local function draw_notify(ui, name)
     local t, S = ui.t, ui.settings
     local N = S.notify
     return {
-        { id = 'nt_login', title = 'LOGIN', draw = function ()
-            group(function ()
-                toggle(ui, name, 'n_login', tkey(ui, 'sf.set.login_resume', 'ログイン時の続き'), N, 'login_resume')
-                stepper(ui, name, 'n_login_s', tkey(ui, 'sf.set.login_resume_seconds', '続きの表示秒数'),
-                    N, 'login_resume_seconds', 1, 3, 60, unit(t('settings.unit_sec')), DEF.notify.login_resume_seconds)
-            end)
-        end },
+        -- LOGIN（ログイン時の続き・表示秒数・テスト）は 0.1.303 でなくした
         { id = 'nt_popup', title = 'POPUP', draw = function ()
             group(function ()
                 toggle(ui, name, 'n_popup', tkey(ui, 'sf.set.popup', '受注・完了のお知らせ'), N, 'popup')
@@ -914,7 +945,7 @@ local function draw_input(ui, name)
         { id = 'in_pad', title = 'GAMEPAD', draw = function ()
             -- 0.1.299〜：説明とパッドの読み取りの様子は、この行の i に
             toggle(ui, name, 'pad', tkey(ui, 'sf.set.gamepad', 'パッドで画面を操作'), S.input, 'gamepad',
-                tkey(ui, 'sf.set.gamepad_help', 'このテーマの設定画面はマウスで操作します。パッドはほかの画面で使えます。')
+                tkey(ui, 'sf.set.gamepad_help', 'パッドで本・設定・トラッカーなどを操作します。設定の分類は L1／R1 で替えます。')
                 .. '\n' .. t('settings.pad_state', { v = caps.gamepad_note or '?' }))
             stepper(ui, name, 'repeat', tkey(ui, 'sf.set.repeat_ms', '押し続けの間隔（ミリ秒）'),
                 S.input, 'repeat_ms', 20, 60, 1000, unit('ms'), DEF.input.repeat_ms)
@@ -961,13 +992,31 @@ local function draw_input(ui, name)
                     end
                 end
             end
-            toggle(ui, name, 'sc_pass', tkey(ui, 'sf.set.shortcut_pass', 'ショートカット操作中は、そのボタンをゲームに送らない'), S.shortcut, 'pass_to_game')
+            -- 0.1.304〜：ショートカットの説明とパッドの読み取りの様子は、この行の i に（クラシックの説明の行から）
+            local src = caps.pad_source
+            local sv = t('settings.shortcut_src_' .. ((src == 'state' or src == 'button' or src == 'dinput') and src or 'none'))
+            toggle(ui, name, 'sc_pass', tkey(ui, 'sf.set.shortcut_pass', 'ショートカット操作中は、そのボタンをゲームに送らない'), S.shortcut, 'pass_to_game',
+                table.concat({ t('settings.shortcut_note'), t('settings.shortcut_tracker_note'), t('settings.shortcut_windows_note'),
+                    t('settings.shortcut_state', { v = sv }) }, '\n'))
         end },
         { id = 'in_gameui', title = 'GAME UI', draw = function ()
             toggle(ui, name, 'g_mission', t('settings.gameui_mission_book'), S.gameui, 'mission_book')
             toggle(ui, name, 'g_config', t('settings.gameui_config_button'), S.gameui, 'config_button')
             toggle(ui, name, 'g_capture', t('settings.gameui_capture'), S.gameui, 'capture')
             toggle(ui, name, 'g_ontop', t('settings.gameui_menus_on_top'), S.gameui, 'menus_on_top')
+            -- 0.1.301〜：メニューと重なったとき（隠す／メニューの後ろに出す）
+            local ov = (S.gameui.menu_overlap == 'behind') and 'behind' or 'hide'
+            if choice(ui, name, 'g_overlap', t('settings.menu_overlap'), t('settings.menu_overlap_' .. ov),
+                { info = t('settings.menu_overlap_tip') }) then
+                S.gameui.menu_overlap = (ov == 'hide') and 'behind' or 'hide'
+                ui.mark_settings_dirty()
+            end
+            -- 隠す場面（0.1.296〜。0.1.308〜はアイコンの DISPLAY から、メニューと重なったときの下へ）
+            require('src.ui.hide_scenes_ui').draw(ui, name, {
+                -- 0.1.299〜：まとめの説明は「イベント中に隠す」の i に足す（文の行は出さない）
+                toggle = toggle, subhead = subhead, section = SEC, help_into_first = true,
+                width = (panel_inner_w and panel_inner_w > 8) and panel_inner_w or nil,
+            })
         end },
     }
 end
@@ -1045,9 +1094,28 @@ local function draw_save(ui, name)
     }
 end
 
+-- 0.1.304〜：見た目に、お知らせ（POPUP・UPDATES）とマイレイアウト（LAYOUTS）もまとめる。お知らせの分類はなくした
+local function draw_look(ui, name)
+    local out = {}
+    for _, sp in ipairs(draw_look_base(ui, name)) do out[#out + 1] = sp end
+    for _, sp in ipairs(draw_notify(ui, name)) do out[#out + 1] = sp end
+    for _, sp in ipairs(draw_save(ui, name, true)) do
+        if sp.id == 'sv_layouts' then out[#out + 1] = sp end
+    end
+    return out
+end
+
+local function draw_save_only(ui, name)
+    local out = {}
+    for _, sp in ipairs(draw_save(ui, name)) do
+        if sp.id ~= 'sv_layouts' then out[#out + 1] = sp end
+    end
+    return out
+end
+
 local DRAWERS = {
     look = draw_look, layout = draw_layout, tracker = draw_tracker, map = draw_map,
-    marks = draw_marks, notify = draw_notify, input = draw_input, save = draw_save,
+    marks = draw_marks, input = draw_input, save = draw_save_only,
 }
 
 -- ========== 窓の組み立て（0.1.300〜：右のプレビューはやめた。中央の箱が幅を使う） ==========
@@ -1067,7 +1135,11 @@ local function begin_pane(ui, id, w, h, flags, pad)
         end
     end
     local ok = pcall(imgui.BeginChild, id, { w, h }, 0, flags or 0)
-    if ok then window.push(ui, 'child') end
+    if ok then
+        window.push(ui, 'child')
+        -- 0.1.304〜：本の中に出すときも設定の文字サイズ（「その他」）で描く
+        window.set_font(ui, window.font_scale(ui, 'settings'), {})
+    end
     return ok, nvar
 end
 
@@ -1090,10 +1162,14 @@ local function draw_nav(ui, name, cat, nw, nh)
         sf.set_cursor(imgui, x, y1)
         local hit = sf.hit(imgui, '##' .. id, nw - 4, row_h - 4)
         if on then
-            sf.frame(dl, x, y1, x + nw - 4, y1 + row_h - 4, {
-                cut = 4, fill_a = 0.40, line_a = 0.95, line = theme.u32('sf_cyan', 1.0),
-                brackets = false, glow = 0, thick = 1.3, band = false,
-            })
+            if astral() then
+                sf.frame(dl, x, y1, x + nw - 4, y1 + row_h - 4, {
+                    cut = 4, fill_a = 0.40, line_a = 0.95, line = theme.u32('sf_cyan', 1.0),
+                    brackets = false, glow = 0, thick = 1.3, band = false,
+                })
+            else
+                skin_rect(dl, x, y1, x + nw - 4, y1 + row_h - 4, 0.30, 0.70, 'select', theme.look == 'yunaui' and 'lavender' or 'accent')
+            end
         end
         local col = theme.u32(on and 'heading' or 'muted', 1)
         local icon = ICONS[c.key]
@@ -1141,6 +1217,17 @@ function M.body(ui)
     local name = 'settings'
     if not imgui then return end
 
+    -- 0.1.304〜：キー・パッドの選択の並びを毎フレーム作り直す（前は作っておらず、
+    -- アストラルの設定ではキー・パッドで行を動けず、開いたときの選択も無かった）
+    focus.begin(name)
+    -- 開いたとき・分類を替えたとき（LB/RB）は中身の最初の項目を選ぶ
+    local want_first = settings_ui.take_focus_first and settings_ui.take_focus_first()
+    -- 0.1.304〜：左の分類を LB/RB（R1 など）で替えられるように並びを渡す（前はアストラルで替わらなかった）
+    if settings_ui.set_tab_keys then
+        local keys = {}
+        for i, c in ipairs(CATS) do keys[i] = c.key end
+        settings_ui.set_tab_keys(keys)
+    end
     local cat = cat_key(settings_ui.current_tab())
     if settings_ui.current_tab() ~= cat then settings_ui.select_tab(cat) end
 
@@ -1150,13 +1237,22 @@ function M.body(ui)
     hx, hy = hx or 0, hy or 0
 
     -- ヘッダー：ASTERTRAIL  SETTINGS
-    heading_font(ui, name, true)
     local logo = 'ASTERTRAIL'
     local sub = 'SETTINGS'
-    local lw = select(1, sf.measure_heading(imgui, logo, 'title')) or 120
-    sf.add_heading(imgui, hx + 4, hy + 2, theme.u32('heading', 1.0), logo, 'title')
-    sf.add_heading(imgui, hx + 4 + lw + 16, hy + 2, theme.u32('sf_cyan', 1.0), sub, 'title')
-    heading_font(ui, name, false)
+    if astral() then
+        heading_font(ui, name, true)
+        local lw = select(1, sf.measure_heading(imgui, logo, 'title')) or 120
+        sf.add_heading(imgui, hx + 4, hy + 2, theme.u32('heading', 1.0), logo, 'title')
+        sf.add_heading(imgui, hx + 4 + lw + 16, hy + 2, theme.u32('sf_cyan', 1.0), sub, 'title')
+        heading_font(ui, name, false)
+    else
+        -- クラシック・YunaUI：テーマの見出しの色で「設定」
+        local head = t('settings.title')
+        if type(head) ~= 'string' or head == 'settings.title' then head = 'Astertrail ' .. sub end
+        sf.text_at(imgui, hx + 4, hy + 6, function ()
+            theme.TextColored(imgui, theme.col(theme.look == 'yunaui' and 'lavender' or 'heading'), head)
+        end)
+    end
     local header_h = 36
     local nav_w = 148
     local gap = 10
@@ -1199,7 +1295,12 @@ function M.body(ui)
     st.measured = 0
     form_cat[cat] = st
     form = { shared = st.used or 0, cat = cat, measured = 0 }
+    local mark0 = focus.mark and focus.mark(name) or nil
     pack_panels(ui, name, specs, select(1, avail(imgui)) or center_w, cols)
+    if (want_first or focus.current(name) == nil) and mark0 and focus.id_at then
+        local first = focus.id_at(name, mark0 + 1)
+        if first then focus.set(name, first, true) end
+    end
     st = form_cat[cat] or st
     if (st.measured or 0) > 0 then st.used = st.measured end
     form = nil
@@ -1212,9 +1313,9 @@ function M.body(ui)
     local hint = tkey(ui, 'sf.set.footer_hint', 'クリックで選ぶ　　Esc で閉じる')
     local close_lab = tkey(ui, 'sf.set.back', '戻る')
     local fw = select(1, avail(imgui)) or 200
-    local ver_w = tonumber(select(1, theme.measure_text(imgui, ver))) or 0
-    local hint_w = tonumber(select(1, theme.measure_text(imgui, hint))) or 0
-    local btn_w = (tonumber(select(1, theme.measure_text(imgui, close_lab))) or 40) + 24
+    local ver_w = tonumber((theme.measure_text(imgui, ver))) or 0
+    local hint_w = tonumber((theme.measure_text(imgui, hint))) or 0
+    local btn_w = (tonumber((theme.measure_text(imgui, close_lab))) or 40) + 24
     -- 狭いときは版を折り返し、案内は次の行へ（はみ出さない）
     if fw > 40 and (ver_w + 16 + btn_w + 12 + hint_w) > fw then
         CT.wrapped(ui, ver, 'muted', nil, fw)

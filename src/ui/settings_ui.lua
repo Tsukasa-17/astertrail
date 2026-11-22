@@ -145,6 +145,20 @@ function settings_ui.select_tab(key)
     current_tab = key
 end
 
+-- 0.1.304〜：設定の画面（settings_sf）が左の分類の並びを渡す。LB/RB（R1 など）でタブを替えられるように
+-- 0.1.304〜：分類を替えたあと最初の項目を選ぶか（一度だけ true）
+function settings_ui.take_focus_first()
+    local f = focus_first
+    focus_first = false
+    return f
+end
+
+function settings_ui.set_tab_keys(keys)
+    tab_keys = {}
+    for i, k in ipairs(keys or {}) do tab_keys[i] = k end
+    tabs_seen = #tab_keys > 0
+end
+
 function settings_ui._reset_tabs() current_tab, focus_first, tab_keys, tabs_seen = nil, false, {}, false end
 
 -- 折りたたみ見出し（0.1.239〜）。初期はすべて開く。settings_folds[id] == true がたたんだ状態。
@@ -276,9 +290,11 @@ end
 
 -- 本の中（一覧と詳細の場所）に設定を描く（0.1.175〜。本の book.draw から呼ぶ）
 function settings_ui.body(ui)
-    -- SF は専用の設定画面（0.1.270〜）。クラシック／YunaUI はこのまま。
-    if theme.is_sf and theme.is_sf() then
-        return require('src.ui.settings_sf').body(ui)
+    -- 0.1.304〜：どのテーマもアストラルと同じ並びの設定画面（settings_sf.body）。枠・色はテーマごと。
+    -- 下の古い組み立て（折りたたみの見出しで並べる形）は、settings_sf が使えないときだけの控え
+    do
+        local ok_sf, sfmod = pcall(require, 'src.ui.settings_sf')
+        if ok_sf and sfmod and sfmod.body then return sfmod.body(ui) end
     end
     local imgui, t, S = ui.imgui, ui.t, ui.settings
     local name = 'settings'
@@ -442,17 +458,21 @@ function settings_ui.body(ui)
         toggle(ui, name, 'marks_quest', t('settings.marks_show_quest_name'), S.marks, 'show_quest_name', SEC)
         toggle(ui, name, 'marks_objects', t('settings.marks_show_object_names'), S.marks, 'show_object_names', SEC)
         toggle(ui, name, 'marks_nearby', t('settings.marks_show_nearby'), S.marks, 'show_nearby_names', SEC)
+        -- 0.1.302〜：近くのオブジェクト名の距離（5〜50 ヤルム）。オンのときだけ
+        if S.marks.show_nearby_names then
+            if type(S.marks.nearby_radius) ~= 'number' then S.marks.nearby_radius = settings_mod.NEARBY_RADIUS_DEFAULT end
+            stepper(ui, name, 'marks_nearby_radius', t('settings.marks_nearby_radius'), S.marks, 'nearby_radius', 1,
+                settings_mod.NEARBY_RADIUS_MIN, settings_mod.NEARBY_RADIUS_MAX, unit(t('settings.unit_yalms')), SEC, DEF.marks.nearby_radius)
+            -- 説明（乗せる・パッドで選ぶ）
+            local hov = ui.imgui.IsItemHovered and ui.imgui.IsItemHovered()
+            if hov or (focus.current(name) == 'marks_nearby_radius' and focus.why(name) ~= 'hover') then
+                W.tooltip(ui, t('settings.marks_nearby_radius_tip', { d = settings_mod.nearby_radius(S.marks) }))
+            end
+        end
         -- 名声を教えてくれる人のアイコン（0.1.69〜）。アイコンを表示するがオンのときだけ出る
         toggle(ui, name, 'marks_fame', t('settings.marks_show_fame'), S.marks, 'show_fame_npcs', SEC)
-        W.muted(ui, t('settings.marks_switches_note'))
+        W.muted(ui, t('settings.marks_switches_note', { d = settings_mod.nearby_radius(S.marks) }))
         stepper(ui, name, 'marks_icon', t('settings.marks_icon_size'), S.marks, 'icon_size', 4, 16, 64, UNIT.px, SEC, DEF.marks.icon_size)
-        -- 隠す場面（0.1.296〜。前は足元の輪の「イベント中はリングや名前を消す」）
-        require('src.ui.hide_scenes_ui').draw(ui, name, {
-            toggle = function (u, n, id, label, tbl, key, info) return toggle(u, n, id, label, tbl, key, SEC, info) end,
-            help = function (text) W.muted(ui, text) end,
-            subhead = function (text) W.heading(ui, text) end,
-            section = SEC,
-        })
         end
         fold_end(ui, frec)
         -- 位置の調整（px、＋で右・下）
@@ -597,12 +617,7 @@ function settings_ui.body(ui)
     SECTIONS[#SECTIONS + 1] = { key = 'notify', title = t('settings.notify'), draw = function ()
         local N = S.notify
         local fold, frec
-        fold, frec = fold_heading(ui, 'notify_login', t('settings.fold_login'))
-        if fold then
-        toggle(ui, name, 'n_login', t('settings.login_resume'), N, 'login_resume', SEC)
-        stepper(ui, name, 'n_login_s', t('settings.login_resume_seconds'), N, 'login_resume_seconds', 1, 3, 60, unit(t('settings.unit_sec')), SEC, DEF.notify.login_resume_seconds)
-        end
-        fold_end(ui, frec)
+        -- ログイン時の続き（と表示秒数）は 0.1.303 でなくした
         -- 受注・完了のお知らせと効果音（0.1.183〜、t295）
         fold, frec = fold_heading(ui, 'notify_popup', t('settings.fold_popup'))
         if fold then
@@ -692,6 +707,25 @@ function settings_ui.body(ui)
         toggle(ui, name, 'g_config', t('settings.gameui_config_button'), S.gameui, 'config_button', SEC)
         toggle(ui, name, 'g_capture', t('settings.gameui_capture'), S.gameui, 'capture', SEC)
         toggle(ui, name, 'g_ontop', t('settings.gameui_menus_on_top'), S.gameui, 'menus_on_top', SEC)
+        -- 0.1.301〜：メニューと重なったとき（隠す／メニューの後ろに出す）
+        do
+            local ov = (S.gameui.menu_overlap == 'behind') and 'behind' or 'hide'
+            if W.button(ui, name, 'g_overlap', t('settings.menu_overlap') .. '：' .. t('settings.menu_overlap_' .. ov),
+                { section = SEC, row = 'g_overlap' }) then
+                S.gameui.menu_overlap = (ov == 'hide') and 'behind' or 'hide'
+                ui.mark_settings_dirty()
+            end
+            -- 説明は読みやすいツールチップで（乗せたとき・パッドで選んだとき）
+            local hov = ui.imgui.IsItemHovered and ui.imgui.IsItemHovered()
+            if hov or focus.current(name) == 'g_overlap' then W.tooltip(ui, t('settings.menu_overlap_tip')) end
+        end
+        -- 隠す場面（0.1.296〜。0.1.308〜は表示から、メニューと重なったときの下へ）
+        require('src.ui.hide_scenes_ui').draw(ui, name, {
+            toggle = function (u, n, id, label, tbl, key, info) return toggle(u, n, id, label, tbl, key, SEC, info) end,
+            help = function (text) W.muted(ui, text) end,
+            subhead = function (text) W.heading(ui, text) end,
+            section = SEC,
+        })
         if ui.state.gameui_note then W.muted(ui, ui.state.gameui_note) end
         W.muted(ui, t('settings.gameui_note'))
         end

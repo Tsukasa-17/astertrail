@@ -284,11 +284,30 @@ function detail.body(ui, win, q, opts)
         end
         local function on_term(hit)
             if hit and hit.act == 'copy' and ui.copy_to_clipboard then ui.copy_to_clipboard(hit.text) end
+            -- 0.1.301〜：文中の ??? などの調べる対象・名前は、本の詳細と同じく地図を開く（前は何もしなかった）
+            if hit and hit.act == 'map' and map_on then
+                local trk = require('src.ui.tracker')
+                if hit.kind == 'group' then
+                    ui.open_map(q.id, s.id)
+                else
+                    local msid, mloc, mtg = trk.map_target(D, q, hit.text, s.id)
+                    if mtg and mtg.kind == 'mob' then
+                        ui.open_map(q.id, msid, mloc, { mob = mtg.id })
+                    elseif msid then
+                        ui.open_map(q.id, msid, mloc)
+                    else
+                        local tg0 = s.target and D:target(s.target)
+                        if tg0 and tg0.kind == 'mob' then ui.open_map(q.id, s.id, nil, { mob = s.target })
+                        else ui.open_map(q.id, s.id) end
+                    end
+                end
+            end
         end
         if W.row(ui, name, 'step_' .. s.id, lines, {
             section = 'steps', row = s.id, term_click = true, on_term = on_term,
             tip = function (act, piece)
                 if piece and piece.tip then return piece.tip end
+                if act == 'map' then return t('map.view') end
                 if act == 'copy' then return t('tracker.copy_item') end
             end,
         }) then

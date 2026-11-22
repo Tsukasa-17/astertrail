@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 local update = require('src.core.update')
 eq(update.URL, 'https://raw.githubusercontent.com/Tsukasa-17/astertrail/main/version.json', 'url is the repo version.json')

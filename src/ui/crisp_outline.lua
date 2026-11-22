@@ -19,7 +19,7 @@ local outline = {}
 
 local WINDOWS = {
     book = true, detail = true, tracker = true, compass = true, eminence = true, settings = true,
-    popup = true, resume = true,
+    popup = true,
 }
 
 local DIR8 = {
@@ -396,6 +396,18 @@ end
 
 function outline.line_begin()
     line_q = {}
+end
+
+-- 0.1.307：行をまとめて描いている途中でツールチップを開くと、中の文字まで行に積まれ、
+-- 元の窓（トラッカーなど）にツールチップの下へ描かれていた。ツールチップの間は行を止める
+function outline.pause_line()
+    local q = line_q
+    line_q = nil
+    return q
+end
+
+function outline.resume_line(q)
+    if q ~= nil then line_q = q end
 end
 
 function outline.in_line()

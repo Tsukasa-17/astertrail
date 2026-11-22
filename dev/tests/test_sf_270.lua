@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
@@ -16,8 +16,7 @@ local settings_sf = require('src.ui.settings_sf')
 local json = require('src.lib.json')
 
 local hook = io.open(ROOT .. '/src/ui/settings_ui.lua', 'r'):read('*a')
-check(hook:find("theme.is_sf()", 1, true) ~= nil, 'settings_ui.body routes SF to settings_sf')
-check(hook:find("require('src.ui.settings_sf')", 1, true) ~= nil, 'settings_sf is required only for SF')
+check(hook:find("require, 'src.ui.settings_sf')", 1, true) ~= nil, 'settings_ui.body routes every theme to settings_sf (0.1.304)')
 -- クラシックのタブ構成は残す
 check(hook:find("key = 'eminence'", 1, true) ~= nil or hook:find("key = \"eminence\"", 1, true) ~= nil
     or hook:find("'eminence'", hook:find('SECTIONS') or 1, true) ~= nil, 'classic still has eminence tab')
@@ -26,7 +25,7 @@ check(hook:find("t('settings.look_style'", 1, true) ~= nil, 'classic look_style 
 local sfsrc = io.open(ROOT .. '/src/ui/settings_sf.lua', 'r'):read('*a')
 check(sfsrc:find('ASTERTRAIL', 1, true) ~= nil, 'header includes ASTERTRAIL')
 check(sfsrc:find("'SETTINGS'", 1, true) ~= nil or sfsrc:find('"SETTINGS"', 1, true) ~= nil, 'header includes SETTINGS')
-check(sfsrc:find('function ICONS.notify', 1, true) ~= nil, 'bell icon is drawn in code')
+check(sfsrc:find('function ICONS.notify', 1, true) == nil, 'notify category removed (0.1.304)')
 check(sfsrc:find('function ICONS.save', 1, true) ~= nil, 'disk icon is drawn in code')
 check(sfsrc:find('function ICONS.input', 1, true) ~= nil, 'input icon is drawn in code')
 check(sfsrc:find('.png', 1, true) == nil, 'no copied image assets')
@@ -36,7 +35,7 @@ check(sfsrc:find("look_style", 1, true) ~= nil, 'look_style widget id is kept')
 
 local keys = {}
 for _, c in ipairs(settings_sf.CATS) do keys[#keys + 1] = c.key end
-eq(table.concat(keys, ','), 'look,layout,tracker,map,marks,notify,input,save', 'eight SF categories')
+eq(table.concat(keys, ','), 'look,layout,tracker,map,marks,input,save', 'seven SF categories (0.1.304: notify merged into look)')
 eq(settings_sf.cat_key('eminence'), 'tracker', 'old eminence tab maps to tracker')
 eq(settings_sf.cat_key('about'), 'save', 'old about tab maps to save')
 
@@ -53,13 +52,14 @@ eq(ja['sf.set.remember_position'], '設定を開いたとき、前回の項目�
 eq(en['sf.set.theme'], 'Theme: {v}', 'EN theme label present')
 eq(en['settings.look_style'], 'Look: {v}', 'classic en look_style unchanged')
 
--- クラシックの設定画面は今までどおり
+-- 0.1.304〜：クラシックの設定画面もアストラルと同じ並び（文言も同じ）
 local S = app._settings()
 S.look = 'classic'
 theme.set_look('classic')
 app.close_all(); app.open_window('settings'); frame(); frame(); frame()
-check(labeled('見た目：クラシック'), 'classic settings still use the old theme label')
-check(labeled('くっきりフォント（テスト）'), 'classic crisp label unchanged at runtime')
+check(labeled('クラシック##look_style') and texted('テーマ'), 'classic settings use the shared theme row')
+check(labeled('画面の文字をくっきり（メイリオ）'), 'classic uses the shared crisp label')
+check(not labeled('見た目：クラシック'), 'old classic theme label gone')
 app.close_all(); frame()
 
 -- SF に切り替えると新しい画面（look_style の ID はそのまま）

@@ -7,7 +7,7 @@ local theme = require('src.ui.theme')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 
 ---------------------------------------------------------------------------
 -- 1) 初期値と保存。古い font_outline は使わない
@@ -228,7 +228,7 @@ local function seen_ui(pat)
     for _, l in ipairs(FAKE.texts) do if l:find(pat, 1, true) then return true end end
     return false
 end
-check(seen_ui('くっきりフォント（テスト）'), 'crisp toggle still shown')
+check(seen_ui('画面の文字をくっきり（メイリオ）'), 'crisp toggle still shown')
 check(seen_ui('縁取りの太さ'), 'outline width shown')
 check(seen_ui('縁取りの濃さ'), 'outline alpha shown')
 check(not seen_ui('縁取りと影'), 'old fx fold not back')

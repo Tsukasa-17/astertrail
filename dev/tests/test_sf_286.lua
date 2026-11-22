@@ -3,7 +3,7 @@ require('fake_env')
 
 local theme = require('src.ui.theme')
 local app = require('src.app')
-eq(app.VERSION, '1.1.300', 'version')
+eq(app.VERSION, '1.1.308', 'version')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0, x = 0, y = 0, z = 0 }
@@ -58,8 +58,8 @@ local imgui = package.loaded['imgui']
 local hits = {}
 local allow_n = 0
 local saved_hit = imgui.InvisibleButton
-local saved_allow = rawget(imgui, 'SetItemAllowOverlap')
-imgui.SetItemAllowOverlap = function () allow_n = allow_n + 1 end
+local saved_allow = rawget(imgui, 'SetNextItemAllowOverlap')
+imgui.SetNextItemAllowOverlap = function () allow_n = allow_n + 1 end
 imgui.InvisibleButton = function (label, size)
     local w, h = 0, 0
     if type(size) == 'table' then w = tonumber(size.x or size[1]) or 0; h = tonumber(size.y or size[2]) or 0 end
@@ -83,7 +83,7 @@ end
 check(h1 and h2, 'hits exist for ' .. tostring(sid1) .. ' and ' .. tostring(sid2))
 check(h1.w >= 80, 'row hit is full width (got ' .. tostring(h1.w) .. ')')
 check(h1.h >= 26, 'row hit is tall enough to cover the number circle (got ' .. tostring(h1.h) .. ')')
-check(allow_n >= 1, 'SetItemAllowOverlap was called')
+check(allow_n >= 1, 'SetNextItemAllowOverlap was called')
 -- 公開版は手でチェックを付けない（箱は出さない）。非公開版では箱は出して押せる
 if app.PUBLIC then
     check(not (labeled('chk_' .. sid1) or labeled('□##chk_' .. sid1) or labeled('■##chk_' .. sid1)),
@@ -125,6 +125,6 @@ end
 check(book_hits >= 1 or labeled('##sfstep_'), 'book right pane also draws ##sfstep_ hits')
 
 imgui.InvisibleButton = saved_hit
-if saved_allow then imgui.SetItemAllowOverlap = saved_allow else imgui.SetItemAllowOverlap = nil end
+if saved_allow then imgui.SetNextItemAllowOverlap = saved_allow else imgui.SetNextItemAllowOverlap = nil end
 
 print('test_sf_286 ok')
