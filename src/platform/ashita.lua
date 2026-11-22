@@ -540,12 +540,50 @@ local shift_down = false
 local held_keys = {}   -- DIK → true（押下を止めた）
 local held_pads = {}   -- 画面の操作で押下を止めたボタンの名前（'up' 'cross' など）→ true
 
+-- 入力欄のキーの記録（0.1.312〜、VanaCore の記録だけ。読み込みごとに 200 行まで）
+local key_log_n = 0
+local function key_log(text)
+    if key_log_n >= 200 then return end
+    key_log_n = key_log_n + 1
+    pcall(platform.log_only, 'keys: ' .. text)
+end
+platform._key_log_reset = function () key_log_n = 0 end
+
+-- ウィンドウのキーの知らせ（記録だけ。止めない）：Enter・Space・Esc・変換キー（VK_PROCESSKEY）
+local function on_key_msg(e)
+    if not app or type(e) ~= 'table' or not app.text_keys_now or not app.text_keys_now() then return end
+    local vk = tonumber(e.wparam)
+    if vk ~= 0x0D and vk ~= 0x20 and vk ~= 0x1B and vk ~= 0xE5 then return end
+    local lp = tonumber(e.lparam) or 0
+    key_log(string.format('msg vk=0x%02X %s blocked=%s', vk, (lp >= 0x80000000 or lp < 0) and 'up' or 'down', tostring(e.blocked)))
+end
+
 local function on_key_data(e)
     if not app then return end
     local k = e.key
     if k == 0x2A or k == 0x36 then shift_down = e.down and true or false; return end
+    -- 0.1.311〜：Astertrail の入力欄が選ばれている間の Enter・Esc など（変換中ならいつも、ゲームにも Astertrail にも渡さない）
+    local tb = e.down and app.text_key_block and app.text_key_block(k) or nil
+    if tb then key_log(string.format('data dik=0x%02X down hidden (%s)', k, tb)) end
+    if tb == 'ime' then
+        held_keys[k] = true
+        e.blocked = true
+        return true
+    end
     local action = DIK[k]
-    if not action then return end
+    if not action then
+        if tb then
+            held_keys[k] = true
+            e.blocked = true
+            return true
+        end
+        if not e.down and held_keys[k] then
+            held_keys[k] = nil
+            e.blocked = true
+            return true
+        end
+        return
+    end
     if action == 'tab' then action = shift_down and 'section_prev' or 'section_next' end
     if e.down then
         -- 前の「離した」を取りこぼしていても、ここで決め直す（止めっぱなしにしない）
@@ -553,6 +591,10 @@ local function on_key_data(e)
         local take = app.want_keys()
         if not take and action == 'back' and app.want_esc and app.want_esc() then take = true end
         if take and app.input(action, true, 'key') then
+            held_keys[k] = true
+            e.blocked = true
+            return true
+        elseif tb then
             held_keys[k] = true
             e.blocked = true
             return true
@@ -570,12 +612,24 @@ local function on_key_data(e)
 end
 
 -- 操作中は、ゲームが毎フレーム読む状態からも、押下を止めたキーを外す
+-- 0.1.312〜：Astertrail の入力欄が選ばれている間（と抜けた直後）は、Enter・Space などを状態からも外す。
+-- ゲームが押したのを key_data より先に状態で読むと、そのフレームでチャット欄が開くため。外したキーは離すまで外し続ける
 local function on_key_state(e)
-    if not app or not ffi or next(held_keys) == nil then return end
+    if not app or not ffi then return end
+    local tk = app.text_keys_now and app.text_keys_now() or nil
+    if next(held_keys) == nil and not tk then return end
     local raw = e.data_raw or e.data
     if type(raw) ~= 'cdata' and type(raw) ~= 'userdata' and type(raw) ~= 'number' then return end
     pcall(function ()
         local p = ffi.cast('uint8_t*', raw)
+        if tk then
+            for k, _ in pairs(tk) do
+                if p[k] ~= 0 and not held_keys[k] then
+                    held_keys[k] = true
+                    key_log(string.format('state dik=0x%02X hidden from the game', k))
+                end
+            end
+        end
         for k, _ in pairs(held_keys) do
             -- もう離されていれば覚えを消す（離したのを取りこぼしても止めっぱなしにしない）
             if p[k] == 0 then held_keys[k] = nil else p[k] = 0 end
@@ -1538,6 +1592,40 @@ function platform.http_download(url, path, cb, opts)
     return ok and r == true
 end
 
+-- 日本語入力のプラグイン japanese_ime（0.1.309〜、0.1.314〜 汎用の japanese_ime）。VanaCore の vana.plugins を先に、無ければ Ashita の PluginManager。
+-- どちらも無ければ nil／false（何もしない）
+function platform.plugin_loaded(want)
+    if ext and ext.plugin_loaded then
+        local ok, r = pcall(ext.plugin_loaded, want)
+        if ok and r ~= nil then return r end
+    end
+    local ok, r = pcall(function ()
+        local pm = AshitaCore:GetPluginManager()
+        return pm and pm:IsLoaded('japanese_ime') == true
+    end)
+    if ok then return r == true end
+    return nil
+end
+
+-- 記録だけ（VanaCore の vana.log。無ければ何もしない）
+function platform.log_only(text)
+    if not ext or not ext.log then return false end
+    local ok, r = pcall(ext.log, text)
+    return ok and r == true
+end
+
+function platform.plugin_raise(name, data)
+    if ext and ext.plugin_raise then
+        local ok, r = pcall(ext.plugin_raise, name, data)
+        if ok and r == true then return true end
+    end
+    local ok = pcall(function ()
+        local pm = AshitaCore:GetPluginManager()
+        pm:RaiseEvent(name, data or '', #(data or ''))
+    end)
+    return ok
+end
+
 function platform.chat_run(line)
     if not ext or not ext.chat_run then return false end
     local ok, r = pcall(ext.chat_run, line)
@@ -2192,6 +2280,26 @@ function platform.start(the_app)
         end)
         platform.input_events[name] = ok
     end
+    -- プラグインからの知らせ（0.1.309〜、日本語入力の japanese_ime だけ見る。0.1.314〜）
+    platform.plugin_event_hooked = pcall(ev.register, 'plugin_event', 'astertrail_plugin_event', function (e)
+        if not app or not app.on_plugin_event or type(e) ~= 'table' then return end
+        local name = e.name
+        if type(name) ~= 'string' or name:sub(1, 12) ~= 'japanese_ime' then return end
+        local data = e.data
+        local size = tonumber(e.size)
+        if type(data) ~= 'string' and e.data_raw ~= nil and size and size > 0 then
+            local okf, ffi = pcall(require, 'ffi')
+            if okf and ffi then
+                local okd, d = pcall(ffi.string, e.data_raw, size)
+                if okd then data = d end
+            end
+        end
+        if type(data) ~= 'string' then data = '' end
+        if size and size >= 0 and #data > size then data = data:sub(1, size) end
+        data = data:gsub('%z.*$', '')
+        pcall(app.on_plugin_event, name, data)
+    end)
+    try('key', 'astertrail_key_msg', on_key_msg)
     try('key_data', 'astertrail_key_data', on_key_data)
     try('key_state', 'astertrail_key_state', on_key_state)
     try('xinput_button', 'astertrail_xinput', on_xinput_button)

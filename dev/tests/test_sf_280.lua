@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 local notices = io.open(ROOT .. '/src/ui/notices.lua', 'r'):read('*a')
 check(notices:find("theme.is_sf()", 1, true) ~= nil, 'classic notices hook SF look')

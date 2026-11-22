@@ -83,8 +83,10 @@ check(pad(1, 1), 'pad taken in tracker focus'); pad(1, 0); frame()
 press(0x01); frame()
 check(not app.want_keys(), 'Esc releases tracker')
 check(drawn('astertrail_tracker'), 'tracker still visible')
--- 文字入力中は Esc 以外のキーを奪わない
+-- 文字入力中は Esc 以外のキーを Astertrail の操作に使わない（0.1.311〜：ゲームにも渡さない。欄は Windows のキーの知らせで動く）
 cmd('/astertrail'); frame()
 app.state.text_active = true
-eq(key(0xCB, true), false, 'text input keeps keys'); key(0xCB, false)
+local sel0 = app.state.focus and app.state.focus.book
+eq(key(0xCB, true), true, 'text input: the game does not get arrows'); key(0xCB, false)
+eq(app.state.focus and app.state.focus.book, sel0, 'text input keeps keys from the book')
 FAKE.events.unload()

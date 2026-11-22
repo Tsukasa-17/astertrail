@@ -2713,7 +2713,10 @@ function book.draw_filters(ui, name, emin, row, search_w, inline)
     local sf, sa = focus.item(name, 'search', 'top', row)
     if sa then imgui.SetKeyboardFocusHere(0) end
     imgui.SetNextItemWidth(search_w(rest or 0))
-    if imgui.InputTextWithHint('##astertrail_search', t('book.search_hint'), search_buf, 64) then
+    local ime = require('src.ui.ime_input')
+    local edited = imgui.InputTextWithHint(ime.label('##astertrail_search'), t('book.search_hint'), search_buf, 64)
+    if ime.field(ui, imgui, '##astertrail_search', search_buf, 64) then edited = true end
+    if edited then
         S.book.filters.text = search_buf[1] or ''
         ui.mark_settings_dirty()
     end

@@ -3,7 +3,7 @@ require('harness')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 local qw, qh = ext._quantize_box(80, 18)
 eq(qw, 80, '80 already aligned')

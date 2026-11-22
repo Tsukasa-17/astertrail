@@ -8,7 +8,7 @@ local W = require('src.ui.widgets')
 local CT = require('src.ui.colored_text')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 -- pack_color(本文の表) は theme.u32('text') と同じ
 local packed = outline.pack_color(theme.col('text'), 'text')

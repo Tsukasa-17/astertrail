@@ -116,6 +116,34 @@ function ext.chat_run(line)
     return ok
 end
 
+-- 日本語入力のプラグイン（0.1.309〜）。公式 vana.plugins.loaded / vana.plugins.raise（docs/addons/12-system.md）。
+-- loaded：名前（小文字・_ と空白を除く）が want のプラグインが読み込まれているか。わからなければ nil
+function ext.plugin_loaded(want)
+    local v = V()
+    if not v or type(v.plugins) ~= 'table' or type(v.plugins.loaded) ~= 'function' then return nil end
+    local ok, list = pcall(v.plugins.loaded)
+    if not ok or type(list) ~= 'table' then return nil end
+    for _, p in ipairs(list) do
+        local n = type(p) == 'table' and p.name or p
+        if type(n) == 'string' and n:lower():gsub('[_%s]', '') == want then return true end
+    end
+    return false
+end
+
+-- VanaCore の記録だけ（logs\vanacore.log。チャットには出さない）。公式 vana.log（docs/addons/05-chat-and-commands.md）
+function ext.log(text)
+    local v = V()
+    if not v or type(v.log) ~= 'function' then return false end
+    return (pcall(v.log, tostring(text)))
+end
+
+function ext.plugin_raise(name, data)
+    local v = V()
+    if not v or type(v.plugins) ~= 'table' or type(v.plugins.raise) ~= 'function' then return false end
+    local ok = pcall(v.plugins.raise, name, data or '')
+    return ok
+end
+
 -- 効果音（0.1.183〜、t295）。VanaCore の vana.system.play_sound(path)（Windows の PlaySound でファイルを鳴らす）。
 -- 無い・失敗したら false
 function ext.can_play_sound()

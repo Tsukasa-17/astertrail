@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 local labels = require('src.ui.labels')
 local book_sf = require('src.ui.book_sf')

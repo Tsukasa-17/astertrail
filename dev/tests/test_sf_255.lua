@@ -4,7 +4,7 @@ require('fake_env')
 local theme = require('src.ui.theme')
 local sf = require('src.ui.sf_style')
 local app = require('src.app')
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 -- sf.text_at は ImVec2 風の表でもカーソルを戻す
 do

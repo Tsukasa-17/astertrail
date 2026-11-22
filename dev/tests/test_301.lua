@@ -22,7 +22,7 @@ local smod = require('src.core.settings')
 FAKE.player = { name = 'Rb301', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 -- 初期値：窓は隠さない・重なったら隠す（今まで）
 for _, sc in ipairs(smod.HIDE_SCENES) do

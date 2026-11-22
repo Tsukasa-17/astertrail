@@ -1053,7 +1053,10 @@ local function draw_save(ui, name)
                 local sfoc, sa = focus.item(name, id, SEC, id)
                 if sa and imgui.SetKeyboardFocusHere then imgui.SetKeyboardFocusHere(0) end
                 imgui.SetNextItemWidth(math.floor(160 * scale + 0.5))
-                if imgui.InputTextWithHint('##astertrail_' .. id, t('settings.layout_placeholder', { n = tostring(i) }), buf, 40) then
+                local ime = require('src.ui.ime_input')
+                local edited = imgui.InputTextWithHint(ime.label('##astertrail_' .. id), t('settings.layout_placeholder', { n = tostring(i) }), buf, 40)
+                if ime.field(ui, imgui, '##astertrail_' .. id, buf, 40) then edited = true end
+                if edited then
                     if ui.set_layout_name then ui.set_layout_name(i, buf[1]) end
                 end
                 ui.text_active = ui.text_active or imgui.IsItemActive()

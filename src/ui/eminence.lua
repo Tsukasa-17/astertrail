@@ -1311,7 +1311,10 @@ function eminence.book_filters(ui, name, row, cw1, cw2, search_w, inline)
     local sf, sa = focus.item(name, 'roe_search', 'top', row)
     if sa then imgui.SetKeyboardFocusHere(0) end
     imgui.SetNextItemWidth(search_w(rest))
-    if imgui.InputTextWithHint('##astertrail_roe_search', t('roe.search_hint'), search_buf, 64) then
+    local ime = require('src.ui.ime_input')
+    local edited = imgui.InputTextWithHint(ime.label('##astertrail_roe_search'), t('roe.search_hint'), search_buf, 64)
+    if ime.field(ui, imgui, '##astertrail_roe_search', search_buf, 64) then edited = true end
+    if edited then
         E.book_text = search_buf[1] or ''
         ui.mark_settings_dirty()
     end

@@ -8,7 +8,7 @@ local marks_ui = require('src.ui.marks')
 local theme = require('src.ui.theme')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 
 local src = io.open(ROOT .. '/src/ui/marks.lua', 'r'):read('*a')
 local i_draw = src:find('function marks.draw(ui)', 1, true)

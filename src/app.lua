@@ -38,7 +38,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.308',
+    VERSION = '1.1.314',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
@@ -968,6 +968,35 @@ end
 function app.want_keys()
     if app.menu_takes_input() then return false end
     return app.operating() and not state.text_active and not state.chat_open
+end
+
+-- platform から（0.1.311〜）：Astertrail の入力欄が選ばれている間、ゲームに渡さないキー（DirectInput の番号）。
+-- 欄は Windows のキーの知らせで動くので、ゲームの DirectInput から外しても欄には届く。
+-- Enter（チャット欄が開く）・Esc・Space・Backspace・Tab・矢印・Delete・Home・End
+local TEXT_KEYS = {
+    [0x1C] = true, [0x9C] = true, [0x01] = true, [0x39] = true, [0x0E] = true, [0x0F] = true,
+    [0xC8] = true, [0xD0] = true, [0xCB] = true, [0xCD] = true, [0xD3] = true, [0xC7] = true, [0xCF] = true,
+}
+-- 'ime'：日本語の変換中（または確定した直後）。キーは変換に使われるので、Astertrail の操作にも使わない
+-- 'box'：欄が選ばれている（Esc で閉じるなど、今までの Astertrail の操作は先に見る）。nil：ゲームへ
+-- 欄を抜けた直後も少しのあいだ止める（Enter で抜けたとき、その Enter をゲームが次のフレームで読むため。0.1.312〜）
+app.TEXT_KEY_GRACE = 0.5
+local function text_keys_on()
+    if state.chat_open then return false end
+    if state.text_active then return true end
+    local now = P and P.time and P.time() or nil
+    return state.text_left_at ~= nil and now ~= nil and now >= state.text_left_at and now - state.text_left_at < app.TEXT_KEY_GRACE
+end
+-- platform の key_state から：いまゲームの DirectInput の状態から外すキー（無ければ nil）
+function app.text_keys_now()
+    if not text_keys_on() then return nil end
+    return TEXT_KEYS
+end
+function app.text_key_block(k)
+    if not TEXT_KEYS[k] or not text_keys_on() then return nil end
+    local ok, busy = pcall(require('src.ui.ime_input').composing, P and P.time and P.time() or nil)
+    if ok and busy then return 'ime' end
+    return 'box'
 end
 
 -- 受注・完了のお知らせが出ているか（消えかけも含む。0.1.197〜）
@@ -2625,6 +2654,11 @@ function app.roe_gate_sets()
     return r.gate
 end
 
+-- プラグインからの知らせ（0.1.309〜、日本語入力の japanese_ime。0.1.314〜）
+function app.on_plugin_event(name, data)
+    return require('src.ui.ime_input').on_event(name, data)
+end
+
 function app.on_roe_packet(id, data)
     local r = state.roe
     if id == roe_mod.PKT_UNITY then
@@ -3539,7 +3573,11 @@ function app.present()
         guarded(screens.update_popup.draw, ui)
     end
 
+    if state.text_active and not ui.text_active then state.text_left_at = now end
+    if ui.text_active then state.text_left_at = nil end
     state.text_active = ui.text_active
+    -- 0.1.309〜：日本語入力のプラグインに、Astertrail の欄が選ばれている間だけ取得を頼む
+    pcall(require('src.ui.ime_input').frame_end, P, now, state.chat_open == true)
     -- 直前のフレームの乗っている／選ばれている窓（Esc 判定。入力は描画の前後どちらでも来る）
     state.win_hover = ui.win_hover or {}
     state.win_focus = ui.win_focus or {}
@@ -4025,6 +4063,7 @@ end
 function app.unload()
     if P.clear_name_marks then pcall(P.clear_name_marks) end
     if P.clear_ground_rings then pcall(P.clear_ground_rings) end
+    pcall(require('src.ui.ime_input').shutdown, P)
     app.release()
     app.release_gameui()
     app.save_all('unload')

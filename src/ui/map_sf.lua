@@ -570,7 +570,8 @@ function map_sf.draw(ui)
                 if tab_limit and fx >= tab_limit then break end
                 local clicked, tw, th = tab_chip(ui, name, tostring(f.map_n), lab, info.map_n == f.map_n, fx, fy)
                 if clicked then
-                    if info.map_n ~= f.map_n then info.view = nil end
+                    -- 0.1.314〜：nil にしない（同じフレームの下バーが info.view.z を読む）。1 倍に戻す
+                    if info.map_n ~= f.map_n then info.view = { z = 1, ox = 0, oy = 0 } end
                     info.map_n = f.map_n
                     info.arrive_pending = nil
                 end
@@ -694,6 +695,7 @@ function map_sf.draw(ui)
             map_view.zoom_at(info.view, -1, 0.5, 0.5)
         end
         font(ui, name, 1, false)
+        info.view = info.view or { z = 1, ox = 0, oy = 0 }
         if info.view.z and info.view.z > 1 then
             W.same(ui)
             if W.button(ui, name, 'zoom_reset', t('map.zoom_reset', { z = string.format('%.1f', info.view.z) }),

@@ -3,7 +3,7 @@ require('fake_env')
 
 local theme = require('src.ui.theme')
 local app = require('src.app')
-eq(app.VERSION, '1.1.308', 'version')
+eq(app.VERSION, '1.1.314', 'version')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0, x = 0, y = 0, z = 0 }

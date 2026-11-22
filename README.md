@@ -1,10 +1,10 @@
 # Astertrail（アスタートレイル）
 
-ファイナルファンタジーXI のクエスト・ミッション・エミネンス・レコードを、日本語の画面で管理しながら攻略するための **非公式** アドオンです。β 版です。
+ファイナルファンタジーXI のクエスト・ミッション・エミネンス・レコードを、日本語の画面で管理しながら攻略するための **非公式** アドオンです。β バージョンです。
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**バージョン 1.1.308**（公開 β）／ データ `2026.11.20-125`
+**バージョン 1.1.314**（公開 β）／ データ `2026.11.20-125`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -81,7 +81,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.308.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.314.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -101,6 +101,15 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 ```
 
 `dev\` などの開発用ファイルは、ゲームで使うには不要です。（`dev\sources\` など、ほかのプロジェクトの資料やゲームのデータファイルはリポジトリに入れていません。データを作り直すスクリプトはそれらが手元にあるときだけ動きます）
+
+## 日本語入力（任意）
+
+入力欄（本の検索・エミネンスの検索・マイレイアウトの名前）に日本語を打ちたいときは、プラグイン [japanese_ime](https://github.com/Tsukasa-17/japanese_ime) を入れます。入れなくても Astertrail はそのまま使えます（日本語が欄に入らないだけです）。
+
+1. [japanese_ime の Releases](https://github.com/Tsukasa-17/japanese_ime/releases) から `japanese_ime.dll` を取ってきて、`Vanacore\plugins\ashita\` に置きます。
+2. ゲームで `/plugin load japanese_ime` と打ちます。
+
+入れると、ゲームのチャット欄を閉じたまま入力欄に日本語を打てます。入力欄を使っている間は、Space や Enter でゲームのチャット欄が開きません。
 
 ## コマンド
 
@@ -122,7 +131,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 | `/astertrail notice` | 出ているお知らせを操作する |
 | `/astertrail release` | 操作をやめて、入力をゲームへ戻す |
 | `/astertrail save` | 今すぐ保存する |
-| `/astertrail status` | 版・データ・キャラ・状態を表示する |
+| `/astertrail status` | バージョン・データ・キャラ・状態を表示する |
 | `/astertrail floor` | いまいる階の判定を表示する |
 | `/astertrail target`（別名 `pos`） | いまのターゲットの座標と番号を表示する |
 | `/astertrail gamelog [read]` | ゲームの記録の読み取りの様子。`read` で読み直す |
@@ -146,7 +155,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 - **操作**：パッドで画面を操作、ショートカット、ゲームのメニューとのつなぎ
 - **保存**：今すぐ保存、マイレイアウト
 - **エミネンス**：本で達成したものを隠す、など
-- **このアドオンについて**：版とデータの版、アップデートのお知らせ（オン／オフ）
+- **このアドオンについて**：バージョンとデータのバージョン、アップデートのお知らせ（オン／オフ）
 
 ## 操作の要点
 
@@ -158,8 +167,8 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 
 ## わかっている制限（β）
 
-- これは β 版です。まだ変わることがあり、不具合もあるかもしれません。
-- 収録はクエスト・ミッション 1829 件です。このうち **ゲームの記録とつながるのは 1625 件** で、**204 件はつながりません**（カンパニエ・TVR、一部のミッションなど）。つながらないものは、受注・完了が自動では変わりません（公開版では手で変える操作はありません）。
+- これは β バージョンです。まだ変わることがあり、不具合もあるかもしれません。
+- 収録はクエスト・ミッション 1829 件です。このうち **ゲームの記録とつながるのは 1625 件** で、**204 件はつながりません**（カンパニエ・TVR、一部のミッションなど）。つながらないものは、受注・完了が自動では変わりません（公開バージョンでは手で変える操作はありません）。
 - 手順ごとの進み具合は、ゲームから自動では読みません（受注・完了だけです）。
 - 名声の段階は、ゲームの数値としては読めません。名声を教えてくれる人に話すと覚えます。
 - 最後の手順をチェックしても、クエストは自動では完了になりません。
@@ -194,7 +203,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.308, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.314, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 
