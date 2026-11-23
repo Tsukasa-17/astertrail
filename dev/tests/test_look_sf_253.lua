@@ -8,7 +8,7 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 local D = app._data()
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 S.look = 'classic'
 theme.set_look('classic')
 eq(S.look, 'classic', 'classic selected to check unchanged classic book')

@@ -2818,9 +2818,15 @@
         {
           "id": "mission.sandoria.006#ga03",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -2839,7 +2845,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.sandoria.006#ga04",
@@ -2960,9 +2976,15 @@
         {
           "id": "mission.sandoria.006#gb02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -2981,7 +3003,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -3370,9 +3402,15 @@
         {
           "id": "mission.windurst.006#g01",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -3391,7 +3429,17 @@
           "text_ja": "ここで回る順を選ぶ：サンドリア先か、バストゥーク先か。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -4234,9 +4282,15 @@
         {
           "id": "mission.windurst.006#g02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -4260,7 +4314,17 @@
           "text_ja": "ランク3、3,000ギル、だいじなもの「冒険者の証」。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -4581,9 +4645,15 @@
         {
           "id": "mission.bastok.006#ga07",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -4602,7 +4672,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.bastok.006#ga08",
@@ -4753,9 +4833,15 @@
         {
           "id": "mission.bastok.006#gb02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -4774,7 +4860,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -5257,9 +5353,15 @@
         {
           "id": "mission.windurst.020#g01",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5277,7 +5379,17 @@
           "text_ja": "ガードでミッションを受けてから。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -5421,9 +5533,15 @@
         {
           "id": "mission.windurst.020#g06",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5463,7 +5581,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.020#g07",
@@ -5493,9 +5621,15 @@
         {
           "id": "mission.windurst.020#g08",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5513,14 +5647,30 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.020#g09",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5536,7 +5686,17 @@
           "text_ja": "ランク10、10万ギル、連邦旗。かばんがいっぱいだと受け取れず未完了になる。そのときは天の塔入口横の「＿」を調べる。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5551,9 +5711,15 @@
         {
           "id": "mission.windurst.014#g01",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5571,7 +5737,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.014#g02",
@@ -5711,9 +5887,15 @@
         {
           "id": "mission.windurst.014#g06",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5729,7 +5911,17 @@
           "text_ja": "ランク7、40,000ギル。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5744,9 +5936,15 @@
         {
           "id": "mission.windurst.008#g01",
           "location": {
-            "grid": null,
+            "grid": "J-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 3
+            },
+            "pos": {
+              "x": 15.632,
+              "y": 18.244,
+              "z": -26.25
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5766,7 +5964,17 @@
           "text_ja": "1回目は「光の札」をもらう。2回目以降（「魔晶石を奪え」を先に済ませた場合も）は「錆びた短剣」を3個頼まれる。行き方か2回目かをここで選ぶ。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486）。ゾーン DAT の床の高さ -26.25 から同梱の天の塔の地図の MAP3、マス目 J-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.008#ga01",
@@ -5910,9 +6118,15 @@
         {
           "id": "mission.windurst.008#g03",
           "location": {
-            "grid": null,
+            "grid": "J-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 3
+            },
+            "pos": {
+              "x": 15.632,
+              "y": 18.244,
+              "z": -26.25
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5932,7 +6146,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486）。ゾーン DAT の床の高さ -26.25 から同梱の天の塔の地図の MAP3、マス目 J-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.008#gc01",
@@ -5963,9 +6187,15 @@
         {
           "id": "mission.windurst.008#gc02",
           "location": {
-            "grid": null,
+            "grid": "J-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 3
+            },
+            "pos": {
+              "x": 15.632,
+              "y": 18.244,
+              "z": -26.25
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -5990,7 +6220,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486）。ゾーン DAT の床の高さ -26.25 から同梱の天の塔の地図の MAP3、マス目 J-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -6213,9 +6453,15 @@
         {
           "id": "mission.windurst.018#g06",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -6233,7 +6479,17 @@
           "text_ja": "選択肢はどれでもよい。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.018#g07",
@@ -83156,9 +83412,15 @@
         {
           "id": "mission.tvr.005#g01",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83174,15 +83436,30 @@
           "text_ja": "ウィンダス石の区のホームポイント#1から入るとすぐ。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.005#g02",
           "location": {
-            "grid": "H-7",
+            "grid": "H-8",
             "map": {
               "kind": "number",
               "n": 2
+            },
+            "pos": {
+              "x": 2.329,
+              "y": 19.017,
+              "z": 0.499
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83206,15 +83483,30 @@
           "text_ja": "3人は順不同。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.329 y=19.017 z=0.499（id 17768509）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.005#g03",
           "location": {
-            "grid": "H-9",
+            "grid": "I-11",
             "map": {
               "kind": "number",
               "n": 2
+            },
+            "pos": {
+              "x": 4.45,
+              "y": -8.666,
+              "z": 0.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83238,15 +83530,30 @@
           "text_ja": "競売で買える。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=4.450 y=-8.666 z=0.749（id 17768500）。ゾーン DAT の床の高さ 0.75 から同梱の天の塔の地図の MAP2、マス目 I-11",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.005#g04",
           "location": {
-            "grid": "G-9",
+            "grid": "F-12",
             "map": {
               "kind": "number",
               "n": 2
+            },
+            "pos": {
+              "x": -16.299,
+              "y": -15.847,
+              "z": 0.5
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83270,14 +83577,30 @@
           "text_ja": "競売で買える。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=-16.299 y=-15.847 z=0.500（id 17768503）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 F-12",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.005#g05",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83301,7 +83624,17 @@
           "text_ja": "どちらでもよい。競売で買える。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -83390,9 +83723,15 @@
         {
           "id": "mission.tvr.006#g02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83408,15 +83747,30 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.006#g03",
           "location": {
-            "grid": "H-7",
+            "grid": "H-8",
             "map": {
               "kind": "number",
               "n": 2
+            },
+            "pos": {
+              "x": 2.329,
+              "y": 19.017,
+              "z": 0.499
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83432,7 +83786,17 @@
           "text_ja": "次に行く場所の話が聞ける。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.329 y=19.017 z=0.499（id 17768509）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.tvr.006#g04",
@@ -83643,9 +84007,15 @@
         {
           "id": "mission.tvr.006#g11",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83659,7 +84029,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -83674,9 +84054,15 @@
         {
           "id": "mission.tvr.007#g01",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -83692,7 +84078,17 @@
           "text_ja": "前のミッションから続けて話せる。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -84479,9 +84875,15 @@
         {
           "id": "mission.tvr.009#g09",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -84503,7 +84905,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -96981,9 +97393,15 @@
         {
           "id": "mission.windurst.007#g01",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97001,14 +97419,30 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.007#g02",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 2.319,
+              "y": 14.0,
+              "z": -47.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97026,7 +97460,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.319 y=14.000 z=-47.000（id 17768483）。ゾーン DAT の床の高さ -47.00 から同梱の天の塔の地図の MAP4、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -97097,9 +97541,15 @@
         {
           "id": "mission.windurst.007#g05",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 2.319,
+              "y": 14.0,
+              "z": -47.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97115,7 +97565,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.319 y=14.000 z=-47.000（id 17768483）。ゾーン DAT の床の高さ -47.00 から同梱の天の塔の地図の MAP4、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -97148,9 +97608,15 @@
         {
           "id": "mission.windurst.009#g02",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97168,7 +97634,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -97426,9 +97902,15 @@
         {
           "id": "mission.windurst.011#g01",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97446,7 +97928,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.011#g02",
@@ -97503,9 +97995,15 @@
         {
           "id": "mission.windurst.011#g04",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97521,7 +98019,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -97554,9 +98062,15 @@
         {
           "id": "mission.windurst.012#g02",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97574,7 +98088,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "mission.windurst.012#g03",
@@ -97654,9 +98178,15 @@
         {
           "id": "mission.windurst.012#g06",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -97672,7 +98202,17 @@
           "text_ja": "ランク6、20,000ギル。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -98695,9 +99235,15 @@
         {
           "id": "mission.windurst.019#g03",
           "location": {
-            "grid": null,
+            "grid": "H-5",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 4
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 40.25,
+              "z": -51.471
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -98715,7 +99261,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "examine"
+          "type": "examine",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -159215,9 +159771,15 @@
         {
           "id": "quest.aht_urhgan.012#g06",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -159233,7 +159795,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -285394,9 +285966,15 @@
         {
           "id": "quest.windurst.005#g01",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -285414,7 +285992,17 @@
           "text_ja": "「思ひ出」のクリア後、エリアを出入りしておく。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -285467,9 +286055,15 @@
         {
           "id": "quest.windurst.005#g03",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -285487,7 +286081,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "quest.windurst.005#g04",
@@ -285666,9 +286270,15 @@
         {
           "id": "quest.windurst.005#g09",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -285684,7 +286294,17 @@
           "text_ja": "ウィザードペタソスをもらえる。このあとKupipiに話すと後日談に進める。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -287887,9 +288507,15 @@
         {
           "id": "quest.windurst.016#g02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -287908,7 +288534,17 @@
           "text_ja": "ほかの国の新魔法フェイスをクリア済みなら、ここで完了。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "quest.windurst.016#ga01",
@@ -287939,9 +288575,15 @@
         {
           "id": "quest.windurst.016#ga02",
           "location": {
-            "grid": null,
+            "grid": "H-6",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 2
+            },
+            "pos": {
+              "x": 2.05,
+              "y": 32.4,
+              "z": 0.0
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -287960,7 +288602,17 @@
           "text_ja": "「ウィンダスのフェイス使用許可証」をもらえる。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "quest.windurst.016#gb01",
@@ -296945,9 +297597,15 @@
         {
           "id": "quest.windurst.072#g01",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -296965,7 +297623,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "quest.windurst.072#g02",
@@ -297076,9 +297744,15 @@
         {
           "id": "quest.windurst.072#g05",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -297102,7 +297776,17 @@
           "text_ja": "キャストワンドをもらえる。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -297117,9 +297801,15 @@
         {
           "id": "quest.windurst.073#g01",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -297137,7 +297827,17 @@
           "text_ja": "「3賢者」から続けて受けるならエリアを出入りする。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "extra_sources": [
@@ -297215,9 +297915,15 @@
         {
           "id": "quest.windurst.073#g04",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -297243,7 +297949,17 @@
           "text_ja": null,
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "trade"
+          "type": "trade",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         },
         {
           "id": "quest.windurst.073#g05",
@@ -297330,9 +298046,15 @@
         {
           "id": "quest.windurst.073#g07",
           "location": {
-            "grid": null,
+            "grid": "H-8",
             "map": {
-              "kind": "unknown"
+              "kind": "number",
+              "n": 1
+            },
+            "pos": {
+              "x": 0.0,
+              "y": 20.0,
+              "z": 30.749
             },
             "zone_id": 242,
             "zone_name": "天の塔"
@@ -297348,7 +298070,17 @@
           "text_ja": "ウィザードサボをもらえる。",
           "text_status": "guide_v1",
           "time_weather_ja": null,
-          "type": "talk"
+          "type": "talk",
+          "extra_sources": [
+            {
+              "checked": "2026-11-24",
+              "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+              "name": "LSB",
+              "urls": [
+                "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -322139,64 +322871,129 @@
       "id": "npc.天の塔.Habida-Jubida",
       "kind": "npc",
       "location": {
-        "grid": "G-9",
+        "grid": "F-12",
         "map": {
           "kind": "number",
           "n": 2
+        },
+        "pos": {
+          "x": -16.299,
+          "y": -15.847,
+          "z": 0.5
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Habida-Jubida",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=-16.299 y=-15.847 z=0.500（id 17768503）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 F-12（用語辞典の G-9（MAP2） は用語辞典の地図のマスで、同梱の地図のマスとは大きさがちがう）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768503
     },
     {
       "id": "npc.天の塔.Rhy_Epocan",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 4
+        },
+        "pos": {
+          "x": 2.319,
+          "y": 14.0,
+          "z": -47.0
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Rhy Epocan",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.319 y=14.000 z=-47.000（id 17768483）。ゾーン DAT の床の高さ -47.00 から同梱の天の塔の地図の MAP4、マス目 H-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768483
     },
     {
       "id": "npc.天の塔.Sassa-Kotassa",
       "kind": "npc",
       "location": {
-        "grid": "H-7",
+        "grid": "H-8",
         "map": {
           "kind": "number",
           "n": 2
+        },
+        "pos": {
+          "x": 2.329,
+          "y": 19.017,
+          "z": 0.499
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Sassa-Kotassa",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.329 y=19.017 z=0.499（id 17768509）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 H-8（用語辞典の H-7（MAP2） は用語辞典の地図のマスで、同梱の地図のマスとは大きさがちがう）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768509
     },
     {
       "id": "npc.天の塔.Sheelala",
       "kind": "npc",
       "location": {
-        "grid": "H-9",
+        "grid": "I-11",
         "map": {
           "kind": "number",
           "n": 2
+        },
+        "pos": {
+          "x": 4.45,
+          "y": -8.666,
+          "z": 0.749
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Sheelala",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=4.450 y=-8.666 z=0.749（id 17768500）。ゾーン DAT の床の高さ 0.75 から同梱の天の塔の地図の MAP2、マス目 I-11（用語辞典の H-9（MAP2） は用語辞典の地図のマスで、同梱の地図のマスとは大きさがちがう）",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768500
     },
     {
       "id": "npc.東アドゥリン.Roskin",
@@ -351390,9 +352187,10 @@
       "id": "npc.242.Chumimi",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-8",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 1
         },
         "pos": {
           "x": 0.0,
@@ -351404,8 +352202,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351421,9 +352219,10 @@
       "id": "npc.242.Habida-Jubida",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "F-12",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 2
         },
         "pos": {
           "x": -16.299,
@@ -351435,8 +352234,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=-16.299 y=-15.847 z=0.500（id 17768503。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=-16.299 y=-15.847 z=0.500（id 17768503）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 F-12",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351452,9 +352251,10 @@
       "id": "npc.242.Kupipi",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-6",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 2
         },
         "pos": {
           "x": 2.05,
@@ -351466,8 +352266,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351483,9 +352283,10 @@
       "id": "npc.242.Rhy_Epocan",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-8",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 4
         },
         "pos": {
           "x": 2.319,
@@ -351497,8 +352298,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=2.319 y=14.000 z=-47.000（id 17768483。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.319 y=14.000 z=-47.000（id 17768483）。ゾーン DAT の床の高さ -47.00 から同梱の天の塔の地図の MAP4、マス目 H-8",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351514,9 +352315,10 @@
       "id": "npc.242.Sassa-Kotassa",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-8",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 2
         },
         "pos": {
           "x": 2.329,
@@ -351528,8 +352330,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=2.329 y=19.017 z=0.499（id 17768509。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.329 y=19.017 z=0.499（id 17768509）。ゾーン DAT の床の高さ 0.50 から同梱の天の塔の地図の MAP2、マス目 H-8",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351545,9 +352347,10 @@
       "id": "npc.242.Sheelala",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "I-11",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 2
         },
         "pos": {
           "x": 4.45,
@@ -351559,8 +352362,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=4.450 y=-8.666 z=0.749（id 17768500。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=4.450 y=-8.666 z=0.749（id 17768500）。ゾーン DAT の床の高さ 0.75 から同梱の天の塔の地図の MAP2、マス目 I-11",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -351576,9 +352379,10 @@
       "id": "npc.242.Zubaba",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "J-8",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 3
         },
         "pos": {
           "x": 15.632,
@@ -351590,8 +352394,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486）。ゾーン DAT の床の高さ -26.25 から同梱の天の塔の地図の MAP3、マス目 J-8",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -357306,9 +358110,10 @@
       "id": "obj.242.Door_Starway_Stairway",
       "kind": "obj",
       "location": {
-        "grid": null,
+        "grid": "F-6",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 2
         },
         "pos": {
           "x": -13.695,
@@ -357320,8 +358125,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=-13.695 y=28.938 z=-1.504（id 17768475。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=-13.695 y=28.938 z=-1.504（id 17768475）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 F-6",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
@@ -357337,9 +358142,10 @@
       "id": "obj.242.Door_Vestal_Chamber",
       "kind": "obj",
       "location": {
-        "grid": null,
+        "grid": "H-5",
         "map": {
-          "kind": "single"
+          "kind": "number",
+          "n": 4
         },
         "pos": {
           "x": 0.0,
@@ -357351,8 +358157,8 @@
       },
       "location_sources": [
         {
-          "checked": "2026-11-18",
-          "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476。このゾーンの地図データが無いためマス目は付けていません）",
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
           "name": "LSB",
           "urls": [
             "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"

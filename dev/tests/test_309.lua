@@ -21,7 +21,7 @@ imgui.IsItemActive = function () return active_label ~= nil and last_label == ac
 dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
 local ime = require('src.ui.ime_input')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 FAKE.events.load()
 FAKE.player = { name = 'R309', zone = 230, tidx = 5, status = 0 }
 frames(1)

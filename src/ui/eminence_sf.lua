@@ -49,17 +49,28 @@ local function chip_w(imgui, label, pad_x)
 end
 
 
-local function action_look(op, hover, press)
-    if op == 'start' then
-        -- クエスト／ミッションの完了バッジと同じ：暗い半透明の塗り、sf_amber の枠と文字
-        local rim = press and 'sf_amber_press' or (hover and 'sf_amber_hover' or 'sf_amber')
-        local fa = press and 0.58 or (hover and 0.50 or 0.42)
-        return nil, theme.u32(rim, 0.95), theme.u32(rim, 1), fa, 0.92
+-- 0.1.321〜：エミネンスの状態の札の色（枠と文字）。mode は cycle_of の mode、cyc は区分
+function eminence_sf.state_color(mode, cyc)
+    if mode == 'active' then return 'roe_st_active' end
+    if mode == 'done' then return 'roe_st_done' end
+    if mode == 'wait' then
+        if cyc and cyc.unimpl then return 'roe_st_unimpl' end
+        local r = cyc and cyc.reason
+        if r == 'other_leader' then return 'roe_st_other' end
+        if r == 'timed_auto' then return 'roe_st_auto' end
+        return 'roe_st_open'
     end
-    local rim = press and 'roe_drop_press' or (hover and 'roe_drop_hover' or 'roe_drop')
-    local fa = press and 0.55 or (hover and 0.34 or 0.18)
-    return theme.u32('roe_drop', fa), theme.u32(rim, 0.95), theme.u32('cream', 1), 1, 1
+    return 'roe_st_open'
 end
+
+-- 受注・解除の札（押せる）。0.1.321〜：受注＝#80ADC7、解除（受注中）＝紫ピンク。乗せる・押すと濃く
+local function action_look(op, hover, press)
+    local key = (op == 'start') and 'roe_st_open' or 'roe_st_active'
+    local fa = press and 0.30 or (hover and 0.20 or 0.10)
+    local la = press and 1.0 or (hover and 1.0 or 0.85)
+    return theme.u32(key, fa), theme.u32(key, la), theme.u32(key, (hover or press) and 1 or 0.95), 1, 1
+end
+eminence_sf._action_look = action_look
 
 local function paint_action(dl, x1, y1, x2, y2, op, hover, press)
     local fill, line, text, fill_a, line_a = action_look(op, hover, press)
@@ -387,13 +398,14 @@ local function draw_card(ui, win, rec, selected, width)
     -- 0.1.293〜：くり返しできる達成は受注ボタン。いま受けられないものは「期間外」などの灰色の札
     local badge, bcol
     if mode == 'done' then
-        badge, bcol = badge_of(t, 'completed')
+        badge = badge_of(t, 'completed')
+        bcol = eminence_sf.state_color(mode, cyc)
     elseif mode == 'wait' then
-        badge, bcol = eminence_sf.wait_label(t, cyc), 'muted'
+        badge, bcol = eminence_sf.wait_label(t, cyc), eminence_sf.state_color(mode, cyc)
     elseif mode == 'active' then
-        badge, bcol = t('roe.remove'), 'sf_cyan'
+        badge, bcol = t('roe.remove'), eminence_sf.state_color(mode, cyc)
     else
-        badge, bcol = t('roe.accept'), 'muted'
+        badge, bcol = t('roe.accept'), eminence_sf.state_color(mode, cyc)
     end
     font(ui, win, 0.68, true)
     local twb, thb = theme.measure_text(imgui, badge)
@@ -452,11 +464,11 @@ local function draw_card(ui, win, rec, selected, width)
         pcall(function () imgui.SetCursorScreenPos({ bx1, by1 }) end)
         sf.hit(imgui, '##sfemw_' .. tostring(id), bw, bh)
         sf.frame(dl, bx1, by1, bx2, by2, {
-            cut = 3, fill = theme.u32('muted', 0.10), fill_a = 1, line = theme.u32('muted', 0.70), line_a = 1,
+            cut = 3, fill = theme.u32(bcol, 0.10), fill_a = 1, line = theme.u32(bcol, 0.70), line_a = 1,
             brackets = false, glow = false, thick = 1.0, band = false,
         })
         font(ui, win, 0.68, true)
-        sf.add_text(dl, bx1 + bpad_x, by1 + bpad_y, theme.u32('muted', 0.95), badge)
+        sf.add_text(dl, bx1 + bpad_x, by1 + bpad_y, theme.u32(bcol, 0.95), badge)
         font(ui, win, 1, false)
         local tip = ui.roe_why_text and ui.roe_why_text(cyc.reason, id) or nil
         show_tip(imgui, tip)
@@ -599,10 +611,11 @@ local function draw_detail(ui, win, id)
     if mode == 'wait' then
         local lab = eminence_sf.wait_label(t, cyc)
         local when = eminence_sf.wait_when(t, cyc, ui.epoch_now and ui.epoch_now() or nil)
-        theme.TextColored(imgui, theme.col('muted'), when and (lab .. '  ' .. when) or lab)
+        theme.TextColored(imgui, theme.col(eminence_sf.state_color(mode, cyc)), when and (lab .. '  ' .. when) or lab)
     else
         local badge = badge_of(t, (mode == 'done' and 'completed') or (mode == 'active' and 'accepted') or 'not_accepted')
-        theme.TextColored(imgui, theme.col('sf_cyan'), badge)
+        -- 0.1.321〜：状態の字も札と同じ色（受注中＝紫ピンク、達成＝金、未開始＝#80ADC7）
+        theme.TextColored(imgui, theme.col(eminence_sf.state_color(mode, cyc)), badge)
     end
     font(ui, win, 1, false)
     if q.body and q.body ~= '' then W.text(ui, q.body) end

@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 local sf = require('src.ui.sf_style')
 local theme = require('src.ui.theme')
@@ -50,11 +50,12 @@ check(bsrc:find('heading_track', 1, true) == nil, 'classic book does not use SF 
 ---------------------------------------------------------------------------
 local esrc = io.open(ROOT .. '/src/ui/eminence_sf.lua', 'r'):read('*a')
 check(esrc:find('local function action_look', 1, true) ~= nil, 'action_look is present')
-check(esrc:find("if op == 'start' then", 1, true) ~= nil, 'start branch is present')
-check(esrc:find('sf_amber', 1, true) ~= nil, 'accept uses sf_amber')
-check(esrc:find('0.42', 1, true) ~= nil, 'accept fill matches the done badge (0.42)')
-check(esrc:find("theme.u32('ink'", 1, true) == nil, 'accept no longer uses dark ink text')
-check(esrc:find('roe_drop', 1, true) ~= nil, 'remove still uses roe_drop')
+check(esrc:find("(op == 'start')", 1, true) ~= nil, 'start branch is present')
+-- 0.1.322〜：受注・解除は状態の札の色。完了の札は金（roe_st_done）、塗りは 0.42 のまま
+check(esrc:find("'roe_st_open'", 1, true) ~= nil, 'accept uses roe_st_open (0.1.322)')
+check(esrc:find('fill_a = 0.42', 1, true) ~= nil, 'done badge fill stays 0.42')
+check(esrc:find("theme.u32('ink'", 1, true) == nil, 'accept does not use dark ink text')
+check(esrc:find("'roe_st_active'", 1, true) ~= nil, 'remove uses roe_st_active (0.1.322)')
 -- 本の完了バッジと同じ枠の出し方（半透明の塗り、金色の枠）
 local booksf = io.open(ROOT .. '/src/ui/book_sf.lua', 'r'):read('*a')
 check(booksf:find('fill_a = 0.42', 1, true) ~= nil, 'quest/mission done badge uses fill_a 0.42')

@@ -23,6 +23,7 @@ local maps_mod    = require('src.core.maps')
 local exits_mod   = require('src.core.exits')
 local zonedat_mod = require('src.core.zonedat')
 local map_dat_mod = require('src.core.map_dat')
+local png_mod = require('src.core.png')
 local marks_ui    = require('src.ui.marks')
 local shortcut_mod = require('src.core.shortcut')
 local update_mod  = require('src.core.update')
@@ -38,8 +39,9 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.318',
+    VERSION = '1.1.324',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
+    FLOOR_HEIGHT_INTERVAL = 0.25, -- 高さで層を決めるゾーンの確認（秒、0.1.323〜）。軽いので短く
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）
     SERVER = 'catseye',
     SAVE_DELAY = 3.0,
@@ -784,6 +786,9 @@ function app.open_map(qid, step_id, loc, opts)
         loc = loc or ((not q) and location or nil),
         map_n = nil,
         from = state.active,
+        -- 「現在地」（0.1.324〜）：本の左の地図ボタン、またはクエストも場所も無くていまいるエリアを開いたとき。動いたら地図がついてくる
+        here = ((here or (not q and not loc and not step)) and state.player and state.player.zone_id
+            and location and tonumber(location.zone_id) == tonumber(state.player.zone_id)) and true or nil,
     }
     local mtg = opts and opts.mob and D:target(opts.mob)
     if mtg and mtg.name_en then state.map.mob = { target = mtg.id, name = mtg.name_en } end
@@ -3035,16 +3040,25 @@ end
 
 -- いまいる階（FloorId）→ MAP 番号。地図の窓が開いていて、複数 MAP のゾーンのときだけ、1秒ごと。
 -- force=true（/astertrail floor）は間隔とゾーン直後の待ちを見ずに、すぐ確かめる。
+-- 高さで層を決めるゾーン（0.1.323〜、天の塔。FloorId はどこも 0）は、いる高さ（z）の範囲で決める。0.25秒ごと。
 function app.poll_floor(force)
-    if not P or not P.current_floor_id then return nil end
+    if not P then return nil end
     if not force then
         if not state.open.map then return nil end
-        if state.floor_at and state.now - state.floor_at < app.FLOOR_INTERVAL then return state.floor end
+        local iv = (state.floor and state.floor.h ~= nil) and app.FLOOR_HEIGHT_INTERVAL or app.FLOOR_INTERVAL
+        if state.floor_at and state.now - state.floor_at < iv then return state.floor end
     end
     state.floor_at = state.now
     local pl = state.player
     local zone = pl and tonumber(pl.zone_id)
     if not zone or zone <= 0 then state.floor = nil; return nil end
+    if maps_mod.by_height(D, zone) then
+        local h = tonumber(pl.z)
+        local mn = maps_mod.map_n_for_height(D, zone, h)
+        state.floor = { zone_id = zone, h = h, map_n = mn, why = mn and 'height' or 'out_of_height' }
+        return state.floor
+    end
+    if not P.current_floor_id then return nil end
     if not force then
         if #maps_mod.floors(D, zone) <= 1 then state.floor = { zone_id = zone, why = 'single_map' }; return state.floor end
         local entered = state.zone_entered_at[zone]
@@ -3323,7 +3337,44 @@ end
 -- クライアントの地図 DAT を読み、テクスチャにする（失敗は方眼へ）。成功と形式エラーは覚え、パスやデバイスの失敗はやり直す。
 local map_images = {}
 
+-- 0.1.323〜：file_id が文字列なら、アドオンに同梱の自作の地図画像（assets/maps/*.png）のパス。
+local function load_bundled_image(rel)
+    local hit = map_images[rel]
+    if hit then
+        if hit.tex then return hit end
+        if hit.err and hit.err ~= 'no_device' and hit.err ~= 'no_texture' and hit.err ~= 'create_failed' and hit.err ~= 'lock_failed' then
+            return nil, hit.err
+        end
+    end
+    if not rel:match('^assets/maps/[%w_]+%.png$') then
+        map_images[rel] = { err = 'bad_path' }
+        return nil, 'bad_path'
+    end
+    local dir = P.addon_dir and P.addon_dir() or nil
+    if not dir or not P.fs then
+        map_images[rel] = { err = 'no_path' }
+        return nil, 'no_path'
+    end
+    local sep = P.fs.sep or '/'
+    local img, why = hit and hit.img, nil
+    if not img then img, why = png_mod.decode_file(dir .. (rel:gsub('/', sep)), P.fs) end
+    if not img then
+        map_images[rel] = { err = why or 'decode' }
+        return nil, why or 'decode'
+    end
+    if not P.load_texture then return nil, 'no_texture' end
+    local tex, tw = P.load_texture(img)
+    if not tex then
+        map_images[rel] = { err = tw or 'no_texture', img = img } -- 絵は覚えておき、テクスチャだけやり直す
+        return nil, tw or 'no_texture'
+    end
+    local out = { tex = tex, width = img.width, height = img.height }
+    map_images[rel] = out
+    return out
+end
+
 function app.load_map_image(file_id)
+    if type(file_id) == 'string' and not tonumber(file_id) then return load_bundled_image(file_id) end
     file_id = tonumber(file_id)
     if not file_id then return nil, 'no_id' end
     local hit = map_images[file_id]
@@ -3965,6 +4016,7 @@ function app.command(text)
         local st = P.floor_status and P.floor_status() or {}
         local bits = {}
         if f.why then bits[#bits + 1] = tostring(f.why) end
+        if f.h then bits[#bits + 1] = string.format('h=%.1f', f.h) end
         if st.source then bits[#bits + 1] = tostring(st.source) end
         P.print(T('cmd.floor', {
             zone = tostring(zone or '-'),

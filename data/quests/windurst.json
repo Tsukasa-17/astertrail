@@ -6246,31 +6246,65 @@
       "id": "npc.天の塔.Chumimi",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 1
+        },
+        "pos": {
+          "x": 0.0,
+          "y": 20.0,
+          "z": 30.749
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Chumimi",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=0.000 y=20.000 z=30.749（id 17768531）。ゾーン DAT の床の高さ 30.75 から同梱の天の塔の地図の MAP1、マス目 H-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768531
     },
     {
       "id": "npc.天の塔.Kupipi",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "H-6",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 2
+        },
+        "pos": {
+          "x": 2.05,
+          "y": 32.4,
+          "z": 0.0
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Kupipi",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=2.050 y=32.400 z=0.000（id 17768466）。ゾーン DAT の床の高さ 0.00 から同梱の天の塔の地図の MAP2、マス目 H-6",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768466
     },
     {
       "id": "obj.104.???_H-6",

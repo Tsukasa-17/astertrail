@@ -714,6 +714,17 @@ local function name_selectable(ui, name, id, nm, color, row)
     return (clicked or activated) and true or false
 end
 
+-- 0.1.321〜：クラシック・YunaUI 風の行の札の色（nil は今までどおり灰色）
+function eminence.tag_color(kind, why)
+    if kind == 'rotation' then
+        if why == 'other_leader' then return 'roe_st_other' end
+        if why == 'timed_auto' then return 'roe_st_auto' end
+        return nil
+    end
+    if kind == 'failed' and why == 'not_impl' then return 'roe_st_unimpl' end
+    return nil
+end
+
 -- 1 行：★ ♥ ［受ける］／［解除］ 名前 進み 印。名前を押す（キー・パッドで行に来る）と右に詳細
 local function draw_row(ui, name, id)
     local imgui, t = ui.imgui, ui.t
@@ -738,20 +749,30 @@ local function draw_row(ui, name, id)
     if name_selectable(ui, name, id, nm, color, row) then
         sel_id = id
     end
+    -- 0.1.321〜：状態の札（［達成］［ほかのリーダー］［自動で入る］［未実装］と受注中の進み）だけ状態の色。
+    -- ほかの印（くり返し可・期間外など）は今までどおり灰色
     local tags = {}
     if st == 'accepted' then
         local _, e = eminence.state_of(ui, id)
-        tags[#tags + 1] = eminence.progress_text(ui, e)
+        tags[#tags + 1] = { eminence.progress_text(ui, e), 'roe_st_active' }
     elseif q and q.target then
-        tags[#tags + 1] = '/' .. tostring(q.target)
+        tags[#tags + 1] = { '/' .. tostring(q.target) }
     end
-    if q and q.repeatable then tags[#tags + 1] = t('roe.tag_repeat') end
-    if st == 'completed' then tags[#tags + 1] = t('roe.tag_done') end
-    if rot then tags[#tags + 1] = t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' })
-    elseif failed then tags[#tags + 1] = t('roe.tag_failed.' .. tostring(failed.why)) end
-    if #tags > 0 then
+    if q and q.repeatable then tags[#tags + 1] = { t('roe.tag_repeat') } end
+    if st == 'completed' then tags[#tags + 1] = { t('roe.tag_done'), 'roe_st_done' } end
+    if rot then tags[#tags + 1] = { t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }), eminence.tag_color('rotation', rot) }
+    elseif failed then tags[#tags + 1] = { t('roe.tag_failed.' .. tostring(failed.why)), eminence.tag_color('failed', failed.why) } end
+    -- 同じ色の続きはまとめて 1 回で書く（色がなければ今までと同じ 1 行の灰色）
+    local i = 1
+    while i <= #tags do
+        local col = tags[i][2]
+        local parts = { tags[i][1] }
+        local j = i + 1
+        while j <= #tags and tags[j][2] == col do parts[#parts + 1] = tags[j][1]; j = j + 1 end
         imgui.SameLine()
-        theme.TextDisabled(imgui, table.concat(tags, ' '))
+        if col then theme.TextColored(imgui, theme.col(col), table.concat(parts, ' '))
+        else theme.TextDisabled(imgui, table.concat(parts, ' ')) end
+        i = j
     end
     -- キー・パッドでこの行に来たら詳細もこの行に（0.1.228〜：マウスを乗せただけでは動かさない）
     local cur = focus.current(name)
@@ -1123,12 +1144,17 @@ local function draw_rows_table(ui, name, rows, force_top)
                     local color = accepted and 'ic_progress' or (dim and 'muted' or (sel_id == id and 'accent' or 'text'))
                     if name_selectable(ui, name, id, nm, color, row) then sel_id = id end
                     -- 0.1.209〜：状態の列をなくしたので、受けられなかった印は名前の右に小さく
+                    -- 0.1.321〜：札の色（ほかのリーダー・自動で入る・未実装）。ほかは今までどおり灰色
+                    local tag, tcol
                     if rot then
-                        pcall(imgui.SameLine, 0, 4)
-                        theme.TextDisabled(imgui, t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }))
+                        tag, tcol = t('roe.tag_rotation.' .. tostring(rot), { today = today or '?' }), eminence.tag_color('rotation', rot)
                     elseif failed then
+                        tag, tcol = t('roe.tag_failed.' .. tostring(failed.why)), eminence.tag_color('failed', failed.why)
+                    end
+                    if tag then
                         pcall(imgui.SameLine, 0, 4)
-                        theme.TextDisabled(imgui, t('roe.tag_failed.' .. tostring(failed.why)))
+                        if tcol then theme.TextColored(imgui, theme.col(tcol), tag)
+                        else theme.TextDisabled(imgui, tag) end
                     end
                 elseif k == 'progress' then
                     local ptext = eminence.count_text(ui, id)

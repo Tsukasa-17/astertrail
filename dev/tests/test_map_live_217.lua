@@ -10,7 +10,7 @@ local maps = require('src.core.maps')
 
 FAKE.player = { name = 'Tester', zone = 122, tidx = 5, status = 0 }
 frames(1)
-eq(app.VERSION, '1.1.318', 'version 0.1.251')
+eq(app.VERSION, '1.1.324', 'version 0.1.251')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 
 local D = app._data()

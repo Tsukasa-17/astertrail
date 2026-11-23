@@ -34,7 +34,7 @@ imgui.IsItemActive = function () return active_label ~= nil and last_label == ac
 dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
 local platform = require('src.platform.ashita')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 platform.chat_run = function () return true end
 local logged = {}
 platform.log_only = function (t) logged[#logged + 1] = t; return true end

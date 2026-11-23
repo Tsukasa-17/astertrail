@@ -4,7 +4,7 @@ require('harness')
 local settings = require('src.core.settings')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 -- 1) 初期値と読み替え
 local d = settings.defaults()

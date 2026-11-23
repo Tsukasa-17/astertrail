@@ -1,5 +1,5 @@
 {
-"version": "1.1.318",
+"version": "1.1.324",
 "files": [
 {
 "path": "LICENSE",
@@ -11,7 +11,7 @@
 },
 {
 "path": "README.md",
-"sha256": "a3d36624f7678c79409c19d93456ecefbd4b68e6a7311d1c42bedc29bea2d418"
+"sha256": "99e61225284dc035ea6eaa4df59c4a66f4e18250c14202d3cc9eb28c92190239"
 },
 {
 "path": "TECH_VALIDATION.md",
@@ -19,7 +19,23 @@
 },
 {
 "path": "astertrail.lua",
-"sha256": "92fe8767ad910e589c76fc4ce477c4818874cbc23347cc54662b389d50bb7b4b"
+"sha256": "dfc65c34f1e97ed722550b547f370667916162247fb3b5e3c545b757fdeca569"
+},
+{
+"path": "assets/maps/z242_1.png",
+"sha256": "e37c2f2cc01bf5dd069a82e696f2b607d0d1af7e7c9d30189bfaedd6484aec0d"
+},
+{
+"path": "assets/maps/z242_2.png",
+"sha256": "8113ab3169812bb785ddcb4e66ca9e39b509e91955ba62e6676b01e6b2a2db08"
+},
+{
+"path": "assets/maps/z242_3.png",
+"sha256": "60f37768344173088b85b016c3d46a84c188e326de93808e764e584b6aef785d"
+},
+{
+"path": "assets/maps/z242_4.png",
+"sha256": "c3804cc55d60d0548293066754a09f5f287c50f011b710a5601ae5c854842465"
 },
 {
 "path": "assets/marks/README.txt",
@@ -115,7 +131,7 @@
 },
 {
 "path": "data/maps.json",
-"sha256": "245525535a8aa41f1993b574aa79c7e21a995dc0894f2ee3d23bf5c393d52115"
+"sha256": "65fb282c7a0979d6955a2bf3e4187c0b391c0a68416b7e25db99d8447d41765b"
 },
 {
 "path": "data/roe_cycles.json",
@@ -139,7 +155,7 @@
 },
 {
 "path": "data/guides/steps_v2.json",
-"sha256": "9dcf29835923194201749bf8d1cc1f07eaea1bc422f48e4475252347534d518d"
+"sha256": "9a511c7ab16f434373269bfaac7bfa5d29d7af16103876285afc001b5437e4da"
 },
 {
 "path": "data/missions/acp.json",
@@ -195,7 +211,7 @@
 },
 {
 "path": "data/missions/windurst.json",
-"sha256": "836211b075558d16753927c3cd52247092ac317cbd2278dcf07d830d897bf12b"
+"sha256": "622046f520d9fdd517707e5c87d9438992b1cabf371278295bb5742a8b23d0e4"
 },
 {
 "path": "data/missions/zilart.json",
@@ -259,7 +275,7 @@
 },
 {
 "path": "data/quests/windurst.json",
-"sha256": "94fc1e0e9356065817aed475bc9b21b413c389ab89409060f52f377123c1e52b"
+"sha256": "16251ba3bedb6bde4fefb650447d8e06a60be508bb7209dfb8d9c1803f808485"
 },
 {
 "path": "docs/images/vanacore-imgui-font.png",
@@ -279,15 +295,15 @@
 },
 {
 "path": "locales/en.json",
-"sha256": "a15450ed2975737c874bfed9cc7d4a5358630d35ea38b2658462dd383bc62d55"
+"sha256": "90e2e55d44027dc631fd347c16474106201323c6b61c452fb6d921af55fde965"
 },
 {
 "path": "locales/ja.json",
-"sha256": "2ce043c17eeca29a8878ddfb56f30193a3667dc2607c66715e0bf24847ee71cc"
+"sha256": "fe7b6e8d0e059d1c72466a4652119ae1152e4c3623f8c5888936891fe05564a1"
 },
 {
 "path": "src/app.lua",
-"sha256": "8a7448e8c5ff2ef9f0a607af463ba577265b85d98be091d70127d46f0a8ac8d3"
+"sha256": "5b900c49230451dde131782e89a8eb99bfe00151bb86834823d7d2828b85bcf0"
 },
 {
 "path": "src/build_flags.lua",
@@ -307,7 +323,7 @@
 },
 {
 "path": "src/core/exits.lua",
-"sha256": "4fd26ffa1c51c857606b4dc0680c8162fb33dcb06c0ed27e05877229eac17b40"
+"sha256": "ec89c02b906a5dee7a255f102a4753e14779b9c1759187a16bab430f81fec00f"
 },
 {
 "path": "src/core/fame.lua",
@@ -331,7 +347,7 @@
 },
 {
 "path": "src/core/layouts.lua",
-"sha256": "5890f2e0e31b918231e6623082b8d80944da9ba69accce596085a785f6f40d7d"
+"sha256": "436717db0eea5273f02a675ba7fcb833396cea11fca801b252fab04d90e8b275"
 },
 {
 "path": "src/core/map_dat.lua",
@@ -339,7 +355,7 @@
 },
 {
 "path": "src/core/maps.lua",
-"sha256": "05c3ed0e1c26601ccef674f08d728edcb035a86906837c893c8cd983be317171"
+"sha256": "89007664498c73d0227150adfa36aa902dfd19635ace9be4792a016d7b836a43"
 },
 {
 "path": "src/core/marks.lua",
@@ -348,6 +364,10 @@
 {
 "path": "src/core/perf.lua",
 "sha256": "dbd0012596e647fbff2fdaec7a7ff2c759a71fdabfd8ece13a470c36ac1f904b"
+},
+{
+"path": "src/core/png.lua",
+"sha256": "94a49775b8c9b12f9824aaef4f1a559031e5b3866fbf22c64d80f51dd7887760"
 },
 {
 "path": "src/core/possession.lua",
@@ -427,7 +447,7 @@
 },
 {
 "path": "src/ui/book_sf.lua",
-"sha256": "f52e2c89a6d400f5ffef8746a33401b3c76c56662a6841d28b9342514172c705"
+"sha256": "a52f604bb9e9f145b439c0d41870ad148befd552a0d53181066f2e3911117287"
 },
 {
 "path": "src/ui/colored_text.lua",
@@ -459,11 +479,11 @@
 },
 {
 "path": "src/ui/eminence.lua",
-"sha256": "1df3d3fc04ccc94163d5f53a5462f28056cf9eb613548e1eb8d8bf99488e21f9"
+"sha256": "7be3c186562113cbbca50a014a106cd045560f858c7cb1206feb9d7ab5b98e18"
 },
 {
 "path": "src/ui/eminence_sf.lua",
-"sha256": "474d24600d1d853f1715dfb05561839666356081faec474b5034581aef337a81"
+"sha256": "6dcf295287e4431c5bb8df31f3ee85f5d1672a009f9fa8fd6a41983642bfac88"
 },
 {
 "path": "src/ui/eminence_win_sf.lua",
@@ -499,11 +519,11 @@
 },
 {
 "path": "src/ui/map_sf.lua",
-"sha256": "f0baf65d6e74b15a491a6293c2b6ecabb001a7b543f395599b32fc191cf019d4"
+"sha256": "a2d7cb1e68fe820a67039e2593d741f22b7019da01af71fcceec04031bec1f33"
 },
 {
 "path": "src/ui/map_view.lua",
-"sha256": "3da02bfeb61982d3b78c490bfa60f69c7a0b2b6361a32888ff6ac659e84d9251"
+"sha256": "a1db475a959d637a0edfb8b9f6c5f5b567699d92227e992f9944dd8d26ac0f23"
 },
 {
 "path": "src/ui/marks.lua",
@@ -535,7 +555,7 @@
 },
 {
 "path": "src/ui/theme.lua",
-"sha256": "9c47f825556bbf1bd26a6c5b8526e28e1e5bdecafe393c83c254ce84dfcb371f"
+"sha256": "9eca78f643f0fae3dacee205cbcee6a3ef1330228415c5912c847d0fc8963151"
 },
 {
 "path": "src/ui/title_close.lua",

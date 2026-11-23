@@ -306,7 +306,7 @@ do
     check(r85 and #r85.steps == 3 and r94 and tonumber(r94.order) == 93, 'RoV3 second half')
     -- 0.1.136：蝕世のエンブリオの始まり（1番目はシートにない行を足した。Kupipi は資料に座標がない）
     local t1, t6, kp = D:quest('mission.tvr.001'), D:quest('mission.tvr.006'), D:target('npc.天の塔.Kupipi')
-    check(t1 and tonumber(t1.order) == 1 and #t1.steps == 2 and t6 and #t6.steps == 11 and kp and (kp.location == nil or kp.location.grid == nil), 'TVR start')
+    check(t1 and tonumber(t1.order) == 1 and #t1.steps == 2 and t6 and #t6.steps == 11 and kp and kp.location and kp.location.map and kp.location.map.n == 2, 'TVR start (0.1.324: Kupipi on MAP 2 (1F) of the Heaven\'s Tower map)')
     -- 0.1.137：蝕世の第2章の最後〜第3章の前半（フェ・インの Talos はマップの番号が資料で違うので番号なし）
     local t12, t14, ta = D:quest('mission.tvr.012'), D:quest('mission.tvr.014'), D:target('npc.204.Talos')
     -- 0.1.222〜：LSB の Talos 2件は同じ場所なので正確な座標が入り、MAP はゾーンの当たり判定の階（MAP3）

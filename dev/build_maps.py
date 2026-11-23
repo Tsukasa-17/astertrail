@@ -65,6 +65,12 @@ def build(csv_path, out_path):
         'floors': floors,
         'unconfirmed_zones': unconfirmed,
     }
+    # ゲームの地図が無いエリアの、ゾーン DAT から描いた地図（0.1.323〜、天の塔）。作り直しても消えないように最後に足す
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import build_dat_maps
+    doc = build_dat_maps.merge_maps(doc)
+    floors = doc['floors']
+    unconfirmed = doc['unconfirmed_zones']
     with open(out_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
         f.write('\n')

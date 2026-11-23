@@ -1,6 +1,7 @@
 --[[
   Astertrail - 地図の対応表とピン位置
-  画像は同梱しない。対応表は 2026-11-12 の実機読み出しとメニュー照合。
+  画像はふつう同梱しない（ゲームの地図 DAT を読む）。対応表は 2026-11-12 の実機読み出しとメニュー照合。
+  ゲームの地図が無いエリアだけ、ゾーン DAT から描いた自分の画像を assets/maps/ に同梱する（0.1.323〜、天の塔）。
   マス目からのピンは、512px 基準の画像上の区画の中央（参考位置。正確な NPC 位置ではない）。
   実座標があるときだけ、Offset と Scale で画像上の位置を出す。
 ]]
@@ -49,10 +50,53 @@ function maps.is_unconfirmed(data, zone_id)
         and #maps.floors(data, zone_id) == 0
 end
 
--- ゲームが返す FloorId → その地図の MAP 番号（表に無ければ nil）
+-- 高さで層を決めるゾーンか（0.1.323〜）。ゲームの地図が無く、ゾーン DAT から描いた地図（天の塔など）。
+-- そのゾーンの地図すべてに h_min と h_max（高さ、+ が下）があるときだけ。FloorId はどこも 0 なので使わない。
+function maps.by_height(data, zone_id)
+    local list = maps.floors(data, tonumber(zone_id))
+    if #list == 0 then return false end
+    for _, f in ipairs(list) do
+        if tonumber(f.h_min) == nil or tonumber(f.h_max) == nil then return false end
+    end
+    return true
+end
+
+-- 高さ h（Ashita の GetLocalPositionZ と同じ。+ が下）→ その層の MAP 番号。範囲の外・高さで決めないゾーンは nil
+function maps.map_n_for_height(data, zone_id, h)
+    h = tonumber(h)
+    if h == nil or not maps.by_height(data, zone_id) then return nil end
+    for _, f in ipairs(maps.floors(data, tonumber(zone_id))) do
+        if h >= tonumber(f.h_min) and h < tonumber(f.h_max) then return f.map_n end
+    end
+    return nil
+end
+
+-- 地図のタブの名前（0.1.324〜）。level があるページ（天の塔の 4 枚）は「MAP n 名前」、ほかは「MAP n」
+function maps.floor_label(t, f)
+    if not f then return '' end
+    local n = tostring(f.map_n)
+    if type(f.level) == 'string' and f.level ~= '' then
+        local key = 'map.level.' .. f.level
+        local name = t(key)
+        if name and name ~= '' and name ~= key then
+            return t('map.floor_named', { n = n, name = name })
+        end
+    end
+    return t('map.floor', { n = n })
+end
+
+-- その地図の画像の鍵（0.1.323〜）。同梱の画像（image のパス）があればそれ、無ければゲームの地図 DAT の番号
+function maps.image_key(floor)
+    if not floor then return nil end
+    if type(floor.image) == 'string' and floor.image ~= '' then return floor.image end
+    return floor.file_id
+end
+
+-- ゲームが返す FloorId → その地図の MAP 番号（表に無ければ nil）。高さで決めるゾーンでは使わない（nil）
 function maps.map_n_for_floor(data, zone_id, floor_id)
     floor_id = tonumber(floor_id)
     if floor_id == nil then return nil end
+    if maps.by_height(data, zone_id) then return nil end
     for _, f in ipairs(maps.floors(data, tonumber(zone_id))) do
         if tonumber(f.floor_id) == floor_id then return f.map_n end
     end
@@ -199,7 +243,7 @@ end
 
 -- 資料の場所から、出す階層（map_n）と注意
 -- 戻り値: floor, reason
---   reason は nil（確定）、'unknown_map'（MAP未確認で複数あるので仮に選んだ）、
+--   reason は nil（確定）、'unknown_map'（MAP未確認で複数あるので仮に選んだ。高さで層が決まるゾーンでは出さない）、
 --   'unconfirmed'（対応未確定）、'no_map'（表にない）
 function maps.pick_floor(data, loc, chosen_n)
     if not loc or not loc.zone_id then return nil, 'no_zone' end
@@ -211,10 +255,16 @@ function maps.pick_floor(data, loc, chosen_n)
     local floor
     if chosen_n then floor = maps.floor(data, z, chosen_n) end
     if not floor and want then floor = maps.floor(data, z, want) end
+    if not floor and loc.pos and maps.by_height(data, z) then
+        floor = maps.floor(data, z, maps.map_n_for_height(data, z, loc.pos.z))
+    end
     if not floor and #list == 1 then floor = list[1] end
     if not floor and #list > 1 then floor = list[1] end
 
     if floor then
+        -- 高さで層が決まるゾーン（天の塔など）は、MAP 番号が無くても「未確認」とは言わない（0.1.324〜）。
+        -- 層は、選んだ番号（自分の高さで選んだものを含む）→ 資料の MAP → 資料の高さ の順
+        if maps.by_height(data, z) then return floor, nil end
         -- 資料で MAP が未確認のまま複数あるときは、階層を選んでも警告を残す
         if #list > 1 and not want then return floor, 'unknown_map' end
         return floor, nil

@@ -250,12 +250,13 @@ local function collect(ui)
     local info = st.map
     if not info then return nil end
     local D, P = ui.data, ui.progress
+    if map_view.follow_zone(ui, info) then info.quest = nil end
     local q = info.quest and D:quest(info.quest)
     local loc, step = maps.location_for(D, P, q, info.step)
     if info.loc then loc = info.loc end
     local a0 = info.arrive
     if loc and info.arrive_pending and a0 and tonumber(a0.zone_id) == tonumber(loc.zone_id) then
-        local mn = exits.map_n_of(D, maps, learned_of(ui), loc.zone_id, a0.x, a0.y, dat_of(ui))
+        local mn = exits.map_n_of(D, maps, learned_of(ui), loc.zone_id, a0.x, a0.y, dat_of(ui), a0.z)
         if mn then
             if info.map_n ~= mn then info.view = nil end
             info.map_n = mn
@@ -273,6 +274,10 @@ local function collect(ui)
     if cur and loc and cur.map_n and tonumber(cur.zone_id) == tonumber(loc.zone_id)
         and ui.player and tonumber(ui.player.zone_id) == tonumber(loc.zone_id) then
         here_n = cur.map_n
+    end
+    -- 高さで層を決めるゾーン（0.1.323〜）と「現在地」（0.1.324〜、全ゾーン）：いる層が変わったら、その層の地図に切り替える
+    if map_view.follow_height(D, info, loc, here_n) then
+        floor, reason = maps.pick_floor(D, loc, info.map_n)
     end
     info.view = info.view or { z = 1, ox = 0, oy = 0 }
     local pin, cands = map_view.step_pin(ui, D, floor, loc, step, info.loc)
@@ -296,9 +301,9 @@ local function collect(ui)
                  quest_pins = (#talk_pins > 0) and talk_pins or nil }
     local learned, dat, unplaced = learned_of(ui), dat_of(ui), 0
     if floor and loc and loc.zone_id then
-        if #list > 1 then want_dat(ui, loc.zone_id) end
+        if #list > 1 and not maps.by_height(D, loc.zone_id) then want_dat(ui, loc.zone_id) end
         for _, e in ipairs(exits.of(D, loc.zone_id)) do
-            local mn = exits.map_n_of(D, maps, learned, loc.zone_id, e.x, e.y, dat)
+            local mn = exits.map_n_of(D, maps, learned, loc.zone_id, e.x, e.y, dat, e.z)
             if mn == nil then
                 unplaced = unplaced + 1
             elseif mn == floor.map_n then
@@ -311,7 +316,7 @@ local function collect(ui)
         end
         local a = info.arrive
         if a and tonumber(a.zone_id) == tonumber(loc.zone_id)
-            and exits.map_n_of(D, maps, learned, loc.zone_id, a.x, a.y, dat) == floor.map_n then
+            and map_view.arrive_map_n(D, learned, dat, a, loc.zone_id) == floor.map_n then
             local bx, by = maps.world_px(floor, a.x, a.y)
             if bx then
                 if a.pulse_at == nil then a.pulse_at = ov.t end
@@ -483,7 +488,7 @@ local function map_hint_lines(ui, sc, has_image)
         lines[#lines + 1] = { 'warn', t('map.unconfirmed') }
     elseif sc.reason == 'no_map' and sc.loc then
         lines[#lines + 1] = { 'warn', t('map.no_map') }
-    elseif sc.floor and sc.floor.file_id and not has_image then
+    elseif maps.image_key(sc.floor) and not has_image then
         lines[#lines + 1] = { 'muted', t('map.no_image') }
     end
     return lines
@@ -530,7 +535,7 @@ function map_sf.draw(ui)
         if aw >= 560 then right_w = math.max(160, math.min(240, math.floor(aw * 0.30))) end
         local gap, gutter, head_h = 10, SCALE_BAND + 4, 40
         local wrap_w = math.max(80, aw - 8)
-        local file_id0 = sc.floor and sc.floor.file_id
+        local file_id0 = maps.image_key(sc.floor)
         local has_img = false
         if file_id0 and ui.load_map_image then
             local img0 = select(1, ui.load_map_image(file_id0))
@@ -565,7 +570,7 @@ function map_sf.draw(ui)
             -- 測ったタイトル幅 + 隙間のあとから置く（重ならない）
             local fx, fy = hx + nw + 16, hy + 4
             for _, f in ipairs(list) do
-                local lab = t('map.floor', { n = tostring(f.map_n) })
+                local lab = maps.floor_label(t, f)
                 if sc.here_n and sc.here_n == f.map_n and #list > 1 then lab = lab .. t('map.floor_here') end
                 if tab_limit and fx >= tab_limit then break end
                 local clicked, tw, th = tab_chip(ui, name, tostring(f.map_n), lab, info.map_n == f.map_n, fx, fy)
@@ -598,7 +603,7 @@ function map_sf.draw(ui)
         sf.set_cursor(imgui, frame_x, frame_y)
 
         local shown_image, hot, clicked, hover_at = false, nil, false, nil
-        local file_id = sc.floor and sc.floor.file_id
+        local file_id = maps.image_key(sc.floor)
         local img
         if file_id and ui.load_map_image then
             img = select(1, ui.load_map_image(file_id))
@@ -649,10 +654,10 @@ function map_sf.draw(ui)
         if hot then
             pcall(function ()
                 imgui.BeginTooltip()
-                theme.Text(imgui, t('map.exit_tip', { zone = hot.name or tostring(hot.to) }))
+                theme.Text(imgui, map_view.hot_tip(t, hot))
                 imgui.EndTooltip()
             end)
-            if clicked then map_view.go(ui, hot.exit) end
+            if clicked then map_view.hot_click(ui, hot) end
         else
             map_view.grid_tip(ui, hover_at, layout)
         end

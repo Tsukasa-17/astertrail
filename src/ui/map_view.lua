@@ -484,7 +484,7 @@ function map_view.target_choices(D, q, prefer, t)
 end
 
 -- 地図の移り変わり（0.1.171〜）。戻るで前の地図に戻れるよう、今の地図を積んでおく
-local KEEP = { 'quest', 'step', 'loc', 'map_n', 'arrive', 'arrive_pending', 'mob', 'browse' }
+local KEEP = { 'quest', 'step', 'loc', 'map_n', 'arrive', 'arrive_pending', 'mob', 'browse', 'here', 'follow' }
 local function push_back(info)
     info.back = info.back or {}
     local snap = {}
@@ -523,13 +523,15 @@ function map_view.go(ui, e)
     push_back(info)
     info.quest, info.step, info.mob = nil, nil, nil
     info.browse = true
+    info.here = nil   -- 出口から別のゾーンを見るときは「現在地」をやめる（0.1.324〜）
+    info.follow = nil
     info.loc = { zone_id = e.to, zone_name = D:zone_name(e.to) }
     info.arrive = nil
     info.arrive_pending = nil
     info.map_n = nil
     if e.at then
-        info.arrive = { zone_id = e.to, x = e.at.x, y = e.at.y }
-        info.map_n = exits.map_n_of(D, maps, learned_of(ui), e.to, e.at.x, e.at.y, dat_of(ui))
+        info.arrive = { zone_id = e.to, x = e.at.x, y = e.at.y, z = e.at.z }
+        info.map_n = exits.map_n_of(D, maps, learned_of(ui), e.to, e.at.x, e.at.y, dat_of(ui), e.at.z)
         if info.map_n == nil and #maps.floors(D, e.to) > 1 then
             -- 階が DAT から分かったら、その MAP に切り替える（自分で MAP を選ぶまで）
             info.arrive_pending = true
@@ -537,6 +539,70 @@ function map_view.go(ui, e)
         end
     end
     info.view = nil
+end
+
+-- マウスの下の出口の説明と、押したとき
+function map_view.hot_tip(t, hot)
+    return t('map.exit_tip', { zone = hot.name or tostring(hot.to) })
+end
+function map_view.hot_click(ui, hot)
+    map_view.go(ui, hot.exit)
+end
+
+-- いる層・ページに地図を合わせる。切り替えたら true。
+-- 高さで層を決めるゾーン（0.1.323〜、天の塔）ではいつも。ほかのゾーンでは「現在地」のとき（info.here、0.1.324〜）。
+-- 最初に見たときは、いる層（行き先の MAP 番号が決まっているときを除く）。そのあとは、いる層が変わったときに、見ていたのが前にいた層なら切り替える
+-- （自分でほかの層を選んでいるときや、クエストの目的地の層を見ているときは、そのまま）。
+function map_view.follow_height(D, info, loc, here_n)
+    if not info or not loc or not here_n then return false end
+    if not (info.here or maps.by_height(D, loc.zone_id)) then return false end
+    local zk = tonumber(loc.zone_id)
+    local last = (info.follow and info.follow.zone == zk) and info.follow.n or nil
+    if last == here_n then return false end
+    info.follow = { zone = zk, n = here_n }
+    local go
+    if last == nil then
+        local named = loc.map and loc.map.kind == 'number' and loc.map.n
+        go = info.map_n ~= here_n and not named
+    else
+        go = (info.map_n == nil or info.map_n == last) and info.map_n ~= here_n
+    end
+    if not go then return false end
+    info.map_n = here_n
+    info.view = nil
+    info.arrive_pending = nil
+    return true
+end
+map_view.follow_here_n = map_view.follow_height
+
+-- 「現在地」のとき、ゾーンを移ったら、移った先のゾーンの地図にする（0.1.324〜）。切り替えたら true。
+-- 地図の無いゾーンでも、場所（ゾーン）だけ持つので落ちない。ページは、いるページが分かったときに follow_height が合わせる
+function map_view.follow_zone(ui, info)
+    if not info or not info.here then return false end
+    local pl = ui and ui.player
+    local z = pl and tonumber(pl.zone_id)
+    if not z or z == 0 then return false end
+    local cur = info.loc and tonumber(info.loc.zone_id)
+    if cur == z then return false end
+    local D = ui.data
+    local name = nil
+    if D and D.zone_name then
+        local ok, n = pcall(D.zone_name, D, z)
+        if ok then name = n end
+    end
+    info.loc = { zone_id = z, zone_name = name }
+    info.quest, info.step, info.mob, info.arrive, info.arrive_pending = nil, nil, nil, nil, nil
+    info.follow = nil
+    info.view = nil
+    local f = ui.state and ui.state.floor
+    info.map_n = (f and tonumber(f.zone_id) == z) and f.map_n or nil
+    return true
+end
+
+-- 着く位置（出口から来たとき）の輪を出す MAP
+function map_view.arrive_map_n(D, learned, dat, a, zone_id)
+    if not a then return nil end
+    return exits.map_n_of(D, maps, learned, zone_id, a.x, a.y, dat, a.z)
 end
 
 -- いまいるエリアの地図へ（いまいる MAP が分かればその MAP）
@@ -547,6 +613,8 @@ function map_view.go_here(ui)
     push_back(info)
     info.quest, info.step, info.mob, info.arrive = nil, nil, nil, nil
     info.browse = true
+    info.here = true   -- 「現在地」：動いたら、いる層・ページ・ゾーンの地図にする（0.1.324〜）
+    info.follow = nil
     info.loc = { zone_id = pl.zone_id, zone_name = ui.data:zone_name(pl.zone_id) }
     local f = ui.state.floor
     info.map_n = (f and tonumber(f.zone_id) == tonumber(pl.zone_id)) and f.map_n or nil
@@ -680,6 +748,7 @@ function map_view.draw(ui)
     end
     local D, P = ui.data, ui.progress
     local q = info.quest and D:quest(info.quest)
+    if map_view.follow_zone(ui, info) then q = nil end
     local loc, step = maps.location_for(D, P, q, info.step)
     if info.loc then loc = info.loc end
     local name = 'map'
@@ -749,7 +818,7 @@ function map_view.draw(ui)
         local floor, reason
         local a0 = info.arrive
         if loc and info.arrive_pending and a0 and tonumber(a0.zone_id) == tonumber(loc.zone_id) then
-            local mn = exits.map_n_of(D, maps, learned_of(ui), loc.zone_id, a0.x, a0.y, dat_of(ui))
+            local mn = exits.map_n_of(D, maps, learned_of(ui), loc.zone_id, a0.x, a0.y, dat_of(ui), a0.z)
             if mn then
                 if info.map_n ~= mn then info.view = nil end
                 info.map_n = mn
@@ -768,10 +837,14 @@ function map_view.draw(ui)
             and ui.player and tonumber(ui.player.zone_id) == tonumber(loc.zone_id) then
             here_n = cur.map_n
         end
+        -- 高さで層を決めるゾーン（0.1.323〜）と「現在地」（0.1.324〜、全ゾーン）：いる層が変わったら、その層の地図に切り替える
+        if map_view.follow_height(D, info, loc, here_n) then
+            floor, reason = maps.pick_floor(D, loc, info.map_n)
+        end
         if #list > 0 then
             for i, f in ipairs(list) do
                 if i > 1 then W.same(ui) end
-                local lab = t('map.floor', { n = tostring(f.map_n) })
+                local lab = maps.floor_label(t, f)
                 if info.map_n == f.map_n then lab = '◆ ' .. lab else lab = '◇ ' .. lab end
                 if here_n and here_n == f.map_n and #list > 1 then lab = lab .. t('map.floor_here') end
                 if W.button(ui, name, 'fl_' .. tostring(f.map_n), lab, { section = 'floors', row = 'f', small = true }) then
@@ -829,9 +902,9 @@ function map_view.draw(ui)
         local dat = dat_of(ui)
         local unplaced = 0
         if floor and loc and loc.zone_id then
-            if #list > 1 then want_dat(ui, loc.zone_id) end
+            if #list > 1 and not maps.by_height(D, loc.zone_id) then want_dat(ui, loc.zone_id) end
             for _, e in ipairs(exits.of(D, loc.zone_id)) do
-                local mn = exits.map_n_of(D, maps, learned, loc.zone_id, e.x, e.y, dat)
+                local mn = exits.map_n_of(D, maps, learned, loc.zone_id, e.x, e.y, dat, e.z)
                 if mn == nil then
                     unplaced = unplaced + 1
                 elseif mn == floor.map_n then
@@ -844,7 +917,7 @@ function map_view.draw(ui)
             end
             local a = info.arrive
             if a and tonumber(a.zone_id) == tonumber(loc.zone_id)
-                and exits.map_n_of(D, maps, learned, loc.zone_id, a.x, a.y, dat) == floor.map_n then
+                and map_view.arrive_map_n(D, learned, dat, a, loc.zone_id) == floor.map_n then
                 local bx, by = maps.world_px(floor, a.x, a.y)
                 if bx then
                     -- 広がる輪は、正しい MAP で初めて見えたときから（0.1.178〜。階が後から分かったときも、切り替えてから）
@@ -869,7 +942,7 @@ function map_view.draw(ui)
         -- 画像が読めたらそれを出し、だめなら方眼。大きさは窓の余りに合わせ、上限は設けない。
         local shown_image = false
         local hot, clicked, hover_at
-        local file_id = floor and floor.file_id
+        local file_id = maps.image_key(floor)
         if file_id and ui.load_map_image then
             local img, why = ui.load_map_image(file_id)
             if img and img.tex then
@@ -890,10 +963,10 @@ function map_view.draw(ui)
         if hot then
             pcall(function ()
                 imgui.BeginTooltip()
-                theme.Text(imgui, t('map.exit_tip', { zone = hot.name or tostring(hot.to) }))
+                theme.Text(imgui, map_view.hot_tip(t, hot))
                 imgui.EndTooltip()
             end)
-            if clicked then map_view.go(ui, hot.exit) end
+            if clicked then map_view.hot_click(ui, hot) end
         else
             map_view.grid_tip(ui, hover_at, nil)
         end

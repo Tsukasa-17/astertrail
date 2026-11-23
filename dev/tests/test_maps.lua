@@ -11,7 +11,7 @@ local fs = posix_fs()
 local D = data_mod.load(fs, ROOT .. '/data/')
 eq(#D.errors, 0, 'data errors: ' .. json.encode(D.errors, true))
 eq(D.version, '2026.11.20-125', 'data version')
-eq(#D.map_floors, 525, '525 floors with map_n')
+eq(#D.map_floors, 529, '529 floors with map_n (0.1.324: Heaven Tower is 4 pages)')
 eq(#D.map_unconfirmed, 15, '15 unconfirmed zones')
 
 -- 機械固有のパスは資料に入れない

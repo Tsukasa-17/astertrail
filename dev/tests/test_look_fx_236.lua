@@ -106,7 +106,7 @@ eq(theme.outline_mul(), 0, '0.1.245: look fx not applied')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)

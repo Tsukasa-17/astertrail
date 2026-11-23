@@ -19,7 +19,7 @@ dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
 local platform = require('src.platform.ashita')
 local ime = require('src.ui.ime_input')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 platform.chat_run = function () return true end
 FAKE.events.load()
 FAKE.player = { name = 'R311', zone = 230, tidx = 5, status = 0 }

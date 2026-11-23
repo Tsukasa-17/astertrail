@@ -4,7 +4,7 @@ require('harness')
 local settings = require('src.core.settings')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 -- 実機に近い箱：知っている名前は set できるが、gradient は読み返しても nil
 local KNOWN = { text = true, color = true, background = true, outline = true, stroke = true, stroke_color = true,

@@ -34,7 +34,16 @@ layouts.EMINENCE_KEYS = {
 function layouts.clean_name(s)
     if type(s) ~= 'string' then return '' end
     s = s:gsub('[\r\n\t]', ' '):gsub(' +', ' '):gsub('^%s+', ''):gsub('%s+$', '')
-    if #s > 60 then s = s:sub(1, 60) end
+    if #s > 60 then
+        -- 0.1.319〜：日本語の途中で切らない（UTF-8 の続きのバイトで終わらせない）
+        local cut = 60
+        while cut > 0 do
+            local b = s:byte(cut + 1)
+            if not b or b < 0x80 or b >= 0xC0 then break end
+            cut = cut - 1
+        end
+        s = s:sub(1, cut)
+    end
     return s
 end
 

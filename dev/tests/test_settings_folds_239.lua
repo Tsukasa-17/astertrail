@@ -11,7 +11,7 @@ FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
 
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 -- 保存の settings_folds は読み込めるまま（使わないが、壊さない）
 eq(settings.merge({ settings_folds = { look_fx = true, look_fonts = false } }).settings_folds['look_fonts'], nil, 'false dropped')

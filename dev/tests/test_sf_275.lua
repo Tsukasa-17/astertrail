@@ -3,7 +3,7 @@ require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 local maps = require('src.core.maps')
 local theme = require('src.ui.theme')
@@ -37,9 +37,9 @@ for _, fl in ipairs(doc.floors or {}) do
     local lg = maps.grid_layout(fl, {})
     if lg.col_count ~= 16 or lg.row_count ~= 16 then differ = differ + 1 end
 end
-eq(n, 525, 'all floors in maps.json')
+eq(n, 529, 'all floors in maps.json (0.1.324: Heaven Tower 4 pages)')
 eq(have_override, 0, 'no per-map column/row/cell overrides in maps.json')
-eq(differ, 525, 'all floors compute 15x15 from BASE/MARGIN/CELL (P and 16 fall in the margin)')
+eq(differ, 529, 'all floors compute 15x15 from BASE/MARGIN/CELL (P and 16 fall in the margin)')
 
 local mv = io.open(ROOT .. '/src/ui/map_view.lua', 'r'):read('*a')
 check(mv:find("require('src.ui.map_sf')", 1, true) ~= nil, 'map_view hooks map_sf in SF')
@@ -52,7 +52,7 @@ local ms = io.open(ROOT .. '/src/ui/map_sf.lua', 'r'):read('*a')
 check(ms:find('grid_layout', 1, true) ~= nil, 'SF map uses grid_layout')
 check(ms:find('draw_grid_and_scales', 1, true) ~= nil, 'outer scales and overlay lines')
 check(ms:find('ZOOM +', 1, true) ~= nil and (ms:find('ZOOM −', 1, true) or ms:find('zoom_out', 1, true)), 'ZOOM buttons')
-check(ms:find("t('map.floor'", 1, true) ~= nil, 'floor tabs keep MAP n labels')
+check(ms:find("maps.floor_label(t, f)", 1, true) ~= nil, 'floor tabs keep MAP n labels (0.1.324: maps.floor_label, MAP n + name for Heaven\'s Tower)')
 check(ms:find("t('map.targets')", 1, true) ~= nil, 'targets pane')
 check(ms:find("t('map.legend')", 1, true) ~= nil, 'legend pane')
 check(ms:find('focus_grid', 1, true) ~= nil, 'clicking a target highlights the pin/cell')

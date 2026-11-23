@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 local crisp = require('src.ui.crisp_font')
 dofile(ROOT .. '/astertrail.lua')
@@ -20,10 +20,11 @@ check(crisp_src:find('crisp_active=', 1, true) ~= nil, 'debug log still records 
 eq(crisp.heading_rel(), 'fonts/melete/Melete-Bold.ttf', 'heading still prefers the TTF')
 
 local sfsrc = io.open(ROOT .. '/src/ui/eminence_sf.lua', 'r'):read('*a')
-check(sfsrc:find('sf_amber', 1, true) ~= nil, 'accept uses sf_amber')
-check(sfsrc:find('sf_amber_hover', 1, true) ~= nil, 'accept has a hover shade')
-check(sfsrc:find('sf_amber_press', 1, true) ~= nil, 'accept has a press shade')
-check(sfsrc:find('roe_drop', 1, true) ~= nil, 'remove still uses roe_drop')
+-- 0.1.322〜：受注・解除は状態の札の色（roe_st_open／roe_st_active）。乗せる・押すで濃さが変わる
+check(sfsrc:find("'roe_st_open'", 1, true) ~= nil, 'accept uses roe_st_open')
+check(sfsrc:find('hover and', 1, true) ~= nil, 'accept has a hover shade')
+check(sfsrc:find('press and', 1, true) ~= nil, 'accept has a press shade')
+check(sfsrc:find("'roe_st_active'", 1, true) ~= nil, 'remove uses roe_st_active')
 
 local th = io.open(ROOT .. '/src/ui/theme.lua', 'r'):read('*a')
 check(th:find('sf_amber_hover', 1, true) ~= nil, 'SF palette has amber hover')

@@ -27,5 +27,8 @@ local pv = D:target('mob.193.Polevik')
 eq(pv.location.grid, 'H-10', 'polevik target'); check(src_ok(pv.location_sources), 'polevik source')
 -- Porphyrion は別のミッション（サンドリア）で FFXIclopedia と食い違うので、対象そのものは変えない
 eq(D:target('mob.158.Porphyrion').location.grid, nil, 'porphyrion target unchanged')
--- BG Wiki の座標が別の人・別の場所のものだったので変えない
-eq(D:target('npc.天の塔.Kupipi').location.grid, nil, 'kupipi unchanged')
+-- BG Wiki の座標が別の人・別の場所のものだったので BG Wiki からは入れない。0.1.324〜：LSB の座標と、DAT の床の高さで決めた天の塔の地図の層（MAP 3 の H-6）
+local kp = D:target('npc.天の塔.Kupipi')
+eq(kp.location.grid, 'H-6', 'kupipi from LSB on the Heaven\'s Tower map (0.1.324)')
+eq(kp.location.map.n, 2, 'kupipi on MAP 2 (1F)')
+check(kp.location_sources[#kp.location_sources].name == 'LSB', 'kupipi source is LSB')

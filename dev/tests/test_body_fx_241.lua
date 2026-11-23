@@ -65,7 +65,7 @@ eq(ext.ALLOW_LABEL_SHADOW, false, 'overhead shadow boxes stay off')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 local wrapped = 0
 local raw_wrap = theme.wrap_imgui

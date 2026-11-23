@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 -- ソース：即時の P.print はせず、flush_fame_notices を tick から呼ぶ
 local src = io.open(ROOT .. '/src/app.lua', 'r'):read('*a')

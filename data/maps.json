@@ -5109,6 +5109,78 @@
       "map_n": 1
     },
     {
+      "zone_id": 242,
+      "zone_name": "天の塔",
+      "floor_index": 1,
+      "floor_id": 0,
+      "status": "dat_made",
+      "scale": 20,
+      "offset_x": -256,
+      "offset_y": -320,
+      "file_id": null,
+      "map_n": 1,
+      "image": "assets/maps/z242_1.png",
+      "h_min": 3.5,
+      "h_max": 40.0,
+      "level": "ht_b1",
+      "bands_ja": "DAT の層 1（床 30.8）と 2（床 10.1、地下へ下りる途中の輪）。Chumimi（30.75）",
+      "note": "ゲームの地図が無いエリア。ゾーン DAT から描いた地図。層は高さで決める（FloorId はどこも 0）。"
+    },
+    {
+      "zone_id": 242,
+      "zone_name": "天の塔",
+      "floor_index": 2,
+      "floor_id": 0,
+      "status": "dat_made",
+      "scale": 20,
+      "offset_x": -256,
+      "offset_y": -320,
+      "file_id": null,
+      "map_n": 2,
+      "image": "assets/maps/z242_2.png",
+      "h_min": -7.5,
+      "h_max": 3.5,
+      "level": "ht_1f",
+      "bands_ja": "DAT の層 3（床 0）。入口・Kupipi・中央の泉",
+      "note": "ゲームの地図が無いエリア。ゾーン DAT から描いた地図。層は高さで決める（FloorId はどこも 0）。"
+    },
+    {
+      "zone_id": 242,
+      "zone_name": "天の塔",
+      "floor_index": 3,
+      "floor_id": 0,
+      "status": "dat_made",
+      "scale": 20,
+      "offset_x": -256,
+      "offset_y": -320,
+      "file_id": null,
+      "map_n": 3,
+      "image": "assets/maps/z242_3.png",
+      "h_min": -30.5,
+      "h_max": -7.5,
+      "level": "ht_vestibule",
+      "bands_ja": "DAT の層 4（床 -25.5〜-26.25）。侍女の間。Zubaba（-26.25）と侍女たち",
+      "note": "ゲームの地図が無いエリア。ゾーン DAT から描いた地図。層は高さで決める（FloorId はどこも 0）。"
+    },
+    {
+      "zone_id": 242,
+      "zone_name": "天の塔",
+      "floor_index": 4,
+      "floor_id": 0,
+      "status": "dat_made",
+      "scale": 20,
+      "offset_x": -256,
+      "offset_y": -320,
+      "file_id": null,
+      "map_n": 4,
+      "image": "assets/maps/z242_4.png",
+      "h_min": -80.0,
+      "h_max": -30.5,
+      "level": "ht_planetarium",
+      "bands_ja": "DAT の層 5（床 -45〜-47、羅星の間。Rhy Epocan・Transporter）と 6（床 -61.5、星の神子の部屋。Star Sibyl -61.521）",
+      "note": "ゲームの地図が無いエリア。ゾーン DAT から描いた地図。層は高さで決める（FloorId はどこも 0）。"
+    },
+    {
       "zone_id": 243,
       "zone_name": "ル・ルデの庭",
       "floor_index": 1,
@@ -6370,5 +6442,6 @@
       "zone_id": 129,
       "zone_name": "ゴユの空洞"
     }
-  ]
+  ],
+  "dat_maps_ja": "status が dat_made の行は、ゲームの地図が無いエリアをゾーン DAT から描いたもの（dev/build_dat_maps.py）。image が同梱の画像、h_min〜h_max（高さ、+ が下）がその層。"
 }

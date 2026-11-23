@@ -1,5 +1,5 @@
 {
-  "about.font_melete": "The SF theme uses bundled Melete Bold (SIL OFL 1.1, https://dotcolon.net/font/melete/) for English heading labels (logo, MISSION / QUEST / EMINENCE, OBJECTIVE / REWARD / LOCATION, and similar words). Body text and Japanese stay Meiryo. The full license is in fonts/melete/OFL.txt.",
+  "about.font_melete": "The SF theme uses bundled Melete Bold (SIL OFL 1.1, https://dotcolon.net/font/melete/) for English heading labels (logo, MISSION / QUEST / EMINENCE, OBJECTIVE / REWARD / LOCATION, and similar words). Body text and Japanese stay Meiryo. The license text is in fonts/melete/OFL.txt.",
   "about.license": "License: GNU GPL v3.0",
   "about.title": "About",
   "about.update_notice": "Tell me about new versions",
@@ -238,6 +238,11 @@
   "map.exits_unplaced": "This area has several maps; exits whose map is not known yet are not placed on it (learned when you go there).",
   "map.floor": "MAP {n}",
   "map.floor_here": " (you)",
+  "map.floor_named": "MAP {n} {name}",
+  "map.level.ht_b1": "Basement",
+  "map.level.ht_1f": "1F",
+  "map.level.ht_vestibule": "Vestibule",
+  "map.level.ht_planetarium": "Planetarium",
   "map.grid_alpha": "Grid line strength",
   "map.grid_alpha_help": "At 0, lines and the outer scales are hidden. When you zoom, cell labels stay outside the map frame.",
   "map.grid_pin": "Center of the grid square. This is not an exact position.",

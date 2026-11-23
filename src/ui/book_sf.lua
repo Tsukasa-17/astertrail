@@ -51,9 +51,11 @@ end
 
 local function badge_of(t, st)
     if st == 'completed' then return t('sf.badge_done'), 'sf_amber' end
-    if st == 'accepted' then return t('sf.badge_progress'), 'sf_cyan' end
+    -- 0.1.320〜：状態の札（右下の枠と文字）だけ状態の色。進行中はやわらかい紫ピンク。外枠はどの状態でも共通
+    if st == 'accepted' then return t('sf.badge_progress'), 'sf_violet' end
     return t('sf.badge_idle'), 'muted'
 end
+book_sf._badge_of = badge_of
 
 local function card_tag(ui, q)
     if q.mission_no and q.mission_no ~= '' then return q.mission_no end

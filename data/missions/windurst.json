@@ -916,16 +916,33 @@
       "id": "npc.天の塔.Zubaba",
       "kind": "npc",
       "location": {
-        "grid": null,
+        "grid": "J-8",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 3
+        },
+        "pos": {
+          "x": 15.632,
+          "y": 18.244,
+          "z": -26.25
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Zubaba",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=15.632 y=18.244 z=-26.250（id 17768486）。ゾーン DAT の床の高さ -26.25 から同梱の天の塔の地図の MAP3、マス目 J-8",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768486
     },
     {
       "id": "obj.169.Sealed_Portal",
@@ -947,16 +964,33 @@
       "id": "obj.天の塔.Door_Vestal_Chamber",
       "kind": "obj",
       "location": {
-        "grid": null,
+        "grid": "H-5",
         "map": {
-          "kind": "unknown"
+          "kind": "number",
+          "n": 4
+        },
+        "pos": {
+          "x": 0.0,
+          "y": 40.25,
+          "z": -51.471
         },
         "zone_id": 242,
         "zone_name": "天の塔"
       },
       "moves": false,
       "name_en": "Door:Vestal Chamber",
-      "same_name": false
+      "same_name": false,
+      "location_sources": [
+        {
+          "checked": "2026-11-24",
+          "fact_ja": "座標 x=0.000 y=40.250 z=-51.471（id 17768476）。ゾーン DAT の床の高さ -49.00 から同梱の天の塔の地図の MAP4、マス目 H-5",
+          "name": "LSB",
+          "urls": [
+            "https://github.com/LandSandBoat/server/blob/c359c2a7df6e6add4867b5078cf78ee0050ae4bd/data/zones/heavens_tower/npcs.yaml"
+          ]
+        }
+      ],
+      "server_id": 17768476
     },
     {
       "id": "npc.243.Pakh_Jatalfih",

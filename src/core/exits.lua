@@ -58,9 +58,13 @@ end
 
 -- その点がどの MAP にあるか。分からなければ nil
 -- dat: { [ゾーン番号] = { [exits.key] = MAP 番号 か false } }（DAT から出した階。無くてもよい）
-function exits.map_n_of(data, maps, learned, zone_id, x, y, dat)
+-- h（高さ。無くてもよい）：高さで層を決めるゾーン（0.1.323〜、天の塔）では、それだけで決める。無ければ nil
+function exits.map_n_of(data, maps, learned, zone_id, x, y, dat, h)
     local list = maps.floors(data, zone_id)
     if #list == 1 then return list[1].map_n end
+    if maps.by_height and maps.by_height(data, zone_id) then
+        return maps.map_n_for_height(data, zone_id, h)
+    end
     local z = learned and learned[tostring(tonumber(zone_id))]
     if type(z) == 'table' then
         local n = tonumber(z[exits.key(x, y)])
@@ -112,6 +116,7 @@ function exits.learn(data, maps, learned, zone_id, floor_at)
     zone_id = tonumber(zone_id)
     if not zone_id or type(floor_at) ~= 'function' or type(learned) ~= 'table' then return 0 end
     if #maps.floors(data, zone_id) <= 1 then return 0 end
+    if maps.by_height and maps.by_height(data, zone_id) then return 0 end -- 高さで決まる（0.1.323〜）
     local zk = tostring(zone_id)
     local z = learned[zk]
     if type(z) ~= 'table' then z = {}; learned[zk] = z end
@@ -162,6 +167,7 @@ end
 function exits.unlearned(data, maps, learned, zone_id)
     zone_id = tonumber(zone_id)
     if not zone_id or #maps.floors(data, zone_id) <= 1 then return 0 end
+    if maps.by_height and maps.by_height(data, zone_id) then return 0 end -- 高さで決まる（0.1.323〜）
     local z = type(learned) == 'table' and learned[tostring(zone_id)] or nil
     local n = 0
     local function one(x, y)

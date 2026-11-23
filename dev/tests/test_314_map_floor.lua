@@ -3,7 +3,7 @@
 require('fake_env')
 dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 FAKE.events.load()
 FAKE.player = { name = 'Map314', zone = 9, tidx = 5, status = 0, x = 0, y = 0, z = 0 }
 frames(1)

@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.318', 'version')
+eq(app.VERSION, '1.1.324', 'version')
 
 local crisp = require('src.ui.crisp_font')
 local eminence = require('src.ui.eminence')
@@ -147,10 +147,10 @@ check(w6 <= 18 + 1e-6, 'heart width stays within the 18px cell: ' .. tostring(w6
 ---------------------------------------------------------------------------
 check(sfsrc:find('paint_action', 1, true) ~= nil, 'SF paints accept/remove with a dedicated helper')
 check(sfsrc:find("action = op", 1, true) ~= nil, 'detail pane passes the action to the chip')
-check(sfsrc:find('sf_amber', 1, true) ~= nil, 'accept uses sf_amber gold (0.1.267)')
-check(sfsrc:find('roe_drop', 1, true) ~= nil, 'remove uses roe_drop red')
-check(sfsrc:find('sf_amber_hover', 1, true) ~= nil, 'accept has an amber hover shade')
-check(sfsrc:find('roe_drop_hover', 1, true) ~= nil, 'remove has a hover shade')
+-- 0.1.322〜：受注＝#80ADC7、解除（受注中）＝紫ピンク（状態の札の色分け）
+check(sfsrc:find("'roe_st_open'", 1, true) ~= nil, 'accept uses the open state color (0.1.322)')
+check(sfsrc:find("'roe_st_active'", 1, true) ~= nil, 'remove uses the active state color (0.1.322)')
+check(sfsrc:find('hover and', 1, true) ~= nil, 'accept/remove still have a hover shade')
 -- クラシックの操作ボタンは従来の色のまま（この版では触らない）
 check(clsrc:find('roe_take', 1, true) ~= nil, 'classic still has teal take colors')
 

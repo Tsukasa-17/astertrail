@@ -4,7 +4,7 @@
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**バージョン 1.1.318**（公開 β）／ データ `2026.11.20-125`
+**バージョン 1.1.324**（公開 β）／ データ `2026.11.20-125`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -53,6 +53,8 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
   - 手順の場所、自分の位置、となりのエリアへの出口が出ます。着いたあたりには輪（◎）が出ます。
   - 出口がどの階にあるか分からないときは、出口を置きません。
   - 地図の画像は同梱せず、手元のクライアントの地図ファイルをその場で読みます。読めないときはマス目だけになります。
+  - ゲームに地図が無い天の塔だけは、ゲームのゾーンのデータから自分で描いた 4 枚（地下・1階・侍女の間・羅星の間）を同梱しています。いる高さの地図に自動で切りかわります。
+  - 「現在地」で開いているときは、別の地図のページやエリアに移ると、その地図に自動で切りかわります。自分で選んだページはそのままです。
 - **アイコンと足元の輪**：話す相手や倒す敵に、目印をつけます。
   - 見えている相手にだけ、クエストの状態に合わせた印が頭の上に出ます（未受注・受注中・討伐・ゲートガード・名声を教えてくれる人など）。
   - 討伐の印は、手順に名前や種族が書いてあるモンスターに出ます。倒さなくていい敵と見分けられます。
@@ -82,7 +84,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.318.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.324.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -180,7 +182,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 
 ## クレジット
 
-一覧と手順の参照は、[FF11用語辞典](https://wiki.ffo.jp/) を主な資料にしています。足りないところは BG Wiki、LandSandBoat（LSB）、HorizonXI を確認しています。手順の文は独自に書いた短い要約で、記事の本文は含みません。Journal や Questlog のデータは使っていません。
+一覧と手順の参照は、[FF11用語辞典](https://wiki.ffo.jp/) を主な資料にしています。足りないところは BG Wiki、LandSandBoat（LSB）、HorizonXI を確認しています。天の塔の地図はゲームに地図が無いため、ゲームのゾーンのデータ（DAT）の床・壁・坂の形と面の印から自分で描いた画像を同梱しています。見た目（色・線・縁の A〜O と 1〜15）は [FF11 Database](https://ff11db.sakura.ne.jp/) の地図の印象を参考にしましたが、画像やコードは使っていません。手順の文は独自に書いた短い要約で、記事の本文は含みません。Journal や Questlog のデータは使っていません。
 
 画面の作りは YunaUI を参考にしています（コードは写していません）。**Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui**
 
@@ -188,7 +190,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 
 ## 非公式であること
 
-このアドオンはファンメイドの非公式なものです。Square Enix とは関係がなく、公式のものでもありません。CatsEyeXI や VanaCore とも関係がありません。ゲームの画像・音・データファイルは同梱しません。地図は、実行時に手元のクライアントの DAT を読むだけです。効果音は自作です。
+このアドオンはファンメイドの非公式なものです。Square Enix とは関係がなく、公式のものでもありません。CatsEyeXI や VanaCore とも関係がありません。ゲームの画像・音・データファイルは同梱しません。地図は、実行時に手元のクライアントの DAT を読むだけです（ゲームに地図が無い天の塔だけ、自分で描いた地図を同梱しています）。効果音は自作です。
 
 ## ライセンス
 
@@ -204,7 +206,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.318, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.324, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 
@@ -216,10 +218,10 @@ In the book, with a pad or keys, up/down picks a heading (or a row) at the curre
 
 To update, replace the addon folder. Progress and settings stay in `Vanacore\config\addons\astertrail\catseye_<character>\`.
 
-It is not affiliated with or endorsed by Square Enix, CatsEyeXI, or VanaCore. No game assets are bundled. Maps are read from your local client DAT files at runtime. Sounds are original. Of 1829 quests and missions, 1625 can be matched to the game's records; **204 cannot** (including Campaign, TVR, and some missions).
+It is not affiliated with or endorsed by Square Enix, CatsEyeXI, or VanaCore. No game assets are bundled. Maps are read from your local client DAT files at runtime (only Heaven's Tower, which has no in-game map, ships its own drawn maps). Sounds are original. Of 1829 quests and missions, 1625 can be matched to the game's records; **204 cannot** (including Campaign, TVR, and some missions).
 
 Update notice: when enabled, the addon reads this repository's `version.json` once after loading (read-only) and prints one chat line if a newer version exists. From this build, the notice can also download the release zip (`zip_url` and `sha256`) and swap the addon files without touching your progress or settings. You can turn it off in the settings.
 
 License: [GNU GPL v3.0](LICENSE).
 
-Reference sources (not shown in the in-game UI): FF11 Yougo Jiten (https://wiki.ffo.jp/), with gaps checked against BG Wiki, LandSandBoat, and HorizonXI. Step text is our own short summary, not copied article text. Look is inspired by YunaUI (no code copied): Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui The Astral look bundles [Melete Bold](https://dotcolon.net/font/melete/) (SIL Open Font License 1.1) for English heading labels. Body text and Japanese stay Meiryo. The full license text is in `fonts/melete/OFL.txt`.
+Reference sources (not shown in the in-game UI): FF11 Yougo Jiten (https://wiki.ffo.jp/), with gaps checked against BG Wiki, LandSandBoat, and HorizonXI. The Heaven's Tower maps are drawn by us from the floor, wall and slope shapes and surface flags in the game's zone data (DAT); the look takes FF11 Database (https://ff11db.sakura.ne.jp/) maps only as an impression, with no images or code taken from it. Step text is our own short summary, not copied article text. Look is inspired by YunaUI (no code copied): Based on YunaUI by Yunas — https://github.com/YunasXI/yunaui The Astral look bundles [Melete Bold](https://dotcolon.net/font/melete/) (SIL Open Font License 1.1) for English heading labels. Body text and Japanese stay Meiryo. The license text is in `fonts/melete/OFL.txt`.
