@@ -3,7 +3,7 @@ require('fake_env')
 local imgui = package.loaded['imgui'] or require('imgui')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 
 local CT = require('src.ui.colored_text')
 local theme = require('src.ui.theme')

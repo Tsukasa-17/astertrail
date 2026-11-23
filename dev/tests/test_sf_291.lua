@@ -24,7 +24,7 @@ imgui.GetForegroundDrawList = function () fg_calls = fg_calls + 1; return imgui.
 local theme = require('src.ui.theme')
 local sf = require('src.ui.sf_style')
 local app = require('src.app')
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.keep_default_look = true
 FAKE.events.load()

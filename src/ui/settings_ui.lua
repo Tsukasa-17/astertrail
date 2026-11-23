@@ -14,6 +14,36 @@ local settings_ui = {}
 
 local function onoff(ui, v) return v and ui.t('common.on') or ui.t('common.off') end
 
+--[[ 0.1.315〜：頭上の文字のフォント（クエスト名・オブジェクト名で共通）。
+  一覧は vanacore_ext が Windows のフォントフォルダから少しずつ読む（この行が見えている間だけ、1 フレーム数ファイル）。
+  選択肢の表は、一覧の数・今の値・言葉が変わったときだけ作り直す（毎フレーム作らない）。 ]]
+local font_choice_cache = { n = -1, cur = nil, done = nil, def = nil, list = nil }
+function settings_ui.label_font_choices(t, cur)
+    local ok_ext, ext = pcall(require, 'src.platform.vanacore_ext')
+    local list, done, unavailable = {}, true, true
+    if ok_ext and ext and ext.font_scan_step then
+        ext.font_scan_step(ext.FONT_SCAN_PER_STEP)
+        list, done, unavailable = ext.font_families()
+    end
+    cur = cur or ''
+    local def = t('settings.label_font_default')
+    local c = font_choice_cache
+    if c.list and c.n == #list and c.cur == cur and c.done == done and c.def == def then
+        return c.list, done, unavailable, #list
+    end
+    local choices = { { value = '', label = def } }
+    local has = (cur == '')
+    for _, it in ipairs(list) do
+        choices[#choices + 1] = it
+        if it.value == cur then has = true end
+    end
+    -- 保存されている名前が一覧に無い（読み込み中・消したフォント）ときも、そのまま選べるように 2 番目に出す
+    if not has then table.insert(choices, 2, { value = cur, label = cur }) end
+    font_choice_cache = { n = #list, cur = cur, done = done, def = def, list = choices }
+    return choices, done, unavailable, #list
+end
+function settings_ui._reset_font_choices() font_choice_cache = { n = -1 } end
+
 local label_w   -- 下で決める（名前の列の幅）
 local text_w
 local function toggle(ui, name, id, label, tbl, key, section, info)
@@ -511,21 +541,36 @@ function settings_ui.body(ui)
             local DM = DEF.marks
             W.heading(ui, t('settings.marks_color_' .. which))
             local c1, c2 = settings_mod.text_colors(M, which)
-            W.color_preview(ui, sample, c1, c2)
-            local function pick(key, label)
+            local dir_key = which .. '_grad_dir'
+            M[dir_key] = settings_mod.clamp_grad_dir(M[dir_key])
+            local clear_key = which .. '_clear'
+            M[clear_key] = settings_mod.clamp_clear(M[clear_key])
+            W.color_preview(ui, sample, c1, c2, { dir = M[dir_key], clear = M[clear_key] })
+            local function pick(key, label, ck, bgk)
                 local w = text_w(ui.imgui, label)
                 if w and w > label_w_next then label_w_next = w end
                 W.color_row(ui, name, 'marks_' .. key, label, M, key, DM[key], {
                     section = SEC, row = 'marks_' .. key,
                     label_w = label_w and (label_w + 20) or nil,
                     tooltip_reset = t('settings.reset_default'),
+                    clear_key = ck,
+                    alpha_key = bgk, show_clear = bgk ~= nil,
                 })
             end
-            pick(which .. '_color', t('settings.color_start'))
+            -- 0.1.318〜：メインの色（始めの色）の色えらびにだけ透明度の帯
+            pick(which .. '_color', t('settings.color_start'), clear_key)
             toggle(ui, name, 'marks_' .. which .. '_grad', t('settings.color_gradient'), M, which .. '_grad', SEC)
             if M[which .. '_grad'] then
+                local dv = M[dir_key]
+                if W.button(ui, name, 'marks_' .. dir_key, t('settings.color_grad_dir') .. '：' .. t('settings.color_grad_dir_' .. dv),
+                    { section = SEC, row = 'marks_' .. dir_key }) then
+                    M[dir_key] = (dv == 'down') and 'across' or 'down'
+                    ui.mark_settings_dirty()
+                end
                 pick(which .. '_color2', t('settings.color_end'))
             end
+            -- 0.1.317〜：文字の透明度は 1 つ（始めの色と終わりの色の両方に効く）
+            stepper(ui, name, 'marks_' .. clear_key, t('settings.color_clear'), M, clear_key, 0.05, 0, 1, UNIT.pct, SEC, 0)
             if W.button(ui, name, 'marks_' .. which .. '_all_reset', t('settings.color_reset'),
                 { section = SEC, row = 'marks_' .. which .. '_all_reset', small = true }) then
                 for _, k in ipairs({ which .. '_color', which .. '_color2', which .. '_bg_color', which .. '_bg_color2' }) do
@@ -535,15 +580,22 @@ function settings_ui.body(ui)
                 M[which .. '_bg_grad'] = false
                 M[which .. '_stroke'] = DM[which .. '_stroke'] or 1
                 M[which .. '_stroke_alpha'] = DM[which .. '_stroke_alpha'] or 1
+                M[which .. '_grad_dir'] = 'across'
+                M[which .. '_clear'] = 0
                 ui.mark_settings_dirty()
             end
             -- 頭上の文字の背景の濃さ（0.1.215〜）。クエスト名とオブジェクト名で別
             local bg_key = which .. '_bg_alpha'
             if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
-            stepper(ui, name, 'marks_' .. bg_key, t('settings.marks_' .. bg_key), M, bg_key,
-                0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX,
-                UNIT.pct, SEC, DM[bg_key])
-            pick(which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'))
+            -- 0.1.318〜：「透明度」（1 - 濃さ）で見せる。保存は濃さのまま
+            local inv = { v = math.floor((1 - M[bg_key]) * 100 + 0.5) / 100 }
+            if stepper(ui, name, 'marks_' .. bg_key, t('settings.marks_' .. bg_key), inv, 'v',
+                0.05, 1 - settings_mod.LABEL_BG_ALPHA_MAX, 1 - settings_mod.LABEL_BG_ALPHA_MIN,
+                UNIT.pct, SEC, math.floor((1 - DM[bg_key]) * 100 + 0.5) / 100) or math.abs((1 - inv.v) - M[bg_key]) > 0.001 then
+                M[bg_key] = math.floor((1 - inv.v) * 100 + 0.5) / 100
+                ui.mark_settings_dirty()
+            end
+            pick(which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'), nil, bg_key)
             toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'),
                 M, which .. '_bg_grad', SEC)
             if M[which .. '_bg_grad'] then

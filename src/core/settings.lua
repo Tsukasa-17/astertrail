@@ -191,6 +191,13 @@ function settings.defaults()
             -- 文字の色（0.1.47〜）。{r, g, b}（0〜255）。グラデーションは左から右へ、終わりの色まで
             label_color = { 248, 244, 232 }, label_grad = false, label_color2 = { 190, 168, 255 },   -- クエスト名（どのアイコンも）
             under_color = { 248, 244, 232 }, under_grad = false, under_color2 = { 120, 200, 255 },   -- オブジェクト名（??? など）
+            -- 0.1.315〜：グラデーションの向き（'across' 左から右＝今まで／'down' 上から下）と、文字の色そのものの不透明度（0〜1、1＝今まで）
+            label_grad_dir = 'across', under_grad_dir = 'across',
+            -- 0.1.317〜：文字の透明度（0〜1。0＝透けない＝今まで、1＝見えない）。始めの色と終わりの色の両方に効く。
+            -- 0.1.315〜316 の色ごとの不透明度（label_color_a ほか）は、始めの色の値から読み替える
+            label_clear = 0, under_clear = 0,
+            -- 0.1.315〜：頭上の文字（クエスト名・オブジェクト名）のフォント。Windows のフォントの家族名。'' は今まで（メニューと同じ）
+            label_font = '',
             -- 頭上の文字の背景の濃さ（0.1.215〜）。0〜1。初期 0.8 は今までの #000000CC
             label_bg_alpha = 0.8,   -- クエスト名
             under_bg_alpha = 0.8,   -- オブジェクト名（近くのオブジェクト名も同じ）
@@ -682,6 +689,22 @@ function settings.merge(loaded)
             'no_enlarge_near' }) do
             merged.marks[k] = type(loaded_marks) == 'table' and loaded_marks[k] == true or false
         end
+        -- 0.1.315〜：グラデーションの向き・文字の色の不透明度・頭上の文字のフォント。無い古い保存は今までの見た目
+        for _, w in ipairs({ 'label', 'under' }) do
+            local lm = type(loaded_marks) == 'table' and loaded_marks or {}
+            merged.marks[w .. '_grad_dir'] = settings.clamp_grad_dir(lm[w .. '_grad_dir'])
+            -- 0.1.317〜：透明度は 1 つ。無ければ 0.1.315〜316 の始めの色の不透明度 a を 1 - a に読み替える
+            if lm[w .. '_clear'] ~= nil then
+                merged.marks[w .. '_clear'] = settings.clamp_clear(lm[w .. '_clear'])
+            elseif lm[w .. '_color_a'] ~= nil then
+                merged.marks[w .. '_clear'] = settings.clamp_clear(1 - settings.clamp_color_alpha(lm[w .. '_color_a']))
+            else
+                merged.marks[w .. '_clear'] = 0
+            end
+            merged.marks[w .. '_color_a'] = nil
+            merged.marks[w .. '_color2_a'] = nil
+        end
+        merged.marks.label_font = settings.clamp_label_font(type(loaded_marks) == 'table' and loaded_marks.label_font or nil)
         -- 隠す場面（0.1.296〜）。保存に無ければ前の「イベント中はリングや名前を消す」から引き継ぐ
         -- （オフならイベントと会話・メニューもオフ。無ければ初期どおり）
         merged.marks.hide_scenes = settings.hide_scenes_of(type(loaded_marks) == 'table' and loaded_marks or nil)
@@ -1054,6 +1077,8 @@ function settings.label_style(marks, which)
     local d = settings.marks_defaults()
     local prefix = (which == 'under') and 'under' or 'label'
     local grad = marks[prefix .. '_bg_grad'] == true
+    local font = settings.clamp_label_font(marks.label_font)
+    if font == '' then font = nil end
     return {
         alpha = settings.label_bg_alpha(marks, prefix),
         color = settings.normalize_rgb(marks[prefix .. '_bg_color'], d[prefix .. '_bg_color'] or { 0, 0, 0 }),
@@ -1062,6 +1087,9 @@ function settings.label_style(marks, which)
         italic = false,
         stroke = settings.clamp_stroke(marks[prefix .. '_stroke']),
         stroke_alpha = settings.clamp_unit_alpha(marks[prefix .. '_stroke_alpha']),
+        -- 0.1.315〜：文字のグラデーションの向き（文字のグラデーションがオンのときだけ使う）とフォント（'' は nil＝今まで）
+        text_dir = settings.clamp_grad_dir(marks[prefix .. '_grad_dir']),
+        font = font,
     }
 end
 -- 足元の輪の濃さ（公式 strength 0〜4、初期 1、0.1 刻み）
@@ -1107,14 +1135,48 @@ function settings.normalize_rgb(c, def)
     end
     return out
 end
+-- 0.1.315〜：グラデーションの向き。'down'（上から下）のほかは今までの 'across'（左から右）
+function settings.clamp_grad_dir(v)
+    if v == 'down' then return 'down' end
+    return 'across'
+end
+-- 0.1.315〜：文字の色そのものの不透明度（0〜1、0.01 刻み）。無い・壊れた値は 1（不透明＝今まで）
+function settings.clamp_color_alpha(v)
+    v = tonumber(v)
+    if v == nil or v ~= v then return 1 end
+    v = math.floor(v * 100 + 0.5) / 100
+    if v < 0 then v = 0 elseif v > 1 then v = 1 end
+    return v
+end
+-- 0.1.317〜：文字の透明度（0〜1、0.01 刻み）。無い・壊れた値は 0（透けない＝今まで）
+function settings.clamp_clear(v)
+    v = tonumber(v)
+    if v == nil or v ~= v then return 0 end
+    v = math.floor(v * 100 + 0.5) / 100
+    if v < 0 then v = 0 elseif v > 1 then v = 1 end
+    return v
+end
+-- 0.1.315〜：頭上の文字のフォント（家族名）。'' は今まで（メニューと同じフォント）。制御文字や長すぎる名前は ''
+function settings.clamp_label_font(v)
+    if type(v) ~= 'string' then return '' end
+    v = v:match('^%s*(.-)%s*$') or ''
+    if #v > 64 or v:find('[%z\1-\31\127]') then return '' end
+    return v
+end
 -- 文字の色を絵に渡す形に：c1（始め）と、グラデーションのときだけ c2（終わり）
+-- 0.1.317〜：透明度が 0 より大きいときだけ、両方の色の 4 番目に同じ 0〜255（＝不透明の量）を付ける（0 のときは今までどおり 3 つだけ）
 function settings.text_colors(marks, which)
     marks = marks or {}
     local d = settings.marks_defaults()
-    local c1 = settings.normalize_rgb(marks[which .. '_color'], d[which .. '_color'])
+    local clear = settings.clamp_clear(marks[which .. '_clear'])
+    local function with_alpha(c)
+        if clear > 0 then c[4] = math.floor((1 - clear) * 255 + 0.5) end
+        return c
+    end
+    local c1 = with_alpha(settings.normalize_rgb(marks[which .. '_color'], d[which .. '_color']))
     local c2 = nil
     if marks[which .. '_grad'] == true then
-        c2 = settings.normalize_rgb(marks[which .. '_color2'], d[which .. '_color2'])
+        c2 = with_alpha(settings.normalize_rgb(marks[which .. '_color2'], d[which .. '_color2']))
     end
     return c1, c2
 end

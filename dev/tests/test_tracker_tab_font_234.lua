@@ -46,7 +46,7 @@ local sui = require('src.ui.settings_ui')
 FAKE.player = { name = 'TabFont', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 eq(app._data().version, '2026.11.20-125', 'data version unchanged')
 S.input.gamepad = true
 S.tracker.visible = true

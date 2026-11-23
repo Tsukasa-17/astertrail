@@ -1135,14 +1135,18 @@ end
 
 -- 色の見本：ゲームと同じ黒い地に、見本の文字を設定の色で（グラデーションなら一文字ずつ）。右に #RRGGBB
 -- c1, c2 は {r, g, b}（0〜255）。c2 が nil なら単色
-function W.color_preview(ui, sample, c1, c2)
+-- 0.1.315〜：c1/c2 の 4 番目（0〜255）は不透明度。opts.dir == 'down' なら上から下へ（横に帯を重ねて描く）
+function W.color_preview(ui, sample, c1, c2, opts)
+    opts = opts or {}
     local imgui = ui.imgui
     sample = tostring(sample or '')
     local chars = {}
     for ch in sample:gmatch('[%z\1-\127\194-\244][\128-\191]*') do chars[#chars + 1] = ch end
+    local function a_of(c) return (tonumber(c and c[4]) or 255) / 255 end
     local function at(t)
-        if not c2 then return c1 end
-        return { c1[1] + (c2[1] - c1[1]) * t, c1[2] + (c2[2] - c1[2]) * t, c1[3] + (c2[3] - c1[3]) * t }
+        if not c2 then return { c1[1], c1[2], c1[3], a_of(c1) } end
+        local a1, a2 = a_of(c1), a_of(c2)
+        return { c1[1] + (c2[1] - c1[1]) * t, c1[2] + (c2[2] - c1[2]) * t, c1[3] + (c2[3] - c1[3]) * t, a1 + (a2 - a1) * t }
     end
     if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
     local okp, px, py = pcall(imgui.GetCursorScreenPos)
@@ -1155,14 +1159,44 @@ function W.color_preview(ui, sample, c1, c2)
             dl:AddRectFilled({ px - 6, py - 2 }, { px + tw + 6, py + h + 2 }, theme.rgba(0, 0, 0, 0.80), 4)
         end)
     end
-    for i, ch in ipairs(chars) do
-        if i > 1 then imgui.SameLine(0, 0) end
-        local c = at((#chars <= 1) and 0 or (i - 1) / (#chars - 1))
-        imgui.TextColored({ c[1] / 255, c[2] / 255, c[3] / 255, 1 }, ch)
+    local drawn_down = false
+    if c2 and opts.dir == 'down' and tonumber(px) and tonumber(py) and #chars > 0 then
+        -- 上から下：同じ文を 8 本の横の帯に切って、帯ごとの色で重ねる
+        drawn_down = pcall(function ()
+            local dl = imgui.GetWindowDrawList()
+            local okh, th = pcall(imgui.GetTextLineHeight)
+            th = (okh and tonumber(th)) or (h * 0.7)
+            local ty = py + math.max(0, (h - th) / 2)
+            local n = 8
+            for k = 0, n - 1 do
+                local c = at((k + 0.5) / n)
+                dl:PushClipRect({ px, ty + th * k / n }, { px + tw, ty + th * (k + 1) / n }, true)
+                local okt = pcall(function () dl:AddText({ px, ty }, theme.rgba(c[1], c[2], c[3], c[4]), sample) end)
+                dl:PopClipRect()
+                if not okt then error('no AddText') end
+            end
+            imgui.Dummy({ tw, th })
+        end)
+    end
+    if not drawn_down then
+        for i, ch in ipairs(chars) do
+            if i > 1 then imgui.SameLine(0, 0) end
+            local c = (c2 and opts.dir == 'down') and at(0) or at((#chars <= 1) and 0 or (i - 1) / (#chars - 1))
+            imgui.TextColored({ c[1] / 255, c[2] / 255, c[3] / 255, c[4] }, ch)
+        end
     end
     imgui.SameLine(0, 18)
-    local hex = string.format('#%02X%02X%02X', math.floor(c1[1] + 0.5), math.floor(c1[2] + 0.5), math.floor(c1[3] + 0.5))
-    if c2 then hex = hex .. ' → ' .. string.format('#%02X%02X%02X', c2[1], c2[2], c2[3]) end
+    local function hx(c)
+        return string.format('#%02X%02X%02X', math.floor(c[1] + 0.5), math.floor(c[2] + 0.5), math.floor(c[3] + 0.5))
+    end
+    local hex = hx(c1)
+    if c2 then hex = hex .. ((opts.dir == 'down') and ' ↓ ' or ' → ') .. hx(c2) end
+    -- 0.1.317〜：透明度は 1 つなので、色ごとではなく最後に 1 回だけ
+    local clear = tonumber(opts.clear)
+    if clear and clear > 0 then
+        local label = (ui.t and ui.t('settings.color_clear')) or 'Transparency'
+        hex = hex .. string.format('  %s %d%%', label, math.floor(clear * 100 + 0.5))
+    end
     imgui.TextDisabled(hex)
 end
 
@@ -1488,6 +1522,36 @@ function W.parse_hex(sx)
     return { tonumber(sx:sub(1, 2), 16), tonumber(sx:sub(3, 4), 16), tonumber(sx:sub(5, 6), 16) }
 end
 
+-- 0.1.315〜：#RRGGBBAA（8 桁）も読む。色 {r,g,b} と不透明度（0〜1、6 桁なら nil）
+function W.parse_hex_a(sx)
+    local t = tostring(sx or ''):gsub('^%s*#?', ''):gsub('%s+$', '')
+    if t:match('^%x%x%x%x%x%x%x%x$') then
+        return { tonumber(t:sub(1, 2), 16), tonumber(t:sub(3, 4), 16), tonumber(t:sub(5, 6), 16) },
+            math.floor(tonumber(t:sub(7, 8), 16) / 255 * 100 + 0.5) / 100
+    end
+    return W.parse_hex(t), nil
+end
+
+-- 0.1.315〜：不透明度の見本の地（白と灰の市松）
+local function checker(dl, x1, y1, x2, y2, cell)
+    cell = cell or 5
+    pcall(function ()
+        dl:AddRectFilled({ x1, y1 }, { x2, y2 }, theme.rgba(200, 200, 200, 1))
+        local row = 0
+        local y = y1
+        while y < y2 do
+            local x = x1 + ((row % 2 == 1) and cell or 0)
+            while x < x2 do
+                dl:AddRectFilled({ x, y }, { math.min(x + cell, x2), math.min(y + cell, y2) }, theme.rgba(120, 120, 120, 1))
+                x = x + cell * 2
+            end
+            y = y + cell
+            row = row + 1
+        end
+    end)
+end
+W._checker = checker
+
 local function u4c(c, a) return theme.rgba(c[1], c[2], c[3], a or 1) end
 
 -- 四角に色を塗る。左上・右上・右下・左下の色（{r,g,b,a} 0〜255 と 0〜1）。
@@ -1571,13 +1635,15 @@ local function picker_body(ui, id, p, def)
     end)
     -- 大きな見本と、R/G/B の数、#RRGGBB
     local c = W.hsv_to_rgb(p.h, p.s, p.v)
+    local alpha_on = type(p.a) == 'number'
     imgui.SameLine(0, 14)
     imgui.BeginGroup()
     window.push(ui, 'group')
     local px, py = xy()
     imgui.Dummy({ h * 3, h * 2 })
+    if alpha_on then checker(dl, px, py, px + h * 3, py + h * 2, math.max(3, math.floor(h * 0.3))) end
     pcall(function ()
-        dl:AddRectFilled({ px, py }, { px + h * 3, py + h * 2 }, u4c(c, 1), 6)
+        dl:AddRectFilled({ px, py }, { px + h * 3, py + h * 2 }, u4c(c, alpha_on and p.a or 1), alpha_on and 0 or 6)
         if p.orig then
             -- 下半分に開く前の色（くらべる用）
             dl:AddRectFilled({ px, py + h * 1.3 }, { px + h * 3, py + h * 2 }, u4c(p.orig, 1), 6)
@@ -1587,19 +1653,70 @@ local function picker_body(ui, id, p, def)
     imgui.TextDisabled(string.format('R %d', c[1]))
     imgui.TextDisabled(string.format('G %d', c[2]))
     imgui.TextDisabled(string.format('B %d', c[3]))
+    -- 0.1.318〜：p.clear のときは「透明度」（0% 透けない、100% 見えない）として見せる。中の p.a は不透明の量のまま
+    local clear_on = alpha_on and p.clear == true
+    if alpha_on then
+        if clear_on then
+            imgui.TextDisabled(t('color.clear', { v = math.floor((1 - p.a) * 100 + 0.5) }))
+        else
+            imgui.TextDisabled(string.format('A %d%%', math.floor(p.a * 100 + 0.5)))
+        end
+    end
+    -- 0.1.318〜：透明度の帯のときは 8 桁の入力は出さない（AA は不透明の量で、透明度と逆向きになるため）
+    local hex8 = alpha_on and not clear_on
+    local function hex_now()
+        if hex8 then return W.hex(c) .. string.format('%02X', math.floor(p.a * 255 + 0.5)) end
+        return W.hex(c)
+    end
     local buf = hex_bufs[id]
-    if not buf or (p.moved and not buf.active) then buf = { W.hex(c) }; hex_bufs[id] = buf end
-    pcall(imgui.SetNextItemWidth, h * 4)
+    if not buf or (p.moved and not buf.active) then buf = { hex_now() }; hex_bufs[id] = buf end
+    pcall(imgui.SetNextItemWidth, h * 4.6)
     local changed = false
-    local okin, res = pcall(imgui.InputText, '##hex_' .. id, buf, 8)
+    local okin, res = pcall(imgui.InputText, '##hex_' .. id, buf, hex8 and 10 or 8)
     if okin and res then changed = true end
     buf.active = imgui.IsItemActive and imgui.IsItemActive() or false
     ui.text_active = ui.text_active or buf.active
     if changed then
-        local nc = W.parse_hex(buf[1])
+        local nc, na = W.parse_hex_a(buf[1])
         if nc then p.h, p.s, p.v = W.rgb_to_hsv(nc); p.moved = false end
+        if nc and na and hex8 then p.a = na end
     end
     window.pop(ui, 'group')
+    -- 0.1.315〜：色そのものの不透明度の帯（左が透明、右が不透明）。市松の上に今の色で
+    if alpha_on then
+        local ax, ay = xy()
+        local aw = size + 10 + bar_w
+        local ah = math.max(10, math.floor(h * 0.7))
+        imgui.InvisibleButton('##alpha_' .. id, { aw, ah })
+        if imgui.IsItemActive() then
+            local mx = mouse()
+            if mx then
+                local a = math.max(0, math.min(1, (mx - ax) / aw))
+                -- 透明度の帯は左が 0%（透けない）、右が 100%（見えない）
+                if clear_on then a = 1 - a end
+                p.a = math.floor(a * 100 + 0.5) / 100
+                p.moved = true
+            end
+        end
+        checker(dl, ax, ay, ax + aw, ay + ah, math.max(3, math.floor(ah / 2)))
+        pcall(function ()
+            if clear_on then
+                multi(dl, ax, ay, ax + aw, ay + ah, { c[1], c[2], c[3], 1 }, { c[1], c[2], c[3], 0 }, { c[1], c[2], c[3], 0 }, { c[1], c[2], c[3], 1 })
+            else
+                multi(dl, ax, ay, ax + aw, ay + ah, { c[1], c[2], c[3], 0 }, { c[1], c[2], c[3], 1 }, { c[1], c[2], c[3], 1 }, { c[1], c[2], c[3], 0 })
+            end
+            dl:AddRect({ ax, ay }, { ax + aw, ay + ah }, theme.rgba(255, 255, 255, 0.25), 0, 0, 1)
+            local kx = ax + (clear_on and (1 - p.a) or p.a) * aw
+            dl:AddRect({ kx - 3, ay - 2 }, { kx + 3, ay + ah + 2 }, theme.rgba(255, 255, 255, 1), 2, 0, 2)
+        end)
+        imgui.SameLine(0, 10)
+        if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
+        if clear_on then
+            imgui.TextDisabled(t('color.clear', { v = math.floor((1 - p.a) * 100 + 0.5) }))
+        else
+            imgui.TextDisabled(t('color.alpha', { v = math.floor(p.a * 100 + 0.5) }))
+        end
+    end
     p.moved = false
     -- ボタン
     local function color_btn(label, sid)
@@ -1619,12 +1736,32 @@ local function picker_body(ui, id, p, def)
 end
 
 -- 色の行。tbl[key] は {r, g, b}（0〜255）。def は初めの色。戻り値: changed
--- opts: { section, row, label_w, tooltip_reset }
+-- opts: { section, row, label_w, tooltip_reset, alpha_key }
+-- 0.1.315〜：opts.alpha_key があれば tbl[alpha_key]（0〜1、無ければ 1）が色そのものの不透明度。色えらびに不透明度の帯が出る
 function W.color_row(ui, win, id, label, tbl, key, def, opts)
     opts = opts or {}
     local imgui = ui.imgui
     local cur = tbl[key]
     if type(cur) ~= 'table' then cur = { def[1], def[2], def[3] }; tbl[key] = cur end
+    -- 0.1.318〜：opts.clear_key があれば tbl[clear_key]（0〜1）が透明度。中では不透明の量（1 - 透明度）として扱い、
+    -- 色えらびに「透明度」の帯が出る。透明度のスライダーと同じキーなので、どちらを動かしても同じ値になる
+    -- 0.1.318〜：opts.show_clear は、alpha_key（濃さ＝不透明の量）を「透明度」（1 - 濃さ）として見せる（背景の濃さなど）。
+    -- clear_key／show_clear のときは透明度に自分のスライダーがあるので、色の ↺・初めの色では透明度を戻さない
+    local ckey = opts.clear_key
+    local akey = opts.alpha_key or ckey
+    local as_clear = ckey ~= nil or (opts.show_clear == true and akey ~= nil)
+    local function cur_a()
+        if not akey then return 1 end
+        local a = tonumber(tbl[akey])
+        if a == nil then return 1 end
+        if a < 0 then a = 0 elseif a > 1 then a = 1 end
+        if ckey then return 1 - a end
+        return a
+    end
+    local function set_a(na)
+        na = math.floor(na * 100 + 0.5) / 100
+        if ckey then tbl[ckey] = math.floor((1 - na) * 100 + 0.5) / 100 else tbl[akey] = na end
+    end
     local changed = false
     local form = form_start(ui, imgui, label, opts, win .. '/' .. id, frame_h(imgui) * 2.4 + 90)
     if not form then
@@ -1639,7 +1776,8 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
     end
     -- ↺（初めの色に戻す）
     local h = frame_h(imgui)
-    local at_default = cur[1] == def[1] and cur[2] == def[2] and cur[3] == def[3]
+    -- 透明度（clear_key）は自分のスライダーで戻すので、色の ↺ では戻さない
+    local at_default = cur[1] == def[1] and cur[2] == def[2] and cur[3] == def[3] and (as_clear or cur_a() >= 1)
     local rid = id .. '_reset'
     local rfocused, ractivated = focus.item(win, rid, opts.section, opts.row or id)
     local okp, px, py = pcall(imgui.GetCursorScreenPos)
@@ -1658,6 +1796,7 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
     after_item(ui, win, rid, rfocused)
     if (pressed or ractivated) and not at_default then
         tbl[key] = { def[1], def[2], def[3] }; cur = tbl[key]
+        if akey and not as_clear then tbl[akey] = 1 end
         changed = true
     end
     imgui.SameLine()
@@ -1671,14 +1810,22 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
     local sw_pressed = imgui.InvisibleButton('##' .. id, { sw, h })
     imgui.SameLine(0, 8)
     if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
-    imgui.Text(W.hex(cur))
+    local ca = cur_a()
+    if ca < 1 and as_clear then
+        imgui.Text(W.hex(cur) .. '  ' .. ui.t('color.clear', { v = math.floor((1 - ca) * 100 + 0.5) }))
+    elseif ca < 1 then
+        imgui.Text(W.hex(cur) .. string.format(' %d%%', math.floor(ca * 100 + 0.5)))
+    else
+        imgui.Text(W.hex(cur))
+    end
     window.pop(ui, 'group')
     local clicked = sw_pressed or (imgui.IsItemClicked and imgui.IsItemClicked(0)) or false
     if tonumber(qx) and tonumber(qy) then
         pcall(function ()
             local dl = imgui.GetWindowDrawList()
             local m = math.max(2, math.floor(h * 0.15))
-            dl:AddRectFilled({ qx, qy + m }, { qx + sw, qy + h - m }, u4c(cur, 1), 4)
+            if ca < 1 then checker(dl, qx, qy + m, qx + sw, qy + h - m, math.max(3, math.floor(h * 0.25))) end
+            dl:AddRectFilled({ qx, qy + m }, { qx + sw, qy + h - m }, u4c(cur, ca), 4)
             dl:AddRect({ qx, qy + m }, { qx + sw, qy + h - m }, theme.rgba(255, 255, 255, 0.30), 4, 0, 1)
         end)
     end
@@ -1689,6 +1836,7 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
         local hh, ss, vv = W.rgb_to_hsv(cur)
         focus.open_picker(win, id, hh, ss, vv, { cur[1], cur[2], cur[3] })
         p = focus.picker(win)
+        if p and akey then p.a = cur_a(); p.a0 = p.a; p.a_sync = p.a; p.clear = as_clear end
         hex_bufs[id] = nil
     end
     if p and p.id == id then
@@ -1701,13 +1849,20 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
             if okr and tonumber(x2) and tonumber(y2) then pcall(imgui.SetNextWindowPos, { x2 + 8, y2 - h }) end
         end
         local close
+        -- 0.1.318〜：開いている間に透明度のスライダー側で変わったら、帯もすぐその値に
+        if akey and type(p.a) == 'number' and type(p.a_sync) == 'number' and math.abs(cur_a() - p.a_sync) > 0.001 then
+            p.a = cur_a(); p.a_sync = p.a
+        end
         if imgui.BeginPopup(pid) then
             window.push(ui, 'popup')
             if type(imgui.IsWindowHovered) == 'function' and imgui.IsWindowHovered() then ui.hovered_any = true end
             local r = picker_body(ui, id, p, def)
             if r == 'done' then p.done = true
             elseif r == 'cancel' then p.cancel = true
-            elseif r == 'default' then p.h, p.s, p.v = W.rgb_to_hsv(def) end
+            elseif r == 'default' then
+                p.h, p.s, p.v = W.rgb_to_hsv(def)
+                if akey and not as_clear then p.a = 1 end
+            end
             if p.done or p.cancel then
                 pcall(imgui.CloseCurrentPopup)
                 close = true
@@ -1723,6 +1878,16 @@ function W.color_row(ui, win, id, label, tbl, key, def, opts)
         if nc[1] ~= cur[1] or nc[2] ~= cur[2] or nc[3] ~= cur[3] then
             tbl[key] = nc
             changed = true
+        end
+        if akey and type(p.a) == 'number' then
+            local na = p.a
+            if p.cancel and type(p.a0) == 'number' then na = p.a0 end
+            na = math.floor(na * 100 + 0.5) / 100
+            if math.abs(na - cur_a()) > 0.001 then
+                set_a(na)
+                changed = true
+            end
+            p.a_sync = cur_a()
         end
         if close then
             focus.close_picker(win)

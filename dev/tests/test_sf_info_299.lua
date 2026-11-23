@@ -64,7 +64,7 @@ W.tooltip = saved_tooltip
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 FAKE.player = { name = 'Info299', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()

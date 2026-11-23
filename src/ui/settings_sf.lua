@@ -737,6 +737,42 @@ local function color_row(ui, name, id, label, tbl, key, def, opts)
     return r
 end
 
+-- 0.1.315〜：頭上の文字のフォント（クエスト名・オブジェクト名で共通）。名前は左、プルダウンは右。0.1.316〜 DISPLAY に置く
+local function font_row(ui, name)
+    local S, t = ui.settings, ui.t
+    local M = S.marks
+    local imgui = ui.imgui
+    local id = 'marks_label_font'
+    local label = t('settings.label_font')
+    local info = t('settings.label_font_help')
+    local cur = settings_mod.clamp_label_font(M.label_font)
+    local choices, done, unavailable, n = settings_ui.label_font_choices(t, cur)
+    form_note(ui, label)
+    local changed, v
+    local cw = 240
+    local row
+    if form and form.label_w and panel_inner_w and panel_inner_w > 40 and W._form_start then
+        local fo = form_opts({ info = info })
+        row = W._form_start(ui, imgui, label, fo, name .. '/' .. id, cw)
+    end
+    if row then
+        changed, v = W.combo(ui, name, id, nil, cur, choices, { section = SEC, row = id, width = cw })
+        focus_tip(ui, name, info, { id })
+        W._form_end(imgui, row)
+    else
+        changed, v = W.combo(ui, name, id, label, cur, choices, { section = SEC, row = id, width = cw })
+    end
+    if changed then
+        M.label_font = settings_mod.clamp_label_font(v)
+        ui.mark_settings_dirty()
+    end
+    if not done then
+        help(ui, t('settings.label_font_loading', { n = n }))
+    elseif unavailable then
+        help(ui, t('settings.label_font_unavailable'))
+    end
+end
+
 -- 0.1.299〜：色の行は「色・グラデーション・終わりの色」と「背景色・背景グラデーション・背景の終わりの色」を
 -- それぞれ 1 つのまとまりにして（中は線なし）。0.1.301〜「背景の濃さ」は背景のまとまりの先頭
 local function color_main(ui, name, which, sample)
@@ -744,30 +780,54 @@ local function color_main(ui, name, which, sample)
     local M, DM = S.marks, DEF.marks
     subhead(ui, tkey(ui, 'sf.set.color_' .. which, which == 'label' and 'クエスト名' or 'オブジェクト（クエスト対象名を含む）'))
     local c1, c2 = settings_mod.text_colors(M, which)
-    W.color_preview(ui, sample, c1, c2)
+    local dir_key = which .. '_grad_dir'
+    M[dir_key] = settings_mod.clamp_grad_dir(M[dir_key])
+    local clear_key = which .. '_clear'
+    M[clear_key] = settings_mod.clamp_clear(M[clear_key])
+    W.color_preview(ui, sample, c1, c2, { dir = M[dir_key], clear = M[clear_key] })
     group(function ()
         color_row(ui, name, 'marks_' .. which .. '_color', tkey(ui, 'sf.set.color_start', '色'),
             M, which .. '_color', DM[which .. '_color'], {
                 section = SEC, row = 'marks_' .. which .. '_color',
                 tooltip_reset = t('settings.reset_default'),
+                -- 0.1.318〜：メインの色（始めの色）の色えらびにだけ透明度の帯。下の「透明度」と同じキー
+                clear_key = clear_key,
             })
         toggle(ui, name, 'marks_' .. which .. '_grad', t('settings.color_gradient'), M, which .. '_grad')
         if M[which .. '_grad'] then
+            -- 0.1.315〜：グラデーションの向き（左から右／上から下）
+            local dv = M[dir_key]
+            if choice(ui, name, 'marks_' .. dir_key, t('settings.color_grad_dir'), t('settings.color_grad_dir_' .. dv),
+                { info = t('settings.color_grad_dir_help') }) then
+                M[dir_key] = (dv == 'down') and 'across' or 'down'
+                ui.mark_settings_dirty()
+            end
             color_row(ui, name, 'marks_' .. which .. '_color2', t('settings.color_end'),
                 M, which .. '_color2', DM[which .. '_color2'], {
                     section = SEC, row = 'marks_' .. which .. '_color2', tooltip_reset = t('settings.reset_default'),
                 })
         end
+        -- 0.1.317〜：文字の透明度は 1 つ（始めの色と終わりの色の両方に効く）。0% が透けない（今まで）、100% が見えない
+        stepper(ui, name, 'marks_' .. clear_key, t('settings.color_clear'), M, clear_key, 0.05, 0, 1, UNIT.pct, 0,
+            t('settings.color_clear_help'))
     end)
     -- 0.1.301〜：「背景の濃さ」は背景のまとまりの先頭（背景色・背景グラデーション・背景の終わりの色と一緒、中は線なし）
     local bg_key = which .. '_bg_alpha'
     if type(M[bg_key]) ~= 'number' then M[bg_key] = settings_mod.LABEL_BG_ALPHA_DEFAULT end
     group(function ()
-        stepper(ui, name, 'marks_' .. bg_key, tkey(ui, 'sf.set.' .. bg_key, '背景の濃さ'),
-            M, bg_key, 0.05, settings_mod.LABEL_BG_ALPHA_MIN, settings_mod.LABEL_BG_ALPHA_MAX, UNIT.pct, DM[bg_key])
+        -- 0.1.318〜：背景は「透明度」（0% 透けない、100% 見えない）で見せる。保存は今までの濃さ（不透明の量）のまま、1 - 濃さ で読み替える
+        local inv = { v = math.floor((1 - M[bg_key]) * 100 + 0.5) / 100 }
+        if stepper(ui, name, 'marks_' .. bg_key, tkey(ui, 'sf.set.' .. bg_key, '背景の透明度'),
+            inv, 'v', 0.05, 1 - settings_mod.LABEL_BG_ALPHA_MAX, 1 - settings_mod.LABEL_BG_ALPHA_MIN, UNIT.pct,
+            math.floor((1 - DM[bg_key]) * 100 + 0.5) / 100) or math.abs((1 - inv.v) - M[bg_key]) > 0.001 then
+            M[bg_key] = math.floor((1 - inv.v) * 100 + 0.5) / 100
+            ui.mark_settings_dirty()
+        end
         color_row(ui, name, 'marks_' .. which .. '_bg_color', t('settings.marks_' .. which .. '_bg_color'),
             M, which .. '_bg_color', DM[which .. '_bg_color'], {
                 section = SEC, row = 'marks_' .. which .. '_bg_color', tooltip_reset = t('settings.reset_default'),
+                -- 0.1.318〜：背景色の色えらびに背景の透明度の帯（上の行と同じキー）
+                alpha_key = bg_key, show_clear = true,
             })
         toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'), M, which .. '_bg_grad')
         if M[which .. '_bg_grad'] then
@@ -800,6 +860,9 @@ local function color_detail(ui, name, which)
         M[which .. '_bg_grad'] = false
         M[which .. '_stroke'] = DM[which .. '_stroke'] or 1
         M[which .. '_stroke_alpha'] = DM[which .. '_stroke_alpha'] or 1
+        -- 0.1.315〜：向きと透明度（0.1.317〜）も今までの見た目へ（フォントは共通なので戻さない）
+        M[which .. '_grad_dir'] = 'across'
+        M[which .. '_clear'] = 0
         ui.mark_settings_dirty()
     end
 end
@@ -828,6 +891,8 @@ local function draw_marks(ui, name)
             toggle(ui, name, 'marks_fame', tkey(ui, 'sf.set.marks_show_fame', '名声を教える人のアイコン'), S.marks, 'show_fame_npcs')
             stepper(ui, name, 'marks_icon', tkey(ui, 'sf.set.marks_icon_size', 'アイコンの大きさ'),
                 S.marks, 'icon_size', 4, 16, 64, UNIT.px, DEF.marks.icon_size)
+            -- 0.1.316〜：クエスト名・オブジェクト名のフォントは DISPLAY に（0.1.315 は LABEL の先頭）。保存のキーは同じ marks.label_font
+            font_row(ui, name)
         end },
         { id = 'mk_position', title = 'POSITION', draw = function ()
             local lo, hi, st = settings_mod.OFFSET_MIN, settings_mod.OFFSET_MAX, settings_mod.OFFSET_STEP

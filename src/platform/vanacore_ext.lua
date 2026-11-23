@@ -529,17 +529,19 @@ function ext.mark_file(role)
 end
 
 -- 公式の箱は userdata のことがある。table かどうかで断らない。
+-- 0.1.316〜：まとめての set が通ったら true（知らない名前があると公式の set はエラーになる）
 local function box_set(box, props)
-    if box == nil or type(props) ~= 'table' then return end
+    if box == nil or type(props) ~= 'table' then return false end
     local ok = pcall(function ()
         box:set(props)
     end)
-    if ok then return end
+    if ok then return true end
     for k, val in pairs(props) do
         pcall(function ()
             box[k] = val
         end)
     end
+    return false
 end
 
 -- 箱ごとの「今出しているか」（0.1.210〜）。同じなら毎フレーム出し直さない
@@ -989,6 +991,178 @@ function ext.font_family_names(path)
     return list
 end
 
+--[[ 0.1.315〜：頭上の文字のフォント選び。Windows のフォントの一覧（家族名）。
+  ファイル全体は読まない（C:\Windows\Fonts は数百ファイル・数百 MB ある）。先頭の表と name 表だけを読む。
+  一覧は設定の行が見えている間に、1 フレーム数ファイルずつ読み、読み終えたらゲームを閉じるまで覚える（毎フレーム読まない）。 ]]
+local function read_at(f, off, n)
+    local ok = f:seek('set', off)
+    if not ok then return nil end
+    return f:read(n)
+end
+
+-- 1 つのフォントファイルの家族名（nameID 1）。英語名と日本語名。読めなければ nil
+function ext.font_file_names(path)
+    local okf, f = pcall(io.open, path, 'rb')
+    if not okf or not f then return nil end
+    local en, ja, any_en
+    pcall(function ()
+        local head = f:read(12)
+        if not head or #head < 12 then return end
+        local base = 0
+        if head:sub(1, 4) == 'ttcf' then
+            local h2 = read_at(f, 12, 4)
+            base = h2 and u32(h2, 1) or nil
+            if not base then return end
+            head = read_at(f, base, 12)
+            if not head or #head < 12 then return end
+        end
+        local ntab = u16(head, 5)
+        if not ntab or ntab <= 0 or ntab > 80 then return end
+        local dir = read_at(f, base + 12, ntab * 16)
+        if not dir or #dir < ntab * 16 then return end
+        local name_off, name_len
+        for i = 0, ntab - 1 do
+            local rec = 1 + i * 16
+            if dir:sub(rec, rec + 3) == 'name' then
+                name_off = u32(dir, rec + 8)
+                name_len = u32(dir, rec + 12)
+                break
+            end
+        end
+        if not name_off or not name_len or name_len < 6 then return end
+        if name_len > 65536 then name_len = 65536 end
+        local name = read_at(f, name_off, name_len)
+        if not name or #name < 6 then return end
+        local count = u16(name, 3)
+        local str_off = u16(name, 5)
+        if not count or not str_off or count > 400 then return end
+        for i = 0, count - 1 do
+            local r = 7 + i * 12
+            local platform = u16(name, r)
+            local language = u16(name, r + 4)
+            local name_id = u16(name, r + 6)
+            local length = u16(name, r + 8)
+            local off = u16(name, r + 10)
+            if name_id == 1 and length and off and length > 0 then
+                local start = str_off + 1 + off
+                local raw = name:sub(start, start + length - 1)
+                if platform == 3 or platform == 0 then
+                    local d = utf16be_to_utf8(raw)
+                    if d then
+                        if language == 0x0409 then en = en or d
+                        elseif language == 0x0411 then ja = ja or d
+                        elseif not d:find('[\128-\255]') then any_en = any_en or d end
+                    end
+                elseif platform == 1 and language == 0 then
+                    local d = macroman_to_utf8(raw)
+                    if d then any_en = any_en or d end
+                end
+            end
+        end
+    end)
+    pcall(f.close, f)
+    en = en or any_en
+    if en then en = en:match('^%s*(.-)%s*$') end
+    if ja then ja = ja:match('^%s*(.-)%s*$') end
+    if en == '' then en = nil end
+    if ja == '' then ja = nil end
+    if not en and not ja then return nil end
+    return en, ja
+end
+
+-- 記号だけのフォント・縦書き用（@）は一覧に出さない
+ext.FONT_SKIP = { 'wingdings', 'webdings', 'marlett', 'symbol', 'mdl2', 'fluent icons', 'emoji', 'mt extra', 'holomdl' }
+local function skip_family(n)
+    if type(n) ~= 'string' or n == '' or n:sub(1, 1) == '@' then return true end
+    local l = n:lower()
+    for _, k in ipairs(ext.FONT_SKIP) do
+        if l:find(k, 1, true) then return true end
+    end
+    return false
+end
+ext._skip_family = skip_family
+
+local font_scan = nil
+ext.FONT_SCAN_PER_STEP = 12
+function ext._reset_font_scan() font_scan = nil end
+
+local function font_dirs()
+    local out = {}
+    local windir = os.getenv('WINDIR') or os.getenv('SystemRoot')
+    if type(windir) == 'string' and windir ~= '' then out[#out + 1] = path_join(windir, 'Fonts') end
+    local localapp = os.getenv('LOCALAPPDATA')
+    if type(localapp) == 'string' and localapp ~= '' then
+        out[#out + 1] = path_join(path_join(path_join(localapp, 'Microsoft'), 'Windows'), 'Fonts')
+    end
+    return out
+end
+ext._font_dirs = font_dirs
+
+-- 一覧を少しずつ読む。読み終えたら true。n は 1 回に読むファイルの数
+function ext.font_scan_step(n)
+    if font_scan and font_scan.done then return true end
+    if not font_scan then
+        font_scan = { files = {}, i = 1, list = {}, seen = {}, done = false }
+        local v = V()
+        local lister = v and type(v.fs) == 'table' and v.fs.list
+        if type(lister) ~= 'function' then
+            font_scan.done = true
+            font_scan.unavailable = true
+            return true
+        end
+        local seen_file = {}
+        for _, d in ipairs(font_dirs()) do
+            local ok, names = pcall(lister, d, '.*\\.(ttf|otf|ttc)', 'files')
+            if ok and type(names) == 'table' then
+                for _, nm in ipairs(names) do
+                    if type(nm) == 'string' then
+                        local fpath = path_join(d, nm:gsub('^.*[/\\]', ''))
+                        local key = fpath:lower()
+                        if not seen_file[key] then
+                            seen_file[key] = true
+                            font_scan.files[#font_scan.files + 1] = fpath
+                        end
+                    end
+                end
+            end
+        end
+        if #font_scan.files == 0 then
+            font_scan.done = true
+            font_scan.unavailable = true
+            return true
+        end
+        return false
+    end
+    n = tonumber(n) or ext.FONT_SCAN_PER_STEP
+    local stop = math.min(#font_scan.files, font_scan.i + n - 1)
+    for i = font_scan.i, stop do
+        local en, ja = ext.font_file_names(font_scan.files[i])
+        local value = en or ja
+        if value and not skip_family(value) and not skip_family(en or '') then
+            local key = value:lower()
+            if not font_scan.seen[key] then
+                font_scan.seen[key] = true
+                local label = value
+                if ja and en and ja ~= en then label = ja .. '（' .. en .. '）' elseif ja then label = ja end
+                font_scan.list[#font_scan.list + 1] = { value = value, label = label }
+            end
+        end
+    end
+    font_scan.i = stop + 1
+    if font_scan.i > #font_scan.files then
+        table.sort(font_scan.list, function (a, b) return a.label:lower() < b.label:lower() end)
+        font_scan.done = true
+        return true
+    end
+    return false
+end
+
+-- 読み終えた一覧（{ value = 家族名, label = 画面の名前 }）、読み終えたか、一覧が読めない環境か
+function ext.font_families()
+    if not font_scan then return {}, false, false end
+    return font_scan.list, font_scan.done == true, font_scan.unavailable == true
+end
+
 local function file_stem(name)
     if type(name) ~= 'string' then return nil end
     name = name:gsub('^.*[/\\]', '')
@@ -1151,7 +1325,7 @@ function ext._place_distance(x, y, z, cap)
     return ref
 end
 
-local function make_label_box(text)
+local function make_label_box(text, want_font)
     local v = V()
     if not v or type(v.ui) ~= 'table' or type(v.ui.text) ~= 'function' then
         return nil
@@ -1184,6 +1358,17 @@ local function make_label_box(text)
             add_name(fonts, seen, f)
         end
     end
+    -- いつものフォント（設定を「いつもの」に戻したとき、箱をこのフォントへ戻す）
+    local font0 = fonts[1]
+    -- 0.1.315〜：設定で選んだフォントを先に試す（作れなければ、いつもの順）
+    if type(want_font) == 'string' and want_font ~= '' then
+        local s2 = { [want_font] = true }
+        local f2 = { want_font }
+        for _, f in ipairs(fonts) do
+            if not s2[f] then s2[f] = true; f2[#f2 + 1] = f end
+        end
+        fonts = f2
+    end
     for _, font in ipairs(fonts) do
         for _, b in ipairs(bases) do
             local props = {}
@@ -1192,7 +1377,7 @@ local function make_label_box(text)
             local box = try(props)
             if box then
                 local used = tonumber(b.size) or bake
-                return box, b.color_codes == true, used
+                return box, b.color_codes == true, used, font0, font
             end
         end
     end
@@ -1218,9 +1403,20 @@ local function rgb_of(c)
     end
     return out
 end
+-- 0.1.315〜：4 番目（0〜255）があれば文字の色の不透明度。無ければ今までどおり FF
+local function alpha_of(c)
+    if type(c) ~= 'table' then return 255 end
+    local a = tonumber(c[4])
+    if a == nil then return 255 end
+    a = math.floor(a + 0.5)
+    if a < 0 then a = 0 elseif a > 255 then a = 255 end
+    return a
+end
+ext.alpha_of = alpha_of
 local function hex_of(c)
+    local a = alpha_of(c)
     c = rgb_of(c) or LABEL_RGB
-    return string.format('#%02X%02X%02XFF', c[1], c[2], c[3])
+    return string.format('#%02X%02X%02X%02X', c[1], c[2], c[3], a)
 end
 ext.hex_of = hex_of
 
@@ -1264,30 +1460,83 @@ ext._bg_hex = bg_hex
 
 -- 文字の箱に文と色を入れる。グラデーションは色の印が使える箱だけ（使えなければ始めの色だけ）
 -- bg_alpha があれば背景の濃さも入れる（無いときは今までの箱の背景のまま）
+-- 0.1.315〜：公式の文字の箱の gradient（"down"／"across"）。使えないと分かったら false（色の印の左から右へ戻す）
+ext.native_gradient = nil
 local function label_props(slot, text, c1, c2, bg_alpha, style)
-    local props = { text = text, color = hex_of(c1) }
-    if c2 and slot and slot.codes then
-        props.text = ext.gradient_text(text, c1, c2)
-        props.color = '#FFFFFFFF'
-    end
     style = style or {}
+    local props = { text = text, color = hex_of(c1) }
+    -- 0.1.317〜：文字の透明度は 1 つ（始めの色にも終わりの色にも同じ量）。fa は不透明の量 0〜255
+    -- 0.1.315〜316 は始めと終わりで別のアルファを gradient_from／to と color に渡していた。
+    -- color に始めの色のアルファ 0 が入ると、終わりの色まで文字の塗りが消え、残った黒い縁取りで「黒い文字」に見えた
+    local fa = alpha_of(c1)
+    if c2 and alpha_of(c2) < fa then fa = alpha_of(c2) end
+    if fa < 255 then
+        props.color = hex_of({ (rgb_of(c1) or LABEL_RGB)[1], (rgb_of(c1) or LABEL_RGB)[2], (rgb_of(c1) or LABEL_RGB)[3], fa })
+    end
+    -- 上から下（0.1.315〜）、または透明度のある左から右は、公式の gradient で描く。
+    -- 透けない左から右は今までどおり色の印（\cs）で一文字ずつ（前の見た目を変えない）
+    -- 透明度 100%（fa = 0）は gradient を使わず、塗りも縁取りも 0（背景はそのまま）
+    local native = nil
+    if c2 and fa > 0 and ext.native_gradient ~= false then
+        if style.text_dir == 'down' then
+            native = 'down'
+        elseif fa < 255 then
+            native = 'across'
+        end
+    end
+    if native then
+        props.gradient = native
+        -- 両端とも同じアルファ（color と同じ）。片側だけ 0 にはしない
+        local r1, r2 = rgb_of(c1) or LABEL_RGB, rgb_of(c2) or LABEL_RGB
+        props.gradient_from = hex_of({ r1[1], r1[2], r1[3], fa })
+        props.gradient_to = hex_of({ r2[1], r2[2], r2[3], fa })
+        -- 0.1.316〜：公式の gradient のときは色の印を使わない（文は印なし。印の読み取りも切っておく）
+        if slot and slot.codes then props.color_codes = false end
+        if slot then slot._ng = native end
+    else
+        if c2 and fa == 255 and slot and slot.codes then
+            props.text = ext.gradient_text(text, c1, c2)
+            props.color = '#FFFFFFFF'
+        end
+        -- 前に公式の gradient を使った箱だけ、切っておく（使ったことの無い箱には渡さない）
+        if slot and slot._ng then
+            props.gradient = 'none'
+            if slot.codes then props.color_codes = true end
+            slot._ng = nil
+        end
+    end
+    -- フォント（0.1.315〜）。選んだときだけ渡す。いつもの（''）に戻したら、箱を作ったときのフォントへ
+    if style.font then
+        props.font = style.font
+        if slot then slot._fset = true end
+    elseif slot and slot._fset then
+        if slot.font0 then props.font = slot.font0 end
+        slot._fset = nil
+    end
     -- 斜体は使わない（保存や古い箱に残っていてもオフ）
     props.italic = false
     local stroke = tonumber(style.stroke)
     if stroke == nil then stroke = 1 end
-    if stroke <= 0 then
+    if stroke <= 0 or fa == 0 then
         props.outline = false
         props.stroke = 0
     else
         props.outline = true
         props.stroke = stroke
         -- 縁取りの濃さ。100% のときは色を渡さず、今までの既定色のまま
+        -- 0.1.317〜：透明度があるときは、縁取りも文字と一緒に同じだけ透ける（縁取りの設定そのものは変えない）
         local sa = tonumber(style.stroke_alpha)
+        if fa < 255 then sa = (sa or 1) * fa / 255 end
         if sa ~= nil and sa < 0.999 then
             if sa < 0 then sa = 0 elseif sa > 1 then sa = 1 end
             local a = math.floor(sa * 255 + 0.5)
             if a < 0 then a = 0 elseif a > 255 then a = 255 end
             props.stroke_color = string.format('#000000%02X', a)
+            if slot then slot._sc = true end
+        elseif slot and slot._sc then
+            -- 0.1.317〜：前に薄くした縁取りを、濃さ 100% に戻したら黒の 100% へ戻す
+            props.stroke_color = '#000000FF'
+            slot._sc = nil
         end
     end
     if bg_alpha ~= nil then
@@ -1305,12 +1554,14 @@ ext._label_props = label_props
 local function style_sig(style)
     style = style or {}
     local c, c2 = style.color, style.color2
-    return string.format('%s/%s/%s/%s/%s',
+    return string.format('%s/%s/%s/%s/%s/%s/%s',
         tostring(tonumber(style.stroke) or 1),
         tostring(tonumber(style.stroke_alpha) or 1),
         style.grad and '1' or '0',
         c and string.format('%s,%s,%s', c[1], c[2], c[3]) or '',
-        c2 and string.format('%s,%s,%s', c2[1], c2[2], c2[3]) or '')
+        c2 and string.format('%s,%s,%s', c2[1], c2[2], c2[3]) or '',
+        style.text_dir == 'down' and 'v' or 'h',
+        tostring(style.font or ''))
 end
 
 local function apply_label_text(slot, text, c1, c2, bg_alpha, style)
@@ -1319,11 +1570,34 @@ local function apply_label_text(slot, text, c1, c2, bg_alpha, style)
     local sig = style_sig(style)
     if slot._lbl ~= text or not same_c(slot._c1, c1) or not same_c(slot._c2, c2)
         or slot._bg ~= bg_alpha or slot._st ~= sig then
-        box_set(slot.box, label_props(slot, text, c1, c2, bg_alpha, style))
+        local props = label_props(slot, text, c1, c2, bg_alpha, style)
+        local whole = box_set(slot.box, props)
         slot._lbl, slot._c1, slot._c2, slot._bg, slot._st = text, c1, c2, bg_alpha, sig
         slot._style = style
+        -- 0.1.316〜：公式の gradient が使えるかは、渡せたかどうかで決める。
+        -- 0.1.315 は box.gradient を読み返して決めていたが、実機の文字の箱は gradient を読み返さない（nil）ため
+        -- 「使えない」と決めつけ、上から下でも色の印（左から右）で描いていた。
+        if props.gradient and props.gradient ~= 'none' and ext.native_gradient == nil then
+            local okg = whole
+            if not okg then
+                -- まとめての set が別の名前で落ちたときは、gradient だけで確かめる
+                okg = pcall(function ()
+                    slot.box:set({ gradient = props.gradient, gradient_from = props.gradient_from, gradient_to = props.gradient_to })
+                end)
+            end
+            if okg then
+                ext.native_gradient = true
+            else
+                ext.native_gradient = false
+                slot._st = nil
+                slot._ng = nil
+            end
+        end
     end
 end
+
+ext._apply_label_text = apply_label_text
+ext._make_label_box = function (text, want_font) return make_label_box(text, want_font) end
 
 -- 頭上の影：公式の文字箱に影は無いので、同じ文をもう一つ、影色で少しずらして後ろに置く
 local SHADOW_RGB = {
@@ -1788,9 +2062,9 @@ function ext.set_name_marks(items)
             if has_label_text(it) then
                 local lslot = find_slot(index, 'label', layer)
                 if not lslot then
-                    local box, codes, bake = make_label_box(it.label)
+                    local box, codes, bake, font0 = make_label_box(it.label, it.label_style and it.label_style.font)
                     if box then
-                        lslot = { box = box, kind = 'text', part = 'label', layer = layer, attached = false, role = role, codes = codes, bake = bake }
+                        lslot = { box = box, kind = 'text', part = 'label', layer = layer, attached = false, role = role, codes = codes, bake = bake, font0 = font0 }
                         slots[#slots + 1] = lslot
                     end
                 end
@@ -2195,9 +2469,9 @@ function ext.set_world_marks(items)
             if has_label_text(it) then
                 label_slot = find_world_slot(key, 'label')
                 if not label_slot then
-                    local box, codes, bake = make_label_box(it.label)
+                    local box, codes, bake, font0 = make_label_box(it.label, it.label_style and it.label_style.font)
                     if box then
-                        label_slot = { box = box, kind = 'text', part = 'label', placed = false, role = role, key = key, codes = codes, bake = bake }
+                        label_slot = { box = box, kind = 'text', part = 'label', placed = false, role = role, key = key, codes = codes, bake = bake, font0 = font0 }
                         world_slots[#world_slots + 1] = label_slot
                     end
                 end
@@ -2210,9 +2484,9 @@ function ext.set_world_marks(items)
             if show_under then
                 under_slot = find_world_slot(key, 'under')
                 if not under_slot then
-                    local box, codes, bake = make_label_box(it.under)
+                    local box, codes, bake, font0 = make_label_box(it.under, it.under_style and it.under_style.font)
                     if box then
-                        under_slot = { box = box, kind = 'text', part = 'under', placed = false, role = role, key = key, codes = codes, bake = bake }
+                        under_slot = { box = box, kind = 'text', part = 'under', placed = false, role = role, key = key, codes = codes, bake = bake, font0 = font0 }
                         world_slots[#world_slots + 1] = under_slot
                     end
                 end

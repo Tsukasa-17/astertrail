@@ -4,7 +4,7 @@
 
 画面は日本語、クエスト名と NPC 名は英語のまま、報酬は資料の日本語名を使います。作者は Tsukasa です。
 
-**バージョン 1.1.314**（公開 β）／ データ `2026.11.20-125`
+**バージョン 1.1.318**（公開 β）／ データ `2026.11.20-125`
 
 > **CatsEyeXI の承認待ちです。** いま CatsEyeXI のスタッフに使ってよいかを確認してもらっています。承認されるまでは、CatsEyeXI での使用は控えてください。
 
@@ -57,6 +57,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
   - 見えている相手にだけ、クエストの状態に合わせた印が頭の上に出ます（未受注・受注中・討伐・ゲートガード・名声を教えてくれる人など）。
   - 討伐の印は、手順に名前や種族が書いてあるモンスターに出ます。倒さなくていい敵と見分けられます。
   - 印のついた相手の足元には、同じ色の光の輪が出ます。
+  - 頭上のクエスト名・オブジェクト名は、フォント（Windows に入っているもの）・色・グラデーションの向き（左から右／上から下）・文字と背景の透明度を変えられます。
   - 絵は自分のものに差し替えられます。`assets/marks/` に PNG を置き、`/astertrail icons` で読み直します。無い名前は `assets/marks/example/` の絵を使います。詳しくはそのフォルダの `README.txt` を見てください。
 - **所持**：手順に必要な品を、いくつ持っているか数えます。
   - 数えるのは、かばん・金庫・金庫2・モグ収納・モグロッカー・サッチェル・サック・ケース・ワードローブ1〜8 です。テンポラリと報酬は数えません。
@@ -81,7 +82,7 @@ Ashita v4 単体での動作は保証しません（動作保証外です）。�
 
 ## 入れ方と更新
 
-1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.314.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
+1. [Releases](https://github.com/Tsukasa-17/astertrail/releases) から `astertrail-ui-1.1.318.zip` などの zip を取ってきて展開し、フォルダ名が `astertrail` であることを確認します（中に `astertrail.lua` があります）。
 2. そのフォルダを `Vanacore\addons\vanacore\astertrail\` に置きます。
 3. ゲームで `/addon load astertrail vanacore` と打ちます。毎回読むときは、ほかのアドオンと同じく `boot.txt` などに `//addon load astertrail vanacore` を足します。
 4. 外すときは `/addon unload astertrail` です。
@@ -150,7 +151,7 @@ Vanacore\config\addons\astertrail\catseye_<キャラ名>\
 - **配置**：配置のロック、初期配置に戻す、入口アイコン、前回の位置を覚える、コンパスを出す
 - **トラッカー**：出す、件数の上限、出し方（一覧／タブ）、そろえ、× を出す、所持の欄
 - **地図**：地図を使う
-- **アイコン**：印・名前・足元の輪・位置や色、ズームに合わせた位置（試し）、名声の人の印
+- **アイコン**：印・名前・足元の輪・位置や色、名前のフォント・透明度、ズームに合わせた位置（試し）、名声の人の印
 - **お知らせ**：受注・完了のお知らせと効果音
 - **操作**：パッドで画面を操作、ショートカット、ゲームのメニューとのつなぎ
 - **保存**：今すぐ保存、マイレイアウト
@@ -203,7 +204,7 @@ Copyright (C) 2026 Tsukasa
 
 > **Pending CatsEyeXI approval.** This addon is currently under review by the CatsEyeXI staff. Please do not use it on CatsEyeXI until it has been approved.
 
-Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.314, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
+Astertrail is an **unofficial** fan-made addon for Final Fantasy XI. It helps you follow quests, missions, and Eminence records in a Japanese UI (quest and NPC names stay in English). This is a public **β** release (v1.1.318, data `2026.11.20-125`). Repository: https://github.com/Tsukasa-17/astertrail (downloads on the Releases page). Author: Tsukasa.
 
 It is **VanaCore only** (Ashita v4 addon format, loaded through VanaCore's compatibility layer). Place the `astertrail` folder at `Vanacore\addons\vanacore\astertrail\` and run `/addon load astertrail vanacore`. Standalone Ashita v4 is not supported (no guarantee of operation); some features need VanaCore.
 

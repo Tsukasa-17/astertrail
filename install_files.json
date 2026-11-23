@@ -1,5 +1,5 @@
 {
-"version": "1.1.314",
+"version": "1.1.318",
 "files": [
 {
 "path": "LICENSE",
@@ -11,7 +11,7 @@
 },
 {
 "path": "README.md",
-"sha256": "93cb6ba68f3831f380f7b693ca077c515bdc02fa2e63a2305e04083cac7333b7"
+"sha256": "a3d36624f7678c79409c19d93456ecefbd4b68e6a7311d1c42bedc29bea2d418"
 },
 {
 "path": "TECH_VALIDATION.md",
@@ -19,7 +19,7 @@
 },
 {
 "path": "astertrail.lua",
-"sha256": "4db1e8d65f196aa0892141c2b65c240988882bb795e6bb5f6d59b435d6ebd733"
+"sha256": "92fe8767ad910e589c76fc4ce477c4818874cbc23347cc54662b389d50bb7b4b"
 },
 {
 "path": "assets/marks/README.txt",
@@ -279,15 +279,15 @@
 },
 {
 "path": "locales/en.json",
-"sha256": "73adffec32ef782d8d18f7e40b0fa247111b191a2fb7ee9a56eeda1325871d1e"
+"sha256": "a15450ed2975737c874bfed9cc7d4a5358630d35ea38b2658462dd383bc62d55"
 },
 {
 "path": "locales/ja.json",
-"sha256": "c253b89fc9d26b8dae9d95bb1222a0fe9eb2164848099b1c46eada878e4e624e"
+"sha256": "2ce043c17eeca29a8878ddfb56f30193a3667dc2607c66715e0bf24847ee71cc"
 },
 {
 "path": "src/app.lua",
-"sha256": "f570f1fe5a3c727b3db6ed6ae750437c64c7016cc2ce6dc1c6b22a369534aba0"
+"sha256": "8a7448e8c5ff2ef9f0a607af463ba577265b85d98be091d70127d46f0a8ac8d3"
 },
 {
 "path": "src/build_flags.lua",
@@ -371,7 +371,7 @@
 },
 {
 "path": "src/core/settings.lua",
-"sha256": "0e354901d3c307f33f41c71e9f11ac510ecd5eab600a9e83926c398989a7991c"
+"sha256": "99020b9404f9b1a21c9c1f2b491d551e8005dc69eb1e9b2493acd73a49c0b5e0"
 },
 {
 "path": "src/core/shortcut.lua",
@@ -419,7 +419,7 @@
 },
 {
 "path": "src/platform/vanacore_ext.lua",
-"sha256": "b2c217490051856c606e808770ddfc0f4b61d93e0d9dea0fd89a6e40615fece1"
+"sha256": "dd07a33f5fcd2422852d9d325550d35e264ec966b60c7c9e6e24bfdba4299aaf"
 },
 {
 "path": "src/ui/book.lua",
@@ -523,11 +523,11 @@
 },
 {
 "path": "src/ui/settings_sf.lua",
-"sha256": "0f1b6a062248f3c7f6b911da5bc09616310795b85699b52e96e30a912615f63c"
+"sha256": "4d1c430c3ce59a9e74395c6ee8c0e370b8fa124a036881fa05c7afda7e07e1fe"
 },
 {
 "path": "src/ui/settings_ui.lua",
-"sha256": "ccd0d89e66e2e3bbba7d13edf6ec1dc37c2b17f068bd2e665d7f698ffa4ab58b"
+"sha256": "b6b12954d56cc067950aec09e13941ce98cefb55f4541c73397c33ca93a5ff3a"
 },
 {
 "path": "src/ui/sf_style.lua",
@@ -559,7 +559,7 @@
 },
 {
 "path": "src/ui/widgets.lua",
-"sha256": "46fe49264e6ab8ee19dfc583c26011a8779fdbb782236cd57af9ef53222c73aa"
+"sha256": "b0304b94e292750acb53401c18d5568af2e9d197f071bc53738fc2c65edc65fc"
 },
 {
 "path": "src/ui/window.lua",

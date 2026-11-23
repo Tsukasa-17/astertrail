@@ -34,7 +34,7 @@ FAKE.events.load()
 local app = require('src.app')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)
-eq(app.VERSION, '1.1.314', 'version 0.1.251')
+eq(app.VERSION, '1.1.318', 'version 0.1.251')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 
 local function last_lines()
@@ -102,7 +102,7 @@ local function seen(pat)
 end
 app.open_window('settings'); frame()
 require('src.ui.settings_ui').select_tab('marks'); frame(); frame()
-check(seen('背景の濃さ'), 'opacity rows in アイコン (0.1.304: same rows as Astral)')
+check(seen('背景の透明度'), 'transparency rows in アイコン (0.1.304 same rows as Astral; 0.1.318 named 透明度)')
 check(seen('##marks_label_bg_alpha'), 'quest slider id')
 check(seen('##marks_under_bg_alpha'), 'object slider id')
 -- 色の設定のあとに出る

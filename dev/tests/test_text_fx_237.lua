@@ -111,7 +111,7 @@ eq(#places, n1, 'flag off adds no shadow box')
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 FAKE.player = { name = 'Tester', zone = 230, tidx = 5, status = 0 }
 frames(1)

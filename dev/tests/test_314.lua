@@ -19,7 +19,7 @@ dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
 local ime = require('src.ui.ime_input')
 local platform = require('src.platform.ashita')
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 local orig = { chat_run = platform.chat_run, log_only = platform.log_only }
 local ran = {}
 platform.chat_run = function (line) ran[#ran + 1] = line; return true end

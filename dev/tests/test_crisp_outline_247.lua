@@ -7,7 +7,7 @@ local theme = require('src.ui.theme')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.314', 'version')
+eq(app.VERSION, '1.1.318', 'version')
 
 ---------------------------------------------------------------------------
 -- 1) 初期値と保存。古い font_outline は使わない
