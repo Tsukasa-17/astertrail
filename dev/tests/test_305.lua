@@ -116,7 +116,7 @@ vana.encoding = vana.encoding or { from_shift_jis = function (s) return s end, t
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 local platform = require('src.platform.ashita')
 platform.roe_snapshot = function () return nil, 'no_memory' end

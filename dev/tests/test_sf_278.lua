@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 local ms = io.open(ROOT .. '/src/ui/map_sf.lua', 'r'):read('*a')
 check(ms:find('map_hint_lines', 1, true) ~= nil, 'hint lines are collected for the bottom bar')

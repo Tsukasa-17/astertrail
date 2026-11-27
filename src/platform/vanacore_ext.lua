@@ -1554,13 +1554,14 @@ ext._label_props = label_props
 local function style_sig(style)
     style = style or {}
     local c, c2 = style.color, style.color2
-    return string.format('%s/%s/%s/%s/%s/%s/%s',
+    return string.format('%s/%s/%s/%s/%s/%s/%s/%s',
         tostring(tonumber(style.stroke) or 1),
         tostring(tonumber(style.stroke_alpha) or 1),
         style.grad and '1' or '0',
         c and string.format('%s,%s,%s', c[1], c[2], c[3]) or '',
         c2 and string.format('%s,%s,%s', c2[1], c2[2], c2[3]) or '',
         style.text_dir == 'down' and 'v' or 'h',
+        style.bg_dir == 'down' and 'bv' or 'bh',
         tostring(style.font or ''))
 end
 
@@ -1655,7 +1656,7 @@ end
 local function lerp_ch(a, b, tt)
     return math.floor((a or 0) + ((b or 0) - (a or 0)) * tt + 0.5)
 end
-function ext._write_gradient_bmp(path, width, height, c1, c2)
+function ext._write_gradient_bmp(path, width, height, c1, c2, dir)
     width = math.floor(tonumber(width) or 0)
     height = math.floor(tonumber(height) or 0)
     if type(path) ~= 'string' or path == '' or width < 2 or height < 1 then return false end
@@ -1670,10 +1671,17 @@ function ext._write_gradient_bmp(path, width, height, c1, c2)
     local off = 54
     local data = { 'BM', u32(off + pix), u32(0), u32(off), u32(40), u32(width), u32(height), u16(1), u16(24), u32(0), u32(pix), u32(0), u32(0), u32(0), u32(0) }
     local pad_s = string.rep('\0', pad)
+    -- 0.1.325〜：dir == 'down' なら上から下（BMP は下が先の行なので、y=1 が終わりの色）
+    local down = dir == 'down'
     for y = 1, height do
         local cols = {}
         for x = 0, width - 1 do
-            local tt = (width == 1) and 0 or (x / (width - 1))
+            local tt
+            if down then
+                tt = (height == 1) and 0 or ((height - y) / (height - 1))
+            else
+                tt = (width == 1) and 0 or (x / (width - 1))
+            end
             local r = lerp_ch(c1[1], c2[1], tt)
             local g = lerp_ch(c1[2], c2[2], tt)
             local b = lerp_ch(c1[3], c2[3], tt)
@@ -1708,7 +1716,8 @@ local function cache_dir()
     cache_dir_ready = dir
     return dir
 end
--- 色の組ごとに小さな横グラデを1枚だけ作り、箱の大きさへ伸ばす（大きさごとの BMP は作らない）
+-- 色の組ごとに小さなグラデを1枚だけ作り、箱の大きさへ伸ばす（大きさごとの BMP は作らない）。
+-- 0.1.325〜：向きが上から下のときは縦のグラデ（ファイル名に v_）
 ext.GRAD_SRC_W = 64
 ext.GRAD_SRC_H = 8
 local grad_ready = {}
@@ -1726,33 +1735,36 @@ function ext._quantize_box(w, h)
     return q(w, 2), q(h, 1)
 end
 
-function ext._gradient_file(c1, c2, width, height)
+function ext._gradient_file(c1, c2, width, height, dir)
     -- width / height は互換のため受け取るが、ファイル名と中身には使わない
     -- 色キーが分かっていれば cache_dir（mkdir）もファイル確認も呼ばない（0.1.259）
     c1 = rgb_of(c1) or { 0, 0, 0 }
     c2 = rgb_of(c2) or c1
-    local key = string.format('%02x%02x%02x_%02x%02x%02x',
+    local down = dir == 'down'
+    local sw, sh = ext.GRAD_SRC_W, ext.GRAD_SRC_H
+    if down then sw, sh = ext.GRAD_SRC_H, ext.GRAD_SRC_W end
+    local key = string.format('%s%02x%02x%02x_%02x%02x%02x', down and 'v_' or '',
         c1[1], c1[2], c1[3], c2[1], c2[2], c2[3])
     local hit = grad_path_by_key[key]
-    if hit then return hit, ext.GRAD_SRC_W, ext.GRAD_SRC_H end
-    local dir = cache_dir()
-    if not dir then return nil end
-    local path = dir .. '/' .. 'bg_' .. key .. '.bmp'
+    if hit then return hit, sw, sh end
+    local cachedir = cache_dir()
+    if not cachedir then return nil end
+    local path = cachedir .. '/' .. 'bg_' .. key .. '.bmp'
     if grad_ready[path] then
         grad_path_by_key[key] = path
-        return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
+        return path, sw, sh
     end
     local f = io.open(path, 'rb')
     if f then
         f:close()
         grad_ready[path] = true
         grad_path_by_key[key] = path
-        return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
+        return path, sw, sh
     end
-    if not ext._write_gradient_bmp(path, ext.GRAD_SRC_W, ext.GRAD_SRC_H, c1, c2) then return nil end
+    if not ext._write_gradient_bmp(path, sw, sh, c1, c2, down and 'down' or 'across') then return nil end
     grad_ready[path] = true
     grad_path_by_key[key] = path
-    return path, ext.GRAD_SRC_W, ext.GRAD_SRC_H
+    return path, sw, sh
 end
 
 local function make_plate_box(path, w, h, alpha)
@@ -2082,7 +2094,7 @@ function ext.set_name_marks(items)
                     local force_text = false
                     if st and st.grad and lslot.box then
                         local tw, th = ext._quantize_box(lslot.box.width, lslot.box.height)
-                        local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color) or nil
+                        local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th, st.bg_dir) or nil
                         if path then
                             local pslot = find_slot(index, 'label_bg', layer)
                             local is_new = false
@@ -2531,7 +2543,7 @@ function ext.set_world_marks(items)
                 local force_label = false
                 if st and st.grad and label_slot.box then
                     local tw, th = ext._quantize_box(label_slot.box.width, label_slot.box.height)
-                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color) or nil
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(st.color, st.color2 or st.color, tw, th, st.bg_dir) or nil
                     if path then
                         local pslot = find_world_slot(key, 'label_bg')
                         local is_new = false
@@ -2578,7 +2590,7 @@ function ext.set_world_marks(items)
                 local force_under = false
                 if ust and ust.grad and under_slot.box then
                     local tw, th = ext._quantize_box(under_slot.box.width, under_slot.box.height)
-                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(ust.color, ust.color2 or ust.color) or nil
+                    local path = (tw >= 2 and th >= 1) and ext._gradient_file(ust.color, ust.color2 or ust.color, tw, th, ust.bg_dir) or nil
                     if path then
                         local pslot = find_world_slot(key, 'under_bg')
                         local is_new = false

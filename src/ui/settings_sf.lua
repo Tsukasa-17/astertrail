@@ -737,21 +737,41 @@ local function color_row(ui, name, id, label, tbl, key, def, opts)
     return r
 end
 
--- 0.1.315〜：頭上の文字のフォント（クエスト名・オブジェクト名で共通）。名前は左、プルダウンは右。0.1.316〜 DISPLAY に置く
-local function font_row(ui, name)
+-- 0.1.315〜：頭上の文字のフォント。名前は左、プルダウンは右。
+-- 0.1.316〜 DISPLAY、0.1.325〜 クエスト名とオブジェクト名で別（保存キーも別）。
+-- 0.1.326〜：LABEL／OBJECT の各枠の中へ。プルダウンは、選んでいる名前が幅に収まるように取る。
+local function font_row(ui, name, which)
+    which = which or 'label'
     local S, t = ui.settings, ui.t
     local M = S.marks
     local imgui = ui.imgui
-    local id = 'marks_label_font'
-    local label = t('settings.label_font')
-    local info = t('settings.label_font_help')
-    local cur = settings_mod.clamp_label_font(M.label_font)
+    local key = (which == 'under') and 'under_font' or 'label_font'
+    local id = 'marks_' .. key
+    local label = t('settings.' .. key)
+    local info = t('settings.' .. key .. '_help')
+    local cur = settings_mod.clamp_label_font(M[key])
     local choices, done, unavailable, n = settings_ui.label_font_choices(t, cur)
+    local preview = t('settings.label_font_default')
+    for _, it in ipairs(choices) do
+        if it.value == cur then preview = it.label or preview; break end
+    end
+    -- いまの表示と「いつもの」の、長いほう＋矢印ぶん。狭ければ行を分けて、パネル幅いっぱいにする
+    local function text_w(s)
+        return tonumber((theme.measure_text(imgui, tostring(s or '')))) or 0
+    end
+    local pad = 36
+    local need = math.max(160, math.ceil(math.max(text_w(preview), text_w(t('settings.label_font_default'))) + pad))
+    local inner = (panel_inner_w and panel_inner_w > 40) and panel_inner_w or nil
+    local lab_w = text_w(label)
+    if info and info ~= '' then lab_w = lab_w + W.info_mark_size(imgui) + 6 end
+    local gap = 12
+    local side = inner and (lab_w + gap + need <= inner)
     form_note(ui, label)
     local changed, v
-    local cw = 240
+    local cw = need
+    if inner then cw = math.min(need, inner) end
     local row
-    if form and form.label_w and panel_inner_w and panel_inner_w > 40 and W._form_start then
+    if side and form and form.label_w and W._form_start then
         local fo = form_opts({ info = info })
         row = W._form_start(ui, imgui, label, fo, name .. '/' .. id, cw)
     end
@@ -759,11 +779,22 @@ local function font_row(ui, name)
         changed, v = W.combo(ui, name, id, nil, cur, choices, { section = SEC, row = id, width = cw })
         focus_tip(ui, name, info, { id })
         W._form_end(imgui, row)
+    elseif inner and not side then
+        -- 名前の行の下に、パネル幅のプルダウン（末尾が切れないように）
+        if form then form_opts({ info = info }) end
+        if imgui.AlignTextToFramePadding then pcall(imgui.AlignTextToFramePadding) end
+        imgui.Text(label)
+        if info and info ~= '' then
+            pcall(imgui.SameLine, 0, 6)
+            W.info_mark(ui, name .. '/' .. id, info)
+            focus_tip(ui, name, info, { id })
+        end
+        changed, v = W.combo(ui, name, id, nil, cur, choices, { section = SEC, row = id, width = cw })
     else
         changed, v = W.combo(ui, name, id, label, cur, choices, { section = SEC, row = id, width = cw })
     end
     if changed then
-        M.label_font = settings_mod.clamp_label_font(v)
+        M[key] = settings_mod.clamp_label_font(v)
         ui.mark_settings_dirty()
     end
     if not done then
@@ -785,6 +816,8 @@ local function color_main(ui, name, which, sample)
     local clear_key = which .. '_clear'
     M[clear_key] = settings_mod.clamp_clear(M[clear_key])
     W.color_preview(ui, sample, c1, c2, { dir = M[dir_key], clear = M[clear_key] })
+    -- 0.1.326〜：フォント選びは、この枠（クエスト名／オブジェクト名）の中。保存キーは変えない
+    font_row(ui, name, which)
     group(function ()
         color_row(ui, name, 'marks_' .. which .. '_color', tkey(ui, 'sf.set.color_start', '色'),
             M, which .. '_color', DM[which .. '_color'], {
@@ -831,6 +864,15 @@ local function color_main(ui, name, which, sample)
             })
         toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'), M, which .. '_bg_grad')
         if M[which .. '_bg_grad'] then
+            -- 0.1.325〜：背景グラデーションの向き（左から右／上から下）。初期は今までの左から右
+            local bdir = which .. '_bg_grad_dir'
+            M[bdir] = settings_mod.clamp_grad_dir(M[bdir])
+            local bdv = M[bdir]
+            if choice(ui, name, 'marks_' .. bdir, t('settings.color_grad_dir'), t('settings.color_grad_dir_' .. bdv),
+                { info = t('settings.color_grad_dir_help') }) then
+                M[bdir] = (bdv == 'down') and 'across' or 'down'
+                ui.mark_settings_dirty()
+            end
             color_row(ui, name, 'marks_' .. which .. '_bg_color2', t('settings.marks_' .. which .. '_bg_color2'),
                 M, which .. '_bg_color2', DM[which .. '_bg_color2'], {
                     section = SEC, row = 'marks_' .. which .. '_bg_color2', tooltip_reset = t('settings.reset_default'),
@@ -860,8 +902,9 @@ local function color_detail(ui, name, which)
         M[which .. '_bg_grad'] = false
         M[which .. '_stroke'] = DM[which .. '_stroke'] or 1
         M[which .. '_stroke_alpha'] = DM[which .. '_stroke_alpha'] or 1
-        -- 0.1.315〜：向きと透明度（0.1.317〜）も今までの見た目へ（フォントは共通なので戻さない）
+        -- 0.1.315〜：向きと透明度（0.1.317〜）も今までの見た目へ（フォントは戻さない）
         M[which .. '_grad_dir'] = 'across'
+        M[which .. '_bg_grad_dir'] = 'across'
         M[which .. '_clear'] = 0
         ui.mark_settings_dirty()
     end
@@ -891,8 +934,7 @@ local function draw_marks(ui, name)
             toggle(ui, name, 'marks_fame', tkey(ui, 'sf.set.marks_show_fame', '名声を教える人のアイコン'), S.marks, 'show_fame_npcs')
             stepper(ui, name, 'marks_icon', tkey(ui, 'sf.set.marks_icon_size', 'アイコンの大きさ'),
                 S.marks, 'icon_size', 4, 16, 64, UNIT.px, DEF.marks.icon_size)
-            -- 0.1.316〜：クエスト名・オブジェクト名のフォントは DISPLAY に（0.1.315 は LABEL の先頭）。保存のキーは同じ marks.label_font
-            font_row(ui, name)
+            -- 0.1.326〜：フォント選びは LABEL／OBJECT の各枠（color_main）へ移した
         end },
         { id = 'mk_position', title = 'POSITION', draw = function ()
             local lo, hi, st = settings_mod.OFFSET_MIN, settings_mod.OFFSET_MAX, settings_mod.OFFSET_STEP

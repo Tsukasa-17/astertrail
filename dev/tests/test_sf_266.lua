@@ -2,7 +2,7 @@
 require('fake_env')
 
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 local crisp = require('src.ui.crisp_font')
 local eminence = require('src.ui.eminence')

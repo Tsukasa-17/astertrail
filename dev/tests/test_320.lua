@@ -1,7 +1,7 @@
 -- 0.1.322：ミッション・クエストのカードの色を状態で分ける（進行中＝やわらかい紫ピンク、未開始＝今まで、完了＝金）
 require('fake_env')
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 local theme = require('src.ui.theme')
 local sf = require('src.ui.sf_style')
 local book_sf = require('src.ui.book_sf')

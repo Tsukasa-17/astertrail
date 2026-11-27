@@ -546,6 +546,38 @@ function settings_ui.body(ui)
             local clear_key = which .. '_clear'
             M[clear_key] = settings_mod.clamp_clear(M[clear_key])
             W.color_preview(ui, sample, c1, c2, { dir = M[dir_key], clear = M[clear_key] })
+            -- 0.1.326〜：フォントはクエスト名／オブジェクト名の枠の中（保存キーはそのまま）
+            do
+                local fkey = (which == 'under') and 'under_font' or 'label_font'
+                local id = 'marks_' .. fkey
+                local flabel = t('settings.' .. fkey)
+                local info = t('settings.' .. fkey .. '_help')
+                local cur = settings_mod.clamp_label_font(M[fkey])
+                local choices, done, unavailable, n = settings_ui.label_font_choices(t, cur)
+                local preview = t('settings.label_font_default')
+                for _, it in ipairs(choices) do
+                    if it.value == cur then preview = it.label or preview; break end
+                end
+                local tw = text_w(ui.imgui, tostring(preview)) or 0
+                local defw = text_w(ui.imgui, t('settings.label_font_default')) or 0
+                local cw = math.max(240, math.ceil(math.max(tw, defw) + 36))
+                local imgui = ui.imgui
+                imgui.Text(flabel)
+                if info and info ~= '' then
+                    pcall(imgui.SameLine, 0, 6)
+                    W.info_mark(ui, name .. '/' .. id, info)
+                end
+                local changed, v = W.combo(ui, name, id, nil, cur, choices, { section = SEC, row = id, width = cw })
+                if changed then
+                    M[fkey] = settings_mod.clamp_label_font(v)
+                    ui.mark_settings_dirty()
+                end
+                if not done then
+                    W.muted(ui, t('settings.label_font_loading', { n = n }))
+                elseif unavailable then
+                    W.muted(ui, t('settings.label_font_unavailable'))
+                end
+            end
             local function pick(key, label, ck, bgk)
                 local w = text_w(ui.imgui, label)
                 if w and w > label_w_next then label_w_next = w end
@@ -581,6 +613,7 @@ function settings_ui.body(ui)
                 M[which .. '_stroke'] = DM[which .. '_stroke'] or 1
                 M[which .. '_stroke_alpha'] = DM[which .. '_stroke_alpha'] or 1
                 M[which .. '_grad_dir'] = 'across'
+                M[which .. '_bg_grad_dir'] = 'across'
                 M[which .. '_clear'] = 0
                 ui.mark_settings_dirty()
             end
@@ -599,6 +632,14 @@ function settings_ui.body(ui)
             toggle(ui, name, 'marks_' .. which .. '_bg_grad', t('settings.marks_' .. which .. '_bg_grad'),
                 M, which .. '_bg_grad', SEC)
             if M[which .. '_bg_grad'] then
+                local bdir = which .. '_bg_grad_dir'
+                M[bdir] = settings_mod.clamp_grad_dir(M[bdir])
+                local bdv = M[bdir]
+                if W.button(ui, name, 'marks_' .. bdir, t('settings.color_grad_dir') .. '：' .. t('settings.color_grad_dir_' .. bdv),
+                    { section = SEC, row = 'marks_' .. bdir }) then
+                    M[bdir] = (bdv == 'down') and 'across' or 'down'
+                    ui.mark_settings_dirty()
+                end
                 pick(which .. '_bg_color2', t('settings.marks_' .. which .. '_bg_color2'))
             end
             local sk = which .. '_stroke'

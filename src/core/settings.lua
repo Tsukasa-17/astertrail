@@ -193,11 +193,15 @@ function settings.defaults()
             under_color = { 248, 244, 232 }, under_grad = false, under_color2 = { 120, 200, 255 },   -- オブジェクト名（??? など）
             -- 0.1.315〜：グラデーションの向き（'across' 左から右＝今まで／'down' 上から下）と、文字の色そのものの不透明度（0〜1、1＝今まで）
             label_grad_dir = 'across', under_grad_dir = 'across',
+            -- 0.1.325〜：背景グラデーションの向き（初期は今までの左から右）
+            label_bg_grad_dir = 'across', under_bg_grad_dir = 'across',
             -- 0.1.317〜：文字の透明度（0〜1。0＝透けない＝今まで、1＝見えない）。始めの色と終わりの色の両方に効く。
             -- 0.1.315〜316 の色ごとの不透明度（label_color_a ほか）は、始めの色の値から読み替える
             label_clear = 0, under_clear = 0,
-            -- 0.1.315〜：頭上の文字（クエスト名・オブジェクト名）のフォント。Windows のフォントの家族名。'' は今まで（メニューと同じ）
+            -- 0.1.315〜：頭上の文字のフォント。Windows のフォントの家族名。'' は今まで（メニューと同じ）
+            -- 0.1.325〜：クエスト名（label_font）とオブジェクト名（under_font）は別。古い保存の label_font だけは両方へ引き継ぐ
             label_font = '',
+            under_font = '',
             -- 頭上の文字の背景の濃さ（0.1.215〜）。0〜1。初期 0.8 は今までの #000000CC
             label_bg_alpha = 0.8,   -- クエスト名
             under_bg_alpha = 0.8,   -- オブジェクト名（近くのオブジェクト名も同じ）
@@ -693,6 +697,7 @@ function settings.merge(loaded)
         for _, w in ipairs({ 'label', 'under' }) do
             local lm = type(loaded_marks) == 'table' and loaded_marks or {}
             merged.marks[w .. '_grad_dir'] = settings.clamp_grad_dir(lm[w .. '_grad_dir'])
+            merged.marks[w .. '_bg_grad_dir'] = settings.clamp_grad_dir(lm[w .. '_bg_grad_dir'])
             -- 0.1.317〜：透明度は 1 つ。無ければ 0.1.315〜316 の始めの色の不透明度 a を 1 - a に読み替える
             if lm[w .. '_clear'] ~= nil then
                 merged.marks[w .. '_clear'] = settings.clamp_clear(lm[w .. '_clear'])
@@ -704,7 +709,14 @@ function settings.merge(loaded)
             merged.marks[w .. '_color_a'] = nil
             merged.marks[w .. '_color2_a'] = nil
         end
-        merged.marks.label_font = settings.clamp_label_font(type(loaded_marks) == 'table' and loaded_marks.label_font or nil)
+        local lm_fonts = type(loaded_marks) == 'table' and loaded_marks or {}
+        merged.marks.label_font = settings.clamp_label_font(lm_fonts.label_font)
+        -- 0.1.325〜：オブジェクト名のフォント。保存に無ければ、今までの共通の label_font を引き継ぐ（見た目が変わらないように）
+        if lm_fonts.under_font ~= nil then
+            merged.marks.under_font = settings.clamp_label_font(lm_fonts.under_font)
+        else
+            merged.marks.under_font = merged.marks.label_font
+        end
         -- 隠す場面（0.1.296〜）。保存に無ければ前の「イベント中はリングや名前を消す」から引き継ぐ
         -- （オフならイベントと会話・メニューもオフ。無ければ初期どおり）
         merged.marks.hide_scenes = settings.hide_scenes_of(type(loaded_marks) == 'table' and loaded_marks or nil)
@@ -1077,7 +1089,8 @@ function settings.label_style(marks, which)
     local d = settings.marks_defaults()
     local prefix = (which == 'under') and 'under' or 'label'
     local grad = marks[prefix .. '_bg_grad'] == true
-    local font = settings.clamp_label_font(marks.label_font)
+    local font_key = (prefix == 'under') and 'under_font' or 'label_font'
+    local font = settings.clamp_label_font(marks[font_key])
     if font == '' then font = nil end
     return {
         alpha = settings.label_bg_alpha(marks, prefix),
@@ -1089,6 +1102,8 @@ function settings.label_style(marks, which)
         stroke_alpha = settings.clamp_unit_alpha(marks[prefix .. '_stroke_alpha']),
         -- 0.1.315〜：文字のグラデーションの向き（文字のグラデーションがオンのときだけ使う）とフォント（'' は nil＝今まで）
         text_dir = settings.clamp_grad_dir(marks[prefix .. '_grad_dir']),
+        -- 0.1.325〜：背景グラデーションの向き（背景グラデーションがオンのときだけ使う）
+        bg_dir = settings.clamp_grad_dir(marks[prefix .. '_bg_grad_dir']),
         font = font,
     }
 end
@@ -1156,7 +1171,7 @@ function settings.clamp_clear(v)
     if v < 0 then v = 0 elseif v > 1 then v = 1 end
     return v
 end
--- 0.1.315〜：頭上の文字のフォント（家族名）。'' は今まで（メニューと同じフォント）。制御文字や長すぎる名前は ''
+-- 0.1.315〜：頭上の文字のフォント（家族名）。クエスト名もオブジェクト名も同じ関数。'' は今まで（メニューと同じフォント）。制御文字や長すぎる名前は ''
 function settings.clamp_label_font(v)
     if type(v) ~= 'string' then return '' end
     v = v:match('^%s*(.-)%s*$') or ''

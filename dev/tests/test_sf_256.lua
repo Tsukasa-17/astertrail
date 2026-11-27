@@ -4,7 +4,7 @@ require('fake_env')
 local sf = require('src.ui.sf_style')
 local util = require('src.lib.util')
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 -- 残り高さは窓の下端とカーソルの差
 do

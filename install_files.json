@@ -1,5 +1,5 @@
 {
-"version": "1.1.324",
+"version": "1.1.327",
 "files": [
 {
 "path": "LICENSE",
@@ -11,7 +11,7 @@
 },
 {
 "path": "README.md",
-"sha256": "99e61225284dc035ea6eaa4df59c4a66f4e18250c14202d3cc9eb28c92190239"
+"sha256": "34edf52aa151d672a4015dd75632d401c7ce803568148327b117fa8a096b60ef"
 },
 {
 "path": "TECH_VALIDATION.md",
@@ -19,7 +19,7 @@
 },
 {
 "path": "astertrail.lua",
-"sha256": "dfc65c34f1e97ed722550b547f370667916162247fb3b5e3c545b757fdeca569"
+"sha256": "515d4d01812860cc3e89000174ae9217e32d283eccba794520ad45abd0d4c062"
 },
 {
 "path": "assets/maps/z242_1.png",
@@ -295,15 +295,15 @@
 },
 {
 "path": "locales/en.json",
-"sha256": "90e2e55d44027dc631fd347c16474106201323c6b61c452fb6d921af55fde965"
+"sha256": "4bbc63c54120fbd5acbfc11c7e5c1cdfd9e255f7a9f7763b792a8a399bbb5f84"
 },
 {
 "path": "locales/ja.json",
-"sha256": "fe7b6e8d0e059d1c72466a4652119ae1152e4c3623f8c5888936891fe05564a1"
+"sha256": "a6d7d89467b1d010036434537cf66e44d3c340140a5de56ca5ed89abe823c24c"
 },
 {
 "path": "src/app.lua",
-"sha256": "5b900c49230451dde131782e89a8eb99bfe00151bb86834823d7d2828b85bcf0"
+"sha256": "5c7f3646282cdd3d0557fd11aa056918257fcb04fac2df1436f87d4a4b9ced77"
 },
 {
 "path": "src/build_flags.lua",
@@ -391,7 +391,7 @@
 },
 {
 "path": "src/core/settings.lua",
-"sha256": "99020b9404f9b1a21c9c1f2b491d551e8005dc69eb1e9b2493acd73a49c0b5e0"
+"sha256": "ce365bff9bfb443fff704da3d9dc1acf2aab3bad354784f5b4e9af12b92c94f7"
 },
 {
 "path": "src/core/shortcut.lua",
@@ -439,7 +439,7 @@
 },
 {
 "path": "src/platform/vanacore_ext.lua",
-"sha256": "dd07a33f5fcd2422852d9d325550d35e264ec966b60c7c9e6e24bfdba4299aaf"
+"sha256": "bec46a75bb957618de7ac1a9c881300eb4c022ef594829b047f457a5cd26d40c"
 },
 {
 "path": "src/ui/book.lua",
@@ -527,7 +527,7 @@
 },
 {
 "path": "src/ui/marks.lua",
-"sha256": "8feba8515d038c50bec910e99889d85b8bf404e61ecdeebcc65856fba4960d5d"
+"sha256": "eaf561b80cd6fd17f9d242fcbb10b64b0b960931e8aa664d227d043a7c60173b"
 },
 {
 "path": "src/ui/notices.lua",
@@ -543,11 +543,11 @@
 },
 {
 "path": "src/ui/settings_sf.lua",
-"sha256": "4d1c430c3ce59a9e74395c6ee8c0e370b8fa124a036881fa05c7afda7e07e1fe"
+"sha256": "1f8a440e49bfcf267f4127bfbeb1ca0022b2a1776391a76b9ff843a445668f55"
 },
 {
 "path": "src/ui/settings_ui.lua",
-"sha256": "b6b12954d56cc067950aec09e13941ce98cefb55f4541c73397c33ca93a5ff3a"
+"sha256": "df63d2d2280f0146c40b4e663c5dd2e865f0527a39358316c2cf1fce1bf2d843"
 },
 {
 "path": "src/ui/sf_style.lua",

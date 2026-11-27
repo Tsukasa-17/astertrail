@@ -9,7 +9,7 @@ local sui = require('src.ui.settings_ui')
 local theme = require('src.ui.theme')
 FAKE.player = { name = 'Rb304', zone = 230, tidx = 5, status = 0 }
 frames(1)
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 eq(addon.version, app.VERSION, 'lua matches')
 local S = app._settings()
 

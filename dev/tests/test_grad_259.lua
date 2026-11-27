@@ -3,7 +3,7 @@ require('harness')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 ext.set_addon_dir(TMP .. '/')
 
@@ -41,7 +41,7 @@ eq(mkdir2, mkdir_n, 'a new color still uses the cached cache dir (no second mkdi
 local src = io.open(ROOT .. '/src/platform/vanacore_ext.lua', 'r'):read('*a')
 check(src:find('if cache_dir_ready then return cache_dir_ready end', 1, true) ~= nil, 'cache_dir returns the remembered path')
 check(src:find('local hit = grad_path_by_key[key]', 1, true) ~= nil, 'color key is looked up first')
-check(src:find('if hit then return hit, ext.GRAD_SRC_W, ext.GRAD_SRC_H end', 1, true) ~= nil, 'hit returns before cache_dir')
+check(src:find('if hit then return hit, sw, sh end', 1, true) ~= nil, 'hit returns before cache_dir')
 
 os.execute = real_exec
 print('test_grad_259 ok')

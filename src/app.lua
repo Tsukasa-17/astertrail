@@ -39,7 +39,7 @@ local poss_mod    = require('src.core.possession')
 local layouts_mod = require('src.core.layouts')
 
 local app = {
-    VERSION = '1.1.324',
+    VERSION = '1.1.327',
     FLOOR_INTERVAL = 1.0,     -- いまいる階の確認（秒）。毎フレームは呼ばない
     FLOOR_HEIGHT_INTERVAL = 0.25, -- 高さで層を決めるゾーンの確認（秒、0.1.323〜）。軽いので短く
     FLOOR_AFTER_ZONE = 2.0,   -- ゾーンに入ってすぐは呼ばない（秒）

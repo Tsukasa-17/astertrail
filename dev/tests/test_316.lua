@@ -4,7 +4,7 @@ require('harness')
 local settings = require('src.core.settings')
 local ext = require('src.platform.vanacore_ext')
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 -- 実機に近い箱：知っている名前は set できるが、gradient は読み返しても nil
 local KNOWN = { text = true, color = true, background = true, outline = true, stroke = true, stroke_color = true,
@@ -76,17 +76,15 @@ eq(store4.gradient, nil, 'no gradient for the old look')
 eq(store4.color_codes, nil, 'color codes untouched for the old look')
 eq(ext.native_gradient, nil, 'nothing checked for the old look')
 
--- フォントの行は DISPLAY のまとまりにある（LABEL には無い）
+-- 0.1.326〜：フォントの行は color_main（LABEL／OBJECT の枠）。DISPLAY には無い
 local src = io.open(ROOT .. '/src/ui/settings_sf.lua', 'r'):read('*a')
 local a = src:find("id = 'mk_display'", 1, true)
 local b = src:find("id = 'mk_position'", 1, true)
-local l1 = src:find("id = 'mk_label'", 1, true)
-local l2 = src:find("id = 'mk_object'", 1, true)
-local f = src:find('\n%s+font_row%(ui, name%)\n')
-check(a and b and f and f > a and f < b, 'font row inside DISPLAY')
-local f2 = src:find('\n%s+font_row%(ui, name%)\n', f + 1)
-eq(f2, nil, 'only one font row')
-check(not (f > l1 and f < l2), 'not in LABEL')
+local cm = src:find('local function color_main', 1, true)
+local cd = src:find('local function color_detail', 1, true)
+local f = src:find('font_row(ui, name, which)', cm, true)
+check(cm and cd and f and f > cm and f < cd, 'font_row is inside color_main')
+check(a and b and not src:sub(a, b):find('font_row', 1, true), 'no font_row in DISPLAY')
 -- 保存のキーは同じ。前の選択はそのまま読む
 eq(settings.merge({ marks = { label_font = 'Yu Gothic UI' } }).marks.label_font, 'Yu Gothic UI', 'saved font kept')
 print('test_316 ok')

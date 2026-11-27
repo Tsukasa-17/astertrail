@@ -7,7 +7,7 @@ local theme = require('src.ui.theme')
 local W = require('src.ui.widgets')
 local app = require('src.app')
 
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 local order = {}
 local hook_dl = {

@@ -7,7 +7,7 @@ local theme = require('src.ui.theme')
 local app = require('src.app')
 local imgui = require('imgui')
 
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 eq(outline.MAX_POINTS, 64, 'cap is 64')
 eq(outline.EDGE_MUL, 0.80, 'edge fade 80%')
 

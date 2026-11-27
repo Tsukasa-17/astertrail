@@ -764,7 +764,9 @@ end
 -- ジョブ・レベル・名声（受ける条件）は STATUS_EVERY 秒ごとに見比べる
 marks.WANTED_EVERY = 60
 marks.STATUS_EVERY = 1
+marks.MATCH_EVERY = 0.25  -- 1.1.327〜：見えている相手との照合は 4 回/秒。描画と位置の追従は毎フレーム
 local wanted_memo = { key = nil, list = nil, at = -1, status_sig = nil, status_at = -1 }
+local match_memo = { list = nil, at = -1, zone = nil, wanted = nil }
 
 local function status_sig(st)
     if type(st) ~= 'table' then return '-' end
@@ -789,8 +791,57 @@ local function status_sig(st)
 end
 marks._status_sig = status_sig
 
+function marks.clear_match_cache()
+    match_memo.list, match_memo.at, match_memo.zone, match_memo.wanted = nil, -1, nil, nil
+end
+
 function marks.clear_wanted_cache()
     wanted_memo.key, wanted_memo.list, wanted_memo.at = nil, nil, -1
+    marks.clear_match_cache()
+end
+
+-- 前回の照合結果を、いまの見えている相手に付け直す（1.1.327〜）。
+-- 消えた相手は外す。新しい相手は足さない（次の照合まで待つ）。位置は今の相手の座標を使う。
+function marks.follow_matched(prev, ents)
+    if type(prev) ~= 'table' or #prev == 0 then return {} end
+    local by, seen = {}, {}
+    for _, ent in ipairs(ents or {}) do
+        seen[ent] = ent
+        local k = ent.index or ent.id
+        if k ~= nil then by[k] = ent end
+    end
+    local out = {}
+    for _, row in ipairs(prev) do
+        local ent = row.entity
+        local k = ent and (ent.index or ent.id)
+        local cur = (k ~= nil and by[k]) or (ent and seen[ent]) or nil
+        if cur then
+            row.entity = cur
+            out[#out + 1] = row
+        end
+    end
+    return out
+end
+
+-- 照合は MATCH_EVERY 秒ごと。進み具合・設定（探す相手の一覧が変わったとき）とゾーンが変わったらすぐ。
+-- 間のフレームは follow_matched で位置だけ追う。
+function marks.match_cached(ui, wanted, ents, ctx, zone_id)
+    local now = (ui and ui.state and tonumber(ui.state.now)) or os.clock()
+    local m = match_memo
+    local immediate = (m.list == nil)
+        or (m.zone ~= zone_id)
+        or (m.wanted ~= wanted)
+        or (now < (m.at or 0))
+    if immediate or (now - (m.at or 0) >= marks.MATCH_EVERY) then
+        local t0 = perf.start()
+        m.list = marks_core.match(wanted, ents, ctx)
+        perf.stop('marks.match', t0)
+        perf.count('match_rebuild')
+        m.at, m.zone, m.wanted = now, zone_id, wanted
+        return m.list
+    end
+    m.list = marks.follow_matched(m.list, ents)
+    return m.list
 end
 
 function marks.wanted_cached(ui, S, zone_id)
@@ -922,7 +973,7 @@ function marks.draw(ui)
     end
     local ents = marks.frame_entities(ui)
     local grid_of = grid_fn(ui, plat, zone_id)
-    local matched = marks_core.match(wanted, ents, { zone_id = zone_id, grid_of = grid_of })
+    local matched = marks.match_cached(ui, wanted, ents, { zone_id = zone_id, grid_of = grid_of }, zone_id)
     marks.remember_positions(ui, zone_id, matched)
     local on_name, on_body = marks_core.split_for_draw(matched)
     -- 足元の輪（0.1.171〜）

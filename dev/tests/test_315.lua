@@ -5,7 +5,7 @@ local settings = require('src.core.settings')
 local ext = require('src.platform.vanacore_ext')
 local W = require('src.ui.widgets')
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 
 -- 1) 初期値と古い保存
 local d = settings.defaults()

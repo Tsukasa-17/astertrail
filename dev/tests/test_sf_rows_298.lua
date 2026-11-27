@@ -102,7 +102,7 @@ for k, v in pairs(saved) do imgui[k] = v end
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 FAKE.player = { name = 'Rows298', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()

@@ -64,7 +64,7 @@ W.tooltip = saved_tooltip
 dofile(ROOT .. '/astertrail.lua')
 FAKE.events.load()
 local app = require('src.app')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 FAKE.player = { name = 'Info299', zone = 230, tidx = 5, status = 0 }
 frames(1)
 local S = app._settings()
@@ -125,7 +125,7 @@ do
     S.marks.label_grad = true; S.marks.label_bg_grad = true
     frame(); frame()
     for fn, orig in pairs(wrapped) do W[fn] = orig end
-    eq(rules['marks_label_color'], false, 'label color: first row after the sample (subhead)')
+    eq(rules['marks_label_color'], true, 'line between the font row and the color group')
     eq(rules['marks_label_grad'], false, 'no line between 色 and グラデーション')
     eq(rules['marks_label_color2'], false, 'no line before 終わりの色')
     -- 0.1.301〜：背景の濃さは背景のまとまりの先頭（線はその前だけ）

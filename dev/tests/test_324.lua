@@ -11,7 +11,7 @@ local app = require('src.app')
 local maps = require('src.core.maps')
 local mv = require('src.ui.map_view')
 local json = require('src.lib.json')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 eq(addon.version, app.VERSION, 'astertrail.lua matches app.lua')
 FAKE.player = { name = 'Tester', zone = 100, tidx = 5, status = 0, x = -100, y = 200, z = -60 }
 frames(3)

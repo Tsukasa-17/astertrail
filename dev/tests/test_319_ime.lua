@@ -21,7 +21,7 @@ dofile(ROOT .. '/astertrail.lua')
 local app = require('src.app')
 local ime = require('src.ui.ime_input')
 local layouts = require('src.core.layouts')
-eq(app.VERSION, '1.1.324', 'version')
+eq(app.VERSION, '1.1.327', 'version')
 FAKE.events.load()
 FAKE.player = { name = 'I319', zone = 230, tidx = 5, status = 0 }
 frames(1)
